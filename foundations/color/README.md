@@ -9,10 +9,10 @@ foundations/color/
 ├── source/wada-colors.json     the book's colours (name, CMYK, RGB, Lab, combinations)
 ├── source/families.json        hand-curated colour families (edit to regroup)
 └── build.mjs                   generates every colour file in dist/
-config/brand.config.json        which combinations are the brand palettes ("color" section)
+products/<product>/brand.json        which combinations are the brand palettes ("color" section)
 ```
 
-Change `config/brand.config.json`, then run:
+Change `products/<product>/brand.json`, then run:
 
 ```sh
 npm run build
@@ -20,9 +20,9 @@ npm run build
 
 ## Picking palettes
 
-Open `dist/brand-hub/index.html (Colour tab)` in a browser. Each combination is shown as a small poster. Filter by number of colours, search by colour name, or open the **Colour index** (grouped by colour family or by the book's chapters) to see every combination that uses one colour. Star the ones you like and use **Copy shortlist**.
+Open `dist/hub/index.html (Colour tab)` in a browser. Each combination is shown as a small poster. Filter by number of colours, search by colour name, or open the **Colour index** (grouped by colour family or by the book's chapters) to see every combination that uses one colour. Star the ones you like and use **Copy shortlist**.
 
-Add your choices to `config/brand.config.json`:
+Add your choices to `products/<product>/brand.json`:
 
 ```json
 {
@@ -73,7 +73,7 @@ Many of Wada's combinations are tonal and low-contrast by design. The explorer m
 ### CSS (websites, HTML posters, emails)
 
 ```html
-<link rel="stylesheet" href="dist/web/css/colors.css">
+<link rel="stylesheet" href="dist/<product>/web/css/colors.css">
 <style>
   .poster { background: var(--ud-bg); color: var(--ud-text); }
   .poster h1 { color: var(--ud-ink); }
@@ -82,12 +82,12 @@ Many of Wada's combinations are tonal and low-contrast by design. The explorer m
 </style>
 ```
 
-To use other palettes, add `class="ud-palette-campaign"` for a named brand palette, or load `dist/web/css/combinations.css` and use `class="ud-combo-042"` (add `ud-dark` for the dark version) for any of the 348 combinations. Everything inside picks up that palette's `--ud-*` variables.
+To use other palettes, add `class="ud-palette-campaign"` for a named brand palette, or load `dist/<product>/web/css/combinations.css` and use `class="ud-combo-042"` (add `ud-dark` for the dark version) for any of the 348 combinations. Everything inside picks up that palette's `--ud-*` variables.
 
 ### SCSS
 
 ```scss
-@use 'dist/web/scss/colors' as *;
+@use 'dist/<product>/web/scss/colors' as *;
 .cta { background: map-get($ud-primary, 'accent'); }
 .tag { color: $ud-wada-carmine; }
 // $ud-combinations: (232: (#cc1236, #eeb480, #051230), ...)
@@ -97,7 +97,7 @@ To use other palettes, add `class="ud-palette-campaign"` for a named brand palet
 ### JavaScript / TypeScript (canvas, generative posters, React)
 
 ```js
-import { brand, palette, families, combinationGroups, combinationsWith, color } from './dist/web/js/colors.mjs';
+import { brand, palette, families, combinationGroups, combinationsWith, color } from './dist/<product>/web/js/colors.mjs';
 
 brand.primary.accent;            // '#cc1236'
 palette(42, 'dark');             // { bg, ink, accent, text, support, all, contrast }
@@ -107,16 +107,16 @@ families.blues.colors;           // every blue, in order
 combinationGroups.trios;         // all 120 three-colour combinations
 ```
 
-CommonJS: `require('./dist/web/js/colors.cjs')`. Types are in `colors.d.ts`.
+CommonJS: `require('./dist/<product>/web/js/colors.cjs')`. Types are in `colors.d.ts`.
 
 ### Tailwind
 
-- v3: `presets: [require('./dist/web/tailwind/preset.cjs')]` gives you `bg-wada-carmine`, `text-brand-ink` and `bg-brand-accent`.
-- v4: `@import "./dist/web/tailwind/theme.css";` defines the same colours as `--color-*` theme variables.
+- v3: `presets: [require('./dist/<product>/web/tailwind/preset.cjs')]` gives you `bg-wada-carmine`, `text-brand-ink` and `bg-brand-accent`.
+- v4: `@import "./dist/<product>/web/tailwind/theme.css";` defines the same colours as `--color-*` theme variables.
 
 ### Figma
 
-Import `dist/design-apps/figma/colors.tokens.json` with the Tokens Studio plugin. Colours are grouped by family (`wada.blues.deep-indigo`), combinations by size (`combinations.trios.232.c1`), and brand roles (`brand.primary.accent`) reference the base colours.
+Import `dist/<product>/design-apps/figma/colors.tokens.json` with the Tokens Studio plugin. Colours are grouped by family (`wada.blues.deep-indigo`), combinations by size (`combinations.trios.232.c1`), and brand roles (`brand.primary.accent`) reference the base colours.
 
 ### Adobe Illustrator, InDesign, Photoshop, Affinity
 
@@ -124,7 +124,7 @@ Load these from the Swatches panel: Open Swatch Library > Other Library.
 
 | File | Contents |
 |---|---|
-Use `dist/design-apps/adobe/print-cmyk/` for print and `screen-rgb/` for screen. Each folder holds:
+Use `dist/<product>/design-apps/adobe/print-cmyk/` for print and `screen-rgb/` for screen. Each folder holds:
 
 | File | Contents |
 |---|---|
@@ -137,12 +137,12 @@ The CMYK values are the book's original printing values, so CMYK is the accurate
 
 ### Canva, GIMP, Inkscape, Krita
 
-- Canva: paste the hex codes from `dist/design-apps/canva/brand-colors.txt` into your Brand Kit.
-- GIMP, Inkscape, Krita: import `dist/design-apps/gimp-inkscape-krita/wada-by-family.gpl` (all colours) or `brand-primary.gpl`.
+- Canva: paste the hex codes from `dist/<product>/design-apps/canva/brand-colors.txt` into your Brand Kit.
+- GIMP, Inkscape, Krita: import `dist/<product>/design-apps/gimp-inkscape-krita/wada-by-family.gpl` (all colours) or `brand-primary.gpl`.
 
 ### Everything else
 
-`dist/tokens/colors.json` holds every colour (name, family, chapter, hex, RGB, CMYK, Lab, combinations), the family, chapter and size groupings, and every combination with its roles and contrast ratios.
+`dist/<product>/tokens/colors.json` holds every colour (name, family, chapter, hex, RGB, CMYK, Lab, combinations), the family, chapter and size groupings, and every combination with its roles and contrast ratios.
 
 ## Credits
 

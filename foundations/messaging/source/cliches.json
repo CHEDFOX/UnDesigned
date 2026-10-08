@@ -1,5 +1,5 @@
 {
-  "$comment": "Words and phrases the copy checker flags (playbook rule W4). Lowercase. Add your own in config/messaging.json under voice.avoidWords.",
+  "$comment": "Words and phrases the copy checker flags (playbook rule W4). Lowercase. Add your own in products/<product>/messaging.json under voice.avoidWords.",
   "cliches": [
     "world-class", "world class", "best-in-class", "best in class", "cutting-edge", "cutting edge", "state-of-the-art", "state of the art",
     "game-changer", "game changer", "game-changing", "revolutionary", "revolutionize", "innovative", "innovation", "disruptive",

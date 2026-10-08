@@ -1,0 +1,71 @@
+{
+  "pairing": {
+    "id": "young-onest",
+    "name": "Friendly",
+    "fit": "core",
+    "mood": "Soft and approachable without being childish. A warm, chunky serif headline with a round, modern sans.",
+    "bestFor": "Food, hospitality, family, local businesses.",
+    "display": {
+      "family": "Young Serif",
+      "weights": [
+        400
+      ],
+      "style": "Heavy, soft old-style serif",
+      "case": "Sentence case",
+      "tracking": -0.01,
+      "leading": 1.05
+    },
+    "body": {
+      "family": "Onest",
+      "weights": [
+        400,
+        500,
+        700
+      ],
+      "style": "Rounded-modern grotesque, open forms",
+      "tracking": 0,
+      "leading": 1.5
+    },
+    "mono": {
+      "family": "JetBrains Mono",
+      "weights": [
+        400,
+        500
+      ]
+    }
+  },
+  "ratio": 1.25,
+  "sizes": {
+    "web": {
+      "caption": 10.2,
+      "small": 12.8,
+      "body": 16,
+      "lead": 20,
+      "h3": 25,
+      "h2": 31.3,
+      "h1": 39.1,
+      "display": 61,
+      "hero": 95.4
+    },
+    "poster": {
+      "caption": 15.4,
+      "small": 19.2,
+      "body": 24,
+      "lead": 30,
+      "h3": 37.5,
+      "h2": 46.9,
+      "h1": 58.6,
+      "display": 91.6,
+      "hero": 143.1
+    }
+  },
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "rules": [
+    "Two families at most (display + body), plus a mono for small data such as dates, prices and codes.",
+    "Sentence case everywhere. All capitals only for short labels of one to three words, with letter-spacing.",
+    "Three sizes per piece is usually enough: headline, body, small.",
+    "Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.",
+    "Left-align text. Centre only one or two short lines on a centred poster.",
+    "No handwriting or marker fonts: the human hand lives in the illustration, not the type."
+  ]
+}

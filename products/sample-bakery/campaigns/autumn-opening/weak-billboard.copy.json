@@ -1,0 +1,8 @@
+{
+  "$comment": "SAMPLE: deliberately weak, to show what the checker catches.",
+  "$expect": "errors",
+  "format": "billboard",
+  "headline": "We Offer World-Class Artisanal Bread Solutions For Every Need!",
+  "body": "We are passionate about taking your mornings to the next level.",
+  "cta": "Learn more"
+}

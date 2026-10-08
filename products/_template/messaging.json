@@ -1,0 +1,64 @@
+{
+  "$comment": "Brand message for this brand. Fill in every empty string, then run `npm run build`. Rules referenced (P1, S3 ...) are explained in foundations/messaging/README.md.",
+  "positioning": {
+    "$help": "Perennial Seller (P1, P2). Write these before any campaign.",
+    "audience": "",
+    "oneSentence": "",
+    "oneParagraph": "",
+    "category": "",
+    "differentFrom": ""
+  },
+  "oneLiner": {
+    "$help": "StoryBrand one-liner (S9): problem -> solution -> result. Read together it should sound like one natural answer to 'what do you do?'",
+    "problem": "",
+    "solution": "",
+    "result": ""
+  },
+  "brandscript": {
+    "$help": "StoryBrand SB7 framework (S1-S7).",
+    "character": {
+      "who": "",
+      "want": ""
+    },
+    "problem": {
+      "villain": "",
+      "external": "",
+      "internal": "",
+      "philosophical": ""
+    },
+    "guide": {
+      "empathy": "",
+      "authority": []
+    },
+    "plan": {
+      "steps": [
+        "",
+        "",
+        ""
+      ],
+      "promise": ""
+    },
+    "callToAction": {
+      "direct": "",
+      "transitional": ""
+    },
+    "failure": [],
+    "success": [],
+    "transformation": {
+      "from": "",
+      "to": ""
+    }
+  },
+  "voice": {
+    "$help": "Ogilvy O11: one consistent personality. Three to five words each.",
+    "is": [],
+    "isNot": [],
+    "avoidWords": []
+  },
+  "proof": {
+    "$help": "Ogilvy O5 and StoryBrand S4: specific facts, numbers, testimonials and clients to draw on.",
+    "facts": [],
+    "testimonials": [],
+    "clients": []
+  }
+}

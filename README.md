@@ -1,87 +1,74 @@
 # UnDesigned
 
-Design system for UnDesigned marketing: posters, social media, web and print. The design approach is **Humanist Minimal**: very few marks, each one made by a human hand. One set of sources and settings generates ready-to-use files for every tool.
+A **universal design guide**. Hand this repository to a designer, or to Claude, together with any product, and they can design for that product the same way every time: posters, social, web and print.
+
+The guide fixes *how* things are designed (the approach, colour method, type, copy rules). Each product brings *what* is designed (its name, palette choice, typeface choice, message, assets).
+
+- **Designers:** start with [GUIDE.md](GUIDE.md).
+- **Claude / AI assistants:** [CLAUDE.md](CLAUDE.md) holds the working instructions and is read automatically.
+- **See it all in one page:** run `npm run build`, then open `dist/hub/index.html`.
+
+## What's in the guide
+
+| Part | What it gives you | Docs |
+|---|---|---|
+| Approach | **Humanist Minimal**: 8 principles, do/don't for every layer, an illustration library (ink line, cut paper) and motion timings, built from the references | [approaches/humanist-minimal](approaches/humanist-minimal/README.md) |
+| Colour | 159 colours and 348 combinations from Sanzo Wada's *A Dictionary of Color Combinations*, with roles, contrast checks and exports for every tool | [foundations/color](foundations/color/README.md) |
+| Typography | 8 modern, humanist pairings (free Google Fonts) with a type scale and rules | [foundations/typography](foundations/typography/README.md) |
+| Messaging | A playbook of 33 rules from Ogilvy, StoryBrand, Perennial Seller and Hey Whipple, word limits for 12 formats, and a copy checker | [foundations/messaging](foundations/messaging/README.md) |
+| Briefs | A creative brief form for each campaign | [templates/briefs](templates/briefs/creative-brief.md) |
+| Layout, templates | Planned | [foundations/layout](foundations/layout/README.md), [templates](templates/README.md) |
 
 ## Folder map
 
 ```
 UnDesigned/
-├── config/
-│   ├── brand.config.json        visual choices (palettes now; type and layout later)
-│   └── messaging.json           brand message: positioning, one-liner, BrandScript, voice
-│
-├── foundations/                 the building blocks, one folder each
-│   ├── approach/                Humanist Minimal: principles, illustration library, motion
-│   ├── color/                   Sanzo Wada colour system: source data, build, docs
-│   ├── messaging/               copy playbook (Ogilvy, StoryBrand, Perennial Seller, Whipple) + copy checker
-│   ├── typography/              planned
-│   └── layout/                  planned
-│
-├── templates/                   ready-made designs that use the foundations
-│   ├── briefs/                  creative brief to fill in per campaign
-│   ├── posters/                 planned
-│   ├── social/                  planned
-│   └── print/                   planned
-│
-├── assets/                      brand files
-│   ├── logos/
-│   ├── fonts/
-│   ├── images/
-│   └── references/              reference stills and recordings for the approach
-│
-├── tools/                       brand-hub/: the page that shows the whole system
-├── scripts/
-│   ├── build.mjs                builds everything into dist/
-│   └── check-copy.mjs           checks *.copy.json against the messaging rules
-│
-└── dist/                        GENERATED: never edit by hand
-    ├── web/                     code: css/, scss/, js/, tailwind/
-    ├── design-apps/             apps: adobe/ (print-cmyk, screen-rgb), figma/, canva/, gimp-inkscape-krita/
-    ├── illustration/            ready-made SVG illustrations, still and animated
-    ├── brand-guide/             readable sheets to share (message sheet)
-    ├── tokens/                  full JSON for anything else
-    └── brand-hub/               open index.html: the whole system in one page
+├── GUIDE.md                 how a designer uses this guide with a product
+├── CLAUDE.md                how Claude uses this guide with a product
+├── products/                one folder per product, brand or idea
+│   ├── _template/           copied by `npm run new-product`
+│   ├── sample-bakery/       a complete worked example (invented)
+│   └── undesigned/          UnDesigned itself
+│       ├── brand.json       name, CSS prefix, approach, palettes, type pairing
+│       ├── messaging.json   positioning, one-liner, BrandScript, voice, proof
+│       ├── assets/          logos/ · fonts/ · images/
+│       └── campaigns/       one folder per campaign: brief.md + *.copy.json
+├── approaches/              design approaches a product can choose
+│   └── humanist-minimal/    approach.json · illustration.mjs · references/ · README
+├── foundations/             shared libraries every product uses
+│   ├── color/               Wada colour data and exports
+│   ├── typography/          type pairings and scale
+│   ├── messaging/           playbook, format limits, copy checker
+│   └── layout/              planned
+├── templates/               briefs/ · posters/ · social/ · print/ (planned)
+├── tools/brand-hub/         the hub page source
+├── scripts/                 build · new-product · check-copy
+└── dist/                    GENERATED, never edit by hand
+    ├── hub/index.html       the whole guide, all products, with a switcher
+    └── <product>/           web/ · design-apps/ · illustration/ · brand-guide/ · tokens/ · brand-hub/
 ```
 
-Rule of thumb: you edit `config/`, `foundations/*/source/`, `templates/` and `assets/`. You use files from `dist/`.
+Rule of thumb: the guide lives in `approaches/`, `foundations/` and `templates/` and rarely changes. Product work happens in `products/<product>/`. Finished files come out of `dist/<product>/`.
 
-## How a campaign is made
-
-1. Fill in a [creative brief](templates/briefs/creative-brief.md) (strategy, the one message, big idea).
-2. Pick a palette in the brand hub (dist/brand-hub/index.html).
-3. Write the copy in a `.copy.json` file and run `npm run check:copy`.
-4. Lay it out using the files in `dist/` (templates coming).
-
-## Status
-
-| Layer | State | Docs |
-|---|---|---|
-| Approach | Humanist Minimal: principles, rules per layer, illustration library, motion | [foundations/approach](foundations/approach/README.md) |
-| Colour | Done. 159 colours, 12 families, 348 combinations | [foundations/color](foundations/color/README.md) |
-| Messaging | Playbook and checker done. Brand message waiting to be filled in (`config/messaging.json`) | [foundations/messaging](foundations/messaging/README.md) |
-| Typography | Not started | [foundations/typography](foundations/typography/README.md) |
-| Layout and grid | Not started | [foundations/layout](foundations/layout/README.md) |
-| Templates | Not started | [templates](templates/README.md) |
-
-## Build
+## Commands
 
 ```sh
-npm run build              # everything (Node 18+, no dependencies)
-npm run build:color        # colour only
-npm run build:approach     # approach only
-npm run build:messaging    # messaging only
-npm run check:copy         # check every *.copy.json under templates/
+npm run new-product -- "Product name"   # new folder in products/ from the template
+npm run build                           # build every product + the hub (Node 18+, no installs)
+npm run build -- sample-bakery          # build one product
+npm run check:copy                      # check every *.copy.json under products/
+npm run check:copy:sample               # see the checker on the sample product
 ```
 
-## Where to find what
+## Where to find files for a product
 
-| I'm working in | Use |
+| Working in | Use |
 |---|---|
-| Illustrator, InDesign, Photoshop, Affinity | `dist/design-apps/adobe/print-cmyk/` (print) or `screen-rgb/` (screen) |
-| Figma | `dist/design-apps/figma/` (Tokens Studio) |
-| Canva | `dist/design-apps/canva/brand-colors.txt` |
-| GIMP, Inkscape, Krita | `dist/design-apps/gimp-inkscape-krita/` |
-| Briefing a designer or copywriter | `dist/brand-guide/message-sheet.md` and `templates/briefs/creative-brief.md` |
-| Illustrations | `dist/illustration/svg/` or `dist/web/js/illustration.mjs` |
-| Websites, HTML posters, emails | `dist/web/css/` (colours, motion) |
-| Sass, JavaScript, Tailwind | `dist/web/scss/`, `dist/web/js/`, `dist/web/tailwind/` |
+| Illustrator, InDesign, Photoshop, Affinity | `dist/<product>/design-apps/adobe/` (`print-cmyk/` for print, `screen-rgb/` for screen) |
+| Figma | `dist/<product>/design-apps/figma/` (Tokens Studio) |
+| Canva | `dist/<product>/design-apps/canva/brand-colors.txt` and `design-apps/fonts.txt` |
+| GIMP, Inkscape, Krita | `dist/<product>/design-apps/gimp-inkscape-krita/` |
+| Illustrations | `dist/<product>/illustration/svg/` or `dist/<product>/web/js/illustration.mjs` |
+| Websites, HTML posters, emails | `dist/<product>/web/css/` (colours, typography, motion) |
+| Sass, JavaScript, Tailwind | `dist/<product>/web/scss/`, `web/js/`, `web/tailwind/` |
+| Briefing a designer or writer | `dist/<product>/brand-guide/message-sheet.md`, `dist/<product>/brand-hub/index.html`, `templates/briefs/creative-brief.md` |

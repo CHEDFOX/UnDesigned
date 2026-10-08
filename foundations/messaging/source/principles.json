@@ -15,7 +15,7 @@
     { "id": "launch", "name": "Launch and test", "question": "How will we learn what works and keep it working?" }
   ],
   "principles": [
-    { "id": "P1", "book": "perennial", "stage": "strategy", "rule": "Define the work in one sentence, one paragraph and one page before writing any marketing.", "apply": "Fill in positioning.oneSentence, oneParagraph and onePage in config/messaging.json." },
+    { "id": "P1", "book": "perennial", "stage": "strategy", "rule": "Define the work in one sentence, one paragraph and one page before writing any marketing.", "apply": "Fill in positioning.oneSentence and oneParagraph in products/<product>/messaging.json." },
     { "id": "P2", "book": "perennial", "stage": "strategy", "rule": "Name exactly who it is for. Something for everyone is for no one.", "apply": "Write the audience as a specific person with a situation, not a demographic range." },
     { "id": "P3", "book": "perennial", "stage": "strategy", "rule": "Aim for timeless over trendy. Avoid slang, memes and references that date the work.", "apply": "Ask of every line: will this still make sense in five years?", "check": "dated-language" },
     { "id": "P4", "book": "perennial", "stage": "launch", "rule": "Build a platform you own (email list, community, site) so every campaign grows a lasting audience.", "apply": "Prefer calls to action that capture a relationship (join, subscribe) alongside the sale." },
@@ -29,7 +29,7 @@
     { "id": "S6", "book": "storybrand", "stage": "copy", "rule": "Always call to action: a direct one (buy, book) and a transitional one for people not ready yet (download, join).", "apply": "Every format that requires a CTA must have one, starting with a verb.", "check": "cta" },
     { "id": "S7", "book": "storybrand", "stage": "message", "rule": "Show the stakes (what failure costs) and paint the success (what life looks like after).", "apply": "Fill in brandscript.failure and brandscript.success." },
     { "id": "S8", "book": "storybrand", "stage": "copy", "rule": "Pass the grunt test: within a few seconds people know what you offer, how it makes life better and what to do next.", "apply": "Headline says the offer or benefit, subhead says the improvement, CTA says the next step." },
-    { "id": "S9", "book": "storybrand", "stage": "message", "rule": "Have a one-liner: problem, solution, result.", "apply": "Fill in oneLiner in config/messaging.json; use it in bios, signatures and pitches." },
+    { "id": "S9", "book": "storybrand", "stage": "message", "rule": "Have a one-liner: problem, solution, result.", "apply": "Fill in oneLiner in products/<product>/messaging.json; use it in bios, signatures and pitches." },
 
     { "id": "O1", "book": "ogilvy", "stage": "strategy", "rule": "Do your homework. Study the product, the customer and the competition before writing.", "apply": "Complete the research section of the creative brief." },
     { "id": "O2", "book": "ogilvy", "stage": "idea", "rule": "Unless the campaign has a big idea, it will pass unnoticed.", "apply": "Write the idea in one sentence in the brief before any layout." },
@@ -41,7 +41,7 @@
     { "id": "O8", "book": "ogilvy", "stage": "layout", "rule": "Make it easy to read. Avoid long passages in all capitals or reversed out (light text on dark), and avoid tiny type.", "apply": "Use the colour system's text role; keep long copy dark on light.", "check": "all-caps" },
     { "id": "O9", "book": "ogilvy", "stage": "layout", "rule": "Photographs outsell drawings, and captions under images are widely read. Use them to sell.", "apply": "Every image in long-form layouts gets a caption that carries a benefit." },
     { "id": "O10", "book": "ogilvy", "stage": "launch", "rule": "Test everything: headlines, offers, images. Keep what works and repeat it until it stops working.", "apply": "Make two headline variants for every paid placement." },
-    { "id": "O11", "book": "ogilvy", "stage": "strategy", "rule": "Every ad builds the brand image over time. Keep a consistent personality.", "apply": "Use the voice rules in config/messaging.json and the design foundations every time." },
+    { "id": "O11", "book": "ogilvy", "stage": "strategy", "rule": "Every ad builds the brand image over time. Keep a consistent personality.", "apply": "Use the voice rules in products/<product>/messaging.json and the design foundations every time." },
 
     { "id": "W1", "book": "whipple", "stage": "idea", "rule": "Say one thing. A single-minded message beats a list of benefits.", "apply": "If the brief has more than one main message, split it into separate pieces." },
     { "id": "W2", "book": "whipple", "stage": "idea", "rule": "Find the dramatic truth about the product, the honest thing that makes it matter.", "apply": "Root the big idea in a real fact, not an invented claim." },

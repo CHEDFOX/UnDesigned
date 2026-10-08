@@ -65,7 +65,7 @@ export function checkCopy(piece, ctx) {
   };
   for (const c of found(ctx.cliches)) add('warn', 'cliches', 'W4', `Cliche: "${c}". Replace it with something only ${ctx.brandNames[0]} could say.`);
   for (const d of found(ctx.dated)) add('warn', 'dated-language', 'P3', `"${d}" will date quickly. Prefer timeless wording.`);
-  for (const a of found(ctx.avoidWords || [])) add('warn', 'voice', 'O11', `"${a}" is on the brand's avoid list (config/messaging.json).`);
+  for (const a of found(ctx.avoidWords || [])) add('warn', 'voice', 'O11', `"${a}" is on this product's avoid list (messaging.json, voice.avoidWords).`);
 
   // Shouting (W7)
   if (text('headline').includes('!')) add('warn', 'exclamations', 'W7', 'Exclamation mark in the headline. Let the idea do the shouting.');

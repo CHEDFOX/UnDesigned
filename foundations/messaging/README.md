@@ -19,11 +19,11 @@ foundations/messaging/
 ├── source/formats.json      word limits for 12 formats in 4 groups
 ├── source/cliches.json      cliches, dated slang, weak calls to action
 ├── lint.mjs                 the copy checker (works in Node and the browser)
-├── context.mjs              loads sources and config
-├── build.mjs                builds dist/ files
-└── examples/                one passing and one failing piece of copy
-config/messaging.json        YOUR brand message: positioning, one-liner, BrandScript, voice, proof
-templates/briefs/            creative brief template
+├── context.mjs              loads sources and a product's messaging.json
+└── build.mjs                builds dist/<product>/ files
+products/<product>/messaging.json   each product's message: positioning, one-liner, BrandScript, voice, proof
+products/sample-bakery/campaigns/   worked examples of .copy.json files
+templates/briefs/                   creative brief template
 ```
 
 ## The process
@@ -39,7 +39,7 @@ Every campaign goes through these six stages in order. The questions come from `
 | 5. Layout | Can people read it, fast? | O8, O9, W5 |
 | 6. Launch and test | How will we learn what works and keep it working? | P4, P5, O10 |
 
-Stages 1 and 2 are done once for the brand, in `config/messaging.json`, and refreshed when the business changes. Stages 3 to 6 happen for every campaign, using the [creative brief](../../templates/briefs/creative-brief.md).
+Stages 1 and 2 are done once for the brand, in `products/<product>/messaging.json`, and refreshed when the business changes. Stages 3 to 6 happen for every campaign, using the [creative brief](../../templates/briefs/creative-brief.md).
 
 ## Rules by book
 
@@ -113,7 +113,7 @@ These are rules of thumb. Change them in `formats.json` if a format needs more r
 
 ## Checking copy
 
-Write the copy for each piece in a `.copy.json` file next to its template:
+Write the copy for each piece in a `.copy.json` file in the product's campaign folder (`products/<product>/campaigns/<campaign>/`):
 
 ```json
 {
@@ -132,9 +132,9 @@ Write the copy for each piece in a `.copy.json` file next to its template:
 - A file can also hold a list of pieces, e.g. every slide of a carousel.
 
 ```sh
-npm run check:copy                 # every *.copy.json under templates/
+npm run check:copy                 # every *.copy.json under products/
 npm run check:copy -- my.copy.json # one file
-npm run check:copy:examples        # see the checker on a good and a bad example
+npm run check:copy:sample          # the sample product: two passing pieces and one weak one
 ```
 
 Results are **ERROR** (breaks a hard rule, exit code 1), **WARN** (should fix) or **TIP** (worth considering). Each one cites its rule and book.
@@ -144,19 +144,19 @@ The checker catches mechanical problems. It can't judge whether the idea is good
 ## Using it in code
 
 ```js
-import { check, formats, principles, message } from './dist/web/js/messaging.mjs';
+import { check, formats, principles, message } from './dist/<product>/web/js/messaging.mjs';
 
 check({ format: 'story', headline: 'Ready in 48 hours', cta: 'Book now' });
 // [{ level: 'warn', check: 'brand-name', principle: 'O4', message: '...' }, ...]
 formats.poster.limits.headline;   // 10
 principles.W1.rule;               // 'Say one thing. ...'
-message.oneLiner;                 // from config/messaging.json
+message.oneLiner;                 // from products/<product>/messaging.json
 ```
 
 ## Generated files
 
 | File | Contents |
 |---|---|
-| `dist/brand-guide/message-sheet.md` | Your filled-in message on one page, for the team and freelancers |
-| `dist/web/js/messaging.mjs` | Formats, rules, your message and `check()` for templates and tools |
-| `dist/tokens/messaging.json` | Everything as JSON |
+| `dist/<product>/brand-guide/message-sheet.md` | Your filled-in message on one page, for the team and freelancers |
+| `dist/<product>/web/js/messaging.mjs` | Formats, rules, your message and `check()` for templates and tools |
+| `dist/<product>/tokens/messaging.json` | Everything as JSON |

@@ -1,0 +1,9 @@
+{
+  "$comment": "SAMPLE: passes the checker.",
+  "format": "story",
+  "headline": "Your 6:30 breakfast is baking",
+  "subhead": "Pre-order by 9 pm tonight.",
+  "cta": "Pre-order now",
+  "logo": true,
+  "palette": "seasonal"
+}

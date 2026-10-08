@@ -1,0 +1,99 @@
+{
+  "$comment": "Typeface pairings for the design system. All are free Google Fonts under the SIL Open Font License, so they work on the web, in print and in Figma/Adobe after installing. A brand picks one in products/<brand>/brand.json -> typography.pairing. fit: how well the pairing suits the Humanist Minimal approach (core = recommended, good = works, accent = for special cases).",
+  "pairings": [
+    {
+      "id": "bricolage-figtree",
+      "name": "Warm Modern",
+      "fit": "core",
+      "mood": "Friendly and current. The headline face has slightly irregular, ink-trap details that echo hand-drawn line; the body face is open and calm.",
+      "bestFor": "Most brands. Posters, social, websites.",
+      "display": { "family": "Bricolage Grotesque", "weights": [500, 700, 800], "style": "Expressive grotesque with optical sizes", "case": "Sentence case", "tracking": -0.02, "leading": 1.0 },
+      "body": { "family": "Figtree", "weights": [400, 500, 700], "style": "Geometric-humanist sans, open apertures", "tracking": 0, "leading": 1.5 },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "instrument",
+      "name": "Modern Editorial",
+      "fit": "core",
+      "mood": "Quiet and elegant. A condensed, high-contrast serif for big headlines over a crisp, neutral sans.",
+      "bestFor": "Culture, design, publishing, premium services. Big poster headlines.",
+      "display": { "family": "Instrument Serif", "weights": [400], "italic": true, "style": "Condensed display serif", "case": "Sentence case; italic for one emphasised word", "tracking": -0.01, "leading": 0.98 },
+      "body": { "family": "Instrument Sans", "weights": [400, 500, 600], "style": "Clean grotesque with humanist details", "tracking": 0, "leading": 1.5 },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "source",
+      "name": "Humanist Classic",
+      "fit": "core",
+      "mood": "Calm, trustworthy, extremely readable. A true humanist superfamily: serif, sans and mono designed together.",
+      "bestFor": "Education, health, non-profits, long reading, anything with lots of text.",
+      "display": { "family": "Source Serif 4", "weights": [600, 700], "style": "Transitional serif with optical sizes", "case": "Sentence case", "tracking": -0.01, "leading": 1.05 },
+      "body": { "family": "Source Sans 3", "weights": [400, 600], "style": "Humanist sans", "tracking": 0, "leading": 1.55 },
+      "mono": { "family": "Source Code Pro", "weights": [400, 500] }
+    },
+    {
+      "id": "young-onest",
+      "name": "Friendly",
+      "fit": "core",
+      "mood": "Soft and approachable without being childish. A warm, chunky serif headline with a round, modern sans.",
+      "bestFor": "Food, hospitality, family, local businesses.",
+      "display": { "family": "Young Serif", "weights": [400], "style": "Heavy, soft old-style serif", "case": "Sentence case", "tracking": -0.01, "leading": 1.05 },
+      "body": { "family": "Onest", "weights": [400, 500, 700], "style": "Rounded-modern grotesque, open forms", "tracking": 0, "leading": 1.5 },
+      "mono": { "family": "JetBrains Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "alegreya",
+      "name": "Calligraphic Humanist",
+      "fit": "good",
+      "mood": "The most 'hand-made' of the set: letterforms built from a broad-nib pen. Literary and warm.",
+      "bestFor": "Books, crafts, wellbeing, storytelling brands.",
+      "display": { "family": "Alegreya", "weights": [500, 700, 800], "italic": true, "style": "Calligraphic old-style serif", "case": "Sentence case", "tracking": 0, "leading": 1.05 },
+      "body": { "family": "Alegreya Sans", "weights": [400, 500, 700], "style": "Humanist sans from the same family", "tracking": 0, "leading": 1.5 },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "schibsted",
+      "name": "Single-Family Minimal",
+      "fit": "good",
+      "mood": "One family, strict and modern; hierarchy comes from size and weight only. The most minimal option.",
+      "bestFor": "Tech, products, studios that want maximum restraint.",
+      "display": { "family": "Schibsted Grotesk", "weights": [600, 800], "style": "Sturdy grotesque", "case": "Sentence case", "tracking": -0.025, "leading": 1.0 },
+      "body": { "family": "Schibsted Grotesk", "weights": [400, 500], "style": "Same family", "tracking": 0, "leading": 1.5 },
+      "mono": { "family": "JetBrains Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "fraunces-commissioner",
+      "name": "Soft Serif",
+      "fit": "good",
+      "mood": "Bouncy, soft-cornered serif with a gentle humanist sans. Charming; use with restraint (one weight, no 'wonky' extras).",
+      "bestFor": "Lifestyle, kids' education, independent shops.",
+      "display": { "family": "Fraunces", "weights": [600, 800], "italic": true, "style": "Soft old-style display serif", "case": "Sentence case", "tracking": -0.015, "leading": 1.02 },
+      "body": { "family": "Commissioner", "weights": [400, 500, 700], "style": "Humanist-flared sans", "tracking": 0, "leading": 1.5 },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "plex",
+      "name": "Technical Humanist",
+      "fit": "accent",
+      "mood": "Engineered but warm: a grotesque with humanist touches, with matching serif and mono. Precise without feeling cold.",
+      "bestFor": "Science, data, B2B, reports.",
+      "display": { "family": "IBM Plex Serif", "weights": [500, 600], "style": "Engineered serif", "case": "Sentence case", "tracking": -0.01, "leading": 1.05 },
+      "body": { "family": "IBM Plex Sans", "weights": [400, 500, 600], "style": "Grotesque with humanist details", "tracking": 0, "leading": 1.5 },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    }
+  ],
+  "scale": {
+    "$comment": "Type sizes are steps of a ratio from the base size. Names match roles used by the templates.",
+    "baseWeb": 16,
+    "basePoster": 24,
+    "steps": { "caption": -2, "small": -1, "body": 0, "lead": 1, "h3": 2, "h2": 3, "h1": 4, "display": 6, "hero": 8 }
+  },
+  "rules": [
+    "Two families at most (display + body), plus a mono for small data such as dates, prices and codes.",
+    "Sentence case everywhere. All capitals only for short labels of one to three words, with letter-spacing.",
+    "Three sizes per piece is usually enough: headline, body, small.",
+    "Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.",
+    "Left-align text. Centre only one or two short lines on a centred poster.",
+    "No handwriting or marker fonts: the human hand lives in the illustration, not the type."
+  ]
+}

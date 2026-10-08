@@ -1,0 +1,25 @@
+{
+  "$comment": "Brand settings for UnDesigned. Edit, then run `npm run build`.",
+  "name": "UnDesigned",
+  "nameVariants": [
+    "Undesigned",
+    "UNDESIGNED"
+  ],
+  "prefix": "ud",
+  "approach": "humanist-minimal",
+  "color": {
+    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the palettes are chosen, then \"chosen\".",
+    "status": "placeholder",
+    "palettes": {
+      "primary": {
+        "combination": 232,
+        "mode": "light"
+      }
+    }
+  },
+  "typography": {
+    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold).",
+    "pairing": "bricolage-figtree",
+    "scale": 1.25
+  }
+}

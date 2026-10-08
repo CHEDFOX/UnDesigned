@@ -1,65 +1,110 @@
-// Brand hub: one self-contained page showing every foundation. Runs after the
-// foundations, reading their generated tokens from dist/tokens/.
+// Design system hub: one self-contained page showing the whole guide, applied to
+// each product. Runs after the foundations, reading their tokens from dist/<product>/tokens/.
+//   dist/hub/index.html             every product, with a switcher
+//   dist/<product>/brand-hub/index.html   one product only (to share with a client or designer)
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadMessaging } from '../../foundations/messaging/context.mjs';
+import { loadPairings, googleFontsUrl } from '../../foundations/typography/build.mjs';
+import { copyFiles } from '../../scripts/products.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
-export function buildHub({ root, dist, config }) {
-  const tokens = (name) => JSON.parse(readFileSync(join(dist, 'tokens', name), 'utf8'));
-  const color = tokens('colors.json');
-  const msg = tokens('messaging.json');
-  const approach = tokens('approach.json');
-  const { ctx } = loadMessaging(root, config);
+export function buildHub({ root, brands }) {
+  if (!brands.length) return ['hub: no built products'];
+  const tok = (id, name) => JSON.parse(readFileSync(join(root, 'dist', id, 'tokens', name), 'utf8'));
+  const first = tok(brands[0].id, 'colors.json');
+  const firstMsg = tok(brands[0].id, 'messaging.json');
+  const pairings = loadPairings();
 
-  const { filled, total } = msg.fill;
+  const approaches = {};
+  const items = brands.map((brand) => {
+    const color = tok(brand.id, 'colors.json');
+    const msg = tok(brand.id, 'messaging.json');
+    const approach = tok(brand.id, 'approach.json');
+    const type = tok(brand.id, 'typography.json');
+    const { ctx } = loadMessaging(root, brand);
+    if (!approaches[approach.id]) {
+      const { palettes, ...data } = approach;
+      approaches[approach.id] = { data, images: refImages(root, approach.id, approach.references) };
+    }
+    const { filled, total } = msg.fill;
+    const campaigns = copyFiles(join(brand.dir, 'campaigns')).flatMap((f) => {
+      const d = JSON.parse(readFileSync(f, 'utf8'));
+      const pieces = Array.isArray(d) ? d : d.pieces || [d];
+      return pieces.map((piece, i) => {
+        const { $comment, $expect, ...clean } = piece;
+        return { path: relative(brand.dir, f) + (pieces.length > 1 ? ` #${i + 1}` : ''), piece: clean };
+      });
+    });
+    const status = brand.config.color.status;
+    return {
+      id: brand.id,
+      name: brand.config.name,
+      prefix: brand.config.prefix,
+      approach: approach.id,
+      sample: /SAMPLE/.test(brand.config.$comment || ''),
+      colorStatus: status,
+      palettes: color.brand,
+      illPalettes: approach.palettes,
+      message: msg.message,
+      fill: msg.fill,
+      ctx,
+      campaigns,
+      typography: { pairing: type.pairing.id, ratio: type.ratio, sizes: type.sizes },
+      layers: [
+        { name: 'Approach', state: 'done', detail: `${approach.name}: ${approach.principles.length} principles, rules for ${approach.layers.length} layers, illustration and motion.` },
+        { name: 'Colour', state: status === 'chosen' ? 'done' : 'part', detail: `${color.brand.length} palette(s) from ${first.combinations.length} Wada combinations${status === 'chosen' ? '' : ' (stand-in, not chosen yet)'}.` },
+        { name: 'Typography', state: 'done', detail: `${type.pairing.name}: ${type.pairing.display.family} + ${type.pairing.body.family}, scale ${type.ratio}.` },
+        { name: 'Messaging', state: filled === total ? 'done' : 'part', detail: `Playbook and checker ready. Message ${filled} of ${total} fields filled in; ${campaigns.length} campaign piece(s).` },
+        { name: 'Layout', state: 'todo', detail: 'Planned. Grids, margins and safe areas per format.' },
+        { name: 'Templates', state: 'todo', detail: 'Planned. Posters, social and print built on the guide.' },
+      ],
+    };
+  });
 
-  const palettes = color.brand.length;
-  const layers = [
-    { id: 'approach', name: 'Approach', state: 'done', detail: `${approach.name}: ${approach.principles.length} principles, rules for ${approach.layers.length} layers, illustration library and motion timings.` },
-    { id: 'colour', name: 'Colour', state: 'done', detail: `Done. ${color.colors.length} colours in ${color.families.length} families, ${color.combinations.length} combinations, ${palettes} brand palette (stand-in until chosen).` },
-    { id: 'messaging', name: 'Messaging', state: filled ? (filled === total ? 'done' : 'part') : 'part', detail: `Playbook (${msg.principles.length} rules) and copy checker done. Brand message ${filled} of ${total} fields filled in.` },
-    { id: 'typography', name: 'Typography', state: 'todo', detail: 'Next. Typefaces, type scale, weights.' },
-    { id: 'layout', name: 'Layout', state: 'todo', detail: 'Planned. Grids, margins and safe areas per format.' },
-    { id: 'templates', name: 'Templates', state: 'todo', detail: 'Planned. Posters, social and print, built on the foundations.' },
-  ];
-
-  const data = {
-    prefix: color.meta.prefix,
+  const shared = {
     builtAt: new Date().toISOString().slice(0, 10),
-    layers,
-    colors: color.colors,
-    families: color.families,
-    chapters: color.chapters,
-    combinations: color.combinations,
-    brand: color.brand,
-    messaging: { books: msg.books, stages: msg.stages, principles: msg.principles, formats: msg.formats, message: msg.message },
-    ctx,
-    approach: { data: approach, palettes: approach.palettes, images: refImages(root, approach.references) },
+    colors: first.colors,
+    families: first.families,
+    chapters: first.chapters,
+    combinations: first.combinations,
+    messaging: { books: firstMsg.books, stages: firstMsg.stages, principles: firstMsg.principles, formats: firstMsg.formats },
+    approaches,
+    pairings: pairings.pairings,
+    typeRules: pairings.rules,
   };
   const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '');
-  const body = readFileSync(join(HERE, 'template.html'), 'utf8')
-    .replace('/*__DATA__*/null', () => JSON.stringify(data))
-    .replace('/*__LINT__*/', () => lint)
-    .replace('/*__ILLUSTRATION__*/', () => readFileSync(join(root, 'foundations/approach/illustration.mjs'), 'utf8').replace(/^export /gm, ''));
+  const libs = Object.keys(approaches)
+    .map((id) => `${JSON.stringify(id)}: (() => {\n${readFileSync(join(root, 'approaches', id, 'illustration.mjs'), 'utf8').replace(/^export /gm, '')}\nreturn createIllustrator;\n})()`)
+    .join(',\n');
+  const fonts = googleFontsUrl(pairings.pairings.flatMap((p) => [p.display, p.body, p.mono]));
+  const tpl = readFileSync(join(HERE, 'template.html'), 'utf8');
 
-  const out = join(dist, 'brand-hub/index.html');
-  mkdirSync(dirname(out), { recursive: true });
-  writeFileSync(
-    out,
-    `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n</head>\n<body>\n${body}\n</body>\n</html>\n`,
-  );
-  return [`brand hub: dist/brand-hub/index.html (${layers.filter((l) => l.state !== 'todo').length} of ${layers.length} layers shown)`];
+  const page = (list) =>
+    tpl
+      .replace('<!--__PAIRING_FONTS__-->', `<link rel="stylesheet" href="${fonts}">`)
+      .replace('/*__DATA__*/null', () => JSON.stringify({ ...shared, brands: list }))
+      .replace('/*__LINT__*/', () => lint)
+      .replace('/*__ILLUSTRATION__*/', () => `const APPROACH_LIBS = {\n${libs}\n};`);
+  const doc = (body) => `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n</head>\n<body>\n${body}\n</body>\n</html>\n`;
+  const out = (p, body) => {
+    mkdirSync(dirname(join(root, p)), { recursive: true });
+    writeFileSync(join(root, p), doc(body));
+  };
+
+  out('dist/hub/index.html', page(items));
+  for (const item of items) out(`dist/${item.id}/brand-hub/index.html`, page([item]));
+  return [`\nhub: dist/hub/index.html (${items.length} products) and dist/<product>/brand-hub/index.html`];
 }
 
 // Reference images (stills and frame strips) embedded as data URIs so the page is self-contained.
-function refImages(root, refs) {
+function refImages(root, approachId, refs) {
   const out = {};
-  const dir = join(root, 'assets/references/illustration');
-  for (const r of refs) {
+  const dir = join(root, 'approaches', approachId, 'references');
+  for (const r of refs || []) {
     for (const f of [r.frames, r.file.endsWith('.jpg') ? r.file : null]) {
       if (f && existsSync(join(dir, f))) out[f] = 'data:image/jpeg;base64,' + readFileSync(join(dir, f)).toString('base64');
     }

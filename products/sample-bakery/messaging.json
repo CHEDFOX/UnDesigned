@@ -1,0 +1,88 @@
+{
+  "$comment": "SAMPLE BRAND (invented). Every field filled in, to show what a finished brand message looks like.",
+  "positioning": {
+    "audience": "Busy neighbours on the north side who want real bread but can't get to a bakery before work.",
+    "oneSentence": "A neighbourhood sourdough bakery that opens at 6:30 so good bread fits a working morning.",
+    "oneParagraph": "Rye & Rise bakes slow-fermented sourdough, rye and seasonal buns every night and opens at 6:30 on weekdays. Pre-order by 9 pm and your loaf waits on a named shelf, so the walk to work includes breakfast.",
+    "category": "Neighbourhood bakery",
+    "differentFrom": "Supermarket bread (fast, soft, forgettable) and weekend-only artisan bakeries."
+  },
+  "oneLiner": {
+    "problem": "Most people only get proper bread at weekends.",
+    "solution": "Rye & Rise opens at 6:30 with tonight's sourdough on a shelf with your name on it,",
+    "result": "so every weekday starts with a real breakfast."
+  },
+  "brandscript": {
+    "character": {
+      "who": "Commuters and young families on the north side",
+      "want": "Good bread on a weekday without planning their morning around it"
+    },
+    "problem": {
+      "villain": "The 8 am rush",
+      "external": "Bakeries open too late and sell out early",
+      "internal": "They feel they settle for second-best food on weekdays",
+      "philosophical": "Good bread shouldn't be a weekend luxury"
+    },
+    "guide": {
+      "empathy": "We bake at night because we have early mornings too.",
+      "authority": [
+        "Sourdough fermented for 36 hours",
+        "Baked fresh every night since 2019",
+        "4.9 stars from 600+ neighbours"
+      ]
+    },
+    "plan": {
+      "steps": [
+        "Pre-order by 9 pm",
+        "Pick up from your named shelf from 6:30",
+        "Eat well before work"
+      ],
+      "promise": "If your loaf isn't right, the next one is free."
+    },
+    "callToAction": {
+      "direct": "Pre-order tonight's loaf",
+      "transitional": "Get the weekly bake list"
+    },
+    "failure": [
+      "Another rushed breakfast of supermarket toast"
+    ],
+    "success": [
+      "Warm bread on the table before the school run",
+      "A five-minute stop that feels like a treat"
+    ],
+    "transformation": {
+      "from": "Rushed and settling",
+      "to": "Fed well and a little ahead of the day"
+    }
+  },
+  "voice": {
+    "is": [
+      "Warm",
+      "Plain",
+      "Neighbourly",
+      "Unhurried"
+    ],
+    "isNot": [
+      "Precious",
+      "Trendy",
+      "Pushy"
+    ],
+    "avoidWords": [
+      "artisanal",
+      "curated"
+    ]
+  },
+  "proof": {
+    "facts": [
+      "36-hour fermentation",
+      "Open 6:30 on weekdays",
+      "Pre-order by 9 pm"
+    ],
+    "testimonials": [
+      "\"The 6:30 opening changed my mornings.\" (neighbour review)"
+    ],
+    "clients": [
+      "Supplies the breakfast club at a local primary school"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$comment": "SAMPLE BRAND (invented) showing a fully filled-in brand. Copy the pattern, not the content.",
+  "name": "Rye & Rise",
+  "nameVariants": [
+    "Rye and Rise"
+  ],
+  "prefix": "rr",
+  "approach": "humanist-minimal",
+  "color": {
+    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the palettes are chosen, then \"chosen\".",
+    "status": "chosen",
+    "palettes": {
+      "primary": {
+        "combination": 344,
+        "mode": "light"
+      },
+      "seasonal": {
+        "combination": 313,
+        "mode": "light"
+      }
+    }
+  },
+  "typography": {
+    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold).",
+    "pairing": "young-onest",
+    "scale": 1.25
+  }
+}

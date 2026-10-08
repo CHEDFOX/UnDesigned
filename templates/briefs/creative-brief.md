@@ -1,6 +1,6 @@
 # Creative brief
 
-Copy this file for each campaign (e.g. `templates/briefs/2026-11-launch.md`) and fill it in before any design starts. Rule ids refer to the [messaging playbook](../../foundations/messaging/README.md). Brand-level answers come from `config/messaging.json`; this brief is for one campaign.
+Copy this file for each campaign into `products/<product>/campaigns/<campaign>/brief.md` and fill it in before any design starts. Rule ids refer to the [messaging playbook](../../foundations/messaging/README.md). Brand-level answers come from `products/<product>/messaging.json`; this brief is for one campaign.
 
 ---
 

@@ -1,6 +1,7 @@
 <title>UnDesigned Design System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--__PAIRING_FONTS__-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
 /* Layout: a working brand hub. A quiet grey sheet with one sticky section bar;
@@ -230,6 +231,42 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .findings .lv.error { color: var(--err); } .findings .lv.warn { color: var(--warn); } .findings .lv.tip { color: var(--tip); } .findings .lv.pass { color: var(--ok); }
 .findings .src { grid-column: 2; font: 11.5px var(--mono); color: var(--muted); }
 
+/* ---------- brand switcher ---------- */
+.brandswitch { display: flex; align-items: center; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.brandswitch select { border: 1px solid var(--ink); background: var(--sheet); padding: 7px 12px; border-radius: 999px; font: 700 15px var(--body); }
+.swatchrow { display: inline-flex; gap: 0; vertical-align: middle; }
+.swatchrow i { width: 16px; height: 16px; display: inline-block; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+
+/* ---------- typography ---------- */
+.ty-current { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; margin-bottom: 40px; align-items: start; }
+@media (max-width: 860px) { .ty-current { grid-template-columns: minmax(0, 1fr); } }
+.ty-poster { background: var(--p-bg); color: var(--p-text); padding: clamp(20px, 4vw, 40px); display: grid; gap: 14px; min-width: 0; }
+.ty-poster .t-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.ty-poster .t-hero { font-size: clamp(36px, 6vw, 66px); line-height: 1; color: var(--p-ink); margin: 0; text-wrap: balance; overflow-wrap: anywhere; }
+.ty-poster .t-lead { font-size: clamp(17px, 2vw, 21px); line-height: 1.4; margin: 0; max-width: 34ch; }
+.ty-poster .t-body { font-size: 15px; line-height: 1.55; margin: 0; max-width: 52ch; }
+.ty-poster .t-cta { justify-self: start; background: var(--p-accent); color: var(--p-on-accent); padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; }
+.ladder { display: grid; gap: 0; min-width: 0; }
+.ladder div { display: grid; grid-template-columns: 62px minmax(0, 1fr) 70px; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.ladder .k { font: 500 10.5px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.ladder .v { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.15; }
+.ladder .px { font: 11px var(--mono); color: var(--muted); text-align: right; }
+.ty-controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 16px; }
+.ty-controls input { flex: 1 1 260px; min-width: 0; border: 1px solid var(--line); background: var(--sheet); padding: 8px 12px; border-radius: 4px; font-size: 15px; }
+.ty-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 22px; margin-bottom: 40px; }
+.ty-card { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.ty-card .ty-poster { min-height: 260px; align-content: space-between; }
+.ty-card .ty-poster .t-hero { font-size: clamp(32px, 4vw, 44px); }
+.ty-card.current .ty-poster { outline: 3px solid var(--ink); outline-offset: 3px; }
+.ty-meta { display: grid; gap: 4px; font-size: 13.5px; }
+.ty-meta .ty-name { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ty-meta b { font: 700 19px var(--display); }
+.ty-meta .fams { font: 12px var(--mono); color: var(--muted); }
+.ty-meta p { margin: 0; color: var(--muted); }
+.fit { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.fit.core { border-color: var(--ok); color: var(--ok); }
+.fit.inuse { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
 /* ---------- approach ---------- */
 .approach-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 36px; }
 @media (max-width: 800px) { .approach-hero { grid-template-columns: minmax(0, 1fr); } }
@@ -288,16 +325,22 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 
 <header class="masthead">
   <div>
-    <h1><small>Brand hub</small>UnDesigned Design System</h1>
-    <p>Everything the marketing is built from: the Humanist Minimal approach, the colour system, the messaging playbook, a copy checker and the brand message. It is generated from the repository, so it always matches the files designers use.</p>
+    <h1><small>Design system hub</small>UnDesigned Design System</h1>
+    <p>A universal design guide to hand to a designer, or to Claude, with any product: design approach, colour, typography, messaging and copy tools. Pick a product to see the guide applied to it. Generated from the repository, so it always matches the files.</p>
   </div>
   <div class="layers" id="layers"></div>
+  <div class="brandswitch" id="brandswitch">
+    <label class="lbl" for="brand-select">Product</label>
+    <select id="brand-select"></select>
+    <span class="lbl" id="brand-note"></span>
+  </div>
 </header>
 
 <nav class="primary" role="tablist" aria-label="Sections">
   <button type="button" role="tab" data-panel="overview" aria-selected="true">Overview</button>
   <button type="button" role="tab" data-panel="approach" aria-selected="false">Approach</button>
   <button type="button" role="tab" data-panel="colour" aria-selected="false">Colour</button>
+  <button type="button" role="tab" data-panel="typography" aria-selected="false">Typography</button>
   <button type="button" role="tab" data-panel="messaging" aria-selected="false">Messaging</button>
   <button type="button" role="tab" data-panel="checker" aria-selected="false">Copy checker</button>
   <button type="button" role="tab" data-panel="message" aria-selected="false">Brand message</button>
@@ -316,26 +359,36 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="tablewrap"><table class="data">
         <thead><tr><th>Working in</th><th>Use</th></tr></thead>
         <tbody>
-          <tr><td>Illustrator, InDesign, Photoshop, Affinity</td><td><code>dist/design-apps/adobe/</code> print-cmyk or screen-rgb</td></tr>
-          <tr><td>Figma</td><td><code>dist/design-apps/figma/</code></td></tr>
-          <tr><td>Canva</td><td><code>dist/design-apps/canva/brand-colors.txt</code></td></tr>
-          <tr><td>GIMP, Inkscape, Krita</td><td><code>dist/design-apps/gimp-inkscape-krita/</code></td></tr>
-          <tr><td>Websites, HTML posters, emails</td><td><code>dist/web/css/</code></td></tr>
-          <tr><td>Sass, JavaScript, Tailwind</td><td><code>dist/web/</code></td></tr>
-          <tr><td>Briefing a designer or writer</td><td><code>dist/brand-guide/message-sheet.md</code>, <code>templates/briefs/</code></td></tr>
+          <tr><td>Illustrator, InDesign, Photoshop, Affinity</td><td><code>dist/<span class="cur-id"></span>/design-apps/adobe/</code> print-cmyk or screen-rgb</td></tr>
+          <tr><td>Figma</td><td><code>dist/<span class="cur-id"></span>/design-apps/figma/</code></td></tr>
+          <tr><td>Canva</td><td><code>dist/<span class="cur-id"></span>/design-apps/canva/brand-colors.txt</code></td></tr>
+          <tr><td>GIMP, Inkscape, Krita</td><td><code>dist/<span class="cur-id"></span>/design-apps/gimp-inkscape-krita/</code></td></tr>
+          <tr><td>Websites, HTML posters, emails</td><td><code>dist/<span class="cur-id"></span>/web/css/</code></td></tr>
+          <tr><td>Sass, JavaScript, Tailwind</td><td><code>dist/<span class="cur-id"></span>/web/</code></td></tr>
+          <tr><td>Briefing a designer or writer</td><td><code>dist/<span class="cur-id"></span>/brand-guide/message-sheet.md</code>, <code>templates/briefs/</code></td></tr>
         </tbody>
       </table></div>
     </div>
   </div>
+  <h3 style="margin-top:36px">Products using this guide</h3>
+  <p class="lede" style="margin-bottom:12px">Every product, brand or idea is a folder in <code>products/</code> with its own palettes, type, message, assets and campaigns. Add one with <code>npm run new-product -- "Product name"</code>, then <code>npm run build</code>. See <code>GUIDE.md</code> for the full steps.</p>
+  <div class="tablewrap"><table class="data" id="brand-table"></table></div>
   <h3 style="margin-top:36px">Folder map</h3>
   <pre>UnDesigned/
-├── config/              brand.config.json (palettes) · messaging.json (brand message)
-├── foundations/         approach/ (Humanist Minimal) · color/ · messaging/ · typography/ (next) · layout/
+├── products/            one folder per product, brand or idea
+│   ├── _template/       copied by npm run new-product
+│   └── &lt;product&gt;/       brand.json · messaging.json · assets/ · campaigns/
+├── approaches/          design approaches a product can choose
+│   └── humanist-minimal/ approach.json · illustration.mjs · references/
+├── foundations/         shared libraries: color/ · typography/ · messaging/ · layout/ (planned)
 ├── templates/           briefs/ · posters/ · social/ · print/
-├── assets/              logos/ · fonts/ · images/ · references/
 ├── tools/               brand-hub/ (this page)
-├── scripts/             build.mjs · check-copy.mjs
-└── dist/                generated: web/ · design-apps/ · illustration/ · brand-guide/ · tokens/ · brand-hub/</pre>
+├── scripts/             build · new-product · check-copy
+├── GUIDE.md             how a designer uses this guide
+├── CLAUDE.md            how Claude uses this guide
+└── dist/
+    ├── hub/             this page, all products
+    └── &lt;product&gt;/         web/ · design-apps/ · illustration/ · brand-guide/ · tokens/ · brand-hub/</pre>
 </section>
 
 <!-- ================================================================ APPROACH -->
@@ -371,7 +424,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <div class="tablewrap" style="margin-bottom:40px"><table class="data" id="ap-layers"></table></div>
 
   <h3>References</h3>
-  <p class="lede" style="margin-bottom:14px">The pieces this approach is drawn from (stored in <code>assets/references/illustration/</code>). Use them for the feel, not the colours; colours come from the colour system.</p>
+  <p class="lede" style="margin-bottom:14px">The pieces this approach is drawn from (stored in <code>approaches/humanist-minimal/references/</code>). Use them for the feel, not the colours; colours come from the colour system.</p>
   <div class="refs" id="ap-refs"></div>
   <div class="strips" id="ap-strips"></div>
 </section>
@@ -409,6 +462,22 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <p class="note">Colour names and CMYK values follow the Seigensha edition of Wada's book; screen colours are converted from CMYK and differ slightly from print. Roles: <b>bg</b> is the lightest (or darkest) colour, <b>ink</b> the one with most contrast against it, <b>accent</b> the most saturated of the rest. When ink falls below 4.5:1 the badge says so and <b>text</b> falls back to the book's Black or White.</p>
 </section>
 
+<!-- ================================================================ TYPOGRAPHY -->
+<section class="panel" id="panel-typography" hidden>
+  <h2 class="sec">Typography</h2>
+  <p class="lede">Modern, humanist and minimal: open, warm, very readable typefaces, all free Google Fonts. A brand picks one pairing in <code>brand.json</code> (<code>"typography": { "pairing": "..." }</code>); the build makes its CSS, sizes and font list.</p>
+  <div class="ty-current" id="ty-current"></div>
+  <h3>Pairings</h3>
+  <div class="ty-controls">
+    <label class="lbl" for="ty-sample">Try your words</label>
+    <input id="ty-sample" type="text" placeholder="Type a headline to preview in every pairing">
+    <div class="seg" id="ty-fit"><button type="button" data-tyfit="all" aria-pressed="true">All</button><button type="button" data-tyfit="core" aria-pressed="false">Recommended</button></div>
+  </div>
+  <div class="ty-grid" id="ty-grid"></div>
+  <h3>Rules</h3>
+  <ul id="ty-rules" style="margin:0 0 20px;padding-left:20px;font-size:14px;color:var(--muted)"></ul>
+</section>
+
 <!-- ================================================================ MESSAGING -->
 <section class="panel" id="panel-messaging" hidden>
   <h2 class="sec">Messaging playbook</h2>
@@ -442,6 +511,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
       </div>
       <label class="check" for="ck-logo"><input type="checkbox" id="ck-logo"> Logo appears on the layout</label>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <select id="ck-campaign" class="btn" aria-label="Load copy from this brand's campaigns"></select>
         <button type="button" class="btn" data-example="bad">Load weak example</button>
         <button type="button" class="btn" data-example="good">Load strong example</button>
         <button type="button" class="btn primary" id="ck-copy">Copy as .copy.json</button>
@@ -458,7 +528,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <!-- ================================================================ BRAND MESSAGE -->
 <section class="panel" id="panel-message" hidden>
   <h2 class="sec">Brand message</h2>
-  <p class="lede">What UnDesigned says, from <code>config/messaging.json</code>. Blank parts are waiting for answers; once filled in they appear here and in the message sheet for the team.</p>
+  <p class="lede">What the brand says, from <code>products/<span class="cur-id"></span>/messaging.json</code>. Blank parts are waiting for answers; once filled in they appear here and in the message sheet for the team.</p>
   <div class="meter" id="meter"></div>
   <div class="msg-grid">
     <div>
@@ -487,7 +557,8 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 const DATA = /*__DATA__*/null;
 /*__LINT__*/
 /*__ILLUSTRATION__*/
-const P = DATA.prefix;
+let B = DATA.brands[0];   // current brand
+let P = B.prefix;
 const M = DATA.messaging;
 const byId = Object.fromEntries(DATA.colors.map(c => [c.id, c]));
 const familyName = Object.fromEntries(DATA.families.map(f => [f.id, f.name]));
@@ -521,7 +592,7 @@ function luminance(hex) {
 const onColor = hex => (luminance(hex) > 0.35 ? byId.black.hex : byId.white.hex);
 
 /* ------------------------------------------------------------ navigation */
-const PANELS = ['overview', 'approach', 'colour', 'messaging', 'checker', 'message'];
+const PANELS = ['overview', 'approach', 'colour', 'typography', 'messaging', 'checker', 'message'];
 function showPanel(id, push) {
   if (!PANELS.includes(id)) id = 'overview';
   document.querySelectorAll('nav.primary button').forEach(b => b.setAttribute('aria-selected', b.dataset.panel === id));
@@ -541,9 +612,89 @@ function renderOverview() {
   $('#footer').innerHTML = `Built ${esc(DATA.builtAt)} from the UnDesigned repository. Colours: Sanzo Wada, <i>A Dictionary of Color Combinations</i> (Seigensha), data MIT via mattdesl/dictionary-of-colour-combinations. Messaging rules paraphrased from Ogilvy, Miller, Holiday and Sullivan.`;
 }
 
+/* ------------------------------------------------------------ typography */
+const tstate = { sample: '', fit: 'all' };
+const faceCSS = (f, kind) => `font-family:'${f.family}', ${kind === 'mono' ? 'ui-monospace, monospace' : /serif/i.test(f.style) && !/sans/i.test(f.style) ? 'Georgia, serif' : 'system-ui, sans-serif'}`;
+function brandPaletteVars() {
+  const p = DATA.brand.find(b => b.name === 'primary') || DATA.brand[0];
+  return p ? paletteVars(p.roles) : '';
+}
+function sampleCopy() {
+  const c = B.campaigns.find(x => x.piece.headline);
+  return {
+    label: B.name,
+    hero: tstate.sample || (c ? c.piece.headline : 'Good ideas look simple'),
+    lead: c && c.piece.subhead ? c.piece.subhead : 'Very few marks, each one made by a human hand.',
+    body: c && c.piece.body ? c.piece.body : 'Warm, plain and calm: one idea, lots of space, and type that is easy to read from across the room or on a phone.',
+    cta: c && c.piece.cta ? c.piece.cta : 'Start here',
+  };
+}
+function specimen(pr, big) {
+  const t = sampleCopy(), D = pr.display, Bo = pr.body, Mo = pr.mono;
+  const dw = D.weights[D.weights.length > 1 ? 1 : 0];
+  return `<div class="ty-poster" style="${brandPaletteVars()}">
+    <span class="t-label" style="${faceCSS(Mo, 'mono')}">${esc(t.label)} · ${esc(pr.name)}</span>
+    <div style="display:grid;gap:12px"><p class="t-hero" style="${faceCSS(D)};font-weight:${dw};letter-spacing:${D.tracking}em;line-height:${D.leading}">${esc(t.hero)}</p>
+    <p class="t-lead" style="${faceCSS(Bo)};font-weight:${Bo.weights[0]}">${esc(t.lead)}</p>
+    ${big ? `<p class="t-body" style="${faceCSS(Bo)};font-weight:${Bo.weights[0]}">${esc(t.body)}</p>` : ''}</div>
+    <span class="t-cta" style="${faceCSS(Bo)};font-weight:${Bo.weights[Bo.weights.length - 1]}">${esc(t.cta)}</span>
+  </div>`;
+}
+function renderTypography() {
+  const cur = DATA.pairings.find(p => p.id === B.typography.pairing) || DATA.pairings[0];
+  const sizes = B.typography.sizes.web;
+  const order = ['hero', 'display', 'h1', 'h2', 'h3', 'lead', 'body', 'small', 'caption'];
+  const ladder = order.map(k => {
+    const face = ['hero', 'display', 'h1', 'h2'].includes(k) ? cur.display : cur.body;
+    const w = ['hero', 'display', 'h1', 'h2'].includes(k) ? face.weights[face.weights.length > 1 ? 1 : 0] : k === 'h3' ? face.weights[face.weights.length - 1] : face.weights[0];
+    return `<div><span class="k">${k}</span><span class="v" style="${faceCSS(face)};font-weight:${w};font-size:${Math.min(sizes[k], 48)}px">${esc(sampleCopy().hero.split(/\s+/).slice(0, k === 'hero' || k === 'display' ? 2 : 4).join(' '))}</span><span class="px">${sizes[k]}px</span></div>`;
+  }).join('');
+  $('#ty-current').innerHTML = `<div style="min-width:0">${specimen(cur, true)}</div>
+    <div style="min-width:0"><span class="lbl">In use for ${esc(B.name)}</span>
+      <h3 style="margin:6px 0 2px">${esc(cur.name)}</h3>
+      <p style="margin:0 0 4px;font:12px var(--mono);color:var(--muted)">${esc(cur.display.family)} · ${esc(cur.body.family)} · ${esc(cur.mono.family)} · scale ${B.typography.ratio}</p>
+      <p style="margin:0 0 14px;font-size:14px;color:var(--muted)">${esc(cur.mood)}</p>
+      <div class="ladder">${ladder}</div>
+      <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Files: <code>dist/${esc(B.id)}/web/css/typography.css</code> (classes <code>.${esc(P)}-display</code>, <code>.${esc(P)}-h1</code>, <code>.${esc(P)}-body</code> ...) and <code>dist/${esc(B.id)}/design-apps/fonts.txt</code> (install links for Figma, Adobe, Canva).</p>
+    </div>`;
+  const fitLabel = { core: 'Recommended', good: 'Works well', accent: 'Special use' };
+  const list = DATA.pairings.filter(p => tstate.fit === 'all' || p.fit === 'core');
+  $('#ty-grid').innerHTML = list.map(pr => `<article class="ty-card ${pr.id === cur.id ? 'current' : ''}">${specimen(pr, false)}
+    <div class="ty-meta"><div class="ty-name"><b>${esc(pr.name)}</b><span class="fit ${pr.fit}">${fitLabel[pr.fit]}</span>${pr.id === cur.id ? '<span class="fit inuse">In use</span>' : ''}</div>
+      <span class="fams">${esc(pr.display.family)} + ${esc(pr.body.family)}</span>
+      <p>${esc(pr.mood)}</p><p><b style="font:600 13px var(--body);color:var(--ink)">Best for:</b> ${esc(pr.bestFor)}</p>
+      <div><button type="button" class="btn" data-copy='"typography": { "pairing": "${pr.id}", "scale": 1.25 }'>Copy setting</button></div></div>
+  </article>`).join('');
+  $('#ty-rules').innerHTML = DATA.typeRules.map(r => `<li>${esc(r)}</li>`).join('');
+}
+
+/* ------------------------------------------------------------ brands */
+function renderBrandTable() {
+  const sw = p => { const c = DATA.combinations.find(x => x.id === p.combination); return `<span class="swatchrow">${c.colors.map(id => `<i style="background:${byId[id].hex}"></i>`).join('')}</span>`; };
+  const pair = id => (DATA.pairings.find(p => p.id === id) || {}).name || id;
+  $('#brand-table').innerHTML = '<thead><tr><th>Product</th><th>Folder</th><th>Approach</th><th>Palettes</th><th>Type</th><th>Message</th><th>Campaign copy</th></tr></thead><tbody>' +
+    DATA.brands.map(b => `<tr><td><b>${esc(b.name)}</b>${b.id === B.id ? ' <span class="fit inuse">Showing</span>' : ''}</td><td class="num">products/${esc(b.id)}</td><td>${esc(DATA.approaches[b.approach].data.name)}</td>
+      <td>${b.palettes.map(sw).join(' ')}${b.colorStatus === 'placeholder' ? ' <span class="lbl">stand-in</span>' : ''}</td><td>${esc(pair(b.typography.pairing))}</td><td class="num">${b.fill.filled} / ${b.fill.total}</td><td class="num">${b.campaigns.length} file${b.campaigns.length === 1 ? '' : 's'}</td></tr>`).join('') + '</tbody>';
+}
+function useBrand(id, first) {
+  B = DATA.brands.find(b => b.id === id) || DATA.brands[0];
+  P = B.prefix;
+  DATA.brand = B.palettes; DATA.ctx = B.ctx; DATA.layers = B.layers; M.message = B.message;
+  const ap = DATA.approaches[B.approach];
+  A = { data: ap.data, images: ap.images, palettes: B.illPalettes };
+  ill = APPROACH_LIBS[B.approach](A.data, A.palettes.primary || Object.values(A.palettes)[0]);
+  cstate.stars = new Set(store.get('wada-stars-' + B.id, []));
+  astate.pv = 'brand:' + (B.palettes.find(p => p.name === 'primary') || B.palettes[0]).name;
+  $('#brand-select').value = B.id;
+  $('#brand-note').textContent = B.sample ? 'Sample brand (invented)' : '';
+  document.querySelectorAll('.cur-id').forEach(el => (el.textContent = B.id));
+  $('#star-count').textContent = cstate.stars.size;
+  store.set('hub-brand', B.id);
+  renderOverview(); renderBrandTable(); setupApproach(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderMessaging(); setupChecker(); renderMessage();
+}
+
 /* ------------------------------------------------------------ approach */
-const A = DATA.approach;
-const ill = createIllustrator(A.data, A.palettes.primary || Object.values(A.palettes)[0]);
+let A, ill;
 const astate = { pv: 'brand:primary', mode: 'light', run: 0 };
 function illPalette() {
   const [kind, val] = astate.pv.split(':');
@@ -577,8 +728,8 @@ function renderIllustrations() {
 }
 
 /* ------------------------------------------------------------ colour */
-const cstate = { groupBy: 'family', size: 0, mode: 'light', q: '', color: null, starredOnly: false, stars: new Set(store.get('wada-stars', [])) };
-const saveStars = () => store.set('wada-stars', [...cstate.stars]);
+const cstate = { groupBy: 'family', size: 0, mode: 'light', q: '', color: null, starredOnly: false, stars: new Set() };
+const saveStars = () => store.set('wada-stars-' + B.id, [...cstate.stars]);
 
 function paletteVars(roles) {
   const h = id => byId[id].hex;
@@ -602,9 +753,9 @@ function renderBrandCard() {
   const { inner } = posterHTML(c, p.mode, true);
   const roles = [['bg', p.roles.bg], ['ink', p.roles.ink], ['accent', p.roles.accent], ['text', p.roles.text], ...p.roles.support.map((s, i) => ['support ' + (i + 1), s])];
   $('#brandcard').innerHTML = `<div class="brandcard"><div class="poster" style="${paletteVars(p.roles)}">${inner}</div><div>
-    <span class="lbl">Current brand palette · ${esc(p.name)} · ${p.mode}</span>
+    <span class="lbl">${esc(B.name)} · palette ${esc(p.name)} · ${p.mode}${DATA.brand.length > 1 ? ` · +${DATA.brand.length - 1} more` : ''}</span>
     <h3 style="margin:6px 0 0">Combination No. ${c.code}</h3>
-    <p style="margin:4px 0 0;color:var(--muted);font-size:14px">A stand-in until you choose. Set it in <code>config/brand.config.json</code>.</p>
+    <p style="margin:4px 0 0;color:var(--muted);font-size:14px">${B.colorStatus === 'placeholder' ? 'A stand-in until you choose. ' : ''}Set in <code>products/${esc(B.id)}/brand.json</code>.</p>
     <div class="roles">${roles.map(([k, id]) => `<div class="role"><i style="background:${byId[id].hex}"></i><b>${k}</b><span>${esc(byId[id].name)} <span class="mono">${byId[id].hex}</span></span></div>`).join('')}</div>
   </div></div>`;
 }
@@ -693,7 +844,7 @@ function openDetail(id, mode) {
         <div class="droles">${role('bg', r.bg)}${role('ink', r.ink)}${role('accent', r.accent)}${role('text', r.text)}
           <span><b>contrast</b>ink ${r.contrast.inkOnBg}:1 · accent ${r.contrast.accentOnBg}:1</span></div>
         <div class="tablewrap"><table class="cols"><thead><tr><th></th><th>Name</th><th>Hex</th><th>RGB</th><th>CMYK (print)</th><th>Family</th></tr></thead><tbody>${rows}</tbody></table></div>
-        <div class="snip"><header>Use as brand palette (config/brand.config.json, color.palettes)<button type="button" class="btn" data-copy-snip="config">Copy</button></header><pre>${esc(snips.config)}</pre></div>
+        <div class="snip"><header>Use as brand palette (products/&lt;brand&gt;/brand.json, color.palettes)<button type="button" class="btn" data-copy-snip="config">Copy</button></header><pre>${esc(snips.config)}</pre></div>
         <div class="snip"><header>Use in HTML<button type="button" class="btn" data-copy-snip="html">Copy</button></header><pre>${esc(snips.html)}</pre></div>
         <div class="snip"><header>Roles and hex<button type="button" class="btn" data-copy-snip="hex">Copy</button></header><pre>${esc(snips.hex)}</pre></div>
         <p style="margin-top:16px"><button type="button" class="btn ${on ? '' : 'primary'}" data-star="${c.id}" aria-pressed="${on}">${on ? '★ In shortlist' : '☆ Add to shortlist'}</button></p>
@@ -744,7 +895,8 @@ function setupChecker() {
   const pals = DATA.brand.map(p => `<option value="brand:${p.name}">Brand: ${esc(p.name)} (No. ${String(p.combination).padStart(3, '0')})</option>`);
   const starred = [...cstate.stars].sort((a, b) => a - b).flatMap(n => [`<option value="combo:${n}:light">No. ${String(n).padStart(3, '0')}, light</option>`, `<option value="combo:${n}:dark">No. ${String(n).padStart(3, '0')}, dark</option>`]);
   $('#ck-palette').innerHTML = pals.join('') + (starred.length ? `<optgroup label="Your shortlist">${starred.join('')}</optgroup>` : '');
-  const saved = store.get('hub-checker', null);
+  const saved = store.get('hub-checker-' + B.id, null);
+  $('#ck-campaign').innerHTML = `<option value="">${B.campaigns.length ? 'Load from ' + esc(B.name) + ' campaigns' : 'No campaign copy yet'}</option>` + B.campaigns.map((c, i) => `<option value="${i}">${esc(c.path)}</option>`).join('');
   loadPiece(saved || EXAMPLES.bad);
 }
 function loadPiece(p) {
@@ -797,7 +949,7 @@ function runChecker() {
     const rule = r.principle && ruleById[r.principle];
     return `<li><span class="lv ${r.level}">${r.level.toUpperCase()}</span><span>${esc(r.message)}</span>${rule ? `<span class="src">${r.principle} · ${esc(bookById[rule.book].title)}</span>` : ''}</li>`;
   }).join('') : '<li><span class="lv pass">PASS</span><span>Meets every rule the checker can test.</span></li>';
-  store.set('hub-checker', { ...piece, palette: typeof piece.palette === 'string' ? piece.palette : null, paletteValue: pv });
+  store.set('hub-checker-' + B.id, { ...piece, palette: typeof piece.palette === 'string' ? piece.palette : null, paletteValue: pv });
 }
 
 /* ------------------------------------------------------------ brand message */
@@ -845,6 +997,7 @@ document.addEventListener('click', e => {
   else if (t.dataset.color) { cstate.color = t.dataset.color; renderColorFilter(); setSubtab('combos'); renderCombos(); }
   else if (t.dataset.rf) { const [k, v] = t.dataset.rf.split(':'); rstate[k] = v; renderMessaging(); }
   else if (t.dataset.example) loadPiece(EXAMPLES[t.dataset.example]);
+  else if (t.dataset.tyfit) { tstate.fit = t.dataset.tyfit; document.querySelectorAll('#ty-fit button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderTypography(); }
   else if (t.dataset.apmode) { astate.mode = t.dataset.apmode; document.querySelectorAll('#ap-mode button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderIllustrations(); }
   else if (t.id === 'ap-replay') renderIllustrations();
   else if (t.id === 'clear-color') { cstate.color = null; renderColorFilter(); renderCombos(); }
@@ -876,10 +1029,15 @@ $('#ck-form').addEventListener('change', runChecker);
 $('#ck-form').addEventListener('submit', e => e.preventDefault());
 window.addEventListener('hashchange', () => showPanel(location.hash.slice(1)));
 
+$('#brand-select').innerHTML = DATA.brands.map(b => `<option value="${b.id}">${esc(b.name)}</option>`).join('');
+$('#brandswitch').hidden = DATA.brands.length < 2;
+$('#brand-select').addEventListener('change', e => useBrand(e.target.value));
+$('#ck-campaign').addEventListener('change', e => { const c = B.campaigns[+e.target.value]; if (c) loadPiece(c.piece); e.target.value = ''; });
+$('#ty-sample').addEventListener('input', e => { tstate.sample = e.target.value.trim(); renderTypography(); });
 $('#n-colors').textContent = DATA.colors.length;
 $('#n-families').textContent = DATA.families.length;
 $('#n-combos').textContent = DATA.combinations.length;
 $('#star-count').textContent = cstate.stars.size;
-renderOverview(); setupApproach(); renderBrandCard(); renderCombos(); renderColors(); renderMessaging(); setupChecker(); renderMessage();
+useBrand(store.get('hub-brand', DATA.brands[0].id), true);
 showPanel(location.hash.slice(1) || store.get('hub-panel', 'overview'));
 </script>

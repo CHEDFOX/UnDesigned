@@ -1,0 +1,16 @@
+Paste these hex codes into Canva > Brand Kit > Colours.
+
+primary (combination 344, light)
+  bg         #fdc57e  Cinnamon Buff
+  ink        #111314  Black
+  accent     #1c4286  Deep Lyons Blue
+  text       #111314  Black
+  support-1  #a36aa5  Aconite Violet
+
+seasonal (combination 313, light)
+  bg         #fff200  Yellow
+  ink        #111314  Black
+  accent     #cc1236  Carmine
+  text       #111314  Black
+  support-1  #1a7444  Diamine Green
+

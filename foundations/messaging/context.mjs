@@ -1,4 +1,4 @@
-// Loads the messaging sources and config/messaging.json into one object.
+// Loads the messaging sources and a brand's messaging.json into one object.
 // Shared by build.mjs and scripts/check-copy.mjs.
 
 import { readFileSync } from 'node:fs';
@@ -9,12 +9,12 @@ import { formatIndex } from './lint.mjs';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const readJSON = (p) => JSON.parse(readFileSync(p, 'utf8'));
 
-export function loadMessaging(root, brandConfig) {
+export function loadMessaging(root, brand) {
   const principles = readJSON(join(HERE, 'source/principles.json'));
   const formats = readJSON(join(HERE, 'source/formats.json')).groups;
   const words = readJSON(join(HERE, 'source/cliches.json'));
-  const message = readJSON(join(root, 'config/messaging.json'));
-  const config = brandConfig || readJSON(join(root, 'config/brand.config.json'));
+  const message = { brandName: brand.config.name, ...readJSON(join(brand.dir, 'messaging.json')) };
+  const config = brand.config;
 
   const paletteModes = {};
   for (const [name, p] of Object.entries((config.color || {}).palettes || {})) paletteModes[name] = p.mode === 'dark' ? 'dark' : 'light';
@@ -24,7 +24,7 @@ export function loadMessaging(root, brandConfig) {
     cliches: words.cliches,
     dated: words.dated,
     weakCtas: words.weakCtas,
-    brandNames: [message.brandName, ...(message.brandNameVariants || [])].filter(Boolean),
+    brandNames: [config.name, ...(config.nameVariants || [])].filter(Boolean),
     avoidWords: ((message.voice || {}).avoidWords || []).map((w) => w.toLowerCase()),
     paletteModes,
   };
