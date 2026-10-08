@@ -88,6 +88,29 @@
       "dont": "Jargon, hype, exclamation marks."
     }
   ],
+  "status": "complete",
+  "evidence": {
+    "scores": {
+      "curves": 2,
+      "simplicity": 2,
+      "maya": 2,
+      "nature": 1,
+      "handmade": 2,
+      "colour": 1,
+      "glance": 2
+    },
+    "notes": {
+      "curves": "Organic shapes and rounded corners are a core rule (H5).",
+      "simplicity": "One idea, at most three objects, at least 40% empty ground (H2, H4).",
+      "maya": "Familiar formats and plain symbols, with the surprise kept to one metaphor (H3).",
+      "nature": "The wobbling line has natural mid-range roughness, but there is no other natural texture.",
+      "handmade": "Hand-drawn line and cut paper throughout (H1).",
+      "colour": "Depends on the Wada combination chosen; some pairs are muddy or low-contrast.",
+      "glance": "One focal point and a flat ground read within a glance."
+    },
+    "beyondPreference": "Warmth and trust: visible human marks signal care (handmade effect), which suits products that want to feel personal.",
+    "watch": "Can drift into cute; Wada pairs vary in contrast."
+  },
   "references": [
     {
       "file": "still-sound-bubble.jpg",
@@ -269,6 +292,81 @@
         "One combination per piece.",
         "No gradients, shadows, glows or transparency effects.",
         "Text colour on the ground uses the combination's text role (AA contrast)."
+      ],
+      "method": "Pick a combination with a calm, light ground (sky, paper, stone or sand tones), a dark ink-like colour that passes AA on it, and one warm accent for the single coloured object. Muted grounds keep the white paper and black ink as the stars, as in the references (greige, dusty blue, terracotta).",
+      "recommendedCombinations": [
+        {
+          "combination": 232,
+          "colours": [
+            "Carmine",
+            "Pinkish Cinnamon",
+            "Deep Indigo"
+          ],
+          "reason": "Warm sand ground, deep indigo text, one carmine object: closest to the terracotta references."
+        },
+        {
+          "combination": 221,
+          "colours": [
+            "Carmine Red",
+            "Neutral Gray",
+            "Black"
+          ],
+          "reason": "Stone-grey ground like the dusty-blue reference; black text at 9.95:1."
+        },
+        {
+          "combination": 268,
+          "colours": [
+            "Nile Blue",
+            "Deep Slate Olive",
+            "Raw Sienna"
+          ],
+          "reason": "Pale sky ground, near-black olive ink, warm sienna accent."
+        },
+        {
+          "combination": 310,
+          "colours": [
+            "Sulpher Yellow",
+            "Deep Slate Olive",
+            "Olive"
+          ],
+          "reason": "Paper-like pale yellow ground with 11.5:1 ink; very calm."
+        },
+        {
+          "combination": 343,
+          "colours": [
+            "Ivory Buff",
+            "Vandar Poel's Blue",
+            "Burnt Sienna"
+          ],
+          "reason": "Linen ground like the apple-book reference, blue ink, sienna accent."
+        },
+        {
+          "combination": 344,
+          "colours": [
+            "Cinnamon Buff",
+            "Black",
+            "Deep Lyons Blue"
+          ],
+          "reason": "Warm buff ground with black ink; the blue accent stays a single object."
+        },
+        {
+          "combination": 207,
+          "colours": [
+            "Glaucous Green",
+            "Black",
+            "Sudan Brown"
+          ],
+          "reason": "Soft sage ground, strong black ink, earthy accent."
+        },
+        {
+          "combination": 152,
+          "colours": [
+            "Light Glaucous Blue",
+            "Hay's Russet",
+            "Etruscan Red"
+          ],
+          "reason": "Dusty blue ground close to the globe reference."
+        }
       ]
     },
     "texture": {
