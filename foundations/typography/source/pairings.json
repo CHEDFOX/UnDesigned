@@ -1,5 +1,5 @@
 {
-  "$comment": "Typeface pairings shared by every approach. All are free Google Fonts under the SIL Open Font License, so they work on the web, in print and in Figma/Adobe after installing. A product picks one in products/<product>/brand.json -> typography.pairing. How well each suits a style is rated in approaches/<id>/typography.json (fit), not here. Designer credits come from Google Fonts listings and the designers' repositories.",
+  "$comment": "Typeface pairings shared by every approach. All are free Google Fonts (SIL Open Font License, except a few Apache-2.0 accent fonts noted per family), so they work on the web, in print and in Figma/Adobe after installing. A product picks one in products/<product>/brand.json -> typography.pairing. How well each suits a style is rated in approaches/<id>/typography.json (fit), not here. Designer credits come from Google Fonts listings and the designers' repositories.",
   "pairings": [
     {
       "id": "bricolage-figtree",
@@ -48,7 +48,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "instrument",
@@ -93,7 +96,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "source",
@@ -139,7 +145,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "young-onest",
@@ -183,7 +192,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "nunito",
@@ -229,7 +241,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "alegreya",
@@ -274,7 +289,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "schibsted",
@@ -318,7 +336,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "fraunces-commissioner",
@@ -367,7 +388,10 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
     },
     {
       "id": "plex",
@@ -408,7 +432,924 @@
           400,
           500
         ]
-      }
+      },
+      "proposedBy": [
+        "humanist-minimal"
+      ]
+    },
+    {
+      "id": "jost",
+      "name": "Geometric (Jost)",
+      "mood": "Clean, constructed and calm. One geometric family inspired by 1920s German sans-serifs, used bold for headlines and regular for text: hierarchy from size and weight alone.",
+      "bestFor": "Bauhaus-style posters, architecture, furniture, design studios, culture, education.",
+      "display": {
+        "family": "Jost",
+        "weights": [
+          600,
+          700,
+          800
+        ],
+        "italic": true,
+        "style": "Geometric sans",
+        "case": "Sentence case, or all lowercase for headlines",
+        "tracking": -0.02,
+        "leading": 1.0,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-900",
+          "ital"
+        ],
+        "notes": "Described by its designer as inspired by the 1920s German sans-serifs; an original interpretation in the Futura tradition, not a copy. Variable since version 3.0."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [
+          400,
+          500
+        ],
+        "style": "Same family",
+        "tracking": 0.005,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-900",
+          "ital"
+        ],
+        "notes": "Small x-height for a text face: set body one step larger than with a grotesque (17-18 px on screen)."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "bauhaus",
+        "commercial-modernism"
+      ]
+    },
+    {
+      "id": "spartan-jost",
+      "name": "Heavy Geometric",
+      "mood": "Loud and direct. A heavy early-20th-century geometric sans for headlines over Jost for text. For posters that need to be read from across a room.",
+      "bestFor": "Events, posters, signage, campaigns with one big message.",
+      "display": {
+        "family": "League Spartan",
+        "weights": [
+          700,
+          800,
+          900
+        ],
+        "style": "Heavy geometric sans",
+        "case": "Sentence case, or all lowercase for headlines",
+        "tracking": -0.03,
+        "leading": 0.95,
+        "designer": "Matt Bailey and Tyler Finck (The League of Moveable Type)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght"
+        ],
+        "notes": "Based on Matt Bailey's Spartan, itself based on early 20th-century American geometric sans-serifs (ATF Spartan). Variable since 2020."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [
+          400,
+          500
+        ],
+        "style": "Geometric sans",
+        "tracking": 0.005,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-900",
+          "ital"
+        ]
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "bauhaus"
+      ]
+    },
+    {
+      "id": "limelight-jost",
+      "name": "Deco Marquee",
+      "mood": "A high-contrast Art Deco display face for the brand word, with a geometric sans for everything else. Glamour kept to one word.",
+      "bestFor": "Travel, hotels, theatre and cinema, drinks, events.",
+      "display": {
+        "family": "Limelight",
+        "weights": [
+          400
+        ],
+        "style": "High-contrast Art Deco geometric display",
+        "case": "Capitals or title for the brand word only (1-3 words); never for sentences",
+        "tracking": 0.08,
+        "leading": 1.0,
+        "designer": "Nicole Fally, Sorkin Type",
+        "classification": "Art Deco display",
+        "axes": [],
+        "notes": "Single weight (400). Extreme contrast: use at 24 px / 18 pt and above."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Geometric sans, Futura-inspired",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-900"
+        ],
+        "notes": "Jost 700 sets the slogan; Limelight sets only the brand word."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "commercial-modernism"
+      ]
+    },
+    {
+      "id": "bodoni-jost",
+      "name": "Bazaar Editorial",
+      "mood": "Didone display over geometric sans: the 1930s fashion-magazine pairing. Elegant, high contrast, lots of white space.",
+      "bestFor": "Fashion, beauty, editorial, galleries, premium goods.",
+      "display": {
+        "family": "Bodoni Moda",
+        "weights": [
+          600,
+          700,
+          800
+        ],
+        "italic": true,
+        "style": "Didone with optical sizes",
+        "case": "Sentence case; italic for one emphasised word",
+        "tracking": -0.01,
+        "leading": 1.0,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Didone",
+        "axes": [
+          "opsz 6-96",
+          "wght 400-900"
+        ],
+        "notes": "Use the large optical size for headlines; hairlines break up below about 18 px at small opsz settings."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [
+          400,
+          500
+        ],
+        "style": "Geometric sans, Futura-inspired",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-900"
+        ]
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "commercial-modernism"
+      ]
+    },
+    {
+      "id": "spartan-caslon",
+      "name": "Mid-century Advertising",
+      "mood": "Confident and warm. A heavy geometric sans in the American Spartan and Futura tradition over a Caslon drawn from 1950s advertising lettering, with a lively italic for subheads.",
+      "bestFor": "Most mid-century work: posters, book and packaging design, websites, editorial.",
+      "display": {
+        "family": "League Spartan",
+        "weights": [
+          700,
+          800,
+          900
+        ],
+        "style": "Geometric sans",
+        "case": "Sentence case; letter-spaced capitals for labels",
+        "tracking": -0.02,
+        "leading": 0.98,
+        "designer": "Matt Bailey, Tyler Finck (The League of Moveable Type)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-900"
+        ],
+        "notes": "The League of Moveable Type's interpretation of Matt Bailey's Spartan, based on early 20th-century American geometric sans serifs (ATF and Linotype Spartan were Futura competitors)."
+      },
+      "body": {
+        "family": "Libre Caslon Text",
+        "weights": [
+          400,
+          700
+        ],
+        "style": "Old-style serif with italic",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Pablo Impallari",
+        "classification": "Old-style serif",
+        "axes": [
+          "wght 400-700"
+        ],
+        "notes": "Based on hand-lettering artists' interpretations of Caslon typical of 1950s advertising, not on 18th-century specimens. Companion display family: Libre Caslon Display (Impallari Type)."
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weights": [
+          400,
+          700
+        ]
+      },
+      "proposedBy": [
+        "mid-century-modernism"
+      ]
+    },
+    {
+      "id": "boogaloo-jost",
+      "name": "Album Cover",
+      "mood": "Playful and loud for a few words, calm for the rest. Boogaloo's drawn letters follow 1960s LP-cover lettering; Jost is a clean Futura-style sans for everything else.",
+      "bestFor": "Music, food, events, children's products, packaging; short headlines only.",
+      "display": {
+        "family": "Boogaloo",
+        "weights": [
+          400
+        ],
+        "style": "Hand-lettered display sans",
+        "case": "Sentence case; headlines of six words or fewer",
+        "tracking": 0,
+        "leading": 0.95,
+        "designer": "John Vargas Beltrán",
+        "classification": "Display lettering",
+        "axes": [],
+        "notes": "Structure of classic American lettering found on 1960s LP covers of Latin music. Single weight; never for body or more than one line of six words."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Geometric sans",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-900"
+        ],
+        "notes": "Inspired by 1920s German sans serifs (the Futura tradition); variable since 2020 with Mirko Velimirovic."
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weights": [
+          400,
+          700
+        ]
+      },
+      "proposedBy": [
+        "mid-century-modernism"
+      ]
+    },
+    {
+      "id": "archivo-courier",
+      "name": "Cut and Paste",
+      "mood": "Newspaper headline cut into strips, with typewritten labels. Bold, plain and documentary; the default for this approach.",
+      "bestFor": "Scrapbook posters, social collage, zines, events, local businesses.",
+      "display": {
+        "family": "Archivo",
+        "weights": [
+          800,
+          900
+        ],
+        "style": "Grotesque with a width axis, from extra condensed to expanded",
+        "case": "Sentence case",
+        "tracking": -0.02,
+        "leading": 1.0,
+        "designer": "Omnibus-Type",
+        "classification": "Grotesque",
+        "axes": [
+          "wght 100-900",
+          "wdth 62-125"
+        ],
+        "notes": "Use widths 75-100 for headline strips; heavy weights survive rotation and overlap."
+      },
+      "body": {
+        "family": "Archivo",
+        "weights": [
+          400,
+          500
+        ],
+        "style": "Same family, normal width",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Omnibus-Type",
+        "classification": "Grotesque",
+        "axes": [
+          "wght 100-900",
+          "wdth 62-125"
+        ]
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weights": [
+          400,
+          700
+        ]
+      },
+      "proposedBy": [
+        "scrapbook"
+      ]
+    },
+    {
+      "id": "anton-worksans",
+      "name": "Zine",
+      "mood": "A tall, condensed poster headline in sentence case, a friendly grotesque for text, and a worn typewriter for labels. Loud but legible.",
+      "bestFor": "Music, events, campaigns, youth brands, flyers.",
+      "display": {
+        "family": "Anton",
+        "weights": [
+          400
+        ],
+        "style": "Condensed heavy sans (single weight)",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 0.98,
+        "designer": "Vernon Adams",
+        "classification": "Condensed display sans",
+        "axes": [],
+        "notes": "Single weight; very tall x-height. Keep headlines to 2-3 strips. The mono, Special Elite (Astigmatic), is a worn typewriter face under the Apache License 2.0 rather than OFL (still free for commercial use); labels and stamps only, never body text."
+      },
+      "body": {
+        "family": "Work Sans",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Grotesque, slightly wide, optimised for screen at text sizes",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Wei Huang",
+        "classification": "Grotesque",
+        "axes": [
+          "wght 100-900"
+        ]
+      },
+      "mono": {
+        "family": "Special Elite",
+        "weights": [
+          400
+        ]
+      },
+      "proposedBy": [
+        "scrapbook"
+      ]
+    },
+    {
+      "id": "dmserif-dmsans",
+      "name": "Clippings",
+      "mood": "A heavy, high-contrast serif like a magazine headline, with a clean sans and a quiet mono. For softer, journal-like collage.",
+      "bestFor": "Lifestyle, food, travel, gifts, journaling products.",
+      "display": {
+        "family": "DM Serif Display",
+        "weights": [
+          400
+        ],
+        "italic": true,
+        "style": "High-contrast display serif",
+        "case": "Sentence case; italic for one emphasised word",
+        "tracking": -0.01,
+        "leading": 1.02,
+        "designer": "Colophon Foundry",
+        "classification": "Display serif",
+        "axes": [],
+        "notes": "Use at 28 px / 20 pt and above, on clean paper strips; hairlines are thin."
+      },
+      "body": {
+        "family": "DM Sans",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Low-contrast geometric sans",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Colophon Foundry",
+        "classification": "Geometric sans",
+        "axes": [
+          "wght 100-1000",
+          "opsz 9-40"
+        ]
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "scrapbook"
+      ]
+    },
+    {
+      "id": "rozha-mukta",
+      "name": "Bazaar Signboard",
+      "mood": "Bold, high-contrast display letters like a hand-painted cinema hoarding or shop sign, with a calm humanist body. Latin and Devanagari designed to sit together.",
+      "bestFor": "Posters, packaging, food, fashion and cultural events in this style; bilingual Latin and Hindi or Marathi headlines.",
+      "display": {
+        "family": "Rozha One",
+        "weights": [
+          400
+        ],
+        "style": "High-contrast didone display with Devanagari",
+        "case": "Sentence case",
+        "tracking": -0.01,
+        "leading": 1.0,
+        "designer": "Indian Type Foundry (Devanagari: Tim Donaldson and Jyotish Sonowal; Latin: Shiva Nallaperumal)",
+        "classification": "Display didone",
+        "axes": [],
+        "notes": "Single weight that is already heavy. Latin recalls 19th-century poster lettering. Very tall x-height; use at large sizes on screen. On Google Fonts since 2014."
+      },
+      "body": {
+        "family": "Mukta",
+        "weights": [
+          400,
+          600,
+          700
+        ],
+        "style": "Humanist, mono-linear sans with Devanagari",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Ek Type (Girish Dalvi and Yashodeep Gholap)",
+        "classification": "Humanist sans",
+        "axes": [],
+        "notes": "Seven static weights (200-800). Sister families: Mukta Vaani (Gujarati), Mukta Mahee (Gurmukhi), Mukta Malar (Tamil)."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "desi-maximalism"
+      ]
+    },
+    {
+      "id": "yatra-baloo",
+      "name": "Painted Railway Sign",
+      "mood": "Brush-cut display letters from Mumbai's hand-painted railway signs over a rounded, friendly body. Warm, local, a little playful.",
+      "bestFor": "Street food, cafés, community events, kids and family brands, social posts.",
+      "display": {
+        "family": "Yatra One",
+        "weights": [
+          400
+        ],
+        "style": "Heavy brush-cut display with Devanagari",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.05,
+        "designer": "Catherine Leigh Schmidt",
+        "classification": "Display (signpainting)",
+        "axes": [],
+        "notes": "Inspired by hand-painted Mumbai railway signs; the Latin borrows the Devanagari brush angle. Single weight. On Google Fonts since 2016."
+      },
+      "body": {
+        "family": "Baloo 2",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Rounded sans with Devanagari",
+        "tracking": 0,
+        "leading": 1.45,
+        "designer": "Ek Type",
+        "classification": "Rounded sans",
+        "axes": [
+          "wght 400-800"
+        ],
+        "notes": "Variable weight. Sister families cover nine Indic scripts plus Arabic (Baloo Bhai 2, Baloo Paaji 2, Baloo Thambi 2, etc.)."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "desi-maximalism"
+      ]
+    },
+    {
+      "id": "poppins-mukta",
+      "name": "Matchbox Geometric",
+      "mood": "Heavy geometric letters like a modern matchbox or sticker label, with a humanist body for reading.",
+      "bestFor": "Apps, launches, fashion and music in a pop-maximal register; labels and stickers.",
+      "display": {
+        "family": "Poppins",
+        "weights": [
+          700,
+          800
+        ],
+        "italic": true,
+        "style": "Geometric sans with Devanagari",
+        "case": "Sentence case",
+        "tracking": -0.02,
+        "leading": 1.0,
+        "designer": "Indian Type Foundry (Latin: Jonny Pinhorn; Devanagari: Ninad Kale)",
+        "classification": "Geometric sans",
+        "axes": [],
+        "notes": "Nine static weights with italics. One of the first Devanagari typefaces with a full range of weights. On Google Fonts since 2015."
+      },
+      "body": {
+        "family": "Mukta",
+        "weights": [
+          400,
+          600
+        ],
+        "style": "Humanist, mono-linear sans with Devanagari",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Ek Type (Girish Dalvi and Yashodeep Gholap)",
+        "classification": "Humanist sans",
+        "axes": []
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "desi-maximalism"
+      ]
+    },
+    {
+      "id": "titan-rubik",
+      "name": "Surf Shop",
+      "mood": "Fat, brush-born display letters like a hand-painted board-shop sign, over a rounded, friendly sans. The default for this approach.",
+      "bestFor": "Posters, merch, social, packaging for playful consumer brands.",
+      "display": {
+        "family": "Titan One",
+        "weights": [
+          400
+        ],
+        "style": "Heavy rounded display inspired by broad-brush lettering",
+        "case": "Sentence case; capitals for 1-3 word stickers",
+        "tracking": 0,
+        "leading": 0.98,
+        "designer": "Rodrigo Fuenzalida",
+        "classification": "Display (heavy rounded)",
+        "axes": [],
+        "notes": "One weight only. On Google Fonts since 2012."
+      },
+      "body": {
+        "family": "Rubik",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Sans with slightly rounded corners",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Hubert and Fischer (with Meir Sadan, Cyreal, Daniel Grumer, Omaima Dajani)",
+        "classification": "Rounded grotesque",
+        "axes": [
+          "wght 300-900"
+        ]
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weights": [
+          400,
+          700
+        ]
+      },
+      "proposedBy": [
+        "neon-surf"
+      ]
+    },
+    {
+      "id": "shrikhand-rubik",
+      "name": "Sticker Script",
+      "mood": "A bold, curvy, italic display with bounce, for slapped-on stickers and logotypes; the most 'rad' option. Use for headlines of five words or fewer.",
+      "bestFor": "Logotypes, stickers, short headlines, event posters.",
+      "display": {
+        "family": "Shrikhand",
+        "weights": [
+          400
+        ],
+        "style": "Heavy, curvy italic display",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.0,
+        "designer": "Jonny Pinhorn",
+        "classification": "Display (heavy italic)",
+        "axes": [],
+        "notes": "Latin and Gujarati; drawn from hand-painted Gujarati street lettering. One weight. On Google Fonts since 2016. Respect its origin: do not use the Gujarati glyphs as decoration."
+      },
+      "body": {
+        "family": "Rubik",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Sans with slightly rounded corners",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Hubert and Fischer (with Meir Sadan, Cyreal, Daniel Grumer, Omaima Dajani)",
+        "classification": "Rounded grotesque",
+        "axes": [
+          "wght 300-900"
+        ]
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weights": [
+          400,
+          700
+        ]
+      },
+      "proposedBy": [
+        "neon-surf"
+      ]
+    },
+    {
+      "id": "lilita-nunito-sans",
+      "name": "Board Shorts",
+      "mood": "A sturdy, slightly condensed humanist display that fits long headlines on a tilt, with a soft, clear body. The calmest option for text-heavier work.",
+      "bestFor": "Web pages, banners, longer headlines, menus and price lists.",
+      "display": {
+        "family": "Lilita One",
+        "weights": [
+          400
+        ],
+        "style": "Heavy, slightly condensed humanist display",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.0,
+        "designer": "Juan Montoreano",
+        "classification": "Display (condensed heavy)",
+        "axes": [],
+        "notes": "One weight. On Google Fonts since 2012."
+      },
+      "body": {
+        "family": "Nunito Sans",
+        "weights": [
+          400,
+          600,
+          700
+        ],
+        "style": "Humanist-geometric sans",
+        "tracking": 0,
+        "leading": 1.55,
+        "designer": "Vernon Adams, Jacques Le Bailly, Manvel Shmavonyan, Alexei Vanyashin",
+        "classification": "Humanist-geometric sans",
+        "axes": [
+          "wght 200-1000",
+          "wdth 75-125",
+          "opsz 6-12",
+          "YTLC 440-540"
+        ]
+      },
+      "mono": {
+        "family": "Space Mono",
+        "weights": [
+          400,
+          700
+        ]
+      },
+      "proposedBy": [
+        "neon-surf"
+      ]
+    },
+    {
+      "id": "anton-archivo",
+      "name": "Protest Poster",
+      "mood": "Loud, urgent and plain. A tall, condensed advertising gothic for big headlines over a sturdy grotesque with width and weight axes.",
+      "bestFor": "Posters, gig and event posters, social posts, campaigns that need to shout clearly.",
+      "display": {
+        "family": "Anton",
+        "weights": [
+          400
+        ],
+        "style": "Condensed display sans (single heavy weight)",
+        "case": "Sentence case; capitals only for labels of one to three words",
+        "tracking": -0.005,
+        "leading": 1.0,
+        "designer": "Vernon Adams",
+        "classification": "Condensed display grotesque",
+        "axes": [],
+        "notes": "A reworking of a traditional advertising sans serif, reshaped for screens. One weight only: hierarchy comes from size. The related family Antonio, built from Anton, adds weights."
+      },
+      "body": {
+        "family": "Archivo",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Grotesque with width and weight axes",
+        "tracking": 0,
+        "leading": 1.45,
+        "designer": "Héctor Gatti and the Omnibus-Type team",
+        "classification": "Grotesque sans",
+        "axes": [
+          "wght 100-900",
+          "wdth 62-125"
+        ],
+        "notes": "Omnibus-Type is a collective foundry in Buenos Aires. Archivo Narrow and Archivo Black are sister families; the condensed widths (wdth 62-75) can also set subheads."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "posterize"
+      ]
+    },
+    {
+      "id": "bigshoulders-barlow",
+      "name": "Civic Gothic",
+      "mood": "Public and confident. A condensed American gothic built for a city's signs and posters, over a slightly rounded grotesque drawn from California road signs.",
+      "bestFor": "Civic, transport, sport and community campaigns; events; outdoor and wayfinding-like pieces.",
+      "display": {
+        "family": "Big Shoulders Display",
+        "weights": [
+          700,
+          800,
+          900
+        ],
+        "style": "Condensed American gothic, variable",
+        "case": "Sentence case; capitals only for labels",
+        "tracking": 0,
+        "leading": 0.95,
+        "designer": "Patric King",
+        "classification": "Condensed gothic sans",
+        "axes": [
+          "wght 100-900"
+        ],
+        "notes": "Made for the City of Chicago's design system; its tall forms draw on Chicago's railway, political and dance history. Sister families Big Shoulders Stencil and Inline exist; Google Fonts also serves a combined 'Big Shoulders' family."
+      },
+      "body": {
+        "family": "Barlow",
+        "weights": [
+          400,
+          500,
+          600
+        ],
+        "style": "Low-contrast grotesque with slightly rounded forms",
+        "tracking": 0,
+        "leading": 1.45,
+        "designer": "Jeremy Tribby",
+        "classification": "Grotesque sans",
+        "axes": [],
+        "notes": "Static family in three widths (Barlow, Semi Condensed, Condensed), 9 weights each; based on California's plates, highway signs, buses and trains."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "posterize"
+      ]
+    },
+    {
+      "id": "shantell-figtree",
+      "name": "Marker Talk",
+      "mood": "A marker hand that is designed to be read: monoline, unjoined, with Bounce and Informality axes that make repeated letters vary. Figtree keeps body text calm.",
+      "bestFor": "Doodles headlines, labels and annotations; social posts, posters, playful landing pages.",
+      "display": {
+        "family": "Shantell Sans",
+        "weights": [
+          600,
+          800
+        ],
+        "italic": true,
+        "style": "Marker-style handwriting sans with bounce and informality axes",
+        "case": "Sentence case",
+        "tracking": -0.01,
+        "leading": 1.02,
+        "designer": "Shantell Martin, Arrow Type (Stephen Nixon), Anya Danilova",
+        "classification": "Handwriting display sans",
+        "axes": [
+          "wght 300-800",
+          "BNCE -100-100",
+          "INFM 0-100",
+          "SPAC 0-100"
+        ],
+        "notes": "A marker-style font based on the artwork, handwriting and creative philosophy of artist Shantell Martin, built for typographic play and animation (Arrow Type README). Use BNCE 30-60 and INFM 50-100 for headlines (needs the rlig feature on for randomisation); INFM 0 for labels at small sizes. On Google Fonts since 2023."
+      },
+      "body": {
+        "family": "Figtree",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Geometric-humanist sans, open apertures",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Erik Kennedy",
+        "classification": "Geometric-humanist sans",
+        "axes": [
+          "wght 300-900"
+        ]
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "doodles"
+      ]
+    },
+    {
+      "id": "gochi-alegreya-sans",
+      "name": "Notebook Hand",
+      "mood": "A quick, teenage-notebook marker hand over a warm humanist sans from the same designer, so the two share proportions.",
+      "bestFor": "Sketchnote pages, menus, education, friendly local brands.",
+      "display": {
+        "family": "Gochi Hand",
+        "weights": [
+          400
+        ],
+        "style": "Marker handwriting",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.05,
+        "designer": "Juan Pablo del Peral (Huerta Tipográfica)",
+        "classification": "Handwriting display",
+        "axes": [],
+        "notes": "Single weight; described by its designer as an interpretation of a teenager's handwriting. On Google Fonts since 2011. Headlines and labels only."
+      },
+      "body": {
+        "family": "Alegreya Sans",
+        "weights": [
+          400,
+          500,
+          700
+        ],
+        "style": "Humanist sans with calligraphic roots",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Juan Pablo del Peral (Huerta Tipográfica)",
+        "classification": "Humanist sans",
+        "axes": []
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [
+          400,
+          500
+        ]
+      },
+      "proposedBy": [
+        "doodles"
+      ]
     }
   ],
   "scale": {

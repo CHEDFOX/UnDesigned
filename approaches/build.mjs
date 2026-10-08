@@ -45,7 +45,8 @@ export function loadApproach(id) {
   const strip = (o) => JSON.parse(JSON.stringify(o, (k, v) => (k === '$comment' ? undefined : v)));
   const approach = { id, ...strip(read('approach.json')) };
   for (const f of DATA_FILES) if (existsSync(join(dir, `${f}.json`))) approach[f] = strip(read(`${f}.json`));
-  approach.status = ENGINES[id] ? 'complete' : approach.status || 'profile';
+  // Status follows the code: only approaches with a drawing engine are complete.
+  approach.status = ENGINES[id] ? 'complete' : 'profile';
   return approach;
 }
 

@@ -1,10 +1,18 @@
 # Approaches (art directions)
 
-An approach is a complete art direction: the research behind it, the rules, and the data and code to apply it. The guide keeps only a **few** approaches, each researched in depth. A product picks one in `products/<product>/brand.json` (`"approach": "<id>"`).
+An approach is a complete art direction: the research behind it, the rules, and the data and code to apply it. The guide keeps a small set of approaches, each researched in depth to [STYLE-SPEC.md](STYLE-SPEC.md). A product picks one in `products/<product>/brand.json` (`"approach": "<id>"`).
 
-| id | Name | Status |
-|---|---|---|
-| `humanist-minimal` | Humanist Minimal | First art direction. Complete. |
+| id | Name | Evidence /14 | Status |
+|---|---|---|---|
+| `humanist-minimal` | Humanist Minimal | 12 | Complete, with drawing engine |
+| `bauhaus` | Bauhaus | 7 | Researched profile, sample poster |
+| `commercial-modernism` | Commercial Modernism | 8 | Researched profile, sample poster |
+| `mid-century-modernism` | Mid-century Modernism | 11 | Researched profile, sample poster |
+| `scrapbook` | Scrapbook | 8 | Researched profile, sample poster |
+| `desi-maximalism` | Desi Maximalism | 7 | Researched profile, sample poster |
+| `neon-surf` | Rad Dog / Neon Surf | 7 | Researched profile, sample poster |
+| `posterize` | Posterize | 10 | Researched profile, sample poster + posterize.mjs filter |
+| `doodles` | Doodles | 9 | Researched profile, sample poster |
 
 ## What every approach must contain
 
@@ -19,8 +27,11 @@ approaches/<id>/
 ├── motion.json        motion data: springs, easings, durations, choreography, loops, reduced-motion rules
 ├── typography.json    type direction: what letterforms suit it, fit rating for each pairing, sizes per format, type with art
 ├── illustration.mjs   the drawing engine: createIllustrator(approach, palette) -> scene(), primitives
+├── sample.mjs         samplePoster(palette, copy): a poster that shows the style
 └── references/        the source images and recordings
 ```
+
+`_inbox/` holds references not yet assigned to a style. Approaches with `illustration.mjs` are **complete**; the others are **profiles** (full research and data plus a sample poster) until an engine is written.
 
 Rules for every approach:
 
@@ -32,5 +43,5 @@ Rules for every approach:
 ## Adding an approach
 
 1. Copy `humanist-minimal/` to `approaches/<new-id>/` and replace every file's content. Keep the keys in the JSON files.
-2. Register its engine in `approaches/build.mjs` (`APPROACHES`).
+2. The build finds it automatically. If you write a drawing engine, register it in `approaches/build.mjs` (`ENGINES`).
 3. Add it to the table above, then run `npm run build`.

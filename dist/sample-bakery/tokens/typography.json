@@ -41,7 +41,10 @@
         400,
         500
       ]
-    }
+    },
+    "proposedBy": [
+      "humanist-minimal"
+    ]
   },
   "ratio": 1.25,
   "sizes": {

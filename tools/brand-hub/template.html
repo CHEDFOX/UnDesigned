@@ -274,6 +274,7 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .st-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
 .st-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 22px 18px; margin-bottom: 40px; }
 .st-card { display: grid; gap: 10px; align-content: start; min-width: 0; }
+@media (max-width: 520px) { .st-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 12px; } .st-meta p { display: none; } .st-meta .ty-name b { font-size: 15px; } }
 .st-poster { border: 0; padding: 0; background: none; cursor: pointer; border-radius: 14px; overflow: hidden; display: block; width: 100%; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
 .st-poster:hover { transform: translateY(-4px); }
 .st-poster svg, .st-head-poster svg { width: 100%; height: auto; display: block; }
@@ -292,6 +293,7 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .st-rec { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 10px; align-items: center; font-size: 13px; }
 .st-rec .swatchrow i { width: 22px; height: 22px; }
 .st-research { margin-top: 28px; }
+.st-method { color: var(--muted); margin-bottom: 14px; }
 .st-research summary { cursor: pointer; }
 .rs-thumb.poster { max-width: 150px; }
 .rs-thumb.poster svg { border-radius: 10px; }
@@ -869,9 +871,9 @@ function renderTypography() {
       <div class="ladder">${ladder}</div>
       <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Files: <code>dist/${esc(B.id)}/web/css/typography.css</code> (classes <code>.${esc(P)}-display</code>, <code>.${esc(P)}-h1</code>, <code>.${esc(P)}-body</code> ...) and <code>dist/${esc(B.id)}/design-apps/fonts.txt</code> (install links for Figma, Adobe, Canva).</p>
     </div>`;
-  const fitLabel = { core: 'Recommended', good: 'Works well', accent: 'Special use', avoid: 'Avoid' };
+  const fitLabel = { core: 'Recommended', good: 'Works well', accent: 'Special use', avoid: 'Avoid', unrated: 'Not rated' };
   const TY = DATA.approaches[B.approach].data.typography;
-  const fitOf = pr => (TY.fit[pr.id] || { fit: 'good', why: '' });
+  const fitOf = pr => (TY.fit[pr.id] || { fit: 'unrated', why: 'Not rated by this style yet.' });
   const list = DATA.pairings.filter(p => tstate.fit === 'all' || fitOf(p).fit === 'core');
   $('#ty-grid').innerHTML = list.map(pr => `<article class="ty-card ${pr.id === cur.id ? 'current' : ''}">${specimen(pr, false)}
     <div class="ty-meta"><div class="ty-name"><b>${esc(pr.name)}</b><span class="fit ${fitOf(pr).fit}" title="${esc(fitOf(pr).why)}">${fitLabel[fitOf(pr).fit]}</span>${pr.id === cur.id ? '<span class="fit inuse">In use</span>' : ''}</div>
@@ -942,7 +944,13 @@ function renderStyleDetail() {
   const ev = st.evidence;
   const evHtml = ev && ev.scores ? `<div class="rs-scores" style="margin-top:6px">${C.map(c => `<span title="${esc((ev.notes && ev.notes[c.id]) || '')}"><i class="s${ev.scores[c.id]}"></i>${esc(c.label)}</span>`).join('')}</div>
     <dl class="kv" style="margin-top:10px">${kv(C.map(c => [c.label + ' (' + ev.scores[c.id] + '/2)', ev.notes && ev.notes[c.id]]))}</dl>
-    ${ev.beyondPreference ? `<p class="st-note"><b>Wins beyond liking:</b> ${esc(typeof ev.beyondPreference === 'string' ? ev.beyondPreference : [].concat(ev.beyondPreference).map(b => typeof b === 'string' ? b : Object.values(b).filter(v => typeof v === 'string').join(': ')).join(' · '))}</p>` : ''}` : '<p class="st-note">No evidence scores yet.</p>';
+    ${ev.beyondPreference ? `<span class="lbl" style="display:block;margin-top:14px">Wins beyond liking</span><ul class="tight">${(typeof ev.beyondPreference === 'string' ? [ev.beyondPreference] : [].concat(ev.beyondPreference)).map(b => {
+      if (typeof b === 'string') return `<li>${esc(b)}</li>`;
+      const title = b.wins || b.win || b.effect || b.what || b.title || '';
+      const body = b.why || b.how || b.detail || b.note || '';
+      const src = [].concat(b.sources || b.source || []).join('; ');
+      return `<li><b>${esc(title)}</b>${body ? ': ' + esc(body) : ''}${src ? ` <span class="mono" style="font-size:11px;color:var(--muted)">(${esc(src)})</span>` : ''}</li>`;
+    }).join('')}</ul>` : ''}` : '<p class="st-note">No evidence scores yet.</p>';
   const pal = st.palette || {};
   const recs = st.recommended.map(r => {
     const c = DATA.combinations.find(x => x.id === r.combination);
@@ -962,7 +970,7 @@ function renderStyleDetail() {
         <div class="principles" style="margin-bottom:0">${(st.principles || []).map(p => `<div class="principle"><span class="pid">${esc(p.id)}</span><b>${esc(p.title)}</b><p>${esc(p.rule)}</p>${p.source ? `<span class="src">${esc(p.source)}</span>` : ''}</div>`).join('')}</div></div></div>
     <div class="ap-two" style="margin-top:28px">
       <div><h3>Evidence${total(ev) != null ? ` · ${total(ev)}/14` : ''}</h3>${evHtml}</div>
-      <div><h3>Colour</h3>${pal.method ? `<p class="st-note">${esc(typeof pal.method === 'string' ? pal.method : JSON.stringify(pal.method))}</p>` : ''}<span class="lbl">Recommended Wada combinations</span><div class="st-recs">${recs || '<p class="st-note">None listed.</p>'}</div>${ext}</div>
+      <div><h3>Colour</h3>${pal.method ? (Array.isArray(pal.method) ? `<ol class="tight st-method">${pal.method.map(m => `<li>${esc(String(m).replace(/^\d+\.\s*/, ''))}</li>`).join('')}</ol>` : `<p class="st-note">${esc(typeof pal.method === 'string' ? pal.method : Object.values(pal.method).join(' '))}</p>`) : ''}<span class="lbl">Recommended Wada combinations</span><div class="st-recs">${recs || '<p class="st-note">None listed.</p>'}</div>${ext}</div>
     </div>
     <h3 style="margin-top:28px">Typography</h3><p class="st-note">${esc((st.typography && st.typography.character) || '')}</p>
     <div class="tablewrap"><table class="data"><thead><tr><th>Pairing</th><th>Fit</th><th>Why</th></tr></thead><tbody>${fitRows}</tbody></table></div>

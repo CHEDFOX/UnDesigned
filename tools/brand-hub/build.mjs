@@ -83,11 +83,12 @@ export function buildHub({ root, brands }) {
     try { a = loadApproach(id); } catch (e) { console.warn(`hub: skipped approach ${id}: ${e.message}`); continue; }
     const recs = ((a.art && a.art.palette && a.art.palette.recommendedCombinations) || []).filter((r) => comboById[recNum(r)]);
     const own = recs.length ? comboById[recNum(recs[0])] : first.combinations[0];
-    const copy = { headline: a.name, subhead: a.summary, brand: 'UnDesigned' };
+    const firstSentence = (t) => { const f = String(t || '').split(/(?<=[.:;])\s/)[0].replace(/[.:;]$/, ''); return f.length > 80 ? f.slice(0, f.lastIndexOf(' ', 78)) : f; };
+    const copy = { headline: a.name, subhead: firstSentence(a.summary), brand: 'UnDesigned' };
     const samples = { own: renderSample(id, samplePalette(own, own.roles.light, byHex), copy, a) };
     for (const item of items) {
       const p = item.palettes.find((x) => x.name === 'primary') || item.palettes[0];
-      if (p) samples[item.id] = renderSample(id, samplePalette(comboById[p.combination], p.roles, byHex), { headline: item.message.oneLiner && item.message.oneLiner.result ? item.message.oneLiner.result : a.name, subhead: a.summary, brand: item.name }, a);
+      if (p) samples[item.id] = renderSample(id, samplePalette(comboById[p.combination], p.roles, byHex), { headline: item.message.oneLiner && item.message.oneLiner.result ? item.message.oneLiner.result : a.name, subhead: firstSentence(a.summary), brand: item.name }, a);
     }
     const researchFile = join(root, 'approaches', id, 'research.md');
     const springs = Object.fromEntries(Object.entries((a.motion && a.motion.springs) || {}).map(([k, sp]) => [k, springEasing(sp)]));
@@ -104,7 +105,7 @@ export function buildHub({ root, brands }) {
   const built = styles.filter((st) => st.evidence && st.evidence.scores);
   const covered = new Set([...built.map((st) => st.id), 'mid-century', 'maximalist']);
   research.styles.list = [
-    ...built.map((st) => ({ id: st.id, name: st.name, status: st.id === 'humanist-minimal' ? 'ours' : 'built', scores: st.evidence.scores, summary: st.summary, watch: st.evidence.watch || (st.evidence.beyondPreference ? 'Wins beyond liking: ' + (typeof st.evidence.beyondPreference === 'string' ? st.evidence.beyondPreference : [].concat(st.evidence.beyondPreference).map((b) => b.what || b.win || b.title || b).join('; ')) : '') })),
+    ...built.map((st) => ({ id: st.id, name: st.name, status: st.id === 'humanist-minimal' ? 'ours' : 'built', scores: st.evidence.scores, summary: st.summary, watch: st.evidence.watch || (st.evidence.beyondPreference ? 'Wins beyond liking: ' + winLabels(st.evidence.beyondPreference).join('; ') : '') })),
     ...research.styles.list.filter((st) => !covered.has(st.id)),
   ];
 
@@ -202,4 +203,10 @@ function mdToHtml(md) {
     out.push(`<p>${inline(para.join(' '))}</p>`);
   }
   return out.join('\n');
+}
+
+// Short labels for an evidence.beyondPreference value (string, or list of objects with varying keys).
+function winLabels(b) {
+  if (typeof b === 'string') return [b];
+  return [].concat(b).map((x) => (typeof x === 'string' ? x : x.wins || x.win || x.effect || x.what || x.title || Object.values(x).find((v) => typeof v === 'string') || ''));
 }
