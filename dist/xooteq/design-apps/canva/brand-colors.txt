@@ -1,0 +1,14 @@
+Paste these hex codes into Canva > Brand Kit > Colours.
+
+primary (combination 207, light)
+  bg         #b4cdc2  Glaucous Green
+  ink        #111314  Black
+  accent     #a36752  Sudan Brown
+  text       #111314  Black
+
+night (combination 207, dark)
+  bg         #111314  Black
+  ink        #b4cdc2  Glaucous Green
+  accent     #a36752  Sudan Brown
+  text       #b4cdc2  Glaucous Green
+

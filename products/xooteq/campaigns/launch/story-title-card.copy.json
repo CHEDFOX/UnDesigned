@@ -1,0 +1,8 @@
+{
+  "$comment": "Animated story title card (video/story-title-card.svg), night palette. The end frame is the poster.",
+  "format": "story",
+  "headline": "People who can't stop building.",
+  "cta": "Email hello@xooteq.com",
+  "logo": true,
+  "palette": "night"
+}

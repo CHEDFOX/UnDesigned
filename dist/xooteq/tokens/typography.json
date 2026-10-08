@@ -1,0 +1,90 @@
+{
+  "pairing": {
+    "id": "bricolage-figtree",
+    "name": "Warm Modern",
+    "mood": "Friendly and current. The headline face has slightly irregular, ink-trap details that echo hand-drawn line; the body face is open and calm.",
+    "bestFor": "Most brands. Posters, social, websites.",
+    "display": {
+      "family": "Bricolage Grotesque",
+      "weights": [
+        500,
+        700,
+        800
+      ],
+      "style": "Expressive grotesque with optical sizes",
+      "case": "Sentence case",
+      "tracking": -0.02,
+      "leading": 1,
+      "designer": "Mathieu Triay",
+      "classification": "Display grotesque",
+      "axes": [
+        "wght 200-800",
+        "wdth",
+        "opsz"
+      ],
+      "notes": "Started as a fork of Mayenne Sans (Jérémy Landes); influenced by Antique Olive and Grotesque Nº9."
+    },
+    "body": {
+      "family": "Figtree",
+      "weights": [
+        400,
+        500,
+        700
+      ],
+      "style": "Geometric-humanist sans, open apertures",
+      "tracking": 0,
+      "leading": 1.5,
+      "designer": "Erik Kennedy",
+      "classification": "Geometric-humanist sans",
+      "axes": [
+        "wght 300-900"
+      ]
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "weights": [
+        400,
+        500
+      ]
+    },
+    "proposedBy": [
+      "humanist-minimal"
+    ]
+  },
+  "hand": null,
+  "ratio": 1.25,
+  "sizes": {
+    "web": {
+      "caption": 10.2,
+      "small": 12.8,
+      "body": 16,
+      "lead": 20,
+      "h3": 25,
+      "h2": 31.3,
+      "h1": 39.1,
+      "display": 61,
+      "hero": 95.4
+    },
+    "poster": {
+      "caption": 15.4,
+      "small": 19.2,
+      "body": 24,
+      "lead": 30,
+      "h3": 37.5,
+      "h2": 46.9,
+      "h1": 58.6,
+      "display": 91.6,
+      "hero": 143.1
+    }
+  },
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap",
+  "rules": [
+    "Two families at most (display + body), plus a mono for small data such as dates, prices and codes.",
+    "Sentence case everywhere. All capitals only for short labels of one to three words, with letter-spacing.",
+    "Three sizes per piece is usually enough: headline, body, small.",
+    "Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.",
+    "Left-align text. Centre only one or two short lines on a centred poster.",
+    "Handwriting fonts only as one short accent, from source/handwritten.json, where the style allows it (approaches/<id>/typography.json -> handwritten). Never for body, prices, data, steps or buttons.",
+    "Match headline weight to the illustration: the stems of headline letters should be about as thick as the ink line."
+  ]
+}

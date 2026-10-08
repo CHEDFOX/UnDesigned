@@ -1,0 +1,20 @@
+{
+  "$comment": "Brand settings for XOOTEQ. Edit, then run `npm run build`. Choices are proposals awaiting the user's approval (see campaigns/launch/brief.md for the one-line reasons).",
+  "name": "XOOTEQ",
+  "nameVariants": ["Xooteq", "XOOTEQ Lab", "Xooteq Lab"],
+  "prefix": "xq",
+  "approach": "humanist-minimal",
+  "color": {
+    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the palettes are chosen, then \"chosen\". Proposal: 207 (Glaucous Green, Black, Sudan Brown): a sage ground for the 'organic' half of the tagline, black ink, and an earth-brown accent for soil. 'night' is the same combination in dark mode (Wada Black ground, glaucous green text), the closest the Wada palette gets to the site's near-black and green look.",
+    "status": "placeholder",
+    "palettes": {
+      "primary": { "combination": 207, "mode": "light" },
+      "night": { "combination": 207, "mode": "dark" }
+    }
+  },
+  "typography": {
+    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold). hand (optional) is one handwritten accent face from foundations/typography/source/handwritten.json, if the style allows it (approaches/<approach>/typography.json -> handwritten). Proposal: bricolage-figtree (core in Humanist Minimal), the closest core pairing to the site's Syne + DM Sans. No hand face: a technology R&D company is not the warm, personal case the guide reserves it for.",
+    "pairing": "bricolage-figtree",
+    "scale": 1.25
+  }
+}

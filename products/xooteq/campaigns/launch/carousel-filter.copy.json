@@ -1,0 +1,36 @@
+[
+  {
+    "$comment": "Carousel slide 1 of 4 (hook). Image: a question mark whose curve is a growing stem; the dot is a seed.",
+    "format": "carousel-slide",
+    "headline": "One question decides what XOOTEQ builds",
+    "subhead": "Every idea, project and person runs through it.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Carousel slide 2 of 4: build for value. Image: a sprout between code braces.",
+    "format": "carousel-slide",
+    "headline": "Does it create real value for real people?",
+    "subhead": "If not, it doesn't ship. No vanity stacks.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Carousel slide 3 of 4: build with joy. Image: a keyboard key that shines like a sun.",
+    "format": "carousel-slide",
+    "headline": "Fun is fuel, not the opposite of serious work.",
+    "subhead": "Work gets better when people are energized, not burned out.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Carousel slide 4 of 4: build together, with the call to action. Image: a table with one chair pulled out.",
+    "format": "carousel-slide",
+    "headline": "Who will you build it with?",
+    "subhead": "Engineers, filmmakers, researchers and designers, at one table.",
+    "body": "No pitch decks required. Tell us what you're working on and what you need. We respond to everyone.",
+    "cta": "Email hello@xooteq.com",
+    "logo": true,
+    "palette": "primary"
+  }
+]

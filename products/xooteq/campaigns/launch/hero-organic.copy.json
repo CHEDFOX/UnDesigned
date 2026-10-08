@@ -1,0 +1,10 @@
+{
+  "$comment": "Website hero (16:9). Image: a tree growing from a microchip.",
+  "format": "landing-hero",
+  "headline": "Engineer the organic tomorrow.",
+  "subhead": "Software and AI that solve real problems, films made with AI, trees in the ground, and a seat at the table for what you're building.",
+  "cta": "Start building with us",
+  "details": "Or join the beta at xooteq.com/creation",
+  "logo": true,
+  "palette": "primary"
+}

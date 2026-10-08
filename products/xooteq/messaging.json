@@ -1,0 +1,97 @@
+{
+  "$comment": "Brand message for XOOTEQ. Every statement comes from the XOOTEQ website source (src/content/site.ts and the page files). Where the site states a contrast ('No pitch decks', 'No demo days', 'No form letters') the problem fields restate it; nothing is invented. Empty fields are unknown: see the open questions in campaigns/launch/brief.md.",
+  "positioning": {
+    "$help": "Perennial Seller (P1, P2). Write these before any campaign.",
+    "audience": "Builders aged 18 to 35 who are making something unconventional: engineers, filmmakers, researchers and designers with an idea that won't let them sleep.",
+    "oneSentence": "XOOTEQ is a technology R&D company that builds software and AI, makes films with artificial intelligence, runs an environmental initiative called the Green Revolution, and brings builders together to make things that matter.",
+    "oneParagraph": "XOOTEQ is a technology R&D company. It builds software and AI systems, explores AI filmmaking through its studio DUMBORD, runs the Green Revolution (planting trees and protecting green spaces in every city it works in, every quarter), and backs builders with workspace, living space, hardware, GPU access, dev infrastructure and a peer network. Every idea, project and person runs through one question: does it matter? Not an agency. Not an accelerator. Builders inviting other builders to the table.",
+    "category": "Technology R&D company",
+    "differentFrom": "Not an agency and not an accelerator: no pitch decks, no demo days, no automated rejections. Builders inviting other builders to the table, and direct, physical green action instead of carbon credits."
+  },
+  "oneLiner": {
+    "$help": "StoryBrand one-liner (S9): problem -> solution -> result. Read together it should sound like one natural answer to 'what do you do?'",
+    "problem": "An idea that won't let you sleep still needs a place, the hardware and the people to build it.",
+    "solution": "XOOTEQ gives builders workspace, living space, GPU access, dev infrastructure and a table of engineers, filmmakers, researchers and designers, with no pitch decks required,",
+    "result": "so you can ship something that actually matters."
+  },
+  "brandscript": {
+    "$help": "StoryBrand SB7 framework (S1-S7).",
+    "character": {
+      "who": "Builders aged 18 to 35 making something unconventional: engineers, filmmakers, researchers, designers",
+      "want": "The environment and support to build the thing they can't stop thinking about"
+    },
+    "problem": {
+      "villain": "Gatekeeping: pitch decks, demo days, degrees and form-letter rejections",
+      "external": "They need workspace, hardware, GPU access and dev infrastructure they don't have",
+      "internal": "",
+      "philosophical": "Degrees don't build things. People do."
+    },
+    "guide": {
+      "empathy": "We are builders too: people who can't stop building.",
+      "authority": [
+        "Builds software and AI, including the products Plutto and Tailzu",
+        "Started the AI film studio DUMBORD in 2025",
+        "Plants trees and protects green spaces every quarter in every city it operates in",
+        "Replies to everyone who applies"
+      ]
+    },
+    "plan": {
+      "steps": [
+        "Apply: tell us what you're working on, what you've built before and what you need",
+        "Connect: if there's a fit, we'll talk",
+        "Build: join the table and ship something that matters"
+      ],
+      "promise": "We respond to everyone. No automated rejections, no form letters."
+    },
+    "callToAction": {
+      "direct": "Tell us what you're building at hello@xooteq.com",
+      "transitional": "Join the beta at xooteq.com/creation"
+    },
+    "failure": [],
+    "success": [
+      "Shipping something that actually matters",
+      "A productive home for your obsession, with peers who make you better"
+    ],
+    "transformation": {
+      "from": "An idea that won't let you sleep",
+      "to": "A thing that's shipped and matters"
+    }
+  },
+  "voice": {
+    "$help": "Ogilvy O11: one consistent personality. Three to five words each.",
+    "is": [
+      "Direct",
+      "Builder to builder",
+      "Energetic, never sterile",
+      "Grounded"
+    ],
+    "isNot": [
+      "Corporate",
+      "Hype",
+      "Agency talk"
+    ],
+    "avoidWords": [
+      "disrupt",
+      "rockstar",
+      "ninja",
+      "hustle",
+      "offset"
+    ]
+  },
+  "proof": {
+    "$help": "Ogilvy O5 and StoryBrand S4: specific facts, numbers, testimonials and clients to draw on.",
+    "facts": [
+      "Technology R&D company; legal name XOOTEQ LAB PRIVATE LIMITED",
+      "Four parts: Technology, AI Cinema (through DUMBORD), the Green Revolution, Community",
+      "DUMBORD: an AI film studio established in 2025 as a XOOTEQ initiative. 'We shoot the impossible.'",
+      "Products: Plutto (astrology across every tradition; iPhone, Android and the web) and Tailzu (a keyboard that writes what you mean)",
+      "Green Revolution: every quarter, in every city XOOTEQ operates in, it plants trees, protects green spaces and spreads awareness. Not carbon credits.",
+      "Build With Us: for builders aged 18 to 35; workspace, living space, hardware, GPU access, dev infrastructure, a peer network; resources, connections and funding when it fits",
+      "Every idea, project and person runs through one question: does it matter?",
+      "Replies to every applicant: hello@xooteq.com",
+      "Beta: register at xooteq.com/creation to get new products first and help shape them"
+    ],
+    "testimonials": [],
+    "clients": []
+  }
+}
