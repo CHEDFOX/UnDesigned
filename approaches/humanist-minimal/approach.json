@@ -88,6 +88,29 @@
       "dont": "Jargon, hype, exclamation marks."
     }
   ],
+  "status": "complete",
+  "evidence": {
+    "scores": {
+      "curves": 2,
+      "simplicity": 2,
+      "maya": 2,
+      "nature": 1,
+      "handmade": 2,
+      "colour": 1,
+      "glance": 2
+    },
+    "notes": {
+      "curves": "Organic shapes and rounded corners are a core rule (H5).",
+      "simplicity": "One idea, at most three objects, at least 40% empty ground (H2, H4).",
+      "maya": "Familiar formats and plain symbols, with the surprise kept to one metaphor (H3).",
+      "nature": "The wobbling line has natural mid-range roughness, but there is no other natural texture.",
+      "handmade": "Hand-drawn line and cut paper throughout (H1).",
+      "colour": "Depends on the Wada combination chosen; some pairs are muddy or low-contrast.",
+      "glance": "One focal point and a flat ground read within a glance."
+    },
+    "beyondPreference": "Warmth and trust: visible human marks signal care (handmade effect), which suits products that want to feel personal.",
+    "watch": "Can drift into cute; Wada pairs vary in contrast."
+  },
   "references": [
     {
       "file": "still-sound-bubble.jpg",

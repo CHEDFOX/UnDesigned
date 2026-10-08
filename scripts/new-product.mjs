@@ -9,7 +9,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { listBrands, loadBrand } from './products.mjs';
 import { loadPairings } from '../foundations/typography/build.mjs';
-import { APPROACHES } from '../approaches/build.mjs';
+import { listApproaches } from '../approaches/build.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
@@ -45,8 +45,8 @@ if (pairing && !loadPairings().pairings.some((p) => p.id === pairing)) {
   console.error(`Unknown pairing "${pairing}". Available: ${loadPairings().pairings.map((p) => p.id).join(', ')}`);
   process.exit(1);
 }
-if (approach && !APPROACHES[approach]) {
-  console.error(`Unknown approach "${approach}". Available: ${Object.keys(APPROACHES).join(', ')}`);
+if (approach && !listApproaches().includes(approach)) {
+  console.error(`Unknown approach "${approach}". Available: ${listApproaches().join(', ')}`);
   process.exit(1);
 }
 if (palette && !(+palette >= 1 && +palette <= 348)) {

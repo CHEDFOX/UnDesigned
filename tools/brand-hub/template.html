@@ -269,6 +269,33 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .fit.inuse { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
 
+
+/* ---------- style library ---------- */
+.st-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 18px; }
+.st-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 22px 18px; margin-bottom: 40px; }
+.st-card { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.st-poster { border: 0; padding: 0; background: none; cursor: pointer; border-radius: 14px; overflow: hidden; display: block; width: 100%; transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+.st-poster:hover { transform: translateY(-4px); }
+.st-poster svg, .st-head-poster svg { width: 100%; height: auto; display: block; }
+.st-card.open .st-poster { outline: 3px solid var(--ink); outline-offset: 3px; }
+.st-meta { display: grid; gap: 6px; font-size: 13.5px; justify-items: start; }
+.st-meta .ty-name { display: flex; gap: 8px; align-items: center; width: 100%; }
+.st-meta .ty-name b { font: 700 18px var(--display); }
+.st-meta p { margin: 0; color: var(--muted); }
+.st-detail { border-top: 2px solid var(--ink); padding-top: 28px; }
+.st-head { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 32px; align-items: start; }
+@media (max-width: 760px) { .st-head { grid-template-columns: minmax(0, 1fr); } .st-head-poster { max-width: 300px; } }
+.st-head-poster { border-radius: 16px; overflow: hidden; }
+.st-note { font-size: 14px; color: var(--muted); margin: 8px 0; }
+.warnnote { color: var(--warn); }
+.st-recs { display: grid; gap: 8px; margin-top: 8px; }
+.st-rec { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 10px; align-items: center; font-size: 13px; }
+.st-rec .swatchrow i { width: 22px; height: 22px; }
+.st-research { margin-top: 28px; }
+.st-research summary { cursor: pointer; }
+.rs-thumb.poster { max-width: 150px; }
+.rs-thumb.poster svg { border-radius: 10px; }
+@media (prefers-reduced-motion: reduce) { .st-poster { transition: none; } .st-poster:hover { transform: none; } }
 /* ---------- brain research ---------- */
 .rs-findings { display: grid; gap: 0; }
 .rs-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; padding: 24px 0; border-top: 1px solid var(--ink); align-items: start; }
@@ -420,6 +447,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <nav class="primary" role="tablist" aria-label="Sections">
   <button type="button" role="tab" data-panel="overview" aria-selected="true">Overview</button>
   <button type="button" role="tab" data-panel="research" aria-selected="false">Brain research</button>
+  <button type="button" role="tab" data-panel="styles" aria-selected="false">Styles</button>
   <button type="button" role="tab" data-panel="approach" aria-selected="false">Approach</button>
   <button type="button" role="tab" data-panel="colour" aria-selected="false">Colour</button>
   <button type="button" role="tab" data-panel="typography" aria-selected="false">Typography</button>
@@ -483,6 +511,18 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <h3 style="margin-top:40px">Style families, scored against the evidence</h3>
   <p class="lede" style="margin-bottom:14px">Each family scored 0–2 on how strongly it uses each evidence-backed feature. This is our synthesis, not a published ranking. Liking isn't the only goal: polarising styles can win attention and memorability for the right product.</p>
   <div class="rs-styles" id="rs-styles"></div>
+</section>
+
+<!-- ================================================================ STYLES -->
+<section class="panel" id="panel-styles" hidden>
+  <h2 class="sec">Style library</h2>
+  <p class="lede">The art directions this guide supports, each researched in depth to the same spec (<code>approaches/STYLE-SPEC.md</code>). A product picks one in <code>brand.json</code>. Every poster below is drawn live by the style's own code.</p>
+  <div class="st-controls">
+    <span class="lbl">Show posters in</span>
+    <div class="seg" id="st-pal"><button type="button" data-stpal="own" aria-pressed="true">Each style's palette</button><button type="button" data-stpal="product" aria-pressed="false">This product's palette</button></div>
+  </div>
+  <div class="st-grid" id="st-grid"></div>
+  <article class="st-detail" id="st-detail"></article>
 </section>
 
 <!-- ================================================================ APPROACH -->
@@ -764,7 +804,7 @@ function luminance(hex) {
 const onColor = hex => (luminance(hex) > 0.35 ? byId.black.hex : byId.white.hex);
 
 /* ------------------------------------------------------------ navigation */
-const PANELS = ['overview', 'research', 'approach', 'colour', 'typography', 'messaging', 'checker', 'message'];
+const PANELS = ['overview', 'research', 'styles', 'approach', 'colour', 'typography', 'messaging', 'checker', 'message'];
 function showPanel(id, push) {
   if (!PANELS.includes(id)) id = 'overview';
   document.querySelectorAll('nav.primary button').forEach(b => b.setAttribute('aria-selected', b.dataset.panel === id));
@@ -876,7 +916,63 @@ function useBrand(id, first) {
   document.querySelectorAll('.cur-id').forEach(el => (el.textContent = B.id));
   $('#star-count').textContent = cstate.stars.size;
   store.set('hub-brand', B.id);
-  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderMessaging(); setupChecker(); renderMessage();
+  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderMessaging(); setupChecker(); renderMessage();
+}
+
+/* ------------------------------------------------------------ style library */
+const ststate = { pal: 'own', open: null };
+const total = ev => (ev && ev.scores ? Object.values(ev.scores).reduce((a, b) => a + b, 0) : null);
+function stylePoster(st) {
+  return (ststate.pal === 'product' && st.samples[B.id]) || st.samples.own || '<svg viewBox="0 0 400 566"><rect width="400" height="566" fill="#ddd"/></svg>';
+}
+function renderStyles() {
+  const statusLabel = { complete: 'Complete, with engine', profile: 'Researched profile' };
+  $('#st-grid').innerHTML = DATA.styles.map(st => `<article class="st-card ${st.id === ststate.open ? 'open' : ''}">
+    <button type="button" class="st-poster" data-stopen="${st.id}" aria-label="Open ${esc(st.name)}">${stylePoster(st)}</button>
+    <div class="st-meta"><div class="ty-name"><b>${esc(st.name)}</b>${total(st.evidence) != null ? `<span class="rs-total">${total(st.evidence)}<small>/14</small></span>` : ''}</div>
+      <span class="fit ${st.status === 'complete' ? 'core' : ''}">${statusLabel[st.status] || st.status}</span>${st.usedBy.includes(B.id) ? ' <span class="fit inuse">This product</span>' : ''}
+      <p>${esc(st.summary || '')}</p></div></article>`).join('');
+  renderStyleDetail();
+}
+function renderStyleDetail() {
+  const st = DATA.styles.find(s => s.id === ststate.open) || DATA.styles[0];
+  ststate.open = st.id;
+  const kv = rows => rows.filter(r => r[1]).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+  const C = DATA.research.criteria;
+  const ev = st.evidence;
+  const evHtml = ev && ev.scores ? `<div class="rs-scores" style="margin-top:6px">${C.map(c => `<span title="${esc((ev.notes && ev.notes[c.id]) || '')}"><i class="s${ev.scores[c.id]}"></i>${esc(c.label)}</span>`).join('')}</div>
+    <dl class="kv" style="margin-top:10px">${kv(C.map(c => [c.label + ' (' + ev.scores[c.id] + '/2)', ev.notes && ev.notes[c.id]]))}</dl>
+    ${ev.beyondPreference ? `<p class="st-note"><b>Wins beyond liking:</b> ${esc(typeof ev.beyondPreference === 'string' ? ev.beyondPreference : [].concat(ev.beyondPreference).map(b => typeof b === 'string' ? b : Object.values(b).filter(v => typeof v === 'string').join(': ')).join(' · '))}</p>` : ''}` : '<p class="st-note">No evidence scores yet.</p>';
+  const pal = st.palette || {};
+  const recs = st.recommended.map(r => {
+    const c = DATA.combinations.find(x => x.id === r.combination);
+    return `<div class="st-rec"><span class="swatchrow">${c.colors.map(id => `<i style="background:${byId[id].hex}" title="${esc(byId[id].name)}"></i>`).join('')}</span><span class="mono">No. ${c.code}</span><span>${esc(r.reason || r.why || '')}</span></div>`;
+  }).join('');
+  const ext = pal.extensions ? [].concat(pal.extensions).map(x => `<p class="st-note warnnote"><b>Colour extension${x.needsApproval ? ' (needs your approval)' : ''}:</b> ${esc(x.what || x.name || x.description || JSON.stringify(x))}${x.why ? ' ' + esc(x.why) : ''}</p>`).join('') : '';
+  const fitLabel = { core: 'Recommended', good: 'Works well', accent: 'Special use', avoid: 'Avoid' };
+  const fit = (st.typography && st.typography.fit) || {};
+  const fitRows = DATA.pairings.map(p => { const f = fit[p.id] || {}; return `<tr><td><b>${esc(p.name)}</b><br><span class="mono" style="font-size:11px">${esc(p.display.family)} + ${esc(p.body.family)}</span></td><td><span class="fit ${f.fit || ''}">${fitLabel[f.fit] || '–'}</span></td><td>${esc(f.why || '')}</td></tr>`; }).join('');
+  const newP = (st.typography.newPairings || []).map(p => `<li><b>${esc(p.name || p.id)}</b>: ${esc((p.display || {}).family || '')} + ${esc((p.body || {}).family || '')}${p.mood ? ' · ' + esc(p.mood) : ''}</li>`).join('');
+  const M = st.motion || {};
+  const moves = Object.entries(M.moves || {}).map(([k, m]) => `<tr><td><b>${esc(k)}</b></td><td class="num">${m.spring ? 'spring: ' + esc(m.spring) + (st.springsCss[m.spring] ? ` (${st.springsCss[m.spring].duration} ms)` : '') : m.duration != null ? esc(m.duration) + ' ms' : ''}${m.easing ? ' · ' + esc(m.easing) : ''}</td><td>${esc(m.use || '')}</td></tr>`).join('');
+  const layers = (st.layers || []).map(l => `<tr><td><b>${esc(l.layer)}</b></td><td>${esc(l.do)}</td><td>${esc(l.dont)}</td></tr>`).join('');
+  $('#st-detail').innerHTML = `
+    <div class="st-head"><div class="st-head-poster">${stylePoster(st)}</div>
+      <div><span class="lbl">Art direction · approaches/${esc(st.id)}/</span><h2 class="sec" style="margin-top:4px">${esc(st.name)}</h2><p class="lede">${esc(st.summary || '')}</p>
+        <div class="principles" style="margin-bottom:0">${(st.principles || []).map(p => `<div class="principle"><span class="pid">${esc(p.id)}</span><b>${esc(p.title)}</b><p>${esc(p.rule)}</p>${p.source ? `<span class="src">${esc(p.source)}</span>` : ''}</div>`).join('')}</div></div></div>
+    <div class="ap-two" style="margin-top:28px">
+      <div><h3>Evidence${total(ev) != null ? ` · ${total(ev)}/14` : ''}</h3>${evHtml}</div>
+      <div><h3>Colour</h3>${pal.method ? `<p class="st-note">${esc(typeof pal.method === 'string' ? pal.method : JSON.stringify(pal.method))}</p>` : ''}<span class="lbl">Recommended Wada combinations</span><div class="st-recs">${recs || '<p class="st-note">None listed.</p>'}</div>${ext}</div>
+    </div>
+    <h3 style="margin-top:28px">Typography</h3><p class="st-note">${esc((st.typography && st.typography.character) || '')}</p>
+    <div class="tablewrap"><table class="data"><thead><tr><th>Pairing</th><th>Fit</th><th>Why</th></tr></thead><tbody>${fitRows}</tbody></table></div>
+    ${newP ? `<span class="lbl" style="display:block;margin-top:12px">New pairings proposed by this style</span><ul class="tight">${newP}</ul>` : ''}
+    <h3 style="margin-top:28px">Motion</h3><p class="st-note">${esc(M.character || '')}</p>
+    <div class="tablewrap"><table class="data"><thead><tr><th>Move</th><th>Timing</th><th>Use</th></tr></thead><tbody>${moves}</tbody></table></div>
+    <h3 style="margin-top:28px">Across every layer</h3>
+    <div class="tablewrap"><table class="data"><thead><tr><th>Layer</th><th>Do</th><th>Don’t</th></tr></thead><tbody>${layers}</tbody></table></div>
+    <details class="st-research" ${st.id === 'humanist-minimal' ? '' : 'open'}><summary><h3 style="display:inline">Research dossier</h3> <span class="lbl">approaches/${esc(st.id)}/research.md</span></summary><article class="research">${st.research || '<p>No research file.</p>'}</article></details>`;
+  document.querySelectorAll('#st-grid .st-card').forEach(c => c.classList.toggle('open', c.querySelector('[data-stopen]').dataset.stopen === st.id));
 }
 
 /* ------------------------------------------------------------ brain research */
@@ -983,10 +1079,10 @@ function renderResearch() {
   $('#rs-myths').innerHTML = R.myths.map(m => `<article class="rs-myth"><span class="lbl">Myth</span><b>${esc(m.claim)}</b><p>${esc(m.reality)}</p><p><b>Instead:</b> ${esc(m.useInstead)}</p></article>`).join('');
   const C = R.criteria;
   const list = R.styles.list.map(s => ({ ...s, total: Object.values(s.scores).reduce((a, b) => a + b, 0) })).sort((a, b) => b.total - a.total);
-  const statusLabel = { ours: 'Our first direction', candidate: 'Candidate', reference: 'Reference' };
+  const statusLabel = { ours: 'Our first direction', built: 'In the style library', candidate: 'Candidate', reference: 'Reference' };
   $('#rs-styles').innerHTML = list.map(s => `<article class="rs-style ${s.status}">
-    <div class="rs-thumb">${styleThumb(s.id, pal)}</div>
-    <div class="rs-body"><div class="ty-name"><b>${esc(s.name)}</b><span class="fit ${s.status === 'ours' ? 'inuse' : s.status === 'candidate' ? 'core' : ''}">${statusLabel[s.status]}</span><span class="rs-total">${s.total}<small>/14</small></span></div>
+    <div class="rs-thumb ${DATA.styles.some(x => x.id === s.id) ? 'poster' : ''}">${(DATA.styles.find(x => x.id === s.id) || {}).samples ? stylePoster(DATA.styles.find(x => x.id === s.id)) : styleThumb(s.id, pal)}</div>
+    <div class="rs-body"><div class="ty-name"><b>${esc(s.name)}</b><span class="fit ${s.status === 'ours' ? 'inuse' : s.status === 'built' ? 'core' : ''}">${statusLabel[s.status]}</span><span class="rs-total">${s.total}<small>/14</small></span></div>
       <p>${esc(s.summary)}</p>
       <div class="rs-scores">${C.map(c => `<span title="${esc(c.label)}: ${s.scores[c.id]} of 2"><i class="s${s.scores[c.id]}"></i>${esc(c.label)}</span>`).join('')}</div>
       <p class="rs-watch"><b>Watch:</b> ${esc(s.watch)}</p></div></article>`).join('');
@@ -1383,6 +1479,8 @@ document.addEventListener('click', e => {
   else if (t.id === 'ap-newshapes') { shapeState.seed++; renderShapes(); }
   else if (t.id === 'ap-play') playSprings();
   else if (t.id === 'glimpse-btn') glimpse();
+  else if (t.dataset.stopen) { ststate.open = t.dataset.stopen; renderStyleDetail(); $('#st-detail').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); }
+  else if (t.dataset.stpal) { ststate.pal = t.dataset.stpal; document.querySelectorAll('#st-pal button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderStyles(); }
   else if (t.id === 'clear-color') { cstate.color = null; renderColorFilter(); renderCombos(); }
   else if (t.id === 'close-detail') $('#detail').close();
   else if (t.id === 'only-starred') { cstate.starredOnly = !cstate.starredOnly; t.setAttribute('aria-pressed', cstate.starredOnly); t.classList.toggle('primary', cstate.starredOnly); renderCombos(); }

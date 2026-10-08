@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { loadMessaging } from '../../foundations/messaging/context.mjs';
 import { loadPairings, googleFontsUrl } from '../../foundations/typography/build.mjs';
 import { copyFiles } from '../../scripts/products.mjs';
+import { listApproaches, loadApproach, renderSample, samplePalette, springEasing } from '../../approaches/build.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
@@ -71,6 +72,42 @@ export function buildHub({ root, brands }) {
     };
   });
 
+  // Style library: every approach, with research, data and sample posters.
+  const hexOf = Object.fromEntries(first.colors.map((c) => [c.id, c.hex]));
+  const byHex = (id) => hexOf[id];
+  const comboById = Object.fromEntries(first.combinations.map((c) => [c.id, c]));
+  const recNum = (r) => +(r.combination ?? r.id ?? r.number ?? r.code);
+  const styles = [];
+  for (const id of listApproaches()) {
+    let a;
+    try { a = loadApproach(id); } catch (e) { console.warn(`hub: skipped approach ${id}: ${e.message}`); continue; }
+    const recs = ((a.art && a.art.palette && a.art.palette.recommendedCombinations) || []).filter((r) => comboById[recNum(r)]);
+    const own = recs.length ? comboById[recNum(recs[0])] : first.combinations[0];
+    const copy = { headline: a.name, subhead: a.summary, brand: 'UnDesigned' };
+    const samples = { own: renderSample(id, samplePalette(own, own.roles.light, byHex), copy, a) };
+    for (const item of items) {
+      const p = item.palettes.find((x) => x.name === 'primary') || item.palettes[0];
+      if (p) samples[item.id] = renderSample(id, samplePalette(comboById[p.combination], p.roles, byHex), { headline: item.message.oneLiner && item.message.oneLiner.result ? item.message.oneLiner.result : a.name, subhead: a.summary, brand: item.name }, a);
+    }
+    const researchFile = join(root, 'approaches', id, 'research.md');
+    const springs = Object.fromEntries(Object.entries((a.motion && a.motion.springs) || {}).map(([k, sp]) => [k, springEasing(sp)]));
+    styles.push({
+      id, name: a.name, summary: a.summary, status: a.status, principles: a.principles || [], layers: a.layers || [], evidence: a.evidence || null,
+      palette: a.art ? a.art.palette : null, art: a.art || {}, motion: a.motion || {}, springsCss: springs, typography: a.typography || {},
+      ownCombination: own.id, recommended: recs.map((r) => ({ ...r, combination: recNum(r) })),
+      research: existsSync(researchFile) ? mdToHtml(readFileSync(researchFile, 'utf8')) : '',
+      samples, usedBy: items.filter((it) => it.approach === id).map((it) => it.id),
+    });
+  }
+  // Brain research: built styles' own evidence replaces our earlier estimates.
+  const research = JSON.parse(readFileSync(join(root, 'foundations/research/visual-preference.json'), 'utf8'));
+  const built = styles.filter((st) => st.evidence && st.evidence.scores);
+  const covered = new Set([...built.map((st) => st.id), 'mid-century', 'maximalist']);
+  research.styles.list = [
+    ...built.map((st) => ({ id: st.id, name: st.name, status: st.id === 'humanist-minimal' ? 'ours' : 'built', scores: st.evidence.scores, summary: st.summary, watch: st.evidence.watch || (st.evidence.beyondPreference ? 'Wins beyond liking: ' + (typeof st.evidence.beyondPreference === 'string' ? st.evidence.beyondPreference : [].concat(st.evidence.beyondPreference).map((b) => b.what || b.win || b.title || b).join('; ')) : '') })),
+    ...research.styles.list.filter((st) => !covered.has(st.id)),
+  ];
+
   const shared = {
     builtAt: new Date().toISOString().slice(0, 10),
     colors: first.colors,
@@ -81,7 +118,8 @@ export function buildHub({ root, brands }) {
     approaches,
     pairings: pairings.pairings,
     typeRules: pairings.rules,
-    research: JSON.parse(readFileSync(join(root, 'foundations/research/visual-preference.json'), 'utf8')),
+    research,
+    styles,
   };
   const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '');
   const libs = Object.keys(approaches)
