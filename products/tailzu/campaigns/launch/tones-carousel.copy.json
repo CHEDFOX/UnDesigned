@@ -1,0 +1,95 @@
+[
+  {
+    "$comment": "Slide 1 of 6: hook. The rough message is the site's own example.",
+    "piece": "tones-1",
+    "format": "carousel-slide",
+    "headline": "One rough message. Eight ways to send it.",
+    "logo": true,
+    "palette": "paper",
+    "label": "1 / 6",
+    "rough": "hey can u send the file tonight its kinda urgent"
+  },
+  {
+    "piece": "tones-2",
+    "format": "carousel-slide",
+    "headline": "For when you just need it done.",
+    "logo": true,
+    "palette": "paper",
+    "label": "2 / 6",
+    "tones": [
+      [
+        "Neutral",
+        "Can you send the file tonight? It's fairly urgent."
+      ],
+      [
+        "Casual",
+        "Hey, can you send the file tonight? Kinda urgent."
+      ]
+    ]
+  },
+  {
+    "piece": "tones-3",
+    "format": "carousel-slide",
+    "headline": "For your manager, or for your friend.",
+    "logo": true,
+    "palette": "paper",
+    "label": "3 / 6",
+    "tones": [
+      [
+        "Formal",
+        "Could you please send the file this evening? It is time-sensitive."
+      ],
+      [
+        "Excited",
+        "Can you send the file tonight? Can't wait to dig in!"
+      ]
+    ]
+  },
+  {
+    "piece": "tones-4",
+    "format": "carousel-slide",
+    "headline": "For the group chat that deserves it.",
+    "logo": true,
+    "palette": "paper",
+    "label": "4 / 6",
+    "tones": [
+      [
+        "Shakespeare",
+        "Prithee, send the file ere night doth fall. 'Tis most urgent."
+      ],
+      [
+        "Pirate",
+        "Arr, send the file tonight, matey. It be urgent."
+      ]
+    ]
+  },
+  {
+    "piece": "tones-5",
+    "format": "carousel-slide",
+    "headline": "For when the file really is that urgent.",
+    "logo": true,
+    "palette": "paper",
+    "label": "5 / 6",
+    "tones": [
+      [
+        "Movie Trailer",
+        "One file. One night. And time is running out."
+      ],
+      [
+        "Noir",
+        "The file. Tonight. In this town, urgent means yesterday."
+      ]
+    ]
+  },
+  {
+    "$comment": "Slide 6 of 6: CTA.",
+    "piece": "tones-6",
+    "format": "carousel-slide",
+    "headline": "Choose your tone once. Then just talk.",
+    "body": "Eight tones, every app, 800 words a month free.",
+    "cta": "Get Tailzu free",
+    "logo": true,
+    "palette": "paper",
+    "label": "6 / 6"
+  }
+]

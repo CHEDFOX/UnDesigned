@@ -1,34 +1,44 @@
 {
-  "$comment": "Brand settings for Tailzu. Edit, then run `npm run build`.",
+  "$comment": "Brand settings for Tailzu. Edit, then run `npm run build`. Choices echo the brand's own signals (identity.json -> signals).",
   "name": "Tailzu",
   "nameVariants": [],
   "prefix": "ta",
   "approach": "humanist-minimal",
   "color": {
-    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the palettes are chosen, then \"chosen\".",
+    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the owner agrees, then \"chosen\".",
     "status": "placeholder",
     "palettes": {
       "primary": {
-        "combination": 344,
-        "mode": "light"
+        "combination": 126,
+        "mode": "dark"
       },
-      "alt": {
-        "combination": 343,
+      "night": {
+        "combination": 232,
+        "mode": "dark"
+      },
+      "desk": {
+        "combination": 190,
+        "mode": "dark"
+      },
+      "paper": {
+        "combination": 151,
         "mode": "light"
       }
     }
   },
   "typography": {
-    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold). hand (optional) is one handwritten accent face from foundations/typography/source/handwritten.json, if the style allows it (approaches/<approach>/typography.json -> handwritten).",
+    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes. hand is one handwritten accent face from foundations/typography/source/handwritten.json, allowed by the style (approaches/humanist-minimal/typography.json -> handwritten: accent, one note of six words or fewer per piece).",
     "pairing": "instrument",
     "scale": 1.25,
     "hand": "caveat"
   },
   "$why": {
-    "approach": "Humanist Minimal: the product is literally hand in, type out (the site draws speech as handwriting that one set word swallows); a wobbling ink line turning into calm type is that idea in this style, and it has the strongest evidence (12/14) plus a drawing engine.",
-    "primary": "Wada 344 (Cinnamon Buff ground, Black ink 11.95:1, Deep Lyons Blue accent 6.2:1, inkUse body): the warm amber-cream and near-black of the app and site, with the indigo of its link card as the one accent object.",
-    "alt": "Wada 343 (Ivory Buff ground, Vandar Poel's Blue text 6.11:1, Burnt Sienna accent): the site's pale cream with an amber-brown accent, for professional pieces (LinkedIn) that need a quieter ground.",
-    "pairing": "instrument (Instrument Serif + Instrument Sans + IBM Plex Mono), rated core: the site already sets its words in Instrument Sans and IBM Plex Mono, and the calm editorial serif replaces its Newsreader.",
-    "hand": "Caveat: the face the site already uses for spoken words; here only for the one short said-it note per piece (six words or fewer), never for headlines, body, CTAs or numbers."
+    "approach": "Humanist Minimal (evidence 12/14, the highest in the guide): its method is the brand's own idea. The site's README says 'Speech is a person, and a person writes by hand ... Hand in, type out: that contrast is the product'. In this style the hand lives in the ink line and one short note, and the type stays calm: the said line is the hand, the written line is the type.",
+    "primary": "Wada 126 in dark mode (Deep Lyons Blue ground, Ivory Buff text 6.61:1, Yellow Ocher accent 5.02:1): the og.png card in Wada's colours, an indigo-blue night, cream words and one amber object (the full stop that lands last).",
+    "night": "Wada 232 in dark mode (Deep Indigo ground, Pinkish Cinnamon text 10.1:1, Carmine accent): the deepest indigo in the book, nearest to the og.png ground #17163F, with the site's rose as the one accent object. Also a style-recommended combination (art.json).",
+    "desk": "Wada 190 in dark mode (Black ground, Ivory Buff text 12.75:1, English Red accent 5.22:1): the app's own near-black ground #0F0D0B with the mark's cream line and copper tail. For the desktop and code-editor pieces.",
+    "paper": "Wada 151 in light mode (Sulpher Yellow ground, Vandar Poel's Blue text 7.51:1, Yellow Orange accent): the site's paper and butter sections with its saffron, for longer copy that must be dark on light (O8) and for professional pieces.",
+    "pairing": "instrument (Instrument Serif + Instrument Sans + IBM Plex Mono), rated core by the style: two of its three faces are the site's own (Instrument Sans, IBM Plex Mono); Instrument Serif is the pairing's nearest light editorial serif to the site's Newsreader.",
+    "hand": "Caveat: the site's own face for the spoken word. Handwriting research: hand type makes people feel a person was there (Schroll et al. 2018), so it carries the said line; machine type is read as clearer and more credible (Song & Schwarz 2008; Song et al. 2025), so the written line, names and numbers stay in the pairing. One note of six words or fewer per piece, never a headline, CTA or number."
   }
 }

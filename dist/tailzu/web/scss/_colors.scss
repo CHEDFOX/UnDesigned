@@ -889,20 +889,34 @@ $ta-combinations: (
   348: (#c1c494, #437742, #253122, #501345),
 );
 
-// Brand primary: combination 344 (light)
+// Brand primary: combination 126 (dark)
 $ta-primary: (
-  'bg': #fdc57e,
-  'ink': #111314,
-  'accent': #1c4286,
-  'text': #111314,
-  'support-1': #a36aa5,
+  'bg': #1c4286,
+  'ink': #ebd3a2,
+  'accent': #e2b540,
+  'text': #ebd3a2,
 );
 
-// Brand alt: combination 343 (light)
-$ta-alt: (
-  'bg': #ebd3a2,
+// Brand night: combination 232 (dark)
+$ta-night: (
+  'bg': #051230,
+  'ink': #eeb480,
+  'accent': #cc1236,
+  'text': #eeb480,
+);
+
+// Brand desk: combination 190 (dark)
+$ta-desk: (
+  'bg': #111314,
+  'ink': #ebd3a2,
+  'accent': #d96629,
+  'text': #ebd3a2,
+);
+
+// Brand paper: combination 151 (light)
+$ta-paper: (
+  'bg': #f5ecc2,
   'ink': #064f6e,
-  'accent': #ae5224,
+  'accent': #f99d1b,
   'text': #064f6e,
-  'support-1': #635a3a,
 );

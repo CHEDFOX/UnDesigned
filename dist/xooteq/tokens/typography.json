@@ -1,47 +1,42 @@
 {
   "pairing": {
-    "id": "bricolage-figtree",
-    "name": "Warm Modern",
-    "mood": "Friendly and current. The headline face has slightly irregular, ink-trap details that echo hand-drawn line; the body face is open and calm.",
-    "bestFor": "Most brands. Posters, social, websites.",
+    "id": "schibsted",
+    "name": "Single-Family Minimal",
+    "mood": "One family, strict and modern; hierarchy comes from size and weight only. The most minimal option.",
+    "bestFor": "Tech, products, studios that want maximum restraint.",
     "display": {
-      "family": "Bricolage Grotesque",
+      "family": "Schibsted Grotesk",
       "weights": [
-        500,
-        700,
+        600,
         800
       ],
-      "style": "Expressive grotesque with optical sizes",
+      "style": "Sturdy grotesque",
       "case": "Sentence case",
-      "tracking": -0.02,
+      "tracking": -0.025,
       "leading": 1,
-      "designer": "Mathieu Triay",
-      "classification": "Display grotesque",
+      "designer": "Bakken & Bæck, Henrik Kongsvoll",
+      "classification": "Neo-grotesque",
       "axes": [
-        "wght 200-800",
-        "wdth",
-        "opsz"
-      ],
-      "notes": "Started as a fork of Mayenne Sans (Jérémy Landes); influenced by Antique Olive and Grotesque Nº9."
+        "wght 400-900"
+      ]
     },
     "body": {
-      "family": "Figtree",
+      "family": "Schibsted Grotesk",
       "weights": [
         400,
-        500,
-        700
+        500
       ],
-      "style": "Geometric-humanist sans, open apertures",
+      "style": "Same family",
       "tracking": 0,
       "leading": 1.5,
-      "designer": "Erik Kennedy",
-      "classification": "Geometric-humanist sans",
+      "designer": "Bakken & Bæck, Henrik Kongsvoll",
+      "classification": "Neo-grotesque",
       "axes": [
-        "wght 300-900"
+        "wght 400-900"
       ]
     },
     "mono": {
-      "family": "IBM Plex Mono",
+      "family": "JetBrains Mono",
       "weights": [
         400,
         500
@@ -52,32 +47,32 @@
     ]
   },
   "hand": null,
-  "ratio": 1.25,
+  "ratio": 1.333,
   "sizes": {
     "web": {
-      "caption": 10.2,
-      "small": 12.8,
+      "caption": 9,
+      "small": 12,
       "body": 16,
-      "lead": 20,
-      "h3": 25,
-      "h2": 31.3,
-      "h1": 39.1,
-      "display": 61,
-      "hero": 95.4
+      "lead": 21.3,
+      "h3": 28.4,
+      "h2": 37.9,
+      "h1": 50.5,
+      "display": 89.8,
+      "hero": 159.5
     },
     "poster": {
-      "caption": 15.4,
-      "small": 19.2,
+      "caption": 13.5,
+      "small": 18,
       "body": 24,
-      "lead": 30,
-      "h3": 37.5,
-      "h2": 46.9,
-      "h1": 58.6,
-      "display": 91.6,
-      "hero": 143.1
+      "lead": 32,
+      "h3": 42.6,
+      "h2": 56.8,
+      "h1": 75.8,
+      "display": 134.6,
+      "hero": 239.3
     }
   },
-  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap",
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap",
   "rules": [
     "Two families at most (display + body), plus a mono for small data such as dates, prices and codes.",
     "Sentence case everywhere. All capitals only for short labels of one to three words, with letter-spacing.",

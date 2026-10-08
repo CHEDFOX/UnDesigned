@@ -5,7 +5,7 @@
 @keyframes ud-pop-eye{from{transform:scale(0)}to{transform:scale(1)}}
 .ud-ill-eye .ud-blink{transform-box:fill-box;transform-origin:center;animation:ud-blink-eye 2600ms 1000ms infinite}
 @keyframes ud-blink-eye{0%,91.5%,100%{transform:scaleY(1)}95.8%{transform:scaleY(.08)}}
-@media (prefers-reduced-motion:reduce){.ud-ill-eye *{animation:none!important}.ud-ill-eye .ud-draw{stroke-dashoffset:0}}</style><rect width="400" height="400" fill="#fdc57e"/><defs>
+@media (prefers-reduced-motion:reduce){.ud-ill-eye *{animation:none!important}.ud-ill-eye .ud-draw{stroke-dashoffset:0}}</style><rect width="400" height="400" fill="#1c4286"/><defs>
         <pattern id="ud-ht-eye" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r="1.25" fill="#111314"/></pattern>
         <linearGradient id="ud-fade-eye" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".25"/></linearGradient>
         <mask id="ud-mask-eye"><rect width="400" height="400" fill="url(#ud-fade-eye)"/></mask>

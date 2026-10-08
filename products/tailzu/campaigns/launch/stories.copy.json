@@ -1,0 +1,25 @@
+[
+  {
+    "$comment": "Story with a poll sticker (pillar: Your language). Sticker zone in the brief.",
+    "piece": "story-poll",
+    "format": "story",
+    "headline": "You think in Hinglish. Why type in English?",
+    "cta": "Get Tailzu free",
+    "logo": true,
+    "palette": "night",
+    "poll": [
+      "I type it",
+      "I'd say it"
+    ]
+  },
+  {
+    "$comment": "Story with a question sticker (pillar: Where it lands / community).",
+    "piece": "story-question",
+    "format": "story",
+    "headline": "Which message do you keep putting off typing?",
+    "subhead": "Tell us yours. You might see it said, then written.",
+    "cta": "Get Tailzu free",
+    "logo": true,
+    "palette": "paper"
+  }
+]

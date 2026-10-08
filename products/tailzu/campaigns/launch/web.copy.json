@@ -1,0 +1,27 @@
+[
+  {
+    "piece": "hero",
+    "format": "landing-hero",
+    "headline": "Say it the way it comes. Send it clean.",
+    "subhead": "A voice keyboard for iPhone, Android, Windows and Mac. Talk in Hinglish or any of 22 Indian languages; clean text lands in any app.",
+    "body": "800 words a month, free.",
+    "cta": "Get Tailzu free",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "piece": "banner",
+    "format": "web-banner",
+    "headline": "Talk in Hinglish. Send it clean.",
+    "cta": "Get it free",
+    "logo": true,
+    "palette": "night"
+  },
+  {
+    "piece": "thumbnail",
+    "format": "thumbnail",
+    "headline": "Hinglish, without the typing",
+    "logo": true,
+    "palette": "primary"
+  }
+]

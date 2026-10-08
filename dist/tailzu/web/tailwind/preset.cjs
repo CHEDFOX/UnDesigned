@@ -165,17 +165,27 @@ module.exports = { theme: { extend: { colors: {
     "black": "#111314"
   },
   "brand": {
-    "bg": "#fdc57e",
-    "ink": "#111314",
-    "accent": "#1c4286",
-    "text": "#111314",
-    "support-1": "#a36aa5",
-    "alt": {
-      "bg": "#ebd3a2",
+    "bg": "#1c4286",
+    "ink": "#ebd3a2",
+    "accent": "#e2b540",
+    "text": "#ebd3a2",
+    "night": {
+      "bg": "#051230",
+      "ink": "#eeb480",
+      "accent": "#cc1236",
+      "text": "#eeb480"
+    },
+    "desk": {
+      "bg": "#111314",
+      "ink": "#ebd3a2",
+      "accent": "#d96629",
+      "text": "#ebd3a2"
+    },
+    "paper": {
+      "bg": "#f5ecc2",
       "ink": "#064f6e",
-      "accent": "#ae5224",
-      "text": "#064f6e",
-      "support-1": "#635a3a"
+      "accent": "#f99d1b",
+      "text": "#064f6e"
     }
   }
 } } } };

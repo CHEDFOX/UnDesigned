@@ -174,14 +174,20 @@
   --color-wada-deep-violet-plumbeous: #70727c;
   --color-wada-black: #111314;
   /* Brand */
-  --color-brand-bg: #fdc57e;
-  --color-brand-ink: #111314;
-  --color-brand-accent: #1c4286;
-  --color-brand-text: #111314;
-  --color-brand-support-1: #a36aa5;
-  --color-brand-alt-bg: #ebd3a2;
-  --color-brand-alt-ink: #064f6e;
-  --color-brand-alt-accent: #ae5224;
-  --color-brand-alt-text: #064f6e;
-  --color-brand-alt-support-1: #635a3a;
+  --color-brand-bg: #1c4286;
+  --color-brand-ink: #ebd3a2;
+  --color-brand-accent: #e2b540;
+  --color-brand-text: #ebd3a2;
+  --color-brand-night-bg: #051230;
+  --color-brand-night-ink: #eeb480;
+  --color-brand-night-accent: #cc1236;
+  --color-brand-night-text: #eeb480;
+  --color-brand-desk-bg: #111314;
+  --color-brand-desk-ink: #ebd3a2;
+  --color-brand-desk-accent: #d96629;
+  --color-brand-desk-text: #ebd3a2;
+  --color-brand-paper-bg: #f5ecc2;
+  --color-brand-paper-ink: #064f6e;
+  --color-brand-paper-accent: #f99d1b;
+  --color-brand-paper-text: #064f6e;
 }

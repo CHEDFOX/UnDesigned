@@ -694,11 +694,11 @@
       "problem": {
         "villain": "The keyboard: small keys, one alphabet, and dictation that types the 'um's",
         "external": "Typing Hinglish or an Indian script is slow, and rough speech comes out as rough text",
-        "internal": "",
+        "internal": "Typing makes you perform: you come out stiffer or sloppier than you are, or you put the message off",
         "philosophical": "Your words should arrive the way you meant them, in the language you actually speak"
       },
       "guide": {
-        "empathy": "",
+        "empathy": "You think out loud. You shouldn't have to switch languages, or slow down to thumb speed, to be understood.",
         "authority": [
           "All 22 scheduled languages of India, Hinglish and English, plus 23 more languages",
           "Works as a keyboard in every app on iPhone and Android",
@@ -715,14 +715,14 @@
       },
       "callToAction": {
         "direct": "Download Tailzu free",
-        "transitional": "Say one yourself at tailzu.space"
+        "transitional": "Try 800 words a month, free"
       },
       "failure": [
         "Typing a long Hinglish message by thumb, or sending speech as rough text"
       ],
       "success": [
-        "Say it once, rough; a clean message lands in WhatsApp, mail or the chat box",
-        "Hinglish stays Hinglish, and Ramesh stays Ramesh"
+        "You say it once, the way it comes, and a clean message lands in WhatsApp, mail, a chat box or your editor",
+        "Your names, amounts and languages arrive exactly as you said them"
       ],
       "transformation": {
         "from": "Typing slowly, or sending rough text",
@@ -745,7 +745,9 @@
         "revolutionary",
         "magic",
         "AI-powered",
-        "translate"
+        "translate",
+        "effortless",
+        "seamless"
       ]
     },
     "proof": {
@@ -771,7 +773,7 @@
     }
   },
   "fill": {
-    "filled": 25,
+    "filled": 27,
     "total": 29
   }
 }

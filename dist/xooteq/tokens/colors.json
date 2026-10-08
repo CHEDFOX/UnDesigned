@@ -20130,46 +20130,53 @@
   "brand": [
     {
       "name": "primary",
-      "combination": 207,
-      "mode": "light",
+      "combination": 340,
+      "mode": "dark",
       "colors": [
-        "sudan-brown",
-        "glaucous-green",
+        "peach-red",
+        "sea-green",
+        "neutral-gray",
         "black"
       ],
       "roles": {
-        "bg": "glaucous-green",
-        "ink": "black",
-        "accent": "sudan-brown",
-        "support": [],
-        "text": "black",
+        "bg": "black",
+        "ink": "white",
+        "accent": "sea-green",
+        "support": [
+          "peach-red",
+          "neutral-gray"
+        ],
+        "text": "neutral-gray",
         "contrast": {
-          "inkOnBg": 11.05,
-          "accentOnBg": 2.7,
-          "textOnBg": 11.05
+          "inkOnBg": 9.95,
+          "accentOnBg": 5.54,
+          "textOnBg": 9.95
         },
         "inkUse": "body"
       }
     },
     {
-      "name": "night",
-      "combination": 207,
-      "mode": "dark",
+      "name": "daylight",
+      "combination": 340,
+      "mode": "light",
       "colors": [
-        "sudan-brown",
-        "glaucous-green",
+        "peach-red",
+        "sea-green",
+        "neutral-gray",
         "black"
       ],
       "roles": {
-        "bg": "black",
-        "ink": "glaucous-green",
-        "accent": "sudan-brown",
-        "support": [],
-        "text": "glaucous-green",
+        "bg": "neutral-gray",
+        "ink": "black",
+        "accent": "peach-red",
+        "support": [
+          "sea-green"
+        ],
+        "text": "black",
         "contrast": {
-          "inkOnBg": 11.05,
-          "accentOnBg": 4.1,
-          "textOnBg": 11.05
+          "inkOnBg": 9.95,
+          "accentOnBg": 1.8,
+          "textOnBg": 9.95
         },
         "inkUse": "body"
       }

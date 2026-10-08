@@ -20130,52 +20130,92 @@
   "brand": [
     {
       "name": "primary",
-      "combination": 344,
-      "mode": "light",
+      "combination": 126,
+      "mode": "dark",
       "colors": [
-        "cinnamon-buff",
-        "deep-lyons-blue",
-        "aconite-violet",
-        "black"
+        "ivory-buff",
+        "yellow-ocher",
+        "deep-lyons-blue"
       ],
       "roles": {
-        "bg": "cinnamon-buff",
-        "ink": "black",
-        "accent": "deep-lyons-blue",
-        "support": [
-          "aconite-violet"
-        ],
-        "text": "black",
+        "bg": "deep-lyons-blue",
+        "ink": "ivory-buff",
+        "accent": "yellow-ocher",
+        "support": [],
+        "text": "ivory-buff",
         "contrast": {
-          "inkOnBg": 11.95,
-          "accentOnBg": 6.2,
-          "textOnBg": 11.95
+          "inkOnBg": 6.61,
+          "accentOnBg": 5.02,
+          "textOnBg": 6.61
         },
         "inkUse": "body"
       }
     },
     {
-      "name": "alt",
-      "combination": 343,
+      "name": "night",
+      "combination": 232,
+      "mode": "dark",
+      "colors": [
+        "carmine",
+        "pinkish-cinnamon",
+        "deep-indigo"
+      ],
+      "roles": {
+        "bg": "deep-indigo",
+        "ink": "pinkish-cinnamon",
+        "accent": "carmine",
+        "support": [],
+        "text": "pinkish-cinnamon",
+        "contrast": {
+          "inkOnBg": 10.1,
+          "accentOnBg": 3.26,
+          "textOnBg": 10.1
+        },
+        "inkUse": "body"
+      }
+    },
+    {
+      "name": "desk",
+      "combination": 190,
+      "mode": "dark",
+      "colors": [
+        "ivory-buff",
+        "english-red",
+        "black"
+      ],
+      "roles": {
+        "bg": "black",
+        "ink": "ivory-buff",
+        "accent": "english-red",
+        "support": [],
+        "text": "ivory-buff",
+        "contrast": {
+          "inkOnBg": 12.75,
+          "accentOnBg": 5.22,
+          "textOnBg": 12.75
+        },
+        "inkUse": "body"
+      }
+    },
+    {
+      "name": "paper",
+      "combination": 151,
       "mode": "light",
       "colors": [
-        "burnt-sienna",
-        "ivory-buff",
-        "deep-grayish-olive",
+        "sulpher-yellow",
+        "yellow-orange",
         "vandar-poel-s-blue"
       ],
       "roles": {
-        "bg": "ivory-buff",
+        "bg": "sulpher-yellow",
         "ink": "vandar-poel-s-blue",
-        "accent": "burnt-sienna",
-        "support": [
-          "deep-grayish-olive"
-        ],
+        "accent": "yellow-orange",
+        "support": [],
         "text": "vandar-poel-s-blue",
         "contrast": {
-          "inkOnBg": 6.11,
-          "accentOnBg": 3.56,
-          "textOnBg": 6.11
+          "inkOnBg": 7.51,
+          "accentOnBg": 1.79,
+          "textOnBg": 7.51
         },
         "inkUse": "body"
       }

@@ -1,0 +1,35 @@
+[
+  {
+    "$comment": "Moment: family (pillar: Where it lands). Single focal: a drawn chat.",
+    "piece": "moment-mummy",
+    "format": "instagram-post",
+    "headline": "Hands full. Mummy still gets her reply.",
+    "logo": true,
+    "palette": "primary",
+    "note": "haan haan pahunch gaya",
+    "incoming": "Pahunch gaye?",
+    "written": "Haan, pahunch gaya. Ghar jaake call karta hoon"
+  },
+  {
+    "$comment": "Moment: AI chat (pillar: Where it lands). Full-bleed box + band.",
+    "piece": "moment-prompt",
+    "format": "instagram-post",
+    "headline": "Think out loud. The prompt comes out clean.",
+    "cta": "Get Tailzu free",
+    "logo": true,
+    "palette": "night",
+    "note": "so basically um like…",
+    "written": "Explain GST input credit like I run a small shop. Give me one example."
+  },
+  {
+    "$comment": "Moment: code editor (pillar: Where it lands). Split, image top.",
+    "piece": "moment-code",
+    "format": "instagram-post",
+    "headline": "Say the fix. It lands at your cursor.",
+    "subhead": "Tap Ctrl twice on Mac or Windows, then talk.",
+    "logo": true,
+    "palette": "desk",
+    "note": "uh add a retry here",
+    "written": "// Add a retry here"
+  }
+]

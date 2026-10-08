@@ -1,0 +1,21 @@
+[
+  {
+    "$comment": "Motion 1: said line written by hand, then the clean line, then the full stop lands last.",
+    "piece": "said-to-written",
+    "format": "instagram-post",
+    "headline": "Keep the haan. Lose the um.",
+    "logo": true,
+    "palette": "primary",
+    "said": "haan um kal subah milte hain",
+    "written": "Haan, kal subah milte hain"
+  },
+  {
+    "$comment": "Motion 2: the tone shifter, story 9:16. Lines are the site's own.",
+    "piece": "tone-shifter",
+    "format": "story",
+    "headline": "Same message. Your mood.",
+    "cta": "Get Tailzu free",
+    "logo": true,
+    "palette": "night"
+  }
+]

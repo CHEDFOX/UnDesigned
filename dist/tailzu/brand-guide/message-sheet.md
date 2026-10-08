@@ -28,16 +28,16 @@ Typing Hinglish or an Indian language on a keyboard is slow, and plain dictation
 | ... wants | To get a message out as fast as they can say it, in their own words |
 | 2. Problem: villain | The keyboard: small keys, one alphabet, and dictation that types the 'um's |
 | Problem: external | Typing Hinglish or an Indian script is slow, and rough speech comes out as rough text |
-| Problem: internal | _to fill in_ |
+| Problem: internal | Typing makes you perform: you come out stiffer or sloppier than you are, or you put the message off |
 | Problem: philosophical | Your words should arrive the way you meant them, in the language you actually speak |
-| 3. Guide: empathy | _to fill in_ |
+| 3. Guide: empathy | You think out loud. You shouldn't have to switch languages, or slow down to thumb speed, to be understood. |
 | Guide: authority | All 22 scheduled languages of India, Hinglish and English, plus 23 more languages; Works as a keyboard in every app on iPhone and Android; Desktop app for Windows and Mac: tap Ctrl twice, talk, and the text is pasted at the cursor |
 | 4. Plan | You speak; It hears what you mean; Written |
 | Plan: promise | It cleans. It never rewrites. Names and amounts stay. |
 | 5. Call to action: direct | Download Tailzu free |
-| Call to action: transitional | Say one yourself at tailzu.space |
+| Call to action: transitional | Try 800 words a month, free |
 | 6. Failure (stakes) | Typing a long Hinglish message by thumb, or sending speech as rough text |
-| 7. Success | Say it once, rough; a clean message lands in WhatsApp, mail or the chat box; Hinglish stays Hinglish, and Ramesh stays Ramesh |
+| 7. Success | You say it once, the way it comes, and a clean message lands in WhatsApp, mail, a chat box or your editor; Your names, amounts and languages arrive exactly as you said them |
 | Transformation | Typing slowly, or sending rough text → Saying it the way you talk and sending it clean |
 
 ## Voice

@@ -1,0 +1,270 @@
+[
+  {
+    "file": "social/sw-1-haan.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "primary (Wada 126 dark)",
+    "composition": "type-led",
+    "finding": "pop-out, first-glance; handwriting: human-presence vs credibility-cost",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/sw-2-names.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "night (Wada 232 dark)",
+    "composition": "type-led",
+    "finding": "pop-out, first-glance; handwriting: human-presence vs credibility-cost",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/sw-3-both.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "desk (Wada 190 dark)",
+    "composition": "type-led",
+    "finding": "pop-out, first-glance; handwriting: human-presence vs credibility-cost",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/tones-1.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "single-focal",
+    "finding": "centre-bias, pop-out",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/tones-2.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "grid-of-n",
+    "finding": "grouping, scan-patterns",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/tones-3.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "grid-of-n",
+    "finding": "grouping, scan-patterns",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/tones-4.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "grid-of-n",
+    "finding": "grouping, scan-patterns",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/tones-5.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "grid-of-n",
+    "finding": "grouping, scan-patterns",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/tones-6.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "stacked",
+    "finding": "touch-centre, grouping",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/moment-mummy.svg",
+    "size": [
+      1080,
+      1080
+    ],
+    "palette": "primary (Wada 126 dark)",
+    "composition": "single-focal",
+    "finding": "centre-bias, picture-superiority, maya",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/moment-prompt.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "night (Wada 232 dark)",
+    "composition": "full-bleed-band",
+    "finding": "picture-captures, grouping, banner-blindness",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/moment-code.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "desk (Wada 190 dark)",
+    "composition": "split",
+    "finding": "split: picture-captures, left-lean; credibility-cost",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/linkedin-kept.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "long-copy",
+    "finding": "long-copy: picture-captures, line-length; credibility-cost",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "social/story-poll.svg",
+    "size": [
+      1080,
+      1920
+    ],
+    "palette": "night (Wada 232 dark)",
+    "composition": "stacked",
+    "finding": "touch-centre, centre-bias; familiar-hand",
+    "durationMs": null,
+    "stickerZone": {
+      "x": 86,
+      "y": 830,
+      "w": 908,
+      "h": 190,
+      "sticker": "poll",
+      "options": [
+        "I type it",
+        "I'd say it"
+      ]
+    }
+  },
+  {
+    "file": "social/story-question.svg",
+    "size": [
+      1080,
+      1920
+    ],
+    "palette": "paper (Wada 151 light)",
+    "composition": "stacked",
+    "finding": "touch-centre, centre-bias; handmade",
+    "durationMs": null,
+    "stickerZone": {
+      "x": 86,
+      "y": 908,
+      "w": 908,
+      "h": 220,
+      "sticker": "question"
+    }
+  },
+  {
+    "file": "web/hero.svg",
+    "size": [
+      1920,
+      1080
+    ],
+    "palette": "primary (Wada 126 dark)",
+    "composition": "split",
+    "finding": "left-lean, banner-blindness, first-glance",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "web/banner.svg",
+    "size": [
+      970,
+      250
+    ],
+    "palette": "night (Wada 232 dark)",
+    "composition": "split",
+    "finding": "banner-blindness, left-lean",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "web/thumbnail.svg",
+    "size": [
+      1280,
+      720
+    ],
+    "palette": "primary (Wada 126 dark)",
+    "composition": "split",
+    "finding": "pop-out, first-glance; thumbnail safe zone",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "print/poster-voice-leaves.svg",
+    "size": [
+      1414,
+      2000
+    ],
+    "palette": "primary (Wada 126 dark)",
+    "composition": "single-focal",
+    "finding": "centre-bias, pop-out, picture-superiority",
+    "durationMs": null,
+    "stickerZone": null
+  },
+  {
+    "file": "motion/said-to-written.svg",
+    "size": [
+      1080,
+      1350
+    ],
+    "palette": "primary (Wada 126 dark)",
+    "composition": "type-led",
+    "finding": "pop-out, first-glance; handwriting: human-presence vs credibility-cost",
+    "durationMs": 11067,
+    "stickerZone": null
+  },
+  {
+    "file": "motion/tone-shifter.svg",
+    "size": [
+      1080,
+      1920
+    ],
+    "palette": "night (Wada 232 dark)",
+    "composition": "stacked",
+    "finding": "video: one-mover, on-screen-reading, joy-surprise, end-still",
+    "durationMs": 24800,
+    "stickerZone": null
+  }
+]

@@ -1,962 +1,1175 @@
 {
-  "id": "humanist-minimal",
-  "name": "Humanist Minimal",
-  "summary": "Very few marks, each one made by a human hand. Organic shapes with rounded corners, an ink line that wobbles slightly, flat paper on a flat ground, and motion that flows like real things. One idea, lots of space.",
+  "id": "commercial-modernism",
+  "name": "Commercial Modernism",
+  "summary": "Modernism in the service of selling, as in the posters of Cassandre, Kauffer, Bernhard, Matter and Beall. One product or symbol as the hero, shown big and from a bold viewpoint; strong diagonals and a low horizon; smooth airbrushed modelling between the colours of one Wada combination; geometric lettering built into the image; a short slogan and the brand name set large.",
+  "status": "profile",
   "principles": [
     {
-      "id": "H1",
-      "title": "The human hand",
-      "rule": "Every mark looks made by a person: ink lines with a small steady wobble, paper shapes cut by hand. Nothing looks generated, glossy or machine-perfect.",
-      "source": "Handmade effect (research.md 3)"
+      "id": "CM1",
+      "title": "The product is the hero",
+      "rule": "One object fills the poster: 40-65% of the canvas height, or a crop that runs off one edge. Remove everything else, as Bernhard reduced the Priester poster to two matches and a name.",
+      "source": "Sachplakat (research.md 2.1); simplicity and first-impression findings"
     },
     {
-      "id": "H2",
-      "title": "Few marks",
-      "rule": "Minimal means fewer things, not thinner things. If a line, shape or word can go, it goes. At most three objects.",
-      "source": "Processing fluency (research.md 3)"
+      "id": "CM2",
+      "title": "One bold viewpoint",
+      "rule": "Show the object from where it looks most powerful: a low horizon (lower 20-35% of the canvas) so it looms, a one-point perspective that drives the eye to a vanishing point, or a frontal monument. One viewpoint per piece.",
+      "source": "Cassandre, Étoile du Nord and Normandie (research.md 2.2)"
     },
     {
-      "id": "H3",
-      "title": "One idea",
-      "rule": "Each piece says one thing, usually by joining two plain symbols into a metaphor (molecule on a column, apple on a book, sound wave in a speech bubble).",
-      "source": "Paul Rand's rebus (research.md 2.2)"
+      "id": "CM3",
+      "title": "Diagonals carry energy",
+      "rule": "At least one dominant diagonal or converging line set, at 15-40 degrees from the horizontal or vertical. Static pieces still imply movement: speed lines, rails, beams, wings.",
+      "source": "Implied motion (research.md 3); Kauffer, Soaring to Success (research.md 2.2)"
     },
     {
-      "id": "H4",
-      "title": "Space is content",
-      "rule": "One focal point and at least 40% empty ground. Centre the motif, or put it on a third to make room for words.",
-      "source": "Ma (research.md 2.1)"
+      "id": "CM4",
+      "title": "Airbrush, within one combination",
+      "rule": "Volume comes from smooth two-stop gradients between colours of the piece's Wada combination (plus Black and White), inside hard stencil edges. Never a gradient to a colour outside the combination, never on lettering, never a drop shadow.",
+      "source": "Cassandre's stencil and paint-gun methods (research.md 2.2)"
     },
     {
-      "id": "H5",
-      "title": "Soft geometry",
-      "rule": "Organic shapes with rounded corners; no perfect circles, squares or sharp corners. Only natural points (a leaf tip, a bubble tail) stay pointed, and even they end in a small radius.",
-      "source": "Preference for curves (research.md 3)"
+      "id": "CM5",
+      "title": "Lettering is part of the picture",
+      "rule": "The brand name and slogan sit in planned zones (a band at the top or bottom, or along a perspective line) and are as large as the image allows. Geometric sans or deco display; the brand word may be set in capitals.",
+      "source": "Cassandre's integrated lettering; Dubonnet (research.md 2.2)"
     },
     {
-      "id": "H6",
-      "title": "Flat and honest",
-      "rule": "Flat colour from one Wada combination, black ink and white paper. No gradients, shadows, glows or 3D. The only tone is printed halftone dots."
+      "id": "CM6",
+      "title": "Few words, said once",
+      "rule": "A slogan of 2-7 words and the brand name. Body copy only in print ads and pages, never on the poster image itself.",
+      "source": "Pieters & Wedel (2004) on text and brand elements (research.md 3)"
     },
     {
-      "id": "H7",
-      "title": "Warm, not cute",
-      "rule": "Friendly and a little witty, never childish. Wit comes from the idea, not decoration. No mascots, no faceless bendy figures.",
-      "source": "Corporate Memphis counter-example (research.md 2.5)"
-    },
-    {
-      "id": "H8",
-      "title": "Fluid motion",
-      "rule": "Things move on springs, with a little weight and a gentle overshoot, then settle on a still frame. Lines draw on, shapes pop and breathe, text rises. One thing moves at a time.",
-      "source": "Designing Fluid Interfaces (research.md 3)"
+      "id": "CM7",
+      "title": "Machine-age polish, not nostalgia",
+      "rule": "Clean edges and precise curves, like a well-made product. No fake wear, paper stains, faded inks or period costume: the piece should feel new, built with the 1930s method (MAYA).",
+      "source": "MAYA (research.md 3)"
     }
   ],
   "layers": [
     {
       "layer": "Colour",
-      "do": "One Wada combination per piece: its background as the ground, its accent on at most one object. Ink is Black, paper is White.",
-      "dont": "Mix combinations in one piece, add gradients, tint the ink."
+      "do": "One Wada combination per piece, chosen from art.json recommendedCombinations. Ground from the combination's bg; the hero object in its dark colour or Black; the accent on one object. Two-stop airbrush gradients only between colours of that combination, Black and White.",
+      "dont": "Mix combinations, use gradients with colours outside the combination, multi-stop rainbows, glows, drop shadows, metallic or chrome effects."
     },
     {
       "layer": "Typography",
-      "do": "Humanist faces with open apertures, rated in typography.json. Sentence case, three sizes, two weights; headline weight matched to the ink line.",
-      "dont": "Handwriting or 'marker' fonts, decorative display faces, many weights."
+      "do": "Geometric sans or deco display faces (typography.json newPairings, then schibsted). Brand word in capitals with wide tracking; slogan in sentence case. Three sizes per piece.",
+      "dont": "Calligraphic or soft rounded faces, handwriting, distressed 'vintage' fonts, more than two families."
     },
     {
       "layer": "Layout",
-      "do": "A simple grid, 8% margins, one focal point, text aligned to one edge. Rounded corners on buttons, cards and image boxes (art.json corners). Illustration and headline work as a pair.",
-      "dont": "Filling every corner, sharp-cornered boxes and borders around everything, centred paragraphs."
+      "do": "One object at 40-65% of canvas height; a low horizon or a clear vanishing point; lettering in one or two bands (top 10-18% and/or bottom 18-28% of the canvas); 5-7% margins.",
+      "dont": "Several products in one poster, centred-everything symmetry without a viewpoint, text floating over busy areas, boxes and borders."
     },
     {
       "layer": "Illustration",
-      "do": "Ink line over organic, rounded paper shapes on a flat ground. One motif per piece, from the product's own world (art.json vocabulary).",
-      "dont": "Stock icons, perfect geometric vectors, sharp corners, detailed scenes, worn symbols (lightbulb, rocket, gears)."
+      "do": "Hard-edged stencil shapes, no outlines; volume by airbrush gradient and by a light side and a shade side; streamline curves (teardrops, long tapering forms) against straight diagonals.",
+      "dont": "Ink outlines, hand-wobble, texture overlays, detailed scenes, people as faceless bendy figures, heroic muscular figures."
     },
     {
       "layer": "Motion",
-      "do": "Springs for arriving, sine-like curves for looping, acceleration for leaving. Draw-on lines, popping and breathing shapes, slow morphs; loops of 2-4 s (motion.json).",
-      "dont": "Linear motion, abrupt stops, long sequences, camera moves, fading the whole artwork, bouncing text."
+      "do": "Smooth, elegant cubic eases; slow push-ins (scale 1 to 1.06 over 4-6 s); objects gliding in along their diagonal; speed lines sweeping; lettering wiping on (motion.json).",
+      "dont": "Bouncy springs, wobble, shaking, more than one moving object, spinning, parallax beyond 4% of the canvas."
     },
     {
       "layer": "Photography",
-      "do": "Natural light, real people and hands, uncluttered backgrounds; cut-out photos on a flat ground fit the style.",
-      "dont": "Glossy stock, heavy filters, busy scenes."
+      "do": "Photomontage in the manner of Herbert Matter: one large cut-out photo (a face, a hand, the product) against a small scene or a flat ground, a scale jump of at least 4:1; duotone or posterized in the combination's colours.",
+      "dont": "Full-bleed unedited stock, soft-focus lifestyle photos, many small photos."
     },
     {
       "layer": "Copy",
-      "do": "Plain, warm, short. Speak to one person (see the messaging playbook).",
-      "dont": "Jargon, hype, exclamation marks."
+      "do": "A short, confident slogan to one person, with a specific fact (a time, a route, a place). The brand name set large beside it. A direct call to action where the format needs one.",
+      "dont": "Exclamation marks, period pastiche ('Ye olde', 'Swell!'), superlatives without proof, long paragraphs on the image."
     }
   ],
-  "status": "complete",
   "evidence": {
     "scores": {
-      "curves": 2,
+      "curves": 1,
       "simplicity": 2,
       "maya": 2,
-      "nature": 1,
-      "handmade": 2,
+      "nature": 0,
+      "handmade": 0,
       "colour": 1,
       "glance": 2
     },
     "notes": {
-      "curves": "Organic shapes and rounded corners are a core rule (H5).",
-      "simplicity": "One idea, at most three objects, at least 40% empty ground (H2, H4).",
-      "maya": "Familiar formats and plain symbols, with the surprise kept to one metaphor (H3).",
-      "nature": "The wobbling line has natural mid-range roughness, but there is no other natural texture.",
-      "handmade": "Hand-drawn line and cut paper throughout (H1).",
-      "colour": "Depends on the Wada combination chosen; some pairs are muddy or low-contrast.",
-      "glance": "One focal point and a flat ground read within a glance."
+      "curves": "Mixed on purpose: streamline curves and teardrops sit against sharp diagonals, bows and wedges, which carry speed but lose some liking (curvature).",
+      "simplicity": "The Sachplakat rule is one object and a name; low complexity is the method, not a by-product (simplicity).",
+      "maya": "A poster that looks like a poster, a recognisable product, one surprising viewpoint; MAYA is named after Raymond Loewy, a streamline designer of this period (maya).",
+      "nature": "Machine-age forms and smooth airbrush have none of the mid-range fractal roughness people like in nature (fractals).",
+      "handmade": "The originals were painted by hand, but the look aims at machine polish; it gives up the handmade-warmth effect (handmade).",
+      "colour": "Wada combinations with deep blues and clear reds suit it; the period's ochres and browns need care on large fields (colour-valence).",
+      "glance": "Built to be read from moving vehicles: one silhouette, high figure-ground contrast, a big name (first-impression)."
     },
-    "beyondPreference": "Warmth and trust: visible human marks signal care (handmade effect), which suits products that want to feel personal.",
-    "watch": "Can drift into cute; Wada pairs vary in contrast."
+    "beyondPreference": [
+      {
+        "wins": "Attention to the picture, the words and the brand",
+        "why": "In eye-tracking of 1,363 print ads, each of brand, picture and text had its own effect on attention; the picture captured attention independent of its size, while enlarging the picture did not raise total attention and a larger text area and headline did. One strong product image plus large lettering uses both.",
+        "source": "Pieters & Wedel (2004), Journal of Marketing 68(2)"
+      },
+      {
+        "wins": "Stopping power through design, not clutter",
+        "why": "Design complexity (an elaborate, creative layout) increased attention and liking, while feature complexity (dense detail, many edges and colours) hurt brand attention. Bold perspective is design complexity with few features.",
+        "source": "Pieters, Wedel & Batra (2010), Journal of Marketing 74(5)"
+      },
+      {
+        "wins": "A sense of movement in a still image",
+        "why": "Still images that imply motion activated the brain's motion areas (MT/MST) more than images at rest; later work suggests low-level features such as oriented lines contribute. Diagonals and speed lines use this.",
+        "source": "Kourtzi & Kanwisher (2000), Journal of Cognitive Neuroscience 12(1); Lorteije et al. (2011)"
+      },
+      {
+        "wins": "Cultural meaning: modern, efficient, going places",
+        "why": "Streamlining was styling as much as engineering: products were shaped to look fast and modern. The style borrows that association for travel, transport, energy and premium everyday goods.",
+        "source": "research.md 2.3"
+      }
+    ]
   },
-  "references": [
-    {
-      "file": "still-sound-bubble.jpg",
-      "shows": "Sound wave in a speech bubble: voice. Centred motif, cut-paper bubble."
-    },
-    {
-      "file": "still-molecule-column.jpg",
-      "shows": "Molecule on an Ionic column: science with classical roots. Two symbols, one idea."
-    },
-    {
-      "file": "still-globe-hands.jpg",
-      "shows": "Two hands holding a globe: global connection. Motif pushed right, space left for text."
-    },
-    {
-      "file": "motion-apple-book.mov",
-      "frames": "frames-apple-book.jpg",
-      "shows": "Frame draws on, apple pops in, frame turns into a book."
-    },
-    {
-      "file": "motion-sun-rays.mov",
-      "frames": "frames-sun-rays.jpg",
-      "shows": "Dots grow into rays and radiate outward on a loop."
-    },
-    {
-      "file": "motion-eye-telescope.mov",
-      "frames": "frames-eye-telescope.jpg",
-      "shows": "An eye at the end of a halftone beam blinks."
-    }
-  ],
+  "references": [],
   "art": {
     "line": {
-      "width": 9,
-      "widthSmall": 6,
-      "widthPct": 2.25,
-      "cap": "round",
-      "join": "round",
-      "wobble": 1.4,
-      "wobbleRange": [
-        0.8,
-        1.8
-      ],
-      "segment": 14,
-      "continuity": "One continuous stroke per object where possible; at most three strokes per object.",
-      "terminals": "Round ends. Optional ink dots (1.0-1.2 x line width) mark joints and ends, as in the globe reference.",
-      "crossing": "Ink should cross a paper edge at least once per piece (a line running past its shape). It breaks the silhouette and shows the hand.",
+      "outline": "none",
+      "edge": "Hard and clean: every shape has a crisp edge, as if cut from a stencil. Softness happens inside a shape (airbrush), never at its edge.",
+      "speedLines": {
+        "count": [
+          3,
+          7
+        ],
+        "widthPct": [
+          0.4,
+          1
+        ],
+        "taper": "Each line in a set is thinner and shorter than the last (about 10-15% per step), or the set tapers toward the vanishing point.",
+        "spacing": "Equal spacing within a set, 2-4 x the line width.",
+        "ends": "Round or cut square; never arrowheads.",
+        "direction": "Parallel to the object's direction of travel, or converging on the vanishing point."
+      },
+      "thinRules": {
+        "widthPct": [
+          0.25,
+          0.5
+        ],
+        "use": "A single thin rule to separate the lettering band, or a short accent bar beside the brand name."
+      },
       "rules": [
-        "Never vary the weight within one line (no calligraphic swell): the hand shows in the path, not the pressure.",
-        "Never use grey, coloured or dashed ink.",
-        "Line weight is fixed per artboard: do not scale strokes with the objects."
+        "No outlines around objects or letters.",
+        "No wobble, no brush texture, no dashed lines.",
+        "Speed lines never cross the hero object; they run behind it or beside it."
       ]
     },
     "shape": {
-      "mode": "organic",
-      "blob": {
-        "points": [
-          6,
-          9
-        ],
-        "irregularity": {
-          "paperDisc": [
-            0.06,
-            0.12
-          ],
-          "freeShape": [
-            0.15,
-            0.22
-          ]
-        },
-        "smoothing": "Closed Catmull-Rom curve through the points (tension 0.5)."
+      "mode": "geometric-streamline",
+      "families": {
+        "streamline": "Teardrops, long tapering curves, ellipses in perspective, quarter-circle ends (locomotive noses, hulls, wings, bottles). Curves are smooth arcs or quadratic curves, never irregular blobs.",
+        "diagonal": "Wedges, bows, rays, rails and beams: straight edges meeting at sharp angles, set on the diagonals of the composition."
       },
-      "cornerRadius": {
-        "pct": [
-          6,
-          12
-        ],
-        "minUnits": 4
-      },
-      "points": "Only natural points stay pointed (a leaf tip, a bubble tail, a beam), and even they end in a radius of at least 2 units.",
-      "misregistration": {
-        "offsetPct": [
-          0.5,
-          2
-        ],
-        "direction": "Same direction for every object in one piece."
+      "ratio": "Roughly two-thirds of the hero object's outline is streamline curve and one-third straight diagonal; the background carries the straight lines (rails, rays, horizon).",
+      "silhouette": "The hero object must read as itself in solid black at 5% of its size (the 50 ms test).",
+      "detailCount": {
+        "max": 12,
+        "note": "Small details (portholes, windows, rivets) count as one each; a repeated row counts as one."
       },
       "rules": [
-        "No perfect circles, squares or straight-edged polygons in artwork.",
-        "Fill shapes are never traced exactly inside the ink line.",
-        "One accent-coloured shape per piece at most; all other shapes are paper."
+        "No organic blobs or hand-cut edges: precision is the point.",
+        "Perspective is consistent: all receding edges of one object meet at one vanishing point (two at most).",
+        "One accent-coloured object per piece."
       ]
     },
     "corners": {
       "scale": {
-        "xs": 4,
-        "sm": 8,
-        "md": 16,
-        "lg": 24,
-        "xl": 40,
-        "pill": 999
+        "none": 0,
+        "xs": 2,
+        "sm": 4,
+        "md": 8,
+        "streamline": 999
       },
       "use": {
-        "button": "pill",
-        "chip": "pill",
-        "input": "sm",
-        "card": "lg",
-        "image": "lg, or an organic blob mask for hero images",
-        "sheet / modal": "xl on the top corners"
+        "button": "streamline (pill) or none; never in-between",
+        "chip": "streamline",
+        "input": "xs",
+        "card": "none or xs",
+        "image": "none; or a circle / porthole mask for one featured image",
+        "band": "none: lettering bands run edge to edge"
       },
-      "nested": "An inner radius is the outer radius minus the padding between them, so curves stay parallel.",
-      "print": "On posters and print, corners of image boxes are 2-4% of the box's short side."
+      "print": "Poster bands and image boxes are square-cut."
+    },
+    "perspective": {
+      "horizon": {
+        "low": {
+          "pct": [
+            65,
+            80
+          ],
+          "use": "The object looms over the viewer (Normandie). Default for products, vehicles, buildings."
+        },
+        "high": {
+          "pct": [
+            15,
+            30
+          ],
+          "use": "Looking down on a route, a map or a table of products."
+        },
+        "eye": {
+          "pct": [
+            45,
+            55
+          ],
+          "use": "Only for a one-point tunnel view (Étoile du Nord): rails or a road meeting at the centre."
+        }
+      },
+      "vanishingPoints": {
+        "count": [
+          1,
+          2
+        ],
+        "onePoint": "Vanishing point on the horizon, within the middle third horizontally, or exactly on the brand name or the accent.",
+        "twoPoint": "At least one vanishing point off-canvas, so angles stay dramatic but not distorted (receding edges 15-40 degrees from horizontal).",
+        "rule": "The vanishing point is a focal point: put the accent, a star, a sun or the brand there."
+      },
+      "diagonal": {
+        "angleDeg": [
+          15,
+          40
+        ],
+        "direction": "Rising left to right for progress and departure (a rule of thumb, not a finding); falling right to left for arrival.",
+        "min": 1
+      },
+      "scaleJump": "Montage pieces: the near object is at least 4 x the size of the far scene behind it (Matter)."
+    },
+    "airbrush": {
+      "stops": 2,
+      "colours": "Both stops are colours of the piece's Wada combination, or Wada Black / Wada White. Never a colour from another combination, never a tint made by opacity over another colour.",
+      "types": [
+        "linear",
+        "radial"
+      ],
+      "lengthPct": {
+        "min": 25,
+        "note": "A gradient runs across at least 25% of the shape's width or height, so it reads as light, not as an edge glow."
+      },
+      "maxObjectsModelled": 4,
+      "maxObjectsNote": "At most 4 objects carry gradients (the faces of one object count as one), plus one sky or ground gradient and one sea or floor gradient.",
+      "maxAreaPct": 50,
+      "maxAreaNote": "Share of the canvas covered by modelled objects. A sky or floor gradient is not counted, but it must be gentle: its two stops are neighbouring light colours of the combination, or a dark colour and Black.",
+      "lightSide": "One light direction per piece (usually upper left). Lit faces run from the lighter colour; shade faces from the darker. A hard split between a lit face and a shade face along a ridge (bow, nose, bottle shoulder) is the signature move.",
+      "sky": "A sky or ground gradient may run from the combination's lightest colour at the horizon to its bg (or a neighbouring light colour) at the top.",
+      "never": [
+        "Gradients on lettering",
+        "Drop shadows",
+        "Glows and halos outside a shape",
+        "Three or more stops",
+        "Banding effects or noise"
+      ],
+      "svg": "linearGradient or radialGradient with exactly two stop elements; stop-color values from the palette only."
+    },
+    "lettering": {
+      "zones": {
+        "bottomBand": {
+          "pct": [
+            18,
+            28
+          ],
+          "use": "Default: a solid band (ink or the combination's dark colour) with brand, slogan and details. Normandie, Étoile du Nord."
+        },
+        "topBand": {
+          "pct": [
+            10,
+            18
+          ],
+          "use": "Brand name across the top when the object sits low."
+        },
+        "onPerspective": {
+          "use": "Words set along a perspective line or framing the image (the Étoile du Nord border). Use for one short word only."
+        },
+        "serial": {
+          "use": "A word that builds across a series (Dubo, Dubon, Dubonnet). Use for campaigns of 3 pieces."
+        }
+      },
+      "brandWord": {
+        "widthPct": [
+          45,
+          90
+        ],
+        "case": "Capitals, tracking 0.08-0.2 em",
+        "note": "The brand name is large enough to read at the poster's viewing distance on its own."
+      },
+      "areaPct": [
+        15,
+        28
+      ],
+      "rules": [
+        "Lettering never sits over an airbrush gradient or a busy area; it sits on a flat band or flat ground.",
+        "Words and image share one edge or one axis: a band edge, the horizon, or a perspective line."
+      ]
     },
     "composition": {
-      "marginPct": 8,
-      "grid": "12 columns on screen, 6 on posters; motif and text each take whole columns.",
+      "marginPct": 6,
+      "grid": "Thirds: horizon on a third (or lower), hero object on the centre axis or a vertical third, lettering in a band.",
       "motifSizePct": [
-        35,
-        60
+        40,
+        65
       ],
-      "emptyGroundMinPct": 40,
-      "maxObjects": 3,
+      "motifMeasure": "Height of the hero object as a share of canvas height; a crop may run off one edge.",
+      "emptyGroundMinPct": 25,
+      "maxObjects": 2,
       "placements": [
         {
-          "id": "centre",
-          "use": "Pure image pieces, square social posts. Text below or none."
+          "id": "monument",
+          "use": "Low horizon, object frontal and looming, centred; lettering band below (Normandie)."
         },
         {
-          "id": "third",
-          "use": "Motif on the left or right third; headline in the other two-thirds, aligned to one edge (globe reference)."
+          "id": "tunnel",
+          "use": "One-point perspective, rails or road converging on the accent at the vanishing point (Étoile du Nord)."
         },
         {
-          "id": "anchored",
-          "use": "Motif sits on the bottom edge, as if on a table; headline above. Good for posters and stories."
+          "id": "object",
+          "use": "Sachplakat: the product alone on a flat ground, large, with the brand name above or below. No perspective needed."
         },
         {
-          "id": "crop",
-          "use": "Motif runs off one edge, for a larger, closer feel. At most one edge."
+          "id": "montage",
+          "use": "A large cut-out photo or shape close up, with a small scene far behind (Matter); scale jump at least 4:1."
+        },
+        {
+          "id": "diagonal",
+          "use": "The object or a flock of repeated shapes rising along one diagonal (Kauffer, Soaring to Success)."
         }
       ],
-      "pairing": "Image and headline are a pair: the headline must not describe what the image shows (W5); together they say more than either alone.",
+      "pairing": "Slogan and image are a pair: the image shows the product at its best; the slogan adds the fact or the promise the image cannot show.",
       "rules": [
-        "One focal point per piece.",
-        "Never centre a paragraph; centre at most one or two short lines on a centred poster.",
-        "Keep text at least one margin away from the motif."
+        "One hero object; a second object only as setting (sea, rails, sun).",
+        "Lettering bands run edge to edge.",
+        "The accent sits on the focal point or the vanishing point."
       ]
     },
     "palette": {
       "roles": {
         "ground": {
-          "from": "combination bg",
+          "from": "combination bg (may airbrush toward the combination's lightest colour)",
           "areaPct": [
-            60,
-            75
+            35,
+            55
+          ]
+        },
+        "object": {
+          "from": "combination ink/dark colour or Wada Black, airbrushed between them",
+          "areaPct": [
+            20,
+            35
+          ]
+        },
+        "band": {
+          "from": "Wada Black or the combination's dark colour",
+          "areaPct": [
+            15,
+            28
           ]
         },
         "paper": {
           "from": "Wada White",
           "areaPct": [
-            15,
-            30
-          ]
-        },
-        "ink": {
-          "from": "Wada Black",
-          "areaPct": [
-            5,
-            10
-          ]
+            3,
+            12
+          ],
+          "use": "Highlights, lettering on the band, speed lines, wake."
         },
         "accent": {
           "from": "combination accent",
           "areaPct": [
-            0,
-            5
+            2,
+            10
           ],
-          "limit": "One object."
+          "limit": "One object (or one group, such as a ship's funnels)."
         }
       },
-      "rules": [
-        "One combination per piece.",
-        "No gradients, shadows, glows or transparency effects.",
-        "Text colour on the ground uses the combination's text role (AA contrast)."
+      "method": [
+        "Start from what the product is made of or where it goes: sea and sky (blues), sun and brass (yellows, ochres), signals and enamel (reds).",
+        "Pick a combination of 3-4 colours from recommendedCombinations whose light-mode inkUse is 'body', so the dark colour can carry the object and the band text.",
+        "Assign: lightest colour to the ground or sky, darkest to the object and band, the strongest hue to the accent.",
+        "Check that the object's darkest face against the ground is at least 3:1 and band text at least 4.5:1."
       ],
-      "method": "Pick a combination with a calm, light ground (sky, paper, stone or sand tones), a dark ink-like colour that passes AA on it, and one warm accent for the single coloured object. Muted grounds keep the white paper and black ink as the stars, as in the references (greige, dusty blue, terracotta).",
       "recommendedCombinations": [
         {
-          "combination": 232,
-          "colours": [
+          "id": 126,
+          "colors": [
+            "Ivory Buff",
+            "Yellow Ocher",
+            "Deep Lyons Blue"
+          ],
+          "why": "Cream ground, brass accent and a deep travel blue: the classic railway and liner scheme."
+        },
+        {
+          "id": 151,
+          "colors": [
+            "Sulpher Yellow",
+            "Yellow Orange",
+            "Vandar Poel's Blue"
+          ],
+          "why": "Pale morning sky over a dark sea blue, with an orange signal accent; very high contrast (7.5:1)."
+        },
+        {
+          "id": 154,
+          "colors": [
+            "Carmine",
+            "Yellow",
+            "Blue"
+          ],
+          "why": "Near-primary red, yellow and blue: the Sachplakat palette for a single product on a bright ground."
+        },
+        {
+          "id": 190,
+          "colors": [
+            "Ivory Buff",
+            "English Red",
+            "Black"
+          ],
+          "why": "Red, black and cream, the most common object-poster scheme; 12.8:1 ink contrast."
+        },
+        {
+          "id": 232,
+          "colors": [
             "Carmine",
             "Pinkish Cinnamon",
             "Deep Indigo"
           ],
-          "reason": "Warm sand ground, deep indigo text, one carmine object: closest to the terracotta references."
+          "why": "Navy and red on a warm ground, close to the ocean-liner posters."
         },
         {
-          "combination": 221,
-          "colours": [
+          "id": 179,
+          "colors": [
+            "Red Orange",
+            "Golden Yellow",
+            "Deep Lyons Blue"
+          ],
+          "why": "Sunlit golden ground for departures and energy; check text contrast (4.7:1)."
+        },
+        {
+          "id": 313,
+          "colors": [
+            "Carmine",
+            "Yellow",
+            "Diamine Green",
+            "Black"
+          ],
+          "why": "Yellow ground with black and one red: maximum glance clarity for packaged goods."
+        },
+        {
+          "id": 344,
+          "colors": [
+            "Cinnamon Buff",
+            "Deep Lyons Blue",
+            "Aconite Violet",
+            "Black"
+          ],
+          "why": "Warm buff with black and deep blue: corporate and editorial, Fortune-cover warmth."
+        },
+        {
+          "id": 221,
+          "colors": [
             "Carmine Red",
             "Neutral Gray",
             "Black"
           ],
-          "reason": "Stone-grey ground like the dusty-blue reference; black text at 9.95:1."
+          "why": "Grey, black and red: the restrained industrial scheme of Beall's and Kauffer's posters."
         },
         {
-          "combination": 268,
-          "colours": [
-            "Nile Blue",
-            "Deep Slate Olive",
-            "Raw Sienna"
+          "id": 259,
+          "colors": [
+            "Lemon Yellow",
+            "Green Blue",
+            "Helvetia Blue",
+            "Warm Gray"
           ],
-          "reason": "Pale sky ground, near-black olive ink, warm sienna accent."
+          "why": "Alpine sky and lake blues on bright yellow: suits Matter-style tourism montage."
         },
         {
-          "combination": 310,
-          "colours": [
-            "Sulpher Yellow",
-            "Deep Slate Olive",
-            "Olive"
-          ],
-          "reason": "Paper-like pale yellow ground with 11.5:1 ink; very calm."
-        },
-        {
-          "combination": 343,
-          "colours": [
+          "id": 343,
+          "colors": [
+            "Burnt Sienna",
             "Ivory Buff",
-            "Vandar Poel's Blue",
-            "Burnt Sienna"
+            "Deep Grayish Olive",
+            "Vandar Poel's Blue"
           ],
-          "reason": "Linen ground like the apple-book reference, blue ink, sienna accent."
+          "why": "Earthy and corporate for industry, materials and engineering."
         },
         {
-          "combination": 344,
-          "colours": [
-            "Cinnamon Buff",
-            "Black",
-            "Deep Lyons Blue"
+          "id": 298,
+          "colors": [
+            "Raw Sienna",
+            "Lemon Yellow",
+            "Peach Red",
+            "Black"
           ],
-          "reason": "Warm buff ground with black ink; the blue accent stays a single object."
-        },
-        {
-          "combination": 207,
-          "colours": [
-            "Glaucous Green",
-            "Black",
-            "Sudan Brown"
-          ],
-          "reason": "Soft sage ground, strong black ink, earthy accent."
-        },
-        {
-          "combination": 152,
-          "colours": [
-            "Light Glaucous Blue",
-            "Hay's Russet",
-            "Etruscan Red"
-          ],
-          "reason": "Dusty blue ground close to the globe reference."
+          "why": "Black object on lemon with a peach-red accent: loud, simple retail posters."
         }
+      ],
+      "rules": [
+        "One combination per piece.",
+        "Gradients only between colours of that combination, plus Black and White (airbrush).",
+        "Text on the band uses Wada White or the combination's lightest colour; text on the ground uses the combination's text role (AA contrast)."
       ]
     },
     "texture": {
+      "airbrush": "Smooth two-stop gradients are the only tonal device (see airbrush).",
       "halftone": {
-        "cell": 5,
-        "dot": 1.25,
-        "use": "The only shading: beams, shadows, fades. Ink dots on paper or ground, fading out.",
-        "maxAreaPct": 15
+        "use": "Only inside photomontage (duotone photos). Never as illustration shading."
       },
-      "grain": "Optional and subtle paper grain on print; never on screen UI."
+      "grain": "None. No paper texture, stains, fold lines or faded ink: they turn the style into pastiche."
     },
     "vocabulary": {
       "symbols": [
         {
+          "id": "the-product",
+          "means": [
+            "the offer itself"
+          ],
+          "note": "Always first choice (Sachplakat)."
+        },
+        {
+          "id": "locomotive",
+          "means": [
+            "speed",
+            "reliability",
+            "departure"
+          ]
+        },
+        {
+          "id": "ocean-liner",
+          "means": [
+            "luxury",
+            "scale",
+            "voyage"
+          ]
+        },
+        {
+          "id": "aeroplane",
+          "means": [
+            "speed",
+            "reach",
+            "modernity"
+          ]
+        },
+        {
+          "id": "rails",
+          "means": [
+            "route",
+            "direction",
+            "destination"
+          ]
+        },
+        {
+          "id": "road",
+          "means": [
+            "journey",
+            "freedom",
+            "access"
+          ]
+        },
+        {
+          "id": "sun-disc",
+          "means": [
+            "morning",
+            "destination",
+            "energy"
+          ]
+        },
+        {
+          "id": "star",
+          "means": [
+            "destination",
+            "night travel",
+            "excellence"
+          ]
+        },
+        {
+          "id": "beam",
+          "means": [
+            "power",
+            "attention",
+            "discovery"
+          ]
+        },
+        {
+          "id": "pylon",
+          "means": [
+            "energy",
+            "connection",
+            "infrastructure"
+          ]
+        },
+        {
+          "id": "bottle",
+          "means": [
+            "refreshment",
+            "craft",
+            "pleasure"
+          ]
+        },
+        {
           "id": "hand",
           "means": [
-            "care",
             "making",
-            "help",
-            "offer"
+            "offer",
+            "control"
           ]
         },
         {
           "id": "eye",
           "means": [
             "attention",
-            "insight",
             "vision",
-            "noticing"
-          ]
-        },
-        {
-          "id": "sun",
-          "means": [
-            "morning",
-            "energy",
-            "optimism",
-            "warmth"
-          ]
-        },
-        {
-          "id": "speech-bubble",
-          "means": [
-            "voice",
-            "conversation",
-            "support"
-          ]
-        },
-        {
-          "id": "sound-wave",
-          "means": [
-            "voice",
-            "music",
-            "listening"
-          ]
-        },
-        {
-          "id": "book",
-          "means": [
-            "learning",
-            "knowledge",
-            "stories"
-          ]
-        },
-        {
-          "id": "apple",
-          "means": [
-            "learning",
-            "health",
-            "freshness"
+            "news"
           ]
         },
         {
           "id": "globe",
           "means": [
-            "world",
-            "connection",
-            "reach"
+            "reach",
+            "trade",
+            "world"
           ]
         },
         {
-          "id": "column",
+          "id": "mountain",
           "means": [
-            "heritage",
-            "trust",
-            "institutions",
-            "foundations"
+            "destination",
+            "clarity",
+            "air"
           ]
         },
         {
-          "id": "molecule",
+          "id": "wing",
           "means": [
-            "science",
-            "connection",
-            "structure"
+            "speed",
+            "lightness",
+            "flight"
           ]
         },
         {
-          "id": "sprout",
+          "id": "birds-in-formation",
           "means": [
-            "growth",
-            "beginnings",
-            "nature"
+            "success",
+            "momentum",
+            "together"
           ]
         },
         {
-          "id": "key",
+          "id": "clock-face",
           "means": [
-            "access",
-            "solution",
-            "home"
-          ]
-        },
-        {
-          "id": "house",
-          "means": [
-            "home",
-            "belonging",
-            "security"
-          ]
-        },
-        {
-          "id": "cup",
-          "means": [
-            "pause",
-            "comfort",
-            "morning"
-          ]
-        },
-        {
-          "id": "path",
-          "means": [
-            "journey",
-            "progress",
-            "direction"
-          ]
-        },
-        {
-          "id": "ladder",
-          "means": [
-            "progress",
-            "steps",
-            "ambition"
-          ]
-        },
-        {
-          "id": "envelope",
-          "means": [
-            "message",
-            "invitation",
-            "news"
-          ]
-        },
-        {
-          "id": "clock",
-          "means": [
-            "time",
-            "routine",
-            "punctuality"
-          ]
-        },
-        {
-          "id": "moon",
-          "means": [
-            "night",
-            "rest",
-            "calm"
-          ]
-        },
-        {
-          "id": "wave",
-          "means": [
-            "flow",
-            "calm",
-            "the sea"
-          ]
-        },
-        {
-          "id": "bird",
-          "means": [
-            "freedom",
-            "news",
-            "lightness"
-          ]
-        },
-        {
-          "id": "bread",
-          "means": [
-            "nourishment",
-            "everyday",
-            "craft"
-          ]
-        },
-        {
-          "id": "thread",
-          "means": [
-            "connection",
-            "craft",
-            "continuity"
-          ]
-        },
-        {
-          "id": "telescope",
-          "means": [
-            "future",
-            "looking ahead",
-            "discovery"
+            "punctuality",
+            "timetable",
+            "routine"
           ]
         }
       ],
       "avoid": [
         {
-          "symbol": "lightbulb",
-          "for": "idea",
-          "why": "The most worn-out symbol in advertising."
+          "symbol": "heroic muscular figures",
+          "for": "strength or work",
+          "why": "The visual language of 1930s totalitarian propaganda, including Hohlwein's Nazi-era posters (research.md 5)."
         },
         {
-          "symbol": "rocket",
-          "for": "launch or growth",
-          "why": "Startup cliché."
+          "symbol": "racial or colonial caricature",
+          "for": "exotic destinations or ingredients",
+          "why": "Common in period advertising and harmful; depict real places and people with dignity or use objects instead."
         },
         {
-          "symbol": "handshake",
-          "for": "partnership",
-          "why": "Stock-photo cliché."
+          "symbol": "glamour figures as decoration",
+          "for": "luxury",
+          "why": "Women as ornament was a period cliché; show the product or the experience."
         },
         {
-          "symbol": "puzzle pieces",
-          "for": "solutions",
-          "why": "Says nothing specific."
+          "symbol": "sunburst used as decoration",
+          "for": "'deco' flavour",
+          "why": "Pastiche; a sun or beam must mean something in the piece."
         },
         {
-          "symbol": "gears",
-          "for": "process",
-          "why": "Cold, mechanical, overused."
+          "symbol": "gears and cogs",
+          "for": "industry",
+          "why": "Worn out and cold; show the actual machine or product."
         },
         {
-          "symbol": "target / dartboard",
-          "for": "goals",
-          "why": "Generic."
-        },
-        {
-          "symbol": "faceless flat people",
-          "for": "community",
-          "why": "Corporate Memphis (see research.md)."
+          "symbol": "fake aged paper",
+          "for": "'vintage'",
+          "why": "Turns the method into costume (CM7)."
         }
       ]
     },
-    "metaphor": {
+    "method": {
       "recipe": [
         "Write the one message in a sentence (W1).",
-        "List five plain nouns from the product's world and five from the benefit.",
-        "Pair one from each list into a single image (A + B = idea).",
-        "Test: does it read in 2 seconds without words? Would a competitor's ad use it? (W4)",
-        "Pick the pair that surprises most but still reads instantly."
+        "List everything you could show. Cross out all but the product (or the one object that stands for the service).",
+        "Choose the viewpoint that makes that object most powerful: monument (low horizon), tunnel (vanishing point), object (flat), montage (scale jump) or diagonal (art.json composition.placements).",
+        "Pick one light direction and model the object with two-stop airbrush gradients: a lit face and a shade face.",
+        "Put the accent on the focal point (vanishing point, funnel, cap, label).",
+        "Add the brand name in a band, as large as the band allows, then the slogan.",
+        "Test: shrink to 5% and blur. Do the object and the brand name still read? (glance)"
       ],
       "examples": [
         {
-          "a": "molecule",
-          "b": "column",
-          "idea": "science with classical roots",
-          "ref": "still-molecule-column.jpg"
+          "object": "ocean-liner bow",
+          "viewpoint": "monument",
+          "idea": "scale and luxury",
+          "ref": "Cassandre, Normandie (1935)"
         },
         {
-          "a": "apple",
-          "b": "book",
-          "idea": "learning",
-          "ref": "motion-apple-book.mov"
+          "object": "rails to a star",
+          "viewpoint": "tunnel",
+          "idea": "an overnight route",
+          "ref": "Cassandre, Étoile du Nord (1927)"
         },
         {
-          "a": "sound wave",
-          "b": "speech bubble",
-          "idea": "voice",
-          "ref": "still-sound-bubble.jpg"
+          "object": "two matches",
+          "viewpoint": "object",
+          "idea": "the product and its name",
+          "ref": "Bernhard, Priester (c. 1905)"
         },
         {
-          "a": "eye",
-          "b": "telescope",
-          "idea": "vision, looking ahead",
-          "ref": "motion-eye-telescope.mov"
+          "object": "a face over the Alps",
+          "viewpoint": "montage",
+          "idea": "the person you'll be there",
+          "ref": "Matter, Swiss tourism posters (1934-36)"
         },
         {
-          "a": "globe",
-          "b": "hands",
-          "idea": "the world, held with care",
-          "ref": "still-globe-hands.jpg"
-        },
-        {
-          "a": "sun",
-          "b": "rays",
-          "idea": "energy, a new morning",
-          "ref": "motion-sun-rays.mov"
+          "object": "birds in formation",
+          "viewpoint": "diagonal",
+          "idea": "rising success",
+          "ref": "Kauffer, Soaring to Success (1919)"
         }
       ]
     },
     "checklist": [
-      "One idea, readable in 2 seconds without words.",
-      "Ink line even, round ends, small wobble; crosses a paper edge at least once.",
-      "Organic shapes with rounded corners and a clear silhouette.",
-      "Ground 60-75%, paper 15-30%, ink 5-10%, accent on one object at most.",
-      "Motif 35-60% of the short side; at least 40% empty ground."
+      "One hero object at 40-65% of canvas height (or cropped by one edge).",
+      "One viewpoint: horizon placed deliberately; receding lines meet at 1-2 vanishing points.",
+      "At least one dominant diagonal (15-40 degrees) or converging line set.",
+      "Airbrush gradients: two stops, colours of one combination only, at most 4 modelled objects plus sky and floor, none on lettering.",
+      "Lettering in a planned zone; brand name large; slogan 2-7 words.",
+      "Accent on one object, at the focal point."
     ]
   },
   "motion": {
-    "character": "Fluid and physical: things have a little weight, move on springs, overshoot gently and settle. Nothing moves at constant speed and nothing stops dead.",
+    "character": "Streamlined and assured: objects glide along their diagonals on long, smooth eases, the camera pushes in slowly, speed lines sweep past, lettering wipes on like a sign being revealed. Nothing bounces, wobbles or overshoots.",
     "springs": {
-      "gentle": {
-        "stiffness": 120,
-        "damping": 20,
+      "glide": {
+        "stiffness": 90,
+        "damping": 19,
         "mass": 1,
-        "use": "Default for most movement: panels, text, image shifts."
+        "use": "Default arrival for the hero object along its diagonal. Damping ratio 1.0: settles without overshoot."
       },
-      "soft": {
-        "stiffness": 170,
-        "damping": 26,
+      "precise": {
+        "stiffness": 220,
+        "damping": 30,
         "mass": 1,
-        "use": "UI feedback: buttons, toggles, cards. No overshoot."
+        "use": "UI feedback: buttons, toggles, cards. Damping ratio about 1.01."
       },
-      "lively": {
-        "stiffness": 200,
-        "damping": 17,
-        "mass": 1,
-        "use": "Paper shapes appearing (pop); about 10% overshoot."
-      },
-      "float": {
-        "stiffness": 60,
-        "damping": 14,
-        "mass": 1,
-        "use": "Large, slow moves: hero illustration entering, big shapes drifting."
+      "heavy": {
+        "stiffness": 50,
+        "damping": 16,
+        "mass": 1.2,
+        "use": "Large objects (a ship, a locomotive) arriving slowly, with weight. Damping ratio about 1.03."
       }
     },
     "easings": {
-      "draw": {
+      "streamline": {
+        "css": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "use": "Arrivals: fast start, long elegant settle (ease-out quint). Default."
+      },
+      "cruise": {
         "css": "cubic-bezier(0.65, 0, 0.35, 1)",
-        "use": "Ink lines drawing on, start to end (like a hand accelerating and slowing)."
+        "use": "Moves that start and stop on screen: push-ins, pans, wipes."
       },
-      "breathe": {
-        "css": "cubic-bezier(0.37, 0, 0.63, 1)",
-        "use": "Looping, sine-like movement: breathing, floating, talking."
+      "sweep": {
+        "css": "cubic-bezier(0.45, 0, 0.55, 1)",
+        "use": "Looping sine-like moves: beams sweeping, a sun rising and settling."
       },
-      "exit": {
-        "css": "cubic-bezier(0.55, 0, 1, 0.45)",
-        "use": "Things leaving: accelerate away, never spring."
+      "depart": {
+        "css": "cubic-bezier(0.7, 0, 0.84, 0)",
+        "use": "Things leaving: accelerate away along the diagonal, toward the vanishing point."
       }
     },
     "moves": {
-      "draw": {
-        "duration": 600,
-        "easing": "draw",
-        "use": "Ink lines drawing themselves on."
+      "glide": {
+        "spring": "glide",
+        "distancePct": [
+          8,
+          20
+        ],
+        "use": "The hero object enters along its own diagonal or toward the viewer from the vanishing point."
       },
-      "pop": {
-        "spring": "lively",
-        "use": "Paper and accent shapes appearing from scale 0."
-      },
-      "rise": {
-        "spring": "gentle",
-        "distance": "0.4em",
-        "use": "Text and blocks entering after the art."
-      },
-      "morph": {
-        "duration": 3600,
-        "easing": "breathe",
-        "use": "Organic shapes slowly changing outline (2-3 shapes, looping)."
-      },
-      "breathe": {
-        "duration": 4000,
-        "easing": "breathe",
+      "pushIn": {
+        "duration": 5000,
+        "easing": "cruise",
         "scale": [
           1,
-          1.03
+          1.06
         ],
-        "use": "A resting illustration staying alive."
+        "use": "Slow camera push toward the object or the vanishing point. One per piece."
       },
-      "float": {
-        "duration": 3200,
-        "easing": "breathe",
-        "distancePct": 1,
-        "use": "Gentle drift up and down by about 1% of the artboard."
+      "speedLines": {
+        "duration": 700,
+        "easing": "streamline",
+        "stagger": 60,
+        "use": "Speed lines draw on from the object outward (scaleX 0 to 1 from their inner end), shortest last."
       },
-      "radiate": {
-        "duration": 1800,
-        "easing": "cubic-bezier(0.33, 0, 0.67, 1)",
-        "use": "Dots growing into rays and travelling outward (sun reference)."
+      "wipe": {
+        "duration": 600,
+        "easing": "cruise",
+        "use": "Brand name and slogan revealed by a hard-edged mask moving left to right, like a sign. No fade."
       },
-      "blink": {
-        "duration": 220,
-        "every": 2600,
-        "use": "Character beats: eyes close and open (eye reference)."
+      "bandSlide": {
+        "duration": 500,
+        "easing": "streamline",
+        "use": "The lettering band slides in from its edge before the words wipe on."
       },
-      "talk": {
-        "duration": 900,
-        "easing": "breathe",
-        "use": "A sound wave pulsing."
+      "sweep": {
+        "duration": 3000,
+        "easing": "sweep",
+        "angleDeg": [
+          -8,
+          8
+        ],
+        "use": "A searchlight or sun ray sweeping back and forth (loop)."
+      },
+      "serial": {
+        "durationEach": 1200,
+        "use": "Dubonnet-style sequence: 3 frames build one idea (a word completes, a glass fills, an object gains colour); hold the last."
+      },
+      "depart": {
+        "duration": 450,
+        "easing": "depart",
+        "use": "Exit toward the vanishing point, scaling down to 60-80%."
       }
     },
     "durations": {
-      "minMs": 200,
-      "maxMs": 900,
-      "formula": "duration = 250 ms + 0.4 ms per pixel travelled (capped at 900 ms)",
+      "minMs": 250,
+      "maxMs": 1200,
+      "formula": "duration = 350 ms + 0.5 ms per pixel travelled (capped at 1200 ms); push-ins and loops are exempt",
       "byElement": {
-        "icon": 200,
-        "button": 250,
-        "card": 350,
-        "panel": 450,
-        "illustration": 600,
-        "fullScreen": 700
+        "icon": 250,
+        "button": 300,
+        "card": 400,
+        "panel": 550,
+        "illustration": 900,
+        "fullScreen": 1000
       }
     },
     "choreography": {
       "order": [
-        "ground",
-        "paper shapes (pop)",
-        "ink lines (draw)",
-        "accent object (pop)",
-        "headline (rise)",
-        "body and CTA (rise)"
+        "ground (still)",
+        "hero object (glide)",
+        "speed lines (draw on)",
+        "accent (no move; it is already in place)",
+        "lettering band (bandSlide)",
+        "brand and slogan (wipe)"
       ],
-      "stagger": 50,
-      "overlapPct": 30,
-      "settleBeforeText": "Text starts when the art is about 70% complete, so they overlap without competing.",
+      "stagger": 60,
+      "overlapPct": 20,
+      "settleBeforeText": "Lettering starts when the object is about 80% settled, so the image lands first and the name follows.",
       "maxMovingThings": 1,
       "loop": {
         "lengthMs": [
-          2000,
-          4000
+          3000,
+          6000
         ],
-        "endsOn": "A still frame that works as an image on its own."
+        "endsOn": "The full poster as a still frame: object settled, all lettering visible."
       },
-      "hold": 700
+      "hold": 1200
     },
     "rules": [
-      "Springs for things arriving, curves for things looping, acceleration for things leaving.",
-      "Only one thing loops at a time; everything else is still.",
-      "Lines draw on; shapes pop on; text rises. Never fade the whole artwork in.",
-      "Interrupting is allowed: a new state starts from where the motion is, never jumps.",
-      "No bounces on text, no spinning, no camera moves, no parallax beyond 1-2% of the artboard.",
-      "With reduced motion: show the final frame. Morphs, floats and loops stop."
+      "No overshoot, bounce or wobble: every spring is critically damped or heavier.",
+      "Objects move along the composition's diagonals or toward/away from the vanishing point, never sideways at random.",
+      "Lettering wipes on with a hard edge; it never fades, bounces or scales.",
+      "One thing moves at a time; push-ins may run under one other move.",
+      "Loops end on a still frame that works as the poster.",
+      "With reduced motion: show the final frame; push-ins, sweeps and loops stop."
     ]
   },
   "typography": {
-    "character": "Humanist letterforms (from the broad-nib pen: open apertures, slight stroke variation, varied proportions) set with modern restraint (few sizes, sentence case, generous space). The type is calm and clear so the hand-drawn art can carry the warmth.",
+    "character": "Geometric and confident: letters built from circles, squares and straight strokes (the Futura and Kabel generation of 1927), or high-contrast Art Deco display letters. The brand name is set big, in capitals, with wide tracking, as part of the picture; the slogan is short and bold; everything else is small.",
     "anatomy": {
-      "apertures": {
-        "want": "Open",
-        "why": "Open c, e, a, s stay distinct at small sizes and at a distance; a humanist trait (Frutiger was drawn for airport signage)."
+      "construction": {
+        "want": "Geometric: round O, near-circular bowls, straight stems",
+        "why": "Matches the streamline curves and straight diagonals of the art; this is the letterform of the period (Futura 1927, Kabel 1927)."
       },
       "strokes": {
-        "want": "Even to slightly modulated",
-        "why": "Matches the even ink line; strong contrast feels formal rather than human."
+        "want": "Monoline for text; very high contrast for one display word",
+        "why": "Monoline reads at a distance; deco contrast (Limelight, Bodoni) gives the brand name glamour."
       },
       "terminals": {
-        "want": "Soft, rounded or gently angled",
-        "why": "Echo the rounded corners and organic shapes."
+        "want": "Flat, cut square or sharp",
+        "why": "Echo the stencil edges; rounded terminals read as soft and friendly."
       },
       "proportions": {
-        "want": "Varied widths (old-style proportions)",
-        "why": "Letters of different widths read as written, not engineered."
+        "want": "Contrasting widths: wide round letters, narrow E, F, S",
+        "why": "Classical geometric proportions give capitals their stately rhythm when tracked out."
       },
       "xHeight": {
-        "want": "Moderate to tall",
-        "why": "Readable on phones and at poster distance."
+        "want": "Low to moderate for display, moderate for text",
+        "why": "Period geometric faces have low x-heights; keep body text sizes generous to compensate."
       },
-      "italic": {
-        "want": "A true italic, if any",
-        "why": "Italics carry the hand; use for one emphasised word."
+      "capitals": {
+        "want": "Well-drawn capitals that track well at 0.08-0.2 em",
+        "why": "The brand word is set in capitals."
       },
       "avoid": [
-        "Handwriting fonts for headlines or body (the hand lives in the art; one short note is allowed)",
-        "Geometric fonts with closed apertures at small sizes",
-        "Condensed all-caps display faces",
-        "High-contrast didones for body"
+        "Calligraphic and old-style serifs",
+        "Rounded sans faces",
+        "Handwriting and brush scripts",
+        "Distressed 'vintage' fonts",
+        "Novelty Art Deco faces with stripes or inlines for anything but one word"
       ]
     },
     "fit": {
-      "bricolage-figtree": {
+      "jost": {
         "fit": "core",
-        "why": "Slightly irregular display forms echo the hand-drawn line; Figtree is open and calm."
+        "why": "New pairing. A Futura-like geometric family with weights 100-900: the period letterform for slogan, brand and text."
       },
-      "young-onest": {
+      "limelight-jost": {
         "fit": "core",
-        "why": "Soft, heavy serif with rounded details; matches organic shapes and warmth."
+        "why": "New pairing. High-contrast Art Deco display for the brand word over Jost: travel, hospitality, theatre."
       },
-      "source": {
-        "fit": "core",
-        "why": "A true humanist superfamily; the most readable choice for text-heavy work."
-      },
-      "instrument": {
-        "fit": "core",
-        "why": "Editorial and calm; the condensed serif leaves room for big illustrations."
-      },
-      "nunito": {
+      "bodoni-jost": {
         "fit": "good",
-        "why": "Rounded terminals mirror rounded corners; keep headlines bold and the body plain so it stays grown-up."
-      },
-      "alegreya": {
-        "fit": "good",
-        "why": "Calligraphic and literary: the most 'hand' in the type. Use where storytelling matters."
-      },
-      "fraunces-commissioner": {
-        "fit": "good",
-        "why": "Soft serif charm; restrain to one weight to avoid novelty."
+        "why": "New pairing. Bodoni display over geometric sans, after Brodovitch's Harper's Bazaar: fashion, editorial, premium."
       },
       "schibsted": {
+        "fit": "core",
+        "why": "Of the existing pairings, the sturdiest grotesque: heavy weights carry a Bernhard-style brand name."
+      },
+      "bricolage-figtree": {
         "fit": "good",
-        "why": "Very minimal; works when the illustration carries all the warmth."
+        "why": "Bold grotesque display with a geometric-humanist body; its ink traps are more contemporary than period, which keeps it fresh."
+      },
+      "instrument": {
+        "fit": "good",
+        "why": "The condensed high-contrast serif works for editorial and fashion pieces in the Brodovitch manner."
       },
       "plex": {
         "fit": "accent",
-        "why": "Engineered feel; for data-heavy or technical products only."
+        "why": "Engineered and industrial; for B2B and technical products where the modernism is corporate (CCA)."
+      },
+      "fraunces-commissioner": {
+        "fit": "accent",
+        "why": "Heavy soft serif recalls 1920s display faces such as Cooper Black; for food and drink only, one weight."
+      },
+      "source": {
+        "fit": "avoid",
+        "why": "Humanist and bookish; it has none of the geometric construction the style depends on."
+      },
+      "young-onest": {
+        "fit": "avoid",
+        "why": "Soft old-style serif: warm and friendly, opposite to the machine-age polish."
+      },
+      "nunito": {
+        "fit": "avoid",
+        "why": "Rounded terminals read as soft and casual; the style needs crisp edges."
+      },
+      "alegreya": {
+        "fit": "avoid",
+        "why": "Calligraphic letterforms from the pen; the style's letters are constructed, not written."
       }
     },
+    "newPairings": [
+      {
+        "id": "jost",
+        "name": "Geometric Poster",
+        "mood": "The 1927 geometric sans, revived: confident, clean and modern-classic. One family in many weights; hierarchy from size, weight and tracked capitals.",
+        "bestFor": "Commercial Modernism posters, transport, energy, products, corporate campaigns.",
+        "display": {
+          "family": "Jost",
+          "weights": [
+            600,
+            700,
+            800
+          ],
+          "style": "Geometric sans, Futura-inspired",
+          "case": "Sentence case for slogans; capitals with 0.1-0.2 em tracking for the brand word",
+          "tracking": -0.01,
+          "leading": 1,
+          "designer": "Owen Earl (indestructible type*)",
+          "classification": "Geometric sans",
+          "axes": [
+            "wght 100-900"
+          ],
+          "notes": "Inspired by the German geometric sans faces of the 1920s, Futura in particular; not a digitisation of Futura. Variable version made with Mirko Velimirovic (2020)."
+        },
+        "body": {
+          "family": "Jost",
+          "weights": [
+            400,
+            500
+          ],
+          "style": "Same family",
+          "tracking": 0,
+          "leading": 1.5,
+          "designer": "Owen Earl (indestructible type*)",
+          "classification": "Geometric sans",
+          "axes": [
+            "wght 100-900"
+          ],
+          "notes": "Low x-height: set body text one step larger than usual."
+        },
+        "mono": {
+          "family": "IBM Plex Mono",
+          "weights": [
+            400,
+            500
+          ]
+        }
+      },
+      {
+        "id": "limelight-jost",
+        "name": "Deco Marquee",
+        "mood": "A high-contrast Art Deco display face for the brand word, with a geometric sans for everything else. Glamour kept to one word.",
+        "bestFor": "Travel, hotels, theatre and cinema, drinks, events.",
+        "display": {
+          "family": "Limelight",
+          "weights": [
+            400
+          ],
+          "style": "High-contrast Art Deco geometric display",
+          "case": "Capitals or title for the brand word only (1-3 words); never for sentences",
+          "tracking": 0.08,
+          "leading": 1,
+          "designer": "Nicole Fally, Sorkin Type",
+          "classification": "Art Deco display",
+          "axes": [],
+          "notes": "Single weight (400). Extreme contrast: use at 24 px / 18 pt and above."
+        },
+        "body": {
+          "family": "Jost",
+          "weights": [
+            400,
+            500,
+            700
+          ],
+          "style": "Geometric sans, Futura-inspired",
+          "tracking": 0,
+          "leading": 1.5,
+          "designer": "Owen Earl (indestructible type*)",
+          "classification": "Geometric sans",
+          "axes": [
+            "wght 100-900"
+          ],
+          "notes": "Jost 700 sets the slogan; Limelight sets only the brand word."
+        },
+        "mono": {
+          "family": "IBM Plex Mono",
+          "weights": [
+            400,
+            500
+          ]
+        }
+      },
+      {
+        "id": "bodoni-jost",
+        "name": "Bazaar Editorial",
+        "mood": "Didone display over geometric sans: the 1930s fashion-magazine pairing. Elegant, high contrast, lots of white space.",
+        "bestFor": "Fashion, beauty, editorial, galleries, premium goods.",
+        "display": {
+          "family": "Bodoni Moda",
+          "weights": [
+            600,
+            700,
+            800
+          ],
+          "italic": true,
+          "style": "Didone with optical sizes",
+          "case": "Sentence case; italic for one emphasised word",
+          "tracking": -0.01,
+          "leading": 1,
+          "designer": "Owen Earl (indestructible type*)",
+          "classification": "Didone",
+          "axes": [
+            "opsz 6-96",
+            "wght 400-900"
+          ],
+          "notes": "Use the large optical size for headlines; hairlines break up below about 18 px at small opsz settings."
+        },
+        "body": {
+          "family": "Jost",
+          "weights": [
+            400,
+            500
+          ],
+          "style": "Geometric sans, Futura-inspired",
+          "tracking": 0,
+          "leading": 1.5,
+          "designer": "Owen Earl (indestructible type*)",
+          "classification": "Geometric sans",
+          "axes": [
+            "wght 100-900"
+          ]
+        },
+        "mono": {
+          "family": "IBM Plex Mono",
+          "weights": [
+            400,
+            500
+          ]
+        }
+      }
+    ],
     "handwritten": {
-      "use": "accent",
-      "fonts": [
-        "shantell-sans",
-        "patrick-hand",
-        "caveat",
-        "kalam",
-        "gaegu"
-      ],
-      "perPiece": 1,
-      "maxWords": 6,
-      "roles": [
-        "note",
-        "annotation",
-        "sign-off"
-      ],
-      "why": "The hand mainly lives in the ink line. One short note in a plain pen hand can add a person to warm pieces (Schroll et al. 2018), as long as the headline and body stay in the pairing.",
-      "never": [
-        "headline",
-        "body",
-        "call to action",
-        "prices and numbers"
-      ]
+      "use": "none",
+      "fonts": [],
+      "why": "Streamlined, engineered lettering is the point of the style; handwriting reads as a different era and a different promise."
     },
     "typeWithArt": {
-      "weightMatch": "Headline stem thickness should be close to the ink line width (about 2.25% of the artboard's short side at headline size). Pick the headline weight that gets closest.",
-      "scaleMatch": "Headline cap height between 1/3 and 2/3 of the motif's height, so neither dominates by accident.",
-      "alignment": "Align text to one edge of the grid; let the motif be the only free-form element.",
-      "spacing": "At least one margin between text and the motif."
+      "zones": "Type lives in the lettering zones in art.json (bands, perspective lines); it never sits over an airbrush gradient.",
+      "brandScale": "The brand word spans 45-90% of the canvas width, or its cap height is at least 1/6 of the hero object's height.",
+      "alignment": "Align to one band edge or to the horizon. Centred is allowed for a single brand word on a symmetrical monument composition; slogans and details stay left-aligned.",
+      "perspective": "One word may follow a perspective line or frame the image (Étoile du Nord); set it in capitals and skew it with the grid, never distort it freely.",
+      "colour": "White or the combination's lightest colour on the dark band; Black or the combination's dark colour on light ground. Never gradient-filled letters."
     },
     "sizes": {
       "byFormat": {
         "billboard": {
           "headlinePct": [
-            10,
-            15
+            12,
+            18
           ],
           "body": "none"
         },
         "poster": {
           "headlinePct": [
-            4,
-            7
+            5,
+            8
           ],
           "bodyMinPt": 14
         },
         "event-poster": {
           "headlinePct": [
-            4,
-            7
+            5,
+            8
           ],
           "bodyMinPt": 14
         },
         "flyer": {
           "headlinePct": [
-            3,
-            5
+            3.5,
+            5.5
           ],
           "bodyMinPt": 9
         },
         "print-ad": {
           "headlinePct": [
-            2.5,
-            4
+            3,
+            4.5
           ],
           "bodyMinPt": 9
         },
         "instagram-post": {
           "headlinePct": [
-            5,
-            8
+            5.5,
+            8.5
           ],
           "bodyMinPx": 32
         },
         "story": {
           "headlinePct": [
             3.5,
-            5
+            5.5
           ],
           "bodyMinPx": 36
         },
@@ -976,108 +1189,104 @@
         },
         "web-banner": {
           "headlinePct": [
-            12,
-            20
+            14,
+            22
           ],
           "bodyMinPx": 14
         },
         "landing-hero": {
           "headlinePx": [
-            40,
-            88
+            44,
+            96
           ],
           "bodyMinPx": 18
         },
         "email-header": {
           "headlinePx": [
             28,
-            40
+            44
           ],
           "bodyMinPx": 16
         }
       },
-      "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+      "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading. Period posters for roadside viewing (Dubonnet) were sized for passing traffic."
     },
     "setting": {
       "measure": {
         "chars": [
-          45,
-          75
+          40,
+          66
         ],
-        "ideal": 66,
-        "source": "Bringhurst, The Elements of Typographic Style"
+        "ideal": 55,
+        "source": "Bringhurst, The Elements of Typographic Style (45-75); shorter here because geometric faces with low x-heights tire the eye sooner (rule of thumb)"
       },
       "leading": {
         "display": [
           0.95,
-          1.1
+          1.05
         ],
         "subhead": [
           1.2,
           1.3
         ],
         "body": [
-          1.45,
+          1.5,
           1.6
         ]
       },
       "tracking": {
         "displayEm": [
-          -0.03,
-          -0.01
+          -0.02,
+          0
         ],
         "bodyEm": 0,
         "smallEm": [
-          0,
-          0.01
+          0.01,
+          0.03
         ],
-        "labelCapsEm": [
+        "brandCapsEm": [
           0.08,
-          0.12
+          0.2
         ]
       },
-      "case": "Sentence case everywhere. Capitals only for labels of one to three words.",
+      "case": "Slogans and text in sentence case. Capitals for the brand word and labels of one to three words, always tracked out.",
       "sizesPerPiece": 3,
       "weightsPerPiece": 2,
-      "rag": "Ragged right; no justified text; avoid single words on the last line of headlines (use text-wrap: balance).",
-      "numbers": "Use the mono for dates, times, prices and codes (tabular figures)."
+      "rag": "Ragged right; balanced two-line slogans (text-wrap: balance); no single-word last lines.",
+      "numbers": "Times, dates and routes in the body face's tabular figures or the mono."
     },
     "rules": [
-      "Humanist letterforms, modern restraint.",
-      "Three sizes and two weights per piece.",
-      "Headline weight matches the ink line.",
-      "Left-aligned, sentence case, 45-75 characters per line.",
-      "At most one short handwritten note (six words or fewer) in a listed hand face; never the headline, body or call to action."
+      "Geometric letterforms, set big and with confidence.",
+      "Brand word in tracked capitals; slogan in sentence case.",
+      "Three sizes and two weights per piece (a deco display face counts as one weight).",
+      "Type sits in planned zones, never over gradients.",
+      "No handwriting, rounded or distressed fonts."
     ]
   },
   "springsCss": {
-    "gentle": {
-      "easing": "linear(0, 0.014, 0.043, 0.083, 0.131, 0.184, 0.24, 0.297, 0.354, 0.41, 0.463, 0.514, 0.562, 0.607, 0.649, 0.688, 0.723, 0.755, 0.784, 0.811, 0.834, 0.855, 0.874, 0.891, 0.906, 0.919, 0.931, 0.941, 0.95, 0.957, 0.964, 0.97, 0.975, 0.979, 0.983, 0.986, 0.988, 0.991, 0.993, 0.994, 0.995, 0.997, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1, 1)",
-      "duration": 660
+    "glide": {
+      "easing": "linear(0, 0.02, 0.063, 0.121, 0.187, 0.256, 0.325, 0.393, 0.458, 0.518, 0.573, 0.624, 0.67, 0.711, 0.747, 0.78, 0.809, 0.834, 0.856, 0.876, 0.893, 0.908, 0.921, 0.932, 0.941, 0.95, 0.957, 0.963, 0.968, 0.973, 0.977, 0.98, 0.983, 0.986, 0.988, 0.99, 0.991, 0.992, 0.994, 0.994, 0.995, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.998, 0.999, 0.999, 1)",
+      "duration": 993
     },
-    "soft": {
-      "easing": "linear(0, 0.023, 0.069, 0.13, 0.199, 0.271, 0.343, 0.412, 0.478, 0.538, 0.594, 0.644, 0.689, 0.73, 0.766, 0.797, 0.825, 0.849, 0.87, 0.888, 0.904, 0.918, 0.93, 0.94, 0.949, 0.956, 0.963, 0.968, 0.973, 0.977, 0.981, 0.984, 0.986, 0.988, 0.99, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1)",
-      "duration": 730
+    "precise": {
+      "easing": "linear(0, 0.024, 0.072, 0.134, 0.203, 0.275, 0.347, 0.416, 0.481, 0.541, 0.596, 0.646, 0.69, 0.73, 0.765, 0.796, 0.824, 0.848, 0.868, 0.887, 0.902, 0.916, 0.928, 0.938, 0.947, 0.954, 0.961, 0.967, 0.971, 0.975, 0.979, 0.982, 0.985, 0.987, 0.989, 0.99, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 0.999, 1)",
+      "duration": 673
     },
-    "lively": {
-      "easing": "linear(0, 0.028, 0.088, 0.171, 0.268, 0.373, 0.478, 0.581, 0.677, 0.764, 0.841, 0.906, 0.961, 1.004, 1.038, 1.062, 1.078, 1.088, 1.092, 1.091, 1.087, 1.08, 1.071, 1.062, 1.052, 1.043, 1.034, 1.025, 1.018, 1.011, 1.006, 1.001, 0.998, 0.995, 0.993, 0.992, 0.992, 0.992, 0.992, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1.001, 1)",
-      "duration": 787
-    },
-    "float": {
-      "easing": "linear(0, 0.012, 0.039, 0.077, 0.122, 0.174, 0.228, 0.283, 0.339, 0.394, 0.447, 0.498, 0.547, 0.592, 0.634, 0.673, 0.71, 0.743, 0.773, 0.8, 0.825, 0.847, 0.867, 0.884, 0.9, 0.914, 0.926, 0.937, 0.947, 0.955, 0.962, 0.968, 0.974, 0.978, 0.982, 0.985, 0.988, 0.991, 0.993, 0.994, 0.996, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1.001, 1)",
-      "duration": 882
+    "heavy": {
+      "easing": "linear(0, 0.021, 0.068, 0.131, 0.202, 0.275, 0.348, 0.418, 0.483, 0.544, 0.599, 0.649, 0.693, 0.733, 0.768, 0.798, 0.825, 0.849, 0.87, 0.887, 0.903, 0.916, 0.928, 0.938, 0.947, 0.954, 0.961, 0.966, 0.971, 0.975, 0.979, 0.982, 0.984, 0.987, 0.989, 0.99, 0.992, 0.993, 0.994, 0.995, 0.995, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.998, 0.999, 0.999, 1)",
+      "duration": 1577
     }
   },
   "palettes": {
     "primary": {
-      "ground": "#b4cdc2",
-      "accent": "#a36752",
+      "ground": "#111314",
+      "accent": "#00b49b",
       "ink": "#111314",
       "paper": "#ffffff"
     },
-    "night": {
-      "ground": "#111314",
-      "accent": "#a36752",
+    "daylight": {
+      "ground": "#b6bfc1",
+      "accent": "#f15a30",
       "ink": "#111314",
       "paper": "#ffffff"
     }

@@ -178,38 +178,46 @@
 
 /* Brand palettes (products/xooteq/brand.json). "primary" is the default. */
 :root {
-  --xq-bg: var(--xq-wada-glaucous-green);
-  --xq-ink: var(--xq-wada-black);
-  --xq-accent: var(--xq-wada-sudan-brown);
-  --xq-text: var(--xq-wada-black);
+  --xq-bg: var(--xq-wada-black);
+  --xq-ink: var(--xq-wada-white);
+  --xq-accent: var(--xq-wada-sea-green);
+  --xq-text: var(--xq-wada-neutral-gray);
+  --xq-support-1: var(--xq-wada-peach-red);
+  --xq-support-2: var(--xq-wada-neutral-gray);
 }
 
-/* primary: combination 207 (light) */
+/* primary: combination 340 (dark) */
 :root {
-  --xq-primary-bg: var(--xq-wada-glaucous-green);
-  --xq-primary-ink: var(--xq-wada-black);
-  --xq-primary-accent: var(--xq-wada-sudan-brown);
-  --xq-primary-text: var(--xq-wada-black);
+  --xq-primary-bg: var(--xq-wada-black);
+  --xq-primary-ink: var(--xq-wada-white);
+  --xq-primary-accent: var(--xq-wada-sea-green);
+  --xq-primary-text: var(--xq-wada-neutral-gray);
+  --xq-primary-support-1: var(--xq-wada-peach-red);
+  --xq-primary-support-2: var(--xq-wada-neutral-gray);
 }
 .xq-palette-primary {
-  --xq-bg: var(--xq-wada-glaucous-green);
-  --xq-ink: var(--xq-wada-black);
-  --xq-accent: var(--xq-wada-sudan-brown);
-  --xq-text: var(--xq-wada-black);
+  --xq-bg: var(--xq-wada-black);
+  --xq-ink: var(--xq-wada-white);
+  --xq-accent: var(--xq-wada-sea-green);
+  --xq-text: var(--xq-wada-neutral-gray);
+  --xq-support-1: var(--xq-wada-peach-red);
+  --xq-support-2: var(--xq-wada-neutral-gray);
 }
 
-/* night: combination 207 (dark) */
+/* daylight: combination 340 (light) */
 :root {
-  --xq-night-bg: var(--xq-wada-black);
-  --xq-night-ink: var(--xq-wada-glaucous-green);
-  --xq-night-accent: var(--xq-wada-sudan-brown);
-  --xq-night-text: var(--xq-wada-glaucous-green);
+  --xq-daylight-bg: var(--xq-wada-neutral-gray);
+  --xq-daylight-ink: var(--xq-wada-black);
+  --xq-daylight-accent: var(--xq-wada-peach-red);
+  --xq-daylight-text: var(--xq-wada-black);
+  --xq-daylight-support-1: var(--xq-wada-sea-green);
 }
-.xq-palette-night {
-  --xq-bg: var(--xq-wada-black);
-  --xq-ink: var(--xq-wada-glaucous-green);
-  --xq-accent: var(--xq-wada-sudan-brown);
-  --xq-text: var(--xq-wada-glaucous-green);
+.xq-palette-daylight {
+  --xq-bg: var(--xq-wada-neutral-gray);
+  --xq-ink: var(--xq-wada-black);
+  --xq-accent: var(--xq-wada-peach-red);
+  --xq-text: var(--xq-wada-black);
+  --xq-support-1: var(--xq-wada-sea-green);
 }
 
 /* Helpers: apply the current palette to any element */

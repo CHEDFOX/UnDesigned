@@ -1,0 +1,33 @@
+[
+  {
+    "$comment": "Said → Written 1 of 3 (pillar: Said → Written). Type-led. The said line is the one Caveat note (6 words).",
+    "piece": "sw-1-haan",
+    "format": "instagram-post",
+    "headline": "Keep the haan. Lose the um.",
+    "logo": true,
+    "palette": "primary",
+    "said": "haan um kal subah milte hain",
+    "written": "Haan, kal subah milte hain"
+  },
+  {
+    "$comment": "Said → Written 2 of 3 (pillar: Kept). The kept name is underlined in ink.",
+    "piece": "sw-2-names",
+    "format": "instagram-post",
+    "headline": "Your people keep their names.",
+    "logo": true,
+    "palette": "night",
+    "said": "uh ramesh ko bata do",
+    "written": "Ramesh ko bata do"
+  },
+  {
+    "$comment": "Said → Written 3 of 3 (pillar: Your language). Hinglish stays Hinglish.",
+    "piece": "sw-3-both",
+    "format": "instagram-post",
+    "headline": "Speak both. Send both.",
+    "subhead": "Hinglish stays Hinglish. Nothing gets translated.",
+    "logo": true,
+    "palette": "desk",
+    "said": "so mummy ko call karna hai",
+    "written": "Mummy ko call karna hai"
+  }
+]

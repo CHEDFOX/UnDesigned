@@ -1,0 +1,65 @@
+{
+  "$comment": "Tailzu's core and the signals people know it by. Read from the brand's own site and repo (tailzu.space: index.html, README.md, favicon.svg, og.png, structured data) and the owner's notes. Every fact here is on the site; nothing is invented. Content comes from this core, never from restating the website.",
+  "core": {
+    "belief": "The way you talk is already good enough to send. Your words, your languages and your names belong in the message exactly as you said them; only the mess should go.",
+    "change": "You stop translating your thoughts into thumb-typing: you say it as it comes (half-formed, Hinglish, full of 'um'), and a clean message in your own words lands in whatever app you were in.",
+    "character": ["Plain", "Exact", "Warm"],
+    "tension": "People think in speech but are made to perform in type. Typing is slow and makes you stiffer or sloppier than you are, and plain dictation writes down every 'um'. Tailzu keeps your voice and drops only the noise: it cleans, it never rewrites.",
+    "dramaticTruths": [
+      "It cleans. It never rewrites: names and amounts stay exactly as you said them.",
+      "Two languages stay two: Hinglish is written as Hinglish, not translated.",
+      "Your voice leaves, your words stay: audio is deleted once it is written, not stored by default.",
+      "It is a keyboard, so it works wherever you can type: WhatsApp, mail, a ChatGPT box, a code editor.",
+      "Same words, your tone: one message can be written in eight tones, from Neutral to Noir."
+    ],
+    "pillars": [
+      { "id": "said-written", "name": "Said → Written", "job": "Show the product's whole idea in one pair: the sentence as you said it (hand) and as it lands (type)." },
+      { "id": "tone", "name": "Same words, your tone", "job": "Play: one rough message in eight tones (Neutral, Casual, Formal, Excited, Shakespeare, Pirate, Movie Trailer, Noir)." },
+      { "id": "moments", "name": "Where it lands", "job": "The customer's moments: a message to family, a prompt to an AI chat, a change in a code editor, a reply to work." },
+      { "id": "kept", "name": "Kept", "job": "Trust and proof: names, amounts and your mix of languages stay; audio is deleted once written; 800 free words a month." },
+      { "id": "your-language", "name": "Your language", "job": "Hinglish native, 22 Indian languages, native script or English letters: you never have to switch to type." }
+    ]
+  },
+  "marks": {
+    "$comment": "Original files copied unchanged from the brand's site repo. Never redraw, simplify or substitute them.",
+    "files": [
+      { "file": "assets/logos/tailzu-mark.svg", "from": "tailzu-web/favicon.svg", "what": "The mark: three cream keycaps joined by lines (a pale line, an amber dashed link, a copper tail ending in a dot) on the app's near-black tile. Vector, 1000 × 1000." },
+      { "file": "assets/logos/icon-512.png", "from": "tailzu-web/icon-512.png", "what": "App icon, 512 × 512 (the logo in the site's structured data)." },
+      { "file": "assets/logos/apple-touch-icon.png", "from": "tailzu-web/apple-touch-icon.png", "what": "Touch icon, 180 × 180." }
+    ],
+    "usage": "The site's header and og.png draw the mark without its tile (the inner svg of favicon.svg, viewBox 170 228 680 512) on dark grounds, keycaps #F4F1EA. On light grounds the site recolours only the three keycaps to its ink #1B1712 (index.html: .mast[data-tone=light] .mark rect). Those are the only two treatments we use: the inner mark as-is on dark grounds, the keycaps in #1B1712 on light grounds, or the full tile (favicon.svg unchanged) where an app icon is meant. The brand has no wordmark font of its own; where a name is needed it is set in the pairing's sans beside the mark. The amber link is the only place the amber is 'the brand's own' (README, The mark)."
+  },
+  "signals": {
+    "colours": [
+      { "name": "App ground", "hex": "#0F0D0B", "where": "The app's ground and the site's hero (STATS_UI in the backend's catalog.ts)." },
+      { "name": "Cream (reading colour)", "hex": "#F3E2C6", "where": "The one reading colour on dark; og.png headline." },
+      { "name": "Amber", "hex": "#E8A23C", "where": "Sacred: means 'alive, right now' (the open microphone, the word being born) and the full stop that ends the written line in og.png." },
+      { "name": "Indigo", "hex": "#2A2878 / #17163F", "where": "og.png ground; the site's apps section." },
+      { "name": "Paper", "hex": "#FBF8F2", "where": "Light sections; ink #1B1712 on it." },
+      { "name": "Fields", "hex": "saffron #F4A72C, teal #167D71, sun #F7CF4A, rose #E4587B, sky #DCEBF7, leaf #DDF3E3, butter #FFF3C2", "where": "One full hue per site section ('a walk through rooms')." },
+      { "name": "Mark", "hex": "#F4F1EA keycaps, #E9CBA2 line, #E8A23C link, #C77A3A tail, #B06240 dot", "where": "favicon.svg" }
+    ],
+    "type": [
+      { "family": "Newsreader (light serif)", "role": "Headlines and the written line." },
+      { "family": "Instrument Sans", "role": "Body and UI." },
+      { "family": "IBM Plex Mono", "role": "Spaced capital labels (SAID, WRITTEN, TYPED) and the footer." },
+      { "family": "Caveat (Kalam for Devanagari)", "role": "Speech: 'Speech is a person, and a person writes by hand' (README, The river)." }
+    ],
+    "imagery": "No photography. Dark, calm grounds; speech drawn as handwriting arriving from the edges and swallowed by one set word; UI drawn plainly (a message field, a chat box, a code editor, a keyboard). Light comes from one place, never from a second colour.",
+    "signatureElements": [
+      "Hand in, type out: the said line in handwriting, the written line in a calm serif (og.png, the river).",
+      "SAID / WRITTEN labels in spaced mono capitals.",
+      "The amber full stop that lands last on the written line.",
+      "Proof-reading marks: on the site's hero 'key' is struck through and 'keyless' is written above it, the way an editor marks a proof.",
+      "A kept word is underlined, not coloured: 'a fact that survived is a record, not a thing still in play' (README).",
+      "The three keycaps of the mark, joined like a constellation."
+    ]
+  },
+  "sources": [
+    "/home/user/chedfox/tailzu-web/index.html (copy, CSS variables, inline SVG, structured data, FAQ)",
+    "/home/user/chedfox/tailzu-web/README.md (the colours, the amber, the river, the mark)",
+    "/home/user/chedfox/tailzu-web/favicon.svg, icon-512.png, apple-touch-icon.png",
+    "/home/user/chedfox/tailzu-web/og.png",
+    "Owner's notes in this session (the tension: people think in speech but are forced to perform in typing)"
+  ]
+}

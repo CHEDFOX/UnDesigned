@@ -5656,45 +5656,73 @@
     "primary": {
       "bg": {
         "$type": "color",
-        "$value": "{wada.oranges.cinnamon-buff}"
-      },
-      "ink": {
-        "$type": "color",
-        "$value": "{wada.neutrals.black}"
-      },
-      "accent": {
-        "$type": "color",
         "$value": "{wada.blues.deep-lyons-blue}"
       },
-      "text": {
-        "$type": "color",
-        "$value": "{wada.neutrals.black}"
-      },
-      "support-1": {
-        "$type": "color",
-        "$value": "{wada.purples.aconite-violet}"
-      }
-    },
-    "alt": {
-      "bg": {
+      "ink": {
         "$type": "color",
         "$value": "{wada.yellows.ivory-buff}"
       },
+      "accent": {
+        "$type": "color",
+        "$value": "{wada.yellows.yellow-ocher}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{wada.yellows.ivory-buff}"
+      }
+    },
+    "night": {
+      "bg": {
+        "$type": "color",
+        "$value": "{wada.blues.deep-indigo}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{wada.oranges.pinkish-cinnamon}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{wada.reds.carmine}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{wada.oranges.pinkish-cinnamon}"
+      }
+    },
+    "desk": {
+      "bg": {
+        "$type": "color",
+        "$value": "{wada.neutrals.black}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{wada.yellows.ivory-buff}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{wada.oranges.english-red}"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{wada.yellows.ivory-buff}"
+      }
+    },
+    "paper": {
+      "bg": {
+        "$type": "color",
+        "$value": "{wada.yellows.sulpher-yellow}"
+      },
       "ink": {
         "$type": "color",
         "$value": "{wada.blues.vandar-poel-s-blue}"
       },
       "accent": {
         "$type": "color",
-        "$value": "{wada.browns.burnt-sienna}"
+        "$value": "{wada.oranges.yellow-orange}"
       },
       "text": {
         "$type": "color",
         "$value": "{wada.blues.vandar-poel-s-blue}"
-      },
-      "support-1": {
-        "$type": "color",
-        "$value": "{wada.olives.deep-grayish-olive}"
       }
     }
   }

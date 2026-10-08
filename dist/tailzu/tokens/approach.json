@@ -1070,14 +1070,26 @@
   },
   "palettes": {
     "primary": {
-      "ground": "#fdc57e",
-      "accent": "#1c4286",
+      "ground": "#1c4286",
+      "accent": "#e2b540",
       "ink": "#111314",
       "paper": "#ffffff"
     },
-    "alt": {
-      "ground": "#ebd3a2",
-      "accent": "#ae5224",
+    "night": {
+      "ground": "#051230",
+      "accent": "#cc1236",
+      "ink": "#111314",
+      "paper": "#ffffff"
+    },
+    "desk": {
+      "ground": "#111314",
+      "accent": "#d96629",
+      "ink": "#111314",
+      "paper": "#ffffff"
+    },
+    "paper": {
+      "ground": "#f5ecc2",
+      "accent": "#f99d1b",
       "ink": "#111314",
       "paper": "#ffffff"
     }

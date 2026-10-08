@@ -1,5 +1,5 @@
 {
-  "$comment": "Brand message for Tailzu. Every fact comes from the product's own website source (tailzu.space: index.html copy, structured data, FAQ and README). Fields left empty are unknown; see the open questions in campaigns/launch/brief.md. Rules referenced (P1, S3 ...) are explained in foundations/messaging/README.md.",
+  "$comment": "Brand message for Tailzu. Every fact comes from the product's own website source (tailzu.space: index.html copy, structured data, FAQ and README) and the owner's notes; the core is in identity.json. Fields left empty are unknown (no testimonials or clients yet). Rules referenced (P1, S3 ...) are explained in foundations/messaging/README.md.",
   "positioning": {
     "$help": "Perennial Seller (P1, P2). Write these before any campaign.",
     "audience": "People who would rather say a message than type it: Hindi, Hinglish and Indian-language speakers who write all day on their phone and computer, in WhatsApp, mail, Slack, AI chats and code editors.",
@@ -23,11 +23,11 @@
     "problem": {
       "villain": "The keyboard: small keys, one alphabet, and dictation that types the 'um's",
       "external": "Typing Hinglish or an Indian script is slow, and rough speech comes out as rough text",
-      "internal": "",
+      "internal": "Typing makes you perform: you come out stiffer or sloppier than you are, or you put the message off",
       "philosophical": "Your words should arrive the way you meant them, in the language you actually speak"
     },
     "guide": {
-      "empathy": "",
+      "empathy": "You think out loud. You shouldn't have to switch languages, or slow down to thumb speed, to be understood.",
       "authority": [
         "All 22 scheduled languages of India, Hinglish and English, plus 23 more languages",
         "Works as a keyboard in every app on iPhone and Android",
@@ -44,14 +44,14 @@
     },
     "callToAction": {
       "direct": "Download Tailzu free",
-      "transitional": "Say one yourself at tailzu.space"
+      "transitional": "Try 800 words a month, free"
     },
     "failure": [
       "Typing a long Hinglish message by thumb, or sending speech as rough text"
     ],
     "success": [
-      "Say it once, rough; a clean message lands in WhatsApp, mail or the chat box",
-      "Hinglish stays Hinglish, and Ramesh stays Ramesh"
+      "You say it once, the way it comes, and a clean message lands in WhatsApp, mail, a chat box or your editor",
+      "Your names, amounts and languages arrive exactly as you said them"
     ],
     "transformation": {
       "from": "Typing slowly, or sending rough text",
@@ -75,7 +75,9 @@
       "revolutionary",
       "magic",
       "AI-powered",
-      "translate"
+      "translate",
+      "effortless",
+      "seamless"
     ]
   },
   "proof": {

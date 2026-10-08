@@ -178,43 +178,66 @@
 
 /* Brand palettes (products/tailzu/brand.json). "primary" is the default. */
 :root {
-  --ta-bg: var(--ta-wada-cinnamon-buff);
-  --ta-ink: var(--ta-wada-black);
-  --ta-accent: var(--ta-wada-deep-lyons-blue);
-  --ta-text: var(--ta-wada-black);
-  --ta-support-1: var(--ta-wada-aconite-violet);
+  --ta-bg: var(--ta-wada-deep-lyons-blue);
+  --ta-ink: var(--ta-wada-ivory-buff);
+  --ta-accent: var(--ta-wada-yellow-ocher);
+  --ta-text: var(--ta-wada-ivory-buff);
 }
 
-/* primary: combination 344 (light) */
+/* primary: combination 126 (dark) */
 :root {
-  --ta-primary-bg: var(--ta-wada-cinnamon-buff);
-  --ta-primary-ink: var(--ta-wada-black);
-  --ta-primary-accent: var(--ta-wada-deep-lyons-blue);
-  --ta-primary-text: var(--ta-wada-black);
-  --ta-primary-support-1: var(--ta-wada-aconite-violet);
+  --ta-primary-bg: var(--ta-wada-deep-lyons-blue);
+  --ta-primary-ink: var(--ta-wada-ivory-buff);
+  --ta-primary-accent: var(--ta-wada-yellow-ocher);
+  --ta-primary-text: var(--ta-wada-ivory-buff);
 }
 .ta-palette-primary {
-  --ta-bg: var(--ta-wada-cinnamon-buff);
-  --ta-ink: var(--ta-wada-black);
-  --ta-accent: var(--ta-wada-deep-lyons-blue);
-  --ta-text: var(--ta-wada-black);
-  --ta-support-1: var(--ta-wada-aconite-violet);
+  --ta-bg: var(--ta-wada-deep-lyons-blue);
+  --ta-ink: var(--ta-wada-ivory-buff);
+  --ta-accent: var(--ta-wada-yellow-ocher);
+  --ta-text: var(--ta-wada-ivory-buff);
 }
 
-/* alt: combination 343 (light) */
+/* night: combination 232 (dark) */
 :root {
-  --ta-alt-bg: var(--ta-wada-ivory-buff);
-  --ta-alt-ink: var(--ta-wada-vandar-poel-s-blue);
-  --ta-alt-accent: var(--ta-wada-burnt-sienna);
-  --ta-alt-text: var(--ta-wada-vandar-poel-s-blue);
-  --ta-alt-support-1: var(--ta-wada-deep-grayish-olive);
+  --ta-night-bg: var(--ta-wada-deep-indigo);
+  --ta-night-ink: var(--ta-wada-pinkish-cinnamon);
+  --ta-night-accent: var(--ta-wada-carmine);
+  --ta-night-text: var(--ta-wada-pinkish-cinnamon);
 }
-.ta-palette-alt {
-  --ta-bg: var(--ta-wada-ivory-buff);
+.ta-palette-night {
+  --ta-bg: var(--ta-wada-deep-indigo);
+  --ta-ink: var(--ta-wada-pinkish-cinnamon);
+  --ta-accent: var(--ta-wada-carmine);
+  --ta-text: var(--ta-wada-pinkish-cinnamon);
+}
+
+/* desk: combination 190 (dark) */
+:root {
+  --ta-desk-bg: var(--ta-wada-black);
+  --ta-desk-ink: var(--ta-wada-ivory-buff);
+  --ta-desk-accent: var(--ta-wada-english-red);
+  --ta-desk-text: var(--ta-wada-ivory-buff);
+}
+.ta-palette-desk {
+  --ta-bg: var(--ta-wada-black);
+  --ta-ink: var(--ta-wada-ivory-buff);
+  --ta-accent: var(--ta-wada-english-red);
+  --ta-text: var(--ta-wada-ivory-buff);
+}
+
+/* paper: combination 151 (light) */
+:root {
+  --ta-paper-bg: var(--ta-wada-sulpher-yellow);
+  --ta-paper-ink: var(--ta-wada-vandar-poel-s-blue);
+  --ta-paper-accent: var(--ta-wada-yellow-orange);
+  --ta-paper-text: var(--ta-wada-vandar-poel-s-blue);
+}
+.ta-palette-paper {
+  --ta-bg: var(--ta-wada-sulpher-yellow);
   --ta-ink: var(--ta-wada-vandar-poel-s-blue);
-  --ta-accent: var(--ta-wada-burnt-sienna);
+  --ta-accent: var(--ta-wada-yellow-orange);
   --ta-text: var(--ta-wada-vandar-poel-s-blue);
-  --ta-support-1: var(--ta-wada-deep-grayish-olive);
 }
 
 /* Helpers: apply the current palette to any element */

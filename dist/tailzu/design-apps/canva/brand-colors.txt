@@ -1,16 +1,26 @@
 Paste these hex codes into Canva > Brand Kit > Colours.
 
-primary (combination 344, light)
-  bg         #fdc57e  Cinnamon Buff
-  ink        #111314  Black
-  accent     #1c4286  Deep Lyons Blue
-  text       #111314  Black
-  support-1  #a36aa5  Aconite Violet
+primary (combination 126, dark)
+  bg         #1c4286  Deep Lyons Blue
+  ink        #ebd3a2  Ivory Buff
+  accent     #e2b540  Yellow Ocher
+  text       #ebd3a2  Ivory Buff
 
-alt (combination 343, light)
-  bg         #ebd3a2  Ivory Buff
+night (combination 232, dark)
+  bg         #051230  Deep Indigo
+  ink        #eeb480  Pinkish Cinnamon
+  accent     #cc1236  Carmine
+  text       #eeb480  Pinkish Cinnamon
+
+desk (combination 190, dark)
+  bg         #111314  Black
+  ink        #ebd3a2  Ivory Buff
+  accent     #d96629  English Red
+  text       #ebd3a2  Ivory Buff
+
+paper (combination 151, light)
+  bg         #f5ecc2  Sulpher Yellow
   ink        #064f6e  Vandar Poel's Blue
-  accent     #ae5224  Burnt Sienna
+  accent     #f99d1b  Yellow Orange
   text       #064f6e  Vandar Poel's Blue
-  support-1  #635a3a  Deep Grayish Olive
 

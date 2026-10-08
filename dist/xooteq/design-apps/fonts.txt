@@ -1,26 +1,26 @@
-XOOTEQ: Warm Modern
+XOOTEQ: Single-Family Minimal
 
 Install these free fonts (SIL Open Font License) for Figma, Adobe and Canva:
 
-  Headlines            Bricolage Grotesque (500, 700, 800)
-                       https://fonts.google.com/specimen/Bricolage+Grotesque
+  Headlines            Schibsted Grotesk (600, 800)
+                       https://fonts.google.com/specimen/Schibsted+Grotesk
 
-  Body                 Figtree (400, 500, 700)
-                       https://fonts.google.com/specimen/Figtree
+  Body                 Schibsted Grotesk (400, 500)
+                       https://fonts.google.com/specimen/Schibsted+Grotesk
 
-  Data, dates, labels  IBM Plex Mono (400, 500)
-                       https://fonts.google.com/specimen/IBM+Plex+Mono
+  Data, dates, labels  JetBrains Mono (400, 500)
+                       https://fonts.google.com/specimen/JetBrains+Mono
 
-Type scale (ratio 1.25):
-  caption   web   10.2 px   poster   15.4 px
-  small     web   12.8 px   poster   19.2 px
+Type scale (ratio 1.333):
+  caption   web      9 px   poster   13.5 px
+  small     web     12 px   poster     18 px
   body      web     16 px   poster     24 px
-  lead      web     20 px   poster     30 px
-  h3        web     25 px   poster   37.5 px
-  h2        web   31.3 px   poster   46.9 px
-  h1        web   39.1 px   poster   58.6 px
-  display   web     61 px   poster   91.6 px
-  hero      web   95.4 px   poster  143.1 px
+  lead      web   21.3 px   poster     32 px
+  h3        web   28.4 px   poster   42.6 px
+  h2        web   37.9 px   poster   56.8 px
+  h1        web   50.5 px   poster   75.8 px
+  display   web   89.8 px   poster  134.6 px
+  hero      web  159.5 px   poster  239.3 px
 
 Rules:
   - Two families at most (display + body), plus a mono for small data such as dates, prices and codes.
