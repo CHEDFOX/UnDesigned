@@ -602,6 +602,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 
 <!-- ================================================================ APPROACH -->
 <section class="panel" id="panel-approach" hidden>
+  <div id="ap-profile" hidden><p class="lede">This product's style is a researched profile: full rules, data and a sample poster, but no drawing engine yet, so its approach page is the style profile below (the same as on the Styles tab).</p><article class="st-detail" id="ap-profile-detail"></article></div>
   <div class="approach-hero">
     <div>
       <span class="lbl">Art direction</span>
@@ -1239,7 +1240,9 @@ function useBrand(id, first) {
   DATA.brand = B.palettes; DATA.ctx = B.ctx; DATA.layers = B.layers; M.message = B.message;
   const ap = DATA.approaches[B.approach];
   A = { data: ap.data, images: ap.images, research: ap.research, springsCss: ap.springsCss, palettes: B.illPalettes };
-  ill = APPROACH_LIBS[B.approach](A.data, A.palettes.primary || Object.values(A.palettes)[0]);
+  // Profile styles borrow Humanist Minimal's engine (and its data) for the hub's small demos.
+  const engineData = A.data.status === 'complete' ? A.data : DATA.styles.find(x => x.id === 'humanist-minimal');
+  ill = APPROACH_LIBS[B.approach](engineData, A.palettes.primary || Object.values(A.palettes)[0]);
   cstate.stars = new Set(store.get('wada-stars-' + B.id, []));
   astate.pv = 'brand:' + (B.palettes.find(p => p.name === 'primary') || B.palettes[0]).name;
   $('#brand-select').value = B.id;
@@ -1451,6 +1454,15 @@ function illPalette() {
 }
 function setupApproach() {
   const D = A.data, ART = D.art, MO = D.motion;
+  const profile = D.status !== 'complete';
+  [...$('#panel-approach').children].forEach(el => (el.hidden = profile ? el.id !== 'ap-profile' : el.id === 'ap-profile'));
+  if (profile) {
+    const keep = ststate.open;
+    ststate.open = B.approach; renderStyleDetail();
+    $('#ap-profile-detail').innerHTML = $('#st-detail').innerHTML;
+    ststate.open = keep; renderStyleDetail();
+    return;
+  }
   $('#ap-name').textContent = D.name;
   $('#ap-summary').textContent = D.summary;
   $('#ap-id').textContent = D.id;

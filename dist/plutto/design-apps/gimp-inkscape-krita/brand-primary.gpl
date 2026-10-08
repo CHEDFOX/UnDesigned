@@ -1,0 +1,10 @@
+GIMP Palette
+Name: Plutto - primary
+Columns: 4
+#
+ 17  19  20	bg - Black
+255 255 255	ink - White
+202 179  86	accent - Pyrite Yellow
+255 255 255	text - White
+120 205 208	support-1 - Calamine BLue
+187 113  37	support-2 - Raw Sienna

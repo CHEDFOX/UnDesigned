@@ -1,0 +1,1079 @@
+{
+  "id": "humanist-minimal",
+  "name": "Humanist Minimal",
+  "summary": "Very few marks, each one made by a human hand. Organic shapes with rounded corners, an ink line that wobbles slightly, flat paper on a flat ground, and motion that flows like real things. One idea, lots of space.",
+  "principles": [
+    {
+      "id": "H1",
+      "title": "The human hand",
+      "rule": "Every mark looks made by a person: ink lines with a small steady wobble, paper shapes cut by hand. Nothing looks generated, glossy or machine-perfect.",
+      "source": "Handmade effect (research.md 3)"
+    },
+    {
+      "id": "H2",
+      "title": "Few marks",
+      "rule": "Minimal means fewer things, not thinner things. If a line, shape or word can go, it goes. At most three objects.",
+      "source": "Processing fluency (research.md 3)"
+    },
+    {
+      "id": "H3",
+      "title": "One idea",
+      "rule": "Each piece says one thing, usually by joining two plain symbols into a metaphor (molecule on a column, apple on a book, sound wave in a speech bubble).",
+      "source": "Paul Rand's rebus (research.md 2.2)"
+    },
+    {
+      "id": "H4",
+      "title": "Space is content",
+      "rule": "One focal point and at least 40% empty ground. Centre the motif, or put it on a third to make room for words.",
+      "source": "Ma (research.md 2.1)"
+    },
+    {
+      "id": "H5",
+      "title": "Soft geometry",
+      "rule": "Organic shapes with rounded corners; no perfect circles, squares or sharp corners. Only natural points (a leaf tip, a bubble tail) stay pointed, and even they end in a small radius.",
+      "source": "Preference for curves (research.md 3)"
+    },
+    {
+      "id": "H6",
+      "title": "Flat and honest",
+      "rule": "Flat colour from one Wada combination, black ink and white paper. No gradients, shadows, glows or 3D. The only tone is printed halftone dots."
+    },
+    {
+      "id": "H7",
+      "title": "Warm, not cute",
+      "rule": "Friendly and a little witty, never childish. Wit comes from the idea, not decoration. No mascots, no faceless bendy figures.",
+      "source": "Corporate Memphis counter-example (research.md 2.5)"
+    },
+    {
+      "id": "H8",
+      "title": "Fluid motion",
+      "rule": "Things move on springs, with a little weight and a gentle overshoot, then settle on a still frame. Lines draw on, shapes pop and breathe, text rises. One thing moves at a time.",
+      "source": "Designing Fluid Interfaces (research.md 3)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination per piece: its background as the ground, its accent on at most one object. Ink is Black, paper is White.",
+      "dont": "Mix combinations in one piece, add gradients, tint the ink."
+    },
+    {
+      "layer": "Typography",
+      "do": "Humanist faces with open apertures, rated in typography.json. Sentence case, three sizes, two weights; headline weight matched to the ink line.",
+      "dont": "Handwriting or 'marker' fonts, decorative display faces, many weights."
+    },
+    {
+      "layer": "Layout",
+      "do": "A simple grid, 8% margins, one focal point, text aligned to one edge. Rounded corners on buttons, cards and image boxes (art.json corners). Illustration and headline work as a pair.",
+      "dont": "Filling every corner, sharp-cornered boxes and borders around everything, centred paragraphs."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Ink line over organic, rounded paper shapes on a flat ground. One motif per piece, from the product's own world (art.json vocabulary).",
+      "dont": "Stock icons, perfect geometric vectors, sharp corners, detailed scenes, worn symbols (lightbulb, rocket, gears)."
+    },
+    {
+      "layer": "Motion",
+      "do": "Springs for arriving, sine-like curves for looping, acceleration for leaving. Draw-on lines, popping and breathing shapes, slow morphs; loops of 2-4 s (motion.json).",
+      "dont": "Linear motion, abrupt stops, long sequences, camera moves, fading the whole artwork, bouncing text."
+    },
+    {
+      "layer": "Photography",
+      "do": "Natural light, real people and hands, uncluttered backgrounds; cut-out photos on a flat ground fit the style.",
+      "dont": "Glossy stock, heavy filters, busy scenes."
+    },
+    {
+      "layer": "Copy",
+      "do": "Plain, warm, short. Speak to one person (see the messaging playbook).",
+      "dont": "Jargon, hype, exclamation marks."
+    }
+  ],
+  "status": "complete",
+  "evidence": {
+    "scores": {
+      "curves": 2,
+      "simplicity": 2,
+      "maya": 2,
+      "nature": 1,
+      "handmade": 2,
+      "colour": 1,
+      "glance": 2
+    },
+    "notes": {
+      "curves": "Organic shapes and rounded corners are a core rule (H5).",
+      "simplicity": "One idea, at most three objects, at least 40% empty ground (H2, H4).",
+      "maya": "Familiar formats and plain symbols, with the surprise kept to one metaphor (H3).",
+      "nature": "The wobbling line has natural mid-range roughness, but there is no other natural texture.",
+      "handmade": "Hand-drawn line and cut paper throughout (H1).",
+      "colour": "Depends on the Wada combination chosen; some pairs are muddy or low-contrast.",
+      "glance": "One focal point and a flat ground read within a glance."
+    },
+    "beyondPreference": "Warmth and trust: visible human marks signal care (handmade effect), which suits products that want to feel personal.",
+    "watch": "Can drift into cute; Wada pairs vary in contrast."
+  },
+  "references": [
+    {
+      "file": "still-sound-bubble.jpg",
+      "shows": "Sound wave in a speech bubble: voice. Centred motif, cut-paper bubble."
+    },
+    {
+      "file": "still-molecule-column.jpg",
+      "shows": "Molecule on an Ionic column: science with classical roots. Two symbols, one idea."
+    },
+    {
+      "file": "still-globe-hands.jpg",
+      "shows": "Two hands holding a globe: global connection. Motif pushed right, space left for text."
+    },
+    {
+      "file": "motion-apple-book.mov",
+      "frames": "frames-apple-book.jpg",
+      "shows": "Frame draws on, apple pops in, frame turns into a book."
+    },
+    {
+      "file": "motion-sun-rays.mov",
+      "frames": "frames-sun-rays.jpg",
+      "shows": "Dots grow into rays and radiate outward on a loop."
+    },
+    {
+      "file": "motion-eye-telescope.mov",
+      "frames": "frames-eye-telescope.jpg",
+      "shows": "An eye at the end of a halftone beam blinks."
+    }
+  ],
+  "art": {
+    "line": {
+      "width": 9,
+      "widthSmall": 6,
+      "widthPct": 2.25,
+      "cap": "round",
+      "join": "round",
+      "wobble": 1.4,
+      "wobbleRange": [
+        0.8,
+        1.8
+      ],
+      "segment": 14,
+      "continuity": "One continuous stroke per object where possible; at most three strokes per object.",
+      "terminals": "Round ends. Optional ink dots (1.0-1.2 x line width) mark joints and ends, as in the globe reference.",
+      "crossing": "Ink should cross a paper edge at least once per piece (a line running past its shape). It breaks the silhouette and shows the hand.",
+      "rules": [
+        "Never vary the weight within one line (no calligraphic swell): the hand shows in the path, not the pressure.",
+        "Never use grey, coloured or dashed ink.",
+        "Line weight is fixed per artboard: do not scale strokes with the objects."
+      ]
+    },
+    "shape": {
+      "mode": "organic",
+      "blob": {
+        "points": [
+          6,
+          9
+        ],
+        "irregularity": {
+          "paperDisc": [
+            0.06,
+            0.12
+          ],
+          "freeShape": [
+            0.15,
+            0.22
+          ]
+        },
+        "smoothing": "Closed Catmull-Rom curve through the points (tension 0.5)."
+      },
+      "cornerRadius": {
+        "pct": [
+          6,
+          12
+        ],
+        "minUnits": 4
+      },
+      "points": "Only natural points stay pointed (a leaf tip, a bubble tail, a beam), and even they end in a radius of at least 2 units.",
+      "misregistration": {
+        "offsetPct": [
+          0.5,
+          2
+        ],
+        "direction": "Same direction for every object in one piece."
+      },
+      "rules": [
+        "No perfect circles, squares or straight-edged polygons in artwork.",
+        "Fill shapes are never traced exactly inside the ink line.",
+        "One accent-coloured shape per piece at most; all other shapes are paper."
+      ]
+    },
+    "corners": {
+      "scale": {
+        "xs": 4,
+        "sm": 8,
+        "md": 16,
+        "lg": 24,
+        "xl": 40,
+        "pill": 999
+      },
+      "use": {
+        "button": "pill",
+        "chip": "pill",
+        "input": "sm",
+        "card": "lg",
+        "image": "lg, or an organic blob mask for hero images",
+        "sheet / modal": "xl on the top corners"
+      },
+      "nested": "An inner radius is the outer radius minus the padding between them, so curves stay parallel.",
+      "print": "On posters and print, corners of image boxes are 2-4% of the box's short side."
+    },
+    "composition": {
+      "marginPct": 8,
+      "grid": "12 columns on screen, 6 on posters; motif and text each take whole columns.",
+      "motifSizePct": [
+        35,
+        60
+      ],
+      "emptyGroundMinPct": 40,
+      "maxObjects": 3,
+      "placements": [
+        {
+          "id": "centre",
+          "use": "Pure image pieces, square social posts. Text below or none."
+        },
+        {
+          "id": "third",
+          "use": "Motif on the left or right third; headline in the other two-thirds, aligned to one edge (globe reference)."
+        },
+        {
+          "id": "anchored",
+          "use": "Motif sits on the bottom edge, as if on a table; headline above. Good for posters and stories."
+        },
+        {
+          "id": "crop",
+          "use": "Motif runs off one edge, for a larger, closer feel. At most one edge."
+        }
+      ],
+      "pairing": "Image and headline are a pair: the headline must not describe what the image shows (W5); together they say more than either alone.",
+      "rules": [
+        "One focal point per piece.",
+        "Never centre a paragraph; centre at most one or two short lines on a centred poster.",
+        "Keep text at least one margin away from the motif."
+      ]
+    },
+    "palette": {
+      "roles": {
+        "ground": {
+          "from": "combination bg",
+          "areaPct": [
+            60,
+            75
+          ]
+        },
+        "paper": {
+          "from": "Wada White",
+          "areaPct": [
+            15,
+            30
+          ]
+        },
+        "ink": {
+          "from": "Wada Black",
+          "areaPct": [
+            5,
+            10
+          ]
+        },
+        "accent": {
+          "from": "combination accent",
+          "areaPct": [
+            0,
+            5
+          ],
+          "limit": "One object."
+        }
+      },
+      "rules": [
+        "One combination per piece.",
+        "No gradients, shadows, glows or transparency effects.",
+        "Text colour on the ground uses the combination's text role (AA contrast)."
+      ],
+      "method": "Pick a combination with a calm, light ground (sky, paper, stone or sand tones), a dark ink-like colour that passes AA on it, and one warm accent for the single coloured object. Muted grounds keep the white paper and black ink as the stars, as in the references (greige, dusty blue, terracotta).",
+      "recommendedCombinations": [
+        {
+          "combination": 232,
+          "colours": [
+            "Carmine",
+            "Pinkish Cinnamon",
+            "Deep Indigo"
+          ],
+          "reason": "Warm sand ground, deep indigo text, one carmine object: closest to the terracotta references."
+        },
+        {
+          "combination": 221,
+          "colours": [
+            "Carmine Red",
+            "Neutral Gray",
+            "Black"
+          ],
+          "reason": "Stone-grey ground like the dusty-blue reference; black text at 9.95:1."
+        },
+        {
+          "combination": 268,
+          "colours": [
+            "Nile Blue",
+            "Deep Slate Olive",
+            "Raw Sienna"
+          ],
+          "reason": "Pale sky ground, near-black olive ink, warm sienna accent."
+        },
+        {
+          "combination": 310,
+          "colours": [
+            "Sulpher Yellow",
+            "Deep Slate Olive",
+            "Olive"
+          ],
+          "reason": "Paper-like pale yellow ground with 11.5:1 ink; very calm."
+        },
+        {
+          "combination": 343,
+          "colours": [
+            "Ivory Buff",
+            "Vandar Poel's Blue",
+            "Burnt Sienna"
+          ],
+          "reason": "Linen ground like the apple-book reference, blue ink, sienna accent."
+        },
+        {
+          "combination": 344,
+          "colours": [
+            "Cinnamon Buff",
+            "Black",
+            "Deep Lyons Blue"
+          ],
+          "reason": "Warm buff ground with black ink; the blue accent stays a single object."
+        },
+        {
+          "combination": 207,
+          "colours": [
+            "Glaucous Green",
+            "Black",
+            "Sudan Brown"
+          ],
+          "reason": "Soft sage ground, strong black ink, earthy accent."
+        },
+        {
+          "combination": 152,
+          "colours": [
+            "Light Glaucous Blue",
+            "Hay's Russet",
+            "Etruscan Red"
+          ],
+          "reason": "Dusty blue ground close to the globe reference."
+        }
+      ]
+    },
+    "texture": {
+      "halftone": {
+        "cell": 5,
+        "dot": 1.25,
+        "use": "The only shading: beams, shadows, fades. Ink dots on paper or ground, fading out.",
+        "maxAreaPct": 15
+      },
+      "grain": "Optional and subtle paper grain on print; never on screen UI."
+    },
+    "vocabulary": {
+      "symbols": [
+        {
+          "id": "hand",
+          "means": [
+            "care",
+            "making",
+            "help",
+            "offer"
+          ]
+        },
+        {
+          "id": "eye",
+          "means": [
+            "attention",
+            "insight",
+            "vision",
+            "noticing"
+          ]
+        },
+        {
+          "id": "sun",
+          "means": [
+            "morning",
+            "energy",
+            "optimism",
+            "warmth"
+          ]
+        },
+        {
+          "id": "speech-bubble",
+          "means": [
+            "voice",
+            "conversation",
+            "support"
+          ]
+        },
+        {
+          "id": "sound-wave",
+          "means": [
+            "voice",
+            "music",
+            "listening"
+          ]
+        },
+        {
+          "id": "book",
+          "means": [
+            "learning",
+            "knowledge",
+            "stories"
+          ]
+        },
+        {
+          "id": "apple",
+          "means": [
+            "learning",
+            "health",
+            "freshness"
+          ]
+        },
+        {
+          "id": "globe",
+          "means": [
+            "world",
+            "connection",
+            "reach"
+          ]
+        },
+        {
+          "id": "column",
+          "means": [
+            "heritage",
+            "trust",
+            "institutions",
+            "foundations"
+          ]
+        },
+        {
+          "id": "molecule",
+          "means": [
+            "science",
+            "connection",
+            "structure"
+          ]
+        },
+        {
+          "id": "sprout",
+          "means": [
+            "growth",
+            "beginnings",
+            "nature"
+          ]
+        },
+        {
+          "id": "key",
+          "means": [
+            "access",
+            "solution",
+            "home"
+          ]
+        },
+        {
+          "id": "house",
+          "means": [
+            "home",
+            "belonging",
+            "security"
+          ]
+        },
+        {
+          "id": "cup",
+          "means": [
+            "pause",
+            "comfort",
+            "morning"
+          ]
+        },
+        {
+          "id": "path",
+          "means": [
+            "journey",
+            "progress",
+            "direction"
+          ]
+        },
+        {
+          "id": "ladder",
+          "means": [
+            "progress",
+            "steps",
+            "ambition"
+          ]
+        },
+        {
+          "id": "envelope",
+          "means": [
+            "message",
+            "invitation",
+            "news"
+          ]
+        },
+        {
+          "id": "clock",
+          "means": [
+            "time",
+            "routine",
+            "punctuality"
+          ]
+        },
+        {
+          "id": "moon",
+          "means": [
+            "night",
+            "rest",
+            "calm"
+          ]
+        },
+        {
+          "id": "wave",
+          "means": [
+            "flow",
+            "calm",
+            "the sea"
+          ]
+        },
+        {
+          "id": "bird",
+          "means": [
+            "freedom",
+            "news",
+            "lightness"
+          ]
+        },
+        {
+          "id": "bread",
+          "means": [
+            "nourishment",
+            "everyday",
+            "craft"
+          ]
+        },
+        {
+          "id": "thread",
+          "means": [
+            "connection",
+            "craft",
+            "continuity"
+          ]
+        },
+        {
+          "id": "telescope",
+          "means": [
+            "future",
+            "looking ahead",
+            "discovery"
+          ]
+        }
+      ],
+      "avoid": [
+        {
+          "symbol": "lightbulb",
+          "for": "idea",
+          "why": "The most worn-out symbol in advertising."
+        },
+        {
+          "symbol": "rocket",
+          "for": "launch or growth",
+          "why": "Startup cliché."
+        },
+        {
+          "symbol": "handshake",
+          "for": "partnership",
+          "why": "Stock-photo cliché."
+        },
+        {
+          "symbol": "puzzle pieces",
+          "for": "solutions",
+          "why": "Says nothing specific."
+        },
+        {
+          "symbol": "gears",
+          "for": "process",
+          "why": "Cold, mechanical, overused."
+        },
+        {
+          "symbol": "target / dartboard",
+          "for": "goals",
+          "why": "Generic."
+        },
+        {
+          "symbol": "faceless flat people",
+          "for": "community",
+          "why": "Corporate Memphis (see research.md)."
+        }
+      ]
+    },
+    "metaphor": {
+      "recipe": [
+        "Write the one message in a sentence (W1).",
+        "List five plain nouns from the product's world and five from the benefit.",
+        "Pair one from each list into a single image (A + B = idea).",
+        "Test: does it read in 2 seconds without words? Would a competitor's ad use it? (W4)",
+        "Pick the pair that surprises most but still reads instantly."
+      ],
+      "examples": [
+        {
+          "a": "molecule",
+          "b": "column",
+          "idea": "science with classical roots",
+          "ref": "still-molecule-column.jpg"
+        },
+        {
+          "a": "apple",
+          "b": "book",
+          "idea": "learning",
+          "ref": "motion-apple-book.mov"
+        },
+        {
+          "a": "sound wave",
+          "b": "speech bubble",
+          "idea": "voice",
+          "ref": "still-sound-bubble.jpg"
+        },
+        {
+          "a": "eye",
+          "b": "telescope",
+          "idea": "vision, looking ahead",
+          "ref": "motion-eye-telescope.mov"
+        },
+        {
+          "a": "globe",
+          "b": "hands",
+          "idea": "the world, held with care",
+          "ref": "still-globe-hands.jpg"
+        },
+        {
+          "a": "sun",
+          "b": "rays",
+          "idea": "energy, a new morning",
+          "ref": "motion-sun-rays.mov"
+        }
+      ]
+    },
+    "checklist": [
+      "One idea, readable in 2 seconds without words.",
+      "Ink line even, round ends, small wobble; crosses a paper edge at least once.",
+      "Organic shapes with rounded corners and a clear silhouette.",
+      "Ground 60-75%, paper 15-30%, ink 5-10%, accent on one object at most.",
+      "Motif 35-60% of the short side; at least 40% empty ground."
+    ]
+  },
+  "motion": {
+    "character": "Fluid and physical: things have a little weight, move on springs, overshoot gently and settle. Nothing moves at constant speed and nothing stops dead.",
+    "springs": {
+      "gentle": {
+        "stiffness": 120,
+        "damping": 20,
+        "mass": 1,
+        "use": "Default for most movement: panels, text, image shifts."
+      },
+      "soft": {
+        "stiffness": 170,
+        "damping": 26,
+        "mass": 1,
+        "use": "UI feedback: buttons, toggles, cards. No overshoot."
+      },
+      "lively": {
+        "stiffness": 200,
+        "damping": 17,
+        "mass": 1,
+        "use": "Paper shapes appearing (pop); about 10% overshoot."
+      },
+      "float": {
+        "stiffness": 60,
+        "damping": 14,
+        "mass": 1,
+        "use": "Large, slow moves: hero illustration entering, big shapes drifting."
+      }
+    },
+    "easings": {
+      "draw": {
+        "css": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "use": "Ink lines drawing on, start to end (like a hand accelerating and slowing)."
+      },
+      "breathe": {
+        "css": "cubic-bezier(0.37, 0, 0.63, 1)",
+        "use": "Looping, sine-like movement: breathing, floating, talking."
+      },
+      "exit": {
+        "css": "cubic-bezier(0.55, 0, 1, 0.45)",
+        "use": "Things leaving: accelerate away, never spring."
+      }
+    },
+    "moves": {
+      "draw": {
+        "duration": 600,
+        "easing": "draw",
+        "use": "Ink lines drawing themselves on."
+      },
+      "pop": {
+        "spring": "lively",
+        "use": "Paper and accent shapes appearing from scale 0."
+      },
+      "rise": {
+        "spring": "gentle",
+        "distance": "0.4em",
+        "use": "Text and blocks entering after the art."
+      },
+      "morph": {
+        "duration": 3600,
+        "easing": "breathe",
+        "use": "Organic shapes slowly changing outline (2-3 shapes, looping)."
+      },
+      "breathe": {
+        "duration": 4000,
+        "easing": "breathe",
+        "scale": [
+          1,
+          1.03
+        ],
+        "use": "A resting illustration staying alive."
+      },
+      "float": {
+        "duration": 3200,
+        "easing": "breathe",
+        "distancePct": 1,
+        "use": "Gentle drift up and down by about 1% of the artboard."
+      },
+      "radiate": {
+        "duration": 1800,
+        "easing": "cubic-bezier(0.33, 0, 0.67, 1)",
+        "use": "Dots growing into rays and travelling outward (sun reference)."
+      },
+      "blink": {
+        "duration": 220,
+        "every": 2600,
+        "use": "Character beats: eyes close and open (eye reference)."
+      },
+      "talk": {
+        "duration": 900,
+        "easing": "breathe",
+        "use": "A sound wave pulsing."
+      }
+    },
+    "durations": {
+      "minMs": 200,
+      "maxMs": 900,
+      "formula": "duration = 250 ms + 0.4 ms per pixel travelled (capped at 900 ms)",
+      "byElement": {
+        "icon": 200,
+        "button": 250,
+        "card": 350,
+        "panel": 450,
+        "illustration": 600,
+        "fullScreen": 700
+      }
+    },
+    "choreography": {
+      "order": [
+        "ground",
+        "paper shapes (pop)",
+        "ink lines (draw)",
+        "accent object (pop)",
+        "headline (rise)",
+        "body and CTA (rise)"
+      ],
+      "stagger": 50,
+      "overlapPct": 30,
+      "settleBeforeText": "Text starts when the art is about 70% complete, so they overlap without competing.",
+      "maxMovingThings": 1,
+      "loop": {
+        "lengthMs": [
+          2000,
+          4000
+        ],
+        "endsOn": "A still frame that works as an image on its own."
+      },
+      "hold": 700
+    },
+    "rules": [
+      "Springs for things arriving, curves for things looping, acceleration for things leaving.",
+      "Only one thing loops at a time; everything else is still.",
+      "Lines draw on; shapes pop on; text rises. Never fade the whole artwork in.",
+      "Interrupting is allowed: a new state starts from where the motion is, never jumps.",
+      "No bounces on text, no spinning, no camera moves, no parallax beyond 1-2% of the artboard.",
+      "With reduced motion: show the final frame. Morphs, floats and loops stop."
+    ]
+  },
+  "typography": {
+    "character": "Humanist letterforms (from the broad-nib pen: open apertures, slight stroke variation, varied proportions) set with modern restraint (few sizes, sentence case, generous space). The type is calm and clear so the hand-drawn art can carry the warmth.",
+    "anatomy": {
+      "apertures": {
+        "want": "Open",
+        "why": "Open c, e, a, s stay distinct at small sizes and at a distance; a humanist trait (Frutiger was drawn for airport signage)."
+      },
+      "strokes": {
+        "want": "Even to slightly modulated",
+        "why": "Matches the even ink line; strong contrast feels formal rather than human."
+      },
+      "terminals": {
+        "want": "Soft, rounded or gently angled",
+        "why": "Echo the rounded corners and organic shapes."
+      },
+      "proportions": {
+        "want": "Varied widths (old-style proportions)",
+        "why": "Letters of different widths read as written, not engineered."
+      },
+      "xHeight": {
+        "want": "Moderate to tall",
+        "why": "Readable on phones and at poster distance."
+      },
+      "italic": {
+        "want": "A true italic, if any",
+        "why": "Italics carry the hand; use for one emphasised word."
+      },
+      "avoid": [
+        "Handwriting fonts for headlines or body (the hand lives in the art; one short note is allowed)",
+        "Geometric fonts with closed apertures at small sizes",
+        "Condensed all-caps display faces",
+        "High-contrast didones for body"
+      ]
+    },
+    "fit": {
+      "bricolage-figtree": {
+        "fit": "core",
+        "why": "Slightly irregular display forms echo the hand-drawn line; Figtree is open and calm."
+      },
+      "young-onest": {
+        "fit": "core",
+        "why": "Soft, heavy serif with rounded details; matches organic shapes and warmth."
+      },
+      "source": {
+        "fit": "core",
+        "why": "A true humanist superfamily; the most readable choice for text-heavy work."
+      },
+      "instrument": {
+        "fit": "core",
+        "why": "Editorial and calm; the condensed serif leaves room for big illustrations."
+      },
+      "nunito": {
+        "fit": "good",
+        "why": "Rounded terminals mirror rounded corners; keep headlines bold and the body plain so it stays grown-up."
+      },
+      "alegreya": {
+        "fit": "good",
+        "why": "Calligraphic and literary: the most 'hand' in the type. Use where storytelling matters."
+      },
+      "fraunces-commissioner": {
+        "fit": "good",
+        "why": "Soft serif charm; restrain to one weight to avoid novelty."
+      },
+      "schibsted": {
+        "fit": "good",
+        "why": "Very minimal; works when the illustration carries all the warmth."
+      },
+      "plex": {
+        "fit": "accent",
+        "why": "Engineered feel; for data-heavy or technical products only."
+      }
+    },
+    "handwritten": {
+      "use": "accent",
+      "fonts": [
+        "shantell-sans",
+        "patrick-hand",
+        "caveat",
+        "kalam",
+        "gaegu"
+      ],
+      "perPiece": 1,
+      "maxWords": 6,
+      "roles": [
+        "note",
+        "annotation",
+        "sign-off"
+      ],
+      "why": "The hand mainly lives in the ink line. One short note in a plain pen hand can add a person to warm pieces (Schroll et al. 2018), as long as the headline and body stay in the pairing.",
+      "never": [
+        "headline",
+        "body",
+        "call to action",
+        "prices and numbers"
+      ]
+    },
+    "typeWithArt": {
+      "weightMatch": "Headline stem thickness should be close to the ink line width (about 2.25% of the artboard's short side at headline size). Pick the headline weight that gets closest.",
+      "scaleMatch": "Headline cap height between 1/3 and 2/3 of the motif's height, so neither dominates by accident.",
+      "alignment": "Align text to one edge of the grid; let the motif be the only free-form element.",
+      "spacing": "At least one margin between text and the motif."
+    },
+    "sizes": {
+      "byFormat": {
+        "billboard": {
+          "headlinePct": [
+            10,
+            15
+          ],
+          "body": "none"
+        },
+        "poster": {
+          "headlinePct": [
+            4,
+            7
+          ],
+          "bodyMinPt": 14
+        },
+        "event-poster": {
+          "headlinePct": [
+            4,
+            7
+          ],
+          "bodyMinPt": 14
+        },
+        "flyer": {
+          "headlinePct": [
+            3,
+            5
+          ],
+          "bodyMinPt": 9
+        },
+        "print-ad": {
+          "headlinePct": [
+            2.5,
+            4
+          ],
+          "bodyMinPt": 9
+        },
+        "instagram-post": {
+          "headlinePct": [
+            5,
+            8
+          ],
+          "bodyMinPx": 32
+        },
+        "story": {
+          "headlinePct": [
+            3.5,
+            5
+          ],
+          "bodyMinPx": 36
+        },
+        "carousel-slide": {
+          "headlinePct": [
+            4,
+            6
+          ],
+          "bodyMinPx": 30
+        },
+        "thumbnail": {
+          "headlinePct": [
+            12,
+            18
+          ],
+          "body": "none"
+        },
+        "web-banner": {
+          "headlinePct": [
+            12,
+            20
+          ],
+          "bodyMinPx": 14
+        },
+        "landing-hero": {
+          "headlinePx": [
+            40,
+            88
+          ],
+          "bodyMinPx": 18
+        },
+        "email-header": {
+          "headlinePx": [
+            28,
+            40
+          ],
+          "bodyMinPx": 16
+        }
+      },
+      "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+    },
+    "setting": {
+      "measure": {
+        "chars": [
+          45,
+          75
+        ],
+        "ideal": 66,
+        "source": "Bringhurst, The Elements of Typographic Style"
+      },
+      "leading": {
+        "display": [
+          0.95,
+          1.1
+        ],
+        "subhead": [
+          1.2,
+          1.3
+        ],
+        "body": [
+          1.45,
+          1.6
+        ]
+      },
+      "tracking": {
+        "displayEm": [
+          -0.03,
+          -0.01
+        ],
+        "bodyEm": 0,
+        "smallEm": [
+          0,
+          0.01
+        ],
+        "labelCapsEm": [
+          0.08,
+          0.12
+        ]
+      },
+      "case": "Sentence case everywhere. Capitals only for labels of one to three words.",
+      "sizesPerPiece": 3,
+      "weightsPerPiece": 2,
+      "rag": "Ragged right; no justified text; avoid single words on the last line of headlines (use text-wrap: balance).",
+      "numbers": "Use the mono for dates, times, prices and codes (tabular figures)."
+    },
+    "rules": [
+      "Humanist letterforms, modern restraint.",
+      "Three sizes and two weights per piece.",
+      "Headline weight matches the ink line.",
+      "Left-aligned, sentence case, 45-75 characters per line.",
+      "At most one short handwritten note (six words or fewer) in a listed hand face; never the headline, body or call to action."
+    ]
+  },
+  "springsCss": {
+    "gentle": {
+      "easing": "linear(0, 0.014, 0.043, 0.083, 0.131, 0.184, 0.24, 0.297, 0.354, 0.41, 0.463, 0.514, 0.562, 0.607, 0.649, 0.688, 0.723, 0.755, 0.784, 0.811, 0.834, 0.855, 0.874, 0.891, 0.906, 0.919, 0.931, 0.941, 0.95, 0.957, 0.964, 0.97, 0.975, 0.979, 0.983, 0.986, 0.988, 0.991, 0.993, 0.994, 0.995, 0.997, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1, 1)",
+      "duration": 660
+    },
+    "soft": {
+      "easing": "linear(0, 0.023, 0.069, 0.13, 0.199, 0.271, 0.343, 0.412, 0.478, 0.538, 0.594, 0.644, 0.689, 0.73, 0.766, 0.797, 0.825, 0.849, 0.87, 0.888, 0.904, 0.918, 0.93, 0.94, 0.949, 0.956, 0.963, 0.968, 0.973, 0.977, 0.981, 0.984, 0.986, 0.988, 0.99, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1)",
+      "duration": 730
+    },
+    "lively": {
+      "easing": "linear(0, 0.028, 0.088, 0.171, 0.268, 0.373, 0.478, 0.581, 0.677, 0.764, 0.841, 0.906, 0.961, 1.004, 1.038, 1.062, 1.078, 1.088, 1.092, 1.091, 1.087, 1.08, 1.071, 1.062, 1.052, 1.043, 1.034, 1.025, 1.018, 1.011, 1.006, 1.001, 0.998, 0.995, 0.993, 0.992, 0.992, 0.992, 0.992, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1.001, 1)",
+      "duration": 787
+    },
+    "float": {
+      "easing": "linear(0, 0.012, 0.039, 0.077, 0.122, 0.174, 0.228, 0.283, 0.339, 0.394, 0.447, 0.498, 0.547, 0.592, 0.634, 0.673, 0.71, 0.743, 0.773, 0.8, 0.825, 0.847, 0.867, 0.884, 0.9, 0.914, 0.926, 0.937, 0.947, 0.955, 0.962, 0.968, 0.974, 0.978, 0.982, 0.985, 0.988, 0.991, 0.993, 0.994, 0.996, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1.001, 1)",
+      "duration": 882
+    }
+  },
+  "palettes": {
+    "primary": {
+      "ground": "#111314",
+      "accent": "#cab356",
+      "ink": "#111314",
+      "paper": "#ffffff"
+    }
+  }
+}

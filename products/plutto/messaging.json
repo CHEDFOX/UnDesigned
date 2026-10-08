@@ -1,0 +1,104 @@
+{
+  "$comment": "Brand message for Plutto. Every fact comes from the plutto.space site source (app/page.js, app/about/page.js, app/layout.js, README.md). Empty fields are unknown: ask the team before filling them. Never add numbers, testimonials or clients that are not on the site, and never claim that astrology predicts outcomes.",
+  "positioning": {
+    "$help": "Perennial Seller (P1, P2).",
+    "audience": "People who want more from astrology than a sun-sign horoscope: they want to talk through their own birth chart, in plain words, in the tradition they choose.",
+    "oneSentence": "Plutto is a voice-first astrology oracle: you talk to it, it talks back, and it reads your chart in Vedic, Western, Chinese, KP or numerology.",
+    "oneParagraph": "Plutto is an astrology app, but not a horoscope. It is a voice you can talk to, trained on Parashara and Ptolemy, BaZi and the Krishnamurti school, and it does not deal in twelve boxes. You enter your birth once and choose a tradition; the chart follows you, the voice changes with the lens, and your memory is kept. Charts are computed with Swiss Ephemeris and the voice runs on OpenAI Realtime, so you can interrupt it, hold it, or switch traditions mid-sentence. Built by xooteq Lab. iOS and Android, soon.",
+    "category": "Astrology app (voice-first oracle)",
+    "differentFrom": "Horoscopes that sort everyone into twelve sun-sign boxes, and astrology apps that only show charts and text: Plutto is spoken, covers five traditions, and reads your own chart."
+  },
+  "oneLiner": {
+    "$help": "StoryBrand one-liner (S9): problem -> solution -> result.",
+    "problem": "Most astrology sorts you into one of twelve boxes.",
+    "solution": "Plutto is an oracle you talk to, reading your own chart in the tradition you choose,",
+    "result": "so the pattern is named in plain words, for you."
+  },
+  "brandscript": {
+    "$help": "StoryBrand SB7 framework (S1-S7).",
+    "character": {
+      "who": "Someone who wants to understand their own birth chart, not a sun-sign horoscope",
+      "want": "To ask about their chart out loud and hear it explained in plain words, in the tradition they trust"
+    },
+    "problem": {
+      "villain": "Twelve boxes: one-size horoscopes",
+      "external": "Horoscopes speak to a sun sign, not to a person's own chart",
+      "internal": "",
+      "philosophical": ""
+    },
+    "guide": {
+      "empathy": "",
+      "authority": [
+        "Charts computed with Swiss Ephemeris",
+        "Trained on Parashara and Ptolemy, BaZi and the Krishnamurti school",
+        "5 traditions: Vedic, Western, Chinese, KP, numerology",
+        "300+ classical yogas, 19 divisional charts, 7 dasha systems",
+        "89 languages",
+        "Built by xooteq Lab"
+      ]
+    },
+    "plan": {
+      "steps": [
+        "Enter your birth once",
+        "Choose a tradition",
+        "Ask out loud, and interrupt or switch whenever you like"
+      ],
+      "promise": ""
+    },
+    "callToAction": {
+      "direct": "Visit plutto.space",
+      "transitional": ""
+    },
+    "failure": [],
+    "success": [
+      "Your own chart, explained in plain words, in the tradition you chose",
+      "A voice that remembers you and changes with the lens"
+    ],
+    "transformation": {
+      "from": "",
+      "to": ""
+    }
+  },
+  "voice": {
+    "$help": "Ogilvy O11: one consistent personality.",
+    "is": [
+      "Calm",
+      "Plain-spoken",
+      "Literary",
+      "Exact",
+      "Unhurried"
+    ],
+    "isNot": [
+      "Mystical hype",
+      "Fortune-telling",
+      "Cute",
+      "Techy"
+    ],
+    "avoidWords": [
+      "predict",
+      "prediction",
+      "destiny",
+      "fortune",
+      "guaranteed",
+      "magic",
+      "manifest"
+    ]
+  },
+  "proof": {
+    "$help": "Ogilvy O5 and StoryBrand S4.",
+    "facts": [
+      "5 traditions: Vedic, Western, Chinese, KP, numerology",
+      "89 languages",
+      "19 divisional charts",
+      "300+ classical yogas",
+      "7 dasha systems",
+      "Charts computed with Swiss Ephemeris",
+      "Voice runs on OpenAI Realtime: interrupt it, hold it, switch traditions mid-sentence",
+      "Enter your birth once; your memory is kept",
+      "Built by xooteq Lab",
+      "iOS and Android: coming soon"
+    ],
+    "testimonials": [],
+    "clients": []
+  }
+}

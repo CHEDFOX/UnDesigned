@@ -1,0 +1,10 @@
+Paste these hex codes into Canva > Brand Kit > Colours.
+
+primary (combination 255, dark)
+  bg         #111314  Black
+  ink        #ffffff  White
+  accent     #cab356  Pyrite Yellow
+  text       #ffffff  White
+  support-1  #78cdd0  Calamine BLue
+  support-2  #bb7125  Raw Sienna
+

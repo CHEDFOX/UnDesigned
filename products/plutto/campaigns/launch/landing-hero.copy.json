@@ -1,0 +1,9 @@
+{
+  "$comment": "Website hero 16:9 (1440x810). Object far right, facing the words.",
+  "format": "landing-hero",
+  "headline": "An astrology oracle you can talk to.",
+  "subhead": "Vedic, Western, Chinese, KP and numerology in one voice. Enter your birth once, then ask out loud in any of 89 languages.",
+  "cta": "See how it works",
+  "logo": true,
+  "palette": "primary"
+}

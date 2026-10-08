@@ -1,0 +1,86 @@
+{
+  "pairing": {
+    "id": "instrument",
+    "name": "Modern Editorial",
+    "mood": "Quiet and elegant. A condensed, high-contrast serif for big headlines over a crisp, neutral sans.",
+    "bestFor": "Culture, design, publishing, premium services. Big poster headlines.",
+    "display": {
+      "family": "Instrument Serif",
+      "weights": [
+        400
+      ],
+      "italic": true,
+      "style": "Condensed display serif",
+      "case": "Sentence case; italic for one emphasised word",
+      "tracking": -0.01,
+      "leading": 0.98,
+      "designer": "Instrument (studio)",
+      "classification": "Condensed display serif",
+      "axes": [],
+      "notes": "Regular and italic only."
+    },
+    "body": {
+      "family": "Instrument Sans",
+      "weights": [
+        400,
+        500,
+        600
+      ],
+      "style": "Clean grotesque with humanist details",
+      "tracking": 0,
+      "leading": 1.5,
+      "designer": "Instrument (studio)",
+      "classification": "Grotesque with humanist details",
+      "axes": [
+        "wght",
+        "wdth"
+      ]
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "weights": [
+        400,
+        500
+      ]
+    },
+    "proposedBy": [
+      "humanist-minimal"
+    ]
+  },
+  "hand": null,
+  "ratio": 1.25,
+  "sizes": {
+    "web": {
+      "caption": 10.2,
+      "small": 12.8,
+      "body": 16,
+      "lead": 20,
+      "h3": 25,
+      "h2": 31.3,
+      "h1": 39.1,
+      "display": 61,
+      "hero": 95.4
+    },
+    "poster": {
+      "caption": 15.4,
+      "small": 19.2,
+      "body": 24,
+      "lead": 30,
+      "h3": 37.5,
+      "h2": 46.9,
+      "h1": 58.6,
+      "display": 91.6,
+      "hero": 143.1
+    }
+  },
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap",
+  "rules": [
+    "Two families at most (display + body), plus a mono for small data such as dates, prices and codes.",
+    "Sentence case everywhere. All capitals only for short labels of one to three words, with letter-spacing.",
+    "Three sizes per piece is usually enough: headline, body, small.",
+    "Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.",
+    "Left-align text. Centre only one or two short lines on a centred poster.",
+    "Handwriting fonts only as one short accent, from source/handwritten.json, where the style allows it (approaches/<id>/typography.json -> handwritten). Never for body, prices, data, steps or buttons.",
+    "Match headline weight to the illustration: the stems of headline letters should be about as thick as the ink line."
+  ]
+}

@@ -144,7 +144,12 @@ export function buildHub({ root, brands }) {
     'const Overlay = (() => {\n' + readFileSync(join(root, 'templates/layouts/overlay.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn { analyseRegion, recommendTreatment, findCalmRegion, gridCandidates, contrastRatio };\n})();\n' +
     'const TitleCard = (() => {\n' + readFileSync(join(root, 'templates/video/title-card.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn { titleCard, timeline };\n})();\n';
   const libs = Object.keys(approaches)
-    .map((id) => `${JSON.stringify(id)}: (() => {\n${readFileSync(join(root, 'approaches', id, 'illustration.mjs'), 'utf8').replace(/^export /gm, '')}\nreturn createIllustrator;\n})()`)
+    // Profile styles have no drawing engine yet; the hub's demos then use Humanist Minimal's primitives.
+    .map((id) => {
+      const own = join(root, 'approaches', id, 'illustration.mjs');
+      const src = existsSync(own) ? own : join(root, 'approaches', 'humanist-minimal', 'illustration.mjs');
+      return `${JSON.stringify(id)}: (() => {\n${readFileSync(src, 'utf8').replace(/^export /gm, '')}\nreturn createIllustrator;\n})()`;
+    })
     .join(',\n');
   const fonts = googleFontsUrl([...pairings.pairings.flatMap((p) => [p.display, p.body, p.mono]), ...handwritten.fonts]);
   const tpl = readFileSync(join(HERE, 'template.html'), 'utf8');

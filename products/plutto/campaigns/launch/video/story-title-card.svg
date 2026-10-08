@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920" role="img" aria-labelledby="pl-tcs-title" data-timeline='{&quot;aspect&quot;:&quot;9:16&quot;,&quot;duration&quot;:10000,&quot;beats&quot;:[{&quot;id&quot;:&quot;ground&quot;,&quot;start&quot;:0,&quot;end&quot;:1800},{&quot;id&quot;:&quot;headline&quot;,&quot;start&quot;:1800,&quot;end&quot;:2970},{&quot;id&quot;:&quot;brand&quot;,&quot;start&quot;:4925,&quot;end&quot;:6095},{&quot;id&quot;:&quot;cta&quot;,&quot;start&quot;:6095,&quot;end&quot;:7265},{&quot;id&quot;:&quot;still&quot;,&quot;start&quot;:7265,&quot;end&quot;:10000}]}'>
+<title id="pl-tcs-title">Talk to your chart. It talks back. Plutto. Visit plutto.space</title>
+<style>@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:wght@400;600&amp;display=swap");
+#pl-tcs-orb{animation:pl-tcs-fade 1100ms cubic-bezier(0.33,0,0.2,1) 300ms both;}
+.pl-tcs-el{transform-box:view-box;}
+#pl-tcs-headline{--rise:45.5px;animation:pl-tcs-fade 527ms cubic-bezier(0.33,0,0.2,1) 1800ms both,pl-tcs-rise 1170ms linear(0, 0.02, 0.065, 0.125, 0.192, 0.263, 0.334, 0.402, 0.467, 0.527, 0.582, 0.633, 0.678, 0.718, 0.754, 0.786, 0.814, 0.839, 0.861, 0.879, 0.896, 0.91, 0.923, 0.933, 0.943, 0.951, 0.958, 0.964, 0.969, 0.973, 0.977, 0.98, 0.983, 0.986, 0.988, 0.989, 0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1) 1800ms both;}
+#pl-tcs-brand{--rise:15.0px;animation:pl-tcs-fade 527ms cubic-bezier(0.33,0,0.2,1) 4925ms both,pl-tcs-rise 1170ms linear(0, 0.02, 0.065, 0.125, 0.192, 0.263, 0.334, 0.402, 0.467, 0.527, 0.582, 0.633, 0.678, 0.718, 0.754, 0.786, 0.814, 0.839, 0.861, 0.879, 0.896, 0.91, 0.923, 0.933, 0.943, 0.951, 0.958, 0.964, 0.969, 0.973, 0.977, 0.98, 0.983, 0.986, 0.988, 0.989, 0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1) 4925ms both;}
+#pl-tcs-cta{--rise:18.9px;animation:pl-tcs-fade 527ms cubic-bezier(0.33,0,0.2,1) 6095ms both,pl-tcs-rise 1170ms linear(0, 0.02, 0.065, 0.125, 0.192, 0.263, 0.334, 0.402, 0.467, 0.527, 0.582, 0.633, 0.678, 0.718, 0.754, 0.786, 0.814, 0.839, 0.861, 0.879, 0.896, 0.91, 0.923, 0.933, 0.943, 0.951, 0.958, 0.964, 0.969, 0.973, 0.977, 0.98, 0.983, 0.986, 0.988, 0.989, 0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1) 6095ms both;}
+@keyframes pl-tcs-fade{from{opacity:0}to{opacity:1}}
+@keyframes pl-tcs-rise{from{transform:translateY(var(--rise))}to{transform:none}}
+@media (prefers-reduced-motion: reduce){.pl-tcs-el{animation:none !important;opacity:1 !important;transform:none !important;}}
+</style>
+<rect id="pl-tcs-ground" width="1080" height="1920" fill="#111314"/>
+<g id="pl-tcs-orb" class="pl-tcs-el"><circle cx="870" cy="340" r="66" fill="#cab356"/></g>
+<g id="pl-tcs-headline" class="pl-tcs-el"><text font-family="'Instrument Serif', sans-serif" font-size="130" font-weight="400" fill="#ffffff" letter-spacing="-0.01em"><tspan x="64.8" y="544.4">Talk to your</tspan><tspan x="64.8" y="684.8">chart. It</tspan><tspan x="64.8" y="825.2">talks back.</tspan></text></g>
+<g id="pl-tcs-brand" class="pl-tcs-el"><text x="64.8" y="918.9" font-family="'Instrument Sans', sans-serif" font-size="43" font-weight="700" fill="#ffffff">Plutto</text></g>
+<g id="pl-tcs-cta" class="pl-tcs-el"><text font-family="'Instrument Sans', sans-serif" font-size="54" font-weight="600" fill="#ffffff"><tspan x="64.8" y="1056.9">Visit plutto.space</tspan></text><rect x="64.8" y="1072.0" width="544.3" height="8" rx="4" fill="#ffffff"/></g>
+</svg>

@@ -1,0 +1,10 @@
+{
+  "$comment": "LinkedIn square post 1:1 (closest format: instagram-post, which formats.json names Instagram / LinkedIn post). Object: the gold orb inside one tilted hairline orbit.",
+  "format": "instagram-post",
+  "headline": "Every reading. Every system. One voice.",
+  "subhead": "Charts computed with Swiss Ephemeris: 300+ classical yogas, 19 divisional charts.",
+  "body": "Built by xooteq Lab. Coming soon to iOS and Android.",
+  "cta": "Visit plutto.space",
+  "logo": true,
+  "palette": "primary"
+}
