@@ -1,5 +1,7 @@
 # Design approach: Humanist Minimal
 
+> Full data lives beside this file: [research.md](research.md) (the dossier and sources), [art.json](art.json) (line, organic shapes, corners, composition, palette ratios, symbol vocabulary, metaphor recipe), [motion.json](motion.json) (springs, timings, choreography) and [typography.json](typography.json) (type direction, fit for each pairing, sizes per format). The structure every approach follows is in [../README.md](../README.md).
+
 **Very few marks, each one made by a human hand.** Warm, plain and calm: one idea, lots of space, imperfect lines on flat paper.
 
 This is the design approach a product chooses in `products/<product>/brand.json` (`"approach": "humanist-minimal"`). The other foundations supply the materials: colour comes from the colour system, words from the messaging playbook, and type and layout will follow this approach once they're built. The look comes from the references in `approaches/humanist-minimal/references/`.

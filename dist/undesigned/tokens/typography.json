@@ -2,7 +2,6 @@
   "pairing": {
     "id": "bricolage-figtree",
     "name": "Warm Modern",
-    "fit": "core",
     "mood": "Friendly and current. The headline face has slightly irregular, ink-trap details that echo hand-drawn line; the body face is open and calm.",
     "bestFor": "Most brands. Posters, social, websites.",
     "display": {
@@ -15,7 +14,15 @@
       "style": "Expressive grotesque with optical sizes",
       "case": "Sentence case",
       "tracking": -0.02,
-      "leading": 1
+      "leading": 1,
+      "designer": "Mathieu Triay",
+      "classification": "Display grotesque",
+      "axes": [
+        "wght 200-800",
+        "wdth",
+        "opsz"
+      ],
+      "notes": "Started as a fork of Mayenne Sans (Jérémy Landes); influenced by Antique Olive and Grotesque Nº9."
     },
     "body": {
       "family": "Figtree",
@@ -26,7 +33,12 @@
       ],
       "style": "Geometric-humanist sans, open apertures",
       "tracking": 0,
-      "leading": 1.5
+      "leading": 1.5,
+      "designer": "Erik Kennedy",
+      "classification": "Geometric-humanist sans",
+      "axes": [
+        "wght 300-900"
+      ]
     },
     "mono": {
       "family": "IBM Plex Mono",
@@ -68,6 +80,7 @@
     "Three sizes per piece is usually enough: headline, body, small.",
     "Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.",
     "Left-align text. Centre only one or two short lines on a centred poster.",
-    "No handwriting or marker fonts: the human hand lives in the illustration, not the type."
+    "No handwriting or marker fonts: the human hand lives in the illustration, not the type.",
+    "Match headline weight to the illustration: the stems of headline letters should be about as thick as the ink line."
   ]
 }

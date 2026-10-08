@@ -1,0 +1,58 @@
+{
+  "$comment": "Humanist Minimal motion data: fluid, physical, calm. Springs are simulated by the build into CSS linear() easings (supported in current Chrome, Edge, Firefox and Safari) with a cubic-bezier fallback. Timings for draw, radiate and blink were read from the reference recordings (60 fps).",
+
+  "character": "Fluid and physical: things have a little weight, move on springs, overshoot gently and settle. Nothing moves at constant speed and nothing stops dead.",
+
+  "springs": {
+    "$comment": "Damped spring presets. stiffness k, damping c, mass m. Damping ratio = c / (2 * sqrt(k * m)): below 1 overshoots, 1 settles without overshoot.",
+    "gentle": { "stiffness": 120, "damping": 20, "mass": 1, "use": "Default for most movement: panels, text, image shifts." },
+    "soft": { "stiffness": 170, "damping": 26, "mass": 1, "use": "UI feedback: buttons, toggles, cards. No overshoot." },
+    "lively": { "stiffness": 200, "damping": 17, "mass": 1, "use": "Paper shapes appearing (pop); about 10% overshoot." },
+    "float": { "stiffness": 60, "damping": 14, "mass": 1, "use": "Large, slow moves: hero illustration entering, big shapes drifting." }
+  },
+
+  "easings": {
+    "draw": { "css": "cubic-bezier(0.65, 0, 0.35, 1)", "use": "Ink lines drawing on, start to end (like a hand accelerating and slowing)." },
+    "breathe": { "css": "cubic-bezier(0.37, 0, 0.63, 1)", "use": "Looping, sine-like movement: breathing, floating, talking." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Things leaving: accelerate away, never spring." }
+  },
+
+  "moves": {
+    "draw": { "duration": 600, "easing": "draw", "use": "Ink lines drawing themselves on." },
+    "pop": { "spring": "lively", "use": "Paper and accent shapes appearing from scale 0." },
+    "rise": { "spring": "gentle", "distance": "0.4em", "use": "Text and blocks entering after the art." },
+    "morph": { "duration": 3600, "easing": "breathe", "use": "Organic shapes slowly changing outline (2-3 shapes, looping)." },
+    "breathe": { "duration": 4000, "easing": "breathe", "scale": [1, 1.03], "use": "A resting illustration staying alive." },
+    "float": { "duration": 3200, "easing": "breathe", "distancePct": 1, "use": "Gentle drift up and down by about 1% of the artboard." },
+    "radiate": { "duration": 1800, "easing": "cubic-bezier(0.33, 0, 0.67, 1)", "use": "Dots growing into rays and travelling outward (sun reference)." },
+    "blink": { "duration": 220, "every": 2600, "use": "Character beats: eyes close and open (eye reference)." },
+    "talk": { "duration": 900, "easing": "breathe", "use": "A sound wave pulsing." }
+  },
+
+  "durations": {
+    "$comment": "Larger and farther moves take longer. Rule of thumb for transforms that are not springs.",
+    "minMs": 200,
+    "maxMs": 900,
+    "formula": "duration = 250 ms + 0.4 ms per pixel travelled (capped at 900 ms)",
+    "byElement": { "icon": 200, "button": 250, "card": 350, "panel": 450, "illustration": 600, "fullScreen": 700 }
+  },
+
+  "choreography": {
+    "order": ["ground", "paper shapes (pop)", "ink lines (draw)", "accent object (pop)", "headline (rise)", "body and CTA (rise)"],
+    "stagger": 50,
+    "overlapPct": 30,
+    "settleBeforeText": "Text starts when the art is about 70% complete, so they overlap without competing.",
+    "maxMovingThings": 1,
+    "loop": { "lengthMs": [2000, 4000], "endsOn": "A still frame that works as an image on its own." },
+    "hold": 700
+  },
+
+  "rules": [
+    "Springs for things arriving, curves for things looping, acceleration for things leaving.",
+    "Only one thing loops at a time; everything else is still.",
+    "Lines draw on; shapes pop on; text rises. Never fade the whole artwork in.",
+    "Interrupting is allowed: a new state starts from where the motion is, never jumps.",
+    "No bounces on text, no spinning, no camera moves, no parallax beyond 1-2% of the artboard.",
+    "With reduced motion: show the final frame. Morphs, floats and loops stop."
+  ]
+}

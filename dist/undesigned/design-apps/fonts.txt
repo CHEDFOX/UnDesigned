@@ -29,3 +29,4 @@ Rules:
   - Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.
   - Left-align text. Centre only one or two short lines on a centred poster.
   - No handwriting or marker fonts: the human hand lives in the illustration, not the type.
+  - Match headline weight to the illustration: the stems of headline letters should be about as thick as the ink line.

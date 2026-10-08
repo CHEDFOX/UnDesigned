@@ -2,7 +2,6 @@
   "pairing": {
     "id": "young-onest",
     "name": "Friendly",
-    "fit": "core",
     "mood": "Soft and approachable without being childish. A warm, chunky serif headline with a round, modern sans.",
     "bestFor": "Food, hospitality, family, local businesses.",
     "display": {
@@ -13,7 +12,11 @@
       "style": "Heavy, soft old-style serif",
       "case": "Sentence case",
       "tracking": -0.01,
-      "leading": 1.05
+      "leading": 1.05,
+      "designer": "Bastien Sozeau (NoirBlancRouge)",
+      "classification": "Heavy old-style serif",
+      "axes": [],
+      "notes": "Single weight; inspired by Plantin Infant and ITC Italian Old Style."
     },
     "body": {
       "family": "Onest",
@@ -24,7 +27,13 @@
       ],
       "style": "Rounded-modern grotesque, open forms",
       "tracking": 0,
-      "leading": 1.5
+      "leading": 1.5,
+      "designer": "Dmitri Voloshin and Andrey Kudryavtsev",
+      "classification": "Rounded-modern grotesque",
+      "axes": [
+        "wght 100-900"
+      ],
+      "notes": "Made for Moldova; on Google Fonts since 2023."
     },
     "mono": {
       "family": "JetBrains Mono",
@@ -66,6 +75,7 @@
     "Three sizes per piece is usually enough: headline, body, small.",
     "Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.",
     "Left-align text. Centre only one or two short lines on a centred poster.",
-    "No handwriting or marker fonts: the human hand lives in the illustration, not the type."
+    "No handwriting or marker fonts: the human hand lives in the illustration, not the type.",
+    "Match headline weight to the illustration: the stems of headline letters should be about as thick as the ink line."
   ]
 }

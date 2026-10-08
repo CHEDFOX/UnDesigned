@@ -1,0 +1,171 @@
+{
+  "$comment": "Humanist Minimal art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages. Colours are roles only; hex values always come from the product's Wada combination.",
+
+  "line": {
+    "$comment": "The ink line: marker or brush pen, even weight, round ends, a small steady wobble.",
+    "width": 9,
+    "widthSmall": 6,
+    "widthPct": 2.25,
+    "cap": "round",
+    "join": "round",
+    "wobble": 1.4,
+    "wobbleRange": [0.8, 1.8],
+    "segment": 14,
+    "continuity": "One continuous stroke per object where possible; at most three strokes per object.",
+    "terminals": "Round ends. Optional ink dots (1.0-1.2 x line width) mark joints and ends, as in the globe reference.",
+    "crossing": "Ink should cross a paper edge at least once per piece (a line running past its shape). It breaks the silhouette and shows the hand.",
+    "rules": [
+      "Never vary the weight within one line (no calligraphic swell): the hand shows in the path, not the pressure.",
+      "Never use grey, coloured or dashed ink.",
+      "Line weight is fixed per artboard: do not scale strokes with the objects."
+    ]
+  },
+
+  "shape": {
+    "$comment": "Paper shapes: organic, cut, rounded. A clear silhouette, never a shapeless blob.",
+    "mode": "organic",
+    "blob": {
+      "points": [6, 9],
+      "irregularity": { "paperDisc": [0.06, 0.12], "freeShape": [0.15, 0.22] },
+      "smoothing": "Closed Catmull-Rom curve through the points (tension 0.5)."
+    },
+    "cornerRadius": { "pct": [6, 12], "minUnits": 4 },
+    "points": "Only natural points stay pointed (a leaf tip, a bubble tail, a beam), and even they end in a radius of at least 2 units.",
+    "misregistration": {
+      "$comment": "Paper sits slightly off the ink line, as if printed in two passes.",
+      "offsetPct": [0.5, 2],
+      "direction": "Same direction for every object in one piece."
+    },
+    "rules": [
+      "No perfect circles, squares or straight-edged polygons in artwork.",
+      "Fill shapes are never traced exactly inside the ink line.",
+      "One accent-coloured shape per piece at most; all other shapes are paper."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Rounded corners for layout and UI around the art (buttons, cards, image masks). Pixels at 1x for screens.",
+    "scale": { "xs": 4, "sm": 8, "md": 16, "lg": 24, "xl": 40, "pill": 999 },
+    "use": {
+      "button": "pill",
+      "chip": "pill",
+      "input": "sm",
+      "card": "lg",
+      "image": "lg, or an organic blob mask for hero images",
+      "sheet / modal": "xl on the top corners"
+    },
+    "nested": "An inner radius is the outer radius minus the padding between them, so curves stay parallel.",
+    "print": "On posters and print, corners of image boxes are 2-4% of the box's short side."
+  },
+
+  "composition": {
+    "marginPct": 8,
+    "grid": "12 columns on screen, 6 on posters; motif and text each take whole columns.",
+    "motifSizePct": [35, 60],
+    "emptyGroundMinPct": 40,
+    "maxObjects": 3,
+    "placements": [
+      { "id": "centre", "use": "Pure image pieces, square social posts. Text below or none." },
+      { "id": "third", "use": "Motif on the left or right third; headline in the other two-thirds, aligned to one edge (globe reference)." },
+      { "id": "anchored", "use": "Motif sits on the bottom edge, as if on a table; headline above. Good for posters and stories." },
+      { "id": "crop", "use": "Motif runs off one edge, for a larger, closer feel. At most one edge." }
+    ],
+    "pairing": "Image and headline are a pair: the headline must not describe what the image shows (W5); together they say more than either alone.",
+    "rules": [
+      "One focal point per piece.",
+      "Never centre a paragraph; centre at most one or two short lines on a centred poster.",
+      "Keep text at least one margin away from the motif."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada combination.",
+    "roles": {
+      "ground": { "from": "combination bg", "areaPct": [60, 75] },
+      "paper": { "from": "Wada White", "areaPct": [15, 30] },
+      "ink": { "from": "Wada Black", "areaPct": [5, 10] },
+      "accent": { "from": "combination accent", "areaPct": [0, 5], "limit": "One object." }
+    },
+    "rules": [
+      "One combination per piece.",
+      "No gradients, shadows, glows or transparency effects.",
+      "Text colour on the ground uses the combination's text role (AA contrast)."
+    ]
+  },
+
+  "texture": {
+    "halftone": {
+      "cell": 5,
+      "dot": 1.25,
+      "use": "The only shading: beams, shadows, fades. Ink dots on paper or ground, fading out.",
+      "maxAreaPct": 15
+    },
+    "grain": "Optional and subtle paper grain on print; never on screen UI."
+  },
+
+  "vocabulary": {
+    "$comment": "Plain symbols and what they usually say. Combine one from the product's world with one from the benefit.",
+    "symbols": [
+      { "id": "hand", "means": ["care", "making", "help", "offer"] },
+      { "id": "eye", "means": ["attention", "insight", "vision", "noticing"] },
+      { "id": "sun", "means": ["morning", "energy", "optimism", "warmth"] },
+      { "id": "speech-bubble", "means": ["voice", "conversation", "support"] },
+      { "id": "sound-wave", "means": ["voice", "music", "listening"] },
+      { "id": "book", "means": ["learning", "knowledge", "stories"] },
+      { "id": "apple", "means": ["learning", "health", "freshness"] },
+      { "id": "globe", "means": ["world", "connection", "reach"] },
+      { "id": "column", "means": ["heritage", "trust", "institutions", "foundations"] },
+      { "id": "molecule", "means": ["science", "connection", "structure"] },
+      { "id": "sprout", "means": ["growth", "beginnings", "nature"] },
+      { "id": "key", "means": ["access", "solution", "home"] },
+      { "id": "house", "means": ["home", "belonging", "security"] },
+      { "id": "cup", "means": ["pause", "comfort", "morning"] },
+      { "id": "path", "means": ["journey", "progress", "direction"] },
+      { "id": "ladder", "means": ["progress", "steps", "ambition"] },
+      { "id": "envelope", "means": ["message", "invitation", "news"] },
+      { "id": "clock", "means": ["time", "routine", "punctuality"] },
+      { "id": "moon", "means": ["night", "rest", "calm"] },
+      { "id": "wave", "means": ["flow", "calm", "the sea"] },
+      { "id": "bird", "means": ["freedom", "news", "lightness"] },
+      { "id": "bread", "means": ["nourishment", "everyday", "craft"] },
+      { "id": "thread", "means": ["connection", "craft", "continuity"] },
+      { "id": "telescope", "means": ["future", "looking ahead", "discovery"] }
+    ],
+    "avoid": [
+      { "symbol": "lightbulb", "for": "idea", "why": "The most worn-out symbol in advertising." },
+      { "symbol": "rocket", "for": "launch or growth", "why": "Startup cliché." },
+      { "symbol": "handshake", "for": "partnership", "why": "Stock-photo cliché." },
+      { "symbol": "puzzle pieces", "for": "solutions", "why": "Says nothing specific." },
+      { "symbol": "gears", "for": "process", "why": "Cold, mechanical, overused." },
+      { "symbol": "target / dartboard", "for": "goals", "why": "Generic." },
+      { "symbol": "faceless flat people", "for": "community", "why": "Corporate Memphis (see research.md)." }
+    ]
+  },
+
+  "metaphor": {
+    "$comment": "How to find the one image. Taken from the references and from Paul Rand's rebus method.",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "List five plain nouns from the product's world and five from the benefit.",
+      "Pair one from each list into a single image (A + B = idea).",
+      "Test: does it read in 2 seconds without words? Would a competitor's ad use it? (W4)",
+      "Pick the pair that surprises most but still reads instantly."
+    ],
+    "examples": [
+      { "a": "molecule", "b": "column", "idea": "science with classical roots", "ref": "still-molecule-column.jpg" },
+      { "a": "apple", "b": "book", "idea": "learning", "ref": "motion-apple-book.mov" },
+      { "a": "sound wave", "b": "speech bubble", "idea": "voice", "ref": "still-sound-bubble.jpg" },
+      { "a": "eye", "b": "telescope", "idea": "vision, looking ahead", "ref": "motion-eye-telescope.mov" },
+      { "a": "globe", "b": "hands", "idea": "the world, held with care", "ref": "still-globe-hands.jpg" },
+      { "a": "sun", "b": "rays", "idea": "energy, a new morning", "ref": "motion-sun-rays.mov" }
+    ]
+  },
+
+  "checklist": [
+    "One idea, readable in 2 seconds without words.",
+    "Ink line even, round ends, small wobble; crosses a paper edge at least once.",
+    "Organic shapes with rounded corners and a clear silhouette.",
+    "Ground 60-75%, paper 15-30%, ink 5-10%, accent on one object at most.",
+    "Motif 35-60% of the short side; at least 40% empty ground."
+  ]
+}

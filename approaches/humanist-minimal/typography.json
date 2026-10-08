@@ -1,0 +1,74 @@
+{
+  "$comment": "Humanist Minimal type direction. Fonts come from foundations/typography/source/pairings.json; this file says which suit this approach and how to set them. Sizes are rules of thumb unless a source is given.",
+
+  "character": "Humanist letterforms (from the broad-nib pen: open apertures, slight stroke variation, varied proportions) set with modern restraint (few sizes, sentence case, generous space). The type is calm and clear so the hand-drawn art can carry the warmth.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "apertures": { "want": "Open", "why": "Open c, e, a, s stay distinct at small sizes and at a distance; a humanist trait (Frutiger was drawn for airport signage)." },
+    "strokes": { "want": "Even to slightly modulated", "why": "Matches the even ink line; strong contrast feels formal rather than human." },
+    "terminals": { "want": "Soft, rounded or gently angled", "why": "Echo the rounded corners and organic shapes." },
+    "proportions": { "want": "Varied widths (old-style proportions)", "why": "Letters of different widths read as written, not engineered." },
+    "xHeight": { "want": "Moderate to tall", "why": "Readable on phones and at poster distance." },
+    "italic": { "want": "A true italic, if any", "why": "Italics carry the hand; use for one emphasised word." },
+    "avoid": ["Handwriting and marker fonts (the hand lives in the art)", "Geometric fonts with closed apertures at small sizes", "Condensed all-caps display faces", "High-contrast didones for body"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach.",
+    "bricolage-figtree": { "fit": "core", "why": "Slightly irregular display forms echo the hand-drawn line; Figtree is open and calm." },
+    "young-onest": { "fit": "core", "why": "Soft, heavy serif with rounded details; matches organic shapes and warmth." },
+    "source": { "fit": "core", "why": "A true humanist superfamily; the most readable choice for text-heavy work." },
+    "instrument": { "fit": "core", "why": "Editorial and calm; the condensed serif leaves room for big illustrations." },
+    "nunito": { "fit": "good", "why": "Rounded terminals mirror rounded corners; keep headlines bold and the body plain so it stays grown-up." },
+    "alegreya": { "fit": "good", "why": "Calligraphic and literary: the most 'hand' in the type. Use where storytelling matters." },
+    "fraunces-commissioner": { "fit": "good", "why": "Soft serif charm; restrain to one weight to avoid novelty." },
+    "schibsted": { "fit": "good", "why": "Very minimal; works when the illustration carries all the warmth." },
+    "plex": { "fit": "accent", "why": "Engineered feel; for data-heavy or technical products only." }
+  },
+
+  "typeWithArt": {
+    "weightMatch": "Headline stem thickness should be close to the ink line width (about 2.25% of the artboard's short side at headline size). Pick the headline weight that gets closest.",
+    "scaleMatch": "Headline cap height between 1/3 and 2/3 of the motif's height, so neither dominates by accident.",
+    "alignment": "Align text to one edge of the grid; let the motif be the only free-form element.",
+    "spacing": "At least one margin between text and the motif."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb.",
+    "byFormat": {
+      "billboard": { "headlinePct": [10, 15], "body": "none" },
+      "poster": { "headlinePct": [4, 7], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [4, 7], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [3, 5], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [2.5, 4], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [5, 8], "bodyMinPx": 32 },
+      "story": { "headlinePct": [3.5, 5], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [4, 6], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [12, 18], "body": "none" },
+      "web-banner": { "headlinePct": [12, 20], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [40, 88], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [28, 40], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+  },
+
+  "setting": {
+    "measure": { "chars": [45, 75], "ideal": 66, "source": "Bringhurst, The Elements of Typographic Style" },
+    "leading": { "display": [0.95, 1.1], "subhead": [1.2, 1.3], "body": [1.45, 1.6] },
+    "tracking": { "displayEm": [-0.03, -0.01], "bodyEm": 0, "smallEm": [0, 0.01], "labelCapsEm": [0.08, 0.12] },
+    "case": "Sentence case everywhere. Capitals only for labels of one to three words.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rag": "Ragged right; no justified text; avoid single words on the last line of headlines (use text-wrap: balance).",
+    "numbers": "Use the mono for dates, times, prices and codes (tabular figures)."
+  },
+
+  "rules": [
+    "Humanist letterforms, modern restraint.",
+    "Three sizes and two weights per piece.",
+    "Headline weight matches the ink line.",
+    "Left-aligned, sentence case, 45-75 characters per line.",
+    "No handwriting fonts."
+  ]
+}

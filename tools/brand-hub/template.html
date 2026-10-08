@@ -133,6 +133,7 @@ button.poster:hover { transform: translateY(-3px); }
 .badge.warn { border-color: var(--star); color: var(--star); }
 .empty { padding: 60px 0; color: var(--muted); grid-column: 1 / -1; }
 .chapters { display: grid; gap: 36px; padding-block: 18px; }
+.panel h3[id] { scroll-margin-top: 70px; }
 .chapter h3 { display: flex; gap: 12px; align-items: baseline; }
 .chapter h3 span { font: 12px var(--mono); color: var(--muted); }
 .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 12px; }
@@ -268,6 +269,40 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .fit.inuse { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
 /* ---------- approach ---------- */
+.ap-nav { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13.5px; }
+.ap-nav a { color: var(--ink); text-underline-offset: 3px; }
+.ap-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+@media (max-width: 860px) { .ap-two { grid-template-columns: minmax(0, 1fr); } }
+ul.tight, ol.tight { margin: 8px 0 0; padding-left: 20px; font-size: 14px; display: grid; gap: 4px; }
+.ratio { display: flex; height: 54px; margin-top: 8px; border-radius: 14px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.ratio div { display: flex; align-items: flex-end; padding: 6px 8px; font: 500 10.5px var(--mono); min-width: 0; overflow: hidden; white-space: nowrap; }
+.placements { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 8px; }
+.placements figure { margin: 0; display: grid; gap: 4px; font-size: 12px; color: var(--muted); }
+.placements svg { width: 100%; height: auto; display: block; border-radius: 10px; }
+.shape-stage { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.shape-stage svg { width: 100%; height: auto; display: block; border-radius: 16px; }
+.radii { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; align-items: flex-end; }
+.radii figure { margin: 0; display: grid; gap: 4px; justify-items: center; font: 11px var(--mono); color: var(--muted); }
+.radii i { display: block; width: 64px; height: 48px; background: var(--sheet); border: 2px solid var(--ink); }
+.springs { display: grid; gap: 10px; }
+.spring-row { display: grid; grid-template-columns: 90px minmax(0, 1fr) 150px; gap: 12px; align-items: center; font-size: 13px; }
+.spring-row .track { position: relative; height: 34px; border-radius: 999px; background: var(--sheet); overflow: hidden; }
+.spring-row .dot { position: absolute; left: 6px; top: 5px; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); transform: translateX(0); }
+.spring-row .meta2 { font: 11.5px var(--mono); color: var(--muted); }
+@media (max-width: 600px) { .spring-row { grid-template-columns: 70px minmax(0, 1fr); } .spring-row .meta2 { grid-column: 2; } }
+.research { max-width: 860px; font-size: 14.5px; }
+.research h2 { font: 700 21px var(--display); margin: 26px 0 8px; }
+.research h3 { font: 700 17px var(--display); margin: 18px 0 6px; }
+.research p, .research li { line-height: 1.6; }
+.research table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 8px 0 14px; }
+.research th, .research td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.research th { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.research .rwrap { overflow-x: auto; }
+.research a { color: var(--ink); overflow-wrap: anywhere; }
+.research code { font-family: var(--mono); font-size: 0.86em; }
+.principle .src { font: 11px var(--mono); color: var(--muted); }
+.ty-facts { font: 11.5px var(--mono); color: var(--muted); }
+
 .approach-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 36px; }
 @media (max-width: 800px) { .approach-hero { grid-template-columns: minmax(0, 1fr); } }
 .approach-hero .ill-main { justify-self: end; width: min(100%, 420px); }
@@ -282,7 +317,9 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .ill-controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 14px; }
 .ill-controls select, .ill-controls input { border: 1px solid var(--line); background: var(--sheet); padding: 6px 10px; border-radius: 4px; font-size: 14px; }
 .ill-controls input { width: 6.5em; }
-.ill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.ill-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 40px; }
+@media (max-width: 600px) { .ill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+input[type="range"] { accent-color: var(--ink); }
 .ill-card { display: grid; gap: 6px; min-width: 0; }
 .ill-card svg { width: 100%; height: auto; display: block; }
 .ill-card span { font-size: 13px; color: var(--muted); }
@@ -395,16 +432,21 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <section class="panel" id="panel-approach" hidden>
   <div class="approach-hero">
     <div>
-      <span class="lbl">Design approach</span>
+      <span class="lbl">Art direction</span>
       <h2 class="sec" id="ap-name"></h2>
-      <p class="lede" id="ap-summary" style="margin-bottom:0"></p>
+      <p class="lede" id="ap-summary" style="margin-bottom:14px"></p>
+      <nav class="ap-nav" aria-label="Approach sections">
+        <a href="#ap-s-principles">Principles</a><a href="#ap-s-illustration">Illustration</a><a href="#ap-s-art">Art data</a><a href="#ap-s-shape">Shape and corners</a><a href="#ap-s-motion">Motion</a><a href="#ap-s-layers">Every layer</a><a href="#ap-s-research">Research</a><a href="#ap-s-refs">References</a>
+      </nav>
     </div>
     <div class="ill-main" id="ap-hero"></div>
   </div>
+
+  <h3 id="ap-s-principles">Principles</h3>
   <div class="principles" id="ap-principles"></div>
 
-  <h3>Illustration</h3>
-  <p class="lede" style="margin-bottom:14px">Ink line over cut-paper shapes on a flat ground, drawn by <code>dist/web/js/illustration.mjs</code>. Colours always come from a Wada combination: its background is the ground, its accent fills one object, ink is Black and paper is White. Pick any palette to see the same drawings in it.</p>
+  <h3 id="ap-s-illustration">Illustration</h3>
+  <p class="lede" style="margin-bottom:14px">Ink line over organic, rounded paper shapes on a flat ground, drawn by <code>dist/&lt;product&gt;/web/js/illustration.mjs</code>. Colours always come from a Wada combination: its background is the ground, its accent fills one object, ink is Black and paper is White.</p>
   <div class="ill-controls">
     <label class="lbl" for="ap-palette">Palette</label>
     <select id="ap-palette"></select>
@@ -415,16 +457,73 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   </div>
   <div class="ill-grid" id="ap-ills"></div>
 
-  <h3>Motion</h3>
-  <p class="lede" style="margin-bottom:12px">Timings read from the reference recordings. Use them through <code>dist/web/css/motion.css</code> (<code>.ud-draw</code>, <code>.ud-pop</code>, <code>.ud-rise</code>) or the illustration library.</p>
-  <div class="tablewrap" style="margin-bottom:12px"><table class="data" id="ap-motion"></table></div>
-  <ul id="ap-motion-rules" style="margin:0 0 40px;padding-left:20px;font-size:14px;color:var(--muted)"></ul>
+  <h3 id="ap-s-art">Art data</h3>
+  <p class="lede" style="margin-bottom:14px">From <code>art.json</code>. Numbers are relative to a 400 × 400 artboard, so they scale to any format.</p>
+  <div class="ap-two">
+    <div>
+      <span class="lbl">Colour share of the area</span>
+      <div class="ratio" id="ap-ratio"></div>
+      <dl class="kv" id="ap-artkv" style="margin-top:14px"></dl>
+    </div>
+    <div>
+      <span class="lbl">Composition</span>
+      <div class="placements" id="ap-placements"></div>
+      <ul class="tight" id="ap-comp-rules"></ul>
+    </div>
+  </div>
+  <div class="ap-two" style="margin-top:28px">
+    <div>
+      <span class="lbl">Symbol vocabulary: combine one from the product's world with one from the benefit</span>
+      <div class="tablewrap" style="margin-top:8px"><table class="data" id="ap-vocab"></table></div>
+    </div>
+    <div>
+      <span class="lbl">Metaphor recipe</span>
+      <ol class="tight" id="ap-recipe"></ol>
+      <span class="lbl" style="display:block;margin-top:16px">From the references</span>
+      <div class="tablewrap" style="margin-top:8px"><table class="data" id="ap-metaphors"></table></div>
+      <span class="lbl" style="display:block;margin-top:16px">Worn-out symbols to avoid</span>
+      <div class="tablewrap" style="margin-top:8px"><table class="data" id="ap-avoid"></table></div>
+    </div>
+  </div>
 
-  <h3>Across every layer</h3>
+  <h3 id="ap-s-shape" style="margin-top:40px">Shape and corners</h3>
+  <p class="lede" style="margin-bottom:14px">Organic shapes with a clear silhouette (6 to 9 control points, limited irregularity) and rounded corners everywhere. Press the button to cut new shapes from the same rules.</p>
+  <div class="ap-two">
+    <div>
+      <div class="shape-stage" id="ap-shapes"></div>
+      <div style="display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap">
+        <button type="button" class="btn primary" id="ap-newshapes">Cut new shapes</button>
+        <label class="lbl" for="ap-irr">Irregularity</label>
+        <input type="range" id="ap-irr" min="0.04" max="0.22" step="0.01" value="0.14">
+        <span class="mono" id="ap-irr-v">0.14</span>
+      </div>
+    </div>
+    <div>
+      <span class="lbl">Corner radius scale (screens, px)</span>
+      <div class="radii" id="ap-radii"></div>
+      <dl class="kv" id="ap-corner-use" style="margin-top:12px"></dl>
+    </div>
+  </div>
+
+  <h3 id="ap-s-motion" style="margin-top:40px">Motion</h3>
+  <p class="lede" style="margin-bottom:14px" id="ap-motion-lede"></p>
+  <div class="springs" id="ap-springs"></div>
+  <button type="button" class="btn primary" id="ap-play" style="margin:10px 0 20px">Play springs</button>
+  <div class="tablewrap" style="margin-bottom:14px"><table class="data" id="ap-moves"></table></div>
+  <div class="ap-two">
+    <div><span class="lbl">Choreography: what moves first</span><ol class="tight" id="ap-order"></ol></div>
+    <div><span class="lbl">Rules</span><ul class="tight" id="ap-motion-rules"></ul></div>
+  </div>
+
+  <h3 id="ap-s-layers" style="margin-top:40px">Across every layer</h3>
   <div class="tablewrap" style="margin-bottom:40px"><table class="data" id="ap-layers"></table></div>
 
-  <h3>References</h3>
-  <p class="lede" style="margin-bottom:14px">The pieces this approach is drawn from (stored in <code>approaches/humanist-minimal/references/</code>). Use them for the feel, not the colours; colours come from the colour system.</p>
+  <h3 id="ap-s-research">Research</h3>
+  <p class="lede" style="margin-bottom:6px">The dossier behind the direction, from <code>approaches/<span id="ap-id"></span>/research.md</code>: definition, lineage, evidence, risks, scorecard and sources.</p>
+  <article class="research" id="ap-research"></article>
+
+  <h3 id="ap-s-refs" style="margin-top:40px">References</h3>
+  <p class="lede" style="margin-bottom:14px">The pieces this direction is drawn from. Use them for the feel, not the colours; colours come from the colour system.</p>
   <div class="refs" id="ap-refs"></div>
   <div class="strips" id="ap-strips"></div>
 </section>
@@ -471,10 +570,26 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <div class="ty-controls">
     <label class="lbl" for="ty-sample">Try your words</label>
     <input id="ty-sample" type="text" placeholder="Type a headline to preview in every pairing">
-    <div class="seg" id="ty-fit"><button type="button" data-tyfit="all" aria-pressed="true">All</button><button type="button" data-tyfit="core" aria-pressed="false">Recommended</button></div>
+    <div class="seg" id="ty-fit"><button type="button" data-tyfit="all" aria-pressed="true">All</button><button type="button" data-tyfit="core" aria-pressed="false">Recommended for this direction</button></div>
   </div>
   <div class="ty-grid" id="ty-grid"></div>
-  <h3>Rules</h3>
+  <h3 id="ty-dir-title">Type direction</h3>
+  <p class="lede" id="ty-char" style="margin-bottom:14px"></p>
+  <div class="ap-two">
+    <div>
+      <span class="lbl">What to look for in a typeface</span>
+      <div class="tablewrap" style="margin-top:8px"><table class="data" id="ty-anatomy"></table></div>
+      <span class="lbl" style="display:block;margin-top:18px">Type with the art</span>
+      <dl class="kv" id="ty-art" style="margin-top:8px"></dl>
+    </div>
+    <div>
+      <span class="lbl">Headline size by format (cap height as % of canvas height)</span>
+      <div class="tablewrap" style="margin-top:8px"><table class="data" id="ty-sizes"></table></div>
+      <span class="lbl" style="display:block;margin-top:18px">Setting</span>
+      <dl class="kv" id="ty-setting" style="margin-top:8px"></dl>
+    </div>
+  </div>
+  <h3 style="margin-top:32px">Rules</h3>
   <ul id="ty-rules" style="margin:0 0 20px;padding-left:20px;font-size:14px;color:var(--muted)"></ul>
 </section>
 
@@ -657,15 +772,29 @@ function renderTypography() {
       <div class="ladder">${ladder}</div>
       <p style="margin:12px 0 0;font-size:13px;color:var(--muted)">Files: <code>dist/${esc(B.id)}/web/css/typography.css</code> (classes <code>.${esc(P)}-display</code>, <code>.${esc(P)}-h1</code>, <code>.${esc(P)}-body</code> ...) and <code>dist/${esc(B.id)}/design-apps/fonts.txt</code> (install links for Figma, Adobe, Canva).</p>
     </div>`;
-  const fitLabel = { core: 'Recommended', good: 'Works well', accent: 'Special use' };
-  const list = DATA.pairings.filter(p => tstate.fit === 'all' || p.fit === 'core');
+  const fitLabel = { core: 'Recommended', good: 'Works well', accent: 'Special use', avoid: 'Avoid' };
+  const TY = DATA.approaches[B.approach].data.typography;
+  const fitOf = pr => (TY.fit[pr.id] || { fit: 'good', why: '' });
+  const list = DATA.pairings.filter(p => tstate.fit === 'all' || fitOf(p).fit === 'core');
   $('#ty-grid').innerHTML = list.map(pr => `<article class="ty-card ${pr.id === cur.id ? 'current' : ''}">${specimen(pr, false)}
-    <div class="ty-meta"><div class="ty-name"><b>${esc(pr.name)}</b><span class="fit ${pr.fit}">${fitLabel[pr.fit]}</span>${pr.id === cur.id ? '<span class="fit inuse">In use</span>' : ''}</div>
+    <div class="ty-meta"><div class="ty-name"><b>${esc(pr.name)}</b><span class="fit ${fitOf(pr).fit}" title="${esc(fitOf(pr).why)}">${fitLabel[fitOf(pr).fit]}</span>${pr.id === cur.id ? '<span class="fit inuse">In use</span>' : ''}</div>
       <span class="fams">${esc(pr.display.family)} + ${esc(pr.body.family)}</span>
+      <span class="ty-facts">${esc(pr.display.designer || '')}${pr.body.designer && pr.body.designer !== pr.display.designer ? ' · ' + esc(pr.body.designer) : ''}</span>
+      <p><b style="font:600 13px var(--body);color:var(--ink)">For ${esc(DATA.approaches[B.approach].data.name)}:</b> ${esc(fitOf(pr).why)}</p>
       <p>${esc(pr.mood)}</p><p><b style="font:600 13px var(--body);color:var(--ink)">Best for:</b> ${esc(pr.bestFor)}</p>
       <div><button type="button" class="btn" data-copy='"typography": { "pairing": "${pr.id}", "scale": 1.25 }'>Copy setting</button></div></div>
   </article>`).join('');
-  $('#ty-rules').innerHTML = DATA.typeRules.map(r => `<li>${esc(r)}</li>`).join('');
+  $('#ty-rules').innerHTML = [...TY.rules, ...DATA.typeRules].filter((r, i, a) => a.indexOf(r) === i).map(r => `<li>${esc(r)}</li>`).join('');
+  $('#ty-dir-title').textContent = 'Type direction: ' + DATA.approaches[B.approach].data.name;
+  $('#ty-char').textContent = TY.character;
+  const an = TY.anatomy;
+  $('#ty-anatomy').innerHTML = '<thead><tr><th>Feature</th><th>Want</th><th>Why</th></tr></thead><tbody>' + Object.entries(an).filter(([k]) => k !== 'avoid').map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${esc(v.want)}</td><td>${esc(v.why)}</td></tr>`).join('') + `<tr><td><b>avoid</b></td><td colspan="2">${esc(an.avoid.join('; '))}</td></tr></tbody>`;
+  const kv2 = rows => rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+  $('#ty-art').innerHTML = kv2(Object.entries(TY.typeWithArt));
+  const fmtName = Object.fromEntries(M.formats.flatMap(g => g.formats.map(f => [f.id, f.name])));
+  $('#ty-sizes').innerHTML = '<thead><tr><th>Format</th><th>Headline</th><th>Body minimum</th></tr></thead><tbody>' + Object.entries(TY.sizes.byFormat).map(([k, v]) => `<tr><td>${esc(fmtName[k] || k)}</td><td class="num">${v.headlinePct ? v.headlinePct.join('-') + '%' : v.headlinePx.join('-') + ' px'}</td><td class="num">${v.body === 'none' ? 'none' : v.bodyMinPt ? v.bodyMinPt + ' pt' : v.bodyMinPx + ' px'}</td></tr>`).join('') + `</tbody>`;
+  const st = TY.setting;
+  $('#ty-setting').innerHTML = kv2([['Measure', `${st.measure.chars.join('-')} characters per line, ideal ${st.measure.ideal} (${st.measure.source})`], ['Leading', `display ${st.leading.display.join('-')}, subhead ${st.leading.subhead.join('-')}, body ${st.leading.body.join('-')}`], ['Tracking', `display ${st.tracking.displayEm.join(' to ')} em, body ${st.tracking.bodyEm}, capital labels ${st.tracking.labelCapsEm.join('-')} em`], ['Case', st.case], ['Per piece', `${st.sizesPerPiece} sizes, ${st.weightsPerPiece} weights`], ['Rag', st.rag], ['Numbers', st.numbers], ['Viewing distance', TY.sizes.viewingDistance]]);
 }
 
 /* ------------------------------------------------------------ brands */
@@ -681,7 +810,7 @@ function useBrand(id, first) {
   P = B.prefix;
   DATA.brand = B.palettes; DATA.ctx = B.ctx; DATA.layers = B.layers; M.message = B.message;
   const ap = DATA.approaches[B.approach];
-  A = { data: ap.data, images: ap.images, palettes: B.illPalettes };
+  A = { data: ap.data, images: ap.images, research: ap.research, springsCss: ap.springsCss, palettes: B.illPalettes };
   ill = APPROACH_LIBS[B.approach](A.data, A.palettes.primary || Object.values(A.palettes)[0]);
   cstate.stars = new Set(store.get('wada-stars-' + B.id, []));
   astate.pv = 'brand:' + (B.palettes.find(p => p.name === 'primary') || B.palettes[0]).name;
@@ -705,20 +834,95 @@ function illPalette() {
   return { ground: byId[r.bg].hex, accent: byId[r.accent].hex, ink: byId.black.hex, paper: byId.white.hex };
 }
 function setupApproach() {
-  $('#ap-name').textContent = A.data.name;
-  $('#ap-summary').textContent = A.data.summary;
-  $('#ap-principles').innerHTML = A.data.principles.map(p => `<div class="principle"><span class="pid">${p.id}</span><b>${esc(p.title)}</b><p>${esc(p.rule)}</p></div>`).join('');
-  const M = A.data.motion;
-  const rows = ['draw', 'pop', 'morph', 'radiate', 'blink', 'talk'].map(k => `<tr><td><b>${k}</b></td><td class="num">${M[k].duration} ms${M[k].every ? ` every ${M[k].every} ms` : ''}</td><td class="num">${esc(M[k].easing || '')}</td><td>${esc(M[k].use)}</td></tr>`).join('');
-  $('#ap-motion').innerHTML = `<thead><tr><th>Move</th><th>Duration</th><th>Easing</th><th>Use</th></tr></thead><tbody>${rows}<tr><td><b>stagger</b></td><td class="num">${M.stagger} ms</td><td></td><td>Delay between items drawing in sequence.</td></tr><tr><td><b>loop</b></td><td class="num">${M.loop} ms</td><td></td><td>Typical full loop; keep under 4 s.</td></tr></tbody>`;
-  $('#ap-motion-rules').innerHTML = M.rules.map(r => `<li>${esc(r)}</li>`).join('');
-  $('#ap-layers').innerHTML = '<thead><tr><th>Layer</th><th>Do</th><th>Don\u2019t</th></tr></thead><tbody>' + A.data.layers.map(l => `<tr><td><b>${esc(l.layer)}</b></td><td>${esc(l.do)}</td><td>${esc(l.dont)}</td></tr>`).join('') + '</tbody>';
-  $('#ap-refs').innerHTML = A.data.references.filter(r => !r.frames).map(r => `<figure><img src="${A.images[r.file]}" alt="${esc(r.shows)}" loading="lazy"><figcaption>${esc(r.shows)}</figcaption></figure>`).join('');
-  $('#ap-strips').innerHTML = A.data.references.filter(r => r.frames).map(r => `<figure><div class="strip"><img src="${A.images[r.frames]}" alt="Frames from ${esc(r.file)}" loading="lazy"></div><figcaption>${esc(r.shows)} <span class="mono">(${esc(r.file)}, frames left to right)</span></figcaption></figure>`).join('');
-  const brandOpts = Object.keys(A.palettes).map(n => `<option value="brand:${n}">Brand: ${esc(n)}</option>`);
+  const D = A.data, ART = D.art, MO = D.motion;
+  $('#ap-name').textContent = D.name;
+  $('#ap-summary').textContent = D.summary;
+  $('#ap-id').textContent = D.id;
+  $('#ap-principles').innerHTML = D.principles.map(p => `<div class="principle"><span class="pid">${p.id}</span><b>${esc(p.title)}</b><p>${esc(p.rule)}</p>${p.source ? `<span class="src">${esc(p.source)}</span>` : ''}</div>`).join('');
+
+  // art data
+  const pal = illPalette();
+  const roles = ART.palette.roles;
+  const mid = r => (r.areaPct[0] + r.areaPct[1]) / 2;
+  const share = { ground: mid(roles.ground), paper: mid(roles.paper), ink: mid(roles.ink), accent: Math.max(roles.accent.areaPct[1], 3) };
+  const tot = Object.values(share).reduce((a, b) => a + b, 0);
+  $('#ap-ratio').innerHTML = Object.entries(share).map(([k, v]) => `<div style="flex:${v};background:${pal[k]};color:${onColor(pal[k])}">${k} ${roles[k].areaPct[0]}-${roles[k].areaPct[1]}%</div>`).join('');
+  const L = ART.line, Sh = ART.shape, C = ART.composition;
+  const kv = rows => rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+  $('#ap-artkv').innerHTML = kv([
+    ['Ink line', `${L.width} units (${L.widthPct}% of the short side), round ends, wobble ${L.wobble} (range ${L.wobbleRange.join('-')})`],
+    ['Continuity', L.continuity],
+    ['Crossing', L.crossing],
+    ['Shapes', `${Sh.blob.points.join('-')} control points; irregularity ${Sh.blob.irregularity.paperDisc.join('-')} for discs, ${Sh.blob.irregularity.freeShape.join('-')} for free shapes`],
+    ['Corners', `${Sh.cornerRadius.pct.join('-')}% of the shape, at least ${Sh.cornerRadius.minUnits} units. ${Sh.points}`],
+    ['Misregistration', `Paper offset ${Sh.misregistration.offsetPct.join('-')}% of the artboard. ${Sh.misregistration.direction}`],
+    ['Halftone', `${ART.texture.halftone.cell}-unit cell, ${ART.texture.halftone.dot}-unit dots, at most ${ART.texture.halftone.maxAreaPct}% of the area. ${ART.texture.halftone.use}`],
+  ]);
+  const place = {
+    centre: '<rect x="30" y="30" width="40" height="40" rx="12"/>',
+    third: '<rect x="56" y="28" width="34" height="44" rx="12"/><rect x="10" y="36" width="36" height="5" rx="2.5" class="t"/><rect x="10" y="46" width="28" height="4" rx="2" class="t"/>',
+    anchored: '<rect x="28" y="52" width="44" height="40" rx="12"/><rect x="10" y="12" width="44" height="6" rx="3" class="t"/><rect x="10" y="23" width="30" height="4" rx="2" class="t"/>',
+    crop: '<rect x="50" y="34" width="62" height="54" rx="14"/><rect x="10" y="12" width="40" height="6" rx="3" class="t"/>',
+  };
+  $('#ap-placements').innerHTML = C.placements.map(p => `<figure><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="${pal.ground}"/><g fill="${pal.paper}">${place[p.id] || ''}</g><style>.t{fill:${pal.ink}}</style></svg><span><b style="color:var(--ink)">${esc(p.id)}</b>: ${esc(p.use)}</span></figure>`).join('');
+  $('#ap-comp-rules').innerHTML = [`Margins ${C.marginPct}% of the short side. ${C.grid}`, `Motif ${C.motifSizePct.join('-')}% of the short side; at least ${C.emptyGroundMinPct}% empty ground; at most ${C.maxObjects} objects.`, C.pairing, ...C.rules].map(r => `<li>${esc(r)}</li>`).join('');
+  $('#ap-vocab').innerHTML = '<thead><tr><th>Symbol</th><th>Usually says</th></tr></thead><tbody>' + ART.vocabulary.symbols.map(v => `<tr><td><b>${esc(v.id.replace(/-/g, ' '))}</b></td><td>${esc(v.means.join(', '))}</td></tr>`).join('') + '</tbody>';
+  $('#ap-recipe').innerHTML = ART.metaphor.recipe.map(r => `<li>${esc(r)}</li>`).join('');
+  $('#ap-metaphors').innerHTML = '<thead><tr><th>A</th><th>+ B</th><th>= Idea</th></tr></thead><tbody>' + ART.metaphor.examples.map(m => `<tr><td>${esc(m.a)}</td><td>${esc(m.b)}</td><td>${esc(m.idea)}</td></tr>`).join('') + '</tbody>';
+  $('#ap-avoid').innerHTML = '<thead><tr><th>Avoid</th><th>For</th><th>Why</th></tr></thead><tbody>' + ART.vocabulary.avoid.map(m => `<tr><td><b>${esc(m.symbol)}</b></td><td>${esc(m.for)}</td><td>${esc(m.why)}</td></tr>`).join('') + '</tbody>';
+
+  // corners
+  const rs = ART.corners.scale;
+  $('#ap-radii').innerHTML = Object.entries(rs).map(([k, v]) => `<figure><i style="border-radius:${Math.min(v, 24)}px"></i>${k} ${v === 999 ? 'pill' : v + 'px'}</figure>`).join('');
+  $('#ap-corner-use').innerHTML = kv([...Object.entries(ART.corners.use), ['nested', ART.corners.nested], ['print', ART.corners.print]]);
+
+  // motion
+  $('#ap-motion-lede').textContent = MO.character + ' From motion.json; springs are simulated into CSS easings in dist/<product>/web/css/motion.css.';
+  $('#ap-springs').innerHTML = Object.entries(MO.springs).map(([k, s]) => {
+    const z = (s.damping / (2 * Math.sqrt(s.stiffness * s.mass))).toFixed(2);
+    return `<div class="spring-row"><b>${k}</b><div class="track"><span class="dot" data-spring="${k}"></span></div><span class="meta2">k ${s.stiffness} · c ${s.damping} · ζ ${z}<br>${A.springsCss[k].duration} ms</span></div>`;
+  }).join('') + `<p style="margin:0;font-size:13px;color:var(--muted)">${Object.entries(MO.springs).map(([k, s]) => `<b>${k}</b>: ${esc(s.use)}`).join(' · ')}</p>`;
+  const mv = MO.moves;
+  $('#ap-moves').innerHTML = '<thead><tr><th>Move</th><th>Timing</th><th>Use</th></tr></thead><tbody>' + Object.entries(mv).map(([k, m]) => `<tr><td><b>${k}</b></td><td class="num">${m.spring ? `spring: ${m.spring} (${A.springsCss[m.spring].duration} ms)` : `${m.duration} ms${m.every ? ` every ${m.every} ms` : ''}${m.easing ? ` · ${esc(MO.easings[m.easing] ? m.easing : m.easing)}` : ''}`}</td><td>${esc(m.use)}</td></tr>`).join('') +
+    `<tr><td><b>durations</b></td><td class="num">${MO.durations.minMs}-${MO.durations.maxMs} ms</td><td>${esc(MO.durations.formula)}</td></tr><tr><td><b>stagger</b></td><td class="num">${MO.choreography.stagger} ms</td><td>Between items in a sequence; ${MO.choreography.overlapPct}% overlap. ${esc(MO.choreography.settleBeforeText)}</td></tr></tbody>`;
+  $('#ap-order').innerHTML = MO.choreography.order.map(o => `<li>${esc(o)}</li>`).join('');
+  $('#ap-motion-rules').innerHTML = MO.rules.map(r => `<li>${esc(r)}</li>`).join('');
+
+  $('#ap-layers').innerHTML = '<thead><tr><th>Layer</th><th>Do</th><th>Don’t</th></tr></thead><tbody>' + D.layers.map(l => `<tr><td><b>${esc(l.layer)}</b></td><td>${esc(l.do)}</td><td>${esc(l.dont)}</td></tr>`).join('') + '</tbody>';
+  $('#ap-research').innerHTML = A.research || '<p>No research file.</p>';
+  $('#ap-refs').innerHTML = D.references.filter(r => !r.frames).map(r => `<figure><img src="${A.images[r.file]}" alt="${esc(r.shows)}" loading="lazy"><figcaption>${esc(r.shows)}</figcaption></figure>`).join('');
+  $('#ap-strips').innerHTML = D.references.filter(r => r.frames).map(r => `<figure><div class="strip"><img src="${A.images[r.frames]}" alt="Frames from ${esc(r.file)}" loading="lazy"></div><figcaption>${esc(r.shows)} <span class="mono">(${esc(r.file)}, frames left to right)</span></figcaption></figure>`).join('');
+  const brandOpts = Object.keys(A.palettes).map(n => `<option value="brand:${n}">Product: ${esc(n)}</option>`);
   const starred = [...cstate.stars].sort((a, b) => a - b).map(n => `<option value="combo:${n}">No. ${String(n).padStart(3, '0')} (shortlist)</option>`);
   $('#ap-palette').innerHTML = brandOpts.join('') + starred.join('');
+  if ([...$('#ap-palette').options].some(o => o.value === astate.pv)) $('#ap-palette').value = astate.pv;
   renderIllustrations();
+  renderShapes();
+}
+const shapeState = { seed: 1, irr: 0.14 };
+function renderShapes() {
+  const pal = illPalette();
+  const fills = [pal.paper, pal.accent, pal.paper];
+  $('#ap-shapes').innerHTML = [0, 1, 2].map(i => {
+    const s = shapeState.seed * 7 + i * 13;
+    const d = ill.blob(200, 200, 140, 128, { points: 6 + i, irregularity: shapeState.irr, seed: s });
+    const line = ill.inkLine([[60, 300 - i * 20], [150, 260], [250, 300], [340, 250 + i * 10]], { seed: s + 1, segment: 14 });
+    return `<svg viewBox="0 0 400 400" role="img" aria-label="Organic shape study"><rect width="400" height="400" fill="${pal.ground}"/><path d="${d}" fill="${fills[i]}"/><path d="${line}" fill="none" stroke="${pal.ink}" stroke-width="9" stroke-linecap="round"/></svg>`;
+  }).join('');
+  $('#ap-irr-v').textContent = shapeState.irr.toFixed(2);
+}
+function playSprings() {
+  document.querySelectorAll('#ap-springs .dot').forEach(dot => {
+    const s = A.springsCss[dot.dataset.spring];
+    const track = (dot.parentElement.clientWidth - 36) * 0.86; // room for overshoot
+    const back = dot.dataset.at === '1';
+    dot.style.transition = 'none';
+    dot.style.transform = `translateX(${back ? track : 0}px)`;
+    void dot.offsetWidth;
+    dot.style.transition = `transform ${s.duration}ms ${s.easing}`;
+    dot.style.transform = `translateX(${back ? 0 : track}px)`;
+    dot.dataset.at = back ? '0' : '1';
+  });
 }
 function renderIllustrations() {
   astate.run++;
@@ -998,8 +1202,10 @@ document.addEventListener('click', e => {
   else if (t.dataset.rf) { const [k, v] = t.dataset.rf.split(':'); rstate[k] = v; renderMessaging(); }
   else if (t.dataset.example) loadPiece(EXAMPLES[t.dataset.example]);
   else if (t.dataset.tyfit) { tstate.fit = t.dataset.tyfit; document.querySelectorAll('#ty-fit button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderTypography(); }
-  else if (t.dataset.apmode) { astate.mode = t.dataset.apmode; document.querySelectorAll('#ap-mode button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderIllustrations(); }
+  else if (t.dataset.apmode) { astate.mode = t.dataset.apmode; document.querySelectorAll('#ap-mode button').forEach(b => b.setAttribute('aria-pressed', b === t)); const keep = $('#ap-palette').value; setupApproach(); $('#ap-palette').value = keep; }
   else if (t.id === 'ap-replay') renderIllustrations();
+  else if (t.id === 'ap-newshapes') { shapeState.seed++; renderShapes(); }
+  else if (t.id === 'ap-play') playSprings();
   else if (t.id === 'clear-color') { cstate.color = null; renderColorFilter(); renderCombos(); }
   else if (t.id === 'close-detail') $('#detail').close();
   else if (t.id === 'only-starred') { cstate.starredOnly = !cstate.starredOnly; t.setAttribute('aria-pressed', cstate.starredOnly); t.classList.toggle('primary', cstate.starredOnly); renderCombos(); }
@@ -1022,12 +1228,14 @@ function setupPalettesKeep() {
 }
 $('#detail').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 $('#q').addEventListener('input', e => { cstate.q = e.target.value; renderCombos(); });
-$('#ap-palette').addEventListener('change', e => { astate.pv = e.target.value; $('#ap-combo').value = ''; renderIllustrations(); });
-$('#ap-combo').addEventListener('input', e => { const n = parseInt(e.target.value, 10); if (n >= 1 && n <= 348) { astate.pv = 'combo:' + n; renderIllustrations(); } });
+$('#ap-palette').addEventListener('change', e => { astate.pv = e.target.value; $('#ap-combo').value = ''; setupApproach(); });
+$('#ap-combo').addEventListener('input', e => { const n = parseInt(e.target.value, 10); if (n >= 1 && n <= 348) { astate.pv = 'combo:' + n; const keep = e.target.value; setupApproach(); $('#ap-palette').value = ''; e.target.value = keep; } });
 $('#ck-form').addEventListener('input', runChecker);
 $('#ck-form').addEventListener('change', runChecker);
 $('#ck-form').addEventListener('submit', e => e.preventDefault());
-window.addEventListener('hashchange', () => showPanel(location.hash.slice(1)));
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (PANELS.includes(h)) showPanel(h); });
+document.addEventListener('click', e => { const a = e.target.closest('.ap-nav a'); if (!a) return; e.preventDefault(); const el = document.getElementById(a.getAttribute('href').slice(1)); if (el) el.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); });
+$('#ap-irr').addEventListener('input', e => { shapeState.irr = +e.target.value; renderShapes(); });
 
 $('#brand-select').innerHTML = DATA.brands.map(b => `<option value="${b.id}">${esc(b.name)}</option>`).join('');
 $('#brandswitch').hidden = DATA.brands.length < 2;
