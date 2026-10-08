@@ -9,18 +9,22 @@ This repository is a **universal design guide**. The user will give you a produc
    - Use only facts the user gave you. Leave unknown fields empty and ask about them.
    - Never invent numbers, testimonials or clients.
    - `products/sample-bakery/` shows a completed file.
-3. **Choose colours and type unless the user already did.** Pick what fits the product, set `color.status` to `"chosen"` once the user agrees, and explain each choice in one line.
+3. **Find the brand's core before anything else.** Read everything the brand has (site, repo, assets, what the user says) and write down, in `products/<id>/identity.json` (see `products/_template/identity.json`):
+   - **The core:** what the brand believes, the change it makes in someone's life, its character in three words, and the one tension or truth that makes it interesting. Content comes from this core, never from restating the website.
+   - **Its marks:** the original logo files, copied from the brand. Never redraw, simplify, substitute or invent a mark; use the files as they are (recolour only if the brand itself does).
+   - **Its signals:** the colours, type, imagery and signature elements people already know it by. The guide's choices below should echo them (nearest Wada combinations, closest pairing, a style whose method fits).
+4. **Choose colours and type unless the user already did.** Pick what fits the product, set `color.status` to `"chosen"` once the user agrees, and explain each choice in one line.
    - **Palettes:** read `dist/<id>/tokens/colors.json` (or `foundations/color/source/wada-colors.json` before a build). Prefer combinations whose light-mode `roles.light.inkUse` is `"body"`, so the headline colour passes AA contrast.
    - **Style:** if the user hasn't chosen one, suggest a style from `approaches/` that fits the product and say why in one line (scores and trade-offs are in each `approach.json` → `evidence`).
    - **Palettes:** start from the chosen style's `art.json` → `palette.recommendedCombinations`.
    - **Type:** pick a pairing the chosen style rates `core` in its `typography.json` → `fit`.
    - **Handwriting (optional):** only if the style allows it (`typography.json` → `handwritten`) and the product is warm, safe and personal (food, gifts, care, new or small brands). Pick one face from `foundations/typography/source/handwritten.json` and set `typography.hand` in `brand.json`. Never for body, prices, data, steps or buttons; the evidence is in `foundations/research/handwriting.json`.
-4. **Build:** `npm run build -- <id>`. Outputs go to `dist/<id>/`.
-5. **Write a brief** for each campaign: `products/<id>/campaigns/<campaign>/brief.md`, from `templates/briefs/creative-brief.md`. Settle the one message (W1) and the big idea (O2) before designing.
-6. **Write the copy** as `.copy.json` files in the campaign folder. Respect the word limits in `foundations/messaging/source/formats.json`. Run `npm run check:copy -- products/<id>`, then fix every ERROR and the WARNs that apply.
-7. **Design** with the generated files only (rules below). Start from a layout in `templates/layouts/layouts.json` for the format (draw it with `templates/layouts/render.mjs`) and follow `foundations/layout/layout.json` (grid, safe area, hierarchy). Save the work in the campaign folder.
+5. **Build:** `npm run build -- <id>`. Outputs go to `dist/<id>/`.
+6. **Plan content, then write a brief.** Turn the core into 3 to 5 content pillars (the customer's moments, the product's dramatic truths, proof, education, community) and repeatable series. Then, for each campaign, write `products/<id>/campaigns/<campaign>/brief.md`, from `templates/briefs/creative-brief.md`. Settle the one message (W1) and the big idea (O2) before designing.
+7. **Write the copy** as `.copy.json` files in the campaign folder. Respect the word limits in `foundations/messaging/source/formats.json`. Run `npm run check:copy -- products/<id>`, then fix every ERROR and the WARNs that apply.
+8. **Design** with the generated files only (rules below), and use the whole guide: vary compositions across a set (`foundations/layout/layout.json` → `composition`), make carousels tell one story across slides, place the brand's real photos with the media rules (`foundations/layout/media.json`, checked with `templates/layouts/overlay.mjs`), make motion pieces timed by `foundations/video/video.json`, and note which research finding each piece uses. A set that is all one recipe (flat ground, headline, one drawing) is not finished. Start from a layout in `templates/layouts/layouts.json` for the format (draw it with `templates/layouts/render.mjs`) and follow `foundations/layout/layout.json` (grid, safe area, hierarchy). Save the work in the campaign folder.
    - **Video and motion:** plan with `templates/video/storyboard.md` and follow `foundations/video/video.json` (beats, pacing, timing, sound, accessibility: never more than three flashes a second, honour reduced motion). The style's `motion.json` decides how motion feels. `templates/video/title-card.mjs` makes an animated title card from the product's tokens.
-8. **Show the work.** Rebuild, and if you can publish pages, publish or update the hub so the user can see it.
+9. **Show the work.** Rebuild, and if you can publish pages, publish or update the hub so the user can see it.
 
 ## Design rules: follow the product's style
 

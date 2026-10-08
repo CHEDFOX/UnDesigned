@@ -1,0 +1,22 @@
+{
+  "$comment": "The brand's core and the signals people know it by. Fill this in before choosing a style, palette or type, and before writing content. Sources: the brand's site, repo, assets and what the user says. Never invent facts.",
+  "core": {
+    "belief": "",
+    "change": "The change the product makes in one person's life, in one sentence.",
+    "character": ["", "", ""],
+    "tension": "The one truth or tension that makes the brand interesting to talk about.",
+    "pillars": []
+  },
+  "marks": {
+    "$comment": "Original logo files copied into assets/logos/, with how the brand uses them. Never redraw or substitute a mark.",
+    "files": [],
+    "usage": ""
+  },
+  "signals": {
+    "colours": [],
+    "type": [],
+    "imagery": "",
+    "signatureElements": []
+  },
+  "sources": []
+}
