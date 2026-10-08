@@ -1,0 +1,59 @@
+{
+  "$comment": "Scrapbook motion data: stop-motion paper physics. Pieces are dropped, land with a small settle and get stuck down. The hand-animated feel comes from holding poses: steps() easing at 12 poses per second ('on twos' at 24 fps). Springs are kept for the settle on screens where steps would hurt usability. Timings are rules of thumb unless a source is named.",
+
+  "character": "Hand-moved paper under a camera: things arrive in small, visible jumps, land with a little wobble, and stay put once taped. Nothing glides, and nothing moves for long.",
+
+  "springs": {
+    "$comment": "Damped spring presets. stiffness k, damping c, mass m. Used for UI and for the settle; on artwork, quantise the result with steps() (see easings.stopMotion).",
+    "drop": { "stiffness": 260, "damping": 18, "mass": 1, "use": "A piece landing on the page: quick, about 15% overshoot, one small rebound." },
+    "settle": { "stiffness": 180, "damping": 22, "mass": 1, "use": "Rotation settling to its final angle after landing (a 2-4 degree wobble)." },
+    "press": { "stiffness": 400, "damping": 30, "mass": 1, "use": "Stamp and sticker pressing down: scale 1.06 -> 1, fast and firm." },
+    "soft": { "stiffness": 170, "damping": 26, "mass": 1, "use": "UI feedback: buttons, toggles, cards. No overshoot." }
+  },
+
+  "easings": {
+    "stopMotion": { "css": "steps(12, end)", "use": "Per second of movement: 12 held poses. Use steps(n) with n = duration in ms / 83." },
+    "onThrees": { "css": "steps(8, end)", "use": "Per second of movement: 8 held poses, rougher. For loops and big hero moves." },
+    "draw": { "css": "steps(10, end)", "use": "A hand-drawn line writing itself on in visible chunks." },
+    "ui": { "css": "cubic-bezier(0.34, 1.3, 0.64, 1)", "use": "Smooth fallback for interface elements where steps would feel broken." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Pieces lifted away: accelerate out, can be stepped (steps(4))." }
+  },
+
+  "moves": {
+    "drop": { "spring": "drop", "steps": 6, "duration": 500, "from": "translateY(-6%) rotate(+/-6deg) scale(1.04)", "use": "A piece dropped onto the page; lands with a small overshoot." },
+    "slap": { "duration": 160, "easing": "steps(2, end)", "from": "scale(1.08)", "use": "Sticker or ransom letter slapped on in two poses." },
+    "tape": { "duration": 250, "easing": "steps(3, end)", "use": "Tape strip appears by growing along its length (scaleX 0 -> 1) in three poses." },
+    "stamp": { "spring": "press", "duration": 240, "steps": 3, "use": "Stamp thumps in: scale 1.06 -> 1 and opacity 0 -> 0.8 in three poses." },
+    "scribble": { "duration": 700, "easing": "draw", "use": "Hand-drawn arrow or underline writes itself on (needs pathLength=\"1\")." },
+    "wobble": { "duration": 2400, "easing": "steps(8, end)", "rotate": [-1.2, 1.2], "use": "A resting item nudges back and forth, as if touched. One item at a time." },
+    "boil": { "duration": 500, "easing": "steps(3, end)", "use": "Swap between 2-3 slightly different versions of one hand-drawn line (classic line boil). One mark only." },
+    "flutter": { "duration": 900, "easing": "steps(6, end)", "use": "A loose corner or ticket lifting slightly (skewY 0 -> 2deg -> 0)." }
+  },
+
+  "durations": {
+    "$comment": "Short and chunky. Rule of thumb for steps: n = duration / 83 ms (12 poses per second).",
+    "minMs": 160,
+    "maxMs": 900,
+    "formula": "duration = 200 ms + 0.3 ms per pixel travelled (capped at 900 ms), rounded to a multiple of 83 ms",
+    "byElement": { "sticker": 160, "tape": 250, "label": 330, "ticket": 420, "photo": 500, "sheet": 580, "fullScreen": 660 }
+  },
+
+  "choreography": {
+    "order": ["ground", "background sheets (drop)", "hero photo (drop + settle)", "tape on the hero (tape)", "headline strips (drop, one by one)", "ransom letters (slap, one by one)", "supporting items (drop)", "stamp (stamp)", "hand mark (scribble)"],
+    "stagger": 120,
+    "overlapPct": 20,
+    "settleBeforeText": "Headline strips start once the hero is taped down.",
+    "maxMovingThings": 1,
+    "loop": { "lengthMs": [1500, 3000], "endsOn": "The finished collage, still, working as an image on its own." },
+    "hold": 1200
+  },
+
+  "rules": [
+    "Steps for artwork, springs for interface: art moves in held poses (12 per second); buttons and menus stay smooth.",
+    "One thing moves at a time; the stagger is long enough (about 120 ms) to see each piece land.",
+    "Pieces land and stay. Only one item may wobble, boil or flutter in a loop.",
+    "No smooth floating, no parallax beyond 1% of the artboard, no camera moves, no spinning.",
+    "Text strips drop in like paper but the letters never animate individually after landing.",
+    "With reduced motion: show the finished collage. Wobble, boil and flutter stop."
+  ]
+}

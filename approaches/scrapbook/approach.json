@@ -1,0 +1,135 @@
+{
+  "name": "Scrapbook",
+  "summary": "Collage made from things people keep: torn paper, tape, stickers, stamps, bordered photos, ticket stubs and short handwritten notes, layered with small rotations and overlaps. One hero piece and a clear reading path keep the pile readable.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "SB1",
+      "title": "Kept things",
+      "rule": "Build every piece from ephemera a person would really keep: a bordered photo, a ticket, a label, a stamp, a scrap of lined or grid paper, a sticker. Each item is drawn as a flat object (shapes, not stock photos of paper).",
+      "source": "Victorian scrapbooks and junk journaling (research.md 2.1, 2.4)"
+    },
+    {
+      "id": "SB2",
+      "title": "One hero on top",
+      "rule": "One hero item takes 30-45% of the canvas and sits on the top layer of its zone. Everything else is smaller (each at most half the hero's area) and supports it. At most 7 items plus tape.",
+      "source": "Low visual complexity finding; guard rail (research.md 3, 5)"
+    },
+    {
+      "id": "SB3",
+      "title": "A reading path",
+      "rule": "Headline, hero, message, brand: the eye moves in a Z or a single column, top-left to bottom-right. The headline sits in the top 35% of the canvas; the brand sits beside the headline.",
+      "source": "50 ms clarity finding (research.md 3)"
+    },
+    {
+      "id": "SB4",
+      "title": "Stuck down, slightly askew",
+      "rule": "Every item is rotated between -8 and +8 degrees (body text strips -2 to +2), overlaps at least one neighbour by 5-25% of its area, and shows how it is held: tape, a sticker edge, a staple or a paper clip.",
+      "source": "Rule of thumb from scrapbook practice (research.md 2)"
+    },
+    {
+      "id": "SB5",
+      "title": "Cut, torn, honest",
+      "rule": "Edges show how the paper was cut: torn edges with small fibres, scissor-straight edges, die-cut rounds with a white rim. Shadows are flat offsets only (no blur), and tape is translucent.",
+      "source": "Papier collé and Dada photomontage (research.md 2.2)"
+    },
+    {
+      "id": "SB6",
+      "title": "Ransom type as a spice",
+      "rule": "Mixed, cut-out letters for one word of the headline at most (up to 10 letters). The rest of the headline is set in one readable display face; body text is never mixed.",
+      "source": "Jamie Reid and punk zines, with a legibility guard (research.md 2.3, 5)"
+    },
+    {
+      "id": "SB7",
+      "title": "A person was here",
+      "rule": "One human mark per piece: a hand-drawn arrow, a circle, an underline or a handwritten note of six words or fewer. It points at the hero or the message, never at nothing.",
+      "source": "Handmade effect (research.md 3)"
+    },
+    {
+      "id": "SB8",
+      "title": "Paper physics",
+      "rule": "Motion behaves like paper: pieces drop, land with a small settle, and get taped down. Stop-motion timing (steps at 12 frames per second) for the hand-made feel; one item moves at a time.",
+      "source": "Stop-motion and cut-out animation (research.md 2.5)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination per piece. Its bg is the ground (kraft, cream or newsprint grey work best); paper items in Wada White; ink in Wada Black. The accent goes on at most two small items (a sticker, one ransom letter); support colours become tape, tickets and photo content.",
+      "dont": "Mix combinations, use gradients, blurred drop shadows or glows, tint the paper, or let more than two items carry the accent."
+    },
+    {
+      "layer": "Typography",
+      "do": "The product's pairing for the headline and body. The mono (typewriter) for labels, tickets, dates and stamps. Ransom-note letters for one headline word at most. A handwriting accent only for one short note (six words or fewer).",
+      "dont": "Ransom-note body copy, a mixed font in every word, handwriting for headlines, body or calls to action, text on top of busy collage areas without a paper strip behind it."
+    },
+    {
+      "layer": "Layout",
+      "do": "Three to five layers deep; one hero item (30-45% of canvas); 5-25% overlaps; rotations within -8 to +8 degrees; 6% outer margin for anything carrying text; at least 25% of the ground left visible.",
+      "dont": "Filling every corner, overlapping text with other items, rotating paragraphs, more than 7 items plus tape, scattering items without a reading order."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Ephemera drawn as flat shapes: bordered photos (with simple drawn or real photo content), torn paper with fibre edges, translucent tape with zigzag ends, die-cut stickers, rubber stamps, ticket stubs, grid and lined paper, halftone dots for printed matter.",
+      "dont": "3D-rendered paper, photo-real paper textures with blur shadows, stock 'scrapbook kits', clip-art stickers, emoji."
+    },
+    {
+      "layer": "Motion",
+      "do": "Items drop and settle in stop-motion steps (12 fps), tape snaps on, a stamp thumps, one hand-drawn line writes itself. Sequences of 1.5-3 s, one item at a time, ending on a still frame (motion.json).",
+      "dont": "Smooth tweened floating, parallax, constant jitter on everything (boil on more than one item), spinning, bouncing text."
+    },
+    {
+      "layer": "Photography",
+      "do": "Real, candid photos of the product's people and things, cut out or given a white border (instant-photo or deckle edge), one or two per piece, slightly rotated and taped.",
+      "dont": "Glossy stock photos, faces of people who did not agree to be shown, heavy filters that fake age, more than two photos competing."
+    },
+    {
+      "layer": "Copy",
+      "do": "Plain, warm and personal, written to one person, like a note in a friend's album. Specific facts (dates, places, names) suit tickets, labels and stamps.",
+      "dont": "Exclamation marks, slang copied from a subculture the brand is not part of, invented dates or numbers presented as real."
+    }
+  ],
+  "evidence": {
+    "scores": {
+      "curves": 0,
+      "simplicity": 1,
+      "maya": 2,
+      "nature": 1,
+      "handmade": 2,
+      "colour": 1,
+      "glance": 1
+    },
+    "notes": {
+      "curves": "Rectangles, torn edges and tape ends are angular; only stickers, stamps and doodles are round. The style goes against the curvature finding.",
+      "simplicity": "Collage is complex by nature (complexity finding goes against it); the guard rails (7 items, one hero, 25% visible ground) pull it back to moderate.",
+      "maya": "Scrapbooks, photo albums and tickets are familiar to almost everyone; the surprise is in the arrangement and the one idea.",
+      "nature": "Torn fibre edges, paper grain and hand-drawn marks give moderate, coastline-like roughness rather than ruler-smooth or noisy edges.",
+      "handmade": "The whole style is visibly made by hand: cutting, tearing, taping, stamping and writing.",
+      "colour": "Kraft, cream and newsprint grounds are neutral; recommended combinations avoid large muddy browns except where the product's world makes them warm (kraft paper, bread, coffee).",
+      "glance": "With one hero and a clear reading path the main message reads quickly, but the overall texture is slower to parse than a minimal layout."
+    },
+    "beyondPreference": [
+      {
+        "wins": "Memorability",
+        "why": "Embellished, object-rich visuals were remembered better: charts with human-recognisable objects and colour were more memorable (Borkin et al., 2013), and embellished charts had better recall after two to three weeks with no loss of accuracy (Bateman et al., 2010).",
+        "source": "research.md 3 and 7"
+      },
+      {
+        "wins": "Distinctiveness",
+        "why": "An item that differs from its surroundings is remembered better (von Restorff, 1933). In a feed of clean, flat layouts, a collage stands out; inside a collage, the one hero and the one accent are the distinct items.",
+        "source": "research.md 3 and 7"
+      },
+      {
+        "wins": "Warmth and authenticity",
+        "why": "Visible hand-made work is read as carrying care (Fuchs, Schreier & van Osselaer, 2015). Collage shows the making: cutting, choosing, keeping.",
+        "source": "research.md 3 and 7"
+      },
+      {
+        "wins": "Cultural meaning and participation",
+        "why": "Collage carries DIY and personal-archive meaning, from Victorian albums to punk and riot grrrl zines to today's junk journals; on Pinterest, Gen Z made up nearly 70% of collage creators and collages were saved about 3x more than other Pins (company figures, 2024).",
+        "source": "research.md 2 and 7"
+      }
+    ]
+  },
+  "references": []
+}

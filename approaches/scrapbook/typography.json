@@ -1,0 +1,199 @@
+{
+  "$comment": "Scrapbook type direction. Fonts come from foundations/typography/source/pairings.json (rated in fit) or from newPairings below. Type in a scrapbook looks found: newspaper headlines, typewriter labels, printed tickets. Sizes are rules of thumb unless a source is given.",
+
+  "character": "Found type, set with care: a bold, newspaper-like headline face cut into strips, a plain readable body on paper, and a typewriter mono for labels, tickets and dates. Mixed cut-out letters and handwriting are spices, used once, never the meal.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "weight": { "want": "Heavy display weights (700-900)", "why": "Headlines are cut out and pasted onto busy backgrounds; heavy strokes survive overlap, rotation and texture." },
+    "width": { "want": "Normal to condensed", "why": "Condensed headlines fit on narrow strips, like newspaper headlines." },
+    "texture": { "want": "Printed, slightly mechanical character", "why": "Type should look found in print (newspaper, label, typewriter), so the hand lives in the collage and the notes." },
+    "xHeight": { "want": "Tall", "why": "Text sits at small sizes on labels and tickets and must stay readable when rotated." },
+    "mono": { "want": "A typewriter-like monospace", "why": "Labels, tickets, receipts and stamps are typewritten or printed in mono in real life." },
+    "avoid": ["Thin hairline serifs (break on textured or rotated strips)", "Script and handwriting fonts for headlines or body", "Distressed 'grunge' fonts (fake wear)", "Ransom-note fonts that randomise every letter (unreadable, and the real thing is cut by hand)"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach.",
+    "bricolage-figtree": { "fit": "core", "why": "Bricolage's heavy, irregular grotesque reads like a cut-out headline; Figtree keeps notes and body clear." },
+    "schibsted": { "fit": "core", "why": "Sturdy news grotesque (made for a newspaper group); heavy weights look clipped from print." },
+    "young-onest": { "fit": "good", "why": "The chunky soft serif suits journals and food; Onest stays readable on small labels." },
+    "plex": { "fit": "good", "why": "IBM Plex Mono is an excellent label and ticket face; the serif headline is a little formal for collage." },
+    "source": { "fit": "good", "why": "Very readable for text-heavy album pages; the serif headline needs the heavy weight to hold up." },
+    "fraunces-commissioner": { "fit": "good", "why": "Heavy Fraunces looks like vintage print for ransom letters and headlines; keep it to one weight." },
+    "instrument": { "fit": "accent", "why": "Elegant condensed serif suits a fashion or editorial cut-up; its thin strokes break on texture, so use it large and on clean paper only." },
+    "alegreya": { "fit": "accent", "why": "Literary and calligraphic; works for a Victorian-album feel, less for punk or social collage." },
+    "nunito": { "fit": "avoid", "why": "Rounded terminals look like app UI, not found print; the collage turns childish." }
+  },
+
+  "newPairings": [
+    {
+      "id": "archivo-courier",
+      "name": "Cut and Paste",
+      "mood": "Newspaper headline cut into strips, with typewritten labels. Bold, plain and documentary; the default for this approach.",
+      "bestFor": "Scrapbook posters, social collage, zines, events, local businesses.",
+      "display": {
+        "family": "Archivo",
+        "weights": [800, 900],
+        "style": "Grotesque with a width axis, from extra condensed to expanded",
+        "case": "Sentence case",
+        "tracking": -0.02,
+        "leading": 1.0,
+        "designer": "Omnibus-Type",
+        "classification": "Grotesque",
+        "axes": ["wght 100-900", "wdth 62-125"],
+        "notes": "Use widths 75-100 for headline strips; heavy weights survive rotation and overlap."
+      },
+      "body": {
+        "family": "Archivo",
+        "weights": [400, 500],
+        "style": "Same family, normal width",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Omnibus-Type",
+        "classification": "Grotesque",
+        "axes": ["wght 100-900", "wdth 62-125"]
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weights": [400, 700]
+      }
+    },
+    {
+      "id": "anton-worksans",
+      "name": "Zine",
+      "mood": "A tall, condensed poster headline in sentence case, a friendly grotesque for text, and a worn typewriter for labels. Loud but legible.",
+      "bestFor": "Music, events, campaigns, youth brands, flyers.",
+      "display": {
+        "family": "Anton",
+        "weights": [400],
+        "style": "Condensed heavy sans (single weight)",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 0.98,
+        "designer": "Vernon Adams",
+        "classification": "Condensed display sans",
+        "axes": [],
+        "notes": "Single weight; very tall x-height. Keep headlines to 2-3 strips. The mono, Special Elite (Astigmatic), is a worn typewriter face under the Apache License 2.0 rather than OFL (still free for commercial use); labels and stamps only, never body text."
+      },
+      "body": {
+        "family": "Work Sans",
+        "weights": [400, 500, 700],
+        "style": "Grotesque, slightly wide, optimised for screen at text sizes",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Wei Huang",
+        "classification": "Grotesque",
+        "axes": ["wght 100-900"]
+      },
+      "mono": {
+        "family": "Special Elite",
+        "weights": [400]
+      }
+    },
+    {
+      "id": "dmserif-dmsans",
+      "name": "Clippings",
+      "mood": "A heavy, high-contrast serif like a magazine headline, with a clean sans and a quiet mono. For softer, journal-like collage.",
+      "bestFor": "Lifestyle, food, travel, gifts, journaling products.",
+      "display": {
+        "family": "DM Serif Display",
+        "weights": [400],
+        "italic": true,
+        "style": "High-contrast display serif",
+        "case": "Sentence case; italic for one emphasised word",
+        "tracking": -0.01,
+        "leading": 1.02,
+        "designer": "Colophon Foundry",
+        "classification": "Display serif",
+        "axes": [],
+        "notes": "Use at 28 px / 20 pt and above, on clean paper strips; hairlines are thin."
+      },
+      "body": {
+        "family": "DM Sans",
+        "weights": [400, 500, 700],
+        "style": "Low-contrast geometric sans",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Colophon Foundry",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-1000", "opsz 9-40"]
+      },
+      "mono": {
+        "family": "DM Mono",
+        "weights": [400, 500]
+      }
+    }
+  ],
+
+  "accents": {
+    "$comment": "Optional extra faces for one short handwritten note or marker label. They are accents outside the pairing, used under the limits below. The guide's general rule is no handwriting fonts; this approach allows one note because the hand-written note is part of the medium. Hand-lettering a note is better still.",
+    "fonts": [
+      { "family": "Caveat", "designer": "Impallari Type", "license": "OFL", "use": "Ballpoint or pencil note." },
+      { "family": "Permanent Marker", "designer": "Font Diner", "license": "Apache 2.0", "use": "Marker label on kraft or tape." }
+    ],
+    "limits": {
+      "perPiece": 1,
+      "maxWords": 6,
+      "minSize": "Body size x 1.2 (handwriting reads smaller than type at the same size)",
+      "never": ["headline", "body", "call to action", "prices", "legal text", "anything a reader must read to act"]
+    }
+  },
+
+  "ransomNote": {
+    "$comment": "Cut-out mixed letters, after punk and Dada collage.",
+    "maxWords": 1,
+    "maxLetters": 10,
+    "tileRule": "Each letter on its own cut tile (paper, ink, support or accent); tile rotation -7 to +7 degrees; gap 2-4 units.",
+    "faces": "Take the 3 faces from the product's pairing (display, body, mono), plus at most one accent tile in a different weight. Do not load extra fonts for ransom letters.",
+    "contrast": "Every tile must pass 4.5:1 between letter and tile (ink on paper or yellow, paper on ink or a dark accent).",
+    "never": ["body copy", "calls to action", "brand names (unless the brand already does it)", "words that read as a threat"]
+  },
+
+  "typeWithArt": {
+    "onPaper": "All text sits on paper: a torn strip, a label, a note, a ticket. Never set text directly on photos or busy collage.",
+    "stripPadding": "Strip extends 0.25-0.4 em past the text on each side and 0.15 em above and below the cap height and descenders.",
+    "weightMatch": "Headline stem close to the hand-mark line (about 1.4% of the artboard's short side) or heavier.",
+    "alignment": "Each strip left-aligned to a shared edge; rotations vary per strip within -2 to +2 degrees, so the edge still reads as one.",
+    "spacing": "Strips may overlap each other by up to 10% of their height, never the letters."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb. Scrapbook headlines are a little smaller than minimal styles because the strips add visual weight.",
+    "byFormat": {
+      "billboard": { "headlinePct": [9, 14], "body": "none" },
+      "poster": { "headlinePct": [4, 6.5], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [4, 6.5], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [3, 5], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [2.5, 4], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [5, 7.5], "bodyMinPx": 32 },
+      "story": { "headlinePct": [3.5, 5], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [4, 6], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [12, 18], "body": "none" },
+      "web-banner": { "headlinePct": [12, 20], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [40, 80], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [28, 40], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+  },
+
+  "setting": {
+    "measure": { "chars": [30, 60], "ideal": 45, "source": "Bringhurst, The Elements of Typographic Style (45-75 for body); shorter here because text sits on small paper pieces (rule of thumb)." },
+    "leading": { "display": [0.95, 1.05], "subhead": [1.2, 1.3], "body": [1.45, 1.6] },
+    "tracking": { "displayEm": [-0.03, 0], "bodyEm": 0, "smallEm": [0, 0.02], "labelCapsEm": [0.08, 0.15] },
+    "case": "Sentence case everywhere. Capitals only for labels of one to three words (ADMIT ONE, a stamp ring).",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "fontsPerPiece": "The pairing's 2-3 faces, plus at most one accent face for one note.",
+    "rag": "Ragged right; one strip per headline line; no justified text.",
+    "numbers": "Use the mono for dates, times, prices, ticket numbers and codes."
+  },
+
+  "rules": [
+    "Found type, set with care: heavy headline strips, readable body on paper, typewriter mono for facts.",
+    "Every piece of text sits on paper.",
+    "Ransom-note letters on one headline word at most.",
+    "One handwritten note of six words or fewer, never the headline, body or call to action.",
+    "Three sizes, two weights, sentence case, left-aligned."
+  ]
+}

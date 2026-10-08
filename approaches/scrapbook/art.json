@@ -1,0 +1,245 @@
+{
+  "$comment": "Scrapbook art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages. Angles in degrees. Colours are roles only; hex values always come from the product's Wada combination. Numbers are rules of thumb drawn from the lineage in research.md unless a source is named.",
+
+  "line": {
+    "$comment": "The hand-drawn mark: marker or felt pen, used for one arrow, circle, underline or short note per piece.",
+    "width": 5.5,
+    "widthPct": 1.4,
+    "cap": "round",
+    "join": "round",
+    "wobble": 1.2,
+    "wobbleRange": [0.6, 1.8],
+    "maxMarks": 2,
+    "continuity": "One gesture per mark, drawn in a single stroke; an arrowhead may be a second stroke.",
+    "rules": [
+      "Ink only (Wada Black, or the combination's ink role). Never the accent.",
+      "Every mark points at or frames the hero or the message.",
+      "No doodle fields, hearts or stars scattered for decoration."
+    ]
+  },
+
+  "shape": {
+    "$comment": "Pieces of paper and objects. Mostly rectangles, made human by how they are cut and placed.",
+    "mode": "ephemera",
+    "edges": {
+      "torn": {
+        "use": "Newspaper strips behind words, notebook and grid paper, kraft paper.",
+        "step": [3, 6],
+        "jitter": [1, 2.2],
+        "fibreChance": 0.12,
+        "fibreDepth": "1.4 x jitter",
+        "whiteCore": "On coloured paper, show a 1-2 unit band of Wada White just outside the torn edge (the paper's core), as real coloured stock does when torn.",
+        "sides": "Tear one or two sides of a piece; at least one side stays straight so it still reads as a sheet."
+      },
+      "cut": {
+        "use": "Photos, tickets, labels, ransom letters.",
+        "rule": "Straight scissor edges, corners square or slightly clipped; may be 0.5-1 degree out of square."
+      },
+      "dieCut": {
+        "use": "Stickers.",
+        "rule": "Round, oval or rounded-rectangle with a white rim of 4-6% of the sticker's width."
+      },
+      "deckle": {
+        "use": "Vintage photos and invitations.",
+        "rule": "Small regular scallops of 3-4 units."
+      }
+    },
+    "rules": [
+      "Every piece has a clear, recognisable silhouette: a photo looks like a photo, a ticket like a ticket.",
+      "Mix edge types: at least two of torn, cut and die-cut in one piece.",
+      "No perfect rows: no two neighbouring items share the same rotation."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Corners for layout and UI around the collage (buttons, cards, image masks). Pixels at 1x for screens. Scrapbook UI uses paper-like near-square corners; stickers and tags are the round exceptions.",
+    "scale": { "xs": 2, "sm": 4, "md": 6, "lg": 10, "pill": 999 },
+    "use": {
+      "button": "sm, styled as a label strip or a sticker (pill) for the primary action",
+      "chip": "pill (sticker)",
+      "input": "xs",
+      "card": "xs, with a 1-2 degree rotation and a flat offset shadow",
+      "image": "0 inside a white border (instant photo), or torn edge",
+      "sheet / modal": "md on the top corners"
+    },
+    "print": "Photos and tickets keep square or near-square corners; stickers are the only fully round items."
+  },
+
+  "composition": {
+    "marginPct": 6,
+    "layers": {
+      "count": [3, 5],
+      "order": ["ground", "background sheets (torn paper, grid, kraft)", "hero item (photo or object)", "supporting items (ticket, label, sticker, stamp)", "fixings and marks (tape, hand-drawn line)"]
+    },
+    "items": { "min": 4, "max": 7, "plusTape": true, "$comment": "A headline made of several strips and letters counts as one item." },
+    "hero": {
+      "areaPct": [30, 45],
+      "rule": "One hero, on the top layer of its area. Every other item is at most half its size.",
+      "position": "Centre or a third; never in a corner."
+    },
+    "rotation": {
+      "hero": [-5, 5],
+      "items": [-8, 8],
+      "textStrips": [-2, 2],
+      "ransomLetters": [-7, 7],
+      "neverZero": "At least 80% of items are rotated by 1 degree or more."
+    },
+    "overlap": {
+      "perItemPct": [5, 25],
+      "rule": "Each item overlaps at least one neighbour. Overlaps never cover words, faces or the hero's focal point."
+    },
+    "emptyGroundMinPct": 25,
+    "readingPath": "Headline (top 35%) -> hero -> message or subhead -> brand and call to action. Z-path or single column.",
+    "placements": [
+      { "id": "pinned", "use": "Hero photo centred, headline strips top-left, supporting items around the lower edge. Posters, stories." },
+      { "id": "spread", "use": "Two columns like an album page: hero on one side, notes and ticket on the other. Landscape banners, web heroes." },
+      { "id": "pile", "use": "Items stacked toward one corner, the rest of the ground left clear for text. Square social posts." },
+      { "id": "single", "use": "One taped item and one handwritten note on a plain ground. Thumbnails, small banners, email headers." }
+    ],
+    "pairing": "The ephemera tell the story the headline does not: a ticket stub says 'you were there', a stamp says 'sent', a label says 'kept'. Image and words add to each other.",
+    "rules": [
+      "One focal point per piece: the hero.",
+      "Words sit on paper (a strip, a label, a note), never directly on busy collage.",
+      "Keep text strips at least one margin from the canvas edge; other items may bleed off at most two edges."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada combination.",
+    "roles": {
+      "ground": { "from": "combination bg", "areaPct": [35, 55], "note": "Kraft, cream, buff or newsprint grey work best." },
+      "paper": { "from": "Wada White", "areaPct": [20, 35], "note": "Photo borders, notes, strips, stickers' rims." },
+      "ink": { "from": "Wada Black (or the combination's ink role)", "areaPct": [5, 12], "note": "Type, stamps, marks, photo shadows." },
+      "accent": { "from": "combination accent", "areaPct": [3, 8], "limit": "At most two small items (e.g. one sticker and one ransom letter)." },
+      "support": { "from": "combination support colours", "areaPct": [5, 15], "note": "Tape, tickets, photo content, coloured paper scraps." }
+    },
+    "method": [
+      "Start from a combination whose light-mode bg is a paper colour: cream, buff, ivory, kraft, pale yellow, pale pink or neutral grey (the album page).",
+      "Prefer combinations with inkUse 'body' so text on the ground passes AA; text on paper strips uses Wada Black.",
+      "Check there is one saturated colour for the accent (red, orange, pink, blue) and, if possible, one or two quieter support colours for tape and tickets.",
+      "Look at it as a zine: if the combination reads as photocopy, kraft and a stamp pad, it fits."
+    ],
+    "recommendedCombinations": [
+      { "id": 190, "colors": ["Ivory Buff", "English Red", "Black"], "why": "Kraft paper, red stamp ink and black type: the classic zine and parcel palette." },
+      { "id": 154, "colors": ["Carmine", "Yellow", "Blue"], "why": "Primary red, yellow and blue on a yellow ground: Dada and punk poster energy, ransom-note tiles." },
+      { "id": 313, "colors": ["Carmine", "Yellow", "Diamine Green", "Black"], "why": "Yellow ground with black type and a carmine accent: loud punk flyer, still AAA for text." },
+      { "id": 221, "colors": ["Carmine Red", "Neutral Gray", "Black"], "why": "Newsprint grey with black and one red: photomontage and cut-up newspaper." },
+      { "id": 151, "colors": ["Sulpher Yellow", "Yellow Orange", "Vandar Poel's Blue"], "why": "Aged album page with ballpoint blue and an orange sticker." },
+      { "id": 243, "colors": ["Raw Sienna", "Ivory Buff", "Olive Green", "Slate Color"], "why": "Victorian album: buff page, sienna and olive scraps, slate ink." },
+      { "id": 275, "colors": ["Etruscan Red", "Ecru", "Madder Brown", "Taupe Brown"], "why": "Kraft and card browns of Schwitters-style found paper; use where browns are positive (bread, coffee, craft)." },
+      { "id": 166, "colors": ["Grenadine Pink", "Naples Yellow", "Deep Slate Green"], "why": "Soft journaling page with a coral sticker and dark green pen." },
+      { "id": 276, "colors": ["Eosine Pink", "Seashell Pink", "Yellow Green", "Black"], "why": "Contemporary social collage: pink paper, lime tape, black type." },
+      { "id": 303, "colors": ["Naples Yellow", "Peach Red", "Deep Slate Olive", "Neutral Gray"], "why": "Cream page with a hot red ticket and grey newsprint scraps." }
+    ],
+    "rules": [
+      "One combination per piece.",
+      "No gradients, glows or blurred shadows. Flat offset shadows only (see texture.shadow).",
+      "Tape is the only translucent material (60-80% opacity).",
+      "Text colour on the ground uses the combination's text role (AA contrast); text on paper uses Wada Black."
+    ]
+  },
+
+  "texture": {
+    "shadow": {
+      "type": "flat offset, no blur",
+      "offset": [2.5, 3],
+      "offsetPct": 0.75,
+      "colour": "ink at 12-18% opacity, or none",
+      "rule": "Same direction for every item in a piece. Tape and hand-drawn marks have no shadow."
+    },
+    "tape": {
+      "width": [12, 20],
+      "length": [30, 70],
+      "rotation": "30-50 degrees across a corner, or 0-15 degrees across an edge",
+      "ends": "Zigzag or slightly torn, 2-3 unit teeth",
+      "opacity": [0.6, 0.8],
+      "colour": "support colour (washi), the ground colour (kraft masking tape), or paper (matte tape)",
+      "perItem": "1-2 pieces per taped item; at most 5 pieces per composition."
+    },
+    "halftone": {
+      "cell": 7,
+      "dot": [0.3, 1.6],
+      "use": "Printed matter: photos cut from magazines, newsprint, faded tickets.",
+      "maxAreaPct": 20
+    },
+    "paperGrain": {
+      "specks": "100-160 ink specks of 0.4-1 unit at 8-12% opacity across the ground.",
+      "lined": "Ruled or grid paper: lines every 10-12 units at 0.6 units, support or ink colour at 25-40% opacity."
+    },
+    "stamp": {
+      "ring": "Double ring, outer stroke 2-2.5 units, with 2-3 small gaps (worn rubber).",
+      "opacity": [0.7, 0.85],
+      "rule": "Stamps are never perfectly round in print: a gap or a light patch is required."
+    }
+  },
+
+  "collage": {
+    "$comment": "Scrapbook-specific: how pieces are held and how much of each kind to use.",
+    "fixings": ["tape", "photo corners", "staple", "paper clip", "sticker over an edge"],
+    "fixingRule": "Every item that is not a sticker or stamp shows at least one fixing, or is tucked under a neighbour.",
+    "mixPerPiece": {
+      "photos": [1, 2],
+      "paperScraps": [1, 3],
+      "smallEphemera": [1, 3],
+      "handMarks": [1, 2]
+    }
+  },
+
+  "vocabulary": {
+    "$comment": "Ephemera and what they usually say. Choose items from the product's own world, then pick the one that carries the message as the hero.",
+    "symbols": [
+      { "id": "instant-photo", "means": ["a real moment", "memory", "proof", "people"] },
+      { "id": "ticket-stub", "means": ["an event", "being there", "a journey", "admission"] },
+      { "id": "postage-stamp", "means": ["sending", "distance", "a gift", "place"] },
+      { "id": "rubber-stamp", "means": ["approved", "date", "official", "done"] },
+      { "id": "label-strip", "means": ["naming", "organising", "facts"] },
+      { "id": "sticker", "means": ["a highlight", "a badge", "play", "the brand"] },
+      { "id": "receipt", "means": ["a purchase", "honesty", "price", "the everyday"] },
+      { "id": "map-scrap", "means": ["place", "local", "a journey"] },
+      { "id": "recipe-card", "means": ["making", "home", "family"] },
+      { "id": "pressed-flower", "means": ["season", "keepsake", "nature"] },
+      { "id": "handwritten-note", "means": ["personal", "a tip", "a promise"] },
+      { "id": "envelope", "means": ["message", "invitation", "news"] },
+      { "id": "luggage-tag", "means": ["travel", "belonging", "ownership"] },
+      { "id": "grid-paper", "means": ["planning", "school", "work in progress"] },
+      { "id": "newspaper-cutting", "means": ["news", "public", "a headline"] },
+      { "id": "paper-clip", "means": ["attached", "kept together", "work"] }
+    ],
+    "avoid": [
+      { "symbol": "ransom-note body copy", "for": "edginess", "why": "Unreadable, and reads as a threat in long form." },
+      { "symbol": "clip-art hearts, stars, emoji stickers", "for": "fun", "why": "Generic decoration; says nothing about the product." },
+      { "symbol": "fake coffee rings, fake burn marks", "for": "age", "why": "Faked wear reads as costume, not memory." },
+      { "symbol": "real political figures, flags or protest imagery", "for": "punk attitude", "why": "Borrows a movement's meaning; easily misread or offensive (see research.md 5)." },
+      { "symbol": "stock 'scrapbook kit' textures", "for": "speed", "why": "Glossy, generic, recognisably templated." },
+      { "symbol": "invented ticket numbers or dates presented as real", "for": "authenticity", "why": "Misleading; use real event facts or obviously decorative ones." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to build a collage that says one thing.",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "List the things a customer would actually keep from the product: a receipt, a ticket, a photo, a label, a card.",
+      "Choose the hero: the one item that proves the message (a photo of the real moment, the ticket to the real event).",
+      "Add 2-4 supporting items that add facts the headline does not say (date, place, name, price).",
+      "Place headline and hero first, then supporting items along the reading path; tape them down; add one hand mark pointing to the hero or the message.",
+      "Remove one item. If nothing is lost, leave it out."
+    ],
+    "examples": [
+      { "hero": "instant photo of the first loaf", "support": ["receipt with the opening date", "flour-bag label"], "idea": "a bakery's first day, kept" },
+      { "hero": "ticket stub", "support": ["map scrap", "stamp with the date"], "idea": "an event worth keeping" },
+      { "hero": "recipe card", "support": ["photo of the dish", "handwritten tip"], "idea": "passed on by hand" },
+      { "hero": "luggage tag", "support": ["postage stamp", "photo"], "idea": "a trip that belongs to you" }
+    ]
+  },
+
+  "checklist": [
+    "One hero item, 30-45% of the canvas, on top.",
+    "4-7 items plus tape; 3-5 layers; every item rotated within -8 to +8 degrees (text strips within -2 to +2).",
+    "Each item overlaps a neighbour by 5-25%, and nothing covers words or the hero's focal point.",
+    "At least two edge types (torn, cut, die-cut); every item visibly fixed.",
+    "Flat offset shadows only, all in one direction; tape is the only translucent material.",
+    "Ransom-note type on one headline word at most; body on paper in the pairing's body face.",
+    "At least 25% of the ground visible; one combination, accent on two small items at most."
+  ]
+}
