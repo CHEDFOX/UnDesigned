@@ -1,0 +1,359 @@
+<title>Wada Palette Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: a swatch-book contact sheet. Every card is a tiny poster in that palette;
+   the page stays a quiet grey so the 348 palettes carry all the colour. */
+:root {
+  --paper: #ecece7;
+  --sheet: #f7f7f4;
+  --ink: #1d1e20;
+  --muted: #64655f;
+  --line: #d3d3cb;
+  --focus: #2b3a8c;
+  --star: #b8411f;
+  --display: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: clamp(16px, 3vw, 40px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #151615; --sheet: #1e1f1d; --ink: #e9e9e3; --muted: #9a9b94;
+    --line: #34352f; --focus: #93a2ff; --star: #ff8a63; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #151615; --sheet: #1e1f1d; --ink: #e9e9e3; --muted: #9a9b94;
+  --line: #34352f; --focus: #93a2ff; --star: #ff8a63; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 15px/1.55 var(--body); padding-inline: var(--gutter); padding-block: 0 64px;
+}
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+header.masthead {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 32px; align-items: end;
+  padding-block: 40px 20px; border-bottom: 1px solid var(--ink);
+}
+.masthead h1 {
+  font: 800 clamp(34px, 6vw, 68px)/0.95 var(--display); margin: 0; letter-spacing: -0.01em; text-wrap: balance;
+}
+.masthead h1 small { display: block; font: 500 13px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.masthead p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); }
+.counts { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.counts b { display: block; font: 700 30px/1 var(--display); color: var(--ink); letter-spacing: 0; }
+
+.toolbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: var(--paper); display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
+  padding-block: 14px; border-bottom: 1px solid var(--line);
+}
+@media (max-width: 640px) { .toolbar { position: static; } }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--sheet); }
+.seg button { border: 0; background: none; padding: 6px 13px; cursor: pointer; font-size: 13px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.toolbar label.search { flex: 1 1 220px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: 6px 14px; min-width: 0; }
+.toolbar input { border: 0; background: none; outline: none; width: 100%; min-width: 0; font-size: 14px; }
+.toolbar .lbl { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 6px 4px 6px; font-size: 13px; background: var(--sheet); cursor: pointer; }
+.chip i { width: 16px; height: 16px; border-radius: 50%; display: inline-block; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.btn { border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: 6px 13px; cursor: pointer; font-size: 13px; }
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.status { font: 12px var(--mono); color: var(--muted); margin-left: auto; }
+
+.tabs { display: flex; gap: 24px; padding-block: 18px 6px; }
+.tabs button { background: none; border: 0; padding: 0 0 6px; cursor: pointer; font: 700 18px var(--display); color: var(--muted); border-bottom: 2px solid transparent; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--ink); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 28px 20px; padding-block: 18px; }
+@media (max-width: 460px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; } }
+.card { display: grid; gap: 8px; min-width: 0; }
+.poster {
+  position: relative; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; border: 0; padding: 0; cursor: pointer;
+  background: var(--p-bg); color: var(--p-text); text-align: left; width: 100%; display: block;
+  transition: transform .18s ease;
+}
+.poster:hover { transform: translateY(-3px); }
+.poster .no { position: absolute; left: 9%; top: 7%; font: 500 10px var(--mono); letter-spacing: 0.14em; color: var(--p-text); opacity: .85; }
+.poster .big { position: absolute; left: 7%; top: 13%; font: 800 clamp(44px, 9vw, 64px)/0.9 var(--display); color: var(--p-ink); letter-spacing: -0.02em; }
+.poster .disc { position: absolute; width: 58%; aspect-ratio: 1; border-radius: 50%; right: -12%; bottom: 14%; background: var(--p-accent); }
+.poster .band { position: absolute; left: 0; right: 0; bottom: 0; height: 14%; display: flex; }
+.poster .band span { flex: 1; }
+.poster .tag { position: absolute; left: 9%; bottom: 20%; font: 500 11px/1.3 var(--body); color: var(--p-text); max-width: 46%; }
+.meta { display: flex; justify-content: space-between; gap: 8px; align-items: start; min-width: 0; }
+.meta .names { font-size: 12px; line-height: 1.35; color: var(--muted); min-width: 0; }
+.meta .names b { color: var(--ink); font-weight: 500; }
+.star { background: none; border: 0; cursor: pointer; font-size: 18px; line-height: 1; padding: 2px; color: var(--muted); }
+.star[aria-pressed="true"] { color: var(--star); }
+.badge { display: inline-block; font: 500 10px var(--mono); letter-spacing: .06em; padding: 1px 6px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); margin-top: 4px; }
+.badge.warn { border-color: var(--star); color: var(--star); }
+.empty { padding: 60px 0; color: var(--muted); grid-column: 1 / -1; }
+
+.chapters { display: grid; gap: 36px; padding-block: 18px; }
+.chapter h2 { font: 700 22px var(--display); margin: 0 0 12px; display: flex; gap: 12px; align-items: baseline; }
+.chapter h2 span { font: 12px var(--mono); color: var(--muted); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 12px; }
+.sw { border: 0; padding: 0; background: var(--sheet); cursor: pointer; text-align: left; display: grid; min-width: 0; }
+.sw i { display: block; height: 64px; }
+.sw span { padding: 7px 9px 9px; font-size: 12px; line-height: 1.35; }
+.sw span em { display: block; font: 11px var(--mono); font-style: normal; color: var(--muted); }
+
+dialog { border: 0; padding: 0; background: var(--sheet); color: var(--ink); width: min(980px, calc(100vw - 32px)); max-height: calc(100vh - 40px); }
+dialog::backdrop { background: rgba(10, 10, 10, .55); }
+.detail { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 28px; padding: 28px; }
+@media (max-width: 720px) { .detail { grid-template-columns: minmax(0, 1fr); padding: 18px; } .detail .poster { max-width: 320px; } }
+.detail .poster { cursor: default; }
+.detail .poster:hover { transform: none; }
+.detail .poster .big { font-size: clamp(64px, 14vw, 104px); }
+.detail h2 { font: 800 34px/1 var(--display); margin: 0 0 4px; }
+.detail .sub { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
+.close { position: absolute; right: 12px; top: 10px; }
+table.cols { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+table.cols td, table.cols th { padding: 7px 8px 7px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+table.cols th { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+table.cols td.code { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align: middle; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.copyable { cursor: pointer; border: 0; background: none; padding: 0; font: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
+.tablewrap { overflow-x: auto; }
+.roles { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 16px 0; font-size: 13px; }
+.roles span b { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: block; }
+pre { background: var(--paper); padding: 12px 14px; font: 12px/1.6 var(--mono); overflow-x: auto; margin: 6px 0 0; white-space: pre; }
+.snip { margin-top: 14px; }
+.snip header { display: flex; justify-content: space-between; align-items: center; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 8px 16px; border-radius: 999px; font-size: 13px; z-index: 50; }
+footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; max-width: 80ch; }
+@media (prefers-reduced-motion: reduce) { .poster { transition: none; } .poster:hover { transform: none; } }
+</style>
+
+<header class="masthead">
+  <div>
+    <h1><small>UnDesigned · Colour system</small>Wada Palette Library</h1>
+    <p>Every combination from Sanzo Wada's <i>A Dictionary of Color Combinations</i> (1933), each shown as a small poster. Star the ones you like, then copy your shortlist to pick the brand palettes.</p>
+  </div>
+  <div class="counts"><span><b id="n-colors">159</b>colours</span><span><b id="n-combos">348</b>combinations</span><span><b id="n-shown">348</b>shown</span></div>
+</header>
+
+<div class="toolbar" role="toolbar" aria-label="Filters">
+  <span class="lbl">Colours</span>
+  <div class="seg" id="size-seg">
+    <button type="button" data-size="0" aria-pressed="true">All</button>
+    <button type="button" data-size="2" aria-pressed="false">2</button>
+    <button type="button" data-size="3" aria-pressed="false">3</button>
+    <button type="button" data-size="4" aria-pressed="false">4</button>
+  </div>
+  <span class="lbl">Background</span>
+  <div class="seg" id="mode-seg">
+    <button type="button" data-mode="light" aria-pressed="true">Lightest</button>
+    <button type="button" data-mode="dark" aria-pressed="false">Darkest</button>
+  </div>
+  <label class="search" for="q"><span class="lbl">Find</span><input id="q" type="search" placeholder="Number or colour name, e.g. 42 or sienna" autocomplete="off"></label>
+  <span id="color-filter"></span>
+  <button type="button" class="btn" id="only-starred" aria-pressed="false">★ Shortlist <span id="star-count">0</span></button>
+  <button type="button" class="btn primary" id="copy-list">Copy shortlist</button>
+</div>
+
+<nav class="tabs" role="tablist">
+  <button type="button" role="tab" id="tab-combos" aria-selected="true">Combinations</button>
+  <button type="button" role="tab" id="tab-colors" aria-selected="false">Colour index</button>
+</nav>
+
+<main>
+  <section id="view-combos" class="grid" aria-live="polite"></section>
+  <section id="view-colors" class="chapters" hidden></section>
+</main>
+
+<footer>
+  Colour names and CMYK values follow the Seigensha edition of Sanzo Wada's book. Screen colours are converted from CMYK and will differ slightly from print. Roles: <b>bg</b> is the lightest (or darkest) colour, <b>ink</b> the colour with the most contrast against it, <b>accent</b> the most saturated of the rest. When ink falls below 4.5:1, the badge marks it and <b>text</b> falls back to the book's Black or White.
+</footer>
+
+<dialog id="detail" aria-label="Combination details"></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const P = DATA.prefix;
+const byId = Object.fromEntries(DATA.colors.map(c => [c.id, c]));
+const state = { size: 0, mode: 'light', q: '', color: null, starredOnly: false, stars: new Set() };
+try { JSON.parse(localStorage.getItem('wada-stars') || '[]').forEach(n => state.stars.add(n)); } catch (e) {}
+const saveStars = () => { try { localStorage.setItem('wada-stars', JSON.stringify([...state.stars])); } catch (e) {} };
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+function toast(msg) {
+  const t = $('#toast'); t.textContent = msg; t.hidden = false;
+  clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), 1600);
+}
+function copy(text, label) {
+  const done = () => toast(label || 'Copied');
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
+  } else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch (e) { toast('Select the text and copy it'); }
+  ta.remove();
+}
+
+function posterHTML(c, mode, big) {
+  const r = c.roles[mode];
+  const h = id => byId[id].hex;
+  const style = `--p-bg:${h(r.bg)};--p-ink:${h(r.ink)};--p-accent:${h(r.accent)};--p-text:${h(r.text)}`;
+  const band = c.colors.map(id => `<span style="background:${h(id)}"></span>`).join('');
+  const tag = big ? `<span class="tag">${esc(byId[r.ink].name)} on ${esc(byId[r.bg].name)}</span>` : '';
+  return { style, inner: `<span class="no">NO. ${c.code}</span><span class="big">${c.code}</span><span class="disc"></span>${tag}<span class="band">${band}</span>` };
+}
+function badge(r) {
+  if (r.inkUse === 'body') return `<span class="badge" title="Ink on background: ${r.contrast.inkOnBg}:1">AA ${r.contrast.inkOnBg}</span>`;
+  if (r.inkUse === 'display') return `<span class="badge warn" title="Ink works for large type only">Large type ${r.contrast.inkOnBg}</span>`;
+  return `<span class="badge warn" title="Ink too faint for text; text uses fallback">Decor ${r.contrast.inkOnBg}</span>`;
+}
+
+function matches(c) {
+  if (state.size && c.size !== state.size) return false;
+  if (state.starredOnly && !state.stars.has(c.id)) return false;
+  if (state.color && !c.colors.includes(state.color)) return false;
+  const q = state.q.trim().toLowerCase();
+  if (!q) return true;
+  if (/^\d+$/.test(q)) return String(c.id).startsWith(String(parseInt(q, 10))) || c.code.includes(q);
+  return c.colors.some(id => byId[id].name.toLowerCase().includes(q));
+}
+
+function renderCombos() {
+  const list = DATA.combinations.filter(matches);
+  $('#n-shown').textContent = list.length;
+  const root = $('#view-combos');
+  if (!list.length) {
+    root.innerHTML = `<p class="empty">No combinations match. ${state.starredOnly ? 'Your shortlist is empty or filtered out; star a few cards first.' : 'Try a shorter colour name or clear the filters.'}</p>`;
+    return;
+  }
+  root.innerHTML = list.map(c => {
+    const { inner, style } = posterHTML(c, state.mode);
+    const r = c.roles[state.mode];
+    const names = c.colors.map(id => esc(byId[id].name)).join(' · ');
+    const on = state.stars.has(c.id);
+    return `<article class="card">
+      <button type="button" class="poster" style="${style}" data-open="${c.id}" aria-label="Open combination ${c.code}">${inner}</button>
+      <div class="meta"><div class="names"><b>No. ${c.code}</b> · ${names}<br>${badge(r)}</div>
+      <button type="button" class="star" data-star="${c.id}" aria-pressed="${on}" aria-label="Add ${c.code} to shortlist">${on ? '★' : '☆'}</button></div>
+    </article>`;
+  }).join('');
+}
+
+function renderColors() {
+  const chapters = [...new Set(DATA.colors.map(c => c.chapter))];
+  $('#view-colors').innerHTML = chapters.map(ch => {
+    const cs = DATA.colors.filter(c => c.chapter === ch);
+    return `<div class="chapter"><h2>Chapter ${ch} <span>${cs.length} colours</span></h2><div class="swatches">${
+      cs.map(c => `<button type="button" class="sw" data-color="${c.id}" aria-label="Show combinations with ${esc(c.name)}"><i style="background:${c.hex}"></i><span>${esc(c.name)}<em>${c.hex} · in ${c.combinations.length}</em></span></button>`).join('')
+    }</div></div>`;
+  }).join('');
+}
+
+function renderColorFilter() {
+  const el = $('#color-filter');
+  if (!state.color) { el.innerHTML = ''; return; }
+  const c = byId[state.color];
+  el.innerHTML = `<button type="button" class="chip" id="clear-color" aria-label="Remove colour filter"><i style="background:${c.hex}"></i>${esc(c.name)} ✕</button>`;
+}
+
+function snippets(c, mode) {
+  const r = c.roles[mode];
+  const lines = [['bg', r.bg], ['ink', r.ink], ['accent', r.accent], ['text', r.text], ...r.support.map((s, i) => ['support-' + (i + 1), s])];
+  return {
+    config: `"primary": { "combination": ${c.id}, "mode": "${mode}" }`,
+    html: `<link rel="stylesheet" href="dist/css/combinations.css">\n<section class="${P}-combo-${c.code}${mode === 'dark' ? ' ' + P + '-dark' : ''}"\n  style="background:var(--${P}-bg);color:var(--${P}-text)">\n  <h1 style="color:var(--${P}-ink)">Headline</h1>\n</section>`,
+    hex: lines.map(([k, id]) => `${k.padEnd(10)} ${byId[id].hex}  ${byId[id].name}`).join('\n'),
+  };
+}
+
+function openDetail(id, mode) {
+  const c = DATA.combinations.find(x => x.id === id);
+  mode = mode || state.mode;
+  const r = c.roles[mode];
+  const { inner, style } = posterHTML(c, mode, true);
+  const s = snippets(c, mode);
+  const roleRow = (k, cid) => `<span><b>${k}</b>${esc(byId[cid].name)}</span>`;
+  const rows = c.colors.map(cid => {
+    const x = byId[cid];
+    return `<tr><td><i style="background:${x.hex}"></i></td><td>${esc(x.name)}</td>
+      <td class="code"><button type="button" class="copyable" data-copy="${x.hex}">${x.hex}</button></td>
+      <td class="code">${x.rgb.join(' ')}</td><td class="code">${x.cmyk.join(' / ')}</td><td class="code">${x.chapter}</td></tr>`;
+  }).join('');
+  const on = state.stars.has(c.id);
+  const d = $('#detail');
+  d.innerHTML = `<div style="position:relative">
+    <button type="button" class="btn close" id="close-detail">Close</button>
+    <div class="detail">
+      <div class="poster" style="${style}">${inner}</div>
+      <div style="min-width:0">
+        <h2>No. ${c.code}</h2>
+        <p class="sub">${c.size} colours · ${badge(r)}</p>
+        <div class="seg" id="detail-mode">
+          <button type="button" data-dmode="light" aria-pressed="${mode === 'light'}">Lightest background</button>
+          <button type="button" data-dmode="dark" aria-pressed="${mode === 'dark'}">Darkest background</button>
+        </div>
+        <div class="roles">${roleRow('bg', r.bg)}${roleRow('ink', r.ink)}${roleRow('accent', r.accent)}${roleRow('text', r.text)}
+          <span><b>contrast</b>ink ${r.contrast.inkOnBg}:1 · accent ${r.contrast.accentOnBg}:1</span></div>
+        <div class="tablewrap"><table class="cols"><thead><tr><th></th><th>Name</th><th>Hex</th><th>RGB</th><th>CMYK (print)</th><th>Ch.</th></tr></thead><tbody>${rows}</tbody></table></div>
+        <div class="snip"><header>Use as brand palette (brand.config.json)<button type="button" class="btn" data-copy-snip="config">Copy</button></header><pre>${esc(s.config)}</pre></div>
+        <div class="snip"><header>Use in HTML<button type="button" class="btn" data-copy-snip="html">Copy</button></header><pre>${esc(s.html)}</pre></div>
+        <div class="snip"><header>Roles and hex<button type="button" class="btn" data-copy-snip="hex">Copy</button></header><pre>${esc(s.hex)}</pre></div>
+        <p style="margin-top:16px"><button type="button" class="btn ${on ? '' : 'primary'}" data-star="${c.id}" aria-pressed="${on}">${on ? '★ In shortlist' : '☆ Add to shortlist'}</button></p>
+      </div>
+    </div></div>`;
+  d.dataset.id = id; d.dataset.mode = mode; d._snips = s;
+  if (!d.open) d.showModal();
+}
+
+function toggleStar(id) {
+  state.stars.has(id) ? state.stars.delete(id) : state.stars.add(id);
+  saveStars(); $('#star-count').textContent = state.stars.size; renderCombos();
+  const d = $('#detail'); if (d.open && +d.dataset.id === id) openDetail(id, d.dataset.mode);
+}
+
+function setTab(which) {
+  $('#tab-combos').setAttribute('aria-selected', which === 'combos');
+  $('#tab-colors').setAttribute('aria-selected', which === 'colors');
+  $('#view-combos').hidden = which !== 'combos';
+  $('#view-colors').hidden = which !== 'colors';
+}
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.size !== undefined) {
+    state.size = +t.dataset.size;
+    document.querySelectorAll('#size-seg button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderCombos();
+  } else if (t.dataset.mode) {
+    state.mode = t.dataset.mode;
+    document.querySelectorAll('#mode-seg button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderCombos();
+  } else if (t.dataset.open) openDetail(+t.dataset.open);
+  else if (t.dataset.star) toggleStar(+t.dataset.star);
+  else if (t.dataset.dmode) openDetail(+$('#detail').dataset.id, t.dataset.dmode);
+  else if (t.dataset.copy) copy(t.dataset.copy, 'Copied ' + t.dataset.copy);
+  else if (t.dataset.copySnip) copy($('#detail')._snips[t.dataset.copySnip]);
+  else if (t.dataset.color) { state.color = t.dataset.color; renderColorFilter(); setTab('combos'); renderCombos(); window.scrollTo({ top: 0 }); }
+  else if (t.id === 'clear-color') { state.color = null; renderColorFilter(); renderCombos(); }
+  else if (t.id === 'close-detail') $('#detail').close();
+  else if (t.id === 'only-starred') { state.starredOnly = !state.starredOnly; t.setAttribute('aria-pressed', state.starredOnly); t.classList.toggle('primary', state.starredOnly); renderCombos(); }
+  else if (t.id === 'copy-list') {
+    if (!state.stars.size) { toast('Star some combinations first'); return; }
+    const ids = [...state.stars].sort((a, b) => a - b);
+    copy('My Wada shortlist: ' + ids.map(n => String(n).padStart(3, '0')).join(', '), 'Shortlist copied');
+  }
+  else if (t.id === 'tab-combos') setTab('combos');
+  else if (t.id === 'tab-colors') setTab('colors');
+});
+$('#detail').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+$('#q').addEventListener('input', e => { state.q = e.target.value; renderCombos(); });
+
+$('#n-colors').textContent = DATA.colors.length;
+$('#n-combos').textContent = DATA.combinations.length;
+$('#star-count').textContent = state.stars.size;
+renderCombos(); renderColors();
+</script>

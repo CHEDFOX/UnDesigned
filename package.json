@@ -1,0 +1,14 @@
+{
+  "name": "undesigned",
+  "version": "0.1.0",
+  "private": true,
+  "description": "UnDesigned design system: tokens, exports and templates for marketing and posters.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-colors.mjs",
+    "build:colors": "node scripts/build-colors.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
