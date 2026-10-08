@@ -1,0 +1,255 @@
+{
+  "$comment": "Rad Dog / Neon Surf art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages. Colours are roles only; hex values always come from the product's Wada combination. Values marked 'rule of thumb' are our reading of 1980s-90s surf and skate graphics, not measured from a corpus.",
+
+  "line": {
+    "$comment": "The outline: a fat, even black line around every drawn shape, like a technical pen or brush outline on a screen-printed deck.",
+    "width": 6,
+    "widthSmall": 3.5,
+    "widthPct": 1.5,
+    "detailPct": 0.9,
+    "typeOutlinePct": 2.4,
+    "cap": "round",
+    "join": "round",
+    "wobble": 0,
+    "continuity": "Every shape is closed and outlined. Shapes that touch share one fused outline (draw all ink outlines first, then all fills on top).",
+    "terminals": "Round ends on open strokes (tails, motion lines, squiggles).",
+    "rules": [
+      "One outline weight per piece for silhouettes; interior details (mouth, fur, wave lines) at about 60% of it.",
+      "Outlines are always ink (Wada Black). Never coloured, grey or dashed.",
+      "No sketchy, broken or hairline strokes: the line should look inked and confident.",
+      "Line weight is fixed per artboard: do not scale strokes with the objects."
+    ]
+  },
+
+  "shape": {
+    "$comment": "Cartoon shapes: chunky, rounded, closed, readable as silhouettes.",
+    "mode": "cartoon",
+    "character": {
+      "$comment": "Proportions for mascots and characters. Rule of thumb from 1980s surfwear mascots.",
+      "headToBody": [0.8, 1.2],
+      "headHeightsTall": [2, 2.5],
+      "headShare": "The head is 40-50% of the character's total height.",
+      "eyes": "Big eyes or, as the signature, solid black shades with one white glint stroke.",
+      "limbs": "Rounded ellipses or tubes with no elbows or knees drawn; paws and hands as mittens with 3-4 fingers.",
+      "pose": "Leaning into the diagonal of the piece (10-20 degrees), mid-action: riding, skating, jumping, falling off.",
+      "expression": "One clear feeling: cool, stoked or wiped out. Tongue out, grin or open mouth."
+    },
+    "blob": {
+      "points": [8, 12],
+      "irregularity": { "splatCore": [0.25, 0.5], "foam": [0.1, 0.2] },
+      "smoothing": "Closed Catmull-Rom curve through the points (tension 0.5)."
+    },
+    "cornerRadius": { "pct": [25, 50], "minUnits": 6 },
+    "points": "Points are allowed on Memphis confetti (triangles, zigzags), starbursts and splatter drips; everything that is a character or object is rounded.",
+    "rules": [
+      "Every object is a closed, outlined shape with a flat fill.",
+      "The character's fill is paper (Wada White) or the combination's lightest colour, so it pops from the ground.",
+      "No realistic anatomy, no rendered volume; a single flat highlight stroke is the only modelling."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Rounded, chunky corners for layout and UI around the art. Pixels at 1x for screens.",
+    "scale": { "xs": 6, "sm": 10, "md": 16, "lg": 24, "xl": 32, "pill": 999 },
+    "use": {
+      "button": "pill, with ink outline and a hard ink block shadow",
+      "chip / sticker": "pill or lg, rotated -6 to 6 degrees",
+      "input": "sm, ink outline 2px",
+      "card": "lg, ink outline, hard block shadow",
+      "image": "lg with an ink outline, or a die-cut sticker shape with a fat white border"
+    },
+    "nested": "An inner radius is the outer radius minus the padding between them.",
+    "print": "On posters, sticker corners are 25-50% of the sticker's short side."
+  },
+
+  "blockShadow": {
+    "$comment": "The hard, offset ink shadow used on type, stickers and UI. It is a flat second shape, not a blurred shadow.",
+    "offsetPct": [1, 1.5],
+    "angleDeg": 50,
+    "colour": "ink",
+    "blur": 0,
+    "use": "Headline lettering, stickers, buttons, cards. Not on the illustration itself (the outline already separates it)."
+  },
+
+  "diagonals": {
+    "$comment": "Angles in degrees, negative = rising left to right. Rule of thumb.",
+    "headline": [-8, -4],
+    "stickers": [-8, 8],
+    "patternBands": [-15, -10],
+    "characterLean": [10, 20],
+    "maxAnglesPerPiece": 2,
+    "rule": "Pick one dominant direction (usually rising left to right) and keep the headline, pattern band and the character's motion on it. Stickers may counter-rotate by a few degrees for life."
+  },
+
+  "composition": {
+    "marginPct": 7,
+    "grid": "6 columns on posters, 12 on screen. Text stacks in the top 40%, the hero anchors to the bottom edge or bleeds off one edge.",
+    "heroSizePct": [30, 45],
+    "calmGroundMinPct": 25,
+    "maxElements": {
+      "hero": 1,
+      "patterns": 2,
+      "splatters": 3,
+      "confetti": 6,
+      "stickers": 3
+    },
+    "placements": [
+      { "id": "ride", "use": "Hero riding on a wave or band across the bottom half; headline stacked top-left on the tilt (the sample poster)." },
+      { "id": "badge", "use": "Hero inside a round or shield badge with the brand on a ribbon; square social posts and merch." },
+      { "id": "burst", "use": "Hero bursting out of a frame (a board, a TV, a sun) and breaking its outline; for launches." },
+      { "id": "pattern-field", "use": "Checkerboard or sunset stripes as a full background with one big sticker headline; for banners and thumbnails where there is no room for a character." }
+    ],
+    "pairing": "Picture and headline are a pair: the character acts out the benefit, the headline says the specific fact.",
+    "rules": [
+      "One focal point: the hero. Pattern sits behind it or around the edges.",
+      "Keep text off the busiest pattern; put it on calm ground or a sticker.",
+      "The brand sticker sits within one sticker-height of the headline."
+    ]
+  },
+
+  "pattern": {
+    "$comment": "The pattern vocabulary. Use at most two per piece (composition.maxElements.patterns).",
+    "checkerboard": { "cellPct": [4, 5], "rows": [1, 3], "colours": "ink and paper", "use": "A band on the dominant diagonal, a floor, a border.", "source": "Vans slip-on checkerboard, early 1980s" },
+    "sunsetStripes": { "count": [4, 7], "thicknessGrowth": "Stripes start at about 1% of the sun's diameter and grow by about 1% each, lower stripes thicker.", "use": "Cuts in the lower half of a sun disc, in the ground colour." },
+    "memphisConfetti": { "pieces": ["zigzag", "triangle", "squiggle", "dot", "half-circle"], "count": [3, 6], "sizePct": [3, 8], "use": "Scattered in empty corners, never touching the headline.", "source": "Memphis Group, 1981-1987" },
+    "splatter": { "count": [1, 3], "sizePct": [4, 10], "droplets": [6, 12], "drips": [1, 3], "use": "Paint flicks in accent or support colours near the hero or in a corner." },
+    "sprayStipple": { "dotUnits": [0.6, 1.8], "falloff": "Dense at the edge of the shape, fading out over 10% of the artboard.", "use": "Airbrush glow done with dots, around a sun or behind a character. Prints in one ink." },
+    "waveCurl": { "foamScallops": [7, 12], "innerLines": [2, 3], "use": "The signature landscape: a curling wave with scalloped white foam." },
+    "palm": { "fronds": [5, 7], "use": "Silhouette in ink at the frame edge, cropped. Optional; skip it when the piece already has two patterns." }
+  },
+
+  "sticker": {
+    "$comment": "Badges and stickers for brand, labels, prices and calls to action.",
+    "shapes": ["pill", "rounded rectangle", "ribbon with notched ends", "starburst (10-16 points)", "circle badge with ring text"],
+    "outlinePct": 1,
+    "borderWhitePct": [1.5, 2.5],
+    "rotationDeg": [-8, 8],
+    "maxWords": 5,
+    "rules": [
+      "Stickers carry the brand, a price, a date or a CTA. Never a paragraph.",
+      "A die-cut white border plus ink outline for photos and characters used as stickers.",
+      "At most three stickers per piece."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada combination; this style uses every colour of the combination, not just bg and accent.",
+    "roles": {
+      "ground": { "from": "combination bg (the hottest, lightest colour)", "areaPct": [40, 55] },
+      "sea": { "from": "combination support or ink colour (the coolest colour)", "areaPct": [15, 30] },
+      "paper": { "from": "Wada White", "areaPct": [8, 15], "use": "Character fill, foam, stickers." },
+      "ink": { "from": "Wada Black", "areaPct": [10, 18], "use": "Every outline, checkerboard, block shadows, text ribbons." },
+      "accent": { "from": "combination accent", "areaPct": [3, 10], "use": "One or two hot details: the board, the sun, the tongue, a splatter." }
+    },
+    "method": [
+      "Start from the bright set in recommendedCombinations.",
+      "The ground is the lightest saturated colour (yellow, lemon, grenadine pink, orange yellow); text on it is ink.",
+      "The sea is the coolest colour (teal, sea green, peacock, cerulean, blue).",
+      "If the combination has only two colours, add black and white only; do not borrow a third colour.",
+      "Check text contrast: headline in paper with an ink outline always passes; body text is ink on the ground or paper on an ink ribbon.",
+      "Dark mode: ink ground, the combination's colours on characters and type, paper for outlines only on small UI."
+    ],
+    "airbrush": {
+      "allowed": "One linear fade per piece, on the sun or sky only, between two colours of the same combination; or spray stipple instead (prints in one ink).",
+      "maxAreaPct": 20,
+      "never": "Fades on type, glows, blurred shadows, rainbow gradients."
+    },
+    "recommendedCombinations": [
+      { "id": 240, "colors": ["Fresh Color", "Yellow", "Cerulian Blue"], "why": "The flagship: Wada's purest yellow ground, a coral sun and a surf-blue sea. AA for black text (15.9:1)." },
+      { "id": 21, "colors": ["Grenadine Pink", "Sea Green"], "why": "The classic 1980s hot pink and teal pair, close to fluorescent pink on turquoise. Black text 7.2:1." },
+      { "id": 313, "colors": ["Carmine", "Yellow", "Diamine Green", "Black"], "why": "Yellow and black sticker energy with a carmine hot spot; black is already in the combination." },
+      { "id": 62, "colors": ["Yellow", "Black"], "why": "The stripped-down version: yellow ground, black outline and checkerboard. Best for stickers and small formats." },
+      { "id": 154, "colors": ["Carmine", "Yellow", "Blue"], "why": "Primary pop for skate-deck energy: red board, yellow ground, blue sea." },
+      { "id": 112, "colors": ["Grenadine Pink", "Black"], "why": "Pink ground with black graphics: the loudest two-colour print, cheap to screen-print." },
+      { "id": 144, "colors": ["Rosolanc Purple", "Orange", "Black"], "why": "Sunset magenta and orange on black: the dusk and night-session variant." },
+      { "id": 340, "colors": ["Peach Red", "Sea Green", "Neutral Gray", "Black"], "why": "Hot orange-red and teal with grey; works in dark mode on a black ground." },
+      { "id": 315, "colors": ["Grenadine Pink", "Sulpher Yellow", "Golden Yellow", "Eupatorium Purple"], "why": "Pink, gold and purple: the sunset sky combination, softer for lifestyle products." },
+      { "id": 138, "colors": ["Golden Yellow", "Lemon Yellow", "Venice Green"], "why": "Lemon ground with a tropical aqua: the sunniest, friendliest option." },
+      { "id": 286, "colors": ["Burnt Sienna", "Orange Yellow", "Peacock Blue", "Violet Blue"], "why": "Orange-yellow ground with peacock sea; a warmer, slightly vintage 1970s-into-80s surf look." }
+    ],
+    "avoid": "Combinations whose brightest colour is a muted, olive or dark yellow (they read dirty at this saturation), and pastel-only combinations (they lose the energy).",
+    "extensions": [
+      {
+        "id": "fluorescent-spot",
+        "needsApproval": true,
+        "what": "Real fluorescent colour. No Wada colour (and no CMYK or sRGB colour) is fluorescent; neon surfwear used fluorescent pigments and Day-Glo-type spot inks.",
+        "print": "Pantone fluorescent spot inks from the 801-807 basic range (801 blue, 802 green, 803 yellow, 804 orange, 805 red, 806 pink, 807 magenta-violet; check names against a physical Pantone swatch book, sources disagree), or a printer with fluorescent pink and yellow channels. Use at most two fluorescent spots per piece, replacing the combination's hottest colours (ground and accent). Keep outlines in a standard black.",
+        "screen": "Screens cannot show fluorescence. On screen, map the fluorescent roles to the most saturated sRGB colours a product chooses (e.g. a 'screen neon' set for pink, green, yellow and cyan) and use them only for small highlights; the hex values would need adding to the product's palette and approving.",
+        "caveats": [
+          "Fluorescent inks fade in sunlight faster than process inks; not for long-life outdoor signage.",
+          "Proof physically: on-screen and PDF previews of fluorescent spots are simulations.",
+          "Fluorescent pink substituted for magenta cannot make deep reds; keep reds as standard inks."
+        ]
+      }
+    ],
+    "rules": [
+      "One combination per piece; use all of its colours, plus ink and paper.",
+      "No blurred shadows or glows; the only shadow is the hard block shadow.",
+      "Text colour on the ground uses ink, or paper with an ink outline."
+    ]
+  },
+
+  "texture": {
+    "sprayStipple": { "dotUnits": [0.6, 1.8], "maxAreaPct": 20, "use": "Airbrush effect around suns, characters and splats." },
+    "halftone": { "cell": 6, "dot": 2, "use": "Comic-book shading on a sky or wave face, in ink or the sea colour.", "maxAreaPct": 15 },
+    "grain": "Optional screen-print grain or slight misregistration (0.5-1% offset of the fill against the outline) on print and merch; never on UI."
+  },
+
+  "vocabulary": {
+    "$comment": "Symbols and what they usually say. Combine one from the product's world with one from the benefit, then hand it to the hero.",
+    "symbols": [
+      { "id": "dog-in-shades", "means": ["cool", "loyal", "fun", "easygoing"] },
+      { "id": "wave-curl", "means": ["energy", "the right moment", "momentum", "the sea"] },
+      { "id": "sunset-sun", "means": ["summer", "the end of a good day", "optimism", "time off"] },
+      { "id": "surfboard", "means": ["freedom", "skill", "balance", "getting started"] },
+      { "id": "skateboard", "means": ["city", "independence", "trying again"] },
+      { "id": "palm", "means": ["holiday", "warmth", "escape"] },
+      { "id": "checkerboard", "means": ["skate culture", "start line", "play"] },
+      { "id": "splatter", "means": ["making", "mess", "energy", "art"] },
+      { "id": "shades", "means": ["cool", "confidence", "summer"] },
+      { "id": "boombox", "means": ["music", "party", "volume"] },
+      { "id": "shaka-hand", "means": ["hang loose", "thanks", "all good"], "note": "Hawaiian gesture; use it as greeting, not as a costume." },
+      { "id": "starburst", "means": ["new", "price", "announcement"] },
+      { "id": "lightning", "means": ["speed", "power", "surprise"] },
+      { "id": "shark-fin", "means": ["danger", "a joke", "something lurking"] },
+      { "id": "flip-flop", "means": ["rest", "beach", "slowing down"] },
+      { "id": "cassette", "means": ["memory", "mixtape", "the 1980s"] }
+    ],
+    "avoid": [
+      { "symbol": "tiki idols and faux-Polynesian 'tribal' patterns", "for": "tropical", "why": "Sacred and cultural forms from Polynesian peoples used as decoration; caricature and appropriation (research.md 5)." },
+      { "symbol": "hula girl", "for": "Hawaii", "why": "A tourist caricature of Native Hawaiian culture, often sexualised." },
+      { "symbol": "bikini body close-ups", "for": "beach", "why": "1980s surf advertising cliché; objectifying and off-message." },
+      { "symbol": "Screaming Hand, Rude Dog or other existing mascots", "for": "the style", "why": "Trademarked characters; reference the attitude, never the character." },
+      { "symbol": "toxic slime and skulls", "for": "edge", "why": "Belongs to the neighbouring 'neon ooze' and skate-horror look; off-brand for most products." },
+      { "symbol": "fake slang in speech bubbles", "for": "fun", "why": "Reads as pastiche; the wit should be visual." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to find the one image: give the benefit to a character and make it a sight gag.",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "Pick the hero: the product's mascot, or an animal or object from the product's world that can wear shades.",
+      "Pick the action from the benefit (riding, catching, skating, jumping, falling and getting up).",
+      "Add one sight gag that makes it specific (the dog rides a croissant instead of a board; the wave is made of coffee).",
+      "Choose one setting device (wave, sun, checker band) and at most one more pattern.",
+      "Test: readable in 2 seconds without words? Would a competitor's ad use it? Is the joke on the situation, never on a culture or a person?"
+    ],
+    "examples": [
+      { "hero": "dog in shades", "action": "riding a wave", "idea": "the weekend starts here", "ref": "sample.mjs" },
+      { "hero": "coffee cup", "action": "surfing a wave of coffee", "idea": "morning energy" },
+      { "hero": "sneaker", "action": "skating a checkerboard ramp", "idea": "grip and style" },
+      { "hero": "sun", "action": "wearing shades and setting into the sea", "idea": "late opening hours" }
+    ]
+  },
+
+  "checklist": [
+    "One hero at 30-45% of the area; readable in 2 seconds without words.",
+    "Every shape outlined in ink at one weight (1.5% of the short side); type with outline and block shadow.",
+    "One dominant diagonal; at most two angles.",
+    "At most two patterns; at least 25% calm ground.",
+    "One Wada combination from the bright set, plus ink and paper; at most one airbrush fade.",
+    "Brand sticker next to the headline; text on calm ground or a sticker.",
+    "No faux-Polynesian motifs, no existing mascots, no fake slang."
+  ]
+}

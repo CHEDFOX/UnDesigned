@@ -1,0 +1,165 @@
+{
+  "$comment": "Rad Dog / Neon Surf type direction. Fonts come from foundations/typography/source/pairings.json; this file says which suit this approach and how to set them, and proposes new Google Fonts pairings in the same schema. Designer credits for newPairings were checked against the google/fonts repository METADATA.pb files. Sizes are rules of thumb unless a source is given.",
+
+  "character": "Chunky, rounded, heavy display lettering that looks like a die-cut sticker or a brush-painted surf-shop sign: fat strokes, soft corners, a bit of bounce. Set big, tilted, outlined in ink with a hard block shadow. Body text is a sturdy, friendly sans that stays out of the way.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "weight": { "want": "Black or ultra-bold display (stems 15-20% of the cap height)", "why": "Survives a thick ink outline and block shadow and holds its own next to loud art." },
+    "terminals": { "want": "Rounded or soft brush ends", "why": "Matches the rounded cartoon shapes and the brush lettering of surf shops." },
+    "counters": { "want": "Open, generous counters", "why": "A 2.4% outline eats into counters; small counters fill in." },
+    "width": { "want": "Normal to slightly condensed", "why": "Big words fit across a poster on a tilt without shrinking." },
+    "rhythm": { "want": "A little bounce or irregularity", "why": "Feels hand-lettered and playful rather than corporate." },
+    "body": { "want": "Rounded or geometric-humanist sans, regular to medium", "why": "Readable on bright grounds and ink ribbons." },
+    "avoid": ["Light and thin weights", "High-contrast serifs and didones", "Hairline scripts", "Pixel or 'retro computer' fonts (a different 1980s)", "Chrome-gradient effects applied to body text"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach.",
+    "nunito": { "fit": "core", "why": "Nunito 800 has rounded terminals and enough weight for outlined sticker lettering; Nunito Sans is a calm body. The closest existing pairing to the style." },
+    "bricolage-figtree": { "fit": "good", "why": "Bricolage Grotesque 800 at its tightest width is chunky and quirky enough for stickers; Figtree is an easy body on bright grounds." },
+    "young-onest": { "fit": "good", "why": "Young Serif is a chunky, soft serif that recalls 1970s-80s surf-shop signs; use it heavy and outlined. Onest is a good body." },
+    "fraunces-commissioner": { "fit": "accent", "why": "Fraunces Black with its 'wonky' soft forms can do a retro-groovy 1970s surf look; use for a vintage variant only." },
+    "schibsted": { "fit": "accent", "why": "Schibsted Grotesk Black works as a plain, tough skate label; too neutral for headlines in this style." },
+    "source": { "fit": "avoid", "why": "Calm and bookish; disappears next to loud art." },
+    "instrument": { "fit": "avoid", "why": "Condensed high-contrast serif: elegant, the opposite of chunky; hairlines fill in under an outline." },
+    "alegreya": { "fit": "avoid", "why": "Literary calligraphic forms clash with cartoon art." },
+    "plex": { "fit": "avoid", "why": "Engineered and technical; reads as a different decade and attitude." }
+  },
+
+  "newPairings": [
+    {
+      "id": "titan-rubik",
+      "name": "Surf Shop",
+      "mood": "Fat, brush-born display letters like a hand-painted board-shop sign, over a rounded, friendly sans. The default for this approach.",
+      "bestFor": "Posters, merch, social, packaging for playful consumer brands.",
+      "display": {
+        "family": "Titan One",
+        "weights": [400],
+        "style": "Heavy rounded display inspired by broad-brush lettering",
+        "case": "Sentence case; capitals for 1-3 word stickers",
+        "tracking": 0,
+        "leading": 0.98,
+        "designer": "Rodrigo Fuenzalida",
+        "classification": "Display (heavy rounded)",
+        "axes": [],
+        "notes": "One weight only. On Google Fonts since 2012."
+      },
+      "body": {
+        "family": "Rubik",
+        "weights": [400, 500, 700],
+        "style": "Sans with slightly rounded corners",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Hubert and Fischer (with Meir Sadan, Cyreal, Daniel Grumer, Omaima Dajani)",
+        "classification": "Rounded grotesque",
+        "axes": ["wght 300-900"]
+      },
+      "mono": { "family": "Space Mono", "weights": [400, 700] }
+    },
+    {
+      "id": "shrikhand-rubik",
+      "name": "Sticker Script",
+      "mood": "A bold, curvy, italic display with bounce, for slapped-on stickers and logotypes; the most 'rad' option. Use for headlines of five words or fewer.",
+      "bestFor": "Logotypes, stickers, short headlines, event posters.",
+      "display": {
+        "family": "Shrikhand",
+        "weights": [400],
+        "style": "Heavy, curvy italic display",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.0,
+        "designer": "Jonny Pinhorn",
+        "classification": "Display (heavy italic)",
+        "axes": [],
+        "notes": "Latin and Gujarati; drawn from hand-painted Gujarati street lettering. One weight. On Google Fonts since 2016. Respect its origin: do not use the Gujarati glyphs as decoration."
+      },
+      "body": {
+        "family": "Rubik",
+        "weights": [400, 500, 700],
+        "style": "Sans with slightly rounded corners",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Hubert and Fischer (with Meir Sadan, Cyreal, Daniel Grumer, Omaima Dajani)",
+        "classification": "Rounded grotesque",
+        "axes": ["wght 300-900"]
+      },
+      "mono": { "family": "Space Mono", "weights": [400, 700] }
+    },
+    {
+      "id": "lilita-nunito-sans",
+      "name": "Board Shorts",
+      "mood": "A sturdy, slightly condensed humanist display that fits long headlines on a tilt, with a soft, clear body. The calmest option for text-heavier work.",
+      "bestFor": "Web pages, banners, longer headlines, menus and price lists.",
+      "display": {
+        "family": "Lilita One",
+        "weights": [400],
+        "style": "Heavy, slightly condensed humanist display",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.0,
+        "designer": "Juan Montoreano",
+        "classification": "Display (condensed heavy)",
+        "axes": [],
+        "notes": "One weight. On Google Fonts since 2012."
+      },
+      "body": {
+        "family": "Nunito Sans",
+        "weights": [400, 600, 700],
+        "style": "Humanist-geometric sans",
+        "tracking": 0,
+        "leading": 1.55,
+        "designer": "Vernon Adams, Jacques Le Bailly, Manvel Shmavonyan, Alexei Vanyashin",
+        "classification": "Humanist-geometric sans",
+        "axes": ["wght 200-1000", "wdth 75-125", "opsz 6-12", "YTLC 440-540"]
+      },
+      "mono": { "family": "Space Mono", "weights": [400, 700] }
+    }
+  ],
+
+  "typeWithArt": {
+    "weightMatch": "Headline stems should be at least twice the art's outline width at headline size, so the type reads heavier than the drawing.",
+    "outline": "Headline outline 2.4% of the short side (drawn behind the fill with paint-order: stroke), plus a hard ink block shadow offset 1-1.5% down-right.",
+    "scaleMatch": "Headline cap height between 1/4 and 1/2 of the hero's height.",
+    "alignment": "Left-aligned stack on the dominant diagonal (-4 to -8 degrees). Stickers may be centred inside their shape.",
+    "spacing": "At least one outline width of clear ground between headline outline and any pattern."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb; bigger than humanist-minimal because the art is louder.",
+    "byFormat": {
+      "billboard": { "headlinePct": [12, 18], "body": "none" },
+      "poster": { "headlinePct": [5, 9], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [5, 9], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [4, 6], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [3, 5], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [6, 10], "bodyMinPx": 32 },
+      "story": { "headlinePct": [4, 6], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [5, 8], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [14, 22], "body": "none" },
+      "web-banner": { "headlinePct": [14, 22], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [48, 104], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [32, 48], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+  },
+
+  "setting": {
+    "measure": { "chars": [35, 60], "ideal": 50, "source": "Shorter than Bringhurst's 45-75 because body sits on bright grounds and ribbons; rule of thumb." },
+    "leading": { "display": [0.95, 1.05], "subhead": [1.15, 1.25], "body": [1.45, 1.6] },
+    "tracking": { "displayEm": [-0.01, 0.01], "bodyEm": 0, "smallEm": [0, 0.02], "labelCapsEm": [0.04, 0.08] },
+    "case": "Sentence case for headlines and body. Capitals allowed on stickers of one to three words.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rag": "Ragged right; no justified text; balance headline lines (text-wrap: balance) and keep 2-3 lines.",
+    "numbers": "Prices and dates go on a sticker in the display face; tabular data in the mono."
+  },
+
+  "rules": [
+    "Chunky, rounded display, big and tilted, with ink outline and block shadow.",
+    "Three sizes and two weights per piece.",
+    "Headline heavier than the art's outline.",
+    "Sentence case; capitals only on short stickers.",
+    "No thin weights, hairline serifs or handwriting fonts for body text."
+  ]
+}

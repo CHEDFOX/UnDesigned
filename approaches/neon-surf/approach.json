@@ -1,0 +1,138 @@
+{
+  "$comment": "Rad Dog / Neon Surf: principles and per-layer rules. The data lives beside this file: art.json (outline, shapes, patterns, stickers, diagonals, palette ratios, vocabulary), motion.json (springs, wiggles, loops), typography.json (type direction and fit), research.md (sources and reasoning), sample.mjs (a reference poster). Colours always come from the colour system; true fluorescent inks are a proposed extension that needs approval (art.json palette.extensions).",
+  "name": "Rad Dog / Neon Surf",
+  "summary": "Late-1980s and early-1990s surf and skate graphics: one bold, black-outlined cartoon character (often a dog with shades) riding a curling wave, a sunset sun, a checkerboard band and a splash of paint, set on a hot flat ground with chunky sticker lettering on a tilt. Loud, nostalgic and funny, but built around one hero and one diagonal so it still reads at a glance.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "NS1",
+      "title": "One rad hero",
+      "rule": "Every piece has one character or object that owns the frame (30-45% of the area): a mascot, a board, a wave, a product drawn as a cartoon. Patterns and splatter support it; they never compete with it.",
+      "source": "Rude Dog and Screaming Hand as single-character brands (research.md 2.1); low-complexity finding (research.md 3)"
+    },
+    {
+      "id": "NS2",
+      "title": "Fat black outline",
+      "rule": "Everything drawn gets the same heavy ink outline (1.5% of the short side), with rounded joins, plus a hard ink block shadow offset down-right. Outlines make loud colour readable: the black does the separating.",
+      "source": "Jim Phillips and 1980s deck graphics (research.md 2.1); fluency finding (research.md 3)"
+    },
+    {
+      "id": "NS3",
+      "title": "Hot ground, cold sea",
+      "rule": "Use the brightest Wada combinations: a hot ground (yellow, pink, orange) against a cool sea colour (teal, peacock, sea green), plus black and white. True fluorescent ink is an approved-only extension.",
+      "source": "Day-Glo and fluorescent surfwear (research.md 2.3); colour arousal (research.md 3)"
+    },
+    {
+      "id": "NS4",
+      "title": "Tilt it",
+      "rule": "One dominant diagonal per piece: headlines at -4 to -8 degrees, pattern bands at -10 to -15 degrees, rising left to right. Never more than two angles in one piece.",
+      "source": "Sticker and deck layouts (research.md 2.1); rule of thumb"
+    },
+    {
+      "id": "NS5",
+      "title": "A small pattern kit",
+      "rule": "Pick at most two from checkerboard, sunset stripes, Memphis confetti, splatter and spray stipple per piece. A calm area of plain ground of at least 25% stays free of pattern.",
+      "source": "Vans checkerboard and Memphis (research.md 2.2); simplicity finding (research.md 3)"
+    },
+    {
+      "id": "NS6",
+      "title": "Sticker logic",
+      "rule": "Brand, labels and small messages sit on stickers and badges: pills, ribbons, starbursts and rounded rectangles with an outline and a block shadow, slightly rotated. The brand sticker sits next to the headline.",
+      "source": "Skate-shop sticker culture (research.md 2.1)"
+    },
+    {
+      "id": "NS7",
+      "title": "Funny, not dumb",
+      "rule": "The attitude is a wink: a dog in shades, a wave with a grin, a sight gag. Copy stays plain and specific; the joke is in the picture. No fake slang ('totally tubular'), no exclamation marks.",
+      "source": "Mambo and Jim Phillips's sight gags (research.md 2.1); messaging playbook"
+    },
+    {
+      "id": "NS8",
+      "title": "Bouncy, then still",
+      "rule": "Things arrive with a springy overshoot and squash-and-stretch, loops wiggle and roll like water, and every loop ends on a still frame. Glitch and VHS jitter appear for at most 300 ms, once.",
+      "source": "motion.json; Designing Fluid Interfaces (research.md 3)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination per piece, chosen from the bright set in art.json. Its brightest colour is the ground, its cool colour the sea or second field, black ink for every outline and white paper for the character. One two-colour airbrush fade allowed, on the sun or sky only, between two colours of the same combination.",
+      "dont": "Mix combinations, use muddy or pastel-only combinations, tint the outline, add soft glows or drop shadows with blur, specify fluorescent Pantone inks without approval."
+    },
+    {
+      "layer": "Typography",
+      "do": "Chunky, rounded display faces (typography.json) set big and tilted, with a thick ink outline and a hard block shadow, like a die-cut sticker. Sentence case for headlines; capitals only on 1-3 word stickers. A plain, sturdy sans for body text.",
+      "dont": "Thin or light weights, high-contrast serifs, script or handwriting fonts for body, chrome effects with gradients and glints on screen text, more than three sizes."
+    },
+    {
+      "layer": "Layout",
+      "do": "One hero at 30-45% of the area, one dominant diagonal, text stacked top-left on the tilt, the brand sticker beside the headline, the art anchored to the bottom edge. Keep 25% or more as calm, unpatterned ground.",
+      "dont": "Pattern in every corner, three or more competing angles, text over the busiest part of the art, centred paragraphs."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Bold, outlined cartoon characters with big heads and simple rounded limbs; curling waves with scalloped foam; sunset suns with stripe cuts; checkerboards; splatter; spray stipple. Every shape is closed and outlined.",
+      "dont": "Thin or sketchy lines, realistic shading, photo textures, faux-Polynesian 'tribal' patterns, tiki idols, hula caricatures, sexualised beach clichés."
+    },
+    {
+      "layer": "Motion",
+      "do": "Bouncy springs for arriving, squash-and-stretch on landing, wiggles and looping waves at 2-3 s, one short VHS jitter as an accent (motion.json).",
+      "dont": "Constant glitching, strobing (more than 3 flashes per second), endless spinning, several characters moving at once, motion that never settles."
+    },
+    {
+      "layer": "Photography",
+      "do": "Real people surfing, skating and hanging out, cut out with a fat white sticker border and an ink outline, placed on a flat bright ground; or full-bleed shots with one bright graphic overlay.",
+      "dont": "Glossy stock lifestyle shots, heavy neon colour filters over faces, fake film burns, staged 'retro' costumes."
+    },
+    {
+      "layer": "Copy",
+      "do": "Short, plain and warm, to one person, with one specific fact. A little wit is welcome when it is the customer's, not the brand's.",
+      "dont": "Pastiche slang (rad, gnarly, tubular) in body copy, hype, exclamation marks, jokes that need explaining."
+    }
+  ],
+  "evidence": {
+    "scores": {
+      "curves": 1,
+      "simplicity": 0,
+      "maya": 2,
+      "nature": 1,
+      "handmade": 1,
+      "colour": 1,
+      "glance": 1
+    },
+    "total": 7,
+    "max": 14,
+    "notes": {
+      "curves": "Rounded cartoon outlines, curling waves and blobs, but the genre also relies on checkerboards, zigzags and triangles.",
+      "simplicity": "The genre is busy by nature (pattern, splatter, stickers); our caps (one hero, two patterns, 25% calm ground) reduce the damage but do not make it simple.",
+      "maya": "A highly familiar visual genre for anyone who saw 1980s-90s surf, skate or Saturday-morning culture, refreshed with one new idea per piece.",
+      "nature": "Waves, sun and palms are natural motifs and spray stipple adds mid-range texture, but all are heavily stylised and flat.",
+      "handmade": "Inked outlines, airbrush and splatter read as made by hand, though most contemporary work is digital vector.",
+      "colour": "Saturated colours raise arousal and the cool sea colours are widely liked; hot yellows and oranges at full strength polarise, and dark or olive yellows must be avoided.",
+      "glance": "Fat black outlines and big type give strong figure-ground contrast, but surrounding pattern slows the first read unless the hero is clearly dominant."
+    },
+    "beyondPreference": [
+      {
+        "win": "Attention and arousal",
+        "detail": "Saturation is the strongest colour driver of arousal (Valdez & Mehrabian 1994; Wilms & Oberfeld 2018). In a crowded feed or a beach-shop wall, a high-arousal piece is noticed first.",
+        "sources": ["Valdez & Mehrabian (1994), Journal of Experimental Psychology: General 123(4)", "Wilms & Oberfeld (2018), Psychological Research 82"]
+      },
+      {
+        "win": "Nostalgia",
+        "detail": "Nostalgia made people less attached to money and more willing to pay for products across six experiments, explained partly by social connectedness (Lasaleta, Sedikides & Vohs 2014). Tastes formed in adolescence and early adulthood stay preferred later in life (Holbrook & Schindler 1989; replications put the peak at about 14-17 years). For audiences born roughly 1970-1990, this genre is that formative look.",
+        "sources": ["Lasaleta, Sedikides & Vohs (2014), Journal of Consumer Research 41(3)", "Holbrook & Schindler (1989), Journal of Consumer Research 16(1)"]
+      },
+      {
+        "win": "Distinctiveness and memorability",
+        "detail": "A recurring character and a fixed set of graphic devices can become distinctive brand assets when used consistently (Romaniuk 2018). Rude Dog and the Screaming Hand show how one character can carry a brand for decades. Items that stand out from their surroundings are remembered better (the isolation or von Restorff effect; Hunt 1995).",
+        "sources": ["Romaniuk (2018), Building Distinctive Brand Assets, Oxford University Press", "Hunt (1995), Psychonomic Bulletin & Review 2(1)"]
+      },
+      {
+        "win": "Cultural meaning",
+        "detail": "The look signals youth, play, summer and a do-it-yourself attitude to people who know surf and skate culture, and it reads as 'fun' to people who do not.",
+        "sources": ["research.md 2"]
+      }
+    ]
+  },
+  "references": []
+}

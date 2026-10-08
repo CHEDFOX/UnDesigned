@@ -1,0 +1,65 @@
+{
+  "$comment": "Rad Dog / Neon Surf motion data: bouncy, cartoony, physical. Springs use the same schema as humanist-minimal (stiffness k, damping c, mass m; damping ratio = c / (2 * sqrt(k * m)), below 1 overshoots). Timings are rules of thumb drawn from classic animation principles (squash and stretch, anticipation, overlapping action) and checked by eye at 60 fps; they are not measured from a reference set.",
+
+  "character": "Bouncy and cartoony: things land with a squash, overshoot and wobble before they settle, waves roll on a loop, and the mascot gets one small beat (a wink, a shades-glint, a tongue flap). Lively, never frantic: one thing moves at a time and every loop ends on a still frame.",
+
+  "springs": {
+    "boing": { "stiffness": 380, "damping": 14, "mass": 1, "use": "Stickers, badges and the headline arriving: about 35% overshoot, one visible bounce." },
+    "bouncy": { "stiffness": 260, "damping": 16, "mass": 1, "use": "Characters and objects popping in: about 25% overshoot." },
+    "wobble": { "stiffness": 500, "damping": 10, "mass": 1, "use": "Jelly wobble after a landing (scale or skew), 3-4 visible oscillations." },
+    "snappy": { "stiffness": 420, "damping": 30, "mass": 1, "use": "UI feedback: buttons pressing into their block shadow and popping back. Little overshoot." },
+    "drift": { "stiffness": 80, "damping": 12, "mass": 1, "use": "Big slow moves: a wave or sun sliding into place." }
+  },
+
+  "easings": {
+    "roll": { "css": "cubic-bezier(0.37, 0, 0.63, 1)", "use": "Sine-like loops: waves rolling, palms swaying, a board bobbing." },
+    "anticipate": { "css": "cubic-bezier(0.36, 0, 0.66, -0.56)", "use": "A small wind-up before a jump or exit (goes backwards first)." },
+    "overshoot": { "css": "cubic-bezier(0.34, 1.8, 0.64, 1)", "use": "Fallback for boing/bouncy springs where linear() is not supported." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Things leaving: accelerate away, often after an anticipate." },
+    "steps": { "css": "steps(3, end)", "use": "VHS jitter and boil: hold-frame jumps, never smooth." }
+  },
+
+  "moves": {
+    "pop": { "spring": "bouncy", "from": "scale 0 -> 1", "use": "Characters, splats and confetti appearing." },
+    "slap": { "spring": "boing", "from": "scale 1.4, rotate +8deg -> 1, sticker angle", "use": "A sticker slapped onto the page." },
+    "squash": { "duration": 180, "scale": "x 1.18, y 0.82 on contact, then the wobble spring back to 1", "use": "Landing: a character or board hitting the ground or the wave." },
+    "stretch": { "duration": 140, "scale": "x 0.88, y 1.14", "use": "Take-off before a jump, after a 100 ms anticipate." },
+    "wiggle": { "duration": 600, "rotate": [-6, 6], "cycles": 3, "easing": "roll", "use": "A character or sticker saying 'look at me' once; or a CTA after 4 s idle." },
+    "rollWave": { "duration": 2400, "easing": "roll", "distancePct": 2, "use": "The wave face shifting and foam scallops rising and falling, looping." },
+    "bob": { "duration": 1600, "easing": "roll", "distancePct": 1.5, "rotate": [-3, 3], "use": "A rider bobbing on the board, looping." },
+    "drawOn": { "duration": 500, "easing": "cubic-bezier(0.65, 0, 0.35, 1)", "use": "Outlines drawing on before the fills pop (optional intro)." },
+    "splat": { "duration": 220, "use": "Splatter core scales from 0 with the boing spring, droplets follow 40 ms apart." },
+    "sprayIn": { "duration": 700, "use": "Spray stipple dots appear in a random but seeded order." },
+    "glint": { "duration": 240, "every": 3000, "use": "A white glint sliding across the shades or a sticker." },
+    "boil": { "duration": 125, "use": "Hand-drawn line boil: alternate 2-3 slightly different outlines at 8 fps. Accent only, e.g. a title card." },
+    "vhsJitter": { "duration": 300, "offsetPct": 1.5, "steps": 3, "use": "Horizontal jitter and colour-channel split on one element, once, for a retro beat. Never on body text; never repeated more than once per 5 s." }
+  },
+
+  "durations": {
+    "$comment": "Snappier than humanist-minimal: cartoons read fast. Rule of thumb.",
+    "minMs": 120,
+    "maxMs": 700,
+    "formula": "duration = 180 ms + 0.3 ms per pixel travelled (capped at 700 ms)",
+    "byElement": { "icon": 150, "button": 180, "sticker": 300, "card": 320, "character": 450, "fullScreen": 600 }
+  },
+
+  "choreography": {
+    "order": ["ground", "pattern band (slides in on its diagonal)", "wave or setting (drift)", "hero (pop + squash)", "splatter and confetti (splat, staggered)", "headline sticker (slap)", "brand sticker and CTA (slap)"],
+    "stagger": 60,
+    "overlapPct": 25,
+    "settleBeforeText": "Text slaps on when the hero has landed (after its squash), so the joke reads first.",
+    "maxMovingThings": 1,
+    "loop": { "lengthMs": [2000, 3000], "endsOn": "A still frame that works as a poster on its own: hero settled, wave at rest." },
+    "hold": 600
+  },
+
+  "rules": [
+    "Springs with overshoot for arriving, sine loops for water, anticipation and acceleration for leaving.",
+    "Squash and stretch keep the area roughly constant (x * y between 0.95 and 1.05).",
+    "One thing loops at a time: usually the wave or the rider's bob.",
+    "VHS jitter and line boil are seasoning: one short burst, never continuous, never on text people need to read.",
+    "No flashing faster than 3 times per second (WCAG 2.3.1) and no full-screen colour strobes.",
+    "Text may slap and wiggle once on arrival; it never loops.",
+    "With reduced motion: show the final frame; loops, wiggles, boil and jitter stop."
+  ]
+}
