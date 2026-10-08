@@ -1,0 +1,64 @@
+{
+  "$comment": "Desi Maximalism motion data: celebratory but controlled. Same spring schema as humanist-minimal (stiffness k, damping c, mass m; damping ratio = c / (2 * sqrt(k * m))). Timings are rules of thumb for this style, not measured from references.",
+
+  "character": "Festive and rhythmic, like a garland in the breeze or a decorated truck catching the light: rings turn into place, pattern tiles in, mirrors glint. Everything arrives in order from the outside in, then the piece settles and holds still so the message can be read.",
+
+  "springs": {
+    "$comment": "Damped spring presets. Ring and garland springs are a little bouncier than humanist-minimal's, because the motion is celebratory.",
+    "settle": { "stiffness": 140, "damping": 22, "mass": 1, "use": "Default: text, panels, the cartouche. Barely any overshoot." },
+    "festive": { "stiffness": 220, "damping": 16, "mass": 1, "use": "Petals, beads and rosettes popping in; about 15% overshoot." },
+    "swing": { "stiffness": 80, "damping": 9, "mass": 1.2, "use": "Garlands (toran) and fringes (jhalar) settling after they drop in: two visible swings, then rest." },
+    "turn": { "stiffness": 60, "damping": 15, "mass": 1, "use": "Medallion rings rotating into their final angle." }
+  },
+
+  "easings": {
+    "reveal": { "css": "cubic-bezier(0.22, 1, 0.36, 1)", "use": "Rings and borders drawing on or rotating in: fast start, long gentle finish." },
+    "sway": { "css": "cubic-bezier(0.37, 0, 0.63, 1)", "use": "Sine-like loops: garland sway, slow ring drift, breathing." },
+    "glint": { "css": "cubic-bezier(0.4, 0, 0.2, 1)", "use": "A short flash across a mirror disc." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Things leaving: accelerate away, never spring." }
+  },
+
+  "moves": {
+    "border-draw": { "duration": 700, "easing": "reveal", "use": "The frame bands draw on from the four corners at once (symmetrical), outer band first." },
+    "bead-run": { "duration": 600, "stagger": 12, "use": "Beads and scallops pop along the border in both directions from the top centre." },
+    "mandala-reveal": { "spring": "turn", "rotateDeg": [-30, 0], "scale": [0.85, 1], "stagger": 90, "use": "Medallion rings appear from the centre out, each rotating from -30 deg (alternate rings from +30 deg) into place." },
+    "petal-pop": { "spring": "festive", "stagger": 18, "use": "Petals within a ring pop from scale 0 in rotation order." },
+    "rangoli-trace": { "duration": 900, "easing": "reveal", "use": "Kolam-like lines draw around their dot grid, all symmetric copies at once (needs pathLength=\"1\")." },
+    "tile-in": { "duration": 500, "stagger": 20, "use": "Field pattern (buti) appears row by row from the centre line outward, each motif popping with 'festive'." },
+    "garland-drop": { "spring": "swing", "distancePct": 4, "use": "The toran drops from above the frame and swings to rest." },
+    "garland-sway": { "duration": 3200, "easing": "sway", "rotateDeg": [-2, 2], "use": "Loop: the garland sways gently from its ends." },
+    "mirror-glint": { "duration": 360, "every": 2400, "easing": "glint", "use": "Loop: a paper glint mark sweeps across one mirror disc at a time, in sequence around a ring." },
+    "ring-drift": { "duration": 4000, "easing": "sway", "rotateDeg": [0, 4], "use": "Loop: one outer ring drifts back and forth by a few degrees; never a continuous spin." },
+    "headline-rise": { "spring": "settle", "distance": "0.4em", "use": "The headline rises into the cartouche after the art; it never moves again." },
+    "drop-line": { "duration": 240, "easing": "reveal", "use": "The flat ink drop line slides out from behind the headline by its offset." }
+  },
+
+  "durations": {
+    "$comment": "Rule of thumb. The full reveal of a poster is longer than in humanist-minimal because there are more layers.",
+    "minMs": 200,
+    "maxMs": 1200,
+    "fullRevealMs": [1800, 3000],
+    "byElement": { "bead": 200, "petal": 280, "ring": 600, "border": 700, "field": 900, "headline": 450 }
+  },
+
+  "choreography": {
+    "order": ["ground", "border (border-draw, bead-run)", "corners (petal-pop)", "toran (garland-drop)", "medallion (mandala-reveal)", "field (tile-in)", "cartouche and headline (headline-rise, drop-line)", "brand plate"],
+    "stagger": 40,
+    "overlapPct": 40,
+    "settleBeforeText": "The headline starts when the art is about 80% complete, and the art is fully still before the headline lands.",
+    "maxMovingThings": 1,
+    "symmetricMotion": "Symmetric parts move together (both halves, all copies in a ring), so motion keeps the symmetry.",
+    "loop": { "lengthMs": [2000, 4000], "endsOn": "The full still poster. Only one loop runs: garland-sway, mirror-glint or ring-drift." },
+    "hold": 1200
+  },
+
+  "rules": [
+    "Springs for arriving, sine curves for looping, acceleration for leaving.",
+    "Reveal from the outside in (frame, field, centre), and the message last.",
+    "Only one loop at a time; text never loops.",
+    "Rotations settle at their final angle; no continuous spinning (it reads as a loading icon and is hard to look at).",
+    "No flashing more than 3 times in any second (WCAG 2.3.1); a glint covers at most one mirror disc at a time.",
+    "No camera moves, zooms through the pattern or parallax beyond 1-2% of the artboard.",
+    "With reduced motion: show the final frame; all loops stop."
+  ]
+}

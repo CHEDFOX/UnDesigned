@@ -1,0 +1,199 @@
+{
+  "$comment": "Desi Maximalism type direction. Fonts come from foundations/typography/source/pairings.json plus the newPairings below (all Google Fonts, SIL Open Font License, credits checked against Google Fonts METADATA.pb files and the designers' pages; see research.md 2.3 and 7). Sizes are rules of thumb unless a source is given.",
+
+  "character": "Painted-signboard confidence: heavy or high-contrast display letters, often with a flat drop line, set big inside a framed cartouche. Latin and Indic scripts sit side by side as equals, each in a face designed for it. The body face is plain and very readable, because the surface around it is not.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "weight": { "want": "Heavy (700-900) or a high-contrast display cut", "why": "Must hold its own against dense pattern; sign painters and matchbox labels used bold, filled letters." },
+    "contrast": { "want": "High (didone-like) or strongly weighted", "why": "Echoes hand-painted cinema and shop lettering and 19th-century poster faces (Rozha One's Latin is drawn from them)." },
+    "scripts": { "want": "Latin plus Devanagari (and other Indic scripts where the audience needs them), designed together", "why": "Matched x-heights and weights let bilingual headlines sit as one block; system fallbacks break the rhythm." },
+    "conjuncts": { "want": "Full conjunct and ligature support", "why": "Hindi, Marathi and Nepali text needs them to be correct; missing conjuncts are errors, not style." },
+    "counters": { "want": "Open, generous", "why": "Survive outlines, drop lines and small sizes on busy grounds." },
+    "body": { "want": "Humanist or mono-linear sans with an Indic companion", "why": "Calm reading inside a loud piece." },
+    "avoid": [
+      "'Indian-style' Latin fonts that fake a headline bar or Devanagari strokes",
+      "Thin or light display weights",
+      "Handwriting and marker fonts (the hand lives in the painting)",
+      "Outline-only or 3D/bevel display effects",
+      "Any font without the conjuncts the text needs"
+    ]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach. None of the shared pairings supports an Indic script, so the core choices are the newPairings.",
+    "bricolage-figtree": { "fit": "good", "why": "Bricolage's heavy, slightly quirky display weights stand up to pattern; Latin-only, so pair with Mukta or Baloo 2 for Indic text." },
+    "young-onest": { "fit": "good", "why": "A heavy, soft serif that reads like painted sign lettering; Latin-only." },
+    "fraunces-commissioner": { "fit": "good", "why": "Fraunces at 800 has the bounce and weight of shop-sign lettering; keep WONK off; Latin-only." },
+    "instrument": { "fit": "accent", "why": "Condensed high-contrast serif suits fashion and editorial maximalism, but its single regular weight is light against dense pattern." },
+    "alegreya": { "fit": "accent", "why": "Calligraphic and literary; for storytelling pieces with a quieter border." },
+    "nunito": { "fit": "accent", "why": "Rounded and friendly for kids' or community work; looks soft next to heavy borders." },
+    "source": { "fit": "accent", "why": "Very readable for long text on pages in this style; too calm for display." },
+    "schibsted": { "fit": "avoid", "why": "Built for maximum restraint; disappears against ornament." },
+    "plex": { "fit": "avoid", "why": "Engineered and technical; at odds with festive, painted surfaces." },
+    "rozha-mukta": { "fit": "core", "why": "Signboard didone display with a matching Devanagari, over Ek Type's humanist Mukta. The default." },
+    "yatra-baloo": { "fit": "core", "why": "Railway-sign brush lettering over a rounded, warm body; the most hand-painted feel." },
+    "poppins-mukta": { "fit": "good", "why": "Geometric heavy weights for matchbox-label and modern pop pieces; Latin and Devanagari in nine weights." }
+  },
+
+  "newPairings": [
+    {
+      "id": "rozha-mukta",
+      "name": "Bazaar Signboard",
+      "mood": "Bold, high-contrast display letters like a hand-painted cinema hoarding or shop sign, with a calm humanist body. Latin and Devanagari designed to sit together.",
+      "bestFor": "Posters, packaging, food, fashion and cultural events in this style; bilingual Latin and Hindi or Marathi headlines.",
+      "display": {
+        "family": "Rozha One",
+        "weights": [400],
+        "style": "High-contrast didone display with Devanagari",
+        "case": "Sentence case",
+        "tracking": -0.01,
+        "leading": 1.0,
+        "designer": "Indian Type Foundry (Devanagari: Tim Donaldson and Jyotish Sonowal; Latin: Shiva Nallaperumal)",
+        "classification": "Display didone",
+        "axes": [],
+        "notes": "Single weight that is already heavy. Latin recalls 19th-century poster lettering. Very tall x-height; use at large sizes on screen. On Google Fonts since 2014."
+      },
+      "body": {
+        "family": "Mukta",
+        "weights": [400, 600, 700],
+        "style": "Humanist, mono-linear sans with Devanagari",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Ek Type (Girish Dalvi and Yashodeep Gholap)",
+        "classification": "Humanist sans",
+        "axes": [],
+        "notes": "Seven static weights (200-800). Sister families: Mukta Vaani (Gujarati), Mukta Mahee (Gurmukhi), Mukta Malar (Tamil)."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [400, 500]
+      }
+    },
+    {
+      "id": "yatra-baloo",
+      "name": "Painted Railway Sign",
+      "mood": "Brush-cut display letters from Mumbai's hand-painted railway signs over a rounded, friendly body. Warm, local, a little playful.",
+      "bestFor": "Street food, cafés, community events, kids and family brands, social posts.",
+      "display": {
+        "family": "Yatra One",
+        "weights": [400],
+        "style": "Heavy brush-cut display with Devanagari",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.05,
+        "designer": "Catherine Leigh Schmidt",
+        "classification": "Display (signpainting)",
+        "axes": [],
+        "notes": "Inspired by hand-painted Mumbai railway signs; the Latin borrows the Devanagari brush angle. Single weight. On Google Fonts since 2016."
+      },
+      "body": {
+        "family": "Baloo 2",
+        "weights": [400, 500, 700],
+        "style": "Rounded sans with Devanagari",
+        "tracking": 0,
+        "leading": 1.45,
+        "designer": "Ek Type",
+        "classification": "Rounded sans",
+        "axes": ["wght 400-800"],
+        "notes": "Variable weight. Sister families cover nine Indic scripts plus Arabic (Baloo Bhai 2, Baloo Paaji 2, Baloo Thambi 2, etc.)."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [400, 500]
+      }
+    },
+    {
+      "id": "poppins-mukta",
+      "name": "Matchbox Geometric",
+      "mood": "Heavy geometric letters like a modern matchbox or sticker label, with a humanist body for reading.",
+      "bestFor": "Apps, launches, fashion and music in a pop-maximal register; labels and stickers.",
+      "display": {
+        "family": "Poppins",
+        "weights": [700, 800],
+        "italic": true,
+        "style": "Geometric sans with Devanagari",
+        "case": "Sentence case",
+        "tracking": -0.02,
+        "leading": 1.0,
+        "designer": "Indian Type Foundry (Latin: Jonny Pinhorn; Devanagari: Ninad Kale)",
+        "classification": "Geometric sans",
+        "axes": [],
+        "notes": "Nine static weights with italics. One of the first Devanagari typefaces with a full range of weights. On Google Fonts since 2015."
+      },
+      "body": {
+        "family": "Mukta",
+        "weights": [400, 600],
+        "style": "Humanist, mono-linear sans with Devanagari",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Ek Type (Girish Dalvi and Yashodeep Gholap)",
+        "classification": "Humanist sans",
+        "axes": []
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [400, 500]
+      }
+    }
+  ],
+
+  "scripts": {
+    "$comment": "Mixing Latin and Indic scripts. Rules of thumb.",
+    "matching": "Match the visual size of the scripts, not the point size: Devanagari usually needs the same or a slightly larger size to look equal to the Latin x-height. Align on the Latin baseline; the Devanagari headline bar (shirorekha) should sit near the Latin x-height.",
+    "leading": "Devanagari needs more room for vowel signs above and below: add 10-20% leading over Latin-only settings.",
+    "order": "The audience's main language first and larger; the second script below, at the subhead size.",
+    "otherScripts": "Use a family with a matching sister for the audience's script: Mukta (Gujarati, Gurmukhi, Tamil), Baloo 2 (nine Indic scripts plus Arabic). For long Hindi text, Tiro Devanagari Hindi (Tiro Typeworks: John Hudson and Fiona Ross, with Paul Hanslow) is a literary serif option. For Urdu, choose a Nastaliq face with a fluent reader.",
+    "checks": [
+      "Every Indic line is written or reviewed by a fluent reader; never machine-translated.",
+      "Never use Indic letters as texture or pattern.",
+      "Test the conjuncts actually used, at the actual size."
+    ]
+  },
+
+  "typeWithArt": {
+    "weightMatch": "Headline stems at least as thick as the frame's major outline (about 1.25% of the short side), so the type holds against the border.",
+    "dropLine": "Optional signboard drop line: a flat copy of the headline in ink, offset down-right by about 3% of the font size. Flat, never blurred. Not on body text.",
+    "scaleMatch": "Headline block width 60-85% of the cartouche's inner width; the medallion stays larger than the headline block.",
+    "alignment": "Centre the headline inside a symmetrical cartouche; left-align body text and anything longer than 3 lines.",
+    "spacing": "Headline at least one band width from the cartouche frame; pattern stops 2% of the short side outside the cartouche."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb. Slightly larger than humanist-minimal, because the type competes with pattern.",
+    "byFormat": {
+      "billboard": { "headlinePct": [12, 18], "body": "none" },
+      "poster": { "headlinePct": [6, 9], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [6, 9], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [4, 6], "bodyMinPt": 10 },
+      "print-ad": { "headlinePct": [3, 5], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [6, 10], "bodyMinPx": 32 },
+      "story": { "headlinePct": [4, 6], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [5, 7], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [14, 20], "body": "none" },
+      "web-banner": { "headlinePct": [14, 22], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [44, 96], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [30, 44], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading, and more on patterned grounds."
+  },
+
+  "setting": {
+    "measure": { "chars": [40, 70], "ideal": 60, "source": "Bringhurst, The Elements of Typographic Style (45-75), narrowed slightly for busy pages (rule of thumb)" },
+    "leading": { "display": [0.95, 1.1], "subhead": [1.2, 1.35], "body": [1.45, 1.65], "devanagariExtra": [0.1, 0.2] },
+    "tracking": { "displayEm": [-0.02, 0], "bodyEm": 0, "smallEm": [0, 0.02], "labelCapsEm": [0.08, 0.14] },
+    "case": "Sentence case for headlines and body. Short labels and brand plates may be spaced capitals (1-3 words).",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rag": "Centred headlines balanced line by line (text-wrap: balance); body ragged right; no justified text.",
+    "numbers": "Prices and dates in the body face's bold (Mukta or Baloo 2 also carry Devanagari numerals); the mono only for codes."
+  },
+
+  "rules": [
+    "Bold or high-contrast display type in a framed, pattern-free cartouche.",
+    "Latin and Indic scripts from families designed together; Indic text checked by a fluent reader.",
+    "Three sizes and two weights per piece; sentence case.",
+    "A flat drop line is the only lettering effect; no outlines-only, bevels or shadows.",
+    "No fake 'Indian' Latin fonts and no script as texture."
+  ]
+}

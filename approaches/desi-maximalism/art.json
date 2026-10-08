@@ -1,0 +1,265 @@
+{
+  "$comment": "Desi Maximalism art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages. Colours are roles only; hex values always come from the product's Wada palette files. sample.mjs draws a poster that follows these numbers.",
+
+  "line": {
+    "$comment": "An even black outline around flat painted shapes, like a sign painter's keyline. Lighter than humanist-minimal's marker line, because there are many more shapes.",
+    "width": 3,
+    "widthSmall": 1.5,
+    "widthMajor": 5,
+    "widthPct": 0.75,
+    "cap": "round",
+    "join": "round",
+    "wobble": 0,
+    "use": "widthMajor for frame bands and the medallion's main rings; width for motifs; widthSmall for beads, stitches and fine rules.",
+    "rules": [
+      "Outline every coloured shape that touches another coloured shape; this keeps dense colour readable.",
+      "Ink is Wada Black. On a dark ground, lines that sit directly on the ground switch to a support colour or paper.",
+      "No calligraphic swelling in outlines; the variation lives in the shapes and the lettering."
+    ]
+  },
+
+  "shape": {
+    "$comment": "Painted ornament: petals, scallops, beads, teardrops. Drawn regular, because it repeats; the hand shows in the outline and the drop line, not in distortion.",
+    "mode": "ornamental",
+    "petal": { "lengthToWidth": [1.6, 4], "tip": "Pointed or softly rounded; a petal is two mirrored curves." },
+    "scallop": { "radiusPct": [1, 2], "spacing": "Scallop centres one diameter apart along the frame's inner edge, so the half-circles touch." },
+    "bead": { "radius": [2, 4], "spacing": [10, 14] },
+    "mirrorDisc": {
+      "radius": [5, 10],
+      "build": "Paper disc, ink ring at 25-30% of the radius, 8 short stitch spokes, one small glint mark in a support colour.",
+      "meaning": "Shisha mirror work: protection and shine. The only 'shine' in the style, and it is flat."
+    },
+    "paisley": { "build": "Teardrop whose tip curls over (boteh / ambi), always in mirrored pairs or in a repeat; inner contour and a disc in the belly." },
+    "cornerRadius": { "pct": [0, 6], "note": "Frames are square-cornered like truck panels and labels; cartouches and plates may be rounded (pill or 2-6%)." },
+    "rules": [
+      "Shapes repeat exactly within a ring, border or grid; vary colour, not form.",
+      "Alternate two colours around a ring (accent / support) for rhythm.",
+      "No 3D, bevels, chrome or emboss effects, even when referencing chrome truck trim."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Layout and UI around the art.",
+    "scale": { "xs": 2, "sm": 4, "md": 8, "lg": 14, "pill": 999 },
+    "use": {
+      "button": "pill, inside a 1-band frame",
+      "chip": "pill",
+      "input": "sm",
+      "card": "md, with a 2-band border",
+      "image": "square inside a decorated frame, or an arched top (round arch only)",
+      "headline cartouche": "md, with an optional raised centre crest"
+    },
+    "nested": "Each inner frame is inset by the band width; corner joins are covered by a rosette or a square tile."
+  },
+
+  "border": {
+    "$comment": "The nested frame (DM2). Listed from the outside in. Totals are % of the artboard's short side.",
+    "bands": [
+      { "id": "outer-band", "widthPct": [5, 7], "fill": "accent or a support colour", "carries": "bead chain: alternating paper dots and diamonds or flowers" },
+      { "id": "keyline", "widthPct": [0.5, 0.8], "fill": "ink" },
+      { "id": "scallop-edge", "widthPct": [1.5, 2], "fill": "support colour with ink outline", "carries": "half-discs pointing inward" },
+      { "id": "inner-rule", "widthPct": [0.4, 0.6], "fill": "ink, then an optional dotted rule in a second support colour" }
+    ],
+    "countRange": [3, 5],
+    "totalPct": [8, 14],
+    "corners": "A rosette (8 petals, 2 layers, mirror disc centre) or a square tile covers each corner join.",
+    "variants": [
+      { "id": "truck-panel", "use": "Posters and banners: wide outer band with a bead chain, scallops, keyline." },
+      { "id": "kinara", "use": "Textile-style border: a narrow repeating flower or leaf band between two rules." },
+      { "id": "label", "use": "Matchbox/label style for small formats: one heavy band, one rule, a name panel at the bottom." },
+      { "id": "toran", "use": "A hanging garland of leaves and marigold discs along the top edge, inside the frame." },
+      { "id": "jhalar", "use": "A fringe of small pennants or tassels hanging from a panel's bottom edge." }
+    ],
+    "rules": [
+      "Small formats (thumbnail, story stickers, favicon-size) use at most 2 bands.",
+      "Borders never cross text; text keeps at least one band width of space from the inner rule."
+    ]
+  },
+
+  "pattern": {
+    "$comment": "The field. Pattern fills space between frame and centre on a grid (block print) or in rings (rangoli, kolam).",
+    "coveragePct": [45, 70],
+    "scales": { "max": 3, "examples": ["border beads (small)", "field buti (small-medium)", "medallion rings (large)"] },
+    "repeat": {
+      "halfDrop": { "use": "Block-print field (Sanganer/Bagru buti)", "cell": [36, 48], "motif": [5, 9], "note": "Every other row shifts half a cell." },
+      "grid": { "use": "Kolam-like dot grids (pulli)", "dotStep": [10, 16], "dot": [1.5, 3] }
+    },
+    "density": {
+      "fieldMotifsPer100x100": [4, 8],
+      "fieldMotifCoveragePct": [6, 15],
+      "note": "Field pattern is small and spaced so the ground still reads as a colour; dense colour belongs to the border and medallion."
+    },
+    "clearZones": "Pattern stops at least 2% of the short side (8 units) from the headline cartouche, the brand plate and the medallion's edge.",
+    "rules": [
+      "Every repeat sits on a grid or in a ring; no scattered motifs.",
+      "Pattern never sits under body text or the headline.",
+      "Field motifs are lighter in colour weight than the medallion and border (smaller and fewer colours)."
+    ]
+  },
+
+  "symmetry": {
+    "$comment": "DM3. Pick one mode per piece.",
+    "modes": [
+      { "id": "bilateral", "use": "Default for posters, banners and pages: everything mirrors about the vertical centre line." },
+      { "id": "radial", "folds": [8, 12, 16, 32], "use": "Medallions, rosettes, logo badges, loaders. Rings alternate fold counts that divide each other (32 / 16 / 12 is fine; 12 inside 16 needs a plain ring between)." },
+      { "id": "translational", "use": "Fields and borders: block-print repeats and bead chains." }
+    ],
+    "breaks": "Only the message breaks symmetry: a left-aligned paragraph on a page, or a price flash. Never more than one break per piece."
+  },
+
+  "composition": {
+    "marginPct": 3,
+    "zones": {
+      "border": "8-14% of the short side on each edge",
+      "field": "the area between border and centre, patterned",
+      "centre": "one medallion or image (35-60% of the width) plus the headline cartouche"
+    },
+    "maxFocal": 1,
+    "emptyGroundPct": [10, 25],
+    "placements": [
+      { "id": "medallion-over-cartouche", "use": "Posters and stories: medallion in the upper half, headline cartouche below, brand plate at the bottom (sample.mjs)." },
+      { "id": "panel", "use": "Truck-panel layout: a framed picture panel in the centre with the headline in a band above or below." },
+      { "id": "label", "use": "Matchbox-label layout for square and small formats: one central image, heavy border, name panel at the bottom." },
+      { "id": "split", "use": "Web banners and landing heroes: decorated half (medallion, pattern) and a quiet half with left-aligned copy; the frame wraps both." }
+    ],
+    "pairing": "Image and headline are a pair: the medallion or picture sets the mood; the headline says the specific thing.",
+    "rules": [
+      "One focal element.",
+      "Centred text is allowed inside a symmetrical cartouche (up to 3 headline lines and 2 subhead lines); body paragraphs are left-aligned.",
+      "The brand sits on its own plate next to or below the headline, never inside the pattern."
+    ]
+  },
+
+  "hierarchy": {
+    "$comment": "DM4. The guards that keep the message readable on a crowded surface.",
+    "cartouche": {
+      "fill": "paper, or the plain ground",
+      "frame": "1-2 bands (ink keyline plus an inner accent rule)",
+      "paddingPct": [3, 5],
+      "pattern": "none inside"
+    },
+    "contrast": { "headlineMin": 4.5, "bodyMin": 4.5, "note": "Use the combination's text role; check with the colour system's contrast values." },
+    "headlineCapHeightPct": { "poster": [6, 9], "social": [6, 10] },
+    "squintTest": "Blur the piece (about 8 px at poster size): the medallion silhouette and the headline block must be the two darkest-contrast shapes, and the headline must still be findable.",
+    "glanceTest": "Shown for 1 second, a viewer names what the piece is about."
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada palette files.",
+    "roles": {
+      "ground": { "from": "combination bg", "areaPct": [30, 45] },
+      "accent": { "from": "combination accent", "areaPct": [12, 22], "limit": "Dominates one band or ring; repeats in small doses elsewhere." },
+      "support": { "from": "combination's other colours (and the bridge combination)", "areaPct": [15, 25] },
+      "paper": { "from": "Wada White", "areaPct": [8, 18], "note": "Cartouche, beads, mirror discs." },
+      "ink": { "from": "Wada Black", "areaPct": [6, 12] },
+      "kin": { "from": "one extra colour from the same Wada family as a combination colour, if needed", "areaPct": [0, 5] }
+    },
+    "method": [
+      "1. Pick one recommended combination as the base. Its bg is the ground; its accent dominates one band or ring; its other colours are supports.",
+      "2. For a richer look, add one bridge combination: another Wada combination that shares at least one colour with the base (pairs listed in 'bridges'). Its new colours join the supports. Never add a third combination.",
+      "3. Black ink and White paper are always available and count as colours; they are what make 6-7 colours read as one system.",
+      "4. Optional kin colour: one more colour from the same Wada family (colors.json → families) as a base colour, at 5% of the area or less, e.g. for a second ring. It must exist in the product's palette files.",
+      "5. Alternate colours around rings (accent / support) and along borders so every colour appears at least three times, spread symmetrically. A colour used once looks like a mistake.",
+      "6. Dark grounds (Deep Indigo, Deep Lyons Blue, Black, Red Violet) give the dabu / night-truck look: light colours on dark, ink outlines become paper or a support colour where they touch the ground."
+    ],
+    "recommendedCombinations": [
+      { "id": 154, "colors": ["Carmine", "Yellow", "Blue"], "why": "The truck-art and matchbox primary triad; yellow ground with carmine text passes body contrast." },
+      { "id": 313, "colors": ["Carmine", "Yellow", "Diamine Green", "Black"], "why": "Firework-label energy: red, yellow and green on black or yellow; bridges with 154." },
+      { "id": 164, "colors": ["Red Orange", "Orange Yellow", "Violet"], "why": "Marigold and violet; warm celebration with a dark text colour that passes body contrast." },
+      { "id": 170, "colors": ["Rosolanc Purple", "Orange Yellow", "Red Violet"], "why": "Pink-magenta with marigold, the cinema-poster and wedding palette; bridges with 164 through Orange Yellow." },
+      { "id": 247, "colors": ["Raw Sienna", "Apricot Yellow", "Benzol Green", "Deep Lyons Blue"], "why": "Block-print and indigo-dye feel; Deep Lyons Blue text passes body contrast on Apricot Yellow." },
+      { "id": 155, "colors": ["Jasper Red", "Benzol Green", "Deep Indigo"], "why": "Night-truck and dabu look on a Deep Indigo ground; bridges with 247 and 266 through Benzol Green." },
+      { "id": 266, "colors": ["Spectrum Red", "Ivory Buff", "Rainette Green", "Benzol Green"], "why": "Sanganer-style red and green buti on an ivory ground; text in black." },
+      { "id": 122, "colors": ["Carmine", "Cream Yellow", "Benzol Green"], "why": "Calendar-print warmth: carmine and teal on cream; text in black." },
+      { "id": 314, "colors": ["Eosine Pink", "Hay's Russet", "Deep Lyons Blue", "Dusky Madder Violet"], "why": "A pink-led palette for fashion and beauty; dark violet text passes body contrast." },
+      { "id": 257, "colors": ["Spectrum Red", "Orange Yellow", "Blue", "Aconite Violet"], "why": "Four saturated colours for the fullest maximal look; decorative ink, so text must be black or white." }
+    ],
+    "bridges": [
+      { "base": 154, "bridge": 313, "shared": ["Carmine", "Yellow"] },
+      { "base": 164, "bridge": 170, "shared": ["Orange Yellow"] },
+      { "base": 164, "bridge": 257, "shared": ["Orange Yellow"] },
+      { "base": 247, "bridge": 155, "shared": ["Benzol Green"] },
+      { "base": 266, "bridge": 122, "shared": ["Benzol Green"] },
+      { "base": 314, "bridge": 247, "shared": ["Deep Lyons Blue"] },
+      { "base": 257, "bridge": 154, "shared": ["Blue"] }
+    ],
+    "rules": [
+      "One base combination, at most one bridge combination; ink and paper.",
+      "No gradients, soft shadows, glows, metallic or neon effects. A flat offset drop line on lettering is allowed.",
+      "Headline and body text use the combination's text role on plain ground or paper (4.5:1 or more).",
+      "Avoid large Vandyke Brown, olive or khaki fields (colour-valence finding) unless the product's world makes them positive."
+    ]
+  },
+
+  "texture": {
+    "flat": "All colour is flat. The richness comes from count and arrangement, not from texture.",
+    "halftone": { "allowed": true, "use": "Only in matchbox/label-style pieces, as a single-colour dot tint inside one shape.", "maxAreaPct": 8 },
+    "printMisregistration": { "allowed": true, "offsetPct": [0.3, 0.8], "use": "Optional, for label and poster pieces: one colour layer offset slightly, as in cheap letterpress or litho. Same direction for the whole piece." },
+    "grain": "No grain, scratches or 'vintage' wear filters: they imitate age rather than craft."
+  },
+
+  "vocabulary": {
+    "$comment": "Ornaments with widely shared, everyday (non-sacred) meanings. Meanings vary by region and community; check with the audience. Combine one from the product's world with one from the benefit.",
+    "symbols": [
+      { "id": "marigold", "means": ["celebration", "welcome", "warmth"], "note": "Also used in worship; use as garland or flower, not on an altar." },
+      { "id": "mango-leaf", "means": ["welcome", "a new start", "home"], "note": "As a toran over a door or frame." },
+      { "id": "lotus", "means": ["purity", "beauty", "calm"], "note": "Common truck-art and textile motif; keep it botanical, never with a figure seated on it." },
+      { "id": "paisley", "means": ["growth", "abundance", "textile heritage"] },
+      { "id": "buti", "means": ["texture", "craft", "repeat"], "note": "Small block-print flower or leaf on a half-drop grid." },
+      { "id": "mirror-disc", "means": ["shine", "protection", "festivity"] },
+      { "id": "parrot", "means": ["love", "messages", "chatter"] },
+      { "id": "peacock", "means": ["beauty", "pride", "monsoon"] },
+      { "id": "elephant-procession", "means": ["occasion", "strength"], "note": "Only as a decorative procession or textile motif, never as shorthand for 'India'." },
+      { "id": "fish-pair", "means": ["luck", "plenty", "water"] },
+      { "id": "sun-rosette", "means": ["energy", "morning", "radiance"] },
+      { "id": "wave-border", "means": ["water", "journey", "flow"] },
+      { "id": "garland", "means": ["welcome", "honour", "celebration"] },
+      { "id": "kite", "means": ["freedom", "spring", "play"] },
+      { "id": "chai-glass", "means": ["pause", "hospitality", "street life"] },
+      { "id": "road-and-wheels", "means": ["journey", "delivery", "trade"], "note": "From truck art itself." },
+      { "id": "dot-grid", "means": ["order", "care", "daily practice"], "note": "Kolam-like geometry; not a copy of a ritual design." },
+      { "id": "scallop", "means": ["edge", "finish", "festivity"] }
+    ],
+    "avoid": [
+      { "symbol": "deities, saints and religious figures", "for": "decoration", "why": "Sacred to worshippers; Ravi Varma's prints and truck art use them devotionally, not decoratively." },
+      { "symbol": "Om, swastika (Hindu/Jain), Khanda, crescent and star, Arabic religious calligraphy, Ganesha", "for": "pattern or 'Indian feel'", "why": "Religious marks; the swastika is also widely misread outside South Asia." },
+      { "symbol": "temple, mosque or gurdwara silhouettes", "for": "skyline or 'place'", "why": "Places of worship, not scenery." },
+      { "symbol": "festival ritual designs (Diwali rangoli layouts, Eid moons) for unrelated products", "for": "seasonal sales", "why": "Turns a ritual into a promotion; work with the community if the product genuinely belongs to the festival." },
+      { "symbol": "bindi, tilak, turban, veil or henna on figures as decoration", "for": "character", "why": "Religious or personal markers become costume." },
+      { "symbol": "snake charmer, Taj Mahal, camel, sadhu", "for": "'India'", "why": "Tourist clichés that flatten a large and varied region into a costume." },
+      { "symbol": "copied truck slogans ('Horn OK Please') and drivers' couplets", "for": "copy", "why": "The drivers' and painters' own voice; borrowing it without context reads as pastiche." },
+      { "symbol": "fake Devanagari-style Latin lettering", "for": "headlines", "why": "Imitates a script as decoration; use a real Indic-supporting typeface instead." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to build a piece. Abundance is built in layers, from the outside in.",
+    "recipe": [
+      "Write the one message (W1). Choose the one focal element that carries it (a medallion, a product in a panel, a central image).",
+      "Pick the symmetry mode (bilateral, or radial for the focal element).",
+      "Pick a base Wada combination and, if needed, one bridge combination.",
+      "Build the border (3-5 bands, from art.json border), then the corners.",
+      "Place the headline cartouche and brand plate; mark their clear zones.",
+      "Build the focal element in rings from the vocabulary, alternating colours.",
+      "Fill the field with one half-drop or grid repeat, stopping at the clear zones.",
+      "Add one festive extra if it helps (toran on top, jhalar under the panel).",
+      "Run the squint test and the glance test (hierarchy); remove pattern until both pass."
+    ],
+    "examples": [
+      { "a": "sun-rosette", "b": "chai-glass", "idea": "the morning cup, celebrated" },
+      { "a": "mango-leaf toran", "b": "shop front panel", "idea": "a new shop opening, welcome" },
+      { "a": "paisley pair", "b": "fabric swatch panel", "idea": "a textile brand's new collection" },
+      { "a": "road-and-wheels border", "b": "parcel in a panel", "idea": "delivery that arrives with care" }
+    ]
+  },
+
+  "checklist": [
+    "Headline found in under 2 seconds from a framed, pattern-free cartouche.",
+    "One focal element; border, field and centre all present.",
+    "3-5 nested border bands, corners covered.",
+    "Bilateral or radial symmetry, broken only by the message.",
+    "Pattern on a grid or in rings, 3 scales at most, clear zones respected.",
+    "One base combination plus at most one bridge; ink and paper; flat colour.",
+    "Every motif from the vocabulary; no sacred symbols, no caricature; makers credited."
+  ]
+}

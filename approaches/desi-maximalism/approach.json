@@ -1,0 +1,128 @@
+{
+  "$comment": "Desi Maximalism: principles and per-layer rules. The data lives beside this file: art.json (borders, pattern, symmetry, palette ratios, ornament vocabulary, hierarchy guards), motion.json (springs, timings, choreography), typography.json (type direction, Latin + Indic scripts, fit), research.md (sources and reasoning), sample.mjs (a sample poster). Colours always come from the colour system.",
+  "name": "Desi Maximalism",
+  "summary": "Abundance as a design value, organised the way South Asian vernacular design organises it: frames inside frames, dense pattern on a grid, mirror or radial symmetry, many flat colours from one Wada system, ornament with meaning and bold painted lettering. A protected, framed message always reads first. Made with, and credited to, the communities whose crafts it draws on.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "DM1",
+      "title": "Abundance with order",
+      "rule": "Fill the surface, but always in three zones: border, field and centre. Pattern covers 45-70% of the area; nothing is placed loose. Organised complexity draws attention; clutter costs it.",
+      "source": "Pieters, Wedel & Batra 2010, design vs feature complexity (research.md 3)"
+    },
+    {
+      "id": "DM2",
+      "title": "Frames within frames",
+      "rule": "Every piece has a nested border of 3-5 bands (solid band, bead or motif chain, scallop edge, fine rule), 8-14% of the short side in total. Panels inside the field get their own 1-2 band frame.",
+      "source": "Truck-art panels, block-print kinara borders, matchbox labels (research.md 2.2)"
+    },
+    {
+      "id": "DM3",
+      "title": "Symmetry is the skeleton",
+      "rule": "Compose on a vertical mirror axis or around a radial centre (8, 12, 16 or 32-fold). Only the message may break symmetry, and only on purpose.",
+      "source": "Fluency: symmetry and repetition (Reber et al. 2004); kolam dot grids (research.md 2.2)"
+    },
+    {
+      "id": "DM4",
+      "title": "The message still wins",
+      "rule": "The headline sits in a quiet cartouche: plain paper or ground, no pattern inside, contrast at least 4.5:1, headline cap height at least 6% of the canvas height on posters. One focal element only; pattern keeps a clear margin of at least 2% of the short side around the cartouche.",
+      "source": "Low-complexity finding (Tuch et al. 2012), honoured where it matters most (research.md 3)"
+    },
+    {
+      "id": "DM5",
+      "title": "Many colours, one system",
+      "rule": "Up to 6-7 colours: one Wada combination, at most one bridge combination that shares a colour with it, plus Wada Black ink and Wada White paper. Flat colour only; the shine comes from flat mirror discs, not gradients.",
+      "source": "Colour system rule; Wada combinations (art.json palette)"
+    },
+    {
+      "id": "DM6",
+      "title": "Ornament that means something",
+      "rule": "Every motif comes from the vocabulary (flowers, leaves, paisley, birds, mirrors, garlands, waves) and fits the message. If you can't say what a motif means, leave it out.",
+      "source": "Phool patti, block-print buti, matchbox iconography (research.md 2.2)"
+    },
+    {
+      "id": "DM7",
+      "title": "Named hands, respected sources",
+      "rule": "Name the craft and the place (Karachi truck art, Sanganer block print, Kutch mirror work). Commission and credit artisans for hero pieces. Never use deities, religious symbols, scripture or ritual designs as decoration, and never caricature people or cultures.",
+      "source": "Elias 2011 on religious meaning in truck art; HandpaintedType and Kulture Shop collaboration models (research.md 2.2, 2.4, 5)"
+    },
+    {
+      "id": "DM8",
+      "title": "Celebrate, then settle",
+      "rule": "Motion is festive but controlled: rings rotate into place, garlands swing, mirrors glint, pattern tiles in. One loop at a time, 2-4 s, ending on a still frame. Nothing flashes more than 3 times a second.",
+      "source": "motion.json; WCAG 2.3.1"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination plus at most one bridge combination sharing a colour with it; Black ink and White paper. Ground 30-45%, the rest spread across pattern; the accent dominates one ring or band. Light-on-dark (dabu-style) works on dark grounds.",
+      "dont": "Hex values outside the product's palette files, gradients, soft shadows, glows, neon or metallic effects, or three or more unrelated combinations in one piece."
+    },
+    {
+      "layer": "Typography",
+      "do": "A bold display face with signboard character (high contrast or heavy), in sentence case, optionally with a flat offset drop line in ink. Latin and Indic scripts set at matched optical size, each written and checked by a fluent reader. Three sizes per piece.",
+      "dont": "Fake 'Indian' Latin fonts that imitate Devanagari, Devanagari or Urdu used as texture, machine-translated text, more than two families, outline-only headlines."
+    },
+    {
+      "layer": "Layout",
+      "do": "Border (nested frame), field (repeat pattern) and centre (one medallion or image plus a framed headline cartouche). Mirror axis or radial centre. Centred type is allowed inside the cartouche.",
+      "dont": "Loose elements, pattern under body text, more than one focal element, asymmetric scatter."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Flat painted shapes with an even black ink outline; petals, scallops, beads, mirror discs, paisleys, birds and flowers built into rings, borders and half-drop repeats (art.json).",
+      "dont": "Deities and religious figures, temple or mosque silhouettes, stock 'exotic' clip art, 3D renders, photographic textures pasted in as pattern."
+    },
+    {
+      "layer": "Motion",
+      "do": "Rotating ring reveals, garland swings, tile-in pattern, short mirror glints, the headline rising last; springs for arriving, sine curves for loops (motion.json).",
+      "dont": "Endless spinning, strobing or flashing more than 3 times a second, many loops at once, camera moves, moving the headline after it lands."
+    },
+    {
+      "layer": "Photography",
+      "do": "Real people, places and products from the community the work is for, in natural colour, cut out or placed inside a decorated frame like a painted panel. Credit the photographer and the people shown.",
+      "dont": "Stock 'exotic India' or 'Pakistan' clichés, costumes, sadhus or worshippers as decoration, filters that tint skin."
+    },
+    {
+      "layer": "Copy",
+      "do": "Warm, generous and specific, to one person. Use the audience's own words and languages when a fluent writer provides them (see the messaging playbook).",
+      "dont": "Mock accents, 'namaste' or 'shukriya' as a gimmick, borrowed truck slogans, religious greetings used to sell, exclamation marks."
+    }
+  ],
+  "evidence": {
+    "scores": { "curves": 1, "simplicity": 0, "maya": 1, "nature": 1, "handmade": 2, "colour": 1, "glance": 1 },
+    "notes": {
+      "curves": "Petals, scallops, paisleys and rings are curved, but truck-art diamonds, chevrons and triangular fringes add many sharp points.",
+      "simplicity": "Goes against the low-complexity finding by design; the guard is to keep the complexity organised (DM1-DM4).",
+      "maya": "Deeply familiar to South Asian audiences, novel to others; the format stays typical, the surprise is the abundance and the message.",
+      "nature": "Floral and leaf motifs and multi-scale nested pattern give natural detail, but repeats are regular rather than fractal.",
+      "handmade": "Painted, printed and stitched crafts; visible drop lines, stitched mirrors and named makers read as made by hand.",
+      "colour": "Saturated reds, marigolds, indigos and pinks are liked in context, but large dark-yellow or brown fields cost liking; choose grounds with care.",
+      "glance": "Scores 1 only with the hierarchy guards: a single medallion silhouette and a quiet headline cartouche. Without them it scores 0."
+    },
+    "beyondPreference": [
+      {
+        "wins": "Attention",
+        "how": "Structured design complexity increased attention to the picture and the ad, comprehension and attitude, while unorganised feature complexity reduced them.",
+        "source": "Pieters, Wedel & Batra (2010), Journal of Marketing 74(5)"
+      },
+      {
+        "wins": "Arousal and energy",
+        "how": "Complexity is strongly linked to arousal (r > 0.85) and positively to liking (r = 0.29) when familiarity is controlled; right for celebrations, food, fashion and launches.",
+        "source": "Berlyne (1971); Marin, Lampatz, Wandl & Leder (2016), Frontiers in Human Neuroscience 10"
+      },
+      {
+        "wins": "Distinctiveness and memory",
+        "how": "Items that differ from their surroundings are remembered better; a consistent border system and medallion can become distinctive brand assets in feeds full of minimal layouts.",
+        "source": "von Restorff (1933); Romaniuk (2018), Building Distinctive Brand Assets"
+      },
+      {
+        "wins": "Cultural meaning and belonging",
+        "how": "For South Asian audiences at home and in the diaspora, this vernacular is familiar and carries identity; familiarity itself raises liking. Built with named makers, it signals respect rather than costume.",
+        "source": "Zajonc (1968); Elias (2011); Kulture Shop and Tasveer Ghar (research.md 2.2, 2.4)"
+      }
+    ]
+  },
+  "references": []
+}
