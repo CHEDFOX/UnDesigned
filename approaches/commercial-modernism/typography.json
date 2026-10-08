@@ -123,6 +123,13 @@
     }
   ],
 
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "none",
+    "fonts": [],
+    "why": "Streamlined, engineered lettering is the point of the style; handwriting reads as a different era and a different promise."
+  },
+
   "typeWithArt": {
     "zones": "Type lives in the lettering zones in art.json (bands, perspective lines); it never sits over an airbrush gradient.",
     "brandScale": "The brand word spans 45-90% of the canvas width, or its cap height is at least 1/6 of the hero object's height.",

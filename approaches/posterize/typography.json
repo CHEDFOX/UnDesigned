@@ -96,6 +96,13 @@
     }
   ],
 
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "none",
+    "fonts": [],
+    "why": "Flat posterized photos need solid, heavy type to hold against them; thin, irregular hand strokes break up on the colour bands."
+  },
+
   "typeWithArt": {
     "weightMatch": "Headline stems should be at least as thick as the thinnest ink shapes in the image (about 3 units on a 400 artboard) and visually as dark as the ink plate: use 700-900, or Anton.",
     "scaleMatch": "Headline cap height 1/4 to 1/2 of the subject's face height, so the image stays the focal point and the words are still the second thing seen.",

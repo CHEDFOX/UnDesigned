@@ -46,6 +46,67 @@
       "humanist-minimal"
     ]
   },
+  "hand": {
+    "id": "caveat",
+    "family": "Caveat",
+    "category": "Pen note",
+    "tier": "glance",
+    "designer": "Impallari Type",
+    "license": "OFL",
+    "weights": [
+      400,
+      700
+    ],
+    "italic": false,
+    "axes": [
+      "wght 400-700"
+    ],
+    "scripts": [
+      "Latin",
+      "Cyrillic"
+    ],
+    "mood": "A quick ballpoint note, narrow and fluent. Fits margins and small spaces.",
+    "useFor": "Margin notes, arrows with a word, 'from us' sign-offs, scrapbook notes.",
+    "avoidFor": "Small sizes: its x-height is low, so it shrinks faster than it looks.",
+    "sample": "Try the rye one",
+    "tierRules": {
+      "label": "Glance",
+      "summary": "Quick pen or marker. A few words that are read in one look.",
+      "maxWords": 6,
+      "minSize": "Body size x 1.25",
+      "roles": [
+        "note",
+        "label",
+        "annotation",
+        "price tag (word only, not the number)"
+      ]
+    },
+    "style": {
+      "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+      "use": "accent",
+      "fonts": [
+        "shantell-sans",
+        "patrick-hand",
+        "caveat",
+        "kalam",
+        "gaegu"
+      ],
+      "perPiece": 1,
+      "maxWords": 6,
+      "roles": [
+        "note",
+        "annotation",
+        "sign-off"
+      ],
+      "why": "The hand mainly lives in the ink line. One short note in a plain pen hand can add a person to warm pieces (Schroll et al. 2018), as long as the headline and body stay in the pairing.",
+      "never": [
+        "headline",
+        "body",
+        "call to action",
+        "prices and numbers"
+      ]
+    }
+  },
   "ratio": 1.25,
   "sizes": {
     "web": {
@@ -71,14 +132,14 @@
       "hero": 143.1
     }
   },
-  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap",
+  "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;700&display=swap",
   "rules": [
     "Two families at most (display + body), plus a mono for small data such as dates, prices and codes.",
     "Sentence case everywhere. All capitals only for short labels of one to three words, with letter-spacing.",
     "Three sizes per piece is usually enough: headline, body, small.",
     "Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.",
     "Left-align text. Centre only one or two short lines on a centred poster.",
-    "No handwriting or marker fonts: the human hand lives in the illustration, not the type.",
+    "Handwriting fonts only as one short accent, from source/handwritten.json, where the style allows it (approaches/<id>/typography.json -> handwritten). Never for body, prices, data, steps or buttons.",
     "Match headline weight to the illustration: the stems of headline letters should be about as thick as the ink line."
   ]
 }

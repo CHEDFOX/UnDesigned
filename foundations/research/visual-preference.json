@@ -66,6 +66,15 @@
       "sources": ["Fuchs, Schreier & van Osselaer (2015), Journal of Marketing 79(2)"]
     },
     {
+      "id": "handwritten-type",
+      "title": "Handwritten type adds a person",
+      "finding": "Typefaces that look handwritten make people feel a human was there, which raises attachment, liking and perceived care. The same type lowers trust in data and makes instructions feel harder.",
+      "effect": "Lab and field studies; reverses for functional products, absent for risky ones, weak for brands people already love. Full evidence in handwriting.json.",
+      "strength": "moderate",
+      "designRule": "One short handwritten accent for warm, safe, caring products; never for body, data, prices, steps or buttons.",
+      "sources": ["Schroll, Schnurr & Grewal (2018), Journal of Consumer Research 45(3)", "Liu, Choi & Mattila (2019), Journal of Business Research 98", "Song & Schwarz (2008), Psychological Science 19(10)"]
+    },
+    {
       "id": "colour-valence",
       "title": "Colours borrow feelings from things",
       "finding": "Colour preference follows how people feel about objects of that colour: blues (clear sky, clean water) are among the most liked; browns and dark yellows or olives (rot, waste) among the least.",

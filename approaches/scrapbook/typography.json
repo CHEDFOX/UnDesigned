@@ -126,20 +126,6 @@
     }
   ],
 
-  "accents": {
-    "$comment": "Optional extra faces for one short handwritten note or marker label. They are accents outside the pairing, used under the limits below. The guide's general rule is no handwriting fonts; this approach allows one note because the hand-written note is part of the medium. Hand-lettering a note is better still.",
-    "fonts": [
-      { "family": "Caveat", "designer": "Impallari Type", "license": "OFL", "use": "Ballpoint or pencil note." },
-      { "family": "Permanent Marker", "designer": "Font Diner", "license": "Apache 2.0", "use": "Marker label on kraft or tape." }
-    ],
-    "limits": {
-      "perPiece": 1,
-      "maxWords": 6,
-      "minSize": "Body size x 1.2 (handwriting reads smaller than type at the same size)",
-      "never": ["headline", "body", "call to action", "prices", "legal text", "anything a reader must read to act"]
-    }
-  },
-
   "ransomNote": {
     "$comment": "Cut-out mixed letters, after punk and Dada collage.",
     "maxWords": 1,
@@ -148,6 +134,17 @@
     "faces": "Take the 3 faces from the product's pairing (display, body, mono), plus at most one accent tile in a different weight. Do not load extra fonts for ransom letters.",
     "contrast": "Every tile must pass 4.5:1 between letter and tile (ink on paper or yellow, paper on ink or a dark accent).",
     "never": ["body copy", "calls to action", "brand names (unless the brand already does it)", "words that read as a threat"]
+  },
+
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "accent",
+    "fonts": ["caveat", "permanent-marker", "nanum-pen-script", "mansalva", "architects-daughter", "reenie-beanie"],
+    "perPiece": 1,
+    "maxWords": 6,
+    "roles": ["note", "label on tape or kraft", "caption on a photo"],
+    "why": "A handwritten note is part of the medium. Keep it to one note so the found print stays the voice.",
+    "never": ["headline", "body", "call to action", "prices", "legal text"]
   },
 
   "typeWithArt": {

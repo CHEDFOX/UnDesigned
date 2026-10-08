@@ -13,8 +13,28 @@ Evidence from empirical aesthetics that every approach builds on. The data is in
 | Familiar, with a twist (MAYA) | Moderate | Recognisable format, surprise in one place | Hekkert, Snelders & van Wieringen 2003 |
 | Nature's mid-range complexity | Moderate | Organic detail moderately rough (fractal D 1.3–1.5) | Spehar et al. 2003; Street et al. 2016 |
 | Handmade signals care | Moderate | Visible, deliberate human marks | Fuchs, Schreier & van Osselaer 2015 |
+| Handwritten type adds a person | Moderate | One short hand accent for warm, safe products; never for data, steps or prices | Schroll, Schnurr & Grewal 2018; Liu, Choi & Mattila 2019; Song & Schwarz 2008 |
 | Colours borrow feelings from things | Moderate | Choose grounds by their everyday associations | Palmer & Schloss 2010 |
 | Beautiful looks easier to use | Moderate | Polish raises trust in clarity | Kurosu & Kashimura 1995 |
+
+## Handwriting
+
+[handwriting.json](handwriting.json) collects the evidence on handwritten type: when it helps (human presence, care, touch, love), what it costs (reading effort, credibility) and what the brain does (motor areas respond to handwritten letters). Each finding has use-when and avoid-when lists; the rules feed `foundations/typography/source/handwritten.json`.
+
+| Finding | Strength | Source |
+|---|---|---|
+| Handwritten type feels like a person was there; reverses for functional products | Moderate | Schroll, Schnurr & Grewal 2018, Journal of Consumer Research 45(3) |
+| It signals care, only for health-focused brands | Moderate | Liu, Choi & Mattila 2019, Journal of Business Research 98 |
+| It invites touch, for safe products only | Moderate | Izadi & Patrick 2020, Psychology & Marketing |
+| Handmade means love | Moderate | Fuchs, Schreier & van Osselaer 2015, Journal of Marketing 79(2) |
+| The brain reads handwriting with the hand (motor areas) | Moderate | Longcamp et al. 2003, NeuroImage; Longcamp, Hlushchuk & Hari 2011, Human Brain Mapping |
+| Familiar hands feel friendlier and more trustworthy | Emerging | Mangas Afonso et al. 2024, Journal of Writing Research |
+| Hard to read feels hard to do | Strong | Song & Schwarz 2008, Psychological Science 19(10) |
+| Hand-drawn type lowers trust in data | Moderate | Song, Cho, Bearfield & Stasko 2025, IEEE VIS |
+| Round letters taste sweet and read easier | Moderate | Velasco, Woods, Hyndman & Spence 2015, i-Perception 6(4) |
+| Readable is liked better | Moderate | Gao, Dera, Nijhof & Willems 2019, PLOS ONE |
+
+Myths: hard-to-read fonts don't improve memory or thinking (Meyer et al. 2015 pooled 17 experiments, no effect); hand type isn't always more human or premium; the sticky-note study is about real notes, not fonts.
 
 ## Myths
 

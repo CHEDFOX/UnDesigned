@@ -30,7 +30,35 @@ Each pairing also has a monospace face for small data such as dates, prices and 
 - Three sizes per piece is usually enough: headline, body, small.
 - Big headlines: tight leading (about 1.0), slightly negative tracking. Body: leading 1.5, lines of 45–75 characters.
 - Left-align text. Centre only one or two short lines on a centred poster.
-- No handwriting or marker fonts: the human hand lives in the illustration, not the type.
+- Handwriting only as one short accent, from the handwritten library below, where the style allows it.
+
+## Handwritten faces
+
+`source/handwritten.json` holds 17 free Google Fonts hand faces, each with designer, licence, scripts and a reading tier. They sit on top of the pairing as one accent per piece; they never replace it. A product picks one, if its style allows it:
+
+```json
+"typography": { "pairing": "young-onest", "scale": 1.25, "hand": "caveat" }
+```
+
+The build then adds `--<prefix>-font-hand` and the class `.<prefix>-hand` (sized up for legibility), and fails if the style does not list the face (`approaches/<id>/typography.json` → `handwritten`).
+
+| Tier | Words | Minimum size | Faces |
+|---|---|---|---|
+| Readable | up to 12 | body × 1.15 | Shantell Sans, Patrick Hand, Kalam (Devanagari), Gaegu (Korean) |
+| Glance | up to 6 | body × 1.25 | Architects Daughter, Caveat, Caveat Brush, Gochi Hand, Permanent Marker, Nanum Pen Script (Korean), Mansalva |
+| Display only | up to 3 | headline size | Pacifico, Yellowtail, Dancing Script, Kaushan Script, Reenie Beanie, Rock Salt |
+
+| Style | Hand faces |
+|---|---|
+| Humanist Minimal | One note: Shantell Sans, Patrick Hand, Caveat, Kalam, Gaegu |
+| Doodles | Part of the style (headline up to 8 words): Shantell Sans, Gochi Hand, Patrick Hand, Gaegu, Architects Daughter, Caveat, Kalam |
+| Scrapbook | One note: Caveat, Permanent Marker, Nanum Pen Script, Mansalva, Architects Daughter, Reenie Beanie |
+| Neon Surf | One sticker or tag: Permanent Marker, Rock Salt, Mansalva, Pacifico, Kaushan Script |
+| Mid-century Modernism | One script word: Yellowtail, Dancing Script, Caveat Brush |
+| Desi Maximalism | One note: Kalam |
+| Bauhaus, Commercial Modernism, Posterize | None |
+
+Why, and when not to: hand type adds a sense of a person and raises attachment and perceived care for warm, safe products, but it lowers trust in data, makes instructions feel harder, reverses for functional products and adds little to brands people already love. The evidence is in `foundations/research/handwriting.json` and on the hub's Brain research tab.
 
 ## Scale
 

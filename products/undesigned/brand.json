@@ -18,7 +18,7 @@
     }
   },
   "typography": {
-    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold).",
+    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold). hand (optional) is one handwritten accent face from foundations/typography/source/handwritten.json, if the style allows it (approaches/<approach>/typography.json -> handwritten).",
     "pairing": "bricolage-figtree",
     "scale": 1.25
   }

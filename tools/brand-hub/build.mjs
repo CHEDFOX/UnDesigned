@@ -7,7 +7,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadMessaging } from '../../foundations/messaging/context.mjs';
-import { loadPairings, googleFontsUrl } from '../../foundations/typography/build.mjs';
+import { loadPairings, loadHandwritten, googleFontsUrl } from '../../foundations/typography/build.mjs';
 import { copyFiles } from '../../scripts/products.mjs';
 import { listApproaches, loadApproach, renderSample, samplePalette, springEasing } from '../../approaches/build.mjs';
 
@@ -19,6 +19,7 @@ export function buildHub({ root, brands }) {
   const first = tok(brands[0].id, 'colors.json');
   const firstMsg = tok(brands[0].id, 'messaging.json');
   const pairings = loadPairings();
+  const handwritten = loadHandwritten();
 
   const approaches = {};
   const items = brands.map((brand) => {
@@ -60,11 +61,11 @@ export function buildHub({ root, brands }) {
       fill: msg.fill,
       ctx,
       campaigns,
-      typography: { pairing: type.pairing.id, ratio: type.ratio, sizes: type.sizes },
+      typography: { pairing: type.pairing.id, hand: type.hand ? type.hand.id : null, ratio: type.ratio, sizes: type.sizes },
       layers: [
         { name: 'Approach', state: 'done', detail: `${approach.name}: ${approach.principles.length} principles, research dossier, art, motion and type data, rules for ${approach.layers.length} layers.` },
         { name: 'Colour', state: status === 'chosen' ? 'done' : 'part', detail: `${color.brand.length} palette(s) from ${first.combinations.length} Wada combinations${status === 'chosen' ? '' : ' (stand-in, not chosen yet)'}.` },
-        { name: 'Typography', state: 'done', detail: `${type.pairing.name}: ${type.pairing.display.family} + ${type.pairing.body.family}, scale ${type.ratio}.` },
+        { name: 'Typography', state: 'done', detail: `${type.pairing.name}: ${type.pairing.display.family} + ${type.pairing.body.family}${type.hand ? `, hand accent ${type.hand.family}` : ''}, scale ${type.ratio}.` },
         { name: 'Messaging', state: filled === total ? 'done' : 'part', detail: `Playbook and checker ready. Message ${filled} of ${total} fields filled in; ${campaigns.length} campaign piece(s).` },
         { name: 'Layout', state: 'todo', detail: 'Planned. Grids, margins and safe areas per format.' },
         { name: 'Templates', state: 'todo', detail: 'Planned. Posters, social and print built on the guide.' },
@@ -119,6 +120,8 @@ export function buildHub({ root, brands }) {
     approaches,
     pairings: pairings.pairings,
     typeRules: pairings.rules,
+    handwritten,
+    handResearch: JSON.parse(readFileSync(join(root, 'foundations/research/handwriting.json'), 'utf8')),
     research,
     styles,
   };
@@ -126,7 +129,7 @@ export function buildHub({ root, brands }) {
   const libs = Object.keys(approaches)
     .map((id) => `${JSON.stringify(id)}: (() => {\n${readFileSync(join(root, 'approaches', id, 'illustration.mjs'), 'utf8').replace(/^export /gm, '')}\nreturn createIllustrator;\n})()`)
     .join(',\n');
-  const fonts = googleFontsUrl(pairings.pairings.flatMap((p) => [p.display, p.body, p.mono]));
+  const fonts = googleFontsUrl([...pairings.pairings.flatMap((p) => [p.display, p.body, p.mono]), ...handwritten.fonts]);
   const tpl = readFileSync(join(HERE, 'template.html'), 'utf8');
 
   const page = (list) =>

@@ -341,6 +341,31 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .rs-scores i.s1::after { transform: scaleX(.5); }
 .rs-scores i.s2::after { transform: scaleX(1); }
 .rs-watch { color: var(--muted); }
+/* ---------- handwriting ---------- */
+.hw-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin: 14px 0 22px; counter-reset: hw; }
+.hw-step { background: var(--sheet); border-radius: 16px; padding: 14px 16px; display: grid; gap: 4px; font-size: 13.5px; align-content: start; }
+.hw-step b { font: 700 18px var(--display); }
+.hw-step span { font: 11px var(--mono); color: var(--muted); }
+.hw-find { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 16px; }
+.hw-f { border-top: 1px solid var(--ink); padding-top: 12px; font-size: 14px; display: grid; gap: 6px; align-content: start; }
+.hw-f h4 { margin: 0; font: 700 17px var(--display); }
+.hw-f p { margin: 0; }
+.hw-f .uw { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; font-size: 13px; }
+.hw-f .uw ul { margin: 2px 0 0; padding-left: 16px; }
+.hw-f .uw .ok { color: var(--ok); } .hw-f .uw .no { color: var(--err); }
+@media (max-width: 520px) { .hw-f .uw { grid-template-columns: minmax(0, 1fr); } }
+.hw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+.hw-card { border-radius: 18px; background: var(--sheet); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+.hw-card.off { opacity: .55; }
+.hw-card.current { outline: 2px solid var(--ink); }
+.hw-spec { padding: 22px 18px; min-height: 120px; display: flex; align-items: center; overflow: hidden; overflow-wrap: anywhere; line-height: 1.15; }
+.hw-meta { padding: 12px 16px 16px; display: grid; gap: 5px; font-size: 13px; align-content: start; }
+.hw-meta p { margin: 0; color: var(--muted); }
+.hw-meta .ty-name { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.hw-meta .ty-name b { font: 700 16px var(--display); margin-right: auto; }
+.hw-cur { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; background: var(--sheet); border-radius: 18px; padding: 18px; margin-bottom: 18px; }
+@media (max-width: 760px) { .hw-cur { grid-template-columns: minmax(0, 1fr); } }
+.hw-cur p { margin: 6px 0 0; font-size: 14px; }
 /* ---------- approach ---------- */
 .ap-nav { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13.5px; }
 .ap-nav a { color: var(--ink); text-underline-offset: 3px; }
@@ -510,6 +535,13 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <div class="rs-findings" id="rs-findings"></div>
   <h3 style="margin-top:40px">Myths to drop</h3>
   <div class="rs-myths" id="rs-myths"></div>
+  <h3 style="margin-top:40px" id="rs-hand-title">Handwriting and the brain</h3>
+  <p class="lede" id="rs-hand-sum" style="margin-bottom:0"></p>
+  <div class="hw-steps" id="rs-hand-steps"></div>
+  <div class="hw-find" id="rs-hand-find"></div>
+  <span class="lbl" style="display:block;margin-top:22px">Handwriting myths</span>
+  <div class="rs-myths" id="rs-hand-myths" style="margin-top:8px"></div>
+  <p class="lede" style="margin-top:14px;font-size:13px">From <code>foundations/research/handwriting.json</code>. The faces and their rules are on the Typography tab.</p>
   <h3 style="margin-top:40px">Style families, scored against the evidence</h3>
   <p class="lede" style="margin-bottom:14px">Each family scored 0–2 on how strongly it uses each evidence-backed feature. This is our synthesis, not a published ranking. Liking isn't the only goal: polarising styles can win attention and memorability for the right product.</p>
   <div class="rs-styles" id="rs-styles"></div>
@@ -672,7 +704,18 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
     <div class="seg" id="ty-fit"><button type="button" data-tyfit="all" aria-pressed="true">All</button><button type="button" data-tyfit="core" aria-pressed="false">Recommended for this direction</button></div>
   </div>
   <div class="ty-grid" id="ty-grid"></div>
-  <h3 id="ty-dir-title">Type direction</h3>
+  <h3 id="ty-hand-title">Handwritten accents</h3>
+  <p class="lede" style="margin-bottom:12px">Hand faces add a person to a piece: research links them to warmth, attachment and perceived care, and to lower trust in data and harder-feeling instructions (see Brain research). They are accents on top of the pairing, one per piece, only in styles that allow them. A product picks one in <code>brand.json</code> (<code>"typography": { "hand": "..." }</code>). From <code>foundations/typography/source/handwritten.json</code>.</p>
+  <div class="hw-cur" id="hw-cur"></div>
+  <div class="ty-controls">
+    <label class="lbl" for="hw-sample">Try your words</label>
+    <input id="hw-sample" type="text" placeholder="A short note, six words or fewer">
+    <div class="seg" id="hw-filter"><button type="button" data-hwf="all" aria-pressed="true">All faces</button><button type="button" data-hwf="style" aria-pressed="false">Allowed in this style</button><button type="button" data-hwf="read" aria-pressed="false">Readable</button><button type="button" data-hwf="glance" aria-pressed="false">Glance</button><button type="button" data-hwf="display" aria-pressed="false">Display only</button></div>
+  </div>
+  <div class="hw-grid" id="hw-grid"></div>
+  <span class="lbl" style="display:block;margin-top:18px">Rules for every hand face</span>
+  <ul class="tight" id="hw-rules" style="color:var(--muted)"></ul>
+  <h3 id="ty-dir-title" style="margin-top:32px">Type direction</h3>
   <p class="lede" id="ty-char" style="margin-bottom:14px"></p>
   <div class="ap-two">
     <div>
@@ -896,6 +939,49 @@ function renderTypography() {
   $('#ty-setting').innerHTML = kv2([['Measure', `${st.measure.chars.join('-')} characters per line, ideal ${st.measure.ideal} (${st.measure.source})`], ['Leading', `display ${st.leading.display.join('-')}, subhead ${st.leading.subhead.join('-')}, body ${st.leading.body.join('-')}`], ['Tracking', `display ${st.tracking.displayEm.join(' to ')} em, body ${st.tracking.bodyEm}, capital labels ${st.tracking.labelCapsEm.join('-')} em`], ['Case', st.case], ['Per piece', `${st.sizesPerPiece} sizes, ${st.weightsPerPiece} weights`], ['Rag', st.rag], ['Numbers', st.numbers], ['Viewing distance', TY.sizes.viewingDistance]]);
 }
 
+/* ------------------------------------------------------------ handwritten */
+const hwstate = { sample: '', f: 'all' };
+const styleHand = id => ((DATA.styles.find(s => s.id === id) || {}).typography || {}).handwritten || { use: 'none', fonts: [] };
+const handCSS = f => `font-family:'${f.family}', cursive;font-weight:${f.weights[f.weights.length > 1 ? 1 : 0]}`;
+function renderHandwritten() {
+  const H = DATA.handwritten, T = H.tiers, rule = styleHand(B.approach), pal = illPalette();
+  const apName = DATA.approaches[B.approach].data.name;
+  const cur = H.fonts.find(f => f.id === B.typography.hand);
+  const useLabel = { none: 'Not used', accent: 'One short accent', core: 'Part of the style' };
+  $('#hw-cur').innerHTML = `<div><span class="lbl">${esc(apName)} and handwriting</span><h3 style="margin:6px 0 0">${useLabel[rule.use] || rule.use}${rule.use !== 'none' ? ` · up to ${rule.maxWords} words, ${rule.perPiece} per piece` : ''}</h3><p>${esc(rule.why || '')}</p>
+      ${rule.never ? `<p><b>Never:</b> ${esc(rule.never.join(', '))}.</p>` : ''}</div>
+    <div><span class="lbl">${esc(B.name)}</span>${cur ? `<p style="${handCSS(cur)};font-size:34px;line-height:1.15;margin-top:8px;color:${pal.ink};background:${pal.ground};padding:14px 16px;border-radius:14px">${esc(hwstate.sample || cur.sample)}</p><p>Hand accent: <b>${esc(cur.family)}</b> (${esc(T[cur.tier].label)}). CSS class <code>.${esc(P)}-hand</code>, variable <code>--${esc(P)}-font-hand</code>.</p>`
+      : `<p>${rule.use === 'none' ? 'This style uses no hand faces.' : 'No hand face chosen. Add one of the allowed faces to <code>brand.json</code> if the product is warm, safe and personal.'}</p>`}</div>`;
+  const list = H.fonts.filter(f => hwstate.f === 'all' || (hwstate.f === 'style' ? rule.fonts.includes(f.id) : f.tier === hwstate.f));
+  const styleNames = f => DATA.styles.filter(s => styleHand(s.id).fonts.includes(f.id)).map(s => s.name);
+  $('#hw-grid').innerHTML = list.map(f => {
+    const ok = rule.fonts.includes(f.id), size = f.tier === 'display' ? 40 : f.tier === 'glance' ? 32 : 28;
+    const words = (hwstate.sample || f.sample).split(/\s+/).slice(0, T[f.tier].maxWords).join(' ');
+    const sn = styleNames(f);
+    return `<article class="hw-card ${ok || hwstate.f !== 'style' ? '' : 'off'} ${cur && cur.id === f.id ? 'current' : ''}">
+      <div class="hw-spec" style="background:${pal.ground};color:${pal.ink};${handCSS(f)};font-size:${size}px">${esc(words)}</div>
+      <div class="hw-meta"><div class="ty-name"><b>${esc(f.family)}</b><span class="fit ${f.tier === 'read' ? 'core' : f.tier === 'glance' ? 'good' : 'accent'}">${esc(T[f.tier].label)} · ${T[f.tier].maxWords} words</span>${ok ? `<span class="fit inuse">${esc(apName)}</span>` : ''}</div>
+        <span class="mono" style="font-size:11px;color:var(--muted)">${esc(f.category)} · ${esc(f.designer)} · ${esc(f.license)} · ${esc(f.scripts.join(', '))}</span>
+        <p>${esc(f.mood)}</p>
+        <p><b style="color:var(--ink)">Use for:</b> ${esc(f.useFor)}</p>
+        <p><b style="color:var(--ink)">Avoid:</b> ${esc(f.avoidFor)}</p>
+        <p><b style="color:var(--ink)">Styles:</b> ${sn.length ? esc(sn.join(', ')) : 'none yet'}</p>
+        ${ok ? `<div><button type="button" class="btn" data-copy='"hand": "${f.id}"'>Copy setting</button></div>` : ''}</div></article>`;
+  }).join('') || '<p class="st-note">No faces match.</p>';
+  $('#hw-rules').innerHTML = H.rules.map(r => `<li>${esc(r)}</li>`).join('');
+}
+function renderHandResearch() {
+  const R = DATA.handResearch;
+  const strengthLabel = { strong: 'Strong evidence', moderate: 'Moderate evidence', emerging: 'Emerging evidence', contested: 'Contested' };
+  $('#rs-hand-sum').textContent = R.summary;
+  $('#rs-hand-steps').innerHTML = R.brain.steps.map((s, i) => `<div class="hw-step"><span>${String(i + 1).padStart(2, '0')}</span><b>${esc(s.step)}</b>${esc(s.text)}<span>${esc(s.source)}</span></div>`).join('');
+  $('#rs-hand-find').innerHTML = R.findings.map(f => `<article class="hw-f"><h4>${esc(f.title)}</h4><span><span class="fit ${f.strength === 'strong' ? 'core' : ''}">${strengthLabel[f.strength] || f.strength}</span></span>
+    <p>${esc(f.finding)}</p><p style="color:var(--muted)">${esc(f.effect)}</p>
+    ${f.useWhen.length || f.avoidWhen.length ? `<div class="uw">${f.useWhen.length ? `<div><b class="ok">Use when</b><ul>${f.useWhen.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : '<div></div>'}${f.avoidWhen.length ? `<div><b class="no">Avoid when</b><ul>${f.avoidWhen.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}</div>` : ''}
+    <p><b>Design rule:</b> ${esc(f.designRule)}</p><p class="rs-src">${f.sources.map(esc).join(' · ')}</p></article>`).join('');
+  $('#rs-hand-myths').innerHTML = R.myths.map(m => `<article class="rs-myth"><span class="lbl">Myth</span><b>${esc(m.claim)}</b><p>${esc(m.reality)}</p><p><b>Instead:</b> ${esc(m.useInstead)}</p></article>`).join('');
+}
+
 /* ------------------------------------------------------------ brands */
 function renderBrandTable() {
   const sw = p => { const c = DATA.combinations.find(x => x.id === p.combination); return `<span class="swatchrow">${c.colors.map(id => `<i style="background:${byId[id].hex}"></i>`).join('')}</span>`; };
@@ -918,7 +1004,7 @@ function useBrand(id, first) {
   document.querySelectorAll('.cur-id').forEach(el => (el.textContent = B.id));
   $('#star-count').textContent = cstate.stars.size;
   store.set('hub-brand', B.id);
-  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderMessaging(); setupChecker(); renderMessage();
+  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderHandwritten(); renderHandResearch(); renderMessaging(); setupChecker(); renderMessage();
 }
 
 /* ------------------------------------------------------------ style library */
@@ -975,6 +1061,7 @@ function renderStyleDetail() {
     <h3 style="margin-top:28px">Typography</h3><p class="st-note">${esc((st.typography && st.typography.character) || '')}</p>
     <div class="tablewrap"><table class="data"><thead><tr><th>Pairing</th><th>Fit</th><th>Why</th></tr></thead><tbody>${fitRows}</tbody></table></div>
     ${newP ? `<span class="lbl" style="display:block;margin-top:12px">New pairings proposed by this style</span><ul class="tight">${newP}</ul>` : ''}
+    ${(() => { const h = (st.typography || {}).handwritten; if (!h) return ''; const fam = id => (DATA.handwritten.fonts.find(f => f.id === id) || {}).family || id; return `<span class="lbl" style="display:block;margin-top:12px">Handwritten faces</span><p class="st-note" style="margin-top:4px"><b>${h.use === 'none' ? 'Not used' : h.use === 'core' ? 'Part of the style' : 'One short accent'}</b>${h.use !== 'none' ? ` (up to ${h.maxWords} words): ${esc(h.fonts.map(fam).join(', '))}` : ''}. ${esc(h.why || '')}</p>`; })()}
     <h3 style="margin-top:28px">Motion</h3><p class="st-note">${esc(M.character || '')}</p>
     <div class="tablewrap"><table class="data"><thead><tr><th>Move</th><th>Timing</th><th>Use</th></tr></thead><tbody>${moves}</tbody></table></div>
     <h3 style="margin-top:28px">Across every layer</h3>
@@ -1023,6 +1110,12 @@ function researchDemo(id, pal) {
     for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2, rr = i % 2 ? 46 : 78; star.push(`${(100 + Math.cos(a) * rr).toFixed(1)},${(100 + Math.sin(a) * rr).toFixed(1)}`); }
     return svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><path d="${ill.blob(100, 100, 70, 66, { points: 7, irregularity: 0.12, seed: 3 })}" fill="${p}"/>`, 'Curved: usually preferred') +
       svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><polygon points="${star.join(' ')}" fill="${p}"/>`, 'Angular: usually less liked');
+  }
+  if (id === 'handwritten-type') {
+    const hf = DATA.handwritten.fonts.find(f => f.id === (B.typography.hand || 'caveat')) || DATA.handwritten.fonts[0];
+    const bf = (DATA.pairings.find(x => x.id === B.typography.pairing) || DATA.pairings[0]).body;
+    const card = (font, w, size, label) => svg('0 0 200 130', `<rect width="200" height="130" fill="${g}"/><rect x="22" y="30" width="156" height="70" rx="12" fill="${p}"/><text x="100" y="72" text-anchor="middle" font-family="'${font}', sans-serif" font-weight="${w}" font-size="${size}" fill="${k}">Baked this morning</text>`, label);
+    return card(hf.family, hf.weights[0], 21, 'Hand: feels made by a person (food, gifts, care)') + card(bf.family, bf.weights[0], 15, 'Machine: feels exact (tools, data, safety)');
   }
   if (id === 'simplicity') return svg('0 0 120 160', miniPoster(pal, 'simple'), 'Low complexity') + svg('0 0 120 160', miniPoster(pal, 'complex'), 'High complexity');
   if (id === 'fluency') {
@@ -1525,6 +1618,8 @@ $('#brandswitch').hidden = DATA.brands.length < 2;
 $('#brand-select').addEventListener('change', e => useBrand(e.target.value));
 $('#ck-campaign').addEventListener('change', e => { const c = B.campaigns[+e.target.value]; if (c) loadPiece(c.piece); e.target.value = ''; });
 $('#ty-sample').addEventListener('input', e => { tstate.sample = e.target.value.trim(); renderTypography(); });
+$('#hw-sample').addEventListener('input', e => { hwstate.sample = e.target.value.trim(); renderHandwritten(); });
+$('#hw-filter').addEventListener('click', e => { const b = e.target.closest('[data-hwf]'); if (!b) return; hwstate.f = b.dataset.hwf; $('#hw-filter').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderHandwritten(); });
 $('#n-colors').textContent = DATA.colors.length;
 $('#n-families').textContent = DATA.families.length;
 $('#n-combos').textContent = DATA.combinations.length;

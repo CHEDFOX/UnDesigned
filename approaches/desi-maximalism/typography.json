@@ -14,7 +14,7 @@
     "avoid": [
       "'Indian-style' Latin fonts that fake a headline bar or Devanagari strokes",
       "Thin or light display weights",
-      "Handwriting and marker fonts (the hand lives in the painting)",
+      "Handwriting fonts for headlines or body (the hand lives in the painting; one Kalam note is allowed)",
       "Outline-only or 3D/bevel display effects",
       "Any font without the conjuncts the text needs"
     ]
@@ -151,6 +151,17 @@
     ]
   },
 
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "accent",
+    "fonts": ["kalam"],
+    "perPiece": 1,
+    "maxWords": 6,
+    "roles": ["shopkeeper note", "price board word (not the number)", "bilingual aside"],
+    "why": "The hand lives in the painted lettering; one pen note in Kalam (Devanagari and Latin designed together) can add the shopkeeper's voice.",
+    "never": ["headline", "body", "call to action", "numbers"]
+  },
+
   "typeWithArt": {
     "weightMatch": "Headline stems at least as thick as the frame's major outline (about 1.25% of the short side), so the type holds against the border.",
     "dropLine": "Optional signboard drop line: a flat copy of the headline in ink, offset down-right by about 3% of the font size. Flat, never blurred. Not on body text.",
@@ -194,6 +205,7 @@
     "Latin and Indic scripts from families designed together; Indic text checked by a fluent reader.",
     "Three sizes and two weights per piece; sentence case.",
     "A flat drop line is the only lettering effect; no outlines-only, bevels or shadows.",
-    "No fake 'Indian' Latin fonts and no script as texture."
+    "No fake 'Indian' Latin fonts and no script as texture.",
+    "At most one pen note in Kalam (six words or fewer); never the headline, body or numbers."
   ]
 }

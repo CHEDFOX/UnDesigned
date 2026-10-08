@@ -117,6 +117,17 @@
     }
   ],
 
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "accent",
+    "fonts": ["permanent-marker", "rock-salt", "mansalva", "pacifico", "kaushan-script"],
+    "perPiece": 1,
+    "maxWords": 4,
+    "roles": ["sticker", "tag", "one shouted word"],
+    "why": "Markers and brush scripts belong to surf and skate culture: stickers, tags, board graphics. Keep it to one word or a short tag.",
+    "never": ["body", "call to action", "dates and prices"]
+  },
+
   "typeWithArt": {
     "weightMatch": "Headline stems should be at least twice the art's outline width at headline size, so the type reads heavier than the drawing.",
     "outline": "Headline outline 2.4% of the short side (drawn behind the fill with paint-order: stroke), plus a hard ink block shadow offset 1-1.5% down-right.",
@@ -160,6 +171,6 @@
     "Three sizes and two weights per piece.",
     "Headline heavier than the art's outline.",
     "Sentence case; capitals only on short stickers.",
-    "No thin weights, hairline serifs or handwriting fonts for body text."
+    "No thin weights or hairline serifs; hand faces only for one sticker or tag of four words or fewer, never body text."
   ]
 }

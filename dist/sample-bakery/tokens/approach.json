@@ -835,7 +835,7 @@
         "why": "Italics carry the hand; use for one emphasised word."
       },
       "avoid": [
-        "Handwriting and marker fonts (the hand lives in the art)",
+        "Handwriting fonts for headlines or body (the hand lives in the art; one short note is allowed)",
         "Geometric fonts with closed apertures at small sizes",
         "Condensed all-caps display faces",
         "High-contrast didones for body"
@@ -878,6 +878,30 @@
         "fit": "accent",
         "why": "Engineered feel; for data-heavy or technical products only."
       }
+    },
+    "handwritten": {
+      "use": "accent",
+      "fonts": [
+        "shantell-sans",
+        "patrick-hand",
+        "caveat",
+        "kalam",
+        "gaegu"
+      ],
+      "perPiece": 1,
+      "maxWords": 6,
+      "roles": [
+        "note",
+        "annotation",
+        "sign-off"
+      ],
+      "why": "The hand mainly lives in the ink line. One short note in a plain pen hand can add a person to warm pieces (Schroll et al. 2018), as long as the headline and body stay in the pairing.",
+      "never": [
+        "headline",
+        "body",
+        "call to action",
+        "prices and numbers"
+      ]
     },
     "typeWithArt": {
       "weightMatch": "Headline stem thickness should be close to the ink line width (about 2.25% of the artboard's short side at headline size). Pick the headline weight that gets closest.",
@@ -1023,7 +1047,7 @@
       "Three sizes and two weights per piece.",
       "Headline weight matches the ink line.",
       "Left-aligned, sentence case, 45-75 characters per line.",
-      "No handwriting fonts."
+      "At most one short handwritten note (six words or fewer) in a listed hand face; never the headline, body or call to action."
     ]
   },
   "springsCss": {

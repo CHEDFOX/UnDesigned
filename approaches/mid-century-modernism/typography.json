@@ -10,7 +10,7 @@
     "contrast": { "want": "Low in the sans; moderate in the serif", "why": "Sans and art read as one printed plate; the serif brings the warmth of advertising lettering." },
     "serif": { "want": "Old-style or Caslon-like, with a lively italic", "why": "Italic subheads were a common companion to geometric headlines on book jackets and ads." },
     "quirks": { "want": "One or two characterful letters (a pointed A or M, a tall ascender)", "why": "A little personality without novelty; the playfulness lives in the art." },
-    "avoid": ["Handwriting and marker fonts", "Script fonts in long lines", "Distressed or 'vintage-texture' fonts", "Art deco display faces (they belong to the 1920s-30s Commercial Modernism style)", "Swiss neo-grotesques used alone for warm work (too cold for the American side of the style)"]
+    "avoid": ["Handwriting fonts for headlines or body (one script word is allowed)", "Script fonts in long lines", "Distressed or 'vintage-texture' fonts", "Art deco display faces (they belong to the 1920s-30s Commercial Modernism style)", "Swiss neo-grotesques used alone for warm work (too cold for the American side of the style)"]
   },
 
   "fit": {
@@ -97,6 +97,17 @@
     }
   ],
 
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "accent",
+    "fonts": ["yellowtail", "dancing-script", "caveat-brush"],
+    "perPiece": 1,
+    "maxWords": 4,
+    "roles": ["one word", "sign-off", "product name in a swash"],
+    "why": "Brush scripts were part of mid-century advertising and signs. Use one short script word at display size next to the sans headline; hand-lettering drawn for the piece is better still.",
+    "never": ["headline of more than four words", "body", "call to action", "all capitals"]
+  },
+
   "typeWithArt": {
     "weightMatch": "Headline stems should be close to the structural key line (about 1.25% of the artboard's short side at headline size); contours stay thinner than the type.",
     "scaleMatch": "Headline cap height 1/4 to 1/2 of the emblem's height: the emblem leads, the headline names it.",
@@ -142,6 +153,6 @@
     "Labels in widely letter-spaced capitals; everything else in sentence case.",
     "Type sits on the key plate: never misregistered or textured.",
     "Left-aligned, 45-75 characters per line.",
-    "No handwriting fonts; hand-lettering only when drawn for the piece."
+    "At most one script word (four words or fewer) in a listed face, at display size; hand-lettering drawn for the piece is better."
   ]
 }

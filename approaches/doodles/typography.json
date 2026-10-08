@@ -109,6 +109,17 @@
     "mixing": "Hand display + set body. Never two hand faces, never a hand face plus a drawn headline in the same piece."
   },
 
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "core",
+    "fonts": ["shantell-sans", "gochi-hand", "patrick-hand", "gaegu", "architects-daughter", "caveat", "kalam"],
+    "perPiece": 1,
+    "maxWords": 8,
+    "roles": ["headline (readable faces only)", "labels", "notes", "speech bubbles"],
+    "why": "Hand type is part of the style: one pen draws both art and words. Headlines may use a readable hand; body text, prices and buttons stay in the pairing's body face.",
+    "never": ["body", "call to action button", "prices and numbers", "two different hand faces in one piece"]
+  },
+
   "typeWithArt": {
     "weightMatch": "Hand-lettered headline stems at 1.5-3x the pen width, so the words sit one step above the marks. Set body text weight close to the pen width.",
     "scaleMatch": "Headline cap height at least 1.5x the height of the average surrounding mark, so the words win over the doodles.",

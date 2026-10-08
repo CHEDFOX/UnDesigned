@@ -1,0 +1,149 @@
+{
+  "$comment": "What research says about handwritten type: when it helps, when it hurts, and what happens in the brain. Strength is our reading of the evidence. Most studies use handwriting-style fonts, not real handwriting; where a study used real handwriting or letters, it says so. Rules here feed foundations/typography/source/handwritten.json.",
+
+  "summary": "Handwritten type makes people feel a person was there. That feeling raises liking, attachment and perceived care, but only for warm, safe, pleasure-led products, and it costs reading effort and trust in facts. Use it as a short human accent, never for the parts people must read, compare or believe.",
+
+  "findings": [
+    {
+      "id": "human-presence",
+      "title": "Handwritten type feels like a person was there",
+      "finding": "Typefaces that look handwritten create a sense of human presence, which builds emotional attachment to the product and better evaluations. In a field study, packaging in a handwritten typeface was bought more often than the same product set in a machine typeface.",
+      "effect": "Several lab studies and a field study in one paper. The effect weakens for brands people are already attached to and reverses for functional products.",
+      "strength": "moderate",
+      "useWhen": ["Warm, pleasure-led products (food, treats, gifts, crafts)", "New or small brands people don't know yet"],
+      "avoidWhen": ["Functional products and functional positioning (tools, utilities, specifications)", "Brands customers already love, where it adds little"],
+      "designRule": "Use one handwritten touch to bring a person into warm pieces; keep functional messages in the pairing's type.",
+      "sources": ["Schroll, Schnurr & Grewal (2018), 'Humanizing products with handwritten typefaces', Journal of Consumer Research 45(3), 648-672"]
+    },
+    {
+      "id": "love-in-the-menu",
+      "title": "It signals care, when the brand already stands for care",
+      "finding": "A healthy restaurant's menu set in a handwriting-style font (vs. Helvetica) was felt to carry more love and human touch; diners judged the food healthier, liked the restaurant more and were more willing to engage with it on social media.",
+      "effect": "Two online experiments (about 185 and 191 adults). The effect appeared only for health-focused brands; the authors say it would not help a fast-food brand.",
+      "strength": "moderate",
+      "useWhen": ["The product's story is care, freshness or health"],
+      "avoidWhen": ["The claim is not true of the product: hand type amplifies a story, it does not create one"],
+      "designRule": "Pair hand type with a real proof of care (made this morning, local grain); never use it to dress up a claim the product can't back.",
+      "sources": ["Liu, Choi & Mattila (2019), 'Love is in the menu: Leveraging healthy restaurant brands with handwritten typeface', Journal of Business Research 98, 289-298"]
+    },
+    {
+      "id": "haptic",
+      "title": "It invites touch, for safe products only",
+      "finding": "Handwritten fonts on packaging prompted an approach tendency and more desire to touch the product, which raised evaluations and choice.",
+      "effect": "Four studies. Found for benign (safe, enjoyable) categories, not for risky ones.",
+      "strength": "moderate",
+      "useWhen": ["Products people hold, unwrap, wear or eat"],
+      "avoidWhen": ["Risky categories: medicine, chemicals, finance, safety equipment"],
+      "designRule": "On packaging and product shots of pleasant things, hand type can sit near the product; keep it off warnings and risk messages.",
+      "sources": ["Izadi & Patrick (2020), 'The power of the pen: Handwritten fonts promote haptic engagement', Psychology & Marketing"]
+    },
+    {
+      "id": "handmade-love",
+      "title": "Handmade means love",
+      "finding": "Products described as handmade are seen as more attractive, mainly because people feel they symbolically contain love. Handwriting is the most direct visual sign of a hand.",
+      "effect": "Four studies; strongest for gifts to close people.",
+      "strength": "moderate",
+      "useWhen": ["Gifts, occasions, thank-yous, personal messages"],
+      "avoidWhen": ["Mass, anonymous or automated services, where the sign rings false"],
+      "designRule": "Hand type works best when the message is from someone to someone: a sign-off, a note, a thank-you.",
+      "sources": ["Fuchs, Schreier & van Osselaer (2015), 'The handmade effect: What's love got to do with it?', Journal of Marketing 79(2), 98-110"]
+    },
+    {
+      "id": "motor-brain",
+      "title": "The brain reads handwriting with the hand",
+      "finding": "Looking at letters activates premotor areas that are also used to write them. Handwritten letters drive the motor cortex and supplementary motor area more strongly than printed letters, which suggests that reading handwriting partly simulates the movement that made it.",
+      "effect": "fMRI studies with small samples, replicated across studies by the same group. They used real handwritten letters, not fonts; that handwriting-style fonts trigger the same response is our inference, not a tested result.",
+      "strength": "moderate",
+      "useWhen": ["You want the trace of a gesture to be felt: a signature, a scribbled note"],
+      "avoidWhen": [],
+      "designRule": "Choose faces that keep the stroke visible (pen, marker, brush) so the gesture reads; avoid smooth, vectorised 'handwriting' with no stroke.",
+      "sources": ["Longcamp, Anton, Roth & Velay (2003), NeuroImage 19(4)", "Longcamp, Hlushchuk & Hari (2011), 'What differs in visual recognition of handwritten vs. printed letters? An fMRI study', Human Brain Mapping 32(8)"]
+    },
+    {
+      "id": "familiar-hand",
+      "title": "Familiar hands feel friendlier and more trustworthy",
+      "finding": "Handwritten text is judged friendlier and more trustworthy when the letterforms are familiar, and more so the closer they are to how the reader writes.",
+      "effect": "One study, 422 participants.",
+      "strength": "emerging",
+      "useWhen": ["Choose the plainest, most common letter shapes for your audience's writing culture"],
+      "avoidWhen": ["Unusual or decorative letter shapes for anything but one word"],
+      "designRule": "Prefer plain print hands (Patrick Hand, Shantell Sans, Kalam) over ornate scripts; match the script and habits of the audience.",
+      "sources": ["Mangas Afonso et al. (2024), Journal of Writing Research 16(2)"]
+    },
+    {
+      "id": "fluency-cost",
+      "title": "Hard to read feels hard to do",
+      "finding": "The same exercise instructions set in a hard-to-read brush font were judged to take longer and be harder, and people were less willing to do the routine, than when set in Arial. People mistake reading effort for task effort.",
+      "effect": "Short report with two studies; consistent with the wider processing-fluency literature.",
+      "strength": "strong",
+      "useWhen": [],
+      "avoidWhen": ["Instructions, steps, sign-up, offers and anything you want people to act on"],
+      "designRule": "Never set steps, offers, prices or calls to action in a hand face.",
+      "sources": ["Song & Schwarz (2008), 'If it's hard to read, it's hard to do', Psychological Science 19(10), 986-988", "Reber, Schwarz & Winkielman (2004), Personality and Social Psychology Review 8(4)"]
+    },
+    {
+      "id": "credibility-cost",
+      "title": "Hand-drawn type lowers trust in data",
+      "finding": "In charts, hand-drawn fonts and cartoon-style bars reduced perceived credibility; colour raised it.",
+      "effect": "Controlled online experiments; strong statistical effect for the font manipulation.",
+      "strength": "moderate",
+      "useWhen": [],
+      "avoidWhen": ["Charts, statistics, proof points, prices, reports"],
+      "designRule": "Set numbers and proof in the pairing's body or mono face. A hand note may point at a number, never be the number.",
+      "sources": ["Song, Cho, Bearfield & Stasko (2025), 'Visualizing trust: How chart embellishments influence perceptions of credibility', IEEE VIS 2025 / IEEE TVCG 32(1)"]
+    },
+    {
+      "id": "round-sweet",
+      "title": "Round letters taste sweet and read easier",
+      "finding": "Rounder typefaces were matched with 'sweet', angular ones with sour, salty and bitter; rounder typefaces were also liked more and judged easier to read. The link held across countries and languages.",
+      "effect": "Several experiments, replicated across three countries.",
+      "strength": "moderate",
+      "useWhen": ["Sweet food, comfort, kids: round hands such as Gaegu and Gochi Hand"],
+      "avoidWhen": ["Sharp, sour or bold-edged products: an angular marker (Permanent Marker, Rock Salt) fits better"],
+      "designRule": "Match the hand's shape to the product's taste: round for sweet and soft, angular for sharp and loud.",
+      "sources": ["Velasco, Woods, Hyndman & Spence (2015), 'The taste of typeface', i-Perception 6(4)"]
+    },
+    {
+      "id": "readable-liked",
+      "title": "Readable is liked better",
+      "finding": "Easy poems were enjoyed more in an easy-to-read font. The reverse, that hard fonts improve hard texts, did not appear.",
+      "effect": "Three experiments.",
+      "strength": "moderate",
+      "useWhen": [],
+      "avoidWhen": ["Using a hard face to make text feel deeper or more artistic"],
+      "designRule": "Choose the most readable hand that carries the feeling; save scrawls and scripts for one word.",
+      "sources": ["Gao, Dera, Nijhof & Willems (2019), 'Is less readable liked better? The case of font readability in poetry appreciation', PLOS ONE 14(12)"]
+    }
+  ],
+
+  "myths": [
+    {
+      "id": "disfluency-memory",
+      "claim": "Hard-to-read fonts make people think harder and remember more.",
+      "reality": "Early studies (Alter et al. 2007; Diemand-Yauman, Oppenheimer & Vaughan 2011) reported benefits, but large replications found none: pooling 17 experiments with over 7,000 people showed no effect on problem solving (Meyer et al. 2015, Journal of Experimental Psychology: General), and memory benefits have been hard to reproduce (Eitel et al. 2014).",
+      "useInstead": "Make words easy to read; get attention with the idea, not with hard type."
+    },
+    {
+      "id": "always-human",
+      "claim": "Handwritten fonts always make a brand feel more human and premium.",
+      "reality": "The effect depends on the product. It reverses for functional products, does not appear for risky categories, adds little for brands people already love, and lowers trust in data (Schroll et al. 2018; Izadi & Patrick 2020; Song et al. 2025).",
+      "useInstead": "Check the product against the use-when and avoid-when lists before adding hand type."
+    },
+    {
+      "id": "sticky-note",
+      "claim": "A handwritten note triples response, so handwriting fonts do too.",
+      "reality": "Garner's sticky-note studies used real notes stuck on paper surveys; reported numbers differ between secondary sources, and the effect partly came from the physical note itself (a blank note also helped). It says nothing about fonts on screens.",
+      "useInstead": "Don't quote it as evidence for fonts. If you can, add a real handwritten note."
+    }
+  ],
+
+  "brain": {
+    "title": "What happens when we read a hand",
+    "steps": [
+      { "step": "See", "text": "Irregular strokes, varied letter sizes and a wobbling baseline are detected as 'made by a person' within a glance.", "source": "Schroll et al. 2018 (perceived human presence)" },
+      { "step": "Simulate", "text": "Premotor and motor areas used for writing respond to handwritten letters more than to print, as if re-tracing the gesture.", "source": "Longcamp et al. 2003; 2011" },
+      { "step": "Feel", "text": "The sense of a person raises emotional attachment and the feeling that care or love went into the product.", "source": "Schroll et al. 2018; Liu et al. 2019; Fuchs et al. 2015" },
+      { "step": "Pay", "text": "Unfamiliar letters cost reading effort. The effort is misread as difficulty or doubt, so tasks seem harder and data less credible.", "source": "Song & Schwarz 2008; Song et al. 2025" }
+    ]
+  }
+}

@@ -96,6 +96,13 @@
     }
   ],
 
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent (one short element) | core (part of the style). A product picks one in brand.json -> typography.hand.",
+    "use": "none",
+    "fonts": [],
+    "why": "The style is built from type as geometry: grotesques, circles, squares and bars. A hand face breaks its machine logic."
+  },
+
   "typeWithArt": {
     "weightMatch": "Headline stems close to the medium bar (2% of the short side) at headline size; heavy bars (4%) sit above or below the headline, never thinner than its stems.",
     "scaleMatch": "Headline cap height between 1/4 and 1/2 of the focal form's diameter, so the form leads and the type answers.",

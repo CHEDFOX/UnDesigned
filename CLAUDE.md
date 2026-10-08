@@ -14,6 +14,7 @@ This repository is a **universal design guide**. The user will give you a produc
    - **Style:** if the user hasn't chosen one, suggest a style from `approaches/` that fits the product and say why in one line (scores and trade-offs are in each `approach.json` → `evidence`).
    - **Palettes:** start from the chosen style's `art.json` → `palette.recommendedCombinations`.
    - **Type:** pick a pairing the chosen style rates `core` in its `typography.json` → `fit`.
+   - **Handwriting (optional):** only if the style allows it (`typography.json` → `handwritten`) and the product is warm, safe and personal (food, gifts, care, new or small brands). Pick one face from `foundations/typography/source/handwritten.json` and set `typography.hand` in `brand.json`. Never for body, prices, data, steps or buttons; the evidence is in `foundations/research/handwriting.json`.
 4. **Build:** `npm run build -- <id>`. Outputs go to `dist/<id>/`.
 5. **Write a brief** for each campaign: `products/<id>/campaigns/<campaign>/brief.md`, from `templates/briefs/creative-brief.md`. Settle the one message (W1) and the big idea (O2) before designing.
 6. **Write the copy** as `.copy.json` files in the campaign folder. Respect the word limits in `foundations/messaging/source/formats.json`. Run `npm run check:copy -- products/<id>`, then fix every ERROR and the WARNs that apply.
@@ -25,7 +26,7 @@ This repository is a **universal design guide**. The user will give you a produc
 Every product picks one art direction in `brand.json` → `approach`. The rules for that style live in `approaches/<approach>/`: `README.md`, `research.md` (why, with sources), `approach.json` (principles, layer rules, evidence), `art.json` (line, shape, corners, composition, colour ratios, recommended Wada combinations, vocabulary), `motion.json` (springs and timings), `typography.json` (type direction, which pairings fit, sizes per format) and `sample.mjs` (a sample poster). Read them before designing, together with `foundations/research/visual-preference.json` (the evidence every style builds on). Score finished work with the scorecard in that style's `research.md`.
 
 - **The style's own rules win over the general ones below.** For example, Bauhaus allows sharp corners, Commercial Modernism allows two-stop gradients, and Doodles and Scrapbook allow one hand-lettered accent. Where a style marks something `needsApproval` (for example fluorescent inks in Neon Surf), ask the user before using it.
-- **Always, in every style:** colours come only from the product's Wada combinations (plus Black and White), fonts only from `foundations/typography/source/pairings.json`, and copy follows the messaging playbook.
+- **Always, in every style:** colours come only from the product's Wada combinations (plus Black and White), fonts only from `foundations/typography/source/pairings.json` (plus one hand face from `handwritten.json` where the style allows it), and copy follows the messaging playbook.
 - Styles: `humanist-minimal` (complete, with a drawing engine), plus researched profiles `bauhaus`, `commercial-modernism`, `mid-century-modernism`, `scrapbook`, `desi-maximalism`, `neon-surf`, `posterize` (with `posterize.mjs` for photos) and `doodles`. See `approaches/README.md`.
 
 ### Example: Humanist Minimal (the first art direction) in short
@@ -40,7 +41,7 @@ Every product picks one art direction in `brand.json` → `approach`. The rules 
 - **Type:**
   - only the product's pairing, in sentence case
   - three sizes per piece (headline, body, small), left-aligned
-  - no handwriting fonts
+  - no handwriting fonts, except at most one short note (six words or fewer) in a hand face the style lists (`approaches/humanist-minimal/typography.json` → `handwritten`)
 - **Illustration:**
   - black ink line over white cut-paper shapes on a flat ground
   - use `dist/<id>/web/js/illustration.mjs` (`scene`, `inkLine`, `cutPaper`, `cutPaperPolygon`), or extend `approaches/humanist-minimal/illustration.mjs` with new motifs built from the same primitives
@@ -57,7 +58,7 @@ Every product picks one art direction in `brand.json` → `approach`. The rules 
 | Need | File |
 |---|---|
 | Colours as CSS variables | `dist/<id>/web/css/colors.css` (`--<prefix>-bg`, `-ink`, `-accent`, `-text`; any combination via `combinations.css` and `.<prefix>-combo-NNN`) |
-| Type | `dist/<id>/web/css/typography.css` (`.<prefix>-hero`, `-display`, `-h1` … `-body`, `-small`, `-label`) |
+| Type | `dist/<id>/web/css/typography.css` (`.<prefix>-hero`, `-display`, `-h1` … `-body`, `-small`, `-label`, and `-hand` when the product has a hand face) |
 | Motion | `dist/<id>/web/css/motion.css` |
 | Illustrations | `dist/<id>/web/js/illustration.mjs`, `dist/<id>/illustration/svg/` |
 | Copy checking in code | `dist/<id>/web/js/messaging.mjs` (`check(piece)`) |
