@@ -1,0 +1,34 @@
+{
+  "$comment": "Brand settings for Tailzu. Edit, then run `npm run build`.",
+  "name": "Tailzu",
+  "nameVariants": [],
+  "prefix": "ta",
+  "approach": "humanist-minimal",
+  "color": {
+    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the palettes are chosen, then \"chosen\".",
+    "status": "placeholder",
+    "palettes": {
+      "primary": {
+        "combination": 344,
+        "mode": "light"
+      },
+      "alt": {
+        "combination": 343,
+        "mode": "light"
+      }
+    }
+  },
+  "typography": {
+    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold). hand (optional) is one handwritten accent face from foundations/typography/source/handwritten.json, if the style allows it (approaches/<approach>/typography.json -> handwritten).",
+    "pairing": "instrument",
+    "scale": 1.25,
+    "hand": "caveat"
+  },
+  "$why": {
+    "approach": "Humanist Minimal: the product is literally hand in, type out (the site draws speech as handwriting that one set word swallows); a wobbling ink line turning into calm type is that idea in this style, and it has the strongest evidence (12/14) plus a drawing engine.",
+    "primary": "Wada 344 (Cinnamon Buff ground, Black ink 11.95:1, Deep Lyons Blue accent 6.2:1, inkUse body): the warm amber-cream and near-black of the app and site, with the indigo of its link card as the one accent object.",
+    "alt": "Wada 343 (Ivory Buff ground, Vandar Poel's Blue text 6.11:1, Burnt Sienna accent): the site's pale cream with an amber-brown accent, for professional pieces (LinkedIn) that need a quieter ground.",
+    "pairing": "instrument (Instrument Serif + Instrument Sans + IBM Plex Mono), rated core: the site already sets its words in Instrument Sans and IBM Plex Mono, and the calm editorial serif replaces its Newsreader.",
+    "hand": "Caveat: the face the site already uses for spoken words; here only for the one short said-it note per piece (six words or fewer), never for headlines, body, CTAs or numbers."
+  }
+}

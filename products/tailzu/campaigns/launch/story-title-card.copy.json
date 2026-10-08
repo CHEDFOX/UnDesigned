@@ -1,0 +1,8 @@
+{
+  "$comment": "Animated story title card (video/story-title-card.svg), made with templates/video/title-card.mjs.",
+  "format": "story",
+  "headline": "Talk. It writes.",
+  "cta": "Download free",
+  "logo": true,
+  "palette": "primary"
+}

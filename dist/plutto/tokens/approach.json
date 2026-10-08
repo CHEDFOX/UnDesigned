@@ -1,259 +1,299 @@
 {
-  "id": "humanist-minimal",
-  "name": "Humanist Minimal",
-  "summary": "Very few marks, each one made by a human hand. Organic shapes with rounded corners, an ink line that wobbles slightly, flat paper on a flat ground, and motion that flows like real things. One idea, lots of space.",
+  "id": "negative-space",
+  "name": "Negative Space",
+  "summary": "Most of the frame is empty on purpose: one small object on a calm, flat ground (or a single small subject in a calm photo), a short headline set small on a margin, and nothing else. At least 60% of the artboard stays empty, ideally 70-90%. The emptiness carries meaning (time, calm, scale, quality, focus), the object faces into it, and motion is slow with long holds. Lineage: Japanese ma, Kenya Hara's 'emptiness' for MUJI, Swiss asymmetric layouts, DDB's 'Think Small' for Volkswagen.",
+  "status": "profile",
   "principles": [
     {
-      "id": "H1",
-      "title": "The human hand",
-      "rule": "Every mark looks made by a person: ink lines with a small steady wobble, paper shapes cut by hand. Nothing looks generated, glossy or machine-perfect.",
-      "source": "Handmade effect (research.md 3)"
+      "id": "NS1",
+      "title": "The ground is the subject",
+      "rule": "At least 60% of the artboard is empty ground (ideal 70-90%), measured outside the bounding boxes of every mark, in one connected field. Say in the brief what the emptiness stands for.",
+      "source": "White space as rhetoric (Pracejus, Olsen & O'Guinn 2006); research.md 3.1"
     },
     {
-      "id": "H2",
-      "title": "Few marks",
-      "rule": "Minimal means fewer things, not thinner things. If a line, shape or word can go, it goes. At most three objects.",
-      "source": "Processing fluency (research.md 3)"
+      "id": "NS2",
+      "title": "One small thing",
+      "rule": "One object, 8-30% of the short side (ideal 12-22%), 0.5-8% of the area, readable as a silhouette. Its size follows meaning: small real things can be very small; large real things shown small need a cue of distance.",
+      "source": "Figure-ground small-area cue (Rubin 1915, via Wagemans et al. 2012); canonical size (Konkle & Oliva 2011; Linsen et al. 2011); research.md 3.2-3.3"
     },
     {
-      "id": "H3",
-      "title": "One idea",
-      "rule": "Each piece says one thing, usually by joining two plain symbols into a metaphor (molecule on a column, apple on a book, sound wave in a speech bubble).",
-      "source": "Paul Rand's rebus (research.md 2.2)"
+      "id": "NS3",
+      "title": "Face into the space",
+      "rule": "Anything with a front faces or moves into the larger empty area, with at least twice as much space ahead as behind. The headline or CTA waits where it looks.",
+      "source": "Inward bias (Palmer, Gardner & Wickens 2008); anterior bias in art (Bertamini, Bennett & Bode 2011); gaze cues in ads (Hutton & Nolte 2011; Sajjacholapunt & Ball 2014); research.md 3.3-3.4"
     },
     {
-      "id": "H4",
-      "title": "Space is content",
-      "rule": "One focal point and at least 40% empty ground. Centre the motif, or put it on a third to make room for words.",
-      "source": "Ma (research.md 2.1)"
+      "id": "NS4",
+      "title": "Quiet type",
+      "rule": "The headline is set small (poster cap height 2.5-4.5% of the height, about two-thirds of other styles), regular or medium weight, on a margin line, with the brand beside it. Body and details never go below legibility minimums.",
+      "source": "Text needs space more than size (Pieters & Wedel 2004; Chaparro et al. 2004); typography.json sizes"
     },
     {
-      "id": "H5",
-      "title": "Soft geometry",
-      "rule": "Organic shapes with rounded corners; no perfect circles, squares or sharp corners. Only natural points (a leaf tip, a bubble tail) stay pointed, and even they end in a small radius.",
-      "source": "Preference for curves (research.md 3)"
+      "id": "NS5",
+      "title": "Deliberate edges",
+      "rule": "The object is either clearly away from an edge (15% or more) or clearly on it (within the 10% margin, or cropped by at least 25%). Never 10-15% away, which looks accidental. Text always sits on the margins.",
+      "source": "Rule of thumb of this style (art.json composition.edgeTension)"
     },
     {
-      "id": "H6",
-      "title": "Flat and honest",
-      "rule": "Flat colour from one Wada combination, black ink and white paper. No gradients, shadows, glows or 3D. The only tone is printed halftone dots."
+      "id": "NS6",
+      "title": "Mostly ground colour",
+      "rule": "Ground 85-97% of the visible area, ink 2-8%, the accent 0.2-2% on one small part of the object. A calm, light ground with ink at 7:1 or better.",
+      "source": "Pop-out by isolation and colour (foundations/layout pop-out); colour-valence; research.md 3.2"
     },
     {
-      "id": "H7",
-      "title": "Warm, not cute",
-      "rule": "Friendly and a little witty, never childish. Wit comes from the idea, not decoration. No mascots, no faceless bendy figures.",
-      "source": "Corporate Memphis counter-example (research.md 2.5)"
+      "id": "NS7",
+      "title": "Earn the emptiness",
+      "rule": "Emptiness without an idea looks unfinished and is scrolled past. Each piece needs one specific, slightly surprising relation between the object and its space; and the style is not used for price-led or discount messages.",
+      "source": "Feature vs design complexity (Pieters, Wedel & Batra 2010); research.md 3.5 and 5"
     },
     {
-      "id": "H8",
-      "title": "Fluid motion",
-      "rule": "Things move on springs, with a little weight and a gentle overshoot, then settle on a still frame. Lines draw on, shapes pop and breathe, text rises. One thing moves at a time.",
-      "source": "Designing Fluid Interfaces (research.md 3)"
+      "id": "NS8",
+      "title": "Slow and still",
+      "rule": "Open on empty ground, make at most three slow moves one at a time, hold the final frame for 2 s or more. Video: locked-off camera, one slow natural movement, text arrives once and stays still.",
+      "source": "motion.json; art.json media.video (rules of thumb)"
     }
   ],
   "layers": [
     {
       "layer": "Colour",
-      "do": "One Wada combination per piece: its background as the ground, its accent on at most one object. Ink is Black, paper is White.",
-      "dont": "Mix combinations in one piece, add gradients, tint the ink."
+      "do": "One Wada combination with a calm, light ground (L* 75 or more, chroma 30 or less), ink passing 7:1 (inkUse 'body'), and a saturated accent on one small part of the object. Ground 85-97% of the area. Two-colour combinations (52, 84) give the purest version.",
+      "dont": "Saturated or dark grounds by default, gradients, textures or patterns in the ground, accent on type, more than three visible colours."
     },
     {
       "layer": "Typography",
-      "do": "Humanist faces with open apertures, rated in typography.json. Sentence case, three sizes, two weights; headline weight matched to the ink line.",
-      "dont": "Handwriting or 'marker' fonts, decorative display faces, many weights."
+      "do": "A calm pairing rated core or good (instrument, source, schibsted, jost). Headline small, regular or medium weight, sentence case, three sizes, two weights, on a margin line; brand beside the headline.",
+      "dont": "Big, heavy or condensed display headlines, all caps, handwriting fonts, body or details below the size minimums, text over the object."
     },
     {
       "layer": "Layout",
-      "do": "A simple grid, 8% margins, one focal point, text aligned to one edge. Rounded corners on buttons, cards and image boxes (art.json corners). Illustration and headline work as a pair.",
-      "dont": "Filling every corner, sharp-cornered boxes and borders around everything, centred paragraphs."
+      "do": "10% margins, one object, one headline group, at least 60% empty ground in one connected field (layouts.json gives 12 templates measured at 84-93%). Object in the low third, at the optical centre, or near one side facing in. Clear edge decisions.",
+      "dont": "Filling corners, boxes, frames, bands or rules; scattering small elements; object 10-15% from an edge; centred paragraphs; leaving space without a reason for it."
     },
     {
       "layer": "Illustration",
-      "do": "Ink line over organic, rounded paper shapes on a flat ground. One motif per piece, from the product's own world (art.json vocabulary).",
-      "dont": "Stock icons, perfect geometric vectors, sharp corners, detailed scenes, worn symbols (lightbulb, rocket, gears)."
+      "do": "One small silhouette or flat cut shape from the product's world (art.json vocabulary), 3-8 parts, at most one hairline horizon, accent on one part.",
+      "dont": "Scenes, several objects, stock icons, outlines, textures, decorative marks in the empty ground, borrowed Japanese symbols (zen stones, ensō, kanji)."
     },
     {
       "layer": "Motion",
-      "do": "Springs for arriving, sine-like curves for looping, acceleration for leaving. Draw-on lines, popping and breathing shapes, slow morphs; loops of 2-4 s (motion.json).",
-      "dont": "Linear motion, abrupt stops, long sequences, camera moves, fading the whole artwork, bouncing text."
+      "do": "Open on the empty ground, then one slow arrival or drift into the space on critically damped springs; text rises 0.2em once; hold 2 s or more. At most three moves (motion.json).",
+      "dont": "Overshoot, bounce, spin, shake, parallax, constant loops, text that moves after it lands, more than one thing moving."
     },
     {
       "layer": "Photography",
-      "do": "Natural light, real people and hands, uncluttered backgrounds; cut-out photos on a flat ground fit the style.",
-      "dont": "Glossy stock, heavy filters, busy scenes."
+      "do": "Full-bleed photo or video with one small subject (0.5-6% of the frame) and a calm area (sky, water, wall, floor, mist, shallow focus) holding the words. Subject faces the text. No overlay when contrast passes; otherwise the least visible treatment (calm-region, duotone, tint, blur, scrim-gradient). Video locked off, slow, text still (art.json media).",
+      "dont": "Busy backgrounds behind text, solid bands, plates or text shadows, subjects looking at the camera when the words matter, handheld or swooping camera moves, subjects under platform UI."
     },
     {
       "layer": "Copy",
-      "do": "Plain, warm, short. Speak to one person (see the messaging playbook).",
-      "dont": "Jargon, hype, exclamation marks."
+      "do": "Very short: a headline of 3-8 words that gains meaning from the image and the space; specific, plain, to one person (see the messaging playbook).",
+      "dont": "Price-led or discount copy, lists of features, exclamation marks, copy that explains the picture, vague 'premium' words that rely on the space to sound expensive."
     }
   ],
-  "status": "complete",
   "evidence": {
     "scores": {
-      "curves": 2,
+      "curves": 1,
       "simplicity": 2,
-      "maya": 2,
+      "maya": 1,
       "nature": 1,
-      "handmade": 2,
+      "handmade": 0,
       "colour": 1,
       "glance": 2
     },
+    "total": 8,
     "notes": {
-      "curves": "Organic shapes and rounded corners are a core rule (H5).",
-      "simplicity": "One idea, at most three objects, at least 40% empty ground (H2, H4).",
-      "maya": "Familiar formats and plain symbols, with the surprise kept to one metaphor (H3).",
-      "nature": "The wobbling line has natural mid-range roughness, but there is no other natural texture.",
-      "handmade": "Hand-drawn line and cut paper throughout (H1).",
-      "colour": "Depends on the Wada combination chosen; some pairs are muddy or low-contrast.",
-      "glance": "One focal point and a flat ground read within a glance."
+      "curves": "1: the style is neutral on curvature; corners are small radii and the object can be angular or round. Choose a rounded object where warmth matters (curvature finding).",
+      "simplicity": "2: the lowest visual complexity of any style in the guide (one object, one text group, 60-90% empty), the property judged first, within 17-50 ms (simplicity finding).",
+      "maya": "1: the format is familiar from premium advertising, galleries and product pages, but that familiarity is also the risk: without a fresh idea it reads as a generic 'minimal template', typical without being advanced (maya finding; research.md 3.5).",
+      "nature": "1: flat grounds have no natural detail; media pieces lean on sky, water, mist and land, which supply it. Score depends on the mode.",
+      "handmade": "0: nothing in the style shows the hand; warmth must come from the idea, the object or the photo (handmade finding). Pair with a hand-drawn object only if the product needs it.",
+      "colour": "1: calm, light grounds; pale blues and sage are well liked, greys and creams are neutral. Avoid olive and brown grounds (colour-valence finding).",
+      "glance": "2: a single isolated figure on a flat ground is the clearest possible figure-ground; it reads in a glance. The small headline is slower to read than in other styles, so the image must carry the idea alone (first-impression finding)."
     },
-    "beyondPreference": "Warmth and trust: visible human marks signal care (handmade effect), which suits products that want to feel personal.",
-    "watch": "Can drift into cute; Wada pairs vary in contrast."
+    "beyondPreference": [
+      {
+        "effect": "Prestige, trust and quality",
+        "note": "White space in ads carries a meaning built up over the 20th century (art, modernism, luxury retail) that creative directors and ordinary consumers share. Secondary summaries of the authors' studies report that ads with much white space made the product seem more prestigious, trustworthy and higher in quality; we could not read the full texts to confirm the measures. A later test found the effect is rhetorical (cultural meaning), not an economic 'burning money' signal, and that it varies across cultures.",
+        "sources": [
+          "Pracejus, Olsen & O'Guinn (2006), Journal of Consumer Research 33(1), 82-90",
+          "Olsen, Pracejus & O'Guinn (2012), Journal of Business Research 65(6), 855-860",
+          "Pracejus, O'Guinn & Olsen (2013), International Journal of Research in Marketing 30(3), 211-218"
+        ]
+      },
+      {
+        "effect": "Attention on the brand and the product",
+        "note": "Dense perceptual features (clutter) lower attention to the brand and liking of the ad; an elaborate creative design raises attention and liking. Negative space removes feature complexity; the idea has to supply design complexity. Creative directors in the 2012 survey named focusing attention on the product and brand as a main reason to use white space.",
+        "sources": [
+          "Pieters, Wedel & Batra (2010), Journal of Marketing 74(5), 48-60",
+          "Olsen, Pracejus & O'Guinn (2012), Journal of Business Research 65(6)"
+        ]
+      },
+      {
+        "effect": "Quiet status signals",
+        "note": "Wealthy consumers with low need for status prefer quiet, low-prominence branding that only insiders recognise; brand prominence fell as price rose in the categories studied. A minimal, quiet look fits brands that sell to this audience.",
+        "sources": [
+          "Han, Nunes & Drèze (2010), Journal of Marketing 74(4), 15-30",
+          "Liu, Yildirim & Zhang (2024), Journal of Economics & Management Strategy 33(1), 78-110 (theory)"
+        ]
+      },
+      {
+        "effect": "Distinctiveness in cluttered places",
+        "note": "In a feed, street or magazine full of busy pieces, one isolated object on an empty ground differs from its surroundings on the dimension everything else shares (density), which supports pop-out. This is an inference from the pop-out and clutter findings, not a measured feed result; Pieters et al. (2010) warn that too-simple designs can also lose attention.",
+        "sources": [
+          "Treisman & Gelade (1980); Itti & Koch (2001) (foundations/layout pop-out)",
+          "Rosenholtz, Li & Nakano (2007), Journal of Vision 7(2)"
+        ]
+      }
+    ],
+    "watch": "Can look empty, unfinished or generic, and may be scrolled past without a strong idea. Small type risks legibility and contrast failures. Poor fit for price-led, discount and urgent messages."
   },
-  "references": [
-    {
-      "file": "still-sound-bubble.jpg",
-      "shows": "Sound wave in a speech bubble: voice. Centred motif, cut-paper bubble."
-    },
-    {
-      "file": "still-molecule-column.jpg",
-      "shows": "Molecule on an Ionic column: science with classical roots. Two symbols, one idea."
-    },
-    {
-      "file": "still-globe-hands.jpg",
-      "shows": "Two hands holding a globe: global connection. Motif pushed right, space left for text."
-    },
-    {
-      "file": "motion-apple-book.mov",
-      "frames": "frames-apple-book.jpg",
-      "shows": "Frame draws on, apple pops in, frame turns into a book."
-    },
-    {
-      "file": "motion-sun-rays.mov",
-      "frames": "frames-sun-rays.jpg",
-      "shows": "Dots grow into rays and radiate outward on a loop."
-    },
-    {
-      "file": "motion-eye-telescope.mov",
-      "frames": "frames-eye-telescope.jpg",
-      "shows": "An eye at the end of a halftone beam blinks."
-    }
-  ],
+  "references": [],
   "art": {
+    "space": {
+      "emptyGroundMinPct": 60,
+      "emptyGroundIdealPct": [
+        70,
+        90
+      ],
+      "emptyGroundSampleMinPct": 65,
+      "measure": "Sum the union of the bounding boxes of all marks and subtract from 100. layouts.json gives emptyPct for every template (84-93%).",
+      "ground": "One flat field. Empty ground is one connected area, not many leftover slivers: the largest single empty rectangle should cover at least 35% of the artboard.",
+      "largestEmptyRectMinPct": 35,
+      "asymmetry": "The open field is on one side of the object: the empty distance ahead of the object (in the direction it faces or moves) is at least twice the distance behind it.",
+      "aheadToBehindMin": 2,
+      "rules": [
+        "Never fill space to make a piece look busier or more 'worth the money'. If the client wants more on the page, use a different template or style.",
+        "No textures, patterns, frames, rules or decorative marks in the empty ground. A single hairline horizon is the only allowed line that is not part of the object.",
+        "The ground is part of the message: say in the brief what the emptiness stands for (calm, scale, time, quiet, focus, quality)."
+      ]
+    },
     "line": {
-      "width": 9,
-      "widthSmall": 6,
-      "widthPct": 2.25,
+      "horizonWidth": 0.75,
+      "horizonWidthPct": 0.19,
+      "detailWidth": 1.5,
       "cap": "round",
       "join": "round",
-      "wobble": 1.4,
-      "wobbleRange": [
-        0.8,
-        1.8
+      "opacityForHorizon": [
+        0.4,
+        0.7
       ],
-      "segment": 14,
-      "continuity": "One continuous stroke per object where possible; at most three strokes per object.",
-      "terminals": "Round ends. Optional ink dots (1.0-1.2 x line width) mark joints and ends, as in the globe reference.",
-      "crossing": "Ink should cross a paper edge at least once per piece (a line running past its shape). It breaks the silhouette and shows the hand.",
       "rules": [
-        "Never vary the weight within one line (no calligraphic swell): the hand shows in the path, not the pressure.",
-        "Never use grey, coloured or dashed ink.",
-        "Line weight is fixed per artboard: do not scale strokes with the objects."
+        "At most one hairline per piece that is not part of the object (usually a horizon or floor line).",
+        "A horizon stops at the margins or runs full-bleed; it never stops at random points.",
+        "No outlines around the object: it is a filled silhouette or a cut shape."
       ]
     },
     "shape": {
-      "mode": "organic",
-      "blob": {
-        "points": [
-          6,
-          9
+      "mode": "silhouette or flat cut shape (or a single photographed subject)",
+      "focal": {
+        "count": 1,
+        "secondaryMax": 1,
+        "secondaryRule": "A second mark only if it belongs to the object (a wake behind a boat, a shadow, a string to a kite) and is lighter than it.",
+        "sideOfShortSidePct": [
+          8,
+          30
         ],
-        "irregularity": {
-          "paperDisc": [
-            0.06,
-            0.12
-          ],
-          "freeShape": [
-            0.15,
-            0.22
-          ]
-        },
-        "smoothing": "Closed Catmull-Rom curve through the points (tension 0.5)."
-      },
-      "cornerRadius": {
-        "pct": [
-          6,
-          12
+        "sideIdealPct": [
+          12,
+          22
         ],
-        "minUnits": 4
-      },
-      "points": "Only natural points stay pointed (a leaf tip, a bubble tail, a beam), and even they end in a radius of at least 2 units.",
-      "misregistration": {
-        "offsetPct": [
+        "areaOfArtboardPct": [
           0.5,
-          2
+          8
         ],
-        "direction": "Same direction for every object in one piece."
+        "areaIdealPct": [
+          1,
+          4
+        ],
+        "silhouette": "Readable as a silhouette in 1 second at 10% of its size: one clear outline, no interior detail needed.",
+        "detailParts": [
+          3,
+          8
+        ]
       },
+      "canonicalSize": "The smaller the real object, the smaller it may be drawn without looking wrong. For large real things (a house, a car, a person) shown very small, add a cue of distance (a horizon, a floor line, a figure on a wide field) so the size reads as far away, not as tiny.",
       "rules": [
-        "No perfect circles, squares or straight-edged polygons in artwork.",
-        "Fill shapes are never traced exactly inside the ink line.",
-        "One accent-coloured shape per piece at most; all other shapes are paper."
+        "One object. Not a group of small objects scattered across the ground (that is pattern, not negative space).",
+        "No icons or stock pictograms; draw or photograph a specific thing from the product's world.",
+        "The object differs from the ground on at least two dimensions: isolation plus colour (accent) or tone (ink)."
       ]
     },
     "corners": {
       "scale": {
-        "xs": 4,
-        "sm": 8,
-        "md": 16,
-        "lg": 24,
-        "xl": 40,
+        "xs": 2,
+        "sm": 4,
+        "md": 8,
+        "lg": 12,
+        "xl": 20,
         "pill": 999
       },
       "use": {
-        "button": "pill",
+        "button": "pill, outlined in ink (no fill)",
         "chip": "pill",
-        "input": "sm",
-        "card": "lg",
-        "image": "lg, or an organic blob mask for hero images",
-        "sheet / modal": "xl on the top corners"
+        "input": "xs",
+        "card": "md, and avoid cards on negative-space pages where possible",
+        "image": "0 (full-bleed) or sm",
+        "sheet / modal": "lg on the top corners"
       },
-      "nested": "An inner radius is the outer radius minus the padding between them, so curves stay parallel.",
-      "print": "On posters and print, corners of image boxes are 2-4% of the box's short side."
+      "nested": "An inner radius is the outer radius minus the padding between them.",
+      "print": "No boxes on posters. Image boxes, if any, have square corners or a radius of at most 1% of the box's short side."
     },
     "composition": {
-      "marginPct": 8,
-      "grid": "12 columns on screen, 6 on posters; motif and text each take whole columns.",
+      "marginPct": 10,
+      "marginNote": "10% of the short side, wider than the 8% default in foundations/layout/layout.json (rule of thumb of this style). Text, brand and CTA sit on the margin lines.",
+      "grid": "6 columns on posters and posts, 4 on stories, 12 on screens; text and object snap to the grid even though most cells are empty.",
+      "emptyGroundMinPct": 60,
       "motifSizePct": [
-        35,
-        60
+        8,
+        30
       ],
-      "emptyGroundMinPct": 40,
-      "maxObjects": 3,
+      "maxObjects": 1,
       "placements": [
         {
-          "id": "centre",
-          "use": "Pure image pieces, square social posts. Text below or none."
+          "id": "low-third",
+          "use": "Object in the lower third, on an implied or drawn floor, headline high on the opposite side. The default poster and story layout (layouts.json ns-poster-object-low, ns-story-float).",
+          "evidence": "Lower regions read as figure and as resting on a ground (research.md 3.2)."
         },
         {
-          "id": "third",
-          "use": "Motif on the left or right third; headline in the other two-thirds, aligned to one edge (globe reference)."
+          "id": "optical-centre",
+          "use": "Object a little above the geometric centre, alone; all words in a strip on the bottom margin (ns-poster-corner-type). For symmetric, front-facing objects.",
+          "evidence": "Viewers start near the centre and prefer front-facing objects centred (research.md 3.3)."
         },
         {
-          "id": "anchored",
-          "use": "Motif sits on the bottom edge, as if on a table; headline above. Good for posters and stories."
+          "id": "facing-in",
+          "use": "Object near one side, facing or moving into the open field; the words wait where it looks (ns-post-4x5-gaze, ns-post-4x5-photo).",
+          "evidence": "Inward bias: objects that face into the frame are preferred (research.md 3.3); gaze toward the message draws attention to it (3.4)."
         },
         {
-          "id": "crop",
-          "use": "Motif runs off one edge, for a larger, closer feel. At most one edge."
+          "id": "far-side",
+          "use": "Wide formats: words on the reading-start side, object on the far third facing back (ns-hero-wide, ns-billboard-tiny).",
+          "evidence": "left-lean, picture-captures (foundations/layout)."
         }
       ],
-      "pairing": "Image and headline are a pair: the headline must not describe what the image shows (W5); together they say more than either alone.",
+      "edgeTension": {
+        "rule": "Either clearly away from an edge or clearly near it, never halfway. Away = at least 15% from that edge. Near = within the margin (0-10%) and then deliberately: resting on the bottom margin, or cropped by the edge with at least 25% of the object cut. Between 10% and 15% from an edge looks like a mistake.",
+        "awayMinPct": 15,
+        "nearMaxPct": 10,
+        "deadZonePct": [
+          10,
+          15
+        ],
+        "cropMinPct": 25,
+        "maxEdgesTouched": 1,
+        "text": "Text never touches an edge: it sits on the margin lines (10% of the short side) or inside the platform safe area, whichever is larger."
+      },
+      "direction": {
+        "rule": "Anything with a front (a face, an animal, a vehicle, a boat, a cup handle, a pointing shape) faces or moves into the larger empty area, and the headline or CTA sits in that area where possible.",
+        "aheadToBehindMin": 2,
+        "symmetric": "Objects with no front go near the optical centre or the low third."
+      },
+      "pairing": "Image and headline are a pair: the headline does not describe the object (W5); the emptiness gives the line its meaning (a small boat on a big sea + 'Bread that takes its time').",
       "rules": [
-        "One focal point per piece.",
-        "Never centre a paragraph; centre at most one or two short lines on a centred poster.",
-        "Keep text at least one margin away from the motif."
+        "One focal object, one headline, one brand, one call to action. Nothing else.",
+        "Text is small and quiet (typography.json sizes) and aligned to one margin edge.",
+        "Group the words tightly (space inside a group at most half the space between groups) so they read as one quiet unit, not scattered labels.",
+        "Keep text at least 15% of the short side away from the object, unless it is a caption that belongs to it.",
+        "Never centre a paragraph."
       ]
     },
     "palette": {
@@ -261,93 +301,88 @@
         "ground": {
           "from": "combination bg",
           "areaPct": [
-            60,
-            75
-          ]
-        },
-        "paper": {
-          "from": "Wada White",
-          "areaPct": [
-            15,
-            30
+            85,
+            97
           ]
         },
         "ink": {
-          "from": "Wada Black",
+          "from": "combination ink when light-mode inkUse is body, otherwise Wada Black",
           "areaPct": [
-            5,
-            10
-          ]
+            2,
+            8
+          ],
+          "use": "Text, the object's silhouette, the horizon."
         },
         "accent": {
           "from": "combination accent",
           "areaPct": [
-            0,
-            5
+            0.2,
+            2
           ],
-          "limit": "One object."
+          "limit": "One small part of the one object (a sail, a door, a fruit, a button dot). Never type."
+        },
+        "paper": {
+          "from": "Wada White",
+          "areaPct": [
+            0,
+            4
+          ],
+          "use": "Only as part of the object (a highlight, a cut shape)."
+        },
+        "support": {
+          "from": "combination support colours",
+          "areaPct": [
+            0,
+            10
+          ],
+          "use": "Only for a second calm field (floor, sea) below a horizon, and only if its contrast with the ground is low (below 1.6:1)."
         }
       },
       "rules": [
-        "One combination per piece.",
-        "No gradients, shadows, glows or transparency effects.",
-        "Text colour on the ground uses the combination's text role (AA contrast)."
+        "One combination per piece; usually two or three colours visible in total.",
+        "No gradients, shadows, glows or transparency effects in the art. The only exception is a photo or video that has natural gradients of light.",
+        "Text uses the combination's text role and must pass WCAG AA at its actual size (4.5:1 for text under 24 px or 18.66 px bold, 3:1 above). Because type is small in this style, aim for 7:1.",
+        "The accent sits on at most one small part of the object; it never covers more than 2% of the artboard."
       ],
-      "method": "Pick a combination with a calm, light ground (sky, paper, stone or sand tones), a dark ink-like colour that passes AA on it, and one warm accent for the single coloured object. Muted grounds keep the white paper and black ink as the stars, as in the references (greige, dusty blue, terracotta).",
+      "method": "Pick a combination whose light-mode ground is calm and light (lightness L* 75 or more, chroma 30 or less: sky, sand, stone, linen, pale sage), whose ink passes 7:1 on it (inkUse 'body'), and whose accent is saturated enough to make a tiny object pop (chroma 45 or more). A two-colour combination (ground + ink) gives the most austere version.",
       "recommendedCombinations": [
         {
-          "combination": 232,
+          "combination": 190,
           "colours": [
-            "Carmine",
-            "Pinkish Cinnamon",
-            "Deep Indigo"
-          ],
-          "reason": "Warm sand ground, deep indigo text, one carmine object: closest to the terracotta references."
-        },
-        {
-          "combination": 221,
-          "colours": [
-            "Carmine Red",
-            "Neutral Gray",
+            "Ivory Buff",
+            "English Red",
             "Black"
           ],
-          "reason": "Stone-grey ground like the dusty-blue reference; black text at 9.95:1."
+          "reason": "Linen ground, black ink at 12.75:1, one English Red detail: the warmest and most legible choice."
         },
         {
           "combination": 268,
           "colours": [
             "Nile Blue",
             "Deep Slate Olive",
-            "Raw Sienna"
+            "Raw Sienna",
+            "Light Brown Drab"
           ],
-          "reason": "Pale sky ground, near-black olive ink, warm sienna accent."
+          "reason": "Pale sky ground, near-black olive ink at 9.97:1, a sienna accent: made for horizons and open air."
         },
         {
-          "combination": 310,
+          "combination": 221,
           "colours": [
-            "Sulpher Yellow",
-            "Deep Slate Olive",
-            "Olive"
-          ],
-          "reason": "Paper-like pale yellow ground with 11.5:1 ink; very calm."
-        },
-        {
-          "combination": 343,
-          "colours": [
-            "Ivory Buff",
-            "Vandar Poel's Blue",
-            "Burnt Sienna"
-          ],
-          "reason": "Linen ground like the apple-book reference, blue ink, sienna accent."
-        },
-        {
-          "combination": 344,
-          "colours": [
-            "Cinnamon Buff",
+            "Neutral Gray",
             "Black",
-            "Deep Lyons Blue"
+            "Carmine Red"
           ],
-          "reason": "Warm buff ground with black ink; the blue accent stays a single object."
+          "reason": "Stone-grey ground, black ink at 9.95:1, a carmine dot: the most austere, gallery-like option."
+        },
+        {
+          "combination": 340,
+          "colours": [
+            "Neutral Gray",
+            "Black",
+            "Peach Red",
+            "Sea Green"
+          ],
+          "reason": "Same grey ground and 9.95:1 ink with a brighter peach-red accent, for a little more warmth."
         },
         {
           "combination": 207,
@@ -356,137 +391,200 @@
             "Black",
             "Sudan Brown"
           ],
-          "reason": "Soft sage ground, strong black ink, earthy accent."
+          "reason": "Soft sage ground, black ink at 11.05:1, earthy accent: calm and natural."
         },
         {
-          "combination": 152,
+          "combination": 139,
           "colours": [
-            "Light Glaucous Blue",
-            "Hay's Russet",
-            "Etruscan Red"
+            "Neutral Gray",
+            "Deep Indigo",
+            "Salvia Blue"
           ],
-          "reason": "Dusty blue ground close to the globe reference."
+          "reason": "Near-monochrome: grey ground, indigo ink at 9.87:1, a dusty blue accent; for the quietest pieces (the accent is low-contrast, so pair it with isolation)."
+        },
+        {
+          "combination": 229,
+          "colours": [
+            "Neutral Gray",
+            "Deep Slate Olive",
+            "Golden Yellow"
+          ],
+          "reason": "Grey ground with one golden-yellow object: a single lit window, a lemon, a sun."
+        },
+        {
+          "combination": 151,
+          "colours": [
+            "Sulpher Yellow",
+            "Vandar Poel's Blue",
+            "Yellow Orange"
+          ],
+          "reason": "Pale cream ground, blue ink at 7.51:1, a small orange accent; the accent is light, so keep it next to ink."
+        },
+        {
+          "combination": 84,
+          "colours": [
+            "Seashell Pink",
+            "Deep Slate Green"
+          ],
+          "reason": "Two colours only: blush ground and deep green ink at 10.45:1. Object in ink, no accent."
+        },
+        {
+          "combination": 52,
+          "colours": [
+            "Sulpher Yellow",
+            "Black"
+          ],
+          "reason": "Two colours only: cream paper and black at 15.67:1. The purest negative-space pairing."
         }
-      ]
+      ],
+      "avoid": "Dark grounds as the default (they read as dramatic rather than calm; use only for night themes and keep text at 7:1), saturated grounds (chroma above 40: the ground starts to shout), and combinations where the ink is decorative (inkUse not 'body')."
     },
     "texture": {
       "halftone": {
-        "cell": 5,
-        "dot": 1.25,
-        "use": "The only shading: beams, shadows, fades. Ink dots on paper or ground, fading out.",
-        "maxAreaPct": 15
+        "use": "none"
       },
-      "grain": "Optional and subtle paper grain on print; never on screen UI."
+      "grain": "Optional and very subtle paper grain on print only (under 3% tonal variation). Never on screen.",
+      "rule": "The ground stays flat. Texture would fill the space this style is about."
+    },
+    "media": {
+      "choose": {
+        "subject": "One subject: a person seen small, an animal, a building, a boat, a single product. No crowds, no groups of equal things.",
+        "calm": [
+          "sky",
+          "sea or lake",
+          "snow or sand",
+          "plain wall",
+          "floor or table top",
+          "mist or fog",
+          "shallow depth of field (background out of focus)",
+          "night sky"
+        ],
+        "avoid": [
+          "busy streets",
+          "foliage or crowds behind the text area",
+          "high-contrast patterns (tiles, stripes, brick) in the text zone",
+          "horizons that cut through the headline",
+          "stock 'person on a mountain top with arms raised'"
+        ],
+        "light": "Soft, even light (overcast, dusk, early morning) keeps the calm area flat; hard noon light makes busy shadows."
+      },
+      "subjectSize": {
+        "areaOfFramePct": [
+          0.5,
+          6
+        ],
+        "idealAreaPct": [
+          1,
+          3
+        ],
+        "heightOfFramePct": [
+          5,
+          25
+        ],
+        "rule": "The subject's bounding box covers at most 6% of the frame (ideal 1-3%). For a person: 5-15% of the frame height on posters and posts, up to 25% on wide heroes where the frame is short."
+      },
+      "placement": {
+        "rule": "Subject in the low third or on one side third, never dead centre unless it faces the camera. Its gaze or movement points into the empty area, and the text zone is in that area.",
+        "gaze": "A face or body turned toward the text, not toward the viewer (research.md 3.4). Faces looking at the camera pull attention away from the words; keep them for pieces where the face is the message.",
+        "horizon": "Put the horizon low (70-85% down) for a sky field, or high (15-30% down) for a floor or water field. Never through the text zone.",
+        "safeAreas": "In stories and reels the subject stays inside the live band (top 14%, bottom 35%, sides 6%) so platform captions and buttons never cover it."
+      },
+      "textZone": {
+        "rule": "All text sits in one calm region of the frame, inside the grid margins and safe areas. The text zone holds no edges, faces, horizons or highlights.",
+        "calmTest": "Inside the text zone the photo's luminance varies by less than 15% of the full range (blur the frame by 2% of its width and check), and it contains no edges sharper than the type itself.",
+        "minAreaPct": 15
+      },
+      "treatment": {
+        "default": "calm-region",
+        "rule": "No overlay at all when the text passes contrast on the calm region (4.5:1 for body and small text, 3:1 for headlines 24 px and above, measured against the lightest and darkest pixels behind the letters). Otherwise use the least visible treatment that passes, in this order.",
+        "order": [
+          {
+            "id": "calm-region",
+            "use": "Re-crop or re-shoot first: move the text zone to a calmer, more even part of the frame."
+          },
+          {
+            "id": "duotone",
+            "use": "Map the photo to two colours of the Wada combination (ground and ink). Fixes contrast and makes the photo part of the palette; suits this style best."
+          },
+          {
+            "id": "tint",
+            "use": "A uniform tint of the ground colour over the whole frame at 10-30%. Invisible as a shape."
+          },
+          {
+            "id": "blur",
+            "use": "Blur only the background (as with a shallow lens) at 1-2% of the frame width. Best in-camera."
+          },
+          {
+            "id": "scrim-gradient",
+            "use": "Last resort: a long, soft gradient of the ground colour from the text edge, at most 35% opacity, covering at least 40% of the frame so its edge is never seen."
+          }
+        ],
+        "avoid": [
+          {
+            "id": "solid-band",
+            "why": "A band fills the space the style is about and reads as an ad strip."
+          },
+          {
+            "id": "plate",
+            "why": "A box behind the text is a second object competing with the subject."
+          },
+          {
+            "id": "text-shadow",
+            "why": "Halos look cheap and thicken small type; if contrast fails, fix the photo instead."
+          }
+        ]
+      },
+      "video": {
+        "camera": "Locked off (tripod), or a very slow push or drift of at most 2% of the frame width per 10 seconds. No handheld shake, whip pans, zooms or drone swoops.",
+        "subjectMotion": "One slow natural movement (a figure walking, water, mist, grass, a boat drifting), moving into the empty area, not out of frame toward the viewer.",
+        "cuts": "Few: shots of at least 4 seconds; a 6-15 s loop is often a single shot.",
+        "text": "Words appear once, after the first hold (about 1-2 s), with a slow fade or 0.2em rise, and then stay perfectly still. Never animate text with the footage, never place it over the moving part of the frame.",
+        "holdsMs": [
+          2000,
+          4000
+        ],
+        "loop": "Loops end on the same calm frame they start on; the first frame works as a poster for reduced motion and slow connections.",
+        "accessibility": "Video that moves for more than 5 seconds next to other content needs a pause control (WCAG 2.2.2 Pause, Stop, Hide). Respect prefers-reduced-motion by showing the poster frame."
+      }
     },
     "vocabulary": {
       "symbols": [
         {
-          "id": "hand",
+          "id": "boat",
           "means": [
-            "care",
-            "making",
-            "help",
-            "offer"
-          ]
+            "journey",
+            "patience",
+            "freedom"
+          ],
+          "space": "sea, distance, time"
         },
         {
-          "id": "eye",
+          "id": "single-figure",
           "means": [
-            "attention",
-            "insight",
-            "vision",
-            "noticing"
-          ]
-        },
-        {
-          "id": "sun",
-          "means": [
-            "morning",
-            "energy",
-            "optimism",
-            "warmth"
-          ]
-        },
-        {
-          "id": "speech-bubble",
-          "means": [
-            "voice",
-            "conversation",
-            "support"
-          ]
-        },
-        {
-          "id": "sound-wave",
-          "means": [
-            "voice",
-            "music",
-            "listening"
-          ]
-        },
-        {
-          "id": "book",
-          "means": [
-            "learning",
-            "knowledge",
-            "stories"
-          ]
-        },
-        {
-          "id": "apple",
-          "means": [
-            "learning",
-            "health",
-            "freshness"
-          ]
-        },
-        {
-          "id": "globe",
-          "means": [
-            "world",
-            "connection",
-            "reach"
-          ]
-        },
-        {
-          "id": "column",
-          "means": [
-            "heritage",
-            "trust",
-            "institutions",
-            "foundations"
-          ]
-        },
-        {
-          "id": "molecule",
-          "means": [
-            "science",
-            "connection",
-            "structure"
-          ]
-        },
-        {
-          "id": "sprout",
-          "means": [
-            "growth",
-            "beginnings",
-            "nature"
-          ]
-        },
-        {
-          "id": "key",
-          "means": [
-            "access",
-            "solution",
-            "home"
-          ]
+            "the customer",
+            "solitude",
+            "freedom",
+            "scale"
+          ],
+          "space": "room to think, the open road"
         },
         {
           "id": "house",
           "means": [
             "home",
-            "belonging",
-            "security"
-          ]
+            "shelter",
+            "belonging"
+          ],
+          "space": "land, quiet, privacy"
+        },
+        {
+          "id": "lit-window",
+          "means": [
+            "home",
+            "welcome",
+            "evening"
+          ],
+          "space": "night, calm"
         },
         {
           "id": "cup",
@@ -494,39 +592,61 @@
             "pause",
             "comfort",
             "morning"
-          ]
+          ],
+          "space": "a slow morning"
         },
         {
-          "id": "path",
+          "id": "seed-or-sprout",
           "means": [
-            "journey",
-            "progress",
-            "direction"
-          ]
+            "beginnings",
+            "growth"
+          ],
+          "space": "potential, what comes next"
         },
         {
-          "id": "ladder",
+          "id": "bird",
           "means": [
-            "progress",
-            "steps",
-            "ambition"
-          ]
-        },
-        {
-          "id": "envelope",
-          "means": [
-            "message",
-            "invitation",
+            "freedom",
+            "lightness",
             "news"
-          ]
+          ],
+          "space": "sky"
         },
         {
-          "id": "clock",
+          "id": "kite",
           "means": [
-            "time",
-            "routine",
-            "punctuality"
-          ]
+            "play",
+            "lift",
+            "wind"
+          ],
+          "space": "sky, height"
+        },
+        {
+          "id": "key",
+          "means": [
+            "access",
+            "home",
+            "solution"
+          ],
+          "space": "what it opens"
+        },
+        {
+          "id": "chair",
+          "means": [
+            "rest",
+            "a place for you",
+            "waiting"
+          ],
+          "space": "the room, calm"
+        },
+        {
+          "id": "door",
+          "means": [
+            "opportunity",
+            "entry",
+            "privacy"
+          ],
+          "space": "what lies beyond"
         },
         {
           "id": "moon",
@@ -534,538 +654,567 @@
             "night",
             "rest",
             "calm"
-          ]
+          ],
+          "space": "night sky"
         },
         {
-          "id": "wave",
+          "id": "single-product",
           "means": [
-            "flow",
-            "calm",
-            "the sea"
-          ]
+            "the product itself",
+            "quality",
+            "focus"
+          ],
+          "space": "nothing to distract"
         },
         {
-          "id": "bird",
+          "id": "ball",
           "means": [
-            "freedom",
-            "news",
-            "lightness"
-          ]
+            "play",
+            "a game",
+            "potential energy"
+          ],
+          "space": "the field, the throw"
         },
         {
-          "id": "bread",
+          "id": "footprints",
           "means": [
-            "nourishment",
-            "everyday",
-            "craft"
-          ]
-        },
-        {
-          "id": "thread",
-          "means": [
-            "connection",
-            "craft",
-            "continuity"
-          ]
-        },
-        {
-          "id": "telescope",
-          "means": [
-            "future",
-            "looking ahead",
-            "discovery"
-          ]
+            "first steps",
+            "presence",
+            "journey"
+          ],
+          "space": "untouched ground"
         }
       ],
       "avoid": [
+        {
+          "symbol": "zen stones, bamboo, ensō circles, kanji",
+          "for": "calm",
+          "why": "Clichés that borrow Japanese culture as decoration (research.md 5)."
+        },
+        {
+          "symbol": "lone person on a mountain top with arms raised",
+          "for": "success",
+          "why": "Stock-photo cliché."
+        },
         {
           "symbol": "lightbulb",
           "for": "idea",
           "why": "The most worn-out symbol in advertising."
         },
         {
-          "symbol": "rocket",
-          "for": "launch or growth",
-          "why": "Startup cliché."
+          "symbol": "a tiny logo alone in the middle",
+          "for": "premium",
+          "why": "Says nothing; the space must be about the customer's benefit, not the brand."
         },
         {
-          "symbol": "handshake",
-          "for": "partnership",
-          "why": "Stock-photo cliché."
-        },
-        {
-          "symbol": "puzzle pieces",
-          "for": "solutions",
-          "why": "Says nothing specific."
-        },
-        {
-          "symbol": "gears",
-          "for": "process",
-          "why": "Cold, mechanical, overused."
-        },
-        {
-          "symbol": "target / dartboard",
-          "for": "goals",
-          "why": "Generic."
-        },
-        {
-          "symbol": "faceless flat people",
-          "for": "community",
-          "why": "Corporate Memphis (see research.md)."
+          "symbol": "scattered small icons",
+          "for": "features",
+          "why": "Turns the ground into a pattern; the opposite of this style."
         }
       ]
     },
-    "metaphor": {
+    "method": {
       "recipe": [
         "Write the one message in a sentence (W1).",
-        "List five plain nouns from the product's world and five from the benefit.",
-        "Pair one from each list into a single image (A + B = idea).",
-        "Test: does it read in 2 seconds without words? Would a competitor's ad use it? (W4)",
-        "Pick the pair that surprises most but still reads instantly."
+        "Ask what the emptiness should stand for: time, calm, scale, quiet, focus, quality, distance, possibility.",
+        "Pick one small object from the product's world whose relation to that space makes the point (a boat on a wide sea = time; a lit window in the dark = welcome).",
+        "Decide which way the object faces or moves, and put the open field and the words on that side.",
+        "Set the headline small on a margin. Test: if you remove the headline, does the image still say something? If you remove the space (crop tight), does the idea disappear? Both should be yes.",
+        "Measure empty ground (at least 60%, ideally 70-90%) and check text contrast at its real size."
       ],
       "examples": [
         {
-          "a": "molecule",
-          "b": "column",
-          "idea": "science with classical roots",
-          "ref": "still-molecule-column.jpg"
+          "object": "small boat",
+          "space": "wide flat sea",
+          "idea": "something that takes its time (the sample poster)"
         },
         {
-          "a": "apple",
-          "b": "book",
-          "idea": "learning",
-          "ref": "motion-apple-book.mov"
+          "object": "one lit window",
+          "space": "dark field",
+          "idea": "someone is home; welcome"
         },
         {
-          "a": "sound wave",
-          "b": "speech bubble",
-          "idea": "voice",
-          "ref": "still-sound-bubble.jpg"
+          "object": "single chair",
+          "space": "empty room",
+          "idea": "a seat kept for you"
         },
         {
-          "a": "eye",
-          "b": "telescope",
-          "idea": "vision, looking ahead",
-          "ref": "motion-eye-telescope.mov"
+          "object": "kite",
+          "space": "high empty sky",
+          "idea": "lift, a light product"
         },
         {
-          "a": "globe",
-          "b": "hands",
-          "idea": "the world, held with care",
-          "ref": "still-globe-hands.jpg"
-        },
-        {
-          "a": "sun",
-          "b": "rays",
-          "idea": "energy, a new morning",
-          "ref": "motion-sun-rays.mov"
+          "object": "one footprint",
+          "space": "untouched snow",
+          "idea": "be first"
         }
       ]
     },
     "checklist": [
-      "One idea, readable in 2 seconds without words.",
-      "Ink line even, round ends, small wobble; crosses a paper edge at least once.",
-      "Organic shapes with rounded corners and a clear silhouette.",
-      "Ground 60-75%, paper 15-30%, ink 5-10%, accent on one object at most.",
-      "Motif 35-60% of the short side; at least 40% empty ground."
+      "Empty ground at least 60% of the artboard (ideal 70-90%), in one connected field.",
+      "One small object, 8-30% of the short side, readable as a silhouette.",
+      "The object faces or moves into the open field; ahead at least twice behind.",
+      "Edges: object at least 15% from an edge, or deliberately on the margin or cropped; never 10-15%.",
+      "Headline small and quiet (typography.json sizes), on a margin line, brand beside it.",
+      "Ground 85-97%, ink 2-8%, accent 0.2-2% on one part of the object.",
+      "Text passes AA at its real size (aim 7:1).",
+      "Media: subject 0.5-6% of the frame, text in a calm region with no overlay if contrast passes; video locked off, text still."
     ]
   },
   "motion": {
-    "character": "Fluid and physical: things have a little weight, move on springs, overshoot gently and settle. Nothing moves at constant speed and nothing stops dead.",
+    "character": "Stillness with one slow event. The piece opens on empty ground, one thing arrives or drifts, the words settle, and then everything holds. Motion should feel like a breath or a tide, never like a notification.",
     "springs": {
-      "gentle": {
-        "stiffness": 120,
-        "damping": 20,
+      "settle": {
+        "stiffness": 70,
+        "damping": 17,
         "mass": 1,
-        "use": "Default for most movement: panels, text, image shifts."
+        "use": "Default: the object and the text block arriving (ratio about 1.02, settles in about 1.2 s)."
+      },
+      "still": {
+        "stiffness": 40,
+        "damping": 13,
+        "mass": 1,
+        "use": "Large or slow arrivals: the object easing in from far away, a hero image settling (ratio about 1.03, settles in about 1.6 s)."
       },
       "soft": {
         "stiffness": 170,
         "damping": 26,
         "mass": 1,
-        "use": "UI feedback: buttons, toggles, cards. No overshoot."
-      },
-      "lively": {
-        "stiffness": 200,
-        "damping": 17,
-        "mass": 1,
-        "use": "Paper shapes appearing (pop); about 10% overshoot."
-      },
-      "float": {
-        "stiffness": 60,
-        "damping": 14,
-        "mass": 1,
-        "use": "Large, slow moves: hero illustration entering, big shapes drifting."
+        "use": "Interactive UI: hover, open, toggle. No overshoot."
       }
     },
     "easings": {
-      "draw": {
-        "css": "cubic-bezier(0.65, 0, 0.35, 1)",
-        "use": "Ink lines drawing on, start to end (like a hand accelerating and slowing)."
+      "drift": {
+        "css": "cubic-bezier(0.45, 0, 0.55, 1)",
+        "use": "Slow travel and loops: a boat crossing, a kite rising, a cloud passing. Sine-like, no visible start or stop."
       },
-      "breathe": {
-        "css": "cubic-bezier(0.37, 0, 0.63, 1)",
-        "use": "Looping, sine-like movement: breathing, floating, talking."
+      "fade": {
+        "css": "cubic-bezier(0.33, 0, 0.2, 1)",
+        "use": "Text and small marks fading in: quick start, long gentle finish."
       },
       "exit": {
         "css": "cubic-bezier(0.55, 0, 1, 0.45)",
-        "use": "Things leaving: accelerate away, never spring."
+        "use": "Things leaving: accelerate away slowly."
       }
     },
     "moves": {
-      "draw": {
-        "duration": 600,
-        "easing": "draw",
-        "use": "Ink lines drawing themselves on."
+      "rise": {
+        "spring": "settle",
+        "distance": "0.2em",
+        "use": "Text block appearing: a very short rise with a fade. Half the distance of other styles."
       },
       "pop": {
-        "spring": "lively",
-        "use": "Paper and accent shapes appearing from scale 0."
+        "spring": "settle",
+        "use": "The object appearing (scale from 0 is allowed only for small objects under 12% of the short side; larger ones fade)."
       },
-      "rise": {
-        "spring": "gentle",
-        "distance": "0.4em",
-        "use": "Text and blocks entering after the art."
+      "draw": {
+        "duration": 1400,
+        "easing": "drift",
+        "use": "A horizon hairline drawing across from the reading-start side."
       },
-      "morph": {
-        "duration": 3600,
-        "easing": "breathe",
-        "use": "Organic shapes slowly changing outline (2-3 shapes, looping)."
+      "drift": {
+        "duration": 12000,
+        "easing": "drift",
+        "distancePct": [
+          3,
+          10
+        ],
+        "use": "The object travelling slowly into the open field (a boat, a bird, a figure), 3-10% of the artboard width over 8-20 s."
       },
       "breathe": {
-        "duration": 4000,
-        "easing": "breathe",
+        "duration": 6000,
+        "easing": "drift",
         "scale": [
           1,
-          1.03
+          1.01
         ],
-        "use": "A resting illustration staying alive."
+        "use": "A resting object staying barely alive. Optional."
       },
       "float": {
-        "duration": 3200,
-        "easing": "breathe",
-        "distancePct": 1,
-        "use": "Gentle drift up and down by about 1% of the artboard."
+        "duration": 6000,
+        "easing": "drift",
+        "distancePct": 0.5,
+        "use": "A floating object bobbing by 0.5% of the artboard."
       },
-      "radiate": {
-        "duration": 1800,
-        "easing": "cubic-bezier(0.33, 0, 0.67, 1)",
-        "use": "Dots growing into rays and travelling outward (sun reference)."
-      },
-      "blink": {
-        "duration": 220,
-        "every": 2600,
-        "use": "Character beats: eyes close and open (eye reference)."
-      },
-      "talk": {
+      "fadeIn": {
         "duration": 900,
-        "easing": "breathe",
-        "use": "A sound wave pulsing."
+        "easing": "fade",
+        "use": "Brand, CTA and details appearing after the headline."
       }
     },
     "durations": {
-      "minMs": 200,
-      "maxMs": 900,
-      "formula": "duration = 250 ms + 0.4 ms per pixel travelled (capped at 900 ms)",
+      "minMs": 300,
+      "maxMs": 1600,
+      "formula": "duration = 500 ms + 0.6 ms per pixel travelled (capped at 1600 ms); loops and drifts are exempt",
       "byElement": {
-        "icon": 200,
-        "button": 250,
-        "card": 350,
-        "panel": 450,
-        "illustration": 600,
-        "fullScreen": 700
+        "icon": 300,
+        "button": 300,
+        "card": 500,
+        "panel": 700,
+        "illustration": 1100,
+        "fullScreen": 1400
       }
     },
     "choreography": {
       "order": [
-        "ground",
-        "paper shapes (pop)",
-        "ink lines (draw)",
-        "accent object (pop)",
+        "empty ground (hold 600-1000 ms)",
+        "object (pop, fade or drift in)",
+        "horizon (draw), if any",
         "headline (rise)",
-        "body and CTA (rise)"
+        "brand, details and CTA (fade in together)",
+        "hold"
       ],
-      "stagger": 50,
-      "overlapPct": 30,
-      "settleBeforeText": "Text starts when the art is about 70% complete, so they overlap without competing.",
+      "stagger": 400,
+      "overlapPct": 0,
+      "openOnGround": "Every sequence starts on the empty ground for 600-1000 ms: the space is introduced before anything is put in it.",
+      "settleBeforeText": "Text starts only after the object has settled.",
       "maxMovingThings": 1,
       "loop": {
         "lengthMs": [
-          2000,
-          4000
+          6000,
+          12000
         ],
-        "endsOn": "A still frame that works as an image on its own."
+        "endsOn": "The finished composition, held for at least 2 s before the loop restarts. Most pieces should not loop at all."
       },
-      "hold": 700
+      "hold": 2000,
+      "totalMovesMax": 3
     },
     "rules": [
-      "Springs for things arriving, curves for things looping, acceleration for things leaving.",
-      "Only one thing loops at a time; everything else is still.",
-      "Lines draw on; shapes pop on; text rises. Never fade the whole artwork in.",
-      "Interrupting is allowed: a new state starts from where the motion is, never jumps.",
-      "No bounces on text, no spinning, no camera moves, no parallax beyond 1-2% of the artboard.",
-      "With reduced motion: show the final frame. Morphs, floats and loops stop."
+      "At most three moves per piece, one at a time, then a long hold.",
+      "Open on empty ground; end on the finished still frame and hold it.",
+      "Nothing overshoots, bounces, spins, shakes or flashes.",
+      "Text never moves after it has arrived, and never moves with the object.",
+      "Drifts go into the open field, in the direction the object faces.",
+      "No parallax, camera moves or zooms in graphic pieces; video follows art.json -> media.video.",
+      "With reduced motion: show the final frame; drifts, floats and breathes stop."
     ]
   },
   "typography": {
-    "character": "Humanist letterforms (from the broad-nib pen: open apertures, slight stroke variation, varied proportions) set with modern restraint (few sizes, sentence case, generous space). The type is calm and clear so the hand-drawn art can carry the warmth.",
+    "character": "Small, quiet, exact type placed on a margin like a caption in a gallery. One headline, set a size or two smaller than people expect, in a refined serif or a neutral sans; the brand and details smaller still. The space and the object are loud enough.",
     "anatomy": {
-      "apertures": {
-        "want": "Open",
-        "why": "Open c, e, a, s stay distinct at small sizes and at a distance; a humanist trait (Frutiger was drawn for airport signage)."
+      "tone": {
+        "want": "Calm, refined, neutral",
+        "why": "Type is one of only two or three marks on the page; any quirk is magnified."
       },
-      "strokes": {
-        "want": "Even to slightly modulated",
-        "why": "Matches the even ink line; strong contrast feels formal rather than human."
+      "weight": {
+        "want": "Regular to medium for headlines; avoid black weights",
+        "why": "Heavy weights at small sizes read as labels shouting; quiet weights let the space lead."
       },
-      "terminals": {
-        "want": "Soft, rounded or gently angled",
-        "why": "Echo the rounded corners and organic shapes."
+      "contrast": {
+        "want": "Moderate to high stroke contrast for serif headlines at 24 px and above; low contrast below that",
+        "why": "Hairlines disappear at small sizes and at a distance."
       },
-      "proportions": {
-        "want": "Varied widths (old-style proportions)",
-        "why": "Letters of different widths read as written, not engineered."
+      "width": {
+        "want": "Normal or slightly condensed",
+        "why": "Condensed headlines keep the text block narrow, leaving more open ground."
       },
       "xHeight": {
-        "want": "Moderate to tall",
-        "why": "Readable on phones and at poster distance."
+        "want": "Moderate",
+        "why": "Readable at the small sizes this style uses."
       },
-      "italic": {
-        "want": "A true italic, if any",
-        "why": "Italics carry the hand; use for one emphasised word."
+      "spacing": {
+        "want": "Good default spacing; slight positive tracking for small labels",
+        "why": "Small type needs air between letters as well as around blocks."
       },
       "avoid": [
-        "Handwriting fonts for headlines or body (the hand lives in the art; one short note is allowed)",
-        "Geometric fonts with closed apertures at small sizes",
-        "Condensed all-caps display faces",
-        "High-contrast didones for body"
+        "Display faces designed to be loud (condensed gothics at full size, fat brush scripts, sticker faces)",
+        "Handwriting fonts",
+        "Novelty or 'retro' fonts",
+        "All-caps headlines",
+        "More than two weights"
       ]
     },
     "fit": {
-      "bricolage-figtree": {
+      "instrument": {
         "fit": "core",
-        "why": "Slightly irregular display forms echo the hand-drawn line; Figtree is open and calm."
-      },
-      "young-onest": {
-        "fit": "core",
-        "why": "Soft, heavy serif with rounded details; matches organic shapes and warmth."
+        "why": "Quiet and elegant: the condensed serif headline keeps text blocks narrow, Instrument Sans is crisp at small sizes. The sample poster uses it."
       },
       "source": {
         "fit": "core",
-        "why": "A true humanist superfamily; the most readable choice for text-heavy work."
+        "why": "Calm, trustworthy and very readable at small sizes; the serif or the sans can carry the headline."
       },
-      "instrument": {
+      "schibsted": {
         "fit": "core",
-        "why": "Editorial and calm; the condensed serif leaves room for big illustrations."
+        "why": "One strict family where hierarchy comes from size alone: the most minimal option, ideal for tech and product pieces."
       },
-      "nunito": {
+      "jost": {
+        "fit": "core",
+        "why": "Clean, constructed and calm; geometric forms look precise next to a single object. Keep headlines at regular or medium weight."
+      },
+      "bodoni-jost": {
         "fit": "good",
-        "why": "Rounded terminals mirror rounded corners; keep headlines bold and the body plain so it stays grown-up."
+        "why": "Didone over geometric sans is the classic white-space fashion pairing; use for fashion, beauty and luxury, with headlines at 24 px or larger so hairlines survive."
+      },
+      "dmserif-dmsans": {
+        "fit": "good",
+        "why": "A magazine headline serif with a clean sans; set the serif small and regular, never heavy."
+      },
+      "plex": {
+        "fit": "good",
+        "why": "Precise and calm; suits technical or financial products. Plex Mono makes excellent tiny details (dates, prices)."
       },
       "alegreya": {
         "fit": "good",
-        "why": "Calligraphic and literary: the most 'hand' in the type. Use where storytelling matters."
+        "why": "Literary and warm; good for books, culture and food, set small with generous leading."
+      },
+      "young-onest": {
+        "fit": "good",
+        "why": "Soft serif adds warmth to a cold, empty page; keep the headline small so its weight does not dominate."
+      },
+      "bricolage-figtree": {
+        "fit": "good",
+        "why": "Friendly and current; use Bricolage at a light-to-regular weight, as its quirks are very visible on an empty page."
       },
       "fraunces-commissioner": {
-        "fit": "good",
-        "why": "Soft serif charm; restrain to one weight to avoid novelty."
-      },
-      "schibsted": {
-        "fit": "good",
-        "why": "Very minimal; works when the illustration carries all the warmth."
-      },
-      "plex": {
         "fit": "accent",
-        "why": "Engineered feel; for data-heavy or technical products only."
+        "why": "Charming soft serif; restrain to one light weight with the 'wonky' extras off, or its personality fills the space."
+      },
+      "nunito": {
+        "fit": "accent",
+        "why": "Rounded terminals read as friendly but casual; works for children's or wellness products with very few words."
+      },
+      "archivo-courier": {
+        "fit": "accent",
+        "why": "Use only the typewriter-like mono for tiny details and labels beside a single object (a documentary caption). The heavy headline does not fit."
+      },
+      "limelight-jost": {
+        "fit": "accent",
+        "why": "Limelight may set the brand word only, small; Jost carries everything else."
+      },
+      "poppins-mukta": {
+        "fit": "accent",
+        "why": "For products that need Devanagari: Poppins at regular weight for short Latin headlines, Mukta for Devanagari and body."
+      },
+      "rozha-mukta": {
+        "fit": "accent",
+        "why": "For Devanagari products: Mukta carries the page; Rozha One only for a short headline, set small, as its heavy contrast is loud."
+      },
+      "bigshoulders-barlow": {
+        "fit": "accent",
+        "why": "Condensed gothic set small in a narrow column can look like a museum caption; never at loud poster sizes."
+      },
+      "spartan-caslon": {
+        "fit": "accent",
+        "why": "Libre Caslon Text alone (headline in its regular or italic, small) fits; League Spartan's heavy headline does not."
+      },
+      "spartan-jost": {
+        "fit": "avoid",
+        "why": "Loud, heavy geometric headline built to be read across a room; fights the quiet."
+      },
+      "boogaloo-jost": {
+        "fit": "avoid",
+        "why": "Playful LP-cover lettering; too loud and too decorative."
+      },
+      "anton-worksans": {
+        "fit": "avoid",
+        "why": "Tall condensed poster headline meant to be big; small it loses its point, big it fills the space."
+      },
+      "anton-archivo": {
+        "fit": "avoid",
+        "why": "Urgent advertising gothic; the opposite of the tone."
+      },
+      "yatra-baloo": {
+        "fit": "avoid",
+        "why": "Brush-cut sign lettering wants to be big and warm; use a Desi Maximalism piece instead."
+      },
+      "titan-rubik": {
+        "fit": "avoid",
+        "why": "Fat board-shop display; sticker energy."
+      },
+      "shrikhand-rubik": {
+        "fit": "avoid",
+        "why": "Bouncy italic display for slapped-on stickers."
+      },
+      "lilita-nunito-sans": {
+        "fit": "avoid",
+        "why": "Sturdy display built for tilted, energetic headlines."
+      },
+      "shantell-figtree": {
+        "fit": "avoid",
+        "why": "A marker hand; this style has no hand-lettered layer."
+      },
+      "gochi-alegreya-sans": {
+        "fit": "avoid",
+        "why": "Notebook marker hand; too casual and busy for the style. Alegreya Sans alone would fit."
       }
     },
+    "newPairings": [],
     "handwritten": {
-      "use": "accent",
-      "fonts": [
-        "shantell-sans",
-        "patrick-hand",
-        "caveat",
-        "kalam",
-        "gaegu"
-      ],
-      "perPiece": 1,
-      "maxWords": 6,
-      "roles": [
-        "note",
-        "annotation",
-        "sign-off"
-      ],
-      "why": "The hand mainly lives in the ink line. One short note in a plain pen hand can add a person to warm pieces (Schroll et al. 2018), as long as the headline and body stay in the pairing.",
+      "use": "none",
+      "fonts": [],
+      "perPiece": 0,
+      "maxWords": 0,
+      "roles": [],
+      "why": "A handwritten note is a second voice and a second texture on a page whose point is that almost nothing is there. The warmth should come from the object and the idea. If a product's brand.json sets a hand face, leave it out of negative-space pieces.",
       "never": [
         "headline",
         "body",
         "call to action",
-        "prices and numbers"
+        "prices and numbers",
+        "notes"
       ]
     },
     "typeWithArt": {
-      "weightMatch": "Headline stem thickness should be close to the ink line width (about 2.25% of the artboard's short side at headline size). Pick the headline weight that gets closest.",
-      "scaleMatch": "Headline cap height between 1/3 and 2/3 of the motif's height, so neither dominates by accident.",
-      "alignment": "Align text to one edge of the grid; let the motif be the only free-form element.",
-      "spacing": "At least one margin between text and the motif."
+      "scaleMatch": "The headline's cap height is at most a quarter of the object's height on posters and posts, so the object stays the focal point. On type-only pieces the headline is the object and may be larger.",
+      "weightMatch": "Regular or medium headline weight; the object's silhouette, not the type, is the darkest mass.",
+      "alignment": "Text hangs from or sits on a margin line, left-aligned (right for RTL); all text shares one alignment edge where possible.",
+      "spacing": "At least 15% of the short side between text and the object, unless the text is a caption for the object.",
+      "grouping": "Headline, brand and CTA form one tight group (inner gaps at most half the outer gaps), or two groups at most (headline + brand; details + CTA)."
     },
     "sizes": {
       "byFormat": {
         "billboard": {
           "headlinePct": [
-            10,
-            15
+            8,
+            12
           ],
-          "body": "none"
+          "body": "none",
+          "note": "Never below 8%: billboards are read at distance in 3-5 s."
         },
         "poster": {
           "headlinePct": [
-            4,
-            7
+            2.5,
+            4.5
           ],
           "bodyMinPt": 14
         },
         "event-poster": {
           "headlinePct": [
-            4,
-            7
+            2.5,
+            4.5
           ],
           "bodyMinPt": 14
         },
         "flyer": {
           "headlinePct": [
-            3,
-            5
+            2,
+            3.5
           ],
           "bodyMinPt": 9
         },
         "print-ad": {
           "headlinePct": [
-            2.5,
-            4
+            2,
+            3
           ],
           "bodyMinPt": 9
         },
         "instagram-post": {
           "headlinePct": [
-            5,
-            8
+            3.5,
+            5.5
           ],
           "bodyMinPx": 32
         },
         "story": {
           "headlinePct": [
-            3.5,
-            5
+            2.5,
+            3.5
           ],
           "bodyMinPx": 36
         },
         "carousel-slide": {
           "headlinePct": [
-            4,
-            6
+            3,
+            4.5
           ],
           "bodyMinPx": 30
         },
         "thumbnail": {
           "headlinePct": [
-            12,
-            18
+            9,
+            14
           ],
           "body": "none"
         },
         "web-banner": {
           "headlinePct": [
-            12,
-            20
+            9,
+            14
           ],
           "bodyMinPx": 14
         },
         "landing-hero": {
           "headlinePx": [
-            40,
-            88
+            32,
+            64
           ],
           "bodyMinPx": 18
         },
         "email-header": {
           "headlinePx": [
-            28,
-            40
+            24,
+            32
           ],
           "bodyMinPx": 16
         }
       },
-      "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+      "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility. Small headlines are fine at arm's length and in feeds; check outdoor pieces against this rule, not against the style's preference."
     },
     "setting": {
       "measure": {
         "chars": [
-          45,
-          75
+          35,
+          60
         ],
-        "ideal": 66,
-        "source": "Bringhurst, The Elements of Typographic Style"
+        "ideal": 50,
+        "source": "Narrower than Bringhurst's 45-75 so text blocks stay small; body copy over 40 words returns to 45-75."
       },
       "leading": {
         "display": [
-          0.95,
-          1.1
+          1.05,
+          1.15
         ],
         "subhead": [
-          1.2,
-          1.3
+          1.3,
+          1.4
         ],
         "body": [
-          1.45,
-          1.6
+          1.5,
+          1.65
         ]
       },
       "tracking": {
         "displayEm": [
-          -0.03,
-          -0.01
+          -0.01,
+          0
         ],
         "bodyEm": 0,
         "smallEm": [
-          0,
-          0.01
+          0.01,
+          0.03
         ],
         "labelCapsEm": [
           0.08,
-          0.12
+          0.14
         ]
       },
       "case": "Sentence case everywhere. Capitals only for labels of one to three words.",
       "sizesPerPiece": 3,
       "weightsPerPiece": 2,
-      "rag": "Ragged right; no justified text; avoid single words on the last line of headlines (use text-wrap: balance).",
-      "numbers": "Use the mono for dates, times, prices and codes (tabular figures)."
+      "rag": "Ragged right; balanced line breaks (text-wrap: balance); no single word on the last line of a headline.",
+      "numbers": "Tabular figures for dates, times and prices; the pairing's mono if it has one."
     },
     "rules": [
-      "Humanist letterforms, modern restraint.",
-      "Three sizes and two weights per piece.",
-      "Headline weight matches the ink line.",
-      "Left-aligned, sentence case, 45-75 characters per line.",
-      "At most one short handwritten note (six words or fewer) in a listed hand face; never the headline, body or call to action."
+      "Headline small and quiet: within the byFormat range, regular or medium weight.",
+      "Three sizes and two weights per piece; one alignment edge.",
+      "Body and details never below the byFormat minimums: small is a style, illegible is a bug.",
+      "Text contrast at least 4.5:1 at its real size; aim for 7:1.",
+      "No handwritten type."
     ]
   },
   "springsCss": {
-    "gentle": {
-      "easing": "linear(0, 0.014, 0.043, 0.083, 0.131, 0.184, 0.24, 0.297, 0.354, 0.41, 0.463, 0.514, 0.562, 0.607, 0.649, 0.688, 0.723, 0.755, 0.784, 0.811, 0.834, 0.855, 0.874, 0.891, 0.906, 0.919, 0.931, 0.941, 0.95, 0.957, 0.964, 0.97, 0.975, 0.979, 0.983, 0.986, 0.988, 0.991, 0.993, 0.994, 0.995, 0.997, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1, 1)",
-      "duration": 660
+    "settle": {
+      "easing": "linear(0, 0.02, 0.065, 0.125, 0.192, 0.263, 0.334, 0.402, 0.467, 0.527, 0.582, 0.633, 0.678, 0.718, 0.754, 0.786, 0.814, 0.839, 0.861, 0.879, 0.896, 0.91, 0.923, 0.933, 0.943, 0.951, 0.958, 0.964, 0.969, 0.973, 0.977, 0.98, 0.983, 0.986, 0.988, 0.989, 0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1)",
+      "duration": 1170
+    },
+    "still": {
+      "easing": "linear(0, 0.02, 0.066, 0.127, 0.196, 0.268, 0.34, 0.409, 0.474, 0.535, 0.59, 0.64, 0.685, 0.725, 0.76, 0.792, 0.819, 0.843, 0.864, 0.883, 0.899, 0.913, 0.925, 0.935, 0.944, 0.952, 0.959, 0.965, 0.97, 0.974, 0.978, 0.981, 0.983, 0.986, 0.988, 0.99, 0.991, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1)",
+      "duration": 1590
     },
     "soft": {
       "easing": "linear(0, 0.023, 0.069, 0.13, 0.199, 0.271, 0.343, 0.412, 0.478, 0.538, 0.594, 0.644, 0.689, 0.73, 0.766, 0.797, 0.825, 0.849, 0.87, 0.888, 0.904, 0.918, 0.93, 0.94, 0.949, 0.956, 0.963, 0.968, 0.973, 0.977, 0.981, 0.984, 0.986, 0.988, 0.99, 0.992, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.997, 0.998, 0.998, 0.998, 0.999, 0.999, 0.999, 1)",
       "duration": 730
-    },
-    "lively": {
-      "easing": "linear(0, 0.028, 0.088, 0.171, 0.268, 0.373, 0.478, 0.581, 0.677, 0.764, 0.841, 0.906, 0.961, 1.004, 1.038, 1.062, 1.078, 1.088, 1.092, 1.091, 1.087, 1.08, 1.071, 1.062, 1.052, 1.043, 1.034, 1.025, 1.018, 1.011, 1.006, 1.001, 0.998, 0.995, 0.993, 0.992, 0.992, 0.992, 0.992, 0.992, 0.993, 0.994, 0.995, 0.996, 0.997, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1.001, 1)",
-      "duration": 787
-    },
-    "float": {
-      "easing": "linear(0, 0.012, 0.039, 0.077, 0.122, 0.174, 0.228, 0.283, 0.339, 0.394, 0.447, 0.498, 0.547, 0.592, 0.634, 0.673, 0.71, 0.743, 0.773, 0.8, 0.825, 0.847, 0.867, 0.884, 0.9, 0.914, 0.926, 0.937, 0.947, 0.955, 0.962, 0.968, 0.974, 0.978, 0.982, 0.985, 0.988, 0.991, 0.993, 0.994, 0.996, 0.997, 0.998, 0.999, 0.999, 1, 1, 1, 1.001, 1)",
-      "duration": 882
     }
   },
   "palettes": {

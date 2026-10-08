@@ -1,0 +1,103 @@
+{
+  "$comment": "Brand message for Tailzu. Every fact comes from the product's own website source (tailzu.space: index.html copy, structured data, FAQ and README). Fields left empty are unknown; see the open questions in campaigns/launch/brief.md. Rules referenced (P1, S3 ...) are explained in foundations/messaging/README.md.",
+  "positioning": {
+    "$help": "Perennial Seller (P1, P2). Write these before any campaign.",
+    "audience": "People who would rather say a message than type it: Hindi, Hinglish and Indian-language speakers who write all day on their phone and computer, in WhatsApp, mail, Slack, AI chats and code editors.",
+    "oneSentence": "Tailzu is a voice keyboard: talk in Hindi, Hinglish, any of India's 22 scheduled languages or English, and clean, ready-to-send text lands in any app.",
+    "oneParagraph": "Tailzu is an AI voice keyboard for iPhone, Android, Windows and Mac. You speak the way you speak, in Hindi, Hinglish, any of India's 22 scheduled languages, English or 23 more languages, and clean, ready-to-send text lands where your cursor is: filler gone, punctuation in, names and numbers kept exactly as you said them. Hinglish stays Hinglish, and it writes in the native script or in English letters. It cleans; it never rewrites. On a computer you tap Ctrl twice, talk, and the text is pasted at the cursor. 800 words a month are free.",
+    "category": "Voice keyboard (AI voice typing)",
+    "differentFrom": "Dictation that types every 'um' and forces one language at a time, and translators that turn your words into someone else's. Tailzu keeps your mix of languages and your exact names and amounts, and only cleans."
+  },
+  "oneLiner": {
+    "$help": "StoryBrand one-liner (S9): problem -> solution -> result. Read together it should sound like one natural answer to 'what do you do?'",
+    "problem": "Typing Hinglish or an Indian language on a keyboard is slow, and plain dictation writes down every 'um'.",
+    "solution": "Tailzu is a voice keyboard: you talk the way you talk and it writes the message clean, in any app,",
+    "result": "so you say it badly and send it perfect."
+  },
+  "brandscript": {
+    "$help": "StoryBrand SB7 framework (S1-S7).",
+    "character": {
+      "who": "Someone who writes messages, mails, notes and prompts all day, and thinks and speaks in Hindi, Hinglish or another Indian language",
+      "want": "To get a message out as fast as they can say it, in their own words"
+    },
+    "problem": {
+      "villain": "The keyboard: small keys, one alphabet, and dictation that types the 'um's",
+      "external": "Typing Hinglish or an Indian script is slow, and rough speech comes out as rough text",
+      "internal": "",
+      "philosophical": "Your words should arrive the way you meant them, in the language you actually speak"
+    },
+    "guide": {
+      "empathy": "",
+      "authority": [
+        "All 22 scheduled languages of India, Hinglish and English, plus 23 more languages",
+        "Works as a keyboard in every app on iPhone and Android",
+        "Desktop app for Windows and Mac: tap Ctrl twice, talk, and the text is pasted at the cursor"
+      ]
+    },
+    "plan": {
+      "steps": [
+        "You speak",
+        "It hears what you mean",
+        "Written"
+      ],
+      "promise": "It cleans. It never rewrites. Names and amounts stay."
+    },
+    "callToAction": {
+      "direct": "Download Tailzu free",
+      "transitional": "Say one yourself at tailzu.space"
+    },
+    "failure": [
+      "Typing a long Hinglish message by thumb, or sending speech as rough text"
+    ],
+    "success": [
+      "Say it once, rough; a clean message lands in WhatsApp, mail or the chat box",
+      "Hinglish stays Hinglish, and Ramesh stays Ramesh"
+    ],
+    "transformation": {
+      "from": "Typing slowly, or sending rough text",
+      "to": "Saying it the way you talk and sending it clean"
+    }
+  },
+  "voice": {
+    "$help": "Ogilvy O11: one consistent personality. Three to five words each.",
+    "is": [
+      "Plain",
+      "Short",
+      "Warm",
+      "Exact"
+    ],
+    "isNot": [
+      "Hyped",
+      "Technical",
+      "Cute"
+    ],
+    "avoidWords": [
+      "revolutionary",
+      "magic",
+      "AI-powered",
+      "translate"
+    ]
+  },
+  "proof": {
+    "$help": "Ogilvy O5 and StoryBrand S4: specific facts, numbers, testimonials and clients to draw on.",
+    "facts": [
+      "Voice typing in all 22 scheduled languages of India, Hinglish and English",
+      "Voice typing in 23 more languages, including Spanish, Arabic and Japanese",
+      "Removes filler words and adds punctuation; keeps names, numbers and amounts exactly",
+      "Keeps mixed languages mixed: Hinglish stays Hinglish",
+      "Writes in the native script or in English letters",
+      "16 voices that set the tone of every message",
+      "Works as a keyboard in every app on iPhone and Android",
+      "Desktop app for Windows and Mac: tap Ctrl twice, talk, and the text is pasted at the cursor",
+      "Free: 800 words a month",
+      "Lite: unlimited words, USD 9.99 a month; Elite: unlimited words, USD 59.99 a year, 7 days free in the app",
+      "Audio is not stored by default; it is deleted once it is written",
+      "Needs a connection; it does not work offline",
+      "Example from the site: said 'trensfer 2500 rupeez to ramesh tomorow', written 'Transfer 2500 rupees to Ramesh tomorrow.'",
+      "Example from the site: said 'the deploy is done but abhi testing baaki hai', written 'The deploy is done, but abhi testing baaki hai.'",
+      "Example from the site: said 'um so like can we push the call to four', written 'Can we push the call to four?'"
+    ],
+    "testimonials": [],
+    "clients": []
+  }
+}

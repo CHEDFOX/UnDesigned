@@ -1,9 +1,9 @@
 {
-  "$comment": "Brand settings for Plutto (plutto.space). Edit, then run `npm run build`. Campaign style: Negative Space (approaches/negative-space), set per campaign in campaigns/<campaign>/brief.md, as in products/sample-bakery/campaigns/quiet-mornings. approach stays humanist-minimal here only because the hub build (tools/brand-hub/build.mjs) needs a drawing engine (illustration.mjs) for the brand's approach and negative-space has none yet; switch to negative-space once it does. Choices and reasons: campaigns/launch/brief.md.",
+  "$comment": "Brand settings for Plutto (plutto.space). Edit, then run `npm run build`. Style: Negative Space (approaches/negative-space). Choices and reasons: campaigns/launch/brief.md.",
   "name": "Plutto",
   "nameVariants": [],
   "prefix": "pl",
-  "approach": "humanist-minimal",
+  "approach": "negative-space",
   "color": {
     "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations. primary = 255 in dark mode: Black ground (the site's void), Wada White for type (the site's white text), Pyrite Yellow as the one gold accent (closest Wada gold in a combination with Black; the site's #D4AF37 is not in the Wada palette). Calamine Blue and Raw Sienna stay as support and are kept out of the launch pieces. status stays placeholder until the user approves.",
     "status": "placeholder",

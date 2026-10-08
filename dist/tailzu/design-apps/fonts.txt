@@ -1,0 +1,35 @@
+Tailzu: Modern Editorial
+
+Install these free fonts (SIL Open Font License) for Figma, Adobe and Canva:
+
+  Headlines            Instrument Serif (400, italic)
+                       https://fonts.google.com/specimen/Instrument+Serif
+
+  Body                 Instrument Sans (400, 500, 600)
+                       https://fonts.google.com/specimen/Instrument+Sans
+
+  Data, dates, labels  IBM Plex Mono (400, 500)
+                       https://fonts.google.com/specimen/IBM+Plex+Mono
+
+  Handwritten accent   Caveat (400, 700; OFL; glance, up to 6 words, one per piece)
+                       https://fonts.google.com/specimen/Caveat
+
+Type scale (ratio 1.25):
+  caption   web   10.2 px   poster   15.4 px
+  small     web   12.8 px   poster   19.2 px
+  body      web     16 px   poster     24 px
+  lead      web     20 px   poster     30 px
+  h3        web     25 px   poster   37.5 px
+  h2        web   31.3 px   poster   46.9 px
+  h1        web   39.1 px   poster   58.6 px
+  display   web     61 px   poster   91.6 px
+  hero      web   95.4 px   poster  143.1 px
+
+Rules:
+  - Two families at most (display + body), plus a mono for small data such as dates, prices and codes.
+  - Sentence case everywhere. All capitals only for short labels of one to three words, with letter-spacing.
+  - Three sizes per piece is usually enough: headline, body, small.
+  - Big headlines get tight leading (about 1.0) and slightly negative tracking; body text gets 1.5 leading and lines of 45-75 characters.
+  - Left-align text. Centre only one or two short lines on a centred poster.
+  - Handwriting fonts only as one short accent, from source/handwritten.json, where the style allows it (approaches/<id>/typography.json -> handwritten). Never for body, prices, data, steps or buttons.
+  - Match headline weight to the illustration: the stems of headline letters should be about as thick as the ink line.
