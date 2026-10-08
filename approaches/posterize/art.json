@@ -1,0 +1,249 @@
+{
+  "$comment": "Posterize art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400) or given as percentages. Colours are roles only; hex values always come from the product's Wada combination. Numbers marked 'rule of thumb' are our working defaults, not published standards. posterize.mjs implements the posterize block.",
+
+  "posterize": {
+    "$comment": "How a photograph becomes a few flat tones. Steps in order.",
+    "levels": {
+      "min": 2,
+      "max": 5,
+      "default": 4,
+      "use": {
+        "2": "Threshold (one cut): stencil and protest look, the Che poster. Strongest silhouette, least detail. Needs a photo with a hard side light.",
+        "3": "Tritone: ink, accent, light. The everyday default for posters and social posts.",
+        "4": "Ink, accent, ground, paper. Faces keep cheek and forehead modelling; the Hope-poster range.",
+        "5": "Maximum. Only for large formats with a large subject; above 5 the image starts to read as a photo again and complexity rises."
+      }
+    },
+    "luminance": {
+      "formula": "Y = 0.2126 R + 0.7152 G + 0.0722 B on the 0-255 sRGB values (Rec. 709 weights), measured on the subject only (background removed).",
+      "why": "Thresholds work on lightness, so colour photos and black-and-white photos behave the same way."
+    },
+    "thresholds": {
+      "$comment": "Cut points as percentiles of the subject's luminance (rule of thumb). Percentiles adapt to each photo, so a dark photo and a light photo end up with similar plate areas. Move a cut by up to 8 percentile points to save a feature (an eye, a nostril).",
+      "byLevels": {
+        "2": [45],
+        "3": [28, 66],
+        "4": [22, 52, 80],
+        "5": [16, 36, 60, 84]
+      },
+      "inkSharePct": [20, 35],
+      "inkShareTwoLevelPct": [35, 55],
+      "check": "Ink should cover the hair, the far side of the face, the eye sockets, the nostril and the line of the mouth, and leave the lit cheek, forehead and nose ridge open."
+    },
+    "preprocess": {
+      "removeBackground": "Cut the subject out and replace the background with flat colour before measuring.",
+      "contrast": "Raise local contrast first (levels or curves) so the light side and shadow side separate; side light at 30-60 degrees gives the cleanest split.",
+      "smoothPct": [0.5, 1],
+      "smooth": "Blur 0.5-1% of the short side (2-4 units) before cutting, so edges follow forms rather than skin texture.",
+      "despecklePct": 0.1,
+      "despeckle": "Delete islands and holes smaller than 0.1% of the image area after cutting."
+    },
+    "roleMapping": {
+      "$comment": "Darkest level first. Same mapping as posterize.mjs roleColours(); colours are then sorted by luminance so tone never inverts.",
+      "2": ["ink", "ground"],
+      "3": ["ink", "accent", "ground or paper"],
+      "4": ["ink", "accent", "ground", "paper"],
+      "5": ["ink", "accent", "support", "ground", "paper"],
+      "ink": "Wada Black, or the combination's darkest colour when its L* is below 35 (e.g. Deep Slate Green, Dull Violet Black).",
+      "minStepLstar": 15,
+      "minStep": "Adjacent levels differ by at least 15 L* (CIELAB) or they merge at a distance (rule of thumb).",
+      "inversion": "Only in colour-cycling grids may a lighter colour take a darker level, and only as a deliberate pop variant; the headline piece keeps the natural order."
+    },
+    "edges": {
+      "type": "Hard: every pixel belongs to one plate. No anti-aliased blur wider than 1 px at output size.",
+      "roughness": "Edges may wander 0.5-1 unit (ink spread, photo noise). Never trace them into perfect arcs or straight lines.",
+      "minFeature": 3,
+      "minFeatureNote": "No shape thinner than 3 units survives in print or at thumbnail size; thicken or delete it."
+    },
+    "halftone": {
+      "$comment": "Dots are the only gradation. Use them for one transition or one fade, not the whole image.",
+      "visibleCellPct": [1.5, 2.5],
+      "visibleCell": "6-10 units on a 400 artboard: dots read as dots, the pop-art scale.",
+      "fineLpi": [25, 45],
+      "fine": "In print, 25-45 lines per inch stays visible as a texture at arm's length (newspapers print around 85 lpi, where dots disappear).",
+      "angleDeg": 45,
+      "angles": "One plate: 45 degrees. Several screened plates: 15, 45 and 75 degrees (30 apart) and the lightest colour at 0, as in CMYK practice, to avoid moire.",
+      "dotRangePct": [10, 90],
+      "dotRange": "Below 10% coverage dots vanish; above 90% they merge into solid. Clip to that range.",
+      "shape": "Round dots. Line or cross screens only as a deliberate variant.",
+      "maxAreaPct": 25,
+      "digital": "On screen, posterize.mjs offers 'halftone' (round dots on a rotated screen) and 'bayer4'/'bayer8' (ordered dither) inside a narrow band around each cut (spread 0.3-0.6)."
+    },
+    "registration": {
+      "$comment": "A visible sign of separate plates.",
+      "offsetPct": [0.5, 1.5],
+      "offsetUnits": [2, 6],
+      "plates": "Offset one plate only, usually the ink plate, in the same direction across the piece.",
+      "trap": "The plate below runs under the offset plate (prints the ink area too), so the gap shows a colour sliver, not the ground.",
+      "never": "Never offset type, logos or the eyes so far that a face doubles."
+    },
+    "texture": {
+      "inkVoidsPct": [0, 10],
+      "inkVoids": "Optional worn voids in the ink plate (dry screen), up to 10% of its area, as fine specks.",
+      "paper": "Uncoated paper look is fine in print; on screen keep the ground flat."
+    }
+  },
+
+  "crop": {
+    "$comment": "How to frame people and objects so they survive posterization.",
+    "subjectFillPct": [50, 80],
+    "face": {
+      "view": "Three-quarter view or profile, looking slightly up or off-frame; a direct gaze is allowed for one-to-one messages.",
+      "eyeLinePct": [33, 45],
+      "eyeLine": "Eyes 33-45% down from the top of the image block.",
+      "cut": "Cutting the top of the head is fine; never cut the chin and the eyes in the same crop.",
+      "minHeightPct": 35,
+      "minHeight": "The face is at least 35% of the image block's height; smaller faces lose their features."
+    },
+    "hand": "Profile against the ground, fingers separated, one clear gesture (holding, pointing, offering).",
+    "object": "One object, side lit, at an angle that shows its typical silhouette (a cup from the side, a bike in profile).",
+    "light": "Single hard key light at 30-60 degrees from the side; fill no stronger than 1:4.",
+    "background": "Removed and replaced with flat ground or one flat colour block.",
+    "avoid": ["Groups of people", "Busy backgrounds", "Backlight unless a pure silhouette is the idea", "Glasses with reflections", "Very small or distant subjects"]
+  },
+
+  "line": {
+    "$comment": "There is no drawn line in this style; edges come from the cuts. Rules for any rule lines or marks around the image.",
+    "rules": "Solid ink bars 1-1.5% of the short side for dividers; no outlines around the subject.",
+    "registrationMark": "Optional small registration target or colour bar (4-6 units tall), at most one per piece."
+  },
+
+  "shape": {
+    "mode": "photographic",
+    "description": "Shapes are what the cut gives: organic, irregular, faithful to the photo. Do not redraw them as geometry.",
+    "blocks": "Flat colour blocks behind the subject are plain rectangles or full-bleed bands, never rounded cards.",
+    "rules": [
+      "No drawn outlines around plates.",
+      "No drop shadows, bevels or 3D.",
+      "One subject; a second shape only as a flat colour block or a halftone fade."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Poster-print corners: square. Screen UI can soften slightly.",
+    "scale": { "none": 0, "xs": 2, "sm": 4 },
+    "use": { "image": "none (full bleed or square)", "button": "sm", "card": "none or xs", "input": "xs" },
+    "print": "Square corners on all image boxes."
+  },
+
+  "composition": {
+    "marginPct": 7,
+    "grid": "6 columns on posters, 12 on screen. The image block takes 55-70% of the height (or width on landscape formats), the text block the rest.",
+    "imageBlockPct": [55, 70],
+    "emptyGroundMinPct": 25,
+    "emptyGround": "At least 25% flat, unprinted ground or flat plate (the text zone counts).",
+    "placements": [
+      { "id": "top-block", "use": "Portrait posters and stories: image full-bleed on top, text on flat ground below (sample.mjs)." },
+      { "id": "side-block", "use": "Landscape banners and web heroes: image on one side to the edge, text on the other." },
+      { "id": "bleed-face", "use": "Square posts: face cropped close and bleeding off two edges; one short headline on a flat band." },
+      { "id": "grid", "use": "2 x 2 or 3 x 3 of the same image in different combinations (Warhol). Only for campaign openers and motion; text outside the grid." }
+    ],
+    "rules": [
+      "One focal point: the eyes, the hand or the object's characteristic part.",
+      "Type never crosses the image.",
+      "The image may bleed off at most two edges; keep the face fully inside the third edge."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada combination.",
+    "roles": {
+      "ground": { "from": "combination bg (light)", "areaPct": [25, 45], "use": "Text zone, background behind the subject, light tones." },
+      "ink": { "from": "Wada Black or the combination's darkest colour", "areaPct": [20, 35], "use": "Shadows, hair, the darkest level, headline." },
+      "accent": { "from": "combination accent", "areaPct": [15, 30], "use": "Middle tones of the subject; one flat block at most." },
+      "paper": { "from": "Wada White", "areaPct": [5, 20], "use": "Highlights on the subject." },
+      "support": { "from": "combination support (fourth colour)", "areaPct": [0, 15], "use": "A fifth level or a colour block behind the subject." }
+    },
+    "method": [
+      "List the combination's colours with their L* (dist/<id>/tokens/colors.json -> colors[].lab).",
+      "Keep combinations that give a ladder: one colour above L* 80 (ground or paper), one between 40 and 70 with chroma above 35 (accent), and Wada Black or a colour below L* 35 (ink).",
+      "Check that adjacent levels differ by 15 L* or more; drop a level rather than squeeze two colours together.",
+      "Prefer combinations whose light-mode inkUse is 'body', so the headline in ink or the text role passes AA on the ground.",
+      "For duotone, take a two-colour pair with one light and one mid-dark colour and add Wada Black only if the shadows need it."
+    ],
+    "recommendedCombinations": [
+      { "id": 190, "colors": ["Ivory Buff", "English Red", "Black"], "why": "The classic tritone ladder: light buff ground, mid red, black ink; ink passes AA on the ground." },
+      { "id": 298, "colors": ["Raw Sienna", "Lemon Yellow", "Peach Red", "Black"], "why": "Pop four-level ladder with a hot red middle tone and a lemon ground." },
+      { "id": 313, "colors": ["Carmine", "Yellow", "Diamine Green", "Black"], "why": "Warhol-like high-key yellow ground with carmine and green as two middle plates." },
+      { "id": 154, "colors": ["Carmine", "Yellow", "Blue"], "why": "Printer's primaries on a yellow ground; add Wada Black for the shadow plate." },
+      { "id": 295, "colors": ["Cream Yellow", "Yellow", "Blue", "Dull Violet Black"], "why": "Widest ladder in the set (87 L*): violet-black ink, blue middle, two yellows for light tones." },
+      { "id": 276, "colors": ["Eosine Pink", "Seashell Pink", "Yellow Green", "Black"], "why": "Pink, pale pink and acid green with black: the colour-block portrait palette of 1960s pop." },
+      { "id": 303, "colors": ["Naples Yellow", "Peach Red", "Deep Slate Olive", "Neutral Gray"], "why": "Four distinct tones (pale, red, grey, dark) for a calm, poster-like four-level portrait." },
+      { "id": 166, "colors": ["Grenadine Pink", "Naples Yellow", "Deep Slate Green"], "why": "A softer tritone: deep slate green as ink, coral middle, warm pale ground." },
+      { "id": 344, "colors": ["Cinnamon Buff", "Deep Lyons Blue", "Aconite Violet", "Black"], "why": "Gig-poster range: warm ground, violet and deep blue middles, black ink." },
+      { "id": 31, "colors": ["Red Orange", "Pale Lemon Yellow"], "why": "Duotone: red-orange shadows on a pale lemon ground; add Wada Black for a tritone." },
+      { "id": 88, "colors": ["Seashell Pink", "Blue"], "why": "Duotone in the Spotify manner: one saturated blue for shadows, pale pink for highlights." },
+      { "id": 104, "colors": ["Carmine Red", "Sulpher Yellow"], "why": "Duotone with readable contrast (5.8:1): carmine red can carry both the shadows and the text." }
+    ],
+    "rules": [
+      "One combination per piece; colour-cycling grids use 3-4 combinations with the same level count.",
+      "No gradients, transparency, glows or tints; every plate is solid.",
+      "Text uses the combination's text role on flat ground (AA)."
+    ]
+  },
+
+  "texture": {
+    "halftone": { "cell": 8, "dot": "10-90% coverage", "angle": 45, "use": "One fade or one tonal transition per piece.", "maxAreaPct": 25 },
+    "misregistration": { "offset": [2, 6], "use": "One plate, one direction." },
+    "inkVoids": { "maxPct": 10, "use": "Optional worn ink in the ink plate." },
+    "grain": "No photo grain: the photo's texture is what posterizing removes."
+  },
+
+  "vocabulary": {
+    "$comment": "Subjects that posterize well and what they usually say. Prefer the product's real people, hands and things.",
+    "symbols": [
+      { "id": "face", "means": ["a person", "voice", "identity", "the customer as hero"] },
+      { "id": "eyes", "means": ["attention", "watching", "vision"] },
+      { "id": "raised-hand", "means": ["taking part", "a vote", "hello", "a question"] },
+      { "id": "hands-holding", "means": ["making", "giving", "care"] },
+      { "id": "open-mouth", "means": ["voice", "singing", "shouting", "news"] },
+      { "id": "microphone", "means": ["voice", "music", "speech"] },
+      { "id": "guitar-or-instrument", "means": ["music", "a gig", "practice"] },
+      { "id": "bicycle", "means": ["the city", "freedom", "movement"] },
+      { "id": "cup", "means": ["a break", "a meeting", "morning"] },
+      { "id": "tool", "means": ["work", "craft", "repair"] },
+      { "id": "flower", "means": ["care", "a gift", "spring"] },
+      { "id": "loaf", "means": ["food", "craft", "everyday"] },
+      { "id": "headphones", "means": ["listening", "focus", "music"] },
+      { "id": "running-figure", "means": ["effort", "sport", "urgency"] }
+    ],
+    "avoid": [
+      { "symbol": "raised fist", "for": "energy or teamwork", "why": "A symbol of specific political struggles; using it to sell trivialises them." },
+      { "symbol": "revolutionary portraits (Che, Mao, Lenin)", "for": "rebellion", "why": "Cliché and politically loaded; real people's images are not mascots." },
+      { "symbol": "public figures and celebrities", "for": "attention", "why": "Implies endorsement; rights and likeness issues (see the Hope dispute)." },
+      { "symbol": "Hope-style layout (portrait over one-word caption in red, beige, blue)", "for": "optimism", "why": "Instantly reads as parody of one campaign." },
+      { "symbol": "Marilyn-style repeated celebrity grid", "for": "fame", "why": "Pastiche of one artwork; use the grid only with the product's own image." },
+      { "symbol": "stock models", "for": "people", "why": "Posterizing exaggerates generic stock faces; use real customers or staff with consent." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to make one posterized piece.",
+    "recipe": [
+      "Write the one message (W1). Decide who or what the image shows: the customer, the maker, or the one object.",
+      "Shoot or choose 3-5 photos with one hard side light and a plain background; close crop.",
+      "Remove the background. Raise contrast. Blur 0.5-1% of the short side.",
+      "Cut at 2 and at 4 levels using the percentile defaults; keep the photo that reads at 2 levels.",
+      "Map levels to the combination (ink, accent, ground, paper). Nudge cuts by up to 8 points to save the eyes and mouth.",
+      "Despeckle; check edges at thumbnail size (48 px tall).",
+      "Add at most one print sign: a misregistered plate or a halftone fade.",
+      "Set the headline on flat ground next to the image; check contrast."
+    ],
+    "examples": [
+      { "subject": "a baker's flour-covered hands holding a loaf", "levels": 3, "idea": "made by hand, this morning" },
+      { "subject": "a cyclist's face in profile, looking up", "levels": 4, "idea": "the commute you look forward to" },
+      { "subject": "an open mouth at a microphone", "levels": 2, "idea": "your voice, heard" },
+      { "subject": "one cup from the side, steam cut as a paper-white shape", "levels": 3, "idea": "a real break" }
+    ]
+  },
+
+  "checklist": [
+    "2-5 flat levels; no gradients or photo texture remain.",
+    "Tone keeps its order: ink darkest, ground or paper lightest; steps of 15 L* or more.",
+    "The subject reads as a silhouette at 2 levels and at thumbnail size.",
+    "Eyes, nose shadow and mouth survive; ink 20-35% of the subject.",
+    "At most one print sign: registration offset 0.5-1.5% or one halftone fade (25% of area max).",
+    "Type sits on flat colour only; text meets 4.5:1, ink plate 3:1 against the ground.",
+    "The photo is owned or licensed, with consent; no public figures or borrowed icons."
+  ]
+}

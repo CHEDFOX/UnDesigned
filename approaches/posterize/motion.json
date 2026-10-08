@@ -1,0 +1,59 @@
+{
+  "$comment": "Posterize motion data: motion that shows the print. Plates arrive like separate passes through a press, tones step rather than fade, colours cut rather than blend. Durations are rules of thumb. Damping ratio = damping / (2 * sqrt(stiffness * mass)).",
+
+  "character": "Mechanical and punchy, like a print run: plates slide into register and lock with a small snap, tones step frame by frame, colours change with hard cuts. Nothing dissolves or blurs; every frame is a valid print.",
+
+  "springs": {
+    "$comment": "Damped spring presets (stiffness k, damping c, mass m).",
+    "register": { "stiffness": 300, "damping": 24, "mass": 1, "use": "A plate snapping into register; damping ratio 0.69, about 5% overshoot." },
+    "press": { "stiffness": 180, "damping": 26, "mass": 1, "use": "Image blocks and text blocks arriving; damping ratio 0.97, no visible overshoot." },
+    "slide": { "stiffness": 120, "damping": 18, "mass": 1, "use": "Large plates travelling across the frame; damping ratio 0.82, about 1% overshoot." },
+    "ui": { "stiffness": 170, "damping": 26, "mass": 1, "use": "Buttons, toggles and cards on screen; no overshoot." }
+  },
+
+  "easings": {
+    "step": { "css": "steps(4, jump-end)", "use": "Level shifts and threshold sweeps: whole frames, no in-betweens." },
+    "cut": { "css": "steps(1, jump-end)", "use": "Colour cycling between combinations: a hard cut on the beat." },
+    "wipe": { "css": "cubic-bezier(0.3, 0, 0.2, 1)", "use": "A plate revealed by a squeegee-like straight wipe." },
+    "dot": { "css": "cubic-bezier(0.2, 0.7, 0.3, 1)", "use": "Halftone dots growing to their size." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Plates leaving: accelerate away, never spring." }
+  },
+
+  "moves": {
+    "levelStep": { "duration": 500, "frames": 6, "fps": 12, "easing": "step", "use": "Thresholds step through 4-6 frames (83 ms each), so the image builds from 2 levels to its final count, or from dark to light." },
+    "separationSlide": { "spring": "register", "distancePct": [4, 8], "use": "Each plate enters from 4-8% off, along one axis, and snaps into register. Ends at the designed offset (0.5-1.5%), not at zero." },
+    "pull": { "duration": 450, "easing": "wipe", "use": "One plate revealed by a straight wipe across the image, like a squeegee pull." },
+    "colourCycle": { "durationPerColour": [700, 1000], "easing": "cut", "combinations": [3, 4], "use": "The same image cuts between 3-4 Wada combinations with the same level count; loop 2.8-4 s." },
+    "dotGrow": { "duration": 600, "easing": "dot", "stagger": 12, "use": "Halftone dots grow from 0 to their size, row by row." },
+    "jitter": { "duration": 166, "frames": 2, "amplitudePct": 0.5, "use": "Optional 2-frame registration wobble once at the end of a loop, like a press shake. At most once per loop." },
+    "rise": { "spring": "press", "distance": "0.3em", "use": "Headline and body entering after the image has locked." }
+  },
+
+  "durations": {
+    "$comment": "Rule of thumb for non-spring moves.",
+    "minMs": 160,
+    "maxMs": 1000,
+    "frameMs": 83,
+    "formula": "Stepped moves: frames x 83 ms (12 fps). Wipes and dots: 250 ms + 0.4 ms per pixel travelled, capped at 700 ms.",
+    "byElement": { "icon": 160, "button": 200, "plate": 450, "image": 600, "fullScreen": 700 }
+  },
+
+  "choreography": {
+    "order": ["ground", "lightest plate (pull)", "middle plates (separationSlide, one at a time)", "ink plate (separationSlide, register snap)", "halftone (dotGrow)", "headline (rise)", "body and CTA (rise)"],
+    "stagger": 120,
+    "overlapPct": 20,
+    "settleBeforeText": "Text starts when the ink plate has locked into register.",
+    "maxMovingThings": 1,
+    "loop": { "lengthMs": [2000, 4000], "endsOn": "The fully registered print, which works as a still poster." },
+    "hold": 900
+  },
+
+  "rules": [
+    "Plates move as whole pieces; never animate the shapes inside a plate.",
+    "Tones step, colours cut: no crossfades, dissolves or blur transitions.",
+    "One plate or one effect moves at a time.",
+    "No more than three colour changes per second, and never flash large saturated red fields (WCAG 2.3.1 three flashes).",
+    "Text does not step, cycle or jitter; it rises once and stays.",
+    "With reduced motion: show the final registered still; colour cycling stops on the brand's primary combination."
+  ]
+}

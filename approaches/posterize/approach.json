@@ -1,0 +1,112 @@
+{
+  "$comment": "Posterize: principles and per-layer rules. The data lives beside this file: art.json (tonal levels, thresholds, role mapping, halftone, registration, cropping, palette ratios), motion.json (springs, step timings, choreography), typography.json (type direction and fit), research.md (sources and reasoning), posterize.mjs (the engine) and sample.mjs (a sample poster). Colours always come from the colour system.",
+  "name": "Posterize",
+  "summary": "A real photograph cut down to a few flat tones and printed in a few flat colours, as in screen printing. Dark tones become ink, middle tones the accent, light tones the ground or paper. One strong subject, cropped close, with hard edges, a visible print (halftone dots, a little misregistration) and bold condensed type on flat colour.",
+  "status": "complete",
+  "principles": [
+    {
+      "id": "PZ1",
+      "title": "Few levels",
+      "rule": "Cut every image into 2 to 5 flat tonal levels, usually 3 or 4. No continuous tone survives: no gradients, no soft shadows, no photo texture. Each level is one flat Wada colour.",
+      "source": "Screen printing and colour separation (research.md 2.1); low complexity (research.md 3)"
+    },
+    {
+      "id": "PZ2",
+      "title": "Tone keeps its order",
+      "rule": "Darkest level prints in ink (Wada Black or the combination's darkest colour), middle levels in the accent and support colours, the lightest in the ground or paper. Map by luminance so shadows stay darker than highlights; adjacent levels differ by at least 15 L* (CIELAB).",
+      "source": "Mooney two-tone faces and closure (research.md 3)"
+    },
+    {
+      "id": "PZ3",
+      "title": "A real subject, a strong silhouette",
+      "rule": "Start from a real photograph of a person, a hand or an object, lit from one side and cropped close. The subject fills 50-80% of the image area against a flat, removed background. If it does not read as a silhouette in two tones, pick another photo.",
+      "source": "Faces attract the first fixations (research.md 3); Warhol, Fitzpatrick, Fairey (research.md 2)"
+    },
+    {
+      "id": "PZ4",
+      "title": "Keep the features",
+      "rule": "Set thresholds so the eyes, nose shadow, mouth and jaw line stay as readable shapes: ink covers 20-35% of the subject at 3-5 levels. Smooth the image before cutting and remove specks below 0.1% of the image area.",
+      "source": "Easy versus hard Mooney faces (research.md 3)"
+    },
+    {
+      "id": "PZ5",
+      "title": "Show the print",
+      "rule": "One plate may sit 0.5-1.5% of the short side out of register, always in the same direction. Halftone dots are the only gradation. Edges are hard, slightly wandering, never vector-perfect circles or blurred.",
+      "source": "Screen print, risograph and halftone practice (research.md 2.1, 2.3)"
+    },
+    {
+      "id": "PZ6",
+      "title": "One subject, one message",
+      "rule": "One image, one headline. The image carries the emotion, the headline carries the meaning; they never repeat each other. No collages of several photos, no scenes with many people.",
+      "source": "Processing fluency (research.md 3); messaging rule W1"
+    },
+    {
+      "id": "PZ7",
+      "title": "Words on flat colour",
+      "rule": "Type sits only on flat colour (the ground or one flat plate), never across the posterized image. Body text meets 4.5:1 contrast with the combination's text role; the ink plate meets 3:1 against the ground.",
+      "source": "WCAG 2.2 contrast criteria (research.md 5)"
+    },
+    {
+      "id": "PZ8",
+      "title": "Own the image",
+      "rule": "Posterize only photographs the product owns or has licensed for this use, with consent from the people in them. Never redraw a famous image or a public figure, and never borrow protest icons to sell.",
+      "source": "Hope poster dispute; Che image commercialisation (research.md 2.2, 5)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination per piece, with a clear light-to-dark ladder (art.json palette). Ink is the darkest plate, the accent takes the middle tones, the ground or paper the light tones. Use colour-cycling between combinations only in a grid or in motion.",
+      "dont": "Gradients, transparency, glows, more than five colours, colours outside the product's palette, a ladder whose middle colour is darker than the ink."
+    },
+    {
+      "layer": "Typography",
+      "do": "Bold, condensed grotesque or gothic display faces in sentence case, set big and tight; a plain grotesque for body text. Headline weight matches the mass of the ink plate.",
+      "dont": "Handwriting fonts, light weights for headlines, outlined or textured type, text placed over the image, all-caps sentences."
+    },
+    {
+      "layer": "Layout",
+      "do": "Image block and text block as two clear zones: the image runs to one or two edges, the text sits on flat ground with a 7% margin. One focal point (the face, the hand, the object).",
+      "dont": "Text over the posterized image, many small images, centred paragraphs, decorative frames."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Posterized photography is the illustration. Flat graphic support only: a halftone fade, a colour block behind the subject, a registration mark or colour bar used sparingly.",
+      "dont": "Mixing posterized photos with line illustration or 3D renders; stock icons; fake 'grunge' textures over everything."
+    },
+    {
+      "layer": "Motion",
+      "do": "Frame-by-frame level steps, plates sliding into register on a spring, hard colour cuts between combinations, halftone dots growing (motion.json). Loops of 2-4 s ending on the registered still.",
+      "dont": "Crossfades between colours, blur transitions, Ken Burns zooms, more than three colour changes per second, flashing large saturated red areas."
+    },
+    {
+      "layer": "Photography",
+      "do": "Real people, hands and objects shot for this treatment: side light at 30-60 degrees, plain background, high contrast, sharp focus, close crop. Shoot several and test each at 2 and 4 levels.",
+      "dont": "Flat front light (posterizes to a blank), busy backgrounds, small faces, group shots, stock images, AI-generated people presented as real customers."
+    },
+    {
+      "layer": "Copy",
+      "do": "Short, plain, direct headlines (3-8 words) that say what the image cannot. Speak to one person; give the specific fact or the action.",
+      "dont": "Slogans that imitate political posters for trivial products, hype, exclamation marks, captions that describe the photo."
+    }
+  ],
+  "evidence": {
+    "scores": { "curves": 1, "simplicity": 2, "maya": 2, "nature": 1, "handmade": 1, "colour": 1, "glance": 2 },
+    "notes": {
+      "curves": "Photographic contours are organic, but the cuts are hard-edged and tonal breaks can be sharp; neither soft nor angular by design.",
+      "simplicity": "Two to five flat colours and one subject remove almost all texture; at 5 levels or with busy photos it drops to 1, so the rules cap levels and demand close crops.",
+      "maya": "A familiar format (a photo, a poster) with one strong twist (the photo printed as a few flat colours); the look is widely known from Warhol to Hope.",
+      "nature": "Contours keep some of the photo's natural irregularity, but fine natural detail is deliberately removed.",
+      "handmade": "Misregistration, worn ink and halftone show a print process, not a hand; done as a one-click filter it reads mechanical.",
+      "colour": "Wada combinations keep colours agreeable, but pop pairs (red, yellow, black) polarise and large saturated fields can tire.",
+      "glance": "High figure-ground contrast, one face or object and flat colour make the piece readable in a glance."
+    },
+    "beyondPreference": [
+      { "wins": "Attention", "why": "Faces draw the first fixations in natural images (over 80% of first two fixations landed on faces in Cerf et al.), and a posterized face keeps that pull while removing distracting detail.", "source": "Cerf, Harel, Einhäuser & Koch (2008), NIPS 20" },
+      { "wins": "Iconicity and memorability", "why": "Reduced, high-contrast portraits became some of the most reproduced images of the 20th and 21st centuries (Fitzpatrick's Che, Fairey's Hope); reduction makes an image easy to copy, recall and recognise from a distance.", "source": "research.md 2.2" },
+      { "wins": "Distinctiveness", "why": "A consistent treatment (same levels, same colour ladder) turns every photo into a recognisable brand asset, as Spotify's duotone did; distinctive assets help people recognise the brand without reading the name.", "source": "Collins for Spotify (2015); Romaniuk (2018), Building Distinctive Brand Assets" },
+      { "wins": "Cultural meaning", "why": "Screen-printed posters carry the voice of protest, music and pop art: urgent, public, made in numbers. Use that meaning honestly (research.md 5).", "source": "Atelier Populaire (V&A, MACBA); OSPAAAL (V&A)" }
+    ]
+  },
+  "references": []
+}

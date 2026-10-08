@@ -1,0 +1,145 @@
+{
+  "$comment": "Posterize type direction. Fonts come from foundations/typography/source/pairings.json (rated in fit) or from newPairings below (Google Fonts only, credits checked against Google Fonts listings; see research.md 7). Sizes are rules of thumb unless a source is given.",
+
+  "character": "Bold, condensed grotesques and gothics, the type of wood-type bills, protest posters and gig posters: heavy enough to stand next to a solid ink plate, narrow enough to be big. Set tight, in sentence case, on flat colour. The image is loud, so the type is plain and strong, not decorated.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "weight": { "want": "Bold to black for headlines", "why": "The headline must hold its own beside a solid ink plate that covers 20-35% of the subject." },
+    "width": { "want": "Condensed to normal", "why": "Condensed faces allow big sizes in a narrow text block, as on posters." },
+    "contrast": { "want": "Low stroke contrast", "why": "Even strokes print and screen cleanly, like the plates; thin hairlines break up at small sizes and in halftone." },
+    "terminals": { "want": "Flat, cut terminals", "why": "Echo the hard, cut edges of the plates." },
+    "counters": { "want": "Open enough at headline sizes", "why": "Black condensed faces close up when reversed out of colour; check the e and a at the smallest headline size." },
+    "xHeight": { "want": "Tall", "why": "Readable at distance and at thumbnail size." },
+    "avoid": ["Handwriting and brush fonts", "Light and thin weights for headlines", "Outline, shadow, distressed or 'grunge' fonts", "Calligraphic or high-contrast serifs for headlines", "Stencil fonts as body text"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach.",
+    "bricolage-figtree": { "fit": "core", "why": "Bricolage Grotesque at 800 with its narrow width axis is a punchy poster grotesque; Figtree stays plain for body." },
+    "schibsted": { "fit": "core", "why": "One strict grotesk with heavy weights; hierarchy by size alone suits the flat, graphic plates." },
+    "plex": { "fit": "good", "why": "IBM Plex Sans Bold is sturdy and even; the engineered feel fits technical or civic posters." },
+    "instrument": { "fit": "accent", "why": "The condensed serif suits culture and editorial duotones, but a single regular weight is light beside a solid ink plate." },
+    "source": { "fit": "accent", "why": "Use the Source Sans 3 Black for headlines in text-heavy pieces; the serif display is too bookish for posters." },
+    "young-onest": { "fit": "accent", "why": "Young Serif's chunky forms can work for food and hospitality posters; keep the image at 2-3 levels so the two do not compete." },
+    "fraunces-commissioner": { "fit": "accent", "why": "Fraunces Black recalls 1970s display print; only for a deliberate retro piece." },
+    "nunito": { "fit": "avoid", "why": "Rounded terminals and soft forms fight the hard-cut plates and read childish next to them." },
+    "alegreya": { "fit": "avoid", "why": "Calligraphic, literary forms contradict the mechanical print look." }
+  },
+
+  "newPairings": [
+    {
+      "id": "anton-archivo",
+      "name": "Protest Poster",
+      "mood": "Loud, urgent and plain. A tall, condensed advertising gothic for big headlines over a sturdy grotesque with width and weight axes.",
+      "bestFor": "Posters, gig and event posters, social posts, campaigns that need to shout clearly.",
+      "display": {
+        "family": "Anton",
+        "weights": [400],
+        "style": "Condensed display sans (single heavy weight)",
+        "case": "Sentence case; capitals only for labels of one to three words",
+        "tracking": -0.005,
+        "leading": 1.0,
+        "designer": "Vernon Adams",
+        "classification": "Condensed display grotesque",
+        "axes": [],
+        "notes": "A reworking of a traditional advertising sans serif, reshaped for screens. One weight only: hierarchy comes from size. The related family Antonio, built from Anton, adds weights."
+      },
+      "body": {
+        "family": "Archivo",
+        "weights": [400, 500, 700],
+        "style": "Grotesque with width and weight axes",
+        "tracking": 0,
+        "leading": 1.45,
+        "designer": "Héctor Gatti and the Omnibus-Type team",
+        "classification": "Grotesque sans",
+        "axes": ["wght 100-900", "wdth 62-125"],
+        "notes": "Omnibus-Type is a collective foundry in Buenos Aires. Archivo Narrow and Archivo Black are sister families; the condensed widths (wdth 62-75) can also set subheads."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [400, 500]
+      }
+    },
+    {
+      "id": "bigshoulders-barlow",
+      "name": "Civic Gothic",
+      "mood": "Public and confident. A condensed American gothic built for a city's signs and posters, over a slightly rounded grotesque drawn from California road signs.",
+      "bestFor": "Civic, transport, sport and community campaigns; events; outdoor and wayfinding-like pieces.",
+      "display": {
+        "family": "Big Shoulders Display",
+        "weights": [700, 800, 900],
+        "style": "Condensed American gothic, variable",
+        "case": "Sentence case; capitals only for labels",
+        "tracking": 0,
+        "leading": 0.95,
+        "designer": "Patric King",
+        "classification": "Condensed gothic sans",
+        "axes": ["wght 100-900"],
+        "notes": "Made for the City of Chicago's design system; its tall forms draw on Chicago's railway, political and dance history. Sister families Big Shoulders Stencil and Inline exist; Google Fonts also serves a combined 'Big Shoulders' family."
+      },
+      "body": {
+        "family": "Barlow",
+        "weights": [400, 500, 600],
+        "style": "Low-contrast grotesque with slightly rounded forms",
+        "tracking": 0,
+        "leading": 1.45,
+        "designer": "Jeremy Tribby",
+        "classification": "Grotesque sans",
+        "axes": [],
+        "notes": "Static family in three widths (Barlow, Semi Condensed, Condensed), 9 weights each; based on California's plates, highway signs, buses and trains."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [400, 500]
+      }
+    }
+  ],
+
+  "typeWithArt": {
+    "weightMatch": "Headline stems should be at least as thick as the thinnest ink shapes in the image (about 3 units on a 400 artboard) and visually as dark as the ink plate: use 700-900, or Anton.",
+    "scaleMatch": "Headline cap height 1/4 to 1/2 of the subject's face height, so the image stays the focal point and the words are still the second thing seen.",
+    "placement": "Text on flat ground or a flat plate only, aligned to the image block's edge or to the grid's first column; never across the image.",
+    "colour": "Headline in ink or the combination's text role; never in the accent if the accent is a middle tone of the image (it would read as part of the picture)."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb; larger than humanist-minimal because condensed faces are narrow.",
+    "byFormat": {
+      "billboard": { "headlinePct": [12, 18], "body": "none" },
+      "poster": { "headlinePct": [6, 10], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [6, 10], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [4, 6], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [3, 5], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [7, 10], "bodyMinPx": 32 },
+      "story": { "headlinePct": [5, 7], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [5, 8], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [14, 20], "body": "none" },
+      "web-banner": { "headlinePct": [14, 22], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [48, 104], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [32, 48], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+  },
+
+  "setting": {
+    "measure": { "chars": [45, 75], "ideal": 60, "source": "Bringhurst, The Elements of Typographic Style" },
+    "headlineChars": [10, 18],
+    "headlineCharsNote": "Characters per headline line with condensed faces; break by sense, not by fit.",
+    "leading": { "display": [0.92, 1.02], "subhead": [1.15, 1.25], "body": [1.4, 1.5] },
+    "tracking": { "displayEm": [-0.01, 0], "bodyEm": 0, "smallEm": [0, 0.01], "labelCapsEm": [0.06, 0.1] },
+    "case": "Sentence case everywhere. Capitals only for labels of one to three words.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rag": "Ragged right, left-aligned. No justified text.",
+    "numbers": "Dates, times and prices in the display face when they are the message, otherwise in the mono with tabular figures."
+  },
+
+  "rules": [
+    "Bold condensed headlines, plain body.",
+    "Three sizes and two weights per piece.",
+    "Type on flat colour only, never across the image.",
+    "Left-aligned, sentence case.",
+    "No handwriting, grunge or outline fonts."
+  ]
+}
