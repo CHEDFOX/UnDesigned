@@ -1,0 +1,739 @@
+{
+  "$comment": "Video, content and motion graphics: evidence and cross-style rules. Extends foundations/layout/media.json (text over video, on-screen reading time, motion onset, edit blindness, sound off): those findings are referenced by id, not repeated. Ids here are unique across layout.json, media.json and this file. Styles decide how motion feels (approaches/<id>/motion.json: springs, easings, moves, choreography); where a style's motion.json sets a number, it wins over the defaults here. 'strength': strong = replicated, reviewed or meta-analysed; moderate = one good study or careful practitioner research with a stated method; emerging = new, platform- or vendor-reported; contested = mixed or weak. Numbers marked ruleOfThumb are conventions, not findings; 'practitioner' marks industry guidance. Evidence lists may also cite ids from foundations/layout/layout.json and media.json (findings, and the media.json video rule 'first-frame'). Full sources: research.md section 13; scorecard: section 12. Storyboard template: templates/video/storyboard.md. Title-card generator: templates/video/title-card.mjs.",
+
+  "findings": [
+    {
+      "id": "zap-dispersion",
+      "title": "Viewers zap when attention scatters; brief, repeated brand moments keep them",
+      "finding": "In eye-tracking and zapping data from nearly 2,000 viewers of 31 TV commercials, the more viewers' gaze was spread across the screen, the more likely they were to zap. Showing the brand in several short pulses, with total brand time held constant, lowered avoidance. Central brand positions (not brand size) increased avoidance.",
+      "effect": "Dynamic probit model on moment-to-moment zapping, confirmed by simulations and a controlled experiment with edited commercials.",
+      "strength": "moderate",
+      "designRule": "Keep one focal point per shot so attention stays together. Show the brand early and then again in short pulses, woven into the action, rather than one long logo at the start or a reveal only at the end. Don't park a big logo in the centre of the frame.",
+      "sources": [
+        "Teixeira, Wedel & Pieters (2010), Marketing Science 29(5), 783-804"
+      ]
+    },
+    {
+      "id": "joy-surprise",
+      "title": "Surprise and rising joy hold viewers",
+      "finding": "In a lab study with 28 ads, facial-expression tracking, eye tracking and recorded zapping, both surprise and joy concentrated attention and kept viewers watching. Surprise worked through its level; joy worked through how fast it rose. Increases in joy gained more than equal decreases lost.",
+      "effect": "Automated facial-expression detection, eye tracking and zapping, analysed moment to moment.",
+      "strength": "moderate",
+      "designRule": "Open on something unexpected (a surprise in the first beat), then build feeling upwards towards the product. Don't spend the first seconds on a slow, neutral set-up.",
+      "sources": [
+        "Teixeira, Wedel & Pieters (2012), Journal of Marketing Research 49(2), 144-159"
+      ]
+    },
+    {
+      "id": "entertain-after-brand",
+      "title": "Entertainment helps after the brand appears, not before",
+      "finding": "In a field study of 82 ads and 178 viewers with webcam smile tracking, entertainment had an inverted-U relation to purchase intent. Entertainment that came after the brand appeared was positively linked with purchase intent; entertainment before the brand was not.",
+      "effect": "Bayesian hierarchical model of smiles, viewing interest and purchase intent, measured continuously in homes and workplaces.",
+      "strength": "moderate",
+      "designRule": "Bring the brand in early, then let the story, joke or delight play out with the brand already known. Moderate entertainment beats maximum entertainment.",
+      "sources": [
+        "Teixeira, Picard & el Kaliouby (2014), Marketing Science 33(6), 809-827"
+      ]
+    },
+    {
+      "id": "abcd",
+      "title": "Platform guidance: attention, branding, connection, direction",
+      "finding": "Google and Ipsos coded the creative of about 17,000 YouTube ads and set out four checks: earn Attention early (start mid-action, close-ups, sound, strong colour and contrast), Brand early and often, Connect through story and emotion, and give Direction (a clear next step). Google reports sales and brand-perception lifts for ads that follow them.",
+      "effect": "Practitioner research by the platform that sells the media; method and data not published in full. Reviewed by Nielsen and Kantar according to Google.",
+      "strength": "moderate",
+      "practitioner": true,
+      "designRule": "Use ABCD as a checklist, not a formula: the opening frame earns attention, the brand appears in the first seconds, the story connects, the end gives one direct call to action.",
+      "sources": [
+        "Google / Think with Google, 'The ABCDs of effective creative' (YouTube video ad creative guidance, with Ipsos; practitioner)"
+      ]
+    },
+    {
+      "id": "short-exposure-lift",
+      "title": "Even a brief view can lift recall",
+      "finding": "A Facebook-commissioned Nielsen analysis of 173 brand-effect studies reported lifts in ad recall, awareness and purchase intent among people who watched less than three seconds of a video ad, and larger lifts with longer viewing.",
+      "effect": "Commissioned by the platform, only campaigns with positive lift included, method not published in full. Secondary reports that '47% of the value comes in the first three seconds' could not be traced to the original.",
+      "strength": "emerging",
+      "designRule": "Put the brand and the one message where even a brief viewer will meet them: the first frame and the first seconds. Do not read this as 'nobody watches past three seconds' (myth three-second-rule).",
+      "sources": [
+        "Nielsen for Facebook (2016), brand-effect analysis of video ads, as reported by Marketing Dive and MarTech (Marketing Land); original report not retrieved"
+      ]
+    },
+    {
+      "id": "skip-choice",
+      "title": "Letting viewers skip did not cost effectiveness per impression",
+      "finding": "Randomised experiments on YouTube found skippable in-stream ads (skip after five seconds) about as effective per impression as non-skippable ones, using searches for advertised terms as the measure, with a strong viewer preference for the skippable format.",
+      "effect": "Field experiments by Google researchers; one outcome measure.",
+      "strength": "moderate",
+      "designRule": "In skippable placements, the first five seconds must carry the brand and the hook on their own; after that, earn every second.",
+      "sources": [
+        "Pashkevich, Dorai-Raj, Kellar & Zigmond (2012), Journal of Advertising Research 52, 65-71 (Google Research lists Kellar & Zigmond on the paper page; check the full author list)"
+      ]
+    },
+    {
+      "id": "ad-length-position",
+      "title": "Longer in-stream ads were recognised better",
+      "finding": "In an experiment with YouTube ads and programmes, longer ads improved brand-name recognition, and mid-roll placement gave stronger recognition than pre-roll or post-roll.",
+      "effect": "One experiment; recognition only, not liking or sales.",
+      "strength": "moderate",
+      "designRule": "A short cut is not automatically better: plan a family of cuts (6, 15, 30 s) and give each a job. Shorter cuts must lean harder on brand and one message.",
+      "sources": [
+        "Li & Lo (2015), Journal of Advertising 44(3), 208-218"
+      ]
+    },
+    {
+      "id": "dramatic-form",
+      "title": "Ads that tell a full story are rated higher",
+      "finding": "In a content analysis of 108 Super Bowl commercials over two years, ads that followed a five-act dramatic form (exposition, rising action, climax, falling action, denouement, after Freytag) scored higher in consumer rating polls, and more acts went with higher ratings.",
+      "effect": "Correlational; one event with long-form, high-budget ads.",
+      "strength": "moderate",
+      "designRule": "From 30 s up, tell a story with a turn: set-up, problem, rising tension, the product resolves it, a short after-moment. In 6-15 s, keep at least problem-to-resolution.",
+      "sources": [
+        "Quesenberry & Coolsen (2014), Journal of Marketing Theory and Practice 22(4), 437-454"
+      ]
+    },
+    {
+      "id": "transportation",
+      "title": "Stories persuade by carrying people along",
+      "finding": "Ads that lead viewers to imagine themselves using the product persuade through narrative transportation: absorbed viewers feel more and argue less. Transported viewers were not put off by weak arguments.",
+      "effect": "Lab experiments with print and video ad stimuli; consistent with the wider narrative-persuasion literature.",
+      "strength": "moderate",
+      "designRule": "Show the customer's world from their point of view and let them picture the success (playbook S7). A story beats a list of features, but it still needs a true fact at its core (W2).",
+      "sources": [
+        "Escalas (2004), Journal of Advertising 33(2), 37-48",
+        "Escalas (2007), Journal of Consumer Research 33(4), 421-429"
+      ]
+    },
+    {
+      "id": "peak-end",
+      "title": "The strongest moment and the ending weigh most",
+      "finding": "Overall judgements of ads were weighted towards the peak emotional moment and the final moment, and towards feelings that improved over time. Later facial-EMG and practitioner studies found average, peak and end feelings all mattered, without a clear advantage for peak and end.",
+      "effect": "Three studies in the original; partial replication since.",
+      "strength": "contested",
+      "designRule": "Build towards the product and end on a high, clear, still frame. Don't end on a weak logo slate after the best moment has passed.",
+      "sources": [
+        "Baumgartner, Sujan & Padgett (1997), Journal of Marketing Research 34(2), 219-232"
+      ]
+    },
+    {
+      "id": "emotional-long-term",
+      "title": "Emotional campaigns build more long-term effect",
+      "finding": "In the IPA Databank of 996 effectiveness-award campaigns (1980-2010), emotional campaigns produced more brand and business effects than rational ones, especially over the long term.",
+      "effect": "Practitioner analysis of award entries, a selected sample; criticised for that.",
+      "strength": "moderate",
+      "practitioner": true,
+      "designRule": "Brand films and longer cuts should make people feel something about the customer's problem and success; keep the rational detail for demos, captions and the page the CTA leads to.",
+      "sources": [
+        "Binet & Field (2013), The Long and the Short of It, IPA (practitioner)"
+      ]
+    },
+    {
+      "id": "shot-rhythm",
+      "title": "Film shots got shorter and more rhythmically structured",
+      "finding": "Across 150 Hollywood films from 1935 to 2005, shot lengths became more correlated with their neighbours, approaching a 1/f pattern that mirrors fluctuations in human attention. A follow-up on 160 films (1935-2010) confirmed shots became shorter over time.",
+      "effect": "Descriptive analysis of films, not an experiment on viewers. Average shot lengths (over 10 s in the 1930s, about 4 s by the 2000s) come from summaries of the papers, not checked against the full text.",
+      "strength": "moderate",
+      "designRule": "Vary shot length in runs (a few short shots, then a longer one) rather than cutting at a fixed beat. Short shots are a trend, not proof that faster is better (myth faster-is-better).",
+      "sources": [
+        "Cutting, DeLong & Nothelfer (2010), Psychological Science 21, 440-447 (doi 10.1177/0956797610361679)",
+        "Cutting, Brunick, DeLong, Iricinschi & Candan (2011), i-Perception 2(6), 569-576"
+      ]
+    },
+    {
+      "id": "edit-rate",
+      "title": "More edits within a scene can raise arousal and memory",
+      "finding": "As the rate of edits (camera changes within the same scene) rose from slow to very fast, physiological arousal, self-reported arousal and memory for the message all increased, without a significant rise in cognitive load.",
+      "effect": "Lab study with physiological measures; edits within one scene, not cuts between unrelated scenes.",
+      "strength": "moderate",
+      "designRule": "Cut to a new angle on the same subject to keep energy up; that is cheap for the viewer. Cuts to unrelated content are costly (finding capacity-overload).",
+      "sources": [
+        "Lang, Zhou, Schwartz, Bolls & Potter (2000), Journal of Broadcasting & Electronic Media 44(1), 94-109"
+      ]
+    },
+    {
+      "id": "capacity-overload",
+      "title": "Pace, arousal and new information share a limited budget",
+      "finding": "The limited capacity model predicts that production pacing and arousing content raise attention and encoding only up to a point; past it, viewers are overloaded and memory falls, verbal memory first. Experiments in this programme found verbal recognition dropped under higher demands while visual recognition held, and that cuts between unrelated content demand more than cuts within a scene.",
+      "effect": "A large research programme (Lang and colleagues) with physiological and memory measures; results depend on message type and audience.",
+      "strength": "moderate",
+      "designRule": "Pick one source of intensity at a time: fast cutting, emotional content or dense information, not all three. When the words matter (offer, CTA, how-to steps), slow the cutting and hold the shot.",
+      "sources": [
+        "Lang (2000), Journal of Communication 50(1), 46-70",
+        "Lang, Bolls, Potter & Kawahara (1999), Journal of Broadcasting & Electronic Media 43(4), 451-475 (abstract not retrieved; end page also given as 457)",
+        "Lang, Potter & Bolls (1999), 'Something for nothing: Is visual encoding automatic?', Media Psychology 1(2), 145-163 or 164",
+        "Geiger & Reeves (1993), Communication Research 20(2), 155-175 (related and unrelated cuts; title not checked)"
+      ]
+    },
+    {
+      "id": "change-at-cut",
+      "title": "Changes across a cut go unnoticed, even to the main actor",
+      "finding": "When the only actor in a short film was swapped for another person at a cut, about two thirds of viewers did not notice. Changes that coincide with a cut, blink or other disruption are routinely missed (change blindness).",
+      "effect": "Lab demonstrations, widely replicated in the change-blindness literature.",
+      "strength": "strong",
+      "designRule": "Don't rely on a change at a cut to carry the message (a new colour, a swapped product); show the change happening in shot, or call it out. Conversely, small continuity slips rarely matter.",
+      "sources": [
+        "Levin & Simons (1997), Psychonomic Bulletin & Review 4, 501-506",
+        "Simons & Levin (1997), Trends in Cognitive Sciences 1(7), 261-267"
+      ]
+    },
+    {
+      "id": "inattentional-blindness",
+      "title": "People miss what they are not looking for",
+      "finding": "While counting basketball passes, about half of viewers failed to see a person in a gorilla suit walk through the scene.",
+      "effect": "Classic, widely replicated result; size of the effect depends on the task.",
+      "strength": "strong",
+      "designRule": "Anything that matters (brand, product, offer) must be where the viewer is already attending: on the subject, in the motion's path, on the beat. Don't put the logo or the offer in a corner while the story plays in the centre.",
+      "sources": [
+        "Simons & Chabris (1999), Perception 28, 1059-1074"
+      ]
+    },
+    {
+      "id": "animation-congruence",
+      "title": "Animation helps only when it matches the idea and can be followed",
+      "finding": "A review found little evidence that animated graphics beat good static ones for explaining. Where animation seemed better, it usually carried more information or interactivity. Animation suits change over time (congruence) but is often too fast or complex to perceive (apprehension); people think of many processes as discrete steps.",
+      "effect": "Review of experimental comparisons.",
+      "strength": "strong",
+      "designRule": "Animate only what changes in the idea (a before and after, a step, a path). Slow it down, break it into steps, and end each step on a still that can be read. Don't animate for decoration.",
+      "sources": [
+        "Tversky, Morrison & Bétrancourt (2002), International Journal of Human-Computer Studies 57, 247-262"
+      ]
+    },
+    {
+      "id": "cartoon-motion",
+      "title": "Cartoon principles make motion easy to follow",
+      "finding": "Interfaces that used animation principles from cartoons (solidity, exaggeration, reinforcement: slow in and slow out, arcs, follow-through, motion blur) helped users follow objects moving and appearing without being startled.",
+      "effect": "Design paper with a working system (Self); craft principles from Disney animators. Not a controlled comparison.",
+      "strength": "moderate",
+      "practitioner": true,
+      "designRule": "Nothing starts or stops dead: ease or spring every move, move along arcs, and let things settle. The style's motion.json picks the springs.",
+      "sources": [
+        "Chang & Ungar (1993), Proceedings of UIST '93, 45-55",
+        "Thomas & Johnston (1981), Disney Animation: The Illusion of Life, Abbeville Press (practice)"
+      ]
+    },
+    {
+      "id": "kinetic-type",
+      "title": "Moving type can carry tone",
+      "finding": "Researchers built systems for kinetic typography and argued that timing and motion of words can add emotion, voice and emphasis to text. Later studies found people could match some kinetic effects to intended emotions.",
+      "effect": "Mostly system papers and small studies; little evidence on comprehension or persuasion.",
+      "strength": "emerging",
+      "designRule": "Use kinetic type to set tone or stress one word, then let the line settle and hold for its reading time. Animate whole words or lines, not letters, when the words must be read.",
+      "sources": [
+        "Ford, Forlizzi & Ishizaki (1997), Kinetic typography: issues in time-based presentation of text, CHI '97 Extended Abstracts, 269-270",
+        "Lee, Forlizzi & Hudson (2002), The kinetic typography engine, Proceedings of UIST '02, 81-90"
+      ]
+    },
+    {
+      "id": "ui-motion-timing",
+      "title": "Interface motion lives between about 100 ms and 1 s",
+      "finding": "About 0.1 s feels instant and about 1 s is the limit for keeping a train of thought (Nielsen's response-time limits). Material Design's duration tokens run from 50 ms to 1,000 ms (short 50-200, medium 250-400, long 450-600, extra-long 700-1,000), with longer times for larger moves and bigger screens and shorter ones for exits.",
+      "effect": "Practitioner guidance and design-system conventions; not tested as optimal values.",
+      "strength": "moderate",
+      "practitioner": true,
+      "designRule": "Keep UI and brand micro-motion inside 100-500 ms, scene changes under about 1 s, and make exits shorter than entrances. Let a style's motion.json override within these bounds.",
+      "sources": [
+        "Nielsen (1993), Usability Engineering, Academic Press (response-time limits; practice)",
+        "Google Material Design 3, motion: easing and duration tokens (practice)",
+        "Nielsen Norman Group, 'Executing UX animations: duration and motion characteristics' (practice; page not opened)"
+      ]
+    },
+    {
+      "id": "photosensitivity",
+      "title": "Flashes and stripes can trigger seizures",
+      "finding": "Photosensitivity affects about 0.3-3% of people; light-provoked seizures about 1 in 4,000 people aged 5-24. Flicker around 15-25 Hz is most provocative, but seizures occur from 1 to 65 Hz. Expert consensus: a flash is a potential hazard at 3 or more per second, at least 20 cd/m2, covering about 25% of the screen at normal viewing distance; transitions to or from saturated red are a risk; patterns with more than five light-dark stripe pairs can provoke seizures.",
+      "effect": "Epilepsy Foundation of America review and consensus; the basis of broadcast rules (Ofcom, ITU-R BT.1702) and WCAG 2.3.1.",
+      "strength": "strong",
+      "designRule": "Never flash. No more than three flashes in any second, no saturated-red flashes, no full-screen strobes, no high-contrast stripes in motion. Test broadcast and paid video with a Harding-type analyser.",
+      "sources": [
+        "Fisher, Harding, Erba, Barkley & Wilkins (2005), Epilepsia 46(9), 1426-1441",
+        "Harding, Wilkins, Erba, Barkley & Fisher (2005), Epilepsia 46(9), 1423-1425",
+        "ITU-R BT.1702-3 (2023), guidance for the reduction of photosensitive epileptic seizures caused by television (practice; content not opened)",
+        "W3C WCAG 2.2, Success Criterion 2.3.1 Three Flashes or Below Threshold"
+      ]
+    },
+    {
+      "id": "vestibular",
+      "title": "Large motion, zooms and parallax make some people ill",
+      "finding": "People with vestibular disorders can get dizzy, nauseous or worse from scaling, zooming, spinning, large panning and parallax effects. Operating systems let them ask for reduced motion, which pages can read with the prefers-reduced-motion media query.",
+      "effect": "Platform accessibility guidance (Apple WebKit, MDN, W3C).",
+      "strength": "moderate",
+      "practitioner": true,
+      "designRule": "Respect prefers-reduced-motion: replace zooms, spins, parallax and large moves with a cut or a short fade, and show final frames. Keep motion small even without the setting.",
+      "sources": [
+        "Craig (2017), Responsive design for motion, WebKit blog",
+        "W3C WCAG 2.2, Success Criterion 2.3.3 Animation from Interactions (AAA)",
+        "MDN Web Docs, prefers-reduced-motion"
+      ]
+    },
+    {
+      "id": "multimedia-principles",
+      "title": "Explainers work when words and pictures share the load",
+      "finding": "Across many experiments, people learn more when extra material is cut (coherence), key points are cued (signalling), narration is not duplicated by the same on-screen text (redundancy), words and matching pictures come at the same time (temporal contiguity), content is split into learner-paced segments (segmenting), and narration is conversational (personalisation).",
+      "effect": "Dozens of experiments summarised by Mayer; each principle has stated boundary conditions (for example, redundancy matters less for short, simple text and for non-native listeners).",
+      "strength": "strong",
+      "designRule": "In explainers and how-tos: cut decoration, highlight the one thing to look at, show it while it is said, keep on-screen text to key words (not a transcript; captions are separate), one idea per segment, speak to one person.",
+      "sources": [
+        "Mayer (2009), Multimedia Learning, 2nd ed., Cambridge University Press",
+        "Brame (2016), CBE-Life Sciences Education 15(4), es6"
+      ]
+    },
+    {
+      "id": "short-segments",
+      "title": "Shorter, informal videos hold viewers longer",
+      "finding": "In 6.9 million viewing sessions on edX, shorter videos were much more engaging, informal talking-head videos were more engaging than studio recordings, and talking heads intercut with slides beat slides alone. Summaries put the drop-off at about six minutes.",
+      "effect": "Large observational study of course videos; the six-minute figure is from secondary summaries.",
+      "strength": "moderate",
+      "designRule": "Split long how-tos and explainers into short chapters, each with one goal. Intercut the presenter with the thing being shown.",
+      "sources": [
+        "Guo, Kim & Rubin (2014), Proceedings of Learning @ Scale '14, 41-50",
+        "Brame (2016), CBE-Life Sciences Education 15(4), es6"
+      ]
+    },
+    {
+      "id": "presenter-face",
+      "title": "A presenter's face is liked and looked at; learning gains are mixed",
+      "finding": "Viewers preferred lecture videos that showed the instructor's face, rated them more educational and spent much of their time looking at the face. Mayer's image principle finds that adding the speaker's image does not by itself improve learning.",
+      "effect": "Eye-tracking lab study plus a line of multimedia-learning experiments; outcomes depend on content and viewer.",
+      "strength": "contested",
+      "designRule": "Show a real person to build trust and connection (testimonials, founder films, how-tos), but cut to the product or the step when the viewer needs to look at it. Faces pull the eye (media.json faces-first), so never put text over them.",
+      "sources": [
+        "Kizilcec, Papadopoulos & Sritanyaratana (2014), Proceedings of CHI '14, 2095-2102 (summary from later papers)",
+        "Mayer (2009), Multimedia Learning, 2nd ed. (image principle)"
+      ]
+    },
+    {
+      "id": "music-fit",
+      "title": "Music that fits the ad and brand works better",
+      "finding": "A review of music-in-advertising research found that results become consistent once you sort them by congruity: music that fits the mood, genre, imagery and brand improves responses; music that clashes harms them. Experiments on music and voice 'fit' point the same way.",
+      "effect": "Narrative review plus experiments; many studies used students and radio or TV ads.",
+      "strength": "moderate",
+      "designRule": "Choose music for fit with the brand, the story's mood and the visuals before popularity. Cut on the musical beat when you cut, and let the music resolve with the end card.",
+      "sources": [
+        "Oakes (2007), Journal of Advertising Research 47(1), 38-50",
+        "North, McKenzie, Law & Hargreaves (2004), Journal of Applied Social Psychology 34(8), 1675-1708"
+      ]
+    },
+    {
+      "id": "sonic-logo",
+      "title": "A short sound logo can carry value, if easy to process",
+      "finding": "In a lab experiment, a six-tone sonic logo was valued more than three- or nine-tone versions; the effect ran through how easily it was processed.",
+      "effect": "One experiment; practitioner claims about audio branding go further than the evidence.",
+      "strength": "emerging",
+      "designRule": "If the brand has a sound logo, keep it short and simple and use it the same way at the end of every cut, as a distinctive asset (layout.json distinctive-assets). Never let it be the only branding: much video plays muted (media.json sound-off).",
+      "sources": [
+        "Krishnan, Kellaris & Aurand (2012), Journal of Product & Brand Management 21(4), 275-284"
+      ]
+    },
+    {
+      "id": "vertical-mobile",
+      "title": "On phones, vertical video is processed more easily",
+      "finding": "A large field study and two experiments found vertical video ads raised interest and engagement on mobile compared with horizontal ones, because full-screen vertical video took less effort to watch (no rotating the phone). The effect was stronger for younger viewers.",
+      "effect": "One paper, three studies; mobile feeds only.",
+      "strength": "moderate",
+      "designRule": "For phone-first placements, shoot or reframe for 9:16 full-screen and keep the subject and text in the safe area. Keep 16:9 masters for TV, desktop and YouTube.",
+      "sources": [
+        "Mulier, Slabbinck & Vermeir (2021), Journal of Interactive Marketing 55, 1-15"
+      ]
+    },
+    {
+      "id": "ugc-persuasion",
+      "title": "Customer-made posts can persuade more than ads",
+      "finding": "In an experiment on Facebook posts, user-generated content showing a brand led to higher purchase intention among young adults than a disclosed ad or a brand post, because it did not trigger persuasion knowledge and the negative feelings that follow.",
+      "effect": "One online experiment with young adults; still images and posts rather than video.",
+      "strength": "moderate",
+      "designRule": "Use real customers in their own words for testimonials and UGC-style pieces, label paid partnerships as the law requires, and never script fake 'customers' (playbook: never invent testimonials).",
+      "sources": [
+        "Mayrhofer, Matthes, Einwiller & Naderer (2020), International Journal of Advertising 39(1), 166-186"
+      ]
+    }
+  ],
+
+  "myths": [
+    {
+      "id": "goldfish-attention",
+      "claim": "People now have an eight-second attention span, shorter than a goldfish.",
+      "reality": "The figure came from a 2015 Microsoft Canada marketing report that credited 'Statistic Brain'; a BBC investigation found no research behind it, and psychologists say attention depends on the task and has not been shown to shrink. Goldfish researchers know of no such limit.",
+      "useInstead": "Design for competition, not a fixed span: earn the first seconds (zap-dispersion, joy-surprise, abcd), then keep earning them."
+    },
+    {
+      "id": "three-second-rule",
+      "claim": "Nobody watches past three seconds, so only the first three seconds count.",
+      "reality": "Even very short views can lift recall (short-exposure-lift), but lifts grew with longer viewing, skippable ads remained effective per impression (skip-choice) and longer in-stream ads were recognised better (ad-length-position). 'Three seconds' is also how some platforms count a view, not a measure of attention.",
+      "useInstead": "Make the first seconds carry brand and hook, and make the rest worth watching for the people who stay."
+    },
+    {
+      "id": "faster-is-better",
+      "claim": "Faster cutting is always more engaging.",
+      "reality": "More edits within a scene raised arousal and memory (edit-rate), but pace, arousing content and new information compete for limited capacity, and overload cuts verbal memory first (capacity-overload). Shot lengths in film shrank but also became more rhythmically varied (shot-rhythm).",
+      "useInstead": "Vary pace, cut within a scene for energy, slow down whenever words, offers or steps must be read."
+    },
+    {
+      "id": "more-animation",
+      "claim": "More animation makes a piece more engaging and easier to understand.",
+      "reality": "Animation beat good static graphics mainly when it carried more information or interactivity; it is often too fast to follow (animation-congruence). Every new motion pulls the eye (media.json motion-onset) and competes with the words.",
+      "useInstead": "One thing moves at a time, each move means something, and each sequence ends on a still that can be read."
+    },
+    {
+      "id": "brand-reveal",
+      "claim": "Hold the brand back until the end for a bigger reveal.",
+      "reality": "Viewers zap before the end, brief brand pulses reduced avoidance (zap-dispersion), and entertainment helped purchase intent only after the brand had appeared (entertain-after-brand). Google's guidance is to brand early and often (abcd).",
+      "useInstead": "Brand in the first seconds, pulse it through the story, and close on brand and call to action."
+    },
+    {
+      "id": "vertical-always",
+      "claim": "Vertical video always beats horizontal.",
+      "reality": "The evidence is for full-screen viewing in mobile feeds (vertical-mobile). TV, desktop and YouTube's main player are horizontal.",
+      "useInstead": "Make the master for the main placement and reframe (9:16, 1:1, 4:5, 16:9) with each format's safe area."
+    },
+    {
+      "id": "one-right-length",
+      "claim": "There is one optimal video length (often quoted as 15 s, 30 s or 2 minutes).",
+      "reality": "We found no peer-reviewed optimum. Length depends on placement, objective and content; platform limits change. Shorter is more engaging for course videos (short-segments), longer in-stream ads were recognised better (ad-length-position).",
+      "useInstead": "Plan a family of cuts (6, 15, 30, 60 s) with a job each, and check each platform's current limits."
+    },
+    {
+      "id": "reduced-motion-none",
+      "claim": "prefers-reduced-motion means removing every animation.",
+      "reality": "The setting asks for less motion of the kinds that trigger vestibular symptoms (scaling, zooming, parallax, large moves). Fades and colour changes are usually fine; content must still be complete.",
+      "useInstead": "Under reduced motion, show the final frames, swap moves and zooms for cuts or short fades, and stop loops."
+    }
+  ],
+
+  "structure": {
+    "$comment": "Beats for a short brand or product video, in order. Seconds are [start, end]. Percent ranges and seconds are rules of thumb fitted to the evidence (brand early, story with a turn, end on a still with a CTA); only the ordering principles are evidenced. Beats can merge in short cuts (null = skipped). The end card is held at least as long as media.json's reading rule for its words.",
+    "readingRule": "media.json -> video -> on-screen-time: hold = max(1.5 s, 0.375 s x words + 0.5 s)",
+    "cuts": [6, 15, 30, 60],
+    "beats": [
+      {
+        "id": "hook",
+        "name": "Hook and first frame",
+        "job": "Stop the scroll: a surprise, a mid-action opening, a close-up or the customer's problem in one image. The first frame must work as a still (media.json first-frame).",
+        "pct": [0, 10],
+        "seconds": { "6": [0, 1.5], "15": [0, 2], "30": [0, 3], "60": [0, 5] },
+        "ruleOfThumb": true,
+        "evidence": ["joy-surprise", "abcd", "short-exposure-lift", "zap-dispersion"],
+        "principles": ["O2", "W1", "S8"]
+      },
+      {
+        "id": "brand",
+        "name": "Brand in",
+        "job": "Brand or product visibly in the first seconds, woven into the action, then pulsed again; never only at the end. Next to the headline when text is on screen.",
+        "pct": [0, 15],
+        "seconds": { "6": [0, 1.5], "15": [0, 3], "30": [0, 5], "60": [0, 8] },
+        "ruleOfThumb": true,
+        "evidence": ["zap-dispersion", "entertain-after-brand", "abcd", "skip-choice"],
+        "principles": ["O4", "O11"]
+      },
+      {
+        "id": "problem",
+        "name": "The customer's problem",
+        "job": "Show the customer (the hero) and the problem, ideally its internal side (how it feels).",
+        "pct": [10, 30],
+        "seconds": { "6": null, "15": [2, 5], "30": [3, 9], "60": [5, 18] },
+        "ruleOfThumb": true,
+        "evidence": ["dramatic-form", "transportation"],
+        "principles": ["S1", "S2", "S3"]
+      },
+      {
+        "id": "product-hero",
+        "name": "Product as the hero of the idea",
+        "job": "The product resolves the problem on screen: the one dramatic truth, shown, not said. The story's turn or peak happens here.",
+        "pct": [30, 65],
+        "seconds": { "6": [1.5, 4], "15": [5, 10], "30": [9, 20], "60": [18, 40] },
+        "ruleOfThumb": true,
+        "evidence": ["dramatic-form", "entertain-after-brand", "peak-end", "animation-congruence"],
+        "principles": ["W8", "W2", "W5", "S7"]
+      },
+      {
+        "id": "proof",
+        "name": "Proof",
+        "job": "One specific fact, number, demo result or real customer (never invented).",
+        "pct": [65, 83],
+        "seconds": { "6": null, "15": [10, 12], "30": [20, 25], "60": [40, 50] },
+        "ruleOfThumb": true,
+        "evidence": ["ugc-persuasion", "multimedia-principles"],
+        "principles": ["S4", "O5"]
+      },
+      {
+        "id": "cta",
+        "name": "Call to action and end card",
+        "job": "Brand plus one direct call to action on a still frame that works as a poster, held for its reading time. A transitional CTA can follow for longer cuts.",
+        "pct": [83, 100],
+        "seconds": { "6": [4, 6], "15": [12, 15], "30": [25, 30], "60": [50, 60] },
+        "minHold": "max(1.5 s, 0.375 s x words + 0.5 s); 2 s for a 4-word CTA",
+        "ruleOfThumb": true,
+        "evidence": ["peak-end", "abcd", "on-screen-reading"],
+        "principles": ["S6", "O4"]
+      }
+    ],
+    "notes": [
+      "6 s: hook and brand together, one product moment, end card. No problem or proof beat; one message only (W1).",
+      "15 s: problem and solution with a short proof or skip it; the end card takes the last 3 s.",
+      "30-60 s: room for a story with a turn (dramatic-form) and an emotional arc that rises to the product (joy-surprise, peak-end).",
+      "Skippable placements: hook, brand and the one message inside the first 5 s (skip-choice)."
+    ]
+  },
+
+  "pacing": {
+    "$comment": "Shot lengths are rules of thumb unless an id is given. Text over footage follows media.json -> video (static text, still zone, worst frame, change on a cut, reading time).",
+    "principles": [
+      { "rule": "Vary shot lengths in runs instead of cutting on a fixed metronome.", "evidence": ["shot-rhythm"] },
+      { "rule": "For energy, cut to new angles within the same scene; cuts to unrelated scenes cost more attention.", "evidence": ["edit-rate", "capacity-overload"] },
+      { "rule": "One source of intensity at a time: fast cutting, arousing content or dense information.", "evidence": ["capacity-overload"] },
+      { "rule": "Hold any shot that carries words for at least the reading time; change text on a cut.", "evidence": ["on-screen-reading", "edit-blindness"] },
+      { "rule": "Show changes in shot, not across a cut, when the change is the point.", "evidence": ["change-at-cut"] },
+      { "rule": "Keep one focal point per shot; attention that scatters predicts zapping.", "evidence": ["zap-dispersion", "inattentional-blindness"] }
+    ],
+    "shotSeconds": {
+      "$comment": "Typical shot length ranges in seconds. ruleOfThumb.",
+      "brand-film": { "range": [2, 5], "notes": "Rhythm varies; let one key shot breathe at the peak." },
+      "product-demo": { "range": [2, 4], "notes": "Hold each feature shot until the action completes, then at least the reading time of any label." },
+      "how-to": { "range": [3, 8], "notes": "One step per shot or segment; hold until the step is visibly done plus about 1 s." },
+      "ugc-testimonial": { "range": [3, 8], "notes": "Longer takes keep it believable; trim pauses with jump cuts or b-roll of the product." },
+      "explainer": { "range": [3, 8], "notes": "One idea per scene; animate the change, then hold the still." },
+      "motion-graphic": { "range": [1.5, 3], "notes": "One change per beat; each text card held for its reading time." },
+      "ruleOfThumb": true
+    },
+    "holds": {
+      "textCard": "max(1.5 s, 0.375 s x words + 0.5 s) (media.json on-screen-time)",
+      "endCard": "The final still holds at least its reading time and at least 1 s after the last move settles; a style's motion.json may ask for longer (negative-space: 2 s).",
+      "openOnGround": "Motion pieces open on the ground or first frame for 300-1000 ms before the first move (style choreography decides).",
+      "ruleOfThumb": true
+    },
+    "textOnScreen": "See media.json -> video: static-text, on-screen-time, worst-frame, still-zone, cuts, captions, first-frame."
+  },
+
+  "motionGraphics": {
+    "principles": [
+      { "id": "one-mover", "rule": "One thing moves at a time; everything else is still.", "evidence": ["motion-onset", "capacity-overload", "zap-dispersion"] },
+      { "id": "meaningful", "rule": "Animate only what changes in the idea (arrive, transform, connect, leave). No decorative motion.", "evidence": ["animation-congruence"] },
+      { "id": "steps", "rule": "Break processes into steps that each end on a readable still.", "evidence": ["animation-congruence", "multimedia-principles"] },
+      { "id": "natural", "rule": "Nothing starts or stops dead: springs or eased curves, arcs not straight lines for travelling objects.", "evidence": ["cartoon-motion"] },
+      { "id": "end-still", "rule": "Every sequence ends on a still frame that works as a complete poster (brand, message, CTA).", "evidence": ["first-frame", "peak-end"] },
+      { "id": "never-flash", "rule": "Never flash: no strobes, no rapid colour or brightness alternation, no flicker, no moving stripes.", "evidence": ["photosensitivity"] },
+      { "id": "small-moves", "rule": "Prefer short travel, small scale changes and fades over zooms, spins and parallax.", "evidence": ["vestibular"] }
+    ],
+    "timing": {
+      "$comment": "Milliseconds. Bounds for every style; the style's motion.json picks values inside them (and wins where it sets a number). ruleOfThumb, built from practitioner sources (ui-motion-timing).",
+      "micro": { "ms": [100, 200], "use": "Hover, press, toggle, small icon changes.", "sources": ["ui-motion-timing"] },
+      "standard": { "ms": [200, 400], "use": "Cards, panels, small elements changing state.", "sources": ["ui-motion-timing"] },
+      "entrance": { "ms": [250, 500], "spring": "or a spring that settles within about 1,200 ms", "use": "Text and objects arriving. Springs are measured to settle (the style's springs).", "sources": ["ui-motion-timing", "cartoon-motion"] },
+      "exit": { "ms": [150, 300], "use": "Things leaving: shorter than entrances, accelerating away.", "sources": ["ui-motion-timing"] },
+      "emphasis": { "ms": [300, 600], "use": "One pulse, nudge or highlight on a key word or object; once, not looping.", "sources": ["ui-motion-timing", "kinetic-type"] },
+      "scene": { "ms": [500, 1000], "use": "Scene transitions and full-screen changes; a cut is often better.", "sources": ["ui-motion-timing", "vestibular"] },
+      "ruleOfThumb": true
+    },
+    "easing": {
+      "rules": [
+        "Each style's motion.json wins: use its springs, easings, moves and choreography. This foundation only sets the bounds and the cross-style rules.",
+        "Arrivals: springs (simulated into CSS linear() by approaches/build.mjs springEasing) or a decelerating curve. Overshoot only if the style allows it, and never on text in styles that forbid bounces.",
+        "Loops: sine-like ease-in-out curves, no visible start or stop.",
+        "Exits: accelerate away (ease-in); never spring out.",
+        "No linear easing for movement, except continuous loops such as a slow drift or a scrolling ticker the style allows."
+      ],
+      "evidence": ["cartoon-motion", "ui-motion-timing"]
+    },
+    "kineticType": {
+      "rules": [
+        "A line arrives once, as a whole word or line, then stays still for its reading time (media.json on-screen-time).",
+        "Animate letters only for a one- or two-word display line whose meaning is the motion, and finish before the reading time starts.",
+        "Stress one word at most per line with a single emphasis move.",
+        "Keep text inside the format's safe area at every frame, including mid-move.",
+        "Respect the style's type rules (sentence case, sizes per format, no handwriting faces where banned)."
+      ],
+      "evidence": ["kinetic-type", "on-screen-reading", "motion-onset"]
+    },
+    "loops": {
+      "rules": [
+        "A loop is one small move (breathe, float, drift) on one object; everything else is still.",
+        "Loops end on, or pass through, the still frame that carries the message.",
+        "Anything that moves for more than 5 s next to other content needs a pause or stop control on the web (WCAG 2.2.2), or must stop by itself within 5 s.",
+        "Loop length comes from the style (humanist-minimal 2-4 s; negative-space 6-12 s, rarely).",
+        "Repetition builds familiarity only up to a point (layout.json repetition, wear-out); rotate loops across a campaign."
+      ],
+      "evidence": ["repetition", "wear-out", "motion-onset"]
+    }
+  },
+
+  "sound": {
+    "rules": [
+      { "rule": "Design for sound off first: the one message works on screen as text and image; speech is captioned.", "evidence": ["sound-off", "on-screen-reading"] },
+      { "rule": "Then design for sound on: music, voice and effects that fit the brand, the story's mood and the pictures.", "evidence": ["music-fit", "abcd"] },
+      { "rule": "Voice-over says what the picture can't; on-screen text carries only key words, not the full narration (captions are separate).", "evidence": ["multimedia-principles"] },
+      { "rule": "Speak to one person in plain, conversational words.", "evidence": ["multimedia-principles"] },
+      { "rule": "Cut on the beat when cutting to music; let the music resolve with the end card.", "evidence": ["music-fit", "peak-end"], "ruleOfThumb": true },
+      { "rule": "Use a sonic logo, if the brand has one, the same way every time, short and simple, never as the only branding.", "evidence": ["sonic-logo", "distinctive-assets", "sound-off"] },
+      { "rule": "No audio that plays by itself for more than 3 s on the web without a pause or volume control (WCAG 1.4.2).", "evidence": [] },
+      { "rule": "Keep music under speech; the words must be clear on a phone speaker.", "evidence": [], "ruleOfThumb": true }
+    ]
+  },
+
+  "accessibility": {
+    "flashes": {
+      "rule": "No more than three flashes in any one-second period, and no saturated-red flashes; no full-screen strobes or moving high-contrast stripes. Test broadcast and paid video with a Harding-type flash and pattern analyser.",
+      "numbers": { "maxFlashesPerSecond": 3, "hazardLuminanceCdM2": 20, "hazardScreenAreaPct": 25, "maxStripePairs": 5 },
+      "standards": ["WCAG 2.2 SC 2.3.1 (A)", "WCAG 2.2 SC 2.3.2 (AAA): no flashes at all", "ITU-R BT.1702", "Ofcom Broadcasting Code rule 2.13 and its flashing-images guidance (UK)"],
+      "evidence": ["photosensitivity"]
+    },
+    "reducedMotion": {
+      "rule": "Honour prefers-reduced-motion: show final frames, replace zooms, spins, parallax and large moves with cuts or short fades, stop loops. Motion triggered by interaction must be possible to switch off.",
+      "standards": ["CSS Media Queries Level 5: prefers-reduced-motion", "WCAG 2.2 SC 2.3.3 Animation from Interactions (AAA)"],
+      "evidence": ["vestibular"]
+    },
+    "pauseControl": {
+      "rule": "On the web, anything that starts by itself, moves, blinks or scrolls for more than 5 s alongside other content needs pause, stop or hide controls, or must stop within 5 s. Autoplaying video needs a visible pause button.",
+      "standards": ["WCAG 2.2 SC 2.2.2 Pause, Stop, Hide (A)", "WCAG 2.2 SC 1.4.2 Audio Control (A)"],
+      "evidence": ["vestibular"]
+    },
+    "captions": {
+      "rule": "Caption every piece with speech: accurate, synchronised, inside the safe area, clear of the platform's own caption zone. Burned-in captions for social feeds, caption files where the player supports them.",
+      "standards": ["WCAG 2.2 SC 1.2.2 Captions (Prerecorded) (A)", "BBC Subtitle Guidelines (practice)"],
+      "evidence": ["on-screen-reading", "sound-off"]
+    },
+    "audioDescription": {
+      "rule": "If important information is only visual (on-screen text without voice, a demo step, a price), say it in the voice-over or provide audio description. Writing the voice-over to describe the key action covers most short pieces.",
+      "standards": ["WCAG 2.2 SC 1.2.3 (A) and 1.2.5 Audio Description (Prerecorded) (AA)"],
+      "evidence": ["multimedia-principles"]
+    },
+    "contrast": "Text over footage: worst-frame contrast as in media.json -> contrast and video -> worst-frame."
+  },
+
+  "formats": {
+    "$comment": "Video and motion uses of the formats in foundations/messaging/source/formats.json. Lengths are practitioner or platform-spec ranges, marked as such; platform limits change, so check the current spec. Safe areas from foundations/layout/layout.json -> safeAreas.",
+    "story": {
+      "use": "Stories, Reels, TikTok, YouTube Shorts; also the reel cover.",
+      "aspect": [9, 16],
+      "cuts": [6, 15, 30],
+      "lengthNote": "Our standard cuts; platform maximums change and are longer. ruleOfThumb.",
+      "safeArea": "layout.json -> safeAreas.story (top 14%, bottom 35%, sides 6%)",
+      "firstFrame": "The cover frame shows subject, headline (8 words max) and brand inside the safe area; it must work as a still in the grid and as a cover.",
+      "evidence": ["vertical-mobile", "first-frame"],
+      "practitioner": true
+    },
+    "instagram-post": {
+      "use": "Feed video at 4:5 or 1:1.",
+      "aspect": [4, 5],
+      "cuts": [6, 15, 30],
+      "lengthNote": "ruleOfThumb; check the platform.",
+      "safeArea": "layout.json -> safeAreas.instagram-post (about 6% each side, 3:4 grid crop)",
+      "firstFrame": "First frame is the grid thumbnail; it must read as a post with the sound off.",
+      "evidence": ["first-frame", "sound-off"],
+      "practitioner": true
+    },
+    "thumbnail": {
+      "use": "YouTube thumbnail and the poster frame of any horizontal video.",
+      "aspect": [16, 9],
+      "lengthNote": "A still, not a video. Five words max (formats.json).",
+      "safeArea": "layout.json -> safeAreas.thumbnail (keep clear of the bottom-right duration stamp)",
+      "firstFrame": "Choose or design the frame: one face or object, the headline on the side it looks to (media.json gaze-cue), brand visible.",
+      "evidence": ["first-frame", "faces-first", "gaze-cue"]
+    },
+    "landing-hero": {
+      "use": "Background or hero video on a web page.",
+      "aspect": [16, 9],
+      "lengthNote": "Loop or stop within 5 s, or provide a pause control (WCAG 2.2.2). Muted by default.",
+      "safeArea": "layout.json -> grids.wide-screen live area; text in a still zone (media.json still-zone).",
+      "firstFrame": "The poster attribute image is the first frame and the reduced-motion fallback; it must carry the headline area clean.",
+      "evidence": ["vestibular", "first-frame"]
+    },
+    "web-banner": {
+      "use": "Animated display banner (HTML5 or GIF).",
+      "aspect": [970, 250],
+      "lengthNote": "Animation stops within 5 s (WCAG 2.2.2) and ends on the complete banner. Ad networks set their own limits; check them.",
+      "safeArea": "layout.json -> grids.strip",
+      "firstFrame": "The last frame is the poster; the first frame should already show the brand.",
+      "evidence": ["banner-blindness", "zap-dispersion"]
+    },
+    "email-header": {
+      "use": "Animated GIF header.",
+      "aspect": [600, 300],
+      "lengthNote": "Some email clients show only the first frame, so the first frame must carry headline and brand; stop within 5 s. practitioner.",
+      "safeArea": "layout.json -> grids.email",
+      "firstFrame": "Complete message on frame one.",
+      "evidence": ["first-frame"],
+      "practitioner": true
+    },
+    "youtube-in-stream": {
+      "use": "YouTube in-stream ads (not in formats.json; uses the 16:9 thumbnail canvas).",
+      "aspect": [16, 9],
+      "cuts": [6, 15, 30],
+      "lengthNote": "Platform spec (Google Ads Help): bumper up to 6 s, non-skippable 7-15 s (16-30 s on connected TV); skippable ads can be skipped after 5 s.",
+      "safeArea": "Keep text clear of the player controls and skip button: bottom 15% and the bottom-right corner. ruleOfThumb.",
+      "firstFrame": "Hook, brand and the one message inside the first 5 s.",
+      "evidence": ["skip-choice", "ad-length-position", "abcd"]
+    },
+    "billboard": {
+      "use": "Digital out-of-home screens.",
+      "aspect": [48, 14],
+      "lengthNote": "Many sites allow only still slides or limited motion; follow the media owner's spec and local rules. practitioner.",
+      "safeArea": "layout.json -> safeAreas.billboard",
+      "firstFrame": "Each slide is a complete poster; motion, if allowed, is a single slow move.",
+      "evidence": ["first-glance"],
+      "practitioner": true
+    }
+  },
+
+  "contentTypes": [
+    {
+      "id": "product-demo",
+      "name": "Product demo",
+      "use": "Show what the product does and how it feels to use; consideration and conversion.",
+      "structure": ["hook: the result or the problem in one shot", "brand and product in", "two or three features, one per shot, each shown working", "proof: a real result", "CTA end card"],
+      "evidence": ["animation-congruence", "multimedia-principles", "capacity-overload", "entertain-after-brand"]
+    },
+    {
+      "id": "how-to",
+      "name": "How-to and tutorial",
+      "use": "Teach a task; builds trust and owned audience (P4, P5).",
+      "structure": ["outcome first (what you'll make)", "materials or set-up", "steps, one per segment, numbered on screen", "the finished result", "next step CTA"],
+      "evidence": ["multimedia-principles", "short-segments", "animation-congruence"]
+    },
+    {
+      "id": "ugc-testimonial",
+      "name": "UGC and testimonial",
+      "use": "A real customer in their own words; credibility and proof (S4).",
+      "structure": ["the person and their problem in their words", "the moment it changed", "the product in their hands", "brand and CTA"],
+      "evidence": ["ugc-persuasion", "presenter-face", "transportation"],
+      "notes": "Never script or invent customers; get consent; disclose paid partnerships."
+    },
+    {
+      "id": "brand-film",
+      "name": "Brand film",
+      "use": "Long-term brand building through story and feeling.",
+      "structure": ["hook", "brand early", "story with a turn (five acts if 60 s or more)", "peak on the product's dramatic truth", "end card"],
+      "evidence": ["dramatic-form", "transportation", "emotional-long-term", "joy-surprise", "peak-end", "zap-dispersion"]
+    },
+    {
+      "id": "explainer",
+      "name": "Explainer",
+      "use": "Make a service, idea or process clear, often animated.",
+      "structure": ["the viewer's problem", "the idea in one sentence", "how it works in three steps (S5)", "proof", "CTA"],
+      "evidence": ["multimedia-principles", "animation-congruence", "short-segments"]
+    },
+    {
+      "id": "title-card",
+      "name": "Title card and kinetic type",
+      "use": "Short motion graphic built from type and colour: openers, end cards, story frames, announcements.",
+      "structure": ["open on ground", "headline arrives and holds for its reading time", "brand", "CTA", "end on the still poster"],
+      "evidence": ["kinetic-type", "on-screen-reading", "motion-onset", "photosensitivity"],
+      "tool": "templates/video/title-card.mjs"
+    }
+  ],
+
+  "rules": [
+    "Earn the first seconds: a surprise, mid-action or a close-up, and a first frame that works as a still.",
+    "Brand in the first seconds, pulsed through the piece, and on the end card. Never only at the end.",
+    "One message per piece and one focal point per shot.",
+    "Tell a story with a turn when there is time; the product resolves it.",
+    "Vary the pace; slow down whenever words, offers or steps must be read.",
+    "Never stack fast cutting, intense content and dense information.",
+    "One thing moves at a time; each move means something; each sequence ends on a readable still.",
+    "Text stays still, in a still zone, inside the safe area, for max(1.5 s, 0.375 s x words + 0.5 s).",
+    "Use the style's springs and timings (motion.json); keep UI motion within 100-500 ms and scene changes under 1 s.",
+    "Design for sound off, then make sound on better: fitting music, plain voice, captions always.",
+    "Never flash: three per second at most, no red flashes, no strobing stripes.",
+    "Honour reduced motion: final frames, cuts or fades instead of zooms, spins and parallax.",
+    "Anything that moves for more than 5 s on the web can be paused.",
+    "Use real people and real results; never invent customers or numbers.",
+    "Make a family of cuts with a job each, and reframe for every format's safe area."
+  ]
+}

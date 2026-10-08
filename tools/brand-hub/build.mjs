@@ -69,6 +69,7 @@ export function buildHub({ root, brands }) {
         { name: 'Typography', state: 'done', detail: `${type.pairing.name}: ${type.pairing.display.family} + ${type.pairing.body.family}${type.hand ? `, hand accent ${type.hand.family}` : ''}, scale ${type.ratio}.` },
         { name: 'Messaging', state: filled === total ? 'done' : 'part', detail: `Playbook and checker ready. Message ${filled} of ${total} fields filled in; ${campaigns.length} campaign piece(s).` },
         { name: 'Layout', state: 'done', detail: 'Grids, margins, safe areas, hierarchy and compositions per format, from 17 sourced findings (foundations/layout).' },
+        { name: 'Video and motion', state: 'done', detail: 'Short-video beats, pacing, motion-graphics timing, sound and accessibility from 29 sourced findings (foundations/video); storyboard template and animated title cards.' },
         { name: 'Templates', state: 'part', detail: 'Layout templates for every format (templates/layouts), rendered in this product\'s colours and copy. Finished poster and social designs per campaign come next.' },
       ],
     };
@@ -123,6 +124,7 @@ export function buildHub({ root, brands }) {
     typeRules: pairings.rules,
     handwritten,
     layout: JSON.parse(readFileSync(join(root, 'foundations/layout/layout.json'), 'utf8')),
+    video: JSON.parse(readFileSync(join(root, 'foundations/video/video.json'), 'utf8')),
     media: JSON.parse(readFileSync(join(root, 'foundations/layout/media.json'), 'utf8')),
     layouts: [
       ...JSON.parse(readFileSync(join(root, 'templates/layouts/layouts.json'), 'utf8')).layouts,
@@ -139,7 +141,8 @@ export function buildHub({ root, brands }) {
   };
   const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '') +
     '\nconst renderLayout = (() => {\n' + readFileSync(join(root, 'templates/layouts/render.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn renderLayout;\n})();\n' +
-    'const Overlay = (() => {\n' + readFileSync(join(root, 'templates/layouts/overlay.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn { analyseRegion, recommendTreatment, findCalmRegion, gridCandidates, contrastRatio };\n})();\n';
+    'const Overlay = (() => {\n' + readFileSync(join(root, 'templates/layouts/overlay.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn { analyseRegion, recommendTreatment, findCalmRegion, gridCandidates, contrastRatio };\n})();\n' +
+    'const TitleCard = (() => {\n' + readFileSync(join(root, 'templates/video/title-card.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn { titleCard, timeline };\n})();\n';
   const libs = Object.keys(approaches)
     .map((id) => `${JSON.stringify(id)}: (() => {\n${readFileSync(join(root, 'approaches', id, 'illustration.mjs'), 'utf8').replace(/^export /gm, '')}\nreturn createIllustrator;\n})()`)
     .join(',\n');

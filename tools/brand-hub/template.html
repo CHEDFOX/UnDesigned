@@ -341,6 +341,13 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .rs-scores i.s1::after { transform: scaleX(.5); }
 .rs-scores i.s2::after { transform: scaleX(1); }
 .rs-watch { color: var(--muted); }
+/* ---------- video ---------- */
+.vd-cards { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr) minmax(0, 2fr); gap: 18px; align-items: start; }
+@media (max-width: 860px) { .vd-cards { grid-template-columns: minmax(0, 1fr); } }
+.vd-card { display: grid; gap: 6px; font-size: 12.5px; color: var(--muted); min-width: 0; }
+.vd-card > div > svg { width: 100%; height: auto; display: block; border-radius: 12px; }
+.vd-tl { display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: var(--line); }
+.vd-tl i { display: block; height: 100%; }
 /* ---------- campaign art ---------- */
 #art-wrap { margin-bottom: 40px; }
 .art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; }
@@ -506,6 +513,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <button type="button" role="tab" data-panel="colour" aria-selected="false">Colour</button>
   <button type="button" role="tab" data-panel="typography" aria-selected="false">Typography</button>
   <button type="button" role="tab" data-panel="layout" aria-selected="false">Layout</button>
+  <button type="button" role="tab" data-panel="video" aria-selected="false">Video and motion</button>
   <button type="button" role="tab" data-panel="messaging" aria-selected="false">Messaging</button>
   <button type="button" role="tab" data-panel="checker" aria-selected="false">Copy checker</button>
   <button type="button" role="tab" data-panel="message" aria-selected="false">Brand message</button>
@@ -816,6 +824,31 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <ul class="tight" id="lo-rules" style="color:var(--muted)"></ul>
 </section>
 
+<!-- ================================================================ VIDEO -->
+<section class="panel" id="panel-video" hidden>
+  <h2 class="sec">Video and motion</h2>
+  <p class="lede">How short video, content and motion graphics hold attention, from research. The title cards below are generated live in this product's colours, type and motion springs: one thing moves at a time, the headline holds long enough to read, and each ends on a still that works as a poster. From <code>foundations/video/video.json</code> (research in <code>research.md</code>), <code>templates/video/title-card.mjs</code> and <code>templates/video/storyboard.md</code>.</p>
+  <div class="ty-controls"><button type="button" class="btn primary" id="vd-play">Replay</button><label class="lo-chk"><input type="checkbox" id="vd-rm"> Reduced motion</label></div>
+  <div class="vd-cards" id="vd-cards"></div>
+  <h3 style="margin-top:36px">Structure of a short video</h3>
+  <p class="lede" style="margin-bottom:10px">Six beats, in order. Seconds are rules of thumb fitted to the evidence; the order is what the evidence supports (brand early, a story with a turn, end on a still with a call to action).</p>
+  <div class="tablewrap"><table class="data" id="vd-beats"></table></div>
+  <div class="ap-two" style="margin-top:28px">
+    <div><h3>Motion graphics</h3><ul class="tight" id="vd-mg"></ul><span class="lbl" style="display:block;margin-top:14px">Timing bounds (each style picks inside them)</span><div class="tablewrap" style="margin-top:6px"><table class="data" id="vd-timing"></table></div></div>
+    <div><h3>Pacing</h3><ul class="tight" id="vd-pacing"></ul><h3 style="margin-top:20px">Sound</h3><ul class="tight" id="vd-sound"></ul></div>
+  </div>
+  <h3 style="margin-top:28px">Safety and accessibility</h3>
+  <dl class="kv" id="vd-a11y"></dl>
+  <h3 style="margin-top:28px">Content types</h3>
+  <div class="lo-comps" id="vd-types"></div>
+  <h3 style="margin-top:28px">What research says</h3>
+  <div class="hw-find" id="vd-find"></div>
+  <h3 style="margin-top:28px">Video myths</h3>
+  <div class="rs-myths" id="vd-myths"></div>
+  <h3 style="margin-top:28px">Rules</h3>
+  <ul class="tight" id="vd-rules" style="color:var(--muted)"></ul>
+</section>
+
 <!-- ================================================================ MESSAGING -->
 <section class="panel" id="panel-messaging" hidden>
   <h2 class="sec">Messaging playbook</h2>
@@ -930,7 +963,7 @@ function luminance(hex) {
 const onColor = hex => (luminance(hex) > 0.35 ? byId.black.hex : byId.white.hex);
 
 /* ------------------------------------------------------------ navigation */
-const PANELS = ['overview', 'research', 'styles', 'approach', 'colour', 'typography', 'layout', 'messaging', 'checker', 'message'];
+const PANELS = ['overview', 'research', 'styles', 'approach', 'colour', 'typography', 'layout', 'video', 'messaging', 'checker', 'message'];
 function showPanel(id, push) {
   if (!PANELS.includes(id)) id = 'overview';
   document.querySelectorAll('nav.primary button').forEach(b => b.setAttribute('aria-selected', b.dataset.panel === id));
@@ -1160,6 +1193,38 @@ function renderMediaPanel() {
   runMedia();
 }
 
+/* ------------------------------------------------------------ video */
+const vdstate = { rm: false, n: 0 };
+function renderVideoPanel() {
+  const V = DATA.video, pal = illPalette();
+  const pr = DATA.pairings.find(x => x.id === B.typography.pairing) || DATA.pairings[0];
+  const sc = sampleCopy();
+  const copy = { headline: sc.hero, brand: B.name, cta: sc.cta };
+  const motion = A.data.motion || {};
+  const fonts = { display: pr.display.family, body: pr.body.family, displayWeight: pr.display.weights[pr.display.weights.length - 1] };
+  const cols = { ground: 'var(--line)', headline: pal.ink, brand: pal.accent, cta: pal.ink, still: 'var(--muted)' };
+  $('#vd-cards').innerHTML = [[9, 16], [1, 1], [16, 9]].map((a, i) => {
+    const opts = { palette: { ground: pal.ground, ink: pal.ink, accent: pal.accent, paper: pal.paper }, copy, fonts, motion, aspect: a, reducedMotion: vdstate.rm };
+    const t = TitleCard.timeline(opts), svg = TitleCard.titleCard(opts);
+    const bar = t.beats.map(b => `<i title="${esc(b.id)} ${b.start}-${b.end} ms" style="width:${((b.end - b.start) / t.duration * 100).toFixed(1)}%;background:${cols[b.id] || 'var(--muted)'};opacity:${b.id === 'ground' ? 1 : .85}"></i>`).join('');
+    return `<div class="vd-card"><div>${svg.replace(/tc-/g, `tc${i}x${vdstate.n}-`)}</div><div class="vd-tl">${bar}</div><span>${a[0]}:${a[1]} · ${(t.duration / 1000).toFixed(1)} s · ${t.beats.map(b => `${esc(b.id)} ${(b.start / 1000).toFixed(1)}s`).join(' · ')}</span>${t.warnings && t.warnings.length ? `<span>${esc(t.warnings.join(' '))}</span>` : ''}</div>`;
+  }).join('');
+  const S = V.structure;
+  $('#vd-beats').innerHTML = `<thead><tr><th>Beat</th><th>Job</th>${S.cuts.map(c => `<th>${c} s</th>`).join('')}<th>Rules</th></tr></thead><tbody>` + S.beats.map(b => `<tr><td><b>${esc(b.name)}</b></td><td>${esc(b.job)}</td>${S.cuts.map(c => `<td class="num">${b.seconds[c] ? b.seconds[c].join('–') : '–'}</td>`).join('')}<td class="num">${esc((b.principles || []).join(' '))}</td></tr>`).join('') + '</tbody>';
+  const MG = V.motionGraphics;
+  $('#vd-mg').innerHTML = (MG.principles || []).map(p => `<li>${esc(p.rule)}</li>`).join('');
+  $('#vd-timing').innerHTML = '<thead><tr><th>Kind</th><th>ms</th><th>Use</th></tr></thead><tbody>' + Object.entries(MG.timing || {}).filter(([k]) => k[0] !== '$').map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td class="num">${v.ms ? v.ms.join('–') : ''}</td><td>${esc(v.use || '')}</td></tr>`).join('') + '</tbody>';
+  const rules = x => (Array.isArray(x) ? x : (x && (x.principles || x.rules)) || []).map(r => `<li>${esc(typeof r === 'string' ? r : r.rule)}</li>`).join('');
+  $('#vd-pacing').innerHTML = rules(V.pacing);
+  $('#vd-sound').innerHTML = rules(V.sound);
+  $('#vd-a11y').innerHTML = Object.entries(V.accessibility).filter(([k]) => k[0] !== '$').map(([k, v]) => `<div><dt>${esc(k.replace(/([A-Z])/g, ' $1').toLowerCase())}</dt><dd>${esc(typeof v === 'string' ? v : v.rule || '')}</dd></div>`).join('');
+  $('#vd-types').innerHTML = V.contentTypes.map(c => `<div class="lo-comp"><b>${esc(c.name)}</b><p>${esc(c.use)}</p><p style="color:var(--muted)">${esc((c.structure || []).join(' → '))}</p></div>`).join('');
+  const strengthLabel = { strong: 'Strong evidence', moderate: 'Moderate evidence', contested: 'Contested', emerging: 'Emerging evidence' };
+  $('#vd-find').innerHTML = V.findings.map(f => `<article class="hw-f"><h4>${esc(f.title)}</h4><span><span class="fit ${f.strength === 'strong' ? 'core' : ''}">${strengthLabel[f.strength] || f.strength}</span></span><p>${esc(f.finding)}</p><p style="color:var(--muted)">${esc(f.effect || '')}</p><p><b>Design rule:</b> ${esc(f.designRule)}</p><p class="rs-src">${(f.sources || []).map(esc).join(' · ')}</p></article>`).join('');
+  $('#vd-myths').innerHTML = V.myths.map(m => `<article class="rs-myth"><span class="lbl">Myth</span><b>${esc(m.claim)}</b><p>${esc(m.reality)}</p><p><b>Instead:</b> ${esc(m.useInstead)}</p></article>`).join('');
+  $('#vd-rules').innerHTML = V.rules.map(r => `<li>${esc(r)}</li>`).join('');
+}
+
 /* ------------------------------------------------------------ brands */
 function renderBrandTable() {
   const sw = p => { const c = DATA.combinations.find(x => x.id === p.combination); return `<span class="swatchrow">${c.colors.map(id => `<i style="background:${byId[id].hex}"></i>`).join('')}</span>`; };
@@ -1182,7 +1247,7 @@ function useBrand(id, first) {
   document.querySelectorAll('.cur-id').forEach(el => (el.textContent = B.id));
   $('#star-count').textContent = cstate.stars.size;
   store.set('hub-brand', B.id);
-  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderLayoutPanel(); renderMediaPanel(); renderHandwritten(); renderHandResearch(); renderMessaging(); setupChecker(); renderMessage();
+  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderLayoutPanel(); renderMediaPanel(); renderVideoPanel(); renderHandwritten(); renderHandResearch(); renderMessaging(); setupChecker(); renderMessage();
 }
 
 /* ------------------------------------------------------------ style library */
@@ -1796,6 +1861,8 @@ $('#brandswitch').hidden = DATA.brands.length < 2;
 $('#brand-select').addEventListener('change', e => useBrand(e.target.value));
 $('#ck-campaign').addEventListener('change', e => { const c = B.campaigns[+e.target.value]; if (c) loadPiece(c.piece); e.target.value = ''; });
 $('#ty-sample').addEventListener('input', e => { tstate.sample = e.target.value.trim(); renderTypography(); });
+$('#vd-play').addEventListener('click', () => { vdstate.n++; renderVideoPanel(); });
+$('#vd-rm').addEventListener('change', e => { vdstate.rm = e.target.checked; renderVideoPanel(); });
 $('#md-file').addEventListener('change', e => { const f = e.target.files[0]; if (!f) return; const im = new Image(); im.onload = () => { mdstate.img = im; runMedia(); }; im.src = URL.createObjectURL(f); });
 $('#md-demo').addEventListener('click', () => { mdstate.img = null; runMedia(); });
 $('#lo-fmt').addEventListener('click', e => { const b = e.target.closest('[data-lof]'); if (!b) return; lostate.fmt = b.dataset.lof; renderLayoutPanel(); });

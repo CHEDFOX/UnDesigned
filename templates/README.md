@@ -5,6 +5,7 @@ Ready-made layouts that use the foundations (colour, typography, layout). Each r
 | Folder | For |
 |---|---|
 | `briefs/` | Creative brief to copy and fill in for each campaign |
+| `video/` | `storyboard.md` (plan a video or motion piece, beats timed for 6/15/30 s) and `title-card.mjs` (animated SVG title card from a product's palette, type and motion springs) |
 | `layouts/` | 15 layout templates as data (slots in % of the artboard, grid, safe area, evidence) and `render.mjs` to draw them as SVG |
 | `posters/` | Print and digital posters (A4, A3, A2, 18x24 in) |
 | `social/` | Instagram posts and stories, LinkedIn, X, YouTube thumbnails |
