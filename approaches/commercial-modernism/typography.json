@@ -1,0 +1,171 @@
+{
+  "$comment": "Commercial Modernism type direction. Fonts come from foundations/typography/source/pairings.json plus the newPairings below (Google Fonts only; credits checked against the google/fonts METADATA.pb files). Sizes are rules of thumb unless a source is given.",
+
+  "character": "Geometric and confident: letters built from circles, squares and straight strokes (the Futura and Kabel generation of 1927), or high-contrast Art Deco display letters. The brand name is set big, in capitals, with wide tracking, as part of the picture; the slogan is short and bold; everything else is small.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "construction": { "want": "Geometric: round O, near-circular bowls, straight stems", "why": "Matches the streamline curves and straight diagonals of the art; this is the letterform of the period (Futura 1927, Kabel 1927)." },
+    "strokes": { "want": "Monoline for text; very high contrast for one display word", "why": "Monoline reads at a distance; deco contrast (Limelight, Bodoni) gives the brand name glamour." },
+    "terminals": { "want": "Flat, cut square or sharp", "why": "Echo the stencil edges; rounded terminals read as soft and friendly." },
+    "proportions": { "want": "Contrasting widths: wide round letters, narrow E, F, S", "why": "Classical geometric proportions give capitals their stately rhythm when tracked out." },
+    "xHeight": { "want": "Low to moderate for display, moderate for text", "why": "Period geometric faces have low x-heights; keep body text sizes generous to compensate." },
+    "capitals": { "want": "Well-drawn capitals that track well at 0.08-0.2 em", "why": "The brand word is set in capitals." },
+    "avoid": ["Calligraphic and old-style serifs", "Rounded sans faces", "Handwriting and brush scripts", "Distressed 'vintage' fonts", "Novelty Art Deco faces with stripes or inlines for anything but one word"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach. The three newPairings are rated here too.",
+    "jost": { "fit": "core", "why": "New pairing. A Futura-like geometric family with weights 100-900: the period letterform for slogan, brand and text." },
+    "limelight-jost": { "fit": "core", "why": "New pairing. High-contrast Art Deco display for the brand word over Jost: travel, hospitality, theatre." },
+    "bodoni-jost": { "fit": "good", "why": "New pairing. Bodoni display over geometric sans, after Brodovitch's Harper's Bazaar: fashion, editorial, premium." },
+    "schibsted": { "fit": "core", "why": "Of the existing pairings, the sturdiest grotesque: heavy weights carry a Bernhard-style brand name." },
+    "bricolage-figtree": { "fit": "good", "why": "Bold grotesque display with a geometric-humanist body; its ink traps are more contemporary than period, which keeps it fresh." },
+    "instrument": { "fit": "good", "why": "The condensed high-contrast serif works for editorial and fashion pieces in the Brodovitch manner." },
+    "plex": { "fit": "accent", "why": "Engineered and industrial; for B2B and technical products where the modernism is corporate (CCA)." },
+    "fraunces-commissioner": { "fit": "accent", "why": "Heavy soft serif recalls 1920s display faces such as Cooper Black; for food and drink only, one weight." },
+    "source": { "fit": "avoid", "why": "Humanist and bookish; it has none of the geometric construction the style depends on." },
+    "young-onest": { "fit": "avoid", "why": "Soft old-style serif: warm and friendly, opposite to the machine-age polish." },
+    "nunito": { "fit": "avoid", "why": "Rounded terminals read as soft and casual; the style needs crisp edges." },
+    "alegreya": { "fit": "avoid", "why": "Calligraphic letterforms from the pen; the style's letters are constructed, not written." }
+  },
+
+  "newPairings": [
+    {
+      "id": "jost",
+      "name": "Geometric Poster",
+      "mood": "The 1927 geometric sans, revived: confident, clean and modern-classic. One family in many weights; hierarchy from size, weight and tracked capitals.",
+      "bestFor": "Commercial Modernism posters, transport, energy, products, corporate campaigns.",
+      "display": {
+        "family": "Jost",
+        "weights": [600, 700, 800],
+        "style": "Geometric sans, Futura-inspired",
+        "case": "Sentence case for slogans; capitals with 0.1-0.2 em tracking for the brand word",
+        "tracking": -0.01,
+        "leading": 1.0,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900"],
+        "notes": "Inspired by the German geometric sans faces of the 1920s, Futura in particular; not a digitisation of Futura. Variable version made with Mirko Velimirovic (2020)."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [400, 500],
+        "style": "Same family",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900"],
+        "notes": "Low x-height: set body text one step larger than usual."
+      },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "limelight-jost",
+      "name": "Deco Marquee",
+      "mood": "A high-contrast Art Deco display face for the brand word, with a geometric sans for everything else. Glamour kept to one word.",
+      "bestFor": "Travel, hotels, theatre and cinema, drinks, events.",
+      "display": {
+        "family": "Limelight",
+        "weights": [400],
+        "style": "High-contrast Art Deco geometric display",
+        "case": "Capitals or title for the brand word only (1-3 words); never for sentences",
+        "tracking": 0.08,
+        "leading": 1.0,
+        "designer": "Nicole Fally, Sorkin Type",
+        "classification": "Art Deco display",
+        "axes": [],
+        "notes": "Single weight (400). Extreme contrast: use at 24 px / 18 pt and above."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [400, 500, 700],
+        "style": "Geometric sans, Futura-inspired",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900"],
+        "notes": "Jost 700 sets the slogan; Limelight sets only the brand word."
+      },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    },
+    {
+      "id": "bodoni-jost",
+      "name": "Bazaar Editorial",
+      "mood": "Didone display over geometric sans: the 1930s fashion-magazine pairing. Elegant, high contrast, lots of white space.",
+      "bestFor": "Fashion, beauty, editorial, galleries, premium goods.",
+      "display": {
+        "family": "Bodoni Moda",
+        "weights": [600, 700, 800],
+        "italic": true,
+        "style": "Didone with optical sizes",
+        "case": "Sentence case; italic for one emphasised word",
+        "tracking": -0.01,
+        "leading": 1.0,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Didone",
+        "axes": ["opsz 6-96", "wght 400-900"],
+        "notes": "Use the large optical size for headlines; hairlines break up below about 18 px at small opsz settings."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [400, 500],
+        "style": "Geometric sans, Futura-inspired",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900"]
+      },
+      "mono": { "family": "IBM Plex Mono", "weights": [400, 500] }
+    }
+  ],
+
+  "typeWithArt": {
+    "zones": "Type lives in the lettering zones in art.json (bands, perspective lines); it never sits over an airbrush gradient.",
+    "brandScale": "The brand word spans 45-90% of the canvas width, or its cap height is at least 1/6 of the hero object's height.",
+    "alignment": "Align to one band edge or to the horizon. Centred is allowed for a single brand word on a symmetrical monument composition; slogans and details stay left-aligned.",
+    "perspective": "One word may follow a perspective line or frame the image (Étoile du Nord); set it in capitals and skew it with the grid, never distort it freely.",
+    "colour": "White or the combination's lightest colour on the dark band; Black or the combination's dark colour on light ground. Never gradient-filled letters."
+  },
+
+  "sizes": {
+    "$comment": "Headline (slogan) cap height as a share of the canvas height, and body text minimums. Brand word may be larger. Rules of thumb.",
+    "byFormat": {
+      "billboard": { "headlinePct": [12, 18], "body": "none" },
+      "poster": { "headlinePct": [5, 8], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [5, 8], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [3.5, 5.5], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [3, 4.5], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [5.5, 8.5], "bodyMinPx": 32 },
+      "story": { "headlinePct": [3.5, 5.5], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [4, 6], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [12, 18], "body": "none" },
+      "web-banner": { "headlinePct": [14, 22], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [44, 96], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [28, 44], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading. Period posters for roadside viewing (Dubonnet) were sized for passing traffic."
+  },
+
+  "setting": {
+    "measure": { "chars": [40, 66], "ideal": 55, "source": "Bringhurst, The Elements of Typographic Style (45-75); shorter here because geometric faces with low x-heights tire the eye sooner (rule of thumb)" },
+    "leading": { "display": [0.95, 1.05], "subhead": [1.2, 1.3], "body": [1.5, 1.6] },
+    "tracking": { "displayEm": [-0.02, 0], "bodyEm": 0, "smallEm": [0.01, 0.03], "brandCapsEm": [0.08, 0.2] },
+    "case": "Slogans and text in sentence case. Capitals for the brand word and labels of one to three words, always tracked out.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rag": "Ragged right; balanced two-line slogans (text-wrap: balance); no single-word last lines.",
+    "numbers": "Times, dates and routes in the body face's tabular figures or the mono."
+  },
+
+  "rules": [
+    "Geometric letterforms, set big and with confidence.",
+    "Brand word in tracked capitals; slogan in sentence case.",
+    "Three sizes and two weights per piece (a deco display face counts as one weight).",
+    "Type sits in planned zones, never over gradients.",
+    "No handwriting, rounded or distressed fonts."
+  ]
+}

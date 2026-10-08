@@ -1,0 +1,144 @@
+{
+  "$comment": "Bauhaus type direction. Fonts come from foundations/typography/source/pairings.json; this file says which suit this approach and how to set them, and proposes new Google Fonts pairings. Sizes are rules of thumb unless a source is given.",
+
+  "character": "Geometric and grotesque sans-serifs, built from circle, square and straight stroke, set bold, large and asymmetric on a grid. Type is structure: it sits on bars, runs up edges and balances the forms. Lowercase was the Bauhaus's own experiment (Bayer's single alphabet); sentence case is the everyday default.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "construction": { "want": "Geometric: round o, c, e close to circles; straight, even stems", "why": "Echoes the circle-square-triangle vocabulary; Bayer's universal alphabet was built from arcs, angles and straight lines." },
+    "strokes": { "want": "Monolinear (no visible contrast)", "why": "Matches the even weight of bars and rules." },
+    "terminals": { "want": "Flat, cut square or straight", "why": "Echoes square corners; rounded terminals soften the construction." },
+    "apertures": { "want": "Moderate to open", "why": "Pure geometric faces close up at small sizes; the body face needs enough opening to read at 9-14 pt." },
+    "xHeight": { "want": "Moderate (geometric) for display, taller for body", "why": "Geometric display faces often have small x-heights; the body face must still read on phones." },
+    "weights": { "want": "A true bold or black for headlines", "why": "Headline stems should approach the medium bar weight (2% of the short side)." },
+    "avoid": ["Serifs and slab serifs for headlines", "Calligraphic, humanist or rounded sans for display", "Script and handwriting", "Novelty 'Bauhaus' display faces (ITC Bauhaus, stencil pastiche)", "Condensed all-caps display faces"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach.",
+    "schibsted": { "fit": "core", "why": "Sturdy neo-grotesque with a heavy 800-900 for bar-weight headlines; one family keeps hierarchy to size and weight, as in Bauhaus print set in jobbing grotesques." },
+    "bricolage-figtree": { "fit": "good", "why": "Bricolage at 800 is a heavy grotesque that holds its own beside bars; Figtree's geometric body fits. Its slightly irregular details are less strict than the style wants." },
+    "plex": { "fit": "accent", "why": "IBM Plex Sans and Mono suit the engineered precision, but the pairing's display face is a serif; use only for technical products, with Plex Sans Bold for headlines if the product agrees." },
+    "source": { "fit": "accent", "why": "Source Sans 3 is clear but humanist and the display face is a serif; use only for text-heavy products that need the layout rules more than the look." },
+    "instrument": { "fit": "avoid", "why": "A condensed, high-contrast serif headline is the opposite of geometric, monolinear construction." },
+    "young-onest": { "fit": "avoid", "why": "Soft, heavy serif; too warm and rounded for exact geometry." },
+    "nunito": { "fit": "avoid", "why": "Rounded terminals contradict square corners and cut bars." },
+    "alegreya": { "fit": "avoid", "why": "Calligraphic letterforms bring the pen back in; the Bauhaus took it out." },
+    "fraunces-commissioner": { "fit": "avoid", "why": "Soft, wonky serif charm works against precision." }
+  },
+
+  "newPairings": [
+    {
+      "id": "jost",
+      "name": "Geometric Constructivist",
+      "mood": "Clean, constructed and calm. One geometric family inspired by 1920s German sans-serifs, used bold for headlines and regular for text: hierarchy from size and weight alone.",
+      "bestFor": "Bauhaus-style posters, architecture, furniture, design studios, culture, education.",
+      "display": {
+        "family": "Jost",
+        "weights": [600, 700, 800],
+        "italic": true,
+        "style": "Geometric sans",
+        "case": "Sentence case, or all lowercase for headlines",
+        "tracking": -0.02,
+        "leading": 1.0,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900", "ital"],
+        "notes": "Described by its designer as inspired by the 1920s German sans-serifs; an original interpretation in the Futura tradition, not a copy. Variable since version 3.0."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [400, 500],
+        "style": "Same family",
+        "tracking": 0.005,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900", "ital"],
+        "notes": "Small x-height for a text face: set body one step larger than with a grotesque (17-18 px on screen)."
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [400, 500]
+      }
+    },
+    {
+      "id": "spartan-jost",
+      "name": "Heavy Geometric",
+      "mood": "Loud and direct. A heavy early-20th-century geometric sans for headlines over Jost for text. For posters that need to be read from across a room.",
+      "bestFor": "Events, posters, signage, campaigns with one big message.",
+      "display": {
+        "family": "League Spartan",
+        "weights": [700, 800, 900],
+        "style": "Heavy geometric sans",
+        "case": "Sentence case, or all lowercase for headlines",
+        "tracking": -0.03,
+        "leading": 0.95,
+        "designer": "Matt Bailey and Tyler Finck (The League of Moveable Type)",
+        "classification": "Geometric sans",
+        "axes": ["wght"],
+        "notes": "Based on Matt Bailey's Spartan, itself based on early 20th-century American geometric sans-serifs (ATF Spartan). Variable since 2020."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [400, 500],
+        "style": "Geometric sans",
+        "tracking": 0.005,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900", "ital"]
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weights": [400, 500]
+      }
+    }
+  ],
+
+  "typeWithArt": {
+    "weightMatch": "Headline stems close to the medium bar (2% of the short side) at headline size; heavy bars (4%) sit above or below the headline, never thinner than its stems.",
+    "scaleMatch": "Headline cap height between 1/4 and 1/2 of the focal form's diameter, so the form leads and the type answers.",
+    "alignment": "Left edges of text blocks sit on column lines; baselines on the 4-unit baseline grid. Type may sit directly on a bar (bar below the baseline) or run up a vertical bar.",
+    "spacing": "At least one margin (6%) between type and a form, unless the type deliberately overlaps a solid bar or ground."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb; Bauhaus headlines run larger than Humanist Minimal's.",
+    "byFormat": {
+      "billboard": { "headlinePct": [12, 18], "body": "none" },
+      "poster": { "headlinePct": [5, 9], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [5, 9], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [4, 6], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [3, 5], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [6, 10], "bodyMinPx": 32 },
+      "story": { "headlinePct": [4, 6], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [5, 7], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [14, 20], "body": "none" },
+      "web-banner": { "headlinePct": [14, 22], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [48, 104], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [30, 44], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+  },
+
+  "setting": {
+    "measure": { "chars": [40, 70], "ideal": 60, "source": "Bringhurst, The Elements of Typographic Style (45-75); slightly shorter here to fit narrow grid columns" },
+    "leading": { "display": [0.92, 1.05], "subhead": [1.15, 1.25], "body": [1.45, 1.6] },
+    "tracking": { "displayEm": [-0.03, -0.01], "bodyEm": [0, 0.01], "smallEm": [0, 0.02], "labelCapsEm": [0.1, 0.16] },
+    "case": "Sentence case by default. All-lowercase headlines are allowed for the whole product (decide once, in the brand, not per piece). Capitals only for labels of one to three words and vertical edge labels.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rotation": "Text runs at 0° or -90° (bottom to top). Never on the 45° diagonal for more than three words.",
+    "rag": "Ragged right; no justified text; no centred text.",
+    "numbers": "Large numerals can be the image (dates, prices); use the mono for small data."
+  },
+
+  "rules": [
+    "Geometric or grotesque sans, bold headlines, monolinear strokes.",
+    "Three sizes and two weights per piece, with big jumps between sizes.",
+    "Left-aligned on the grid; text may turn 90° up an edge.",
+    "Sentence case or all lowercase, never all caps for headlines.",
+    "No serifs, scripts, rounded or novelty 'Bauhaus' fonts."
+  ]
+}

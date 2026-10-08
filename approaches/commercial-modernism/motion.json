@@ -1,0 +1,57 @@
+{
+  "$comment": "Commercial Modernism motion data: smooth, streamlined, confident. Motion should feel like a well-engineered machine gliding, not a living thing bouncing. Timings are rules of thumb for this style (the originals were static posters); the streamline and serial-poster ideas are sourced in research.md. Springs use the same schema as humanist-minimal but are critically damped or overdamped (no overshoot).",
+
+  "character": "Streamlined and assured: objects glide along their diagonals on long, smooth eases, the camera pushes in slowly, speed lines sweep past, lettering wipes on like a sign being revealed. Nothing bounces, wobbles or overshoots.",
+
+  "springs": {
+    "$comment": "Damped spring presets. stiffness k, damping c, mass m. Damping ratio = c / (2 * sqrt(k * m)). All are at or above 1 (no overshoot).",
+    "glide": { "stiffness": 90, "damping": 19, "mass": 1, "use": "Default arrival for the hero object along its diagonal. Damping ratio 1.0: settles without overshoot." },
+    "precise": { "stiffness": 220, "damping": 30, "mass": 1, "use": "UI feedback: buttons, toggles, cards. Damping ratio about 1.01." },
+    "heavy": { "stiffness": 50, "damping": 16, "mass": 1.2, "use": "Large objects (a ship, a locomotive) arriving slowly, with weight. Damping ratio about 1.03." }
+  },
+
+  "easings": {
+    "streamline": { "css": "cubic-bezier(0.22, 1, 0.36, 1)", "use": "Arrivals: fast start, long elegant settle (ease-out quint). Default." },
+    "cruise": { "css": "cubic-bezier(0.65, 0, 0.35, 1)", "use": "Moves that start and stop on screen: push-ins, pans, wipes." },
+    "sweep": { "css": "cubic-bezier(0.45, 0, 0.55, 1)", "use": "Looping sine-like moves: beams sweeping, a sun rising and settling." },
+    "depart": { "css": "cubic-bezier(0.7, 0, 0.84, 0)", "use": "Things leaving: accelerate away along the diagonal, toward the vanishing point." }
+  },
+
+  "moves": {
+    "glide": { "spring": "glide", "distancePct": [8, 20], "use": "The hero object enters along its own diagonal or toward the viewer from the vanishing point." },
+    "pushIn": { "duration": 5000, "easing": "cruise", "scale": [1, 1.06], "use": "Slow camera push toward the object or the vanishing point. One per piece." },
+    "speedLines": { "duration": 700, "easing": "streamline", "stagger": 60, "use": "Speed lines draw on from the object outward (scaleX 0 to 1 from their inner end), shortest last." },
+    "wipe": { "duration": 600, "easing": "cruise", "use": "Brand name and slogan revealed by a hard-edged mask moving left to right, like a sign. No fade." },
+    "bandSlide": { "duration": 500, "easing": "streamline", "use": "The lettering band slides in from its edge before the words wipe on." },
+    "sweep": { "duration": 3000, "easing": "sweep", "angleDeg": [-8, 8], "use": "A searchlight or sun ray sweeping back and forth (loop)." },
+    "serial": { "durationEach": 1200, "use": "Dubonnet-style sequence: 3 frames build one idea (a word completes, a glass fills, an object gains colour); hold the last." },
+    "depart": { "duration": 450, "easing": "depart", "use": "Exit toward the vanishing point, scaling down to 60-80%." }
+  },
+
+  "durations": {
+    "$comment": "Longer than humanist-minimal: elegance comes from unhurried moves. Rule of thumb.",
+    "minMs": 250,
+    "maxMs": 1200,
+    "formula": "duration = 350 ms + 0.5 ms per pixel travelled (capped at 1200 ms); push-ins and loops are exempt",
+    "byElement": { "icon": 250, "button": 300, "card": 400, "panel": 550, "illustration": 900, "fullScreen": 1000 }
+  },
+
+  "choreography": {
+    "order": ["ground (still)", "hero object (glide)", "speed lines (draw on)", "accent (no move; it is already in place)", "lettering band (bandSlide)", "brand and slogan (wipe)"],
+    "stagger": 60,
+    "overlapPct": 20,
+    "settleBeforeText": "Lettering starts when the object is about 80% settled, so the image lands first and the name follows.",
+    "maxMovingThings": 1,
+    "loop": { "lengthMs": [3000, 6000], "endsOn": "The full poster as a still frame: object settled, all lettering visible." },
+    "hold": 1200
+  },
+
+  "rules": [
+    "No overshoot, bounce or wobble: every spring is critically damped or heavier.",
+    "Objects move along the composition's diagonals or toward/away from the vanishing point, never sideways at random.",
+    "Lettering wipes on with a hard edge; it never fades, bounces or scales.",
+    "One thing moves at a time; push-ins may run under one other move.",
+    "Loops end on a still frame that works as the poster.",
+    "With reduced motion: show the final frame; push-ins, sweeps and loops stop."
+  ]
+}

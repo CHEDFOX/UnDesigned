@@ -1,0 +1,128 @@
+{
+  "$comment": "Bauhaus: principles and per-layer rules. The data lives beside this file: art.json (grid, angles, elementary forms, bars, palette ratios, vocabulary, construction method), motion.json (crisp springs, axis moves, choreography), typography.json (type direction and fit), research.md (sources and reasoning). Colours always come from the colour system. No drawing engine yet, so this is a profile approach with a sample poster (sample.mjs).",
+  "name": "Bauhaus",
+  "summary": "Construction, not decoration. Circle, square and triangle, heavy bars and a single diagonal, set on a grid with bold sans-serif type. Black and white plus one or two strong primaries, flat. Asymmetric, precise and clear at a glance.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "BH1",
+      "title": "Clarity first",
+      "rule": "Every element serves the message. Type and image are tools for communication; nothing is added for ornament. If it doesn't help someone read the piece faster, it goes.",
+      "source": "Moholy-Nagy, 'Die neue Typographie' (1923) (research.md 2.2)"
+    },
+    {
+      "id": "BH2",
+      "title": "Elementary forms",
+      "rule": "Build everything from circle, square, triangle and bar (plus half and quarter circles). No freeform shapes, no rounded corners, no detail inside a form. At most five forms per piece besides type.",
+      "source": "Bauhaus preliminary teaching and the 1923 wall-painting survey (research.md 2.1, 2.3)"
+    },
+    {
+      "id": "BH3",
+      "title": "Few, strong colours",
+      "rule": "Black, white and one Wada combination with a strong primary. The primary goes on the focal form; a second primary, if the combination has one, takes at most 10% of the area. Flat colour only.",
+      "source": "Bayer's 1923 banknotes; 1923 catalogue cover (research.md 2.2)"
+    },
+    {
+      "id": "BH4",
+      "title": "Asymmetric balance",
+      "rule": "Never centre the composition. Put the focal form on a third or let it bleed off one edge, and balance it with type and a bar on the opposite side. Tension, not symmetry.",
+      "source": "New Typography practice (research.md 2.2)"
+    },
+    {
+      "id": "BH5",
+      "title": "One diagonal",
+      "rule": "All edges run at 0° or 90°, except one diagonal axis per piece at 45° (or -45°). The diagonal carries the movement; a second diagonal angle is never added.",
+      "source": "Rule of thumb from 1920s New Typography posters and covers (research.md 2.2)"
+    },
+    {
+      "id": "BH6",
+      "title": "Bars and rules build the page",
+      "rule": "Heavy bars and thin rules divide space, link type to image and set the rhythm. Three weights only: heavy 4%, medium 2%, hairline 0.75% of the short side.",
+      "source": "Typophoto and the Bauhaus books (research.md 2.2)"
+    },
+    {
+      "id": "BH7",
+      "title": "Type as structure",
+      "rule": "Bold geometric or grotesque sans, set large, left-aligned, on the grid. Text may turn 90° to run up an edge. Lowercase-only headlines are allowed as a deliberate nod to Bayer's single alphabet; otherwise sentence case.",
+      "source": "Bayer's universal alphabet and kleinschreibung (research.md 2.2)"
+    },
+    {
+      "id": "BH8",
+      "title": "Machine precision",
+      "rule": "Exact geometry, sharp edges, crisp motion that slides on an axis or turns by 90°. Nothing wobbles, nothing bounces. The precision is the warmth: it says somebody thought this through.",
+      "source": "'Art and technology: a new unity' (Dessau, research.md 2.1)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination with a strong red, yellow or blue (art.json recommendedCombinations), plus Wada Black and Wada White. Primary on the focal form, black on bars and type. Ground 45-65% of the area.",
+      "dont": "Mix combinations, use pastels or muddy tones as the main colour, add gradients, shadows, tints or transparency. Don't use all three primaries at equal size."
+    },
+    {
+      "layer": "Typography",
+      "do": "Geometric or grotesque sans, bold headline, regular body (typography.json). Big size contrast, left-aligned, sentence case or all lowercase. Text may run vertically (rotated 90°, reading bottom to top).",
+      "dont": "Serifs, script, humanist or rounded faces for headlines; centred text; more than three sizes; the 'Bauhaus' novelty display font (ITC Bauhaus) or blackletter pastiche."
+    },
+    {
+      "layer": "Layout",
+      "do": "An 8-column grid with a 6% margin and a 4-unit baseline. Asymmetric: focal form on a third or bleeding off one edge; type on the opposite side. Angles 0°, 90° and one 45° diagonal. Square corners on buttons, cards and image boxes; circles allowed for round buttons and image crops.",
+      "dont": "Centred, symmetrical layouts; rounded-corner cards; more than one diagonal angle; boxes around text; filling every corner."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Constructed images from circle, square, triangle and bars, in flat colour, overlapping on the grid. One focal form in the accent. Product images as cut-out black-and-white photographs combined with the forms (photomontage).",
+      "dont": "Hand-drawn lines, organic blobs, outlines around shapes, detailed or realistic drawings, copying Schlemmer's signet or famous Bauhaus posters."
+    },
+    {
+      "layer": "Motion",
+      "do": "Crisp, mechanical moves: slide along one axis, wipe a bar on, turn by 90°, stamp a form in. Critically damped springs (no overshoot) or a sharp ease. One thing moves at a time; loops of 2-4 s end on a still frame (motion.json).",
+      "dont": "Bounces, wobble, organic morphs, free rotation at odd angles, fades of the whole artwork, parallax, camera moves."
+    },
+    {
+      "layer": "Photography",
+      "do": "Black-and-white or duotone (black plus the accent) photographs, high contrast, unusual angles (from above, from below), cropped hard into rectangles or circles and combined with type and bars (typophoto).",
+      "dont": "Soft-focus lifestyle stock, colour-graded filters, rounded image masks, busy backgrounds."
+    },
+    {
+      "layer": "Copy",
+      "do": "Short, factual, direct. Nouns and verbs, specific numbers, one message. Written to one person (see the messaging playbook).",
+      "dont": "Slogans about 'design' or 'form follows function' clichés, hype, exclamation marks, German or Bauhaus words used as decoration."
+    }
+  ],
+  "evidence": {
+    "scores": { "curves": 1, "simplicity": 2, "maya": 1, "nature": 0, "handmade": 0, "colour": 1, "glance": 2 },
+    "notes": {
+      "curves": "Circles and half circles are a core form, but squares, triangles, sharp corners and the diagonal go against the curvature finding (research.md 3).",
+      "simplicity": "Few elementary forms, flat colour and a strict grid give low visual complexity.",
+      "maya": "Instantly familiar as 'Bauhaus', which helps typicality, but the look is so well known that it easily becomes pastiche; novelty must come from the idea and the photography.",
+      "nature": "No natural detail: exact geometry has none of the mid-range roughness people like in nature.",
+      "handmade": "Deliberately machine-made; no visible hand.",
+      "colour": "Blue and clean, saturated colours rate well; large fields of strong yellow or red are more polarising, and some Wada reds lean towards brown-red.",
+      "glance": "High figure-ground contrast, one large focal form and big type read in well under a second."
+    },
+    "beyondPreference": [
+      {
+        "wins": "Distinctiveness and memorability",
+        "why": "Items that stand out from their surroundings are remembered better (isolation or von Restorff effect). Among today's soft, rounded brand styles, hard geometry and primaries stand out.",
+        "sources": ["von Restorff (1933), Psychologische Forschung 18", "Hunt (1995), Psychonomic Bulletin & Review 2(1)"]
+      },
+      {
+        "wins": "Attention and direction",
+        "why": "Angular shapes and points are processed as more arousing and threat-relevant than curves; used sparingly, a triangle or diagonal directs the eye and adds energy. Used everywhere, the same effect lowers liking.",
+        "sources": ["Bar & Neta (2006), Psychological Science 17(8)", "Larson et al. (2009), Journal of Cognitive Neuroscience 21(8)"]
+      },
+      {
+        "wins": "Clarity and structure",
+        "why": "Grids, strong figure-ground contrast and repetition of a few elements are the same features that raise processing fluency; the style turns them into its whole look.",
+        "sources": ["Reber, Schwarz & Winkielman (2004), Personality and Social Psychology Review 8(4)"]
+      },
+      {
+        "wins": "Cultural meaning",
+        "why": "Bauhaus is widely recognised as shorthand for modern, rational, well-made design; for architecture, furniture, engineering, education and culture, that association is an asset.",
+        "sources": ["Bauhaus Kooperation (bauhauskooperation.com)", "Britannica, 'Bauhaus'"]
+      }
+    ]
+  },
+  "references": []
+}

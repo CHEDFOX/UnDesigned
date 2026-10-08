@@ -1,0 +1,122 @@
+{
+  "$comment": "Commercial Modernism: principles and per-layer rules. The data lives beside this file: art.json (object scale, perspective, lettering zones, airbrush gradients, palette ratios, vocabulary), motion.json (eases, push-ins, speed lines), typography.json (type direction and fit), research.md (sources and reasoning). Colours always come from the colour system. Boundary: this style covers advertising modernism from the Sachplakat (1905) to about 1950; the flat, playful, organic Mid-century Modern style (1950s-60s) is a separate approach (research.md 2.5).",
+  "name": "Commercial Modernism",
+  "summary": "Modernism in the service of selling, as in the posters of Cassandre, Kauffer, Bernhard, Matter and Beall. One product or symbol as the hero, shown big and from a bold viewpoint; strong diagonals and a low horizon; smooth airbrushed modelling between the colours of one Wada combination; geometric lettering built into the image; a short slogan and the brand name set large.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "CM1",
+      "title": "The product is the hero",
+      "rule": "One object fills the poster: 40-65% of the canvas height, or a crop that runs off one edge. Remove everything else, as Bernhard reduced the Priester poster to two matches and a name.",
+      "source": "Sachplakat (research.md 2.1); simplicity and first-impression findings"
+    },
+    {
+      "id": "CM2",
+      "title": "One bold viewpoint",
+      "rule": "Show the object from where it looks most powerful: a low horizon (lower 20-35% of the canvas) so it looms, a one-point perspective that drives the eye to a vanishing point, or a frontal monument. One viewpoint per piece.",
+      "source": "Cassandre, Étoile du Nord and Normandie (research.md 2.2)"
+    },
+    {
+      "id": "CM3",
+      "title": "Diagonals carry energy",
+      "rule": "At least one dominant diagonal or converging line set, at 15-40 degrees from the horizontal or vertical. Static pieces still imply movement: speed lines, rails, beams, wings.",
+      "source": "Implied motion (research.md 3); Kauffer, Soaring to Success (research.md 2.2)"
+    },
+    {
+      "id": "CM4",
+      "title": "Airbrush, within one combination",
+      "rule": "Volume comes from smooth two-stop gradients between colours of the piece's Wada combination (plus Black and White), inside hard stencil edges. Never a gradient to a colour outside the combination, never on lettering, never a drop shadow.",
+      "source": "Cassandre's stencil and paint-gun methods (research.md 2.2)"
+    },
+    {
+      "id": "CM5",
+      "title": "Lettering is part of the picture",
+      "rule": "The brand name and slogan sit in planned zones (a band at the top or bottom, or along a perspective line) and are as large as the image allows. Geometric sans or deco display; the brand word may be set in capitals.",
+      "source": "Cassandre's integrated lettering; Dubonnet (research.md 2.2)"
+    },
+    {
+      "id": "CM6",
+      "title": "Few words, said once",
+      "rule": "A slogan of 2-7 words and the brand name. Body copy only in print ads and pages, never on the poster image itself.",
+      "source": "Pieters & Wedel (2004) on text and brand elements (research.md 3)"
+    },
+    {
+      "id": "CM7",
+      "title": "Machine-age polish, not nostalgia",
+      "rule": "Clean edges and precise curves, like a well-made product. No fake wear, paper stains, faded inks or period costume: the piece should feel new, built with the 1930s method (MAYA).",
+      "source": "MAYA (research.md 3)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination per piece, chosen from art.json recommendedCombinations. Ground from the combination's bg; the hero object in its dark colour or Black; the accent on one object. Two-stop airbrush gradients only between colours of that combination, Black and White.",
+      "dont": "Mix combinations, use gradients with colours outside the combination, multi-stop rainbows, glows, drop shadows, metallic or chrome effects."
+    },
+    {
+      "layer": "Typography",
+      "do": "Geometric sans or deco display faces (typography.json newPairings, then schibsted). Brand word in capitals with wide tracking; slogan in sentence case. Three sizes per piece.",
+      "dont": "Calligraphic or soft rounded faces, handwriting, distressed 'vintage' fonts, more than two families."
+    },
+    {
+      "layer": "Layout",
+      "do": "One object at 40-65% of canvas height; a low horizon or a clear vanishing point; lettering in one or two bands (top 10-18% and/or bottom 18-28% of the canvas); 5-7% margins.",
+      "dont": "Several products in one poster, centred-everything symmetry without a viewpoint, text floating over busy areas, boxes and borders."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Hard-edged stencil shapes, no outlines; volume by airbrush gradient and by a light side and a shade side; streamline curves (teardrops, long tapering forms) against straight diagonals.",
+      "dont": "Ink outlines, hand-wobble, texture overlays, detailed scenes, people as faceless bendy figures, heroic muscular figures."
+    },
+    {
+      "layer": "Motion",
+      "do": "Smooth, elegant cubic eases; slow push-ins (scale 1 to 1.06 over 4-6 s); objects gliding in along their diagonal; speed lines sweeping; lettering wiping on (motion.json).",
+      "dont": "Bouncy springs, wobble, shaking, more than one moving object, spinning, parallax beyond 4% of the canvas."
+    },
+    {
+      "layer": "Photography",
+      "do": "Photomontage in the manner of Herbert Matter: one large cut-out photo (a face, a hand, the product) against a small scene or a flat ground, a scale jump of at least 4:1; duotone or posterized in the combination's colours.",
+      "dont": "Full-bleed unedited stock, soft-focus lifestyle photos, many small photos."
+    },
+    {
+      "layer": "Copy",
+      "do": "A short, confident slogan to one person, with a specific fact (a time, a route, a place). The brand name set large beside it. A direct call to action where the format needs one.",
+      "dont": "Exclamation marks, period pastiche ('Ye olde', 'Swell!'), superlatives without proof, long paragraphs on the image."
+    }
+  ],
+  "evidence": {
+    "scores": { "curves": 1, "simplicity": 2, "maya": 2, "nature": 0, "handmade": 0, "colour": 1, "glance": 2 },
+    "notes": {
+      "curves": "Mixed on purpose: streamline curves and teardrops sit against sharp diagonals, bows and wedges, which carry speed but lose some liking (curvature).",
+      "simplicity": "The Sachplakat rule is one object and a name; low complexity is the method, not a by-product (simplicity).",
+      "maya": "A poster that looks like a poster, a recognisable product, one surprising viewpoint; MAYA is named after Raymond Loewy, a streamline designer of this period (maya).",
+      "nature": "Machine-age forms and smooth airbrush have none of the mid-range fractal roughness people like in nature (fractals).",
+      "handmade": "The originals were painted by hand, but the look aims at machine polish; it gives up the handmade-warmth effect (handmade).",
+      "colour": "Wada combinations with deep blues and clear reds suit it; the period's ochres and browns need care on large fields (colour-valence).",
+      "glance": "Built to be read from moving vehicles: one silhouette, high figure-ground contrast, a big name (first-impression)."
+    },
+    "beyondPreference": [
+      {
+        "wins": "Attention to the picture, the words and the brand",
+        "why": "In eye-tracking of 1,363 print ads, each of brand, picture and text had its own effect on attention; the picture captured attention independent of its size, while enlarging the picture did not raise total attention and a larger text area and headline did. One strong product image plus large lettering uses both.",
+        "source": "Pieters & Wedel (2004), Journal of Marketing 68(2)"
+      },
+      {
+        "wins": "Stopping power through design, not clutter",
+        "why": "Design complexity (an elaborate, creative layout) increased attention and liking, while feature complexity (dense detail, many edges and colours) hurt brand attention. Bold perspective is design complexity with few features.",
+        "source": "Pieters, Wedel & Batra (2010), Journal of Marketing 74(5)"
+      },
+      {
+        "wins": "A sense of movement in a still image",
+        "why": "Still images that imply motion activated the brain's motion areas (MT/MST) more than images at rest; later work suggests low-level features such as oriented lines contribute. Diagonals and speed lines use this.",
+        "source": "Kourtzi & Kanwisher (2000), Journal of Cognitive Neuroscience 12(1); Lorteije et al. (2011)"
+      },
+      {
+        "wins": "Cultural meaning: modern, efficient, going places",
+        "why": "Streamlining was styling as much as engineering: products were shaped to look fast and modern. The style borrows that association for travel, transport, energy and premium everyday goods.",
+        "source": "research.md 2.3"
+      }
+    ]
+  },
+  "references": []
+}

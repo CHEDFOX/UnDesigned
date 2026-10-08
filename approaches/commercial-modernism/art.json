@@ -1,0 +1,235 @@
+{
+  "$comment": "Commercial Modernism art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages of the canvas. Colours are roles only; hex values always come from the product's Wada combination. Numbers are rules of thumb measured from the period posters cited in research.md, not published standards.",
+
+  "line": {
+    "$comment": "This style has no ink outline. Edges are made by colour planes meeting (stencil edges). Lines appear only as speed lines, rails, beams and thin rules.",
+    "outline": "none",
+    "edge": "Hard and clean: every shape has a crisp edge, as if cut from a stencil. Softness happens inside a shape (airbrush), never at its edge.",
+    "speedLines": {
+      "count": [3, 7],
+      "widthPct": [0.4, 1.0],
+      "taper": "Each line in a set is thinner and shorter than the last (about 10-15% per step), or the set tapers toward the vanishing point.",
+      "spacing": "Equal spacing within a set, 2-4 x the line width.",
+      "ends": "Round or cut square; never arrowheads.",
+      "direction": "Parallel to the object's direction of travel, or converging on the vanishing point."
+    },
+    "thinRules": {
+      "widthPct": [0.25, 0.5],
+      "use": "A single thin rule to separate the lettering band, or a short accent bar beside the brand name."
+    },
+    "rules": [
+      "No outlines around objects or letters.",
+      "No wobble, no brush texture, no dashed lines.",
+      "Speed lines never cross the hero object; they run behind it or beside it."
+    ]
+  },
+
+  "shape": {
+    "$comment": "Two shape families played against each other: streamline curves and straight diagonals.",
+    "mode": "geometric-streamline",
+    "families": {
+      "streamline": "Teardrops, long tapering curves, ellipses in perspective, quarter-circle ends (locomotive noses, hulls, wings, bottles). Curves are smooth arcs or quadratic curves, never irregular blobs.",
+      "diagonal": "Wedges, bows, rays, rails and beams: straight edges meeting at sharp angles, set on the diagonals of the composition."
+    },
+    "ratio": "Roughly two-thirds of the hero object's outline is streamline curve and one-third straight diagonal; the background carries the straight lines (rails, rays, horizon).",
+    "silhouette": "The hero object must read as itself in solid black at 5% of its size (the 50 ms test).",
+    "detailCount": { "max": 12, "note": "Small details (portholes, windows, rivets) count as one each; a repeated row counts as one." },
+    "rules": [
+      "No organic blobs or hand-cut edges: precision is the point.",
+      "Perspective is consistent: all receding edges of one object meet at one vanishing point (two at most).",
+      "One accent-coloured object per piece."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Corners for layout and UI around the art. Pixels at 1x for screens. Period posters used square-cut bands and rules; streamline softness goes on controls.",
+    "scale": { "none": 0, "xs": 2, "sm": 4, "md": 8, "streamline": 999 },
+    "use": {
+      "button": "streamline (pill) or none; never in-between",
+      "chip": "streamline",
+      "input": "xs",
+      "card": "none or xs",
+      "image": "none; or a circle / porthole mask for one featured image",
+      "band": "none: lettering bands run edge to edge"
+    },
+    "print": "Poster bands and image boxes are square-cut."
+  },
+
+  "perspective": {
+    "$comment": "How depth is built. Values are shares of canvas height from the top.",
+    "horizon": {
+      "low": { "pct": [65, 80], "use": "The object looms over the viewer (Normandie). Default for products, vehicles, buildings." },
+      "high": { "pct": [15, 30], "use": "Looking down on a route, a map or a table of products." },
+      "eye": { "pct": [45, 55], "use": "Only for a one-point tunnel view (Étoile du Nord): rails or a road meeting at the centre." }
+    },
+    "vanishingPoints": {
+      "count": [1, 2],
+      "onePoint": "Vanishing point on the horizon, within the middle third horizontally, or exactly on the brand name or the accent.",
+      "twoPoint": "At least one vanishing point off-canvas, so angles stay dramatic but not distorted (receding edges 15-40 degrees from horizontal).",
+      "rule": "The vanishing point is a focal point: put the accent, a star, a sun or the brand there."
+    },
+    "diagonal": {
+      "angleDeg": [15, 40],
+      "direction": "Rising left to right for progress and departure (a rule of thumb, not a finding); falling right to left for arrival.",
+      "min": 1
+    },
+    "scaleJump": "Montage pieces: the near object is at least 4 x the size of the far scene behind it (Matter)."
+  },
+
+  "airbrush": {
+    "$comment": "How gradients are built. The Humanist 'flat' rule does not apply here; this replaces it for this style only.",
+    "stops": 2,
+    "colours": "Both stops are colours of the piece's Wada combination, or Wada Black / Wada White. Never a colour from another combination, never a tint made by opacity over another colour.",
+    "types": ["linear", "radial"],
+    "lengthPct": { "min": 25, "note": "A gradient runs across at least 25% of the shape's width or height, so it reads as light, not as an edge glow." },
+    "maxObjectsModelled": 4,
+    "maxObjectsNote": "At most 4 objects carry gradients (the faces of one object count as one), plus one sky or ground gradient and one sea or floor gradient.",
+    "maxAreaPct": 50,
+    "maxAreaNote": "Share of the canvas covered by modelled objects. A sky or floor gradient is not counted, but it must be gentle: its two stops are neighbouring light colours of the combination, or a dark colour and Black.",
+    "lightSide": "One light direction per piece (usually upper left). Lit faces run from the lighter colour; shade faces from the darker. A hard split between a lit face and a shade face along a ridge (bow, nose, bottle shoulder) is the signature move.",
+    "sky": "A sky or ground gradient may run from the combination's lightest colour at the horizon to its bg (or a neighbouring light colour) at the top.",
+    "never": ["Gradients on lettering", "Drop shadows", "Glows and halos outside a shape", "Three or more stops", "Banding effects or noise"],
+    "svg": "linearGradient or radialGradient with exactly two stop elements; stop-color values from the palette only."
+  },
+
+  "lettering": {
+    "$comment": "Where words live. Shares of canvas height.",
+    "zones": {
+      "bottomBand": { "pct": [18, 28], "use": "Default: a solid band (ink or the combination's dark colour) with brand, slogan and details. Normandie, Étoile du Nord." },
+      "topBand": { "pct": [10, 18], "use": "Brand name across the top when the object sits low." },
+      "onPerspective": { "use": "Words set along a perspective line or framing the image (the Étoile du Nord border). Use for one short word only." },
+      "serial": { "use": "A word that builds across a series (Dubo, Dubon, Dubonnet). Use for campaigns of 3 pieces." }
+    },
+    "brandWord": { "widthPct": [45, 90], "case": "Capitals, tracking 0.08-0.2 em", "note": "The brand name is large enough to read at the poster's viewing distance on its own." },
+    "areaPct": [15, 28],
+    "rules": [
+      "Lettering never sits over an airbrush gradient or a busy area; it sits on a flat band or flat ground.",
+      "Words and image share one edge or one axis: a band edge, the horizon, or a perspective line."
+    ]
+  },
+
+  "composition": {
+    "marginPct": 6,
+    "grid": "Thirds: horizon on a third (or lower), hero object on the centre axis or a vertical third, lettering in a band.",
+    "motifSizePct": [40, 65],
+    "motifMeasure": "Height of the hero object as a share of canvas height; a crop may run off one edge.",
+    "emptyGroundMinPct": 25,
+    "maxObjects": 2,
+    "placements": [
+      { "id": "monument", "use": "Low horizon, object frontal and looming, centred; lettering band below (Normandie)." },
+      { "id": "tunnel", "use": "One-point perspective, rails or road converging on the accent at the vanishing point (Étoile du Nord)." },
+      { "id": "object", "use": "Sachplakat: the product alone on a flat ground, large, with the brand name above or below. No perspective needed." },
+      { "id": "montage", "use": "A large cut-out photo or shape close up, with a small scene far behind (Matter); scale jump at least 4:1." },
+      { "id": "diagonal", "use": "The object or a flock of repeated shapes rising along one diagonal (Kauffer, Soaring to Success)." }
+    ],
+    "pairing": "Slogan and image are a pair: the image shows the product at its best; the slogan adds the fact or the promise the image cannot show.",
+    "rules": [
+      "One hero object; a second object only as setting (sea, rails, sun).",
+      "Lettering bands run edge to edge.",
+      "The accent sits on the focal point or the vanishing point."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada combination. Ink is Wada Black, paper is Wada White.",
+    "roles": {
+      "ground": { "from": "combination bg (may airbrush toward the combination's lightest colour)", "areaPct": [35, 55] },
+      "object": { "from": "combination ink/dark colour or Wada Black, airbrushed between them", "areaPct": [20, 35] },
+      "band": { "from": "Wada Black or the combination's dark colour", "areaPct": [15, 28] },
+      "paper": { "from": "Wada White", "areaPct": [3, 12], "use": "Highlights, lettering on the band, speed lines, wake." },
+      "accent": { "from": "combination accent", "areaPct": [2, 10], "limit": "One object (or one group, such as a ship's funnels)." }
+    },
+    "method": [
+      "Start from what the product is made of or where it goes: sea and sky (blues), sun and brass (yellows, ochres), signals and enamel (reds).",
+      "Pick a combination of 3-4 colours from recommendedCombinations whose light-mode inkUse is 'body', so the dark colour can carry the object and the band text.",
+      "Assign: lightest colour to the ground or sky, darkest to the object and band, the strongest hue to the accent.",
+      "Check that the object's darkest face against the ground is at least 3:1 and band text at least 4.5:1."
+    ],
+    "recommendedCombinations": [
+      { "id": 126, "colors": ["Ivory Buff", "Yellow Ocher", "Deep Lyons Blue"], "why": "Cream ground, brass accent and a deep travel blue: the classic railway and liner scheme." },
+      { "id": 151, "colors": ["Sulpher Yellow", "Yellow Orange", "Vandar Poel's Blue"], "why": "Pale morning sky over a dark sea blue, with an orange signal accent; very high contrast (7.5:1)." },
+      { "id": 154, "colors": ["Carmine", "Yellow", "Blue"], "why": "Near-primary red, yellow and blue: the Sachplakat palette for a single product on a bright ground." },
+      { "id": 190, "colors": ["Ivory Buff", "English Red", "Black"], "why": "Red, black and cream, the most common object-poster scheme; 12.8:1 ink contrast." },
+      { "id": 232, "colors": ["Carmine", "Pinkish Cinnamon", "Deep Indigo"], "why": "Navy and red on a warm ground, close to the ocean-liner posters." },
+      { "id": 179, "colors": ["Red Orange", "Golden Yellow", "Deep Lyons Blue"], "why": "Sunlit golden ground for departures and energy; check text contrast (4.7:1)." },
+      { "id": 313, "colors": ["Carmine", "Yellow", "Diamine Green", "Black"], "why": "Yellow ground with black and one red: maximum glance clarity for packaged goods." },
+      { "id": 344, "colors": ["Cinnamon Buff", "Deep Lyons Blue", "Aconite Violet", "Black"], "why": "Warm buff with black and deep blue: corporate and editorial, Fortune-cover warmth." },
+      { "id": 221, "colors": ["Carmine Red", "Neutral Gray", "Black"], "why": "Grey, black and red: the restrained industrial scheme of Beall's and Kauffer's posters." },
+      { "id": 259, "colors": ["Lemon Yellow", "Green Blue", "Helvetia Blue", "Warm Gray"], "why": "Alpine sky and lake blues on bright yellow: suits Matter-style tourism montage." },
+      { "id": 343, "colors": ["Burnt Sienna", "Ivory Buff", "Deep Grayish Olive", "Vandar Poel's Blue"], "why": "Earthy and corporate for industry, materials and engineering." },
+      { "id": 298, "colors": ["Raw Sienna", "Lemon Yellow", "Peach Red", "Black"], "why": "Black object on lemon with a peach-red accent: loud, simple retail posters." }
+    ],
+    "rules": [
+      "One combination per piece.",
+      "Gradients only between colours of that combination, plus Black and White (airbrush).",
+      "Text on the band uses Wada White or the combination's lightest colour; text on the ground uses the combination's text role (AA contrast)."
+    ]
+  },
+
+  "texture": {
+    "airbrush": "Smooth two-stop gradients are the only tonal device (see airbrush).",
+    "halftone": { "use": "Only inside photomontage (duotone photos). Never as illustration shading." },
+    "grain": "None. No paper texture, stains, fold lines or faded ink: they turn the style into pastiche."
+  },
+
+  "vocabulary": {
+    "$comment": "Objects that carry the style's meanings. The best hero is the product itself; these are for services and ideas without a physical product.",
+    "symbols": [
+      { "id": "the-product", "means": ["the offer itself"], "note": "Always first choice (Sachplakat)." },
+      { "id": "locomotive", "means": ["speed", "reliability", "departure"] },
+      { "id": "ocean-liner", "means": ["luxury", "scale", "voyage"] },
+      { "id": "aeroplane", "means": ["speed", "reach", "modernity"] },
+      { "id": "rails", "means": ["route", "direction", "destination"] },
+      { "id": "road", "means": ["journey", "freedom", "access"] },
+      { "id": "sun-disc", "means": ["morning", "destination", "energy"] },
+      { "id": "star", "means": ["destination", "night travel", "excellence"] },
+      { "id": "beam", "means": ["power", "attention", "discovery"] },
+      { "id": "pylon", "means": ["energy", "connection", "infrastructure"] },
+      { "id": "bottle", "means": ["refreshment", "craft", "pleasure"] },
+      { "id": "hand", "means": ["making", "offer", "control"] },
+      { "id": "eye", "means": ["attention", "vision", "news"] },
+      { "id": "globe", "means": ["reach", "trade", "world"] },
+      { "id": "mountain", "means": ["destination", "clarity", "air"] },
+      { "id": "wing", "means": ["speed", "lightness", "flight"] },
+      { "id": "birds-in-formation", "means": ["success", "momentum", "together"] },
+      { "id": "clock-face", "means": ["punctuality", "timetable", "routine"] }
+    ],
+    "avoid": [
+      { "symbol": "heroic muscular figures", "for": "strength or work", "why": "The visual language of 1930s totalitarian propaganda, including Hohlwein's Nazi-era posters (research.md 5)." },
+      { "symbol": "racial or colonial caricature", "for": "exotic destinations or ingredients", "why": "Common in period advertising and harmful; depict real places and people with dignity or use objects instead." },
+      { "symbol": "glamour figures as decoration", "for": "luxury", "why": "Women as ornament was a period cliché; show the product or the experience." },
+      { "symbol": "sunburst used as decoration", "for": "'deco' flavour", "why": "Pastiche; a sun or beam must mean something in the piece." },
+      { "symbol": "gears and cogs", "for": "industry", "why": "Worn out and cold; show the actual machine or product." },
+      { "symbol": "fake aged paper", "for": "'vintage'", "why": "Turns the method into costume (CM7)." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to find the image: the Sachplakat reduction, then a viewpoint.",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "List everything you could show. Cross out all but the product (or the one object that stands for the service).",
+      "Choose the viewpoint that makes that object most powerful: monument (low horizon), tunnel (vanishing point), object (flat), montage (scale jump) or diagonal (art.json composition.placements).",
+      "Pick one light direction and model the object with two-stop airbrush gradients: a lit face and a shade face.",
+      "Put the accent on the focal point (vanishing point, funnel, cap, label).",
+      "Add the brand name in a band, as large as the band allows, then the slogan.",
+      "Test: shrink to 5% and blur. Do the object and the brand name still read? (glance)"
+    ],
+    "examples": [
+      { "object": "ocean-liner bow", "viewpoint": "monument", "idea": "scale and luxury", "ref": "Cassandre, Normandie (1935)" },
+      { "object": "rails to a star", "viewpoint": "tunnel", "idea": "an overnight route", "ref": "Cassandre, Étoile du Nord (1927)" },
+      { "object": "two matches", "viewpoint": "object", "idea": "the product and its name", "ref": "Bernhard, Priester (c. 1905)" },
+      { "object": "a face over the Alps", "viewpoint": "montage", "idea": "the person you'll be there", "ref": "Matter, Swiss tourism posters (1934-36)" },
+      { "object": "birds in formation", "viewpoint": "diagonal", "idea": "rising success", "ref": "Kauffer, Soaring to Success (1919)" }
+    ]
+  },
+
+  "checklist": [
+    "One hero object at 40-65% of canvas height (or cropped by one edge).",
+    "One viewpoint: horizon placed deliberately; receding lines meet at 1-2 vanishing points.",
+    "At least one dominant diagonal (15-40 degrees) or converging line set.",
+    "Airbrush gradients: two stops, colours of one combination only, at most 4 modelled objects plus sky and floor, none on lettering.",
+    "Lettering in a planned zone; brand name large; slogan 2-7 words.",
+    "Accent on one object, at the focal point."
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "$comment": "Bauhaus art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages. Colours are roles only; hex values always come from the product's Wada combination. Numbers are rules of thumb distilled from 1920s Bauhaus print (research.md 2), not measurements of specific works.",
+
+  "line": {
+    "$comment": "There is no drawn line. 'Line' means bars and rules: filled rectangles with square ends, in three fixed weights.",
+    "mode": "bar",
+    "weights": {
+      "heavy": { "width": 16, "pct": 4, "use": "Structural bars: masthead, the diagonal, blocks that anchor type." },
+      "medium": { "width": 8, "pct": 2, "use": "Dividers between headline and body, underlines, arrows." },
+      "hairline": { "width": 3, "pct": 0.75, "use": "Thin rules that extend a heavy bar or frame a column." }
+    },
+    "cap": "butt",
+    "join": "miter",
+    "wobble": 0,
+    "maxBarsPerPiece": 4,
+    "rules": [
+      "Bars run at 0°, 90° or along the piece's one diagonal.",
+      "A bar starts or ends on a grid line, a form's edge, or bleeds off the sheet; never stops in empty space.",
+      "Never dashed, dotted, outlined or tapered. No strokes around forms."
+    ]
+  },
+
+  "shape": {
+    "$comment": "The elementary forms. Exact geometry, flat fill, no outline.",
+    "mode": "elementary",
+    "forms": [
+      { "id": "circle", "use": "The usual focal form. One large circle per piece at most." },
+      { "id": "square", "use": "A stable block; also the basis of image boxes." },
+      { "id": "triangle", "use": "Equilateral or right-angled with the hypotenuse on the 45° diagonal. Points direction and energy." },
+      { "id": "bar", "use": "Long rectangle (length at least 6 x width). Structure and rhythm." },
+      { "id": "half-circle", "use": "Horizon, rising, a door or arch. Cut on a grid line." },
+      { "id": "quarter-circle", "use": "A corner turned, a fan; sits in the corner of a square." }
+    ],
+    "sizes": {
+      "$comment": "Diameter or side as a share of the artboard's short side.",
+      "focal": [45, 75],
+      "secondary": [15, 30],
+      "small": [5, 12],
+      "ratio": "Each size step is about 2-3 x the next one down; avoid forms of nearly equal size."
+    },
+    "maxForms": 5,
+    "overlap": "Forms may overlap; where they do, the upper form covers the lower completely (no transparency, no blend modes). At least one overlap per piece ties the forms together.",
+    "cornerRadius": { "pct": [0, 0], "minUnits": 0 },
+    "rules": [
+      "Exact circles, squares and triangles; no rounded corners, no freeform paths.",
+      "Forms are filled, never outlined.",
+      "The accent colour fills one form only: the focal form."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Square corners for layout and UI around the art. Circles are allowed for round buttons and circular image crops. Pixels at 1x for screens.",
+    "scale": { "xs": 0, "sm": 0, "md": 0, "lg": 0, "xl": 0, "pill": 999 },
+    "use": {
+      "button": "xs (square), or pill only for a circular icon button",
+      "chip": "xs",
+      "input": "xs, with a medium-weight bottom rule instead of a box",
+      "card": "xs, separated by rules rather than boxes",
+      "image": "xs, or a full circle crop",
+      "sheet / modal": "xs"
+    },
+    "nested": "All corners square, so nesting needs no adjustment.",
+    "print": "Square corners on every image box and panel."
+  },
+
+  "grid": {
+    "$comment": "The construction grid. Everything snaps to it.",
+    "columns": { "poster": 8, "screen": 12, "square": 8 },
+    "gutterPct": 0,
+    "marginPct": 6,
+    "baselineUnits": 4,
+    "module": "On posters the 8 columns form square modules; forms take 1, 2, 4 or 6 modules across.",
+    "angles": [0, 90, 45, -45],
+    "diagonal": "One diagonal axis per piece, at 45° or -45°. Bars, triangle edges and rotated text on the diagonal all share it.",
+    "verticalText": "Text rotated -90° (reading bottom to top) along a margin or bar; at most one vertical line per piece."
+  },
+
+  "composition": {
+    "marginPct": 6,
+    "grid": "8 columns on posters, 12 on screen; forms and text blocks start and end on column lines.",
+    "motifSizePct": [45, 75],
+    "emptyGroundMinPct": 30,
+    "maxObjects": 5,
+    "balance": "Asymmetric. The focal form sits on the left or right third, or bleeds off one edge by 10-25% of its diameter; type sits on the opposite side or below.",
+    "placements": [
+      { "id": "bleed", "use": "Focal circle bleeds off the right or top edge; headline bottom-left. The default poster." },
+      { "id": "diagonal", "use": "Everything hangs on the one 45° axis: a heavy bar, a triangle edge, sometimes a line of type." },
+      { "id": "split", "use": "A heavy bar or a colour block splits the sheet into two unequal fields (about 1:2); image in one, type in the other." },
+      { "id": "typophoto", "use": "A hard-cropped black-and-white photo with the headline and bars set against it; the photo replaces the focal form." }
+    ],
+    "pairing": "Form and headline are a pair: the form shows the idea in geometry (a sun, a door, a direction); the headline says what it means for the reader (W5).",
+    "rules": [
+      "One focal form per piece; it carries the accent colour.",
+      "Never centre the composition; never centre text.",
+      "At least one form bleeds off an edge or one bar runs the full width: the sheet's edge is part of the composition.",
+      "Keep at least one margin between type and the nearest form, except where type deliberately sits on a bar."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada combination; black and white are always available.",
+    "roles": {
+      "ground": { "from": "combination bg (or Wada White when the combination's bg is a strong primary used as the accent)", "areaPct": [45, 65] },
+      "accent": { "from": "combination accent: the strong primary", "areaPct": [10, 25], "limit": "The focal form only." },
+      "ink": { "from": "Wada Black", "areaPct": [10, 25], "use": "Bars, secondary forms, type." },
+      "support": { "from": "combination's third colour, if any", "areaPct": [0, 10], "limit": "One small form." },
+      "paper": { "from": "Wada White", "areaPct": [0, 20], "use": "Forms and type on dark or saturated grounds." }
+    },
+    "method": [
+      "Start from what the product needs to say, then pick a combination with a strong primary (red, yellow or blue) from recommendedCombinations.",
+      "Prefer combinations whose light-mode inkUse is 'body', so type in the text role passes AA.",
+      "Decide the ground first: a light ground (cream, white, grey, yellow) for calm, information-heavy pieces; a red, blue or black ground for one-message posters.",
+      "Give the focal form the accent; give everything else black (or white on a dark ground).",
+      "Use the full red-yellow-blue triad only with combination 154, and then in unequal areas (about 60 : 25 : 10 by area)."
+    ],
+    "recommendedCombinations": [
+      { "id": 154, "colors": ["Carmine", "Yellow", "Blue"], "why": "The classic primary triad in one Wada combination: yellow ground, blue accent, carmine type (AA)." },
+      { "id": 62, "colors": ["Yellow", "Black"], "why": "Yellow and black, the strongest contrast pair (15.9:1); pure poster energy." },
+      { "id": 117, "colors": ["Carmine", "Black"], "why": "Red and black, the core pair of Bauhaus printing; white type on carmine passes AA." },
+      { "id": 221, "colors": ["Carmine Red", "Neutral Gray", "Black"], "why": "Grey ground with a red focal form and black bars: the most restrained, very readable." },
+      { "id": 313, "colors": ["Carmine", "Yellow", "Diamine Green", "Black"], "why": "Yellow ground, carmine accent and black type; the green is reserved as a small support form or left out." },
+      { "id": 22, "colors": ["Yellow", "Deep Lyons Blue"], "why": "Yellow and deep blue, both primaries; blue type on yellow at 8.3:1." },
+      { "id": 52, "colors": ["Sulpher Yellow", "Black"], "why": "Cream ground like unbleached paper with black: the calm, bookish Bauhaus (catalogues, Bauhaus books)." },
+      { "id": 104, "colors": ["Carmine Red", "Sulpher Yellow"], "why": "Deep red on cream: printed-matter warmth with AA type in carmine red." },
+      { "id": 39, "colors": ["Carmine", "Helvetia Blue"], "why": "Red and blue, like the 1923 catalogue cover's lettering; use white type, since the pair itself is decorative only." },
+      { "id": 164, "colors": ["Red Orange", "Orange Yellow", "Violet"], "why": "A warmer, shifted triad (orange-red, orange-yellow, violet) for products that need the structure without the textbook primaries." }
+    ],
+    "rules": [
+      "One combination per piece.",
+      "No gradients, shadows, glows, tints or transparency effects.",
+      "Text colour on the ground uses the combination's text role, or black or white, whichever passes AA.",
+      "The accent never goes on type, except one short word or numeral set very large."
+    ]
+  },
+
+  "texture": {
+    "halftone": {
+      "cell": 4,
+      "dot": 1.2,
+      "use": "Only inside photographs (black-and-white or duotone with the accent), as printed halftone. Never as shading on geometric forms.",
+      "maxAreaPct": 35
+    },
+    "grain": "None. Flat, clean fills."
+  },
+
+  "photomontage": {
+    "$comment": "Typophoto: photographs as part of the typographic construction.",
+    "treatment": "Black and white, or duotone (black plus the combination's accent). High contrast; deep blacks.",
+    "crops": ["rectangle on the grid", "full circle", "silhouette cut-out of an object"],
+    "angles": "Viewpoints from directly above or steeply below; flat frontal shots only for objects.",
+    "maxPhotos": 2,
+    "rules": [
+      "A photo takes the place of a form, not an extra layer on top of everything.",
+      "Bars and type may cross a photo edge; nothing is placed inside a photo except type on a solid bar.",
+      "No colour photographs with their own palette; no soft vignettes."
+    ]
+  },
+
+  "vocabulary": {
+    "$comment": "Elementary forms and what they can say. Pair one form with the product's message, or build a simple sign from two forms.",
+    "symbols": [
+      { "id": "circle", "means": ["sun", "wholeness", "focus", "a lens or eye", "a plate or coin", "a clock face"] },
+      { "id": "square", "means": ["stability", "a room or building", "a box or product", "a page or screen"] },
+      { "id": "triangle", "means": ["direction", "growth", "a roof", "energy", "a play button"] },
+      { "id": "bar", "means": ["structure", "a road or path", "a horizon", "progress", "a level"] },
+      { "id": "half-circle", "means": ["sunrise", "an arch or door", "a bowl or loaf", "a dome"] },
+      { "id": "quarter-circle", "means": ["turning", "a corner", "a fan", "time passing"] },
+      { "id": "arrow", "means": ["direction", "the next step"], "build": "bar + triangle" },
+      { "id": "stack", "means": ["building up", "layers", "steps"], "build": "three or four bars of decreasing length" },
+      { "id": "large-letter", "means": ["the brand's initial", "a word as image"], "build": "one lowercase letter set at 50-80% of the sheet height" },
+      { "id": "large-numeral", "means": ["a price, date, year or count as the image"], "build": "one numeral or number, as on Bayer's 1923 banknotes" },
+      { "id": "photo-cutout", "means": ["the real product or person"], "build": "a black-and-white photo cropped to a circle or square" }
+    ],
+    "avoid": [
+      { "symbol": "Schlemmer's Bauhaus signet (geometric profile head)", "for": "Bauhaus-ness", "why": "A specific historical mark; copying it reads as pastiche or trademark use." },
+      { "symbol": "Kandinsky's yellow triangle, red square, blue circle as a set", "for": "decoration", "why": "The most worn Bauhaus cliché; and the pairing was contested even at the time (research.md 2.3). Use colour by role, not by Kandinsky's code." },
+      { "symbol": "Mondrian-style black grid with coloured rectangles", "for": "modern", "why": "That is De Stijl, a different movement; mixing them looks generic." },
+      { "symbol": "the word 'Bauhaus', German slogans, 'form follows function'", "for": "authority", "why": "Decoration with words; the slogan is Louis Sullivan's, not the Bauhaus's." },
+      { "symbol": "gears, factories, cogs", "for": "industry", "why": "Cliché; the precision should be in the construction, not the subject." },
+      { "symbol": "ITC Bauhaus or other 'Bauhaus' novelty fonts", "for": "type", "why": "A 1975 commercial interpretation; it reads as theme-party Bauhaus." }
+    ]
+  },
+
+  "method": {
+    "$comment": "Construction method: how to get from a message to a composition.",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "Choose the one form that carries it (circle = sun, plate, focus; triangle = direction; half circle = arch, loaf, sunrise). Make it the focal form, 45-75% of the short side.",
+      "Choose the diagonal or decide there is none. If there is one, put a heavy bar or a triangle edge on it.",
+      "Place the focal form on a third or bleeding off an edge; put the headline in the opposite field, on the grid.",
+      "Add one or two secondary forms or bars that link the focal form to the headline (overlap, alignment, a bar that runs from one to the other).",
+      "Colour: accent on the focal form, black on bars and type, everything else ground.",
+      "Squint test: at thumbnail size, the focal form and the headline should be the only two things you see."
+    ],
+    "examples": [
+      { "a": "half circle", "b": "bar", "idea": "a loaf on a counter: fresh bread, every morning" },
+      { "a": "circle", "b": "diagonal bar", "idea": "a clock hand: on time" },
+      { "a": "triangle", "b": "stack of bars", "idea": "rising steps: progress you can see" },
+      { "a": "square", "b": "quarter circle", "idea": "a door opening: welcome in" },
+      { "a": "photo cut-out", "b": "circle", "idea": "the product, in focus" },
+      { "a": "large numeral", "b": "bar", "idea": "the price or date is the message" }
+    ]
+  },
+
+  "checklist": [
+    "One message; one focal form in the accent colour.",
+    "Only circle, square, triangle, bars (and half or quarter circles); at most five forms.",
+    "Angles 0°, 90° and at most one 45° diagonal.",
+    "Asymmetric; at least one form or bar meets the sheet's edge.",
+    "Ground 45-65%, black 10-25%, accent 10-25%, support 10% or less.",
+    "Bars in the three fixed weights; no outlines, no rounded corners, no gradients.",
+    "Type on the grid, left-aligned, bold sans headline, three sizes at most."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "$comment": "Bauhaus motion data: mechanical, precise, geometric. Springs are critically damped (damping ratio = c / (2 * sqrt(k * m)) of about 1.0), so nothing overshoots; the build simulates them into CSS linear() easings. Timings are rules of thumb, not read from historical film. Reference for the spirit: Moholy-Nagy's Light Prop for an Electric Stage (1930) and Ludwig Hirschfeld-Mack's coloured light plays (1922-23), built from circle, triangle and square in red, yellow and blue (research.md 2.2).",
+
+  "character": "Mechanical and exact, like a well-made machine: parts slide along rails, turn by quarter turns and lock into place. Fast in, firm stop, no overshoot. Movement follows the grid and the piece's one diagonal.",
+
+  "springs": {
+    "$comment": "Critically damped presets. stiffness k, damping c, mass m. Approximate settle times from the build's simulation in brackets.",
+    "snap": { "stiffness": 900, "damping": 60, "mass": 1, "use": "Forms stamping into place, small UI feedback (about 360 ms)." },
+    "machine": { "stiffness": 500, "damping": 45, "mass": 1, "use": "Default: bars, panels and text sliding along an axis (about 470 ms)." },
+    "soft": { "stiffness": 400, "damping": 40, "mass": 1, "use": "Interactive UI transitions: hover, open, toggle. No overshoot (about 510 ms)." },
+    "heavy": { "stiffness": 300, "damping": 35, "mass": 1, "use": "Large forms and full-width blocks entering (about 590 ms)." }
+  },
+
+  "easings": {
+    "crisp": { "css": "cubic-bezier(0.7, 0, 0.2, 1)", "use": "Timed moves: slides, wipes and quarter turns. Fast through the middle, firm at both ends." },
+    "linear": { "css": "cubic-bezier(0, 0, 1, 1)", "use": "Continuous loops only: a rotating circle, a ticker, a bar travelling at constant speed." },
+    "step": { "css": "steps(4, jump-end)", "use": "Counting or cycling through a few states (like a mechanical counter or the banknote colour cycle)." },
+    "exit": { "css": "cubic-bezier(0.7, 0, 1, 0.5)", "use": "Things leaving: accelerate off along their axis." }
+  },
+
+  "moves": {
+    "draw": { "duration": 400, "easing": "crisp", "use": "A bar or rule wipes on from one end along its own axis (scaleX from 0, or a stroke draw with pathLength=\"1\")." },
+    "pop": { "spring": "snap", "use": "A form stamps in from scale 0 to 1, transform-origin at its centre or its grid corner. No overshoot." },
+    "rise": { "spring": "machine", "distance": "0.4em", "use": "Text and blocks slide up into place on the baseline." },
+    "slide": { "spring": "machine", "use": "A form or block travels along one axis (horizontal, vertical or the piece's diagonal) by whole grid modules." },
+    "turn": { "duration": 450, "easing": "crisp", "angle": 90, "use": "A square, triangle or quarter circle turns by exactly 90° (or 180°) about its centre or a corner, then stops." },
+    "rotate": { "duration": 4000, "easing": "linear", "angle": 360, "use": "A circle with a bar or cut across it turns once, continuously. The only free rotation, and only in loops." },
+    "cycle": { "duration": 2400, "easing": "step", "use": "The accent cycles through the combination's colours in hard steps (no cross-fade)." },
+    "split": { "spring": "heavy", "use": "A colour block or bar opens the sheet by sliding apart along the diagonal or a grid line." }
+  },
+
+  "durations": {
+    "$comment": "Mechanical motion is quicker than organic motion. Rule of thumb for transforms that are not springs.",
+    "minMs": 150,
+    "maxMs": 600,
+    "formula": "duration = 180 ms + 0.3 ms per pixel travelled (capped at 600 ms)",
+    "byElement": { "icon": 150, "button": 180, "card": 280, "panel": 360, "illustration": 450, "fullScreen": 550 }
+  },
+
+  "choreography": {
+    "order": ["ground", "bars (draw)", "focal form (pop or slide)", "secondary forms (pop)", "headline (rise)", "body and brand (rise)"],
+    "stagger": 80,
+    "overlapPct": 0,
+    "settleBeforeText": "Each step starts when the previous one has locked in place: sequential, like an assembly line. Text starts after the last form stops.",
+    "maxMovingThings": 1,
+    "loop": { "lengthMs": [2000, 4000], "endsOn": "The finished composition, all forms on the grid. A loop is a quarter turn, a slide out and back, or a colour cycle, never a wobble." },
+    "hold": 1000
+  },
+
+  "rules": [
+    "Move along an axis: horizontal, vertical or the piece's one diagonal. Never along a curve, except a circle rotating about its own centre.",
+    "Rotations are in 90° steps, except a continuous loop on a circle.",
+    "Critically damped springs or crisp easing: no overshoot, no bounce, no wobble.",
+    "Slides travel whole grid modules and stop on the grid.",
+    "One thing moves at a time; the others are locked still.",
+    "Colour changes are hard cuts, never cross-fades.",
+    "With reduced motion: show the final composition. Loops, rotations and cycles stop."
+  ]
+}
