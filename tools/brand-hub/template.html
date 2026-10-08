@@ -1,0 +1,777 @@
+<title>UnDesigned Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: a working brand hub. A quiet grey sheet with one sticky section bar;
+   colour only appears where it is the content (palettes, previews). */
+:root {
+  --paper: #ececE7;
+  --sheet: #f7f7f4;
+  --ink: #1d1e20;
+  --muted: #64655f;
+  --line: #d3d3cb;
+  --focus: #2b3a8c;
+  --star: #b8411f;
+  --ok: #2f6b45;
+  --warn: #9a6a00;
+  --err: #b3261e;
+  --tip: #2b5d8c;
+  --display: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: clamp(16px, 3vw, 40px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #151615; --sheet: #1e1f1d; --ink: #e9e9e3; --muted: #9a9b94;
+    --line: #34352f; --focus: #93a2ff; --star: #ff8a63;
+    --ok: #7fcf9b; --warn: #e8b84a; --err: #ff8a80; --tip: #8fc2f0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #151615; --sheet: #1e1f1d; --ink: #e9e9e3; --muted: #9a9b94;
+  --line: #34352f; --focus: #93a2ff; --star: #ff8a63;
+  --ok: #7fcf9b; --warn: #e8b84a; --err: #ff8a80; --tip: #8fc2f0; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 15px/1.55 var(--body); padding-inline: var(--gutter); padding-block: 0 64px;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+h2.sec { font: 800 clamp(26px, 4vw, 38px)/1.05 var(--display); margin: 0 0 6px; text-wrap: balance; }
+h3 { font: 700 20px/1.2 var(--display); margin: 0 0 10px; }
+.lede { color: var(--muted); max-width: 66ch; margin: 0 0 24px; }
+.lbl { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+code, .mono { font-family: var(--mono); font-size: 0.86em; }
+
+header.masthead {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 32px; align-items: end;
+  padding-block: 40px 20px;
+}
+@media (max-width: 720px) { header.masthead { grid-template-columns: minmax(0, 1fr); } .layers { justify-content: flex-start; } }
+.masthead h1 { font: 800 clamp(34px, 6vw, 68px)/0.95 var(--display); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.masthead h1 small { display: block; font: 500 13px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.masthead p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); }
+.layers { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.layer { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.layer.done { border-color: var(--ok); color: var(--ok); }
+.layer.part { border-color: var(--warn); color: var(--warn); }
+
+nav.primary {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 6; background: var(--paper);
+  display: flex; gap: 26px; overflow-x: auto; border-block: 1px solid var(--ink); padding-block: 12px 0; scrollbar-width: none;
+}
+nav.primary button { background: none; border: 0; padding: 0 0 10px; cursor: pointer; font: 700 17px var(--display); color: var(--muted); border-bottom: 3px solid transparent; white-space: nowrap; }
+nav.primary button[aria-selected="true"] { color: var(--ink); border-color: var(--ink); }
+.panel { padding-block: 30px 0; }
+
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--sheet); }
+.seg button { border: 0; background: none; padding: 6px 13px; cursor: pointer; font-size: 13px; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.btn { border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: 6px 13px; cursor: pointer; font-size: 13px; }
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; font-size: 13px; background: var(--sheet); cursor: pointer; }
+.chip i { width: 16px; height: 16px; border-radius: 50%; display: inline-block; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.tablewrap { overflow-x: auto; }
+table.data { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+table.data th, table.data td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.data th { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+table.data td.num { font-family: var(--mono); font-size: 12.5px; }
+table.data tr.group td { font: 700 15px var(--display); padding-top: 18px; border-bottom-color: var(--ink); }
+pre { background: var(--sheet); padding: 14px 16px; font: 12px/1.6 var(--mono); overflow-x: auto; margin: 0; white-space: pre; }
+
+/* ---------- overview ---------- */
+.ov-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px; }
+@media (max-width: 900px) { .ov-grid { grid-template-columns: minmax(0, 1fr); } }
+.stages { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: st; }
+.stages li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 14px; padding: 14px 0; border-bottom: 1px solid var(--line); counter-increment: st; }
+.stages li::before { content: counter(st); font: 800 30px/1 var(--display); grid-row: span 2; }
+.stages b { font-weight: 700; }
+.stages span { color: var(--muted); font-size: 14px; }
+.stages .refs { font: 11px var(--mono); color: var(--muted); grid-column: 2; }
+
+/* ---------- colour ---------- */
+.brandcard { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 24px; background: var(--sheet); padding: 20px; margin-bottom: 28px; align-items: center; }
+@media (max-width: 600px) { .brandcard { grid-template-columns: minmax(0, 1fr); } .brandcard .poster { max-width: 220px; } }
+.brandcard .roles { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: 12px; }
+.role { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 0 10px; align-items: center; font-size: 13px; }
+.role i { width: 34px; height: 34px; grid-row: span 2; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.role b { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; padding-block: 0 14px; border-bottom: 1px solid var(--line); }
+.toolbar label.search { flex: 1 1 220px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--sheet); border-radius: 999px; padding: 6px 14px; min-width: 0; }
+.toolbar input { border: 0; background: none; outline: none; width: 100%; min-width: 0; font-size: 14px; }
+.subtabs { display: flex; gap: 22px; padding-block: 16px 4px; }
+.subtabs button { background: none; border: 0; padding: 0 0 5px; cursor: pointer; font: 700 16px var(--display); color: var(--muted); border-bottom: 2px solid transparent; }
+.subtabs button[aria-selected="true"] { color: var(--ink); border-color: var(--ink); }
+.counts { font: 12px var(--mono); color: var(--muted); margin-left: auto; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 28px 20px; padding-block: 18px; }
+@media (max-width: 460px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; } }
+.card { display: grid; gap: 8px; min-width: 0; align-content: start; }
+.poster {
+  position: relative; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; border: 0; padding: 0; cursor: pointer;
+  background: var(--p-bg); color: var(--p-text); text-align: left; width: 100%; display: block; transition: transform .18s ease;
+}
+button.poster:hover { transform: translateY(-3px); }
+.poster .no { position: absolute; left: 9%; top: 7%; font: 500 10px var(--mono); letter-spacing: 0.14em; color: var(--p-text); opacity: .85; }
+.poster .big { position: absolute; left: 7%; top: 13%; font: 800 clamp(44px, 9vw, 64px)/0.9 var(--display); color: var(--p-ink); letter-spacing: -0.02em; }
+.poster .disc { position: absolute; width: 58%; aspect-ratio: 1; border-radius: 50%; right: -12%; bottom: 14%; background: var(--p-accent); }
+.poster .band { position: absolute; left: 0; right: 0; bottom: 0; height: 14%; display: flex; }
+.poster .band span { flex: 1; }
+.poster .tag { position: absolute; left: 9%; bottom: 20%; font: 500 11px/1.3 var(--body); color: var(--p-text); max-width: 46%; }
+.meta { display: flex; justify-content: space-between; gap: 8px; align-items: start; min-width: 0; }
+.meta .names { font-size: 12px; line-height: 1.35; color: var(--muted); min-width: 0; }
+.meta .names b { color: var(--ink); font-weight: 500; }
+.star { background: none; border: 0; cursor: pointer; font-size: 18px; line-height: 1; padding: 2px; color: var(--muted); }
+.star[aria-pressed="true"] { color: var(--star); }
+.badge { display: inline-block; font: 500 10px var(--mono); letter-spacing: .06em; padding: 1px 6px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); margin-top: 4px; }
+.badge.warn { border-color: var(--star); color: var(--star); }
+.empty { padding: 60px 0; color: var(--muted); grid-column: 1 / -1; }
+.chapters { display: grid; gap: 36px; padding-block: 18px; }
+.chapter h3 { display: flex; gap: 12px; align-items: baseline; }
+.chapter h3 span { font: 12px var(--mono); color: var(--muted); }
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 12px; }
+.sw { border: 0; padding: 0; background: var(--sheet); cursor: pointer; text-align: left; display: grid; min-width: 0; }
+.sw i { display: block; height: 64px; }
+.sw span { padding: 7px 9px 9px; font-size: 12px; line-height: 1.35; }
+.sw span em { display: block; font: 11px var(--mono); font-style: normal; color: var(--muted); }
+.groupby { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+dialog { border: 0; padding: 0; background: var(--sheet); color: var(--ink); width: min(980px, calc(100vw - 32px)); max-height: calc(100vh - 40px); }
+dialog::backdrop { background: rgba(10, 10, 10, .55); }
+.detail { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 28px; padding: 28px; }
+@media (max-width: 720px) { .detail { grid-template-columns: minmax(0, 1fr); padding: 18px; } .detail .poster { max-width: 320px; } }
+.detail .poster { cursor: default; }
+.detail .poster .big { font-size: clamp(64px, 14vw, 104px); }
+.detail h2 { font: 800 34px/1 var(--display); margin: 0 0 4px; }
+.detail .sub { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
+.close { position: absolute; right: 12px; top: 10px; z-index: 2; }
+table.cols { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+table.cols td, table.cols th { padding: 7px 8px 7px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+table.cols th { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+table.cols td.code { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align: middle; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.copyable { cursor: pointer; border: 0; background: none; padding: 0; font: inherit; text-decoration: underline dotted; text-underline-offset: 3px; }
+.droles { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 16px 0; font-size: 13px; }
+.droles span b { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: block; }
+.snip { margin-top: 14px; }
+.snip header { display: flex; justify-content: space-between; align-items: center; gap: 10px; font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 6px; }
+.snip pre { background: var(--paper); }
+.note { color: var(--muted); font-size: 12.5px; max-width: 80ch; margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line); }
+
+/* ---------- messaging ---------- */
+.books { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.book { background: var(--sheet); padding: 18px 18px 16px; display: grid; gap: 8px; align-content: start; border-top: 4px solid var(--ink); }
+.book .role-name { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.book h3 { margin: 0; font-size: 21px; }
+.book .by { font-size: 13px; color: var(--muted); }
+.book p { margin: 0; font-size: 14px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin-bottom: 14px; }
+.rules { display: grid; gap: 0; margin-bottom: 40px; }
+.rule { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 4px 14px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.rule .rid { font: 500 13px var(--mono); }
+.rule .txt { min-width: 0; }
+.rule .txt span { display: block; color: var(--muted); font-size: 13.5px; }
+.rule .tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 600px) { .rule { grid-template-columns: 44px minmax(0, 1fr); } .rule .tags { grid-column: 2; justify-content: flex-start; } }
+.tagpill { font: 500 10px var(--mono); text-transform: uppercase; letter-spacing: .06em; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.tagpill.auto { border-color: var(--ok); color: var(--ok); }
+
+/* ---------- checker ---------- */
+.ck { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 32px; align-items: start; }
+@media (max-width: 900px) { .ck { grid-template-columns: minmax(0, 1fr); } }
+.form { display: grid; gap: 14px; }
+.field { display: grid; gap: 5px; }
+.field .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.field .cnt { font: 12px var(--mono); color: var(--muted); }
+.field .cnt.over { color: var(--err); font-weight: 500; }
+.field input[type="text"], .field textarea, .field select { width: 100%; border: 1px solid var(--line); background: var(--sheet); padding: 9px 11px; border-radius: 4px; font-size: 15px; }
+.field textarea { min-height: 84px; resize: vertical; }
+.row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+@media (max-width: 460px) { .row2 { grid-template-columns: minmax(0, 1fr); } }
+.check { display: flex; gap: 8px; align-items: center; font-size: 14px; }
+.fmtnote { font-size: 13px; color: var(--muted); background: var(--sheet); padding: 10px 12px; }
+.stage { background: var(--sheet); padding: 18px; display: grid; place-items: center; min-height: 260px; }
+.canvas {
+  container-type: inline-size; position: relative; width: 100%; max-width: 100%; overflow: hidden;
+  background: var(--p-bg); color: var(--p-text); display: flex; flex-direction: column; justify-content: space-between;
+  padding: 7cqw 7cqw 6cqw; gap: 3cqw; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 24px rgba(0,0,0,.08);
+}
+.canvas.tall { width: min(100%, 340px); }
+.canvas.wide, .canvas.xwide { flex-direction: row; align-items: center; padding: 4cqw 5cqw; }
+.canvas.wide > div:not(.cv-foot), .canvas.xwide > div:not(.cv-foot) { flex: 1 1 auto; min-width: 0; }
+.canvas.wide .cv-foot, .canvas.xwide .cv-foot { flex-direction: column; align-items: flex-end; justify-content: center; flex: 0 0 auto; }
+.canvas .cv-head { font: 800 9cqw/0.98 var(--display); color: var(--p-ink); letter-spacing: -0.01em; text-wrap: balance; margin: 0; overflow-wrap: anywhere; }
+.canvas.wide .cv-head { font-size: 5.2cqw; }
+.canvas.xwide .cv-head { font-size: 4cqw; }
+.canvas .cv-sub { font: 500 3.6cqw/1.3 var(--body); margin: 2.5cqw 0 0; }
+.canvas .cv-body { font: 400 2.7cqw/1.45 var(--body); margin: 2.5cqw 0 0; max-width: 60ch; }
+.canvas.wide .cv-sub, .canvas.xwide .cv-sub { font-size: 2.2cqw; }
+.canvas.wide .cv-body, .canvas.xwide .cv-body { font-size: 1.7cqw; }
+.canvas .cv-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 3cqw; flex-wrap: wrap; }
+.canvas .cv-cta { background: var(--p-accent); color: var(--p-on-accent); font: 700 3cqw/1.2 var(--body); padding: 1.8cqw 3.2cqw; border-radius: 999px; }
+.canvas.wide .cv-cta, .canvas.xwide .cv-cta { font-size: 1.8cqw; padding: 1.1cqw 2cqw; }
+.canvas .cv-logo { font: 800 3.2cqw/1 var(--display); color: var(--p-ink); letter-spacing: .02em; }
+.canvas.wide .cv-logo, .canvas.xwide .cv-logo { font-size: 2cqw; }
+.canvas .cv-details { font: 500 2.4cqw/1.3 var(--mono); }
+.canvas .cv-disc { position: absolute; width: 46cqw; aspect-ratio: 1; border-radius: 50%; background: var(--p-accent); right: -14cqw; top: 38%; opacity: .95; z-index: 0; }
+.canvas.wide .cv-disc, .canvas.xwide .cv-disc { width: 24cqw; right: -6cqw; top: -20%; }
+.canvas > * { position: relative; z-index: 1; }
+.canvas > .cv-disc { position: absolute; z-index: 0; }
+.verdict { display: flex; gap: 14px; align-items: baseline; margin: 18px 0 10px; flex-wrap: wrap; }
+.verdict b { font: 800 24px var(--display); }
+.verdict span { font: 12px var(--mono); color: var(--muted); }
+.findings { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.findings li { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 2px 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.findings .lv { font: 500 11px var(--mono); letter-spacing: .08em; padding-top: 2px; }
+.findings .lv.error { color: var(--err); } .findings .lv.warn { color: var(--warn); } .findings .lv.tip { color: var(--tip); } .findings .lv.pass { color: var(--ok); }
+.findings .src { grid-column: 2; font: 11.5px var(--mono); color: var(--muted); }
+
+/* ---------- brand message ---------- */
+.meter { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; flex-wrap: wrap; }
+.meter .bar { flex: 0 1 280px; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.meter .bar i { display: block; height: 100%; background: var(--ink); }
+.msg-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; }
+@media (max-width: 900px) { .msg-grid { grid-template-columns: minmax(0, 1fr); } }
+.kv { display: grid; gap: 0; }
+.kv div { display: grid; grid-template-columns: minmax(0, 170px) minmax(0, 1fr); gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+@media (max-width: 460px) { .kv div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.kv dt { color: var(--muted); font-size: 13px; }
+.kv dd { margin: 0; min-width: 0; }
+.todo { color: var(--muted); font-style: italic; border-bottom: 1px dashed var(--line); }
+.sb7 { list-style: none; margin: 0; padding: 0; counter-reset: sb; display: grid; gap: 0; }
+.sb7 > li { counter-increment: sb; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 2px 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.sb7 > li::before { content: counter(sb); font: 800 26px/1 var(--display); grid-row: span 3; }
+.sb7 .part { font-weight: 700; }
+.sb7 .ask { font-size: 13px; color: var(--muted); }
+.sb7 .ans { font-size: 14px; min-width: 0; }
+.brief { columns: 2 260px; column-gap: 32px; margin: 0; padding-left: 22px; }
+.brief li { break-inside: avoid; padding: 4px 0; font-size: 14px; }
+.brief li span { font: 11px var(--mono); color: var(--muted); }
+
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 8px 16px; border-radius: 999px; font-size: 13px; z-index: 50; }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { .poster { transition: none; } button.poster:hover { transform: none; } }
+</style>
+
+<header class="masthead">
+  <div>
+    <h1><small>Brand hub</small>UnDesigned Design System</h1>
+    <p>Everything the marketing is built from: the colour system, the messaging playbook, a copy checker and the brand message. It is generated from the repository, so it always matches the files designers use.</p>
+  </div>
+  <div class="layers" id="layers"></div>
+</header>
+
+<nav class="primary" role="tablist" aria-label="Sections">
+  <button type="button" role="tab" data-panel="overview" aria-selected="true">Overview</button>
+  <button type="button" role="tab" data-panel="colour" aria-selected="false">Colour</button>
+  <button type="button" role="tab" data-panel="messaging" aria-selected="false">Messaging</button>
+  <button type="button" role="tab" data-panel="checker" aria-selected="false">Copy checker</button>
+  <button type="button" role="tab" data-panel="message" aria-selected="false">Brand message</button>
+</nav>
+
+<!-- ================================================================ OVERVIEW -->
+<section class="panel" id="panel-overview">
+  <h2 class="sec">How a campaign is made</h2>
+  <p class="lede">Six stages, in order. The first two are done once for the brand; the rest happen for every campaign. Rule codes point to the messaging playbook.</p>
+  <div class="ov-grid">
+    <ol class="stages" id="stages"></ol>
+    <div>
+      <h3>What's built</h3>
+      <div class="tablewrap"><table class="data" id="layer-table"></table></div>
+      <h3 style="margin-top:28px">Where to find what</h3>
+      <div class="tablewrap"><table class="data">
+        <thead><tr><th>Working in</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>Illustrator, InDesign, Photoshop, Affinity</td><td><code>dist/design-apps/adobe/</code> print-cmyk or screen-rgb</td></tr>
+          <tr><td>Figma</td><td><code>dist/design-apps/figma/</code></td></tr>
+          <tr><td>Canva</td><td><code>dist/design-apps/canva/brand-colors.txt</code></td></tr>
+          <tr><td>GIMP, Inkscape, Krita</td><td><code>dist/design-apps/gimp-inkscape-krita/</code></td></tr>
+          <tr><td>Websites, HTML posters, emails</td><td><code>dist/web/css/</code></td></tr>
+          <tr><td>Sass, JavaScript, Tailwind</td><td><code>dist/web/</code></td></tr>
+          <tr><td>Briefing a designer or writer</td><td><code>dist/brand-guide/message-sheet.md</code>, <code>templates/briefs/</code></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <h3 style="margin-top:36px">Folder map</h3>
+  <pre>UnDesigned/
+├── config/              brand.config.json (palettes) · messaging.json (brand message)
+├── foundations/         color/ · messaging/ · typography/ (next) · layout/
+├── templates/           briefs/ · posters/ · social/ · print/
+├── assets/              logos/ · fonts/ · images/
+├── tools/               brand-hub/ (this page)
+├── scripts/             build.mjs · check-copy.mjs
+└── dist/                generated: web/ · design-apps/ · brand-guide/ · tokens/ · brand-hub/</pre>
+</section>
+
+<!-- ================================================================ COLOUR -->
+<section class="panel" id="panel-colour" hidden>
+  <h2 class="sec">Colour</h2>
+  <p class="lede">Sanzo Wada's <i>A Dictionary of Color Combinations</i> (1933): <span id="n-colors"></span> colours in <span id="n-families"></span> families, arranged into <span id="n-combos"></span> combinations. Every piece uses one combination. Star the ones you like and copy your shortlist to choose the brand palettes.</p>
+  <div id="brandcard"></div>
+  <div class="toolbar" role="toolbar" aria-label="Palette filters">
+    <span class="lbl">Colours</span>
+    <div class="seg" id="size-seg">
+      <button type="button" data-size="0" aria-pressed="true">All</button>
+      <button type="button" data-size="2" aria-pressed="false">2</button>
+      <button type="button" data-size="3" aria-pressed="false">3</button>
+      <button type="button" data-size="4" aria-pressed="false">4</button>
+    </div>
+    <span class="lbl">Background</span>
+    <div class="seg" id="mode-seg">
+      <button type="button" data-mode="light" aria-pressed="true">Lightest</button>
+      <button type="button" data-mode="dark" aria-pressed="false">Darkest</button>
+    </div>
+    <label class="search" for="q"><span class="lbl">Find</span><input id="q" type="search" placeholder="Number or colour name, e.g. 42 or sienna" autocomplete="off"></label>
+    <span id="color-filter"></span>
+    <button type="button" class="btn" id="only-starred" aria-pressed="false">★ Shortlist <span id="star-count">0</span></button>
+    <button type="button" class="btn primary" id="copy-list">Copy shortlist</button>
+  </div>
+  <div class="subtabs" role="tablist">
+    <button type="button" role="tab" id="tab-combos" aria-selected="true">Combinations</button>
+    <button type="button" role="tab" id="tab-colors" aria-selected="false">Colour index</button>
+    <span class="counts"><span id="n-shown"></span> shown</span>
+  </div>
+  <div id="view-combos" class="grid" aria-live="polite"></div>
+  <div id="view-colors" class="chapters" hidden></div>
+  <p class="note">Colour names and CMYK values follow the Seigensha edition of Wada's book; screen colours are converted from CMYK and differ slightly from print. Roles: <b>bg</b> is the lightest (or darkest) colour, <b>ink</b> the one with most contrast against it, <b>accent</b> the most saturated of the rest. When ink falls below 4.5:1 the badge says so and <b>text</b> falls back to the book's Black or White.</p>
+</section>
+
+<!-- ================================================================ MESSAGING -->
+<section class="panel" id="panel-messaging" hidden>
+  <h2 class="sec">Messaging playbook</h2>
+  <p class="lede">Four books, each with one job in the process. Rules are paraphrased and coded by book (P, S, O, W) so feedback can point at them. Rules marked <span class="tagpill auto">auto-checked</span> are tested by the copy checker.</p>
+  <div class="books" id="books"></div>
+  <h3>Rules</h3>
+  <div class="filters" id="rule-filters"></div>
+  <div class="rules" id="rules"></div>
+  <h3>Copy limits by format</h3>
+  <p class="lede" style="margin-bottom:12px">Most words allowed in each part; 0 means leave it out. Rules of thumb, editable in <code>foundations/messaging/source/formats.json</code>.</p>
+  <div class="tablewrap"><table class="data" id="formats"></table></div>
+</section>
+
+<!-- ================================================================ CHECKER -->
+<section class="panel" id="panel-checker" hidden>
+  <h2 class="sec">Copy checker</h2>
+  <p class="lede">Type the words for one piece and see it laid out in the brand palette, checked against the playbook as you type. It is the same checker as <code>npm run check:copy</code>. It catches mechanical problems; whether the idea is good is still a human call (W1, W2, O2).</p>
+  <div class="ck">
+    <form class="form" id="ck-form" autocomplete="off">
+      <div class="row2">
+        <div class="field"><label class="lbl" for="ck-format">Format</label><select id="ck-format"></select></div>
+        <div class="field"><label class="lbl" for="ck-palette">Palette</label><select id="ck-palette"></select></div>
+      </div>
+      <p class="fmtnote" id="ck-note"></p>
+      <div class="field"><div class="top"><label class="lbl" for="ck-headline">Headline</label><span class="cnt" id="cnt-headline"></span></div><input type="text" id="ck-headline"></div>
+      <div class="field"><div class="top"><label class="lbl" for="ck-subhead">Subhead</label><span class="cnt" id="cnt-subhead"></span></div><input type="text" id="ck-subhead"></div>
+      <div class="field"><div class="top"><label class="lbl" for="ck-body">Body</label><span class="cnt" id="cnt-body"></span></div><textarea id="ck-body"></textarea></div>
+      <div class="row2">
+        <div class="field"><div class="top"><label class="lbl" for="ck-cta">Call to action</label><span class="cnt" id="cnt-cta"></span></div><input type="text" id="ck-cta"></div>
+        <div class="field"><div class="top"><label class="lbl" for="ck-details">Details</label></div><input type="text" id="ck-details" placeholder="Date, time, place"></div>
+      </div>
+      <label class="check" for="ck-logo"><input type="checkbox" id="ck-logo"> Logo appears on the layout</label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button type="button" class="btn" data-example="bad">Load weak example</button>
+        <button type="button" class="btn" data-example="good">Load strong example</button>
+        <button type="button" class="btn primary" id="ck-copy">Copy as .copy.json</button>
+      </div>
+    </form>
+    <div>
+      <div class="stage"><div class="canvas" id="ck-canvas"></div></div>
+      <div class="verdict" id="ck-verdict"></div>
+      <ul class="findings" id="ck-findings"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ BRAND MESSAGE -->
+<section class="panel" id="panel-message" hidden>
+  <h2 class="sec">Brand message</h2>
+  <p class="lede">What UnDesigned says, from <code>config/messaging.json</code>. Blank parts are waiting for answers; once filled in they appear here and in the message sheet for the team.</p>
+  <div class="meter" id="meter"></div>
+  <div class="msg-grid">
+    <div>
+      <h3>One-liner <span class="lbl">S9</span></h3>
+      <dl class="kv" id="oneliner"></dl>
+      <h3 style="margin-top:28px">Positioning <span class="lbl">P1 P2</span></h3>
+      <dl class="kv" id="positioning"></dl>
+      <h3 style="margin-top:28px">Voice and proof <span class="lbl">O11 O5</span></h3>
+      <dl class="kv" id="voice"></dl>
+    </div>
+    <div>
+      <h3>BrandScript <span class="lbl">StoryBrand SB7</span></h3>
+      <ol class="sb7" id="sb7"></ol>
+    </div>
+  </div>
+  <h3 style="margin-top:36px">Creative brief, per campaign</h3>
+  <p class="lede" style="margin-bottom:10px">The form in <code>templates/briefs/creative-brief.md</code>. Copy it for each campaign and fill it in before any design starts.</p>
+  <ol class="brief" id="brief"></ol>
+</section>
+
+<footer id="footer"></footer>
+<dialog id="detail" aria-label="Combination details"></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+/*__LINT__*/
+const P = DATA.prefix;
+const M = DATA.messaging;
+const byId = Object.fromEntries(DATA.colors.map(c => [c.id, c]));
+const familyName = Object.fromEntries(DATA.families.map(f => [f.id, f.name]));
+const bookById = Object.fromEntries(M.books.map(b => [b.id, b]));
+const ruleById = Object.fromEntries(M.principles.map(r => [r.id, r]));
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+};
+
+function toast(msg) {
+  const t = $('#toast'); t.textContent = msg; t.hidden = false;
+  clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), 1600);
+}
+function copy(text, label) {
+  const done = () => toast(label || 'Copied');
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
+  else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch (e) { toast('Select the text and copy it'); }
+  ta.remove();
+}
+function luminance(hex) {
+  const n = parseInt(hex.slice(1), 16), ch = v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+  return 0.2126 * ch(n >> 16) + 0.7152 * ch((n >> 8) & 255) + 0.0722 * ch(n & 255);
+}
+const onColor = hex => (luminance(hex) > 0.35 ? byId.black.hex : byId.white.hex);
+
+/* ------------------------------------------------------------ navigation */
+const PANELS = ['overview', 'colour', 'messaging', 'checker', 'message'];
+function showPanel(id, push) {
+  if (!PANELS.includes(id)) id = 'overview';
+  document.querySelectorAll('nav.primary button').forEach(b => b.setAttribute('aria-selected', b.dataset.panel === id));
+  PANELS.forEach(p => ($('#panel-' + p).hidden = p !== id));
+  if (push) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+  store.set('hub-panel', id);
+}
+
+/* ------------------------------------------------------------ overview */
+function renderOverview() {
+  const refs = {};
+  M.principles.forEach(r => (refs[r.stage] = refs[r.stage] || []).push(r.id));
+  $('#stages').innerHTML = M.stages.map(s => `<li><b>${esc(s.name)}</b><span>${esc(s.question)}</span><span class="refs">${refs[s.id].join(' ')}</span></li>`).join('');
+  $('#layers').innerHTML = DATA.layers.map(l => `<span class="layer ${l.state}">${l.state === 'done' ? '✓ ' : l.state === 'part' ? '◐ ' : ''}${esc(l.name)}</span>`).join('');
+  $('#layer-table').innerHTML = '<thead><tr><th>Layer</th><th>State</th></tr></thead><tbody>' +
+    DATA.layers.map(l => `<tr><td><b>${esc(l.name)}</b></td><td>${esc(l.detail)}</td></tr>`).join('') + '</tbody>';
+  $('#footer').innerHTML = `Built ${esc(DATA.builtAt)} from the UnDesigned repository. Colours: Sanzo Wada, <i>A Dictionary of Color Combinations</i> (Seigensha), data MIT via mattdesl/dictionary-of-colour-combinations. Messaging rules paraphrased from Ogilvy, Miller, Holiday and Sullivan.`;
+}
+
+/* ------------------------------------------------------------ colour */
+const cstate = { groupBy: 'family', size: 0, mode: 'light', q: '', color: null, starredOnly: false, stars: new Set(store.get('wada-stars', [])) };
+const saveStars = () => store.set('wada-stars', [...cstate.stars]);
+
+function paletteVars(roles) {
+  const h = id => byId[id].hex;
+  return `--p-bg:${h(roles.bg)};--p-ink:${h(roles.ink)};--p-accent:${h(roles.accent)};--p-text:${h(roles.text)};--p-on-accent:${onColor(h(roles.accent))}`;
+}
+function posterHTML(c, mode, big) {
+  const r = c.roles[mode], h = id => byId[id].hex;
+  const band = c.colors.map(id => `<span style="background:${h(id)}"></span>`).join('');
+  const tag = big ? `<span class="tag">${esc(byId[r.ink].name)} on ${esc(byId[r.bg].name)}</span>` : '';
+  return { style: paletteVars(r), inner: `<span class="no">NO. ${c.code}</span><span class="big">${c.code}</span><span class="disc"></span>${tag}<span class="band">${band}</span>` };
+}
+function badge(r) {
+  if (r.inkUse === 'body') return `<span class="badge" title="Ink on background: ${r.contrast.inkOnBg}:1">AA ${r.contrast.inkOnBg}</span>`;
+  if (r.inkUse === 'display') return `<span class="badge warn" title="Ink works for large type only">Large type ${r.contrast.inkOnBg}</span>`;
+  return `<span class="badge warn" title="Ink too faint for text; text uses fallback">Decor ${r.contrast.inkOnBg}</span>`;
+}
+function renderBrandCard() {
+  if (!DATA.brand.length) { $('#brandcard').innerHTML = ''; return; }
+  const p = DATA.brand.find(b => b.name === 'primary') || DATA.brand[0];
+  const c = DATA.combinations.find(x => x.id === p.combination);
+  const { inner } = posterHTML(c, p.mode, true);
+  const roles = [['bg', p.roles.bg], ['ink', p.roles.ink], ['accent', p.roles.accent], ['text', p.roles.text], ...p.roles.support.map((s, i) => ['support ' + (i + 1), s])];
+  $('#brandcard').innerHTML = `<div class="brandcard"><div class="poster" style="${paletteVars(p.roles)}">${inner}</div><div>
+    <span class="lbl">Current brand palette · ${esc(p.name)} · ${p.mode}</span>
+    <h3 style="margin:6px 0 0">Combination No. ${c.code}</h3>
+    <p style="margin:4px 0 0;color:var(--muted);font-size:14px">A stand-in until you choose. Set it in <code>config/brand.config.json</code>.</p>
+    <div class="roles">${roles.map(([k, id]) => `<div class="role"><i style="background:${byId[id].hex}"></i><b>${k}</b><span>${esc(byId[id].name)} <span class="mono">${byId[id].hex}</span></span></div>`).join('')}</div>
+  </div></div>`;
+}
+function matches(c) {
+  if (cstate.size && c.size !== cstate.size) return false;
+  if (cstate.starredOnly && !cstate.stars.has(c.id)) return false;
+  if (cstate.color && !c.colors.includes(cstate.color)) return false;
+  const q = cstate.q.trim().toLowerCase();
+  if (!q) return true;
+  if (/^\d+$/.test(q)) return String(c.id).startsWith(String(parseInt(q, 10))) || c.code.includes(q);
+  return c.colors.some(id => byId[id].name.toLowerCase().includes(q));
+}
+function renderCombos() {
+  const list = DATA.combinations.filter(matches);
+  $('#n-shown').textContent = list.length;
+  const root = $('#view-combos');
+  if (!list.length) {
+    root.innerHTML = `<p class="empty">No combinations match. ${cstate.starredOnly ? 'Your shortlist is empty or filtered out; star a few cards first.' : 'Try a shorter colour name or clear the filters.'}</p>`;
+    return;
+  }
+  root.innerHTML = list.map(c => {
+    const { inner, style } = posterHTML(c, cstate.mode);
+    const on = cstate.stars.has(c.id);
+    return `<article class="card">
+      <button type="button" class="poster" style="${style}" data-open="${c.id}" aria-label="Open combination ${c.code}">${inner}</button>
+      <div class="meta"><div class="names"><b>No. ${c.code}</b> · ${c.colors.map(id => esc(byId[id].name)).join(' · ')}<br>${badge(c.roles[cstate.mode])}</div>
+      <button type="button" class="star" data-star="${c.id}" aria-pressed="${on}" aria-label="Add ${c.code} to shortlist">${on ? '★' : '☆'}</button></div>
+    </article>`;
+  }).join('');
+}
+function renderColors() {
+  const groups = cstate.groupBy === 'chapter' ? DATA.chapters : DATA.families;
+  const toggle = `<div class="groupby"><span class="lbl">Group by</span><div class="seg">
+    <button type="button" data-groupby="family" aria-pressed="${cstate.groupBy === 'family'}">Colour family</button>
+    <button type="button" data-groupby="chapter" aria-pressed="${cstate.groupBy === 'chapter'}">Book chapter</button></div></div>`;
+  $('#view-colors').innerHTML = toggle + groups.map(g => {
+    const cs = g.colors.map(id => byId[id]);
+    return `<div class="chapter"><h3>${esc(g.name)} <span>${cs.length} colours</span></h3><div class="swatches">${
+      cs.map(c => `<button type="button" class="sw" data-color="${c.id}" aria-label="Show combinations with ${esc(c.name)}"><i style="background:${c.hex}"></i><span>${esc(c.name)}<em>${c.hex} · in ${c.combinations.length}</em></span></button>`).join('')
+    }</div></div>`;
+  }).join('');
+}
+function renderColorFilter() {
+  const el = $('#color-filter');
+  if (!cstate.color) { el.innerHTML = ''; return; }
+  const c = byId[cstate.color];
+  el.innerHTML = `<button type="button" class="chip" id="clear-color" aria-label="Remove colour filter"><i style="background:${c.hex}"></i>${esc(c.name)} ✕</button>`;
+}
+function setSubtab(which) {
+  $('#tab-combos').setAttribute('aria-selected', which === 'combos');
+  $('#tab-colors').setAttribute('aria-selected', which === 'colors');
+  $('#view-combos').hidden = which !== 'combos';
+  $('#view-colors').hidden = which !== 'colors';
+}
+function openDetail(id, mode) {
+  const c = DATA.combinations.find(x => x.id === id);
+  mode = mode || cstate.mode;
+  const r = c.roles[mode];
+  const { inner, style } = posterHTML(c, mode, true);
+  const lines = [['bg', r.bg], ['ink', r.ink], ['accent', r.accent], ['text', r.text], ...r.support.map((s, i) => ['support-' + (i + 1), s])];
+  const snips = {
+    config: `"primary": { "combination": ${c.id}, "mode": "${mode}" }`,
+    html: `<link rel="stylesheet" href="dist/web/css/combinations.css">\n<section class="${P}-combo-${c.code}${mode === 'dark' ? ' ' + P + '-dark' : ''}"\n  style="background:var(--${P}-bg);color:var(--${P}-text)">\n  <h1 style="color:var(--${P}-ink)">Headline</h1>\n</section>`,
+    hex: lines.map(([k, cid]) => `${k.padEnd(10)} ${byId[cid].hex}  ${byId[cid].name}`).join('\n'),
+  };
+  const rows = c.colors.map(cid => {
+    const x = byId[cid];
+    return `<tr><td><i style="background:${x.hex}"></i></td><td>${esc(x.name)}</td>
+      <td class="code"><button type="button" class="copyable" data-copy="${x.hex}">${x.hex}</button></td>
+      <td class="code">${x.rgb.join(' ')}</td><td class="code">${x.cmyk.join(' / ')}</td><td>${esc(familyName[x.family])}</td></tr>`;
+  }).join('');
+  const on = cstate.stars.has(c.id);
+  const role = (k, cid) => `<span><b>${k}</b>${esc(byId[cid].name)}</span>`;
+  const d = $('#detail');
+  d.innerHTML = `<div style="position:relative">
+    <button type="button" class="btn close" id="close-detail">Close</button>
+    <div class="detail">
+      <div class="poster" style="${style}">${inner}</div>
+      <div style="min-width:0">
+        <h2>No. ${c.code}</h2>
+        <p class="sub">${c.size} colours · ${badge(r)}</p>
+        <div class="seg">
+          <button type="button" data-dmode="light" aria-pressed="${mode === 'light'}">Lightest background</button>
+          <button type="button" data-dmode="dark" aria-pressed="${mode === 'dark'}">Darkest background</button>
+        </div>
+        <div class="droles">${role('bg', r.bg)}${role('ink', r.ink)}${role('accent', r.accent)}${role('text', r.text)}
+          <span><b>contrast</b>ink ${r.contrast.inkOnBg}:1 · accent ${r.contrast.accentOnBg}:1</span></div>
+        <div class="tablewrap"><table class="cols"><thead><tr><th></th><th>Name</th><th>Hex</th><th>RGB</th><th>CMYK (print)</th><th>Family</th></tr></thead><tbody>${rows}</tbody></table></div>
+        <div class="snip"><header>Use as brand palette (config/brand.config.json, color.palettes)<button type="button" class="btn" data-copy-snip="config">Copy</button></header><pre>${esc(snips.config)}</pre></div>
+        <div class="snip"><header>Use in HTML<button type="button" class="btn" data-copy-snip="html">Copy</button></header><pre>${esc(snips.html)}</pre></div>
+        <div class="snip"><header>Roles and hex<button type="button" class="btn" data-copy-snip="hex">Copy</button></header><pre>${esc(snips.hex)}</pre></div>
+        <p style="margin-top:16px"><button type="button" class="btn ${on ? '' : 'primary'}" data-star="${c.id}" aria-pressed="${on}">${on ? '★ In shortlist' : '☆ Add to shortlist'}</button></p>
+      </div>
+    </div></div>`;
+  d.dataset.id = id; d.dataset.mode = mode; d._snips = snips;
+  if (!d.open) d.showModal();
+}
+function toggleStar(id) {
+  cstate.stars.has(id) ? cstate.stars.delete(id) : cstate.stars.add(id);
+  saveStars(); $('#star-count').textContent = cstate.stars.size; renderCombos();
+  const d = $('#detail'); if (d.open && +d.dataset.id === id) openDetail(id, d.dataset.mode);
+}
+
+/* ------------------------------------------------------------ messaging */
+const rstate = { book: 'all', stage: 'all' };
+function renderMessaging() {
+  const counts = {};
+  M.principles.forEach(r => (counts[r.book] = (counts[r.book] || 0) + 1));
+  $('#books').innerHTML = M.books.map(b => `<article class="book"><span class="role-name">${esc(b.role)}</span><h3>${esc(b.title)}</h3>
+    <span class="by">${esc(b.author)}, ${b.year} · ${counts[b.id]} rules</span><p>${esc(b.summary)}</p></article>`).join('');
+  const chip = (kind, id, label) => `<button type="button" class="chip" data-rf="${kind}:${id}" aria-pressed="${rstate[kind] === id}">${esc(label)}</button>`;
+  $('#rule-filters').innerHTML = `<span class="lbl">Book</span>${chip('book', 'all', 'All')}${M.books.map(b => chip('book', b.id, b.title)).join('')}
+    <span class="lbl" style="margin-left:8px">Stage</span>${chip('stage', 'all', 'All')}${M.stages.map(s => chip('stage', s.id, s.name)).join('')}`;
+  const list = M.principles.filter(r => (rstate.book === 'all' || r.book === rstate.book) && (rstate.stage === 'all' || r.stage === rstate.stage));
+  const stageName = Object.fromEntries(M.stages.map(s => [s.id, s.name]));
+  $('#rules').innerHTML = list.length ? list.map(r => `<div class="rule"><span class="rid">${r.id}</span>
+    <div class="txt">${esc(r.rule)}<span>${esc(r.apply)}</span></div>
+    <div class="tags"><span class="tagpill">${esc(stageName[r.stage])}</span>${r.check ? '<span class="tagpill auto">auto-checked</span>' : ''}</div></div>`).join('')
+    : '<p class="empty" style="padding:24px 0">No rules for that book at this stage.</p>';
+  let rows = '<thead><tr><th>Format</th><th>Headline</th><th>Subhead</th><th>Body</th><th>CTA</th><th>Read in</th><th>Notes</th></tr></thead><tbody>';
+  for (const g of M.formats) {
+    rows += `<tr class="group"><td colspan="7">${esc(g.name)}</td></tr>`;
+    for (const f of g.formats) rows += `<tr><td>${esc(f.name)}</td><td class="num">${f.limits.headline}</td><td class="num">${f.limits.subhead}</td><td class="num">${f.limits.body}</td><td class="num">${f.limits.cta}</td><td>${esc(f.readTime)}</td><td>${esc(f.notes)}</td></tr>`;
+  }
+  $('#formats').innerHTML = rows + '</tbody>';
+}
+
+/* ------------------------------------------------------------ checker */
+const EXAMPLES = {
+  bad: { format: 'billboard', headline: 'We Offer World-Class Innovative Design Solutions For Every Need!', subhead: '', body: 'We are passionate about taking your brand to the next level.', cta: 'Learn more', details: '', logo: false, palette: 'primary' },
+  good: { format: 'poster', headline: 'Your launch poster, ready in 48 hours', subhead: 'Pick a palette, send your words, get print-ready files.', body: 'Three steps. One flat price of $90. Unlimited small changes until you love it.', cta: 'Book your slot online', details: '', logo: true, palette: 'primary' },
+};
+const FIELDS = ['headline', 'subhead', 'body', 'cta', 'details'];
+const wordCount = s => (s.match(/[\p{L}\p{N}][\p{L}\p{N}'’&.-]*/gu) || []).length;
+function setupChecker() {
+  $('#ck-format').innerHTML = M.formats.map(g => `<optgroup label="${esc(g.name)}">${g.formats.map(f => `<option value="${f.id}">${esc(f.name)}</option>`).join('')}</optgroup>`).join('');
+  const pals = DATA.brand.map(p => `<option value="brand:${p.name}">Brand: ${esc(p.name)} (No. ${String(p.combination).padStart(3, '0')})</option>`);
+  const starred = [...cstate.stars].sort((a, b) => a - b).flatMap(n => [`<option value="combo:${n}:light">No. ${String(n).padStart(3, '0')}, light</option>`, `<option value="combo:${n}:dark">No. ${String(n).padStart(3, '0')}, dark</option>`]);
+  $('#ck-palette').innerHTML = pals.join('') + (starred.length ? `<optgroup label="Your shortlist">${starred.join('')}</optgroup>` : '');
+  const saved = store.get('hub-checker', null);
+  loadPiece(saved || EXAMPLES.bad);
+}
+function loadPiece(p) {
+  $('#ck-format').value = p.format;
+  FIELDS.forEach(f => ($('#ck-' + f).value = p[f] || ''));
+  $('#ck-logo').checked = !!p.logo;
+  const pv = typeof p.palette === 'string' ? 'brand:' + p.palette : p.paletteValue;
+  if (pv && [...$('#ck-palette').options].some(o => o.value === pv)) $('#ck-palette').value = pv;
+  runChecker();
+}
+function currentPiece() {
+  const piece = { format: $('#ck-format').value };
+  FIELDS.forEach(f => { const v = $('#ck-' + f).value.trim(); if (v) piece[f] = v; });
+  if ($('#ck-logo').checked) piece.logo = true;
+  const pv = $('#ck-palette').value;
+  if (pv.startsWith('brand:')) piece.palette = pv.slice(6);
+  else { const [, n, mode] = pv.split(':'); piece.palette = { combination: +n, mode }; }
+  return { piece, pv };
+}
+function paletteRoles(pv) {
+  if (pv.startsWith('brand:')) { const b = DATA.brand.find(x => x.name === pv.slice(6)); return b ? b.roles : DATA.combinations[0].roles.light; }
+  const [, n, mode] = pv.split(':');
+  return DATA.combinations.find(c => c.id === +n).roles[mode];
+}
+function runChecker() {
+  const { piece, pv } = currentPiece();
+  const fmt = DATA.ctx.formats[piece.format];
+  $('#ck-note').innerHTML = `<b>${esc(fmt.name)}</b> · read in ${esc(fmt.readTime)}. ${esc(fmt.notes)}`;
+  ['headline', 'subhead', 'body', 'cta'].forEach(f => {
+    const n = wordCount(piece[f] || ''), max = fmt.limits[f], el = $('#cnt-' + f);
+    el.textContent = max === 0 ? (n ? `${n} words · leave out` : 'not used') : `${n} / ${max} words`;
+    el.classList.toggle('over', max === 0 ? n > 0 : n > max);
+  });
+  // preview
+  const cv = $('#ck-canvas');
+  const [w, h] = fmt.aspect;
+  const ratio = w / h;
+  cv.className = 'canvas' + (ratio > 2.5 ? ' xwide' : ratio > 1.2 ? ' wide' : ratio < 0.7 ? ' tall' : '');
+  cv.style.cssText = `${paletteVars(paletteRoles(pv))};aspect-ratio:${w} / ${h}`;
+  const x = s => esc(s || '');
+  cv.innerHTML = `<span class="cv-disc"></span>
+    <div>${piece.headline ? `<p class="cv-head">${x(piece.headline)}</p>` : ''}${piece.subhead ? `<p class="cv-sub">${x(piece.subhead)}</p>` : ''}${piece.body ? `<p class="cv-body">${x(piece.body)}</p>` : ''}</div>
+    <div class="cv-foot"><div style="display:grid;gap:1.5cqw">${piece.details ? `<span class="cv-details">${x(piece.details)}</span>` : ''}${piece.cta ? `<span class="cv-cta">${x(piece.cta)}</span>` : ''}</div>${piece.logo ? `<span class="cv-logo">${esc(DATA.ctx.brandNames[0])}</span>` : ''}</div>`;
+  // findings
+  const res = checkCopy(piece, DATA.ctx);
+  const n = lv => res.filter(r => r.level === lv).length;
+  const e = n('error'), wn = n('warn'), t = n('tip');
+  $('#ck-verdict').innerHTML = `<b>${e ? 'Needs work' : wn ? 'Nearly there' : 'Ready'}</b><span>${e} error${e === 1 ? '' : 's'} · ${wn} warning${wn === 1 ? '' : 's'} · ${t} tip${t === 1 ? '' : 's'}</span>`;
+  $('#ck-findings').innerHTML = res.length ? res.map(r => {
+    const rule = r.principle && ruleById[r.principle];
+    return `<li><span class="lv ${r.level}">${r.level.toUpperCase()}</span><span>${esc(r.message)}</span>${rule ? `<span class="src">${r.principle} · ${esc(bookById[rule.book].title)}</span>` : ''}</li>`;
+  }).join('') : '<li><span class="lv pass">PASS</span><span>Meets every rule the checker can test.</span></li>';
+  store.set('hub-checker', { ...piece, palette: typeof piece.palette === 'string' ? piece.palette : null, paletteValue: pv });
+}
+
+/* ------------------------------------------------------------ brand message */
+function renderMessage() {
+  const m = M.message;
+  let filled = 0, total = 0;
+  const val = v => {
+    total++;
+    const ok = Array.isArray(v) ? v.filter(Boolean).length : !!v;
+    if (ok) filled++;
+    return ok ? esc(Array.isArray(v) ? v.filter(Boolean).join('; ') : v) : '<span class="todo">To fill in</span>';
+  };
+  const kv = rows => rows.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${val(v)}</dd></div>`).join('');
+  $('#oneliner').innerHTML = kv([['Problem', m.oneLiner.problem], ['Solution', m.oneLiner.solution], ['Result', m.oneLiner.result]]);
+  $('#positioning').innerHTML = kv([['Who it’s for', m.positioning.audience], ['In one sentence', m.positioning.oneSentence], ['In one paragraph', m.positioning.oneParagraph], ['Category', m.positioning.category], ['Different from', m.positioning.differentFrom]]);
+  $('#voice').innerHTML = kv([['We are', m.voice.is], ['We are not', m.voice.isNot], ['Facts', m.proof.facts], ['Testimonials', m.proof.testimonials], ['Clients', m.proof.clients]]);
+  const b = m.brandscript;
+  const parts = [
+    ['A character', 'Who is the customer, and what do they want?', [['Who', b.character.who], ['Wants', b.character.want]]],
+    ['Has a problem', 'Villain, plus the problem on three levels (S3).', [['Villain', b.problem.villain], ['External', b.problem.external], ['Internal', b.problem.internal], ['Philosophical', b.problem.philosophical]]],
+    ['Meets a guide', 'Empathy and authority (S4).', [['Empathy', b.guide.empathy], ['Authority', b.guide.authority]]],
+    ['Who gives them a plan', 'About three simple steps (S5).', [['Steps', b.plan.steps], ['Promise', b.plan.promise]]],
+    ['And calls them to action', 'Direct and transitional (S6).', [['Direct', b.callToAction.direct], ['Transitional', b.callToAction.transitional]]],
+    ['That helps them avoid failure', 'The stakes (S7).', [['Failure', b.failure]]],
+    ['And ends in success', 'What life looks like after (S7).', [['Success', b.success], ['From', b.transformation.from], ['To', b.transformation.to]]],
+  ];
+  $('#sb7').innerHTML = parts.map(([part, ask, rows]) => `<li><span class="part">${part}</span><span class="ask">${ask}</span><dl class="kv ans">${kv(rows)}</dl></li>`).join('');
+  $('#meter').innerHTML = `<span class="lbl">Filled in</span><span class="bar"><i style="width:${Math.round(filled / total * 100)}%"></i></span><span class="mono">${filled} of ${total}</span>`;
+  const brief = [['Research', 'O1'], ['Audience', 'P2 S2'], ['Problem', 'S3'], ['The one thing', 'W1'], ['Dramatic truth and proof', 'W2 O5 S4'], ['Big idea', 'O2 W8'], ['Call to action', 'S6 P4'], ['Stakes and success', 'S7'], ['Formats and deliverables', ''], ['Headlines (20+)', 'W3'], ['Check before sign-off', 'S8 W1 S1 O4 W5 P3 O8'], ['How we’ll measure it', 'O10 P5']];
+  $('#brief').innerHTML = brief.map(([t, r]) => `<li>${t} ${r ? `<span>${r}</span>` : ''}</li>`).join('');
+}
+
+/* ------------------------------------------------------------ events */
+document.addEventListener('click', e => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.dataset.panel) showPanel(t.dataset.panel, true);
+  else if (t.dataset.size !== undefined) { cstate.size = +t.dataset.size; document.querySelectorAll('#size-seg button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderCombos(); }
+  else if (t.dataset.mode) { cstate.mode = t.dataset.mode; document.querySelectorAll('#mode-seg button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderCombos(); }
+  else if (t.dataset.open) openDetail(+t.dataset.open);
+  else if (t.dataset.star) { toggleStar(+t.dataset.star); setupPalettesKeep(); }
+  else if (t.dataset.dmode) openDetail(+$('#detail').dataset.id, t.dataset.dmode);
+  else if (t.dataset.groupby) { cstate.groupBy = t.dataset.groupby; renderColors(); }
+  else if (t.dataset.copy) copy(t.dataset.copy, 'Copied ' + t.dataset.copy);
+  else if (t.dataset.copySnip) copy($('#detail')._snips[t.dataset.copySnip]);
+  else if (t.dataset.color) { cstate.color = t.dataset.color; renderColorFilter(); setSubtab('combos'); renderCombos(); }
+  else if (t.dataset.rf) { const [k, v] = t.dataset.rf.split(':'); rstate[k] = v; renderMessaging(); }
+  else if (t.dataset.example) loadPiece(EXAMPLES[t.dataset.example]);
+  else if (t.id === 'clear-color') { cstate.color = null; renderColorFilter(); renderCombos(); }
+  else if (t.id === 'close-detail') $('#detail').close();
+  else if (t.id === 'only-starred') { cstate.starredOnly = !cstate.starredOnly; t.setAttribute('aria-pressed', cstate.starredOnly); t.classList.toggle('primary', cstate.starredOnly); renderCombos(); }
+  else if (t.id === 'copy-list') {
+    if (!cstate.stars.size) { toast('Star some combinations first'); return; }
+    copy('My Wada shortlist: ' + [...cstate.stars].sort((a, b) => a - b).map(n => String(n).padStart(3, '0')).join(', '), 'Shortlist copied');
+  }
+  else if (t.id === 'ck-copy') {
+    const { piece } = currentPiece();
+    copy(JSON.stringify(piece, null, 2), 'Copied .copy.json');
+  }
+  else if (t.id === 'tab-combos') setSubtab('combos');
+  else if (t.id === 'tab-colors') setSubtab('colors');
+});
+function setupPalettesKeep() {
+  const keep = $('#ck-palette').value;
+  const { piece } = currentPiece();
+  setupChecker();
+  loadPiece({ ...piece, paletteValue: keep, palette: keep.startsWith('brand:') ? keep.slice(6) : null });
+}
+$('#detail').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
+$('#q').addEventListener('input', e => { cstate.q = e.target.value; renderCombos(); });
+$('#ck-form').addEventListener('input', runChecker);
+$('#ck-form').addEventListener('change', runChecker);
+$('#ck-form').addEventListener('submit', e => e.preventDefault());
+window.addEventListener('hashchange', () => showPanel(location.hash.slice(1)));
+
+$('#n-colors').textContent = DATA.colors.length;
+$('#n-families').textContent = DATA.families.length;
+$('#n-combos').textContent = DATA.combinations.length;
+$('#star-count').textContent = cstate.stars.size;
+renderOverview(); renderBrandCard(); renderCombos(); renderColors(); renderMessaging(); setupChecker(); renderMessage();
+showPanel(location.hash.slice(1) || store.get('hub-panel', 'overview'));
+</script>

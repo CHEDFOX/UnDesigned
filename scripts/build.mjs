@@ -9,6 +9,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildColor } from '../foundations/color/build.mjs';
 import { buildMessaging } from '../foundations/messaging/build.mjs';
+import { buildHub } from '../tools/brand-hub/build.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -28,4 +29,6 @@ for (const [name, build] of Object.entries(FOUNDATIONS)) {
   if (only && name !== only) continue;
   for (const line of build({ root, dist, config })) console.log(line);
 }
+// The brand hub shows every foundation, so it is rebuilt after any of them.
+for (const line of buildHub({ root, dist, config })) console.log(line);
 console.log('Done -> dist/');

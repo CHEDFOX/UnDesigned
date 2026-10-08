@@ -404,18 +404,6 @@ export declare function combinationsWith(...ids: string[]): Combination[];
     }
   }
 
-  // ================================================================ tools
-
-  {
-    const tpl = readFileSync(join(root, 'tools/palette-explorer/template.html'), 'utf8');
-    const data = JSON.stringify({ colors, families, chapters, combinations, brand: palettes, prefix: P });
-    const body = tpl.replace('/*__DATA__*/null', () => data);
-    write(
-      'palette-explorer/index.html',
-      `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n</head>\n<body>\n${body}\n</body>\n</html>\n`,
-    );
-  }
-
   // -------------------------------------------------------------- summary
   const low = combinations.filter((c) => c.roles.light.inkUse !== 'body').length;
   const lines = [

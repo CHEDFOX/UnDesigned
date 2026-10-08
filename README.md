@@ -27,7 +27,7 @@ UnDesigned/
 │   ├── fonts/
 │   └── images/
 │
-├── tools/                       helper pages (palette explorer)
+├── tools/                       brand-hub/: the page that shows the whole system
 ├── scripts/
 │   ├── build.mjs                builds everything into dist/
 │   └── check-copy.mjs           checks *.copy.json against the messaging rules
@@ -37,7 +37,7 @@ UnDesigned/
     ├── design-apps/             apps: adobe/ (print-cmyk, screen-rgb), figma/, canva/, gimp-inkscape-krita/
     ├── brand-guide/             readable sheets to share (message sheet)
     ├── tokens/                  full JSON for anything else
-    └── palette-explorer/        open index.html to browse palettes
+    └── brand-hub/               open index.html: the whole system in one page
 ```
 
 Rule of thumb: you edit `config/`, `foundations/*/source/`, `templates/` and `assets/`. You use files from `dist/`.
@@ -45,7 +45,7 @@ Rule of thumb: you edit `config/`, `foundations/*/source/`, `templates/` and `as
 ## How a campaign is made
 
 1. Fill in a [creative brief](templates/briefs/creative-brief.md) (strategy, the one message, big idea).
-2. Pick a palette in the palette explorer.
+2. Pick a palette in the brand hub (dist/brand-hub/index.html).
 3. Write the copy in a `.copy.json` file and run `npm run check:copy`.
 4. Lay it out using the files in `dist/` (templates coming).
 

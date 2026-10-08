@@ -20,7 +20,7 @@ npm run build
 
 ## Picking palettes
 
-Open `dist/palette-explorer/index.html` in a browser. Each combination is shown as a small poster. Filter by number of colours, search by colour name, or open the **Colour index** (grouped by colour family or by the book's chapters) to see every combination that uses one colour. Star the ones you like and use **Copy shortlist**.
+Open `dist/brand-hub/index.html (Colour tab)` in a browser. Each combination is shown as a small poster. Filter by number of colours, search by colour name, or open the **Colour index** (grouped by colour family or by the book's chapters) to see every combination that uses one colour. Star the ones you like and use **Copy shortlist**.
 
 Add your choices to `config/brand.config.json`:
 
