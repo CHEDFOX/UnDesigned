@@ -75,6 +75,39 @@ Rules of thumb from several 2026 agency and tool guides; official platform pages
 | `grid-of-n` | Carousels, ranges, menus: 2–6 equal cells under one headline |
 | `long-copy` | Print ads and long flyers: image, caption, headline, body in columns, brand and CTA |
 
+## Text on media
+
+When a photo or video fills the frame and the words sit on it. Full dossier: [`media-research.md`](media-research.md); data: [`media.json`](media.json); measuring tool: [`templates/layouts/overlay.mjs`](../../templates/layouts/overlay.mjs).
+
+| Id | Finding | Strength |
+|---|---|---|
+| `faces-first` | Faces get the first look (over 80% within two fixations; saccades from about 100 ms) | strong |
+| `gaze-cue` | People look where the model looks; averted gaze lifts attention to product and text | moderate |
+| `photo-saliency` | The eye goes to what stands out; text and faces rate as important in designs | strong |
+| `clutter` | Clutter can be measured from the image (edge density, feature congestion) and slows search | moderate |
+| `textured-ground` | Texture behind text hurts most when contrast is low | moderate |
+| `contrast-readability` | Higher text contrast reads more easily | moderate |
+| `crowding` | Edges close to letters jumble them | strong |
+| `blur-guides` | Sharp draws the eye, blur pushes back (tested on displays) | moderate |
+| `word-picture-figure` | Image and words that complete each other work harder | moderate |
+| `real-photos` | Real people and products are looked at; filler stock is skipped | moderate (practitioner) |
+| `motion-onset` | Things that start moving grab attention | strong |
+| `motion-gaze` | In video, eyes follow the motion | moderate |
+| `on-screen-reading` | People read on-screen text if it stays long enough | moderate |
+| `edit-blindness` | Viewers miss many cuts | moderate |
+| `sound-off` | Much social video is watched without sound (publisher-reported) | emerging |
+
+How to place words on a photo or video:
+
+1. Never over a face; on the side the person looks towards.
+2. Next to the subject, in the calmest area near it. Plan that space at the shoot.
+3. Measure contrast on the worst-case pixels behind the text (10th or 90th percentile), never the average: 4.5:1 body, 3:1 large text and CTA edges, about 7:1 over texture.
+4. If it fails, use the least intrusive treatment the style allows (`media.json` → `treatments`): `calm-region`, `blur`, `scrim-gradient`, `tint`, `halftone-fade`, `plate`, `solid-band`, `duotone`, and `text-shadow` only as a last resort. Most of our styles ban gradients, tints and soft shadows, so their real choices are a calm region, a band, a plate or a halftone fade. `overlay.mjs` → `recommendTreatment` picks one and solves the opacity.
+5. Keep strong edges out of the text block; keep everything inside the safe area at every crop.
+6. Over video: still text in a still zone, checked on the worst frame, held at least max(1.5 s, 0.375 s × words + 0.5 s), changed on a cut, captioned for sound off, and readable on the first frame.
+
+Score text-on-media pieces with the scorecard in `media-research.md` (section 9). Templates: `poster-photo-calm-region`, `post-4x5-photo-scrim`, `square-photo-plate`, `story-video-overlay`, `hero-video-split-scrim`, `thumbnail-photo-gaze`, `billboard-photo-band`.
+
 ## Rules
 
 - One focal point per piece, different from everything else on two dimensions.
@@ -97,4 +130,6 @@ Rules already set by the messaging playbook (`foundations/messaging`): one idea,
 |---|---|
 | `research.md` | The dossier: how people look at layouts, hierarchy and grouping, text blocks, image and words, mobile and safe areas, composition claims, why templates, myths, scorecard, sources |
 | `layout.json` | Data: `findings`, `myths`, `grids`, `safeAreas`, `hierarchy`, `whitespace`, `composition`, `rules` |
+| `media-research.md` | The dossier for text on photos and video: faces and gaze, saliency and clutter, texture and contrast, video, treatments per style, placement, myths, scorecard, sources |
+| `media.json` | Data: `findings`, `myths`, `treatments`, `placement`, `video`, `contrast`, `rules` |
 | `../../templates/layouts/` | Layout templates (`layouts.json`) and a zero-dependency SVG renderer (`render.mjs`) |

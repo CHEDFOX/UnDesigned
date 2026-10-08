@@ -53,6 +53,7 @@ Each style is scored 0–2 against seven evidence-backed features; built styles 
 | Soft Modern UI | 10 | Reference (not built) |
 | Biophilic Organic | 10 | Reference (not built) |
 | Doodles | 9 | In the style library |
+| Negative Space | 8 | In the style library |
 | Commercial Modernism | 8 | In the style library |
 | Scrapbook | 8 | In the style library |
 | Bauhaus | 7 | In the style library |

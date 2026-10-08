@@ -122,13 +122,23 @@ export function buildHub({ root, brands }) {
     typeRules: pairings.rules,
     handwritten,
     layout: JSON.parse(readFileSync(join(root, 'foundations/layout/layout.json'), 'utf8')),
-    layouts: JSON.parse(readFileSync(join(root, 'templates/layouts/layouts.json'), 'utf8')).layouts,
+    media: JSON.parse(readFileSync(join(root, 'foundations/layout/media.json'), 'utf8')),
+    layouts: [
+      ...JSON.parse(readFileSync(join(root, 'templates/layouts/layouts.json'), 'utf8')).layouts,
+      ...listApproaches().flatMap((id) => {
+        const f = join(root, 'approaches', id, 'layouts.json');
+        if (!existsSync(f)) return [];
+        const d = JSON.parse(readFileSync(f, 'utf8'));
+        return (d.layouts || d).map((l) => ({ ...l, approach: id }));
+      }),
+    ],
     handResearch: JSON.parse(readFileSync(join(root, 'foundations/research/handwriting.json'), 'utf8')),
     research,
     styles,
   };
   const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '') +
-    '\nconst renderLayout = (() => {\n' + readFileSync(join(root, 'templates/layouts/render.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn renderLayout;\n})();\n';
+    '\nconst renderLayout = (() => {\n' + readFileSync(join(root, 'templates/layouts/render.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn renderLayout;\n})();\n' +
+    'const Overlay = (() => {\n' + readFileSync(join(root, 'templates/layouts/overlay.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn { analyseRegion, recommendTreatment, findCalmRegion, gridCandidates, contrastRatio };\n})();\n';
   const libs = Object.keys(approaches)
     .map((id) => `${JSON.stringify(id)}: (() => {\n${readFileSync(join(root, 'approaches', id, 'illustration.mjs'), 'utf8').replace(/^export /gm, '')}\nreturn createIllustrator;\n})()`)
     .join(',\n');

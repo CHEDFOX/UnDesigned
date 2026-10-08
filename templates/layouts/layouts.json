@@ -1,5 +1,5 @@
 {
-  "$comment": "Layout templates as data. One entry per (format, composition). Boxes are percent of the artboard (x, y from top left; w, h). Columns snap to the grid in foundations/layout/layout.json; the live area is the grid margin or the safe area, whichever is larger. Text, brand and CTA slots stay inside it; art/image slots may bleed. maxWords comes from foundations/messaging/source/formats.json. Edit by hand; keep boxes on the grid and inside the live area. Render with render.mjs.",
+  "$comment": "Layout templates as data. One entry per (format, composition). Boxes are percent of the artboard (x, y from top left; w, h). Columns snap to the grid in foundations/layout/layout.json; the live area is the grid margin or the safe area, whichever is larger. Text, brand and CTA slots stay inside it; art/image slots may bleed. maxWords comes from foundations/messaging/source/formats.json. Edit by hand; keep boxes on the grid and inside the live area. Render with render.mjs. Layouts with a 'media' object put a full-bleed photo or video behind the words: media.kind, fill, treatment (an id from foundations/layout/media.json treatments), text (palette role for all text), textZone (every text slot sits inside it), subject and gaze (where the person is and looks; used by the placeholder), overlay (box, colour role, opacity, from) and avoid (zones text must not cover). Evidence ids may come from layout.json or media.json.",
   "layouts": [
     {
       "id": "poster-single-focal",
@@ -1359,6 +1359,805 @@
         "first-glance",
         "pop-out",
         "picture-captures"
+      ]
+    },
+    {
+      "id": "poster-photo-calm-region",
+      "name": "Poster: photo, text in a calm region",
+      "format": "poster",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "single-focal",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 5.66,
+          "w": 84,
+          "h": 88.68
+        }
+      },
+      "safeArea": null,
+      "media": {
+        "kind": "photo",
+        "fill": "full-bleed",
+        "treatment": "calm-region",
+        "text": "ink",
+        "textZone": {
+          "x": 8,
+          "y": 5.66,
+          "w": 84,
+          "h": 30
+        },
+        "subject": {
+          "x": 50,
+          "y": 42,
+          "w": 40,
+          "h": 52
+        },
+        "gaze": "up-left",
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 50,
+            "y": 42,
+            "w": 40,
+            "h": 52
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 5.66,
+            "w": 69.58,
+            "h": 15.96
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 23.07,
+            "w": 26.33,
+            "h": 3.55
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 8,
+            "y": 29.28,
+            "w": 40.75,
+            "h": 5.32
+          },
+          "align": "left",
+          "maxWords": 6
+        }
+      ],
+      "notes": "Shoot or crop for an empty top third (sky, wall, out-of-focus ground). The subject sits low and looks up towards the headline. No treatment: check the worst-case contrast of the text zone with overlay.mjs; if it fails, switch to the band version of the style.",
+      "evidence": [
+        "photo-saliency",
+        "gaze-cue",
+        "clutter",
+        "textured-ground",
+        "faces-first"
+      ]
+    },
+    {
+      "id": "post-4x5-photo-scrim",
+      "name": "Portrait post 4:5: full-bleed photo + scrim",
+      "format": "instagram-post",
+      "aspect": [
+        4,
+        5
+      ],
+      "composition": "single-focal",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 6.4,
+          "w": 84,
+          "h": 87.2
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Profile grid crops 4:5 posts to 3:4 (since 2025), trimming the sides."
+      },
+      "media": {
+        "kind": "photo",
+        "fill": "full-bleed",
+        "treatment": "scrim-gradient",
+        "text": "paper",
+        "textZone": {
+          "x": 8,
+          "y": 62,
+          "w": 84,
+          "h": 31.6
+        },
+        "subject": {
+          "x": 30,
+          "y": 8,
+          "w": 40,
+          "h": 50
+        },
+        "gaze": "down",
+        "overlay": {
+          "box": {
+            "x": 0,
+            "y": 40,
+            "w": 100,
+            "h": 60
+          },
+          "colour": "ink",
+          "opacity": 0.75,
+          "from": "bottom",
+          "hold": 0.5
+        },
+        "alternatives": [
+          "solid-band",
+          "halftone-fade"
+        ],
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 30,
+            "y": 8,
+            "w": 40,
+            "h": 50
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 62,
+            "w": 69.58,
+            "h": 14.82
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 80.5,
+            "w": 26.33,
+            "h": 5.23
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 51.25,
+            "y": 79.6,
+            "w": 40.75,
+            "h": 6.98
+          },
+          "align": "left",
+          "maxWords": 5
+        }
+      ],
+      "notes": "Subject in the top half; the scrim fades from the ground of the text up to clear over 1.5 times the text block. Solve the opacity with overlay.mjs recommendTreatment (0.75 is a placeholder). Scrims need a style that allows gradients (Commercial Modernism); in other styles use the alternatives.",
+      "evidence": [
+        "photo-saliency",
+        "textured-ground",
+        "contrast-readability",
+        "faces-first"
+      ]
+    },
+    {
+      "id": "story-video-overlay",
+      "name": "Story 9:16: video with a text plate in the safe area",
+      "format": "story",
+      "aspect": [
+        9,
+        16
+      ],
+      "composition": "stacked",
+      "grid": {
+        "columns": 4,
+        "marginPct": 8,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 14,
+          "w": 84,
+          "h": 51
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.story",
+        "top": 14,
+        "bottom": 35,
+        "left": 6,
+        "right": 6,
+        "ruleOfThumb": true,
+        "notes": "Stories alone need about 20% at the bottom; reels and TikTok need about 35% plus room for the right-hand action column. 35% lets one file work everywhere. formats.json says keep text out of the top and bottom 250 px (13% at 1920 px); this is stricter."
+      },
+      "media": {
+        "kind": "video",
+        "fill": "full-bleed",
+        "treatment": "plate",
+        "text": "ink",
+        "textZone": {
+          "x": 8,
+          "y": 40,
+          "w": 84,
+          "h": 25
+        },
+        "subject": {
+          "x": 25,
+          "y": 10,
+          "w": 50,
+          "h": 30
+        },
+        "gaze": "down",
+        "overlay": {
+          "box": {
+            "x": 8,
+            "y": 40,
+            "w": 84,
+            "h": 25
+          },
+          "colour": "paper",
+          "radiusPctShortSide": 3
+        },
+        "alternatives": [
+          "solid-band",
+          "calm-region"
+        ],
+        "video": {
+          "textStatic": true,
+          "minSecondsPerCard": "max(1.5, 0.375 x words + 0.5)",
+          "captions": "inside the live area, above the bottom 35%"
+        },
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 25,
+            "y": 10,
+            "w": 50,
+            "h": 30
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 11,
+            "y": 42,
+            "w": 78,
+            "h": 11.5
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 11,
+            "y": 55.6,
+            "w": 35,
+            "h": 4.6
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 50,
+            "y": 55.1,
+            "w": 36,
+            "h": 5.6
+          },
+          "align": "left",
+          "maxWords": 4
+        }
+      ],
+      "notes": "Video fills the frame; the plate keeps contrast the same on every frame. Everything stays in the central band (top 14%, bottom 35%, 6% sides kept clear). Text is static; change it only on a cut. Plate corners and fill follow the style (rounded in Humanist Minimal, a sticker in Neon Surf, a paper strip in Scrapbook).",
+      "evidence": [
+        "motion-onset",
+        "motion-gaze",
+        "on-screen-reading",
+        "edit-blindness",
+        "sound-off",
+        "touch-centre"
+      ]
+    },
+    {
+      "id": "hero-video-split-scrim",
+      "name": "Web hero 16:9: video with a side scrim",
+      "format": "landing-hero",
+      "aspect": [
+        16,
+        9
+      ],
+      "composition": "split",
+      "grid": {
+        "columns": 12,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 4.5,
+          "y": 8,
+          "w": 91,
+          "h": 84
+        }
+      },
+      "safeArea": null,
+      "media": {
+        "kind": "video",
+        "fill": "full-bleed",
+        "treatment": "scrim-gradient",
+        "text": "paper",
+        "textZone": {
+          "x": 4.5,
+          "y": 8,
+          "w": 44.8,
+          "h": 84
+        },
+        "subject": {
+          "x": 60,
+          "y": 12,
+          "w": 30,
+          "h": 88
+        },
+        "gaze": "left",
+        "overlay": {
+          "box": {
+            "x": 0,
+            "y": 0,
+            "w": 65,
+            "h": 100
+          },
+          "colour": "ink",
+          "opacity": 0.8,
+          "from": "left",
+          "hold": 0.6
+        },
+        "alternatives": [
+          "solid-band",
+          "plate"
+        ],
+        "video": {
+          "textStatic": true,
+          "loopSeconds": [
+            2,
+            4
+          ],
+          "posterFrame": "the first frame must carry the message without motion"
+        },
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 60,
+            "y": 12,
+            "w": 30,
+            "h": 88
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 4.5,
+            "y": 8,
+            "w": 13.99,
+            "h": 5.04
+          },
+          "align": "left"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 4.5,
+            "y": 14.72,
+            "w": 44.8,
+            "h": 28.56
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 4.5,
+            "y": 46.64,
+            "w": 37.1,
+            "h": 18.48
+          },
+          "align": "left",
+          "maxWords": 25
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 4.5,
+            "y": 70.16,
+            "w": 21.7,
+            "h": 10.08
+          },
+          "align": "left",
+          "maxWords": 4
+        }
+      ],
+      "notes": "Words on the reading-start side over a scrim; the person on the other side looks towards them. Motion stays on the subject side. Solve the scrim opacity on the worst frame (overlay.mjs analyseFrames, then recommendTreatment). Offer a pause control and a still poster frame. Mirror for RTL (the scrim flips with it).",
+      "evidence": [
+        "left-lean",
+        "gaze-cue",
+        "motion-gaze",
+        "motion-onset",
+        "textured-ground"
+      ]
+    },
+    {
+      "id": "billboard-photo-band",
+      "name": "Billboard 48x14: photo + solid band",
+      "format": "billboard",
+      "aspect": [
+        48,
+        14
+      ],
+      "composition": "full-bleed-band",
+      "grid": {
+        "columns": 12,
+        "marginPct": 10,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 3,
+          "y": 10,
+          "w": 94,
+          "h": 80
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.billboard",
+        "top": 5,
+        "bottom": 5,
+        "left": 3,
+        "right": 3,
+        "ruleOfThumb": true,
+        "notes": "Frames and lighting can cover the edges; check the media owner's spec."
+      },
+      "media": {
+        "kind": "photo",
+        "fill": "full-bleed",
+        "treatment": "solid-band",
+        "text": "ink",
+        "textZone": {
+          "x": 3,
+          "y": 10,
+          "w": 34,
+          "h": 80
+        },
+        "subject": {
+          "x": 55,
+          "y": 10,
+          "w": 25,
+          "h": 90
+        },
+        "gaze": "left",
+        "overlay": {
+          "box": {
+            "x": 0,
+            "y": 0,
+            "w": 40,
+            "h": 100
+          },
+          "colour": "ground"
+        },
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 55,
+            "y": 10,
+            "w": 25,
+            "h": 90
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 3,
+            "y": 10,
+            "w": 34,
+            "h": 52
+          },
+          "align": "left",
+          "maxWords": 7
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 3,
+            "y": 70,
+            "w": 16,
+            "h": 16
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 21,
+            "y": 70,
+            "w": 16,
+            "h": 16
+          },
+          "align": "left",
+          "maxWords": 4
+        }
+      ],
+      "notes": "Read in 3-5 seconds from a moving car: a solid band, no scrim, seven words at most. The person looks into the band. Works in every style.",
+      "evidence": [
+        "gaze-cue",
+        "contrast-readability",
+        "crowding",
+        "first-glance"
+      ]
+    },
+    {
+      "id": "square-photo-plate",
+      "name": "Square post: full-bleed photo + plate",
+      "format": "instagram-post",
+      "aspect": [
+        1,
+        1
+      ],
+      "composition": "single-focal",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 8,
+          "w": 84,
+          "h": 84
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Profile grid crops 4:5 posts to 3:4 (since 2025), trimming the sides."
+      },
+      "media": {
+        "kind": "photo",
+        "fill": "full-bleed",
+        "treatment": "plate",
+        "text": "ink",
+        "textZone": {
+          "x": 8,
+          "y": 58,
+          "w": 58,
+          "h": 34
+        },
+        "subject": {
+          "x": 67,
+          "y": 12,
+          "w": 28,
+          "h": 60
+        },
+        "gaze": "left",
+        "overlay": {
+          "box": {
+            "x": 8,
+            "y": 58,
+            "w": 58,
+            "h": 34
+          },
+          "colour": "paper",
+          "radiusPctShortSide": 2.5
+        },
+        "alternatives": [
+          "solid-band",
+          "calm-region"
+        ],
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 67,
+            "y": 12,
+            "w": 28,
+            "h": 60
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 11,
+            "y": 61,
+            "w": 52,
+            "h": 15
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 11,
+            "y": 78.5,
+            "w": 24,
+            "h": 4.5
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 11,
+            "y": 84.5,
+            "w": 30,
+            "h": 5.5
+          },
+          "align": "left",
+          "maxWords": 5
+        }
+      ],
+      "notes": "One plate, bottom-left, the person looking at it. The rest of the photo stays untouched. Allowed in Humanist Minimal (rounded), Desi Maximalism (cartouche), Doodles, Scrapbook and Neon Surf.",
+      "evidence": [
+        "gaze-cue",
+        "contrast-readability",
+        "faces-first",
+        "grouping"
+      ]
+    },
+    {
+      "id": "thumbnail-photo-gaze",
+      "name": "Thumbnail 16:9: face looking at the headline",
+      "format": "thumbnail",
+      "aspect": [
+        16,
+        9
+      ],
+      "composition": "split",
+      "grid": {
+        "columns": 12,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 4.5,
+          "y": 8,
+          "w": 91,
+          "h": 84
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.thumbnail",
+        "zones": [
+          {
+            "id": "duration-stamp",
+            "x": 80,
+            "y": 85,
+            "w": 20,
+            "h": 15
+          }
+        ],
+        "ruleOfThumb": true,
+        "notes": "Keep text and faces out of the bottom-right corner where the length stamp sits."
+      },
+      "media": {
+        "kind": "photo",
+        "fill": "full-bleed",
+        "treatment": "calm-region",
+        "text": "ink",
+        "textZone": {
+          "x": 4.5,
+          "y": 8,
+          "w": 50,
+          "h": 84
+        },
+        "subject": {
+          "x": 58,
+          "y": 10,
+          "w": 30,
+          "h": 75
+        },
+        "gaze": "left",
+        "alternatives": [
+          "solid-band"
+        ],
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 58,
+            "y": 10,
+            "w": 30,
+            "h": 75
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 4.5,
+            "y": 14,
+            "w": 44.8,
+            "h": 50
+          },
+          "align": "left",
+          "maxWords": 6
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 4.5,
+            "y": 66,
+            "w": 20,
+            "h": 8
+          },
+          "align": "left"
+        }
+      ],
+      "notes": "A large face on the right looking left at a short headline on a plain area. Keep text and the face out of the bottom-right length stamp. Readable at 320 px wide: re-measure at that size.",
+      "evidence": [
+        "faces-first",
+        "gaze-cue",
+        "photo-saliency",
+        "clutter"
       ]
     }
   ]

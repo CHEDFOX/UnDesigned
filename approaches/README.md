@@ -13,6 +13,7 @@ An approach is a complete art direction: the research behind it, the rules, and 
 | `neon-surf` | Rad Dog / Neon Surf | 7 | Researched profile, sample poster |
 | `posterize` | Posterize | 10 | Researched profile, sample poster + posterize.mjs filter |
 | `doodles` | Doodles | 9 | Researched profile, sample poster |
+| `negative-space` | Negative Space | 8 | Researched profile, sample poster, 12 layouts (incl. photo and video) |
 
 ## What every approach must contain
 
@@ -28,6 +29,7 @@ approaches/<id>/
 ├── typography.json    type direction: what letterforms suit it, fit rating for each pairing, sizes per format, type with art
 ├── illustration.mjs   the drawing engine: createIllustrator(approach, palette) -> scene(), primitives
 ├── sample.mjs         samplePoster(palette, copy): a poster that shows the style
+├── layouts.json       optional: the style's own layout templates (same schema as templates/layouts)
 └── references/        the source images and recordings
 ```
 

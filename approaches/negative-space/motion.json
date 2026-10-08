@@ -1,0 +1,58 @@
+{
+  "$comment": "Negative Space motion data: slow, few moves, long holds. Springs are critically damped or close to it (damping ratio = c / (2 * sqrt(k * m)) of about 1.0), so nothing overshoots; the build simulates them into CSS linear() easings. Timings are rules of thumb of this style, not measured findings. Video rules live in art.json -> media.video.",
+
+  "character": "Stillness with one slow event. The piece opens on empty ground, one thing arrives or drifts, the words settle, and then everything holds. Motion should feel like a breath or a tide, never like a notification.",
+
+  "springs": {
+    "$comment": "stiffness k, damping c, mass m. All at or just above critical damping: no overshoot.",
+    "settle": { "stiffness": 70, "damping": 17, "mass": 1, "use": "Default: the object and the text block arriving (ratio about 1.02, settles in about 1.2 s)." },
+    "still": { "stiffness": 40, "damping": 13, "mass": 1, "use": "Large or slow arrivals: the object easing in from far away, a hero image settling (ratio about 1.03, settles in about 1.6 s)." },
+    "soft": { "stiffness": 170, "damping": 26, "mass": 1, "use": "Interactive UI: hover, open, toggle. No overshoot." }
+  },
+
+  "easings": {
+    "drift": { "css": "cubic-bezier(0.45, 0, 0.55, 1)", "use": "Slow travel and loops: a boat crossing, a kite rising, a cloud passing. Sine-like, no visible start or stop." },
+    "fade": { "css": "cubic-bezier(0.33, 0, 0.2, 1)", "use": "Text and small marks fading in: quick start, long gentle finish." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Things leaving: accelerate away slowly." }
+  },
+
+  "moves": {
+    "rise": { "spring": "settle", "distance": "0.2em", "use": "Text block appearing: a very short rise with a fade. Half the distance of other styles." },
+    "pop": { "spring": "settle", "use": "The object appearing (scale from 0 is allowed only for small objects under 12% of the short side; larger ones fade)." },
+    "draw": { "duration": 1400, "easing": "drift", "use": "A horizon hairline drawing across from the reading-start side." },
+    "drift": { "duration": 12000, "easing": "drift", "distancePct": [3, 10], "use": "The object travelling slowly into the open field (a boat, a bird, a figure), 3-10% of the artboard width over 8-20 s." },
+    "breathe": { "duration": 6000, "easing": "drift", "scale": [1, 1.01], "use": "A resting object staying barely alive. Optional." },
+    "float": { "duration": 6000, "easing": "drift", "distancePct": 0.5, "use": "A floating object bobbing by 0.5% of the artboard." },
+    "fadeIn": { "duration": 900, "easing": "fade", "use": "Brand, CTA and details appearing after the headline." }
+  },
+
+  "durations": {
+    "$comment": "Slower than the other styles. Rule of thumb for transforms that are not springs.",
+    "minMs": 300,
+    "maxMs": 1600,
+    "formula": "duration = 500 ms + 0.6 ms per pixel travelled (capped at 1600 ms); loops and drifts are exempt",
+    "byElement": { "icon": 300, "button": 300, "card": 500, "panel": 700, "illustration": 1100, "fullScreen": 1400 }
+  },
+
+  "choreography": {
+    "order": ["empty ground (hold 600-1000 ms)", "object (pop, fade or drift in)", "horizon (draw), if any", "headline (rise)", "brand, details and CTA (fade in together)", "hold"],
+    "stagger": 400,
+    "overlapPct": 0,
+    "openOnGround": "Every sequence starts on the empty ground for 600-1000 ms: the space is introduced before anything is put in it.",
+    "settleBeforeText": "Text starts only after the object has settled.",
+    "maxMovingThings": 1,
+    "loop": { "lengthMs": [6000, 12000], "endsOn": "The finished composition, held for at least 2 s before the loop restarts. Most pieces should not loop at all." },
+    "hold": 2000,
+    "totalMovesMax": 3
+  },
+
+  "rules": [
+    "At most three moves per piece, one at a time, then a long hold.",
+    "Open on empty ground; end on the finished still frame and hold it.",
+    "Nothing overshoots, bounces, spins, shakes or flashes.",
+    "Text never moves after it has arrived, and never moves with the object.",
+    "Drifts go into the open field, in the direction the object faces.",
+    "No parallax, camera moves or zooms in graphic pieces; video follows art.json -> media.video.",
+    "With reduced motion: show the final frame; drifts, floats and breathes stop."
+  ]
+}

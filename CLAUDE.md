@@ -27,7 +27,7 @@ Every product picks one art direction in `brand.json` → `approach`. The rules 
 
 - **The style's own rules win over the general ones below.** For example, Bauhaus allows sharp corners, Commercial Modernism allows two-stop gradients, and Doodles and Scrapbook allow one hand-lettered accent. Where a style marks something `needsApproval` (for example fluorescent inks in Neon Surf), ask the user before using it.
 - **Always, in every style:** colours come only from the product's Wada combinations (plus Black and White), fonts only from `foundations/typography/source/pairings.json` (plus one hand face from `handwritten.json` where the style allows it), and copy follows the messaging playbook.
-- Styles: `humanist-minimal` (complete, with a drawing engine), plus researched profiles `bauhaus`, `commercial-modernism`, `mid-century-modernism`, `scrapbook`, `desi-maximalism`, `neon-surf`, `posterize` (with `posterize.mjs` for photos) and `doodles`. See `approaches/README.md`.
+- Styles: `humanist-minimal` (complete, with a drawing engine), plus researched profiles `bauhaus`, `commercial-modernism`, `mid-century-modernism`, `scrapbook`, `desi-maximalism`, `neon-surf`, `posterize` (with `posterize.mjs` for photos), `doodles` and `negative-space` (60–90% empty ground, one small object, its own layouts including photo and video). See `approaches/README.md`.
 
 ### Example: Humanist Minimal (the first art direction) in short
 

@@ -1,0 +1,130 @@
+{
+  "$comment": "Negative Space: principles and per-layer rules. The data lives beside this file: art.json (space, object size, placement, edge tension, palette ratios, media), motion.json (slow springs, long holds), typography.json (quiet type, fit for every pairing, sizes per format), layouts.json (12 templates with measured empty ground), research.md (sources and reasoning). Colours always come from the colour system.",
+  "name": "Negative Space",
+  "summary": "Most of the frame is empty on purpose: one small object on a calm, flat ground (or a single small subject in a calm photo), a short headline set small on a margin, and nothing else. At least 60% of the artboard stays empty, ideally 70-90%. The emptiness carries meaning (time, calm, scale, quality, focus), the object faces into it, and motion is slow with long holds. Lineage: Japanese ma, Kenya Hara's 'emptiness' for MUJI, Swiss asymmetric layouts, DDB's 'Think Small' for Volkswagen.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "NS1",
+      "title": "The ground is the subject",
+      "rule": "At least 60% of the artboard is empty ground (ideal 70-90%), measured outside the bounding boxes of every mark, in one connected field. Say in the brief what the emptiness stands for.",
+      "source": "White space as rhetoric (Pracejus, Olsen & O'Guinn 2006); research.md 3.1"
+    },
+    {
+      "id": "NS2",
+      "title": "One small thing",
+      "rule": "One object, 8-30% of the short side (ideal 12-22%), 0.5-8% of the area, readable as a silhouette. Its size follows meaning: small real things can be very small; large real things shown small need a cue of distance.",
+      "source": "Figure-ground small-area cue (Rubin 1915, via Wagemans et al. 2012); canonical size (Konkle & Oliva 2011; Linsen et al. 2011); research.md 3.2-3.3"
+    },
+    {
+      "id": "NS3",
+      "title": "Face into the space",
+      "rule": "Anything with a front faces or moves into the larger empty area, with at least twice as much space ahead as behind. The headline or CTA waits where it looks.",
+      "source": "Inward bias (Palmer, Gardner & Wickens 2008); anterior bias in art (Bertamini, Bennett & Bode 2011); gaze cues in ads (Hutton & Nolte 2011; Sajjacholapunt & Ball 2014); research.md 3.3-3.4"
+    },
+    {
+      "id": "NS4",
+      "title": "Quiet type",
+      "rule": "The headline is set small (poster cap height 2.5-4.5% of the height, about two-thirds of other styles), regular or medium weight, on a margin line, with the brand beside it. Body and details never go below legibility minimums.",
+      "source": "Text needs space more than size (Pieters & Wedel 2004; Chaparro et al. 2004); typography.json sizes"
+    },
+    {
+      "id": "NS5",
+      "title": "Deliberate edges",
+      "rule": "The object is either clearly away from an edge (15% or more) or clearly on it (within the 10% margin, or cropped by at least 25%). Never 10-15% away, which looks accidental. Text always sits on the margins.",
+      "source": "Rule of thumb of this style (art.json composition.edgeTension)"
+    },
+    {
+      "id": "NS6",
+      "title": "Mostly ground colour",
+      "rule": "Ground 85-97% of the visible area, ink 2-8%, the accent 0.2-2% on one small part of the object. A calm, light ground with ink at 7:1 or better.",
+      "source": "Pop-out by isolation and colour (foundations/layout pop-out); colour-valence; research.md 3.2"
+    },
+    {
+      "id": "NS7",
+      "title": "Earn the emptiness",
+      "rule": "Emptiness without an idea looks unfinished and is scrolled past. Each piece needs one specific, slightly surprising relation between the object and its space; and the style is not used for price-led or discount messages.",
+      "source": "Feature vs design complexity (Pieters, Wedel & Batra 2010); research.md 3.5 and 5"
+    },
+    {
+      "id": "NS8",
+      "title": "Slow and still",
+      "rule": "Open on empty ground, make at most three slow moves one at a time, hold the final frame for 2 s or more. Video: locked-off camera, one slow natural movement, text arrives once and stays still.",
+      "source": "motion.json; art.json media.video (rules of thumb)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination with a calm, light ground (L* 75 or more, chroma 30 or less), ink passing 7:1 (inkUse 'body'), and a saturated accent on one small part of the object. Ground 85-97% of the area. Two-colour combinations (52, 84) give the purest version.",
+      "dont": "Saturated or dark grounds by default, gradients, textures or patterns in the ground, accent on type, more than three visible colours."
+    },
+    {
+      "layer": "Typography",
+      "do": "A calm pairing rated core or good (instrument, source, schibsted, jost). Headline small, regular or medium weight, sentence case, three sizes, two weights, on a margin line; brand beside the headline.",
+      "dont": "Big, heavy or condensed display headlines, all caps, handwriting fonts, body or details below the size minimums, text over the object."
+    },
+    {
+      "layer": "Layout",
+      "do": "10% margins, one object, one headline group, at least 60% empty ground in one connected field (layouts.json gives 12 templates measured at 84-93%). Object in the low third, at the optical centre, or near one side facing in. Clear edge decisions.",
+      "dont": "Filling corners, boxes, frames, bands or rules; scattering small elements; object 10-15% from an edge; centred paragraphs; leaving space without a reason for it."
+    },
+    {
+      "layer": "Illustration",
+      "do": "One small silhouette or flat cut shape from the product's world (art.json vocabulary), 3-8 parts, at most one hairline horizon, accent on one part.",
+      "dont": "Scenes, several objects, stock icons, outlines, textures, decorative marks in the empty ground, borrowed Japanese symbols (zen stones, ensō, kanji)."
+    },
+    {
+      "layer": "Motion",
+      "do": "Open on the empty ground, then one slow arrival or drift into the space on critically damped springs; text rises 0.2em once; hold 2 s or more. At most three moves (motion.json).",
+      "dont": "Overshoot, bounce, spin, shake, parallax, constant loops, text that moves after it lands, more than one thing moving."
+    },
+    {
+      "layer": "Photography",
+      "do": "Full-bleed photo or video with one small subject (0.5-6% of the frame) and a calm area (sky, water, wall, floor, mist, shallow focus) holding the words. Subject faces the text. No overlay when contrast passes; otherwise the least visible treatment (calm-region, duotone, tint, blur, scrim-gradient). Video locked off, slow, text still (art.json media).",
+      "dont": "Busy backgrounds behind text, solid bands, plates or text shadows, subjects looking at the camera when the words matter, handheld or swooping camera moves, subjects under platform UI."
+    },
+    {
+      "layer": "Copy",
+      "do": "Very short: a headline of 3-8 words that gains meaning from the image and the space; specific, plain, to one person (see the messaging playbook).",
+      "dont": "Price-led or discount copy, lists of features, exclamation marks, copy that explains the picture, vague 'premium' words that rely on the space to sound expensive."
+    }
+  ],
+  "evidence": {
+    "scores": { "curves": 1, "simplicity": 2, "maya": 1, "nature": 1, "handmade": 0, "colour": 1, "glance": 2 },
+    "total": 8,
+    "notes": {
+      "curves": "1: the style is neutral on curvature; corners are small radii and the object can be angular or round. Choose a rounded object where warmth matters (curvature finding).",
+      "simplicity": "2: the lowest visual complexity of any style in the guide (one object, one text group, 60-90% empty), the property judged first, within 17-50 ms (simplicity finding).",
+      "maya": "1: the format is familiar from premium advertising, galleries and product pages, but that familiarity is also the risk: without a fresh idea it reads as a generic 'minimal template', typical without being advanced (maya finding; research.md 3.5).",
+      "nature": "1: flat grounds have no natural detail; media pieces lean on sky, water, mist and land, which supply it. Score depends on the mode.",
+      "handmade": "0: nothing in the style shows the hand; warmth must come from the idea, the object or the photo (handmade finding). Pair with a hand-drawn object only if the product needs it.",
+      "colour": "1: calm, light grounds; pale blues and sage are well liked, greys and creams are neutral. Avoid olive and brown grounds (colour-valence finding).",
+      "glance": "2: a single isolated figure on a flat ground is the clearest possible figure-ground; it reads in a glance. The small headline is slower to read than in other styles, so the image must carry the idea alone (first-impression finding)."
+    },
+    "beyondPreference": [
+      {
+        "effect": "Prestige, trust and quality",
+        "note": "White space in ads carries a meaning built up over the 20th century (art, modernism, luxury retail) that creative directors and ordinary consumers share. Secondary summaries of the authors' studies report that ads with much white space made the product seem more prestigious, trustworthy and higher in quality; we could not read the full texts to confirm the measures. A later test found the effect is rhetorical (cultural meaning), not an economic 'burning money' signal, and that it varies across cultures.",
+        "sources": ["Pracejus, Olsen & O'Guinn (2006), Journal of Consumer Research 33(1), 82-90", "Olsen, Pracejus & O'Guinn (2012), Journal of Business Research 65(6), 855-860", "Pracejus, O'Guinn & Olsen (2013), International Journal of Research in Marketing 30(3), 211-218"]
+      },
+      {
+        "effect": "Attention on the brand and the product",
+        "note": "Dense perceptual features (clutter) lower attention to the brand and liking of the ad; an elaborate creative design raises attention and liking. Negative space removes feature complexity; the idea has to supply design complexity. Creative directors in the 2012 survey named focusing attention on the product and brand as a main reason to use white space.",
+        "sources": ["Pieters, Wedel & Batra (2010), Journal of Marketing 74(5), 48-60", "Olsen, Pracejus & O'Guinn (2012), Journal of Business Research 65(6)"]
+      },
+      {
+        "effect": "Quiet status signals",
+        "note": "Wealthy consumers with low need for status prefer quiet, low-prominence branding that only insiders recognise; brand prominence fell as price rose in the categories studied. A minimal, quiet look fits brands that sell to this audience.",
+        "sources": ["Han, Nunes & Drèze (2010), Journal of Marketing 74(4), 15-30", "Liu, Yildirim & Zhang (2024), Journal of Economics & Management Strategy 33(1), 78-110 (theory)"]
+      },
+      {
+        "effect": "Distinctiveness in cluttered places",
+        "note": "In a feed, street or magazine full of busy pieces, one isolated object on an empty ground differs from its surroundings on the dimension everything else shares (density), which supports pop-out. This is an inference from the pop-out and clutter findings, not a measured feed result; Pieters et al. (2010) warn that too-simple designs can also lose attention.",
+        "sources": ["Treisman & Gelade (1980); Itti & Koch (2001) (foundations/layout pop-out)", "Rosenholtz, Li & Nakano (2007), Journal of Vision 7(2)"]
+      }
+    ],
+    "watch": "Can look empty, unfinished or generic, and may be scrolled past without a strong idea. Small type risks legibility and contrast failures. Poor fit for price-led, discount and urgent messages."
+  },
+  "references": []
+}

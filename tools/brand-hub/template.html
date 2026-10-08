@@ -353,6 +353,15 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .lo-comps { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
 .lo-comp { border-top: 1px solid var(--ink); padding-top: 10px; font-size: 14px; display: grid; gap: 4px; }
 .lo-comp p { margin: 0; }
+/* ---------- media ---------- */
+.md-tool { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 760px) { .md-tool { grid-template-columns: minmax(0, 1fr); } }
+.md-stage { position: relative; max-width: 460px; }
+.md-stage canvas { width: 100%; height: auto; display: block; border-radius: 14px; }
+.md-stage svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.md-side { display: grid; gap: 10px; font-size: 14px; align-content: start; }
+.md-side p { margin: 0; }
+.md-ok { color: var(--ok); } .md-no { color: var(--err); }
 /* ---------- handwriting ---------- */
 .hw-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin: 14px 0 22px; counter-reset: hw; }
 .hw-step { background: var(--sheet); border-radius: 16px; padding: 14px 16px; display: grid; gap: 4px; font-size: 13.5px; align-content: start; }
@@ -758,6 +767,28 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
     <label class="lo-chk"><input type="checkbox" id="lo-rtl"> Right-to-left</label>
   </div>
   <div class="lo-grid" id="lo-grid"></div>
+  <h3 style="margin-top:36px" id="md-title">Text on photos and video</h3>
+  <p class="lede" style="margin-bottom:12px">Where to put words over a background image or video, and what to do when the image fights them. Try it: the checker finds the calmest readable area, avoiding the subject, and picks text colour and the least visible treatment this product's style allows. From <code>foundations/layout/media.json</code> and <code>templates/layouts/overlay.mjs</code>.</p>
+  <div class="md-tool">
+    <div class="md-stage"><canvas id="md-canvas" width="800" height="1000"></canvas><svg id="md-over" viewBox="0 0 100 125" preserveAspectRatio="none"></svg></div>
+    <div class="md-side">
+      <label class="btn" style="justify-self:start">Use your own photo<input type="file" id="md-file" accept="image/*" hidden></label>
+      <button type="button" class="btn" id="md-demo" style="justify-self:start">Back to the demo photo</button>
+      <div id="md-result"></div>
+      <span class="lbl">Every area, scored</span>
+      <p class="st-note" style="margin:0">Green outline: readable as it is. Shaded: busy (darker means busier). Dashed: the subject, kept clear.</p>
+    </div>
+  </div>
+  <h3 style="margin-top:28px">Treatments</h3>
+  <div class="tablewrap"><table class="data" id="md-treat"></table></div>
+  <div class="ap-two" style="margin-top:28px">
+    <div><h3>Placement, in order</h3><ol class="tight" id="md-place"></ol></div>
+    <div><h3>Video</h3><ul class="tight" id="md-video"></ul><h3 style="margin-top:20px">Contrast over images</h3><dl class="kv" id="md-contrast"></dl></div>
+  </div>
+  <h3 style="margin-top:28px">What research says about text on media</h3>
+  <div class="hw-find" id="md-find"></div>
+  <h3 style="margin-top:28px">Media myths</h3>
+  <div class="rs-myths" id="md-myths"></div>
   <h3 style="margin-top:36px">Compositions</h3>
   <div class="lo-comps" id="lo-comps"></div>
   <h3 style="margin-top:36px">What research says about layout</h3>
@@ -1030,13 +1061,15 @@ function renderLayoutPanel() {
   const copy = { headline: sc.hero, subhead: sc.lead, body: sc.body, cta: sc.cta, brand: B.name, note: B.name };
   const fmtName = Object.fromEntries(M.formats.flatMap(g => g.formats.map(f => [f.id, f.name])));
   const fmts = [...new Set(DATA.layouts.map(l => l.format))];
-  $('#lo-fmt').innerHTML = `<button type="button" data-lof="all" aria-pressed="${lostate.fmt === 'all'}">All</button>` + fmts.map(f => `<button type="button" data-lof="${f}" aria-pressed="${lostate.fmt === f}">${esc(fmtName[f] || f)}</button>`).join('');
+  const sty = [...new Set(DATA.layouts.filter(l => l.approach).map(l => l.approach))];
+  const stName = id => (DATA.styles.find(s => s.id === id) || {}).name || id;
+  $('#lo-fmt').innerHTML = `<button type="button" data-lof="all" aria-pressed="${lostate.fmt === 'all'}">All</button><button type="button" data-lof="media" aria-pressed="${lostate.fmt === 'media'}">Photo and video</button>` + sty.map(s => `<button type="button" data-lof="style:${s}" aria-pressed="${lostate.fmt === 'style:' + s}">${esc(stName(s))}</button>`).join('') + fmts.map(f => `<button type="button" data-lof="${f}" aria-pressed="${lostate.fmt === f}">${esc(fmtName[f] || f)}</button>`).join('');
   let art = '';
   try { art = ill.scene({ motif: 'sun', palette: pal, animate: false, uid: 'lo' }).replace(/<rect width="400" height="400" fill="[^"]*"\/>/, ''); } catch (e) { art = ''; }
   const comp = Object.fromEntries(L.composition.map(c => [c.id, c.name]));
-  $('#lo-grid').innerHTML = DATA.layouts.filter(l => lostate.fmt === 'all' || l.format === lostate.fmt).map(l => {
-    const svg = renderLayout(l, { palette: { ground: pal.ground, ink: pal.ink, accent: pal.accent, paper: pal.paper }, copy, fonts: { display: `'${pr.display.family}', sans-serif`, body: `'${pr.body.family}', sans-serif` }, art: art || undefined, width: 600, guides: lostate.guides, mirror: lostate.rtl });
-    return `<article class="lo-card ${l.aspect[0] / l.aspect[1] > 1.6 ? 'wide' : ''}">${svg}<b>${esc(l.name)}</b><span class="mono" style="font-size:11px;color:var(--muted)">${esc(l.id)} · ${esc(fmtName[l.format] || l.format)} · ${esc(comp[l.composition] || l.composition)}</span><p>${esc(l.notes || '')}</p></article>`;
+  $('#lo-grid').innerHTML = DATA.layouts.filter(l => lostate.fmt === 'all' || l.format === lostate.fmt || (lostate.fmt === 'media' && l.media) || lostate.fmt === 'style:' + l.approach).map(l => {
+    const svg = renderLayout(l, { palette: { ground: pal.ground, ink: pal.ink, accent: pal.accent, paper: pal.paper }, copy, fonts: { display: `'${pr.display.family}', sans-serif`, body: `'${pr.body.family}', sans-serif` }, art: l.media ? undefined : (art || undefined), width: 600, guides: lostate.guides, mirror: lostate.rtl });
+    return `<article class="lo-card ${l.aspect[0] / l.aspect[1] > 1.6 ? 'wide' : ''}">${svg}<b>${esc(l.name)}</b><span class="mono" style="font-size:11px;color:var(--muted)">${esc(l.id)} · ${esc(fmtName[l.format] || l.format)} · ${esc(comp[l.composition] || l.composition)}${l.media ? ' · ' + esc(l.media.kind) + ', ' + esc(l.media.treatment) : ''}${l.emptyPct ? ' · ' + l.emptyPct + '% empty' : ''}</span>${l.approach ? `<span><span class="fit inuse">${esc(stName(l.approach))}</span></span>` : ''}<p>${esc(l.notes || '')}</p></article>`;
   }).join('');
   $('#lo-comps').innerHTML = L.composition.map(c => `<div class="lo-comp"><b>${esc(c.name)}</b><p><b>Use:</b> ${esc(c.use)}</p><p style="color:var(--muted)"><b>Avoid:</b> ${esc(c.avoid || '')}</p></div>`).join('');
   const strengthLabel = { strong: 'Strong evidence', moderate: 'Moderate evidence', contested: 'Contested', emerging: 'Emerging evidence' };
@@ -1048,6 +1081,69 @@ function renderLayoutPanel() {
   $('#lo-safe-note').textContent = L.safeAreas.$comment || '';
   $('#lo-hier').innerHTML = L.hierarchy.levels.map((h, i) => `<div class="hw-step"><span>${String(i + 1).padStart(2, '0')}</span><b>${esc(h.id[0].toUpperCase() + h.id.slice(1))}</b>${esc(h.contains.join(', '))}<span>${esc(h.rule)}</span></div>`).join('');
   $('#lo-rules').innerHTML = L.rules.map(r => `<li>${esc(r)}</li>`).join('');
+}
+
+/* ------------------------------------------------------------ text on media */
+const mdstate = { img: null };
+function demoPhoto(cv, pal) {
+  // A made-up photo: calm sky, a busy hedge and a person looking up-left (into the sky).
+  const g = cv.getContext('2d'), W = cv.width, H = cv.height, rnd = ill.rng(11);
+  const sky = g.createLinearGradient(0, 0, 0, H * 0.6); sky.addColorStop(0, '#8fb3cf'); sky.addColorStop(1, '#d9e4ea');
+  g.fillStyle = sky; g.fillRect(0, 0, W, H);
+  for (let i = 0; i < 3500; i++) { g.fillStyle = `hsl(${95 + rnd() * 40},${30 + rnd() * 30}%,${18 + rnd() * 30}%)`; g.beginPath(); g.arc(rnd() * W, H * 0.58 + rnd() * H * 0.42, 4 + rnd() * 14, 0, 7); g.fill(); }
+  g.fillStyle = '#3b2a22'; g.beginPath(); g.ellipse(W * 0.7, H * 0.52, W * 0.07, H * 0.06, 0, 0, 7); g.fill();
+  g.fillStyle = '#c99a7b'; g.beginPath(); g.ellipse(W * 0.69, H * 0.56, W * 0.055, H * 0.055, -0.2, 0, 7); g.fill();
+  g.fillStyle = pal.accent; g.beginPath(); g.moveTo(W * 0.56, H); g.quadraticCurveTo(W * 0.58, H * 0.64, W * 0.7, H * 0.63); g.quadraticCurveTo(W * 0.82, H * 0.64, W * 0.84, H); g.fill();
+  return { subject: { x: 55, y: 44, w: 30, h: 56 } };
+}
+function runMedia() {
+  const cv = $('#md-canvas'), pal = illPalette(), M = DATA.media;
+  const g = cv.getContext('2d');
+  let subject = null;
+  if (mdstate.img) {
+    const im = mdstate.img, r = Math.min(1, 1000 / Math.max(im.width, im.height));
+    cv.width = Math.round(im.width * r); cv.height = Math.round(im.height * r);
+    g.drawImage(im, 0, 0, cv.width, cv.height);
+  } else { cv.width = 800; cv.height = 1000; subject = demoPhoto(cv, pal).subject; }
+  const img = g.getImageData(0, 0, cv.width, cv.height);
+  const vb = `0 0 100 ${(100 * cv.height / cv.width).toFixed(2)}`, k = cv.height / cv.width;
+  $('#md-over').setAttribute('viewBox', vb);
+  const allowed = M.treatments.filter(t => t.styles.allowed.includes(B.approach)).map(t => t.id);
+  const opts = { ink: pal.ink, paper: pal.paper, avoid: subject ? [subject] : [] };
+  const cands = Overlay.gridCandidates(4, 8, 3, 2, 6);
+  const ranked = Overlay.findCalmRegion(img, cands, opts);
+  const best = ranked[0];
+  const rec = Overlay.recommendTreatment(img, best.box, { ink: pal.ink, paper: pal.paper, allowed, fills: [pal.paper, pal.ink, pal.ground] });
+  const Y = v => v * k; // percent of height -> svg units
+  const cells = Overlay.gridCandidates(4, 8, 1, 1, 6).map(b => { const a = Overlay.analyseRegion(img, b); const cp = Math.max(a.contrastWith(pal.ink), a.contrastWith(pal.paper)); return `<rect x="${b.x}" y="${Y(b.y)}" width="${b.w}" height="${Y(b.h)}" fill="#000" opacity="${Math.min(0.55, a.busyness * 0.7).toFixed(2)}"/>${cp >= 4.5 && a.busyness <= 0.2 ? `<rect x="${b.x + 0.6}" y="${Y(b.y) + 0.6}" width="${b.w - 1.2}" height="${Y(b.h) - 1.2}" fill="none" stroke="#2e9e5b" stroke-width="0.5"/>` : ''}`; }).join('');
+  const bb = best.box, txt = rec.text === 'paper' ? pal.paper : pal.ink;
+  let treat = '';
+  if (rec.treatment === 'solid-band') treat = `<rect x="0" y="${Y(bb.y)}" width="100" height="${Y(bb.h)}" fill="${rec.fill || pal.paper}" opacity="${rec.opacity || 1}"/>`;
+  if (rec.treatment === 'plate') treat = `<rect x="${bb.x}" y="${Y(bb.y)}" width="${bb.w}" height="${Y(bb.h)}" rx="2" fill="${rec.fill || pal.paper}" opacity="${rec.opacity || 1}"/>`;
+  if (rec.treatment === 'scrim-gradient' || rec.treatment === 'tint') treat = `<rect x="0" y="${Y(bb.y)}" width="100" height="${Y(bb.h)}" fill="${rec.fill || pal.ink}" opacity="${rec.opacity}"/>`;
+  const head = (sampleCopy().hero || '').split(/\s+/).slice(0, 6).join(' ');
+  const words = head.split(' '), mid = Math.ceil(words.length / 2);
+  $('#md-over').innerHTML = cells + (subject ? `<rect x="${subject.x}" y="${Y(subject.y)}" width="${subject.w}" height="${Y(subject.h)}" fill="none" stroke="#fff" stroke-dasharray="1.5 1" stroke-width="0.5"/>` : '') +
+    (rec.treatment ? treat + `<text x="${bb.x + 3}" y="${Y(bb.y) + Y(bb.h) * 0.42}" font-family="'${(DATA.pairings.find(x => x.id === B.typography.pairing) || DATA.pairings[0]).display.family}', sans-serif" font-weight="700" font-size="${Math.min(7, bb.w / 9).toFixed(1)}" fill="${txt}"><tspan x="${bb.x + 3}">${esc(words.slice(0, mid).join(' '))}</tspan><tspan x="${bb.x + 3}" dy="1.1em">${esc(words.slice(mid).join(' '))}</tspan></text>` : '') +
+    `<rect x="${bb.x}" y="${Y(bb.y)}" width="${bb.w}" height="${Y(bb.h)}" fill="none" stroke="${pal.accent}" stroke-width="0.8"/>`;
+  const tName = Object.fromEntries(M.treatments.map(t => [t.id, t.name]));
+  $('#md-result').innerHTML = `<span class="lbl">Best text area for ${esc(DATA.approaches[B.approach].data.name)}</span>
+    <p><b>${rec.treatment ? esc(tName[rec.treatment] || rec.treatment) : '<span class="md-no">Nothing allowed works here</span>'}</b>${rec.treatment && rec.opacity ? ` at ${Math.round(rec.opacity * 100)}% opacity` : ''}, ${rec.text === 'paper' ? 'white (paper)' : 'ink'} text.</p>
+    <p>Contrast at the worst pixels: ${rec.worstCaseNoTreatment}:1 untreated${rec.achievedContrast ? `, <b class="${rec.achievedContrast >= 4.5 ? 'md-ok' : 'md-no'}">${rec.achievedContrast}:1</b> with the treatment` : ''}. Busyness ${rec.busyness} (calm is 0.2 or less).</p>
+    <p style="color:var(--muted)">${esc(rec.reason || '')}</p>
+    <p style="color:var(--muted)">Treatments this style allows: ${esc(allowed.map(a => tName[a] || a).join(', ') || 'none')}.</p>`;
+}
+function renderMediaPanel() {
+  const M = DATA.media;
+  const strengthLabel = { strong: 'Strong evidence', moderate: 'Moderate evidence', contested: 'Contested', emerging: 'Emerging evidence' };
+  $('#md-treat').innerHTML = '<thead><tr><th>Treatment</th><th>What</th><th>When</th><th>Cost</th><th>' + esc(DATA.approaches[B.approach].data.name) + '</th></tr></thead><tbody>' + M.treatments.map(t => `<tr><td><b>${esc(t.name)}</b></td><td>${esc(t.what)}</td><td>${esc(t.when)}</td><td>${esc(t.cost)}</td><td>${t.styles.allowed.includes(B.approach) ? '<span class="fit core">Allowed</span>' : '<span class="fit avoid">Not in this style</span>'}</td></tr>`).join('') + '</tbody>';
+  $('#md-place').innerHTML = M.placement.map(p => `<li>${esc(p.rule)}</li>`).join('');
+  $('#md-video').innerHTML = M.video.map(v => `<li>${esc(v.rule)}</li>`).join('');
+  const t = M.contrast.targets;
+  $('#md-contrast').innerHTML = [['Body text', t.bodyText + ':1'], ['Large text', t.largeText + ':1 (' + t.largeTextDefinition + ')'], ['Buttons and icons', t.nonTextUi + ':1'], ['Over texture', t.overTexture + ':1 (' + (t.overTextureNote || '') + ')'], ['How to measure', typeof M.contrast.method === 'string' ? M.contrast.method : Object.values(M.contrast.method || {}).join(' ')]].map(([a, b]) => `<div><dt>${esc(a)}</dt><dd>${esc(b)}</dd></div>`).join('');
+  $('#md-find').innerHTML = M.findings.map(f => `<article class="hw-f"><h4>${esc(f.title)}</h4><span><span class="fit ${f.strength === 'strong' ? 'core' : ''}">${strengthLabel[f.strength] || f.strength}</span></span><p>${esc(f.finding)}</p><p style="color:var(--muted)">${esc(f.effect || '')}</p><p><b>Design rule:</b> ${esc(f.designRule)}</p><p class="rs-src">${(f.sources || []).map(esc).join(' · ')}</p></article>`).join('');
+  $('#md-myths').innerHTML = M.myths.map(m => `<article class="rs-myth"><span class="lbl">Myth</span><b>${esc(m.claim)}</b><p>${esc(m.reality)}</p><p><b>Instead:</b> ${esc(m.useInstead)}</p></article>`).join('');
+  runMedia();
 }
 
 /* ------------------------------------------------------------ brands */
@@ -1072,7 +1168,7 @@ function useBrand(id, first) {
   document.querySelectorAll('.cur-id').forEach(el => (el.textContent = B.id));
   $('#star-count').textContent = cstate.stars.size;
   store.set('hub-brand', B.id);
-  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderLayoutPanel(); renderHandwritten(); renderHandResearch(); renderMessaging(); setupChecker(); renderMessage();
+  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderLayoutPanel(); renderMediaPanel(); renderHandwritten(); renderHandResearch(); renderMessaging(); setupChecker(); renderMessage();
 }
 
 /* ------------------------------------------------------------ style library */
@@ -1686,6 +1782,8 @@ $('#brandswitch').hidden = DATA.brands.length < 2;
 $('#brand-select').addEventListener('change', e => useBrand(e.target.value));
 $('#ck-campaign').addEventListener('change', e => { const c = B.campaigns[+e.target.value]; if (c) loadPiece(c.piece); e.target.value = ''; });
 $('#ty-sample').addEventListener('input', e => { tstate.sample = e.target.value.trim(); renderTypography(); });
+$('#md-file').addEventListener('change', e => { const f = e.target.files[0]; if (!f) return; const im = new Image(); im.onload = () => { mdstate.img = im; runMedia(); }; im.src = URL.createObjectURL(f); });
+$('#md-demo').addEventListener('click', () => { mdstate.img = null; runMedia(); });
 $('#lo-fmt').addEventListener('click', e => { const b = e.target.closest('[data-lof]'); if (!b) return; lostate.fmt = b.dataset.lof; renderLayoutPanel(); });
 $('#lo-guides').addEventListener('change', e => { lostate.guides = e.target.checked; renderLayoutPanel(); });
 $('#lo-rtl').addEventListener('change', e => { lostate.rtl = e.target.checked; renderLayoutPanel(); });

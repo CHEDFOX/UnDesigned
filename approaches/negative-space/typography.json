@@ -1,0 +1,107 @@
+{
+  "$comment": "Negative Space type direction. Fonts come from foundations/typography/source/pairings.json; this file says which suit this approach and how to set them. Headline sizes are deliberately lower than in the other styles; body minimums are NOT lowered, because legibility does not get a discount. Sizes are rules of thumb unless a source is given.",
+
+  "character": "Small, quiet, exact type placed on a margin like a caption in a gallery. One headline, set a size or two smaller than people expect, in a refined serif or a neutral sans; the brand and details smaller still. The space and the object are loud enough.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "tone": { "want": "Calm, refined, neutral", "why": "Type is one of only two or three marks on the page; any quirk is magnified." },
+    "weight": { "want": "Regular to medium for headlines; avoid black weights", "why": "Heavy weights at small sizes read as labels shouting; quiet weights let the space lead." },
+    "contrast": { "want": "Moderate to high stroke contrast for serif headlines at 24 px and above; low contrast below that", "why": "Hairlines disappear at small sizes and at a distance." },
+    "width": { "want": "Normal or slightly condensed", "why": "Condensed headlines keep the text block narrow, leaving more open ground." },
+    "xHeight": { "want": "Moderate", "why": "Readable at the small sizes this style uses." },
+    "spacing": { "want": "Good default spacing; slight positive tracking for small labels", "why": "Small type needs air between letters as well as around blocks." },
+    "avoid": ["Display faces designed to be loud (condensed gothics at full size, fat brush scripts, sticker faces)", "Handwriting fonts", "Novelty or 'retro' fonts", "All-caps headlines", "More than two weights"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach. Covers every pairing id in foundations/typography/source/pairings.json.",
+    "instrument": { "fit": "core", "why": "Quiet and elegant: the condensed serif headline keeps text blocks narrow, Instrument Sans is crisp at small sizes. The sample poster uses it." },
+    "source": { "fit": "core", "why": "Calm, trustworthy and very readable at small sizes; the serif or the sans can carry the headline." },
+    "schibsted": { "fit": "core", "why": "One strict family where hierarchy comes from size alone: the most minimal option, ideal for tech and product pieces." },
+    "jost": { "fit": "core", "why": "Clean, constructed and calm; geometric forms look precise next to a single object. Keep headlines at regular or medium weight." },
+    "bodoni-jost": { "fit": "good", "why": "Didone over geometric sans is the classic white-space fashion pairing; use for fashion, beauty and luxury, with headlines at 24 px or larger so hairlines survive." },
+    "dmserif-dmsans": { "fit": "good", "why": "A magazine headline serif with a clean sans; set the serif small and regular, never heavy." },
+    "plex": { "fit": "good", "why": "Precise and calm; suits technical or financial products. Plex Mono makes excellent tiny details (dates, prices)." },
+    "alegreya": { "fit": "good", "why": "Literary and warm; good for books, culture and food, set small with generous leading." },
+    "young-onest": { "fit": "good", "why": "Soft serif adds warmth to a cold, empty page; keep the headline small so its weight does not dominate." },
+    "bricolage-figtree": { "fit": "good", "why": "Friendly and current; use Bricolage at a light-to-regular weight, as its quirks are very visible on an empty page." },
+    "fraunces-commissioner": { "fit": "accent", "why": "Charming soft serif; restrain to one light weight with the 'wonky' extras off, or its personality fills the space." },
+    "nunito": { "fit": "accent", "why": "Rounded terminals read as friendly but casual; works for children's or wellness products with very few words." },
+    "archivo-courier": { "fit": "accent", "why": "Use only the typewriter-like mono for tiny details and labels beside a single object (a documentary caption). The heavy headline does not fit." },
+    "limelight-jost": { "fit": "accent", "why": "Limelight may set the brand word only, small; Jost carries everything else." },
+    "poppins-mukta": { "fit": "accent", "why": "For products that need Devanagari: Poppins at regular weight for short Latin headlines, Mukta for Devanagari and body." },
+    "rozha-mukta": { "fit": "accent", "why": "For Devanagari products: Mukta carries the page; Rozha One only for a short headline, set small, as its heavy contrast is loud." },
+    "bigshoulders-barlow": { "fit": "accent", "why": "Condensed gothic set small in a narrow column can look like a museum caption; never at loud poster sizes." },
+    "spartan-caslon": { "fit": "accent", "why": "Libre Caslon Text alone (headline in its regular or italic, small) fits; League Spartan's heavy headline does not." },
+    "spartan-jost": { "fit": "avoid", "why": "Loud, heavy geometric headline built to be read across a room; fights the quiet." },
+    "boogaloo-jost": { "fit": "avoid", "why": "Playful LP-cover lettering; too loud and too decorative." },
+    "anton-worksans": { "fit": "avoid", "why": "Tall condensed poster headline meant to be big; small it loses its point, big it fills the space." },
+    "anton-archivo": { "fit": "avoid", "why": "Urgent advertising gothic; the opposite of the tone." },
+    "yatra-baloo": { "fit": "avoid", "why": "Brush-cut sign lettering wants to be big and warm; use a Desi Maximalism piece instead." },
+    "titan-rubik": { "fit": "avoid", "why": "Fat board-shop display; sticker energy." },
+    "shrikhand-rubik": { "fit": "avoid", "why": "Bouncy italic display for slapped-on stickers." },
+    "lilita-nunito-sans": { "fit": "avoid", "why": "Sturdy display built for tilted, energetic headlines." },
+    "shantell-figtree": { "fit": "avoid", "why": "A marker hand; this style has no hand-lettered layer." },
+    "gochi-alegreya-sans": { "fit": "avoid", "why": "Notebook marker hand; too casual and busy for the style. Alegreya Sans alone would fit." }
+  },
+
+  "newPairings": [],
+
+  "handwritten": {
+    "$comment": "Handwritten accent faces from foundations/typography/source/handwritten.json. use: none | accent | core.",
+    "use": "none",
+    "fonts": [],
+    "perPiece": 0,
+    "maxWords": 0,
+    "roles": [],
+    "why": "A handwritten note is a second voice and a second texture on a page whose point is that almost nothing is there. The warmth should come from the object and the idea. If a product's brand.json sets a hand face, leave it out of negative-space pieces.",
+    "never": ["headline", "body", "call to action", "prices and numbers", "notes"]
+  },
+
+  "typeWithArt": {
+    "scaleMatch": "The headline's cap height is at most a quarter of the object's height on posters and posts, so the object stays the focal point. On type-only pieces the headline is the object and may be larger.",
+    "weightMatch": "Regular or medium headline weight; the object's silhouette, not the type, is the darkest mass.",
+    "alignment": "Text hangs from or sits on a margin line, left-aligned (right for RTL); all text shares one alignment edge where possible.",
+    "spacing": "At least 15% of the short side between text and the object, unless the text is a caption for the object.",
+    "grouping": "Headline, brand and CTA form one tight group (inner gaps at most half the outer gaps), or two groups at most (headline + brand; details + CTA)."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body minimums. Headline ranges are lower than Humanist Minimal's (poster 4-7%) on purpose; body minimums are the same, because text needs enough size and space to be read (foundations/layout findings text-whitespace and picture-captures). Rules of thumb.",
+    "byFormat": {
+      "billboard": { "headlinePct": [8, 12], "body": "none", "note": "Never below 8%: billboards are read at distance in 3-5 s." },
+      "poster": { "headlinePct": [2.5, 4.5], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [2.5, 4.5], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [2, 3.5], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [2, 3], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [3.5, 5.5], "bodyMinPx": 32 },
+      "story": { "headlinePct": [2.5, 3.5], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [3, 4.5], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [9, 14], "body": "none" },
+      "web-banner": { "headlinePct": [9, 14], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [32, 64], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [24, 32], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility. Small headlines are fine at arm's length and in feeds; check outdoor pieces against this rule, not against the style's preference."
+  },
+
+  "setting": {
+    "measure": { "chars": [35, 60], "ideal": 50, "source": "Narrower than Bringhurst's 45-75 so text blocks stay small; body copy over 40 words returns to 45-75." },
+    "leading": { "display": [1.05, 1.15], "subhead": [1.3, 1.4], "body": [1.5, 1.65] },
+    "tracking": { "displayEm": [-0.01, 0], "bodyEm": 0, "smallEm": [0.01, 0.03], "labelCapsEm": [0.08, 0.14] },
+    "case": "Sentence case everywhere. Capitals only for labels of one to three words.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rag": "Ragged right; balanced line breaks (text-wrap: balance); no single word on the last line of a headline.",
+    "numbers": "Tabular figures for dates, times and prices; the pairing's mono if it has one."
+  },
+
+  "rules": [
+    "Headline small and quiet: within the byFormat range, regular or medium weight.",
+    "Three sizes and two weights per piece; one alignment edge.",
+    "Body and details never below the byFormat minimums: small is a style, illegible is a bug.",
+    "Text contrast at least 4.5:1 at its real size; aim for 7:1.",
+    "No handwritten type."
+  ]
+}

@@ -1,0 +1,1187 @@
+{
+  "$comment": "Negative Space layouts. Same schema as templates/layouts/layouts.json (id, name, format, aspect, composition, grid, safeArea, slots, notes, evidence), plus: emptyPct = share of the artboard outside every slot box (text, brand, CTA, art; for media layouts also the subject box), measured on a 0.1% grid, so the drawn marks leave even more ground than this; focal = object size and facing; media = full-bleed photo or video settings (treatment ids from foundations/layout/media.json). Grid margins are 10% of the short side (wider than the 8% default in foundations/layout/layout.json, a rule of thumb of this style); text, brand and CTA sit inside the live area (margin or platform safe area, whichever is larger). Render with templates/layouts/render.mjs.",
+  "layouts": [
+    {
+      "id": "ns-poster-object-low",
+      "name": "Poster: small object low, headline high",
+      "format": "poster",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "single-focal",
+      "emptyPct": 90,
+      "grid": {
+        "columns": 6,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 7.07,
+          "w": 80,
+          "h": 85.86
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 10,
+            "y": 7.07,
+            "w": 50,
+            "h": 9.5
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 10,
+            "y": 17.6,
+            "w": 26,
+            "h": 2.4
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 62,
+            "y": 64,
+            "w": 16,
+            "h": 11.32
+          },
+          "align": "center"
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 10,
+            "y": 84.5,
+            "w": 46,
+            "h": 3.8
+          },
+          "align": "left",
+          "maxWords": 18
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 10,
+            "y": 89.4,
+            "w": 30,
+            "h": 3.5
+          },
+          "align": "left",
+          "maxWords": 6
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 16,
+        "facing": "left (into the open field)",
+        "edgeDistancePct": {
+          "right": 22,
+          "bottom": 24.7
+        }
+      },
+      "notes": "The headline sits small on the top-left margin with the brand under it; one object rests on an implied floor in the lower right third, facing into the open field. Details and CTA close the reading order at the foot. Everything between is ground.",
+      "evidence": [
+        "centre-bias",
+        "pop-out",
+        "first-glance",
+        "text-whitespace",
+        "picture-captures"
+      ]
+    },
+    {
+      "id": "ns-poster-corner-type",
+      "name": "Poster: object at the optical centre, tiny type in a corner",
+      "format": "poster",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "single-focal",
+      "emptyPct": 93,
+      "grid": {
+        "columns": 6,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 7.07,
+          "w": 80,
+          "h": 85.86
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 39,
+            "y": 30,
+            "w": 22,
+            "h": 15.56
+          },
+          "align": "center"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 10,
+            "y": 80.5,
+            "w": 42,
+            "h": 6
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 10,
+            "y": 87.6,
+            "w": 24,
+            "h": 2.2
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 64,
+            "y": 87.1,
+            "w": 26,
+            "h": 3.3
+          },
+          "align": "right",
+          "maxWords": 5
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 22,
+        "facing": "front (symmetric) or down",
+        "edgeDistancePct": {
+          "top": 30
+        }
+      },
+      "notes": "Object slightly above the geometric centre (the optical centre), alone; all words gathered into one quiet strip on the bottom margin. Use when the image carries the idea and the line only names it.",
+      "evidence": [
+        "centre-bias",
+        "pop-out",
+        "first-glance",
+        "grouping"
+      ]
+    },
+    {
+      "id": "ns-square-headline-high",
+      "name": "Square post 1:1: headline high, object low right",
+      "format": "instagram-post",
+      "aspect": [
+        1,
+        1
+      ],
+      "composition": "single-focal",
+      "emptyPct": 91,
+      "grid": {
+        "columns": 6,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 10,
+          "w": 80,
+          "h": 80
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Square posts are not cropped by the 3:4 profile grid; the side inset is kept for consistency with 4:5."
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 10,
+            "y": 10,
+            "w": 52,
+            "h": 11
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 10,
+            "y": 22.5,
+            "w": 26,
+            "h": 3.4
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 64,
+            "y": 62,
+            "w": 15,
+            "h": 15
+          },
+          "align": "center"
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 15,
+        "facing": "left, toward the headline diagonal",
+        "edgeDistancePct": {
+          "right": 21,
+          "bottom": 23
+        }
+      },
+      "notes": "A diagonal of two small masses, headline top-left and object bottom-right, with the open ground between them. In the feed, the object must differ from the ground on two dimensions (accent colour and isolation).",
+      "evidence": [
+        "pop-out",
+        "first-glance",
+        "centre-bias"
+      ]
+    },
+    {
+      "id": "ns-post-4x5-gaze",
+      "name": "Portrait post 4:5: object low left, facing into the space",
+      "format": "instagram-post",
+      "aspect": [
+        4,
+        5
+      ],
+      "composition": "single-focal",
+      "emptyPct": 91,
+      "grid": {
+        "columns": 6,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 8,
+          "w": 80,
+          "h": 84
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Profile grid crops 4:5 posts to 3:4, trimming the sides."
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 10,
+            "y": 8,
+            "w": 56,
+            "h": 9.5
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 10,
+            "y": 18.6,
+            "w": 26,
+            "h": 2.8
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 12,
+            "y": 66,
+            "w": 16,
+            "h": 12.8
+          },
+          "align": "center"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 60,
+            "y": 86.5,
+            "w": 30,
+            "h": 4
+          },
+          "align": "right",
+          "maxWords": 5
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 16,
+        "facing": "right (the object looks or moves into the open 70% of the width)",
+        "edgeDistancePct": {
+          "left": 12,
+          "bottom": 21.2
+        }
+      },
+      "notes": "The object sits low on the left and faces right into the empty field; the CTA waits at the far end of that look, bottom right. Headline small at the top-left margin.",
+      "evidence": [
+        "pop-out",
+        "first-glance",
+        "grouping"
+      ]
+    },
+    {
+      "id": "ns-story-float",
+      "name": "Story 9:16: headline high, small object in the live band",
+      "format": "story",
+      "aspect": [
+        9,
+        16
+      ],
+      "composition": "stacked",
+      "emptyPct": 91,
+      "grid": {
+        "columns": 4,
+        "marginPct": 10,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 14,
+          "w": 80,
+          "h": 51
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.story",
+        "top": 14,
+        "bottom": 35,
+        "left": 6,
+        "right": 6,
+        "ruleOfThumb": true,
+        "notes": "Reel-safe bottom (35%) so one file works for stories, reels and TikTok."
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 10,
+            "y": 14,
+            "w": 66,
+            "h": 7
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 10,
+            "y": 22,
+            "w": 30,
+            "h": 2.2
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 56,
+            "y": 45,
+            "w": 20,
+            "h": 11.25
+          },
+          "align": "center"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 10,
+            "y": 59.5,
+            "w": 40,
+            "h": 3.6
+          },
+          "align": "left",
+          "maxWords": 4
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 20,
+        "facing": "up or left",
+        "edgeDistancePct": {
+          "right": 24
+        }
+      },
+      "notes": "All content stays in the live band (top 14%, bottom 35% and 6% sides are platform UI). The empty ground above and below is part of the design and doubles as room for the platform overlays.",
+      "evidence": [
+        "touch-centre",
+        "centre-bias",
+        "pop-out"
+      ]
+    },
+    {
+      "id": "ns-hero-wide",
+      "name": "Web hero 16:9: words left, small object far right",
+      "format": "landing-hero",
+      "aspect": [
+        16,
+        9
+      ],
+      "composition": "split",
+      "emptyPct": 91,
+      "grid": {
+        "columns": 12,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 5.63,
+          "y": 10,
+          "w": 88.75,
+          "h": 80
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 5.63,
+            "y": 10,
+            "w": 12,
+            "h": 4.5
+          },
+          "align": "left"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 5.63,
+            "y": 32,
+            "w": 34,
+            "h": 13
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 5.63,
+            "y": 47.5,
+            "w": 28,
+            "h": 8
+          },
+          "align": "left",
+          "maxWords": 25
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 5.63,
+            "y": 60,
+            "w": 13,
+            "h": 6.5
+          },
+          "align": "left",
+          "maxWords": 4
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 72,
+            "y": 52,
+            "w": 9,
+            "h": 16
+          },
+          "align": "center"
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 16,
+        "facing": "left (toward the words)",
+        "edgeDistancePct": {
+          "right": 19
+        }
+      },
+      "notes": "Words on the reading-start side, set small; one object far right and a little below centre, facing back toward them. The middle third of the width is empty. Mirror for right-to-left scripts. Looks like content, not an ad strip.",
+      "evidence": [
+        "left-lean",
+        "banner-blindness",
+        "first-glance",
+        "line-length"
+      ]
+    },
+    {
+      "id": "ns-billboard-tiny",
+      "name": "Billboard 48x14: short line left, one small object right",
+      "format": "billboard",
+      "aspect": [
+        48,
+        14
+      ],
+      "composition": "split",
+      "emptyPct": 84,
+      "grid": {
+        "columns": 12,
+        "marginPct": 10,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 3,
+          "y": 10,
+          "w": 94,
+          "h": 80
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.billboard",
+        "top": 5,
+        "bottom": 5,
+        "left": 3,
+        "right": 3,
+        "ruleOfThumb": true,
+        "notes": "Frames and lighting can cover the edges."
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 3,
+            "y": 26,
+            "w": 36,
+            "h": 30
+          },
+          "align": "left",
+          "maxWords": 7
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 3,
+            "y": 64,
+            "w": 13,
+            "h": 12
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 18,
+            "y": 64,
+            "w": 14,
+            "h": 12
+          },
+          "align": "left",
+          "maxWords": 4
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 76,
+            "y": 34,
+            "w": 7,
+            "h": 24
+          },
+          "align": "center"
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 24,
+        "facing": "left (toward the line)",
+        "edgeDistancePct": {
+          "right": 17
+        }
+      },
+      "notes": "Headline cap height stays at least 8% of the board height so it reads at distance; the emptiness comes from the width, not from shrinking the words. One idea, seven words at most.",
+      "evidence": [
+        "first-glance",
+        "pop-out",
+        "picture-captures"
+      ]
+    },
+    {
+      "id": "ns-banner-strip",
+      "name": "Web banner 970x250: brand, line and button, wide gaps",
+      "format": "web-banner",
+      "aspect": [
+        970,
+        250
+      ],
+      "composition": "split",
+      "emptyPct": 84,
+      "grid": {
+        "columns": 12,
+        "marginPct": 12,
+        "gutterPct": 4,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 3.09,
+          "y": 12,
+          "w": 93.81,
+          "h": 76
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 3.1,
+            "y": 24,
+            "w": 40,
+            "h": 26
+          },
+          "align": "left",
+          "maxWords": 6
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 3.1,
+            "y": 60,
+            "w": 14,
+            "h": 12
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 62,
+            "y": 30,
+            "w": 4.2,
+            "h": 16.3
+          },
+          "align": "center"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 80,
+            "y": 38,
+            "w": 16.5,
+            "h": 22
+          },
+          "align": "right",
+          "maxWords": 3
+        }
+      ],
+      "focal": {
+        "objectSidePctOfShortSide": 16,
+        "facing": "left",
+        "edgeDistancePct": {}
+      },
+      "notes": "Display banners are ads and are read in a glance at best (banner blindness): one line with the brand under it, one object, one button at the far end, with the gaps doing the separating instead of boxes.",
+      "evidence": [
+        "banner-blindness",
+        "grouping",
+        "pop-out"
+      ]
+    },
+    {
+      "id": "ns-poster-photo",
+      "name": "Poster, photo: small subject, sky as the ground",
+      "format": "poster",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "full-bleed-band",
+      "emptyPct": 91,
+      "grid": {
+        "columns": 6,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 7.07,
+          "w": 80,
+          "h": 85.86
+        }
+      },
+      "safeArea": null,
+      "media": {
+        "kind": "photo",
+        "fill": "full-bleed",
+        "treatment": "calm-region",
+        "fallbackTreatments": [
+          "duotone",
+          "tint",
+          "blur",
+          "scrim-gradient"
+        ],
+        "horizonY": 79,
+        "textZone": {
+          "x": 10,
+          "y": 7.07,
+          "w": 62,
+          "h": 25
+        },
+        "subject": {
+          "x": 64,
+          "y": 70,
+          "w": 10,
+          "h": 9
+        },
+        "gaze": "left",
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 64,
+            "y": 70,
+            "w": 10,
+            "h": 9
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 10,
+            "y": 7.07,
+            "w": 50,
+            "h": 9.5
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 10,
+            "y": 17.6,
+            "w": 26,
+            "h": 2.4
+          },
+          "align": "left"
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 10,
+            "y": 21.6,
+            "w": 46,
+            "h": 3.8
+          },
+          "align": "left",
+          "maxWords": 18
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 10,
+            "y": 27.2,
+            "w": 28,
+            "h": 3.5
+          },
+          "align": "left",
+          "maxWords": 6
+        }
+      ],
+      "notes": "Shoot or crop so the subject takes about 1% of the frame, low on a horizon at about 80% height, with open sky above. All words sit in the sky, inside the text zone, with no overlay when contrast passes (art.json media.treatment).",
+      "evidence": [
+        "picture-captures",
+        "pop-out",
+        "first-glance"
+      ]
+    },
+    {
+      "id": "ns-post-4x5-photo",
+      "name": "Portrait post 4:5, photo: subject low left, words where it looks",
+      "format": "instagram-post",
+      "aspect": [
+        4,
+        5
+      ],
+      "composition": "full-bleed-band",
+      "emptyPct": 92,
+      "grid": {
+        "columns": 6,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 8,
+          "w": 80,
+          "h": 84
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Profile grid crops 4:5 posts to 3:4, trimming the sides."
+      },
+      "media": {
+        "kind": "photo",
+        "fill": "full-bleed",
+        "treatment": "calm-region",
+        "fallbackTreatments": [
+          "duotone",
+          "tint",
+          "blur",
+          "scrim-gradient"
+        ],
+        "horizonY": 81,
+        "textZone": {
+          "x": 44,
+          "y": 8,
+          "w": 46,
+          "h": 24
+        },
+        "subject": {
+          "x": 14,
+          "y": 68,
+          "w": 12,
+          "h": 13
+        },
+        "gaze": "right and up",
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 14,
+            "y": 68,
+            "w": 12,
+            "h": 13
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 44,
+            "y": 8,
+            "w": 46,
+            "h": 10
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 44,
+            "y": 19.5,
+            "w": 26,
+            "h": 2.8
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 44,
+            "y": 25,
+            "w": 30,
+            "h": 4.2
+          },
+          "align": "left",
+          "maxWords": 5
+        }
+      ],
+      "notes": "The subject (a person, animal or object with a front) sits low left and faces up and right; the words sit where it is looking. Gaze toward the message draws attention to it; gaze at the viewer pulls attention away from it (research.md 3.4).",
+      "evidence": [
+        "picture-captures",
+        "pop-out",
+        "grouping"
+      ]
+    },
+    {
+      "id": "ns-story-video",
+      "name": "Story 9:16, video: static shot, small subject, words held still",
+      "format": "story",
+      "aspect": [
+        9,
+        16
+      ],
+      "composition": "stacked",
+      "emptyPct": 92,
+      "grid": {
+        "columns": 4,
+        "marginPct": 10,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 10,
+          "y": 14,
+          "w": 80,
+          "h": 51
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.story",
+        "top": 14,
+        "bottom": 35,
+        "left": 6,
+        "right": 6,
+        "ruleOfThumb": true,
+        "notes": "Reel-safe bottom (35%) so one file works for stories, reels and TikTok."
+      },
+      "media": {
+        "kind": "video",
+        "fill": "full-bleed",
+        "treatment": "calm-region",
+        "fallbackTreatments": [
+          "tint",
+          "blur",
+          "scrim-gradient"
+        ],
+        "horizonY": 58,
+        "textZone": {
+          "x": 10,
+          "y": 14,
+          "w": 80,
+          "h": 20
+        },
+        "camera": "locked off, or a push of at most 5% of the frame over the whole clip",
+        "holdMs": [
+          2000,
+          4000
+        ],
+        "subject": {
+          "x": 58,
+          "y": 50,
+          "w": 14,
+          "h": 8
+        },
+        "gaze": "left",
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 58,
+            "y": 50,
+            "w": 14,
+            "h": 8
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 10,
+            "y": 14,
+            "w": 68,
+            "h": 7
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 10,
+            "y": 22,
+            "w": 30,
+            "h": 2.2
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 10,
+            "y": 27.5,
+            "w": 40,
+            "h": 3.6
+          },
+          "align": "left",
+          "maxWords": 4
+        }
+      ],
+      "notes": "The subject stays inside the live band (above the bottom 35% of platform UI), so captions and buttons never cover it. Text appears once, after the first hold, and never moves. The empty sky or wall above carries the words.",
+      "evidence": [
+        "touch-centre",
+        "centre-bias",
+        "pop-out"
+      ]
+    },
+    {
+      "id": "ns-hero-video",
+      "name": "Web hero 16:9, video: words left in calm space, small subject right",
+      "format": "landing-hero",
+      "aspect": [
+        16,
+        9
+      ],
+      "composition": "split",
+      "emptyPct": 91,
+      "grid": {
+        "columns": 12,
+        "marginPct": 10,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 5.63,
+          "y": 10,
+          "w": 88.75,
+          "h": 80
+        }
+      },
+      "safeArea": null,
+      "media": {
+        "kind": "video",
+        "fill": "full-bleed",
+        "treatment": "calm-region",
+        "fallbackTreatments": [
+          "tint",
+          "blur",
+          "scrim-gradient"
+        ],
+        "horizonY": 70,
+        "textZone": {
+          "x": 5.63,
+          "y": 10,
+          "w": 40,
+          "h": 58
+        },
+        "camera": "locked off; very slow drift allowed (at most 2% of the width over 10 s)",
+        "holdMs": [
+          4000,
+          10000
+        ],
+        "poster": "The first frame is a finished still for reduced motion and slow connections.",
+        "subject": {
+          "x": 72,
+          "y": 58,
+          "w": 6,
+          "h": 12
+        },
+        "gaze": "left",
+        "avoid": [
+          {
+            "id": "subject",
+            "x": 72,
+            "y": 58,
+            "w": 6,
+            "h": 12
+          }
+        ]
+      },
+      "slots": [
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 5.63,
+            "y": 10,
+            "w": 12,
+            "h": 4.5
+          },
+          "align": "left"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 5.63,
+            "y": 32,
+            "w": 34,
+            "h": 13
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 5.63,
+            "y": 47.5,
+            "w": 28,
+            "h": 8
+          },
+          "align": "left",
+          "maxWords": 25
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 5.63,
+            "y": 60,
+            "w": 13,
+            "h": 6.5
+          },
+          "align": "left",
+          "maxWords": 4
+        }
+      ],
+      "notes": "Loop of a still scene with one slow natural movement (water, mist, grass, a figure walking). Words on the reading-start side over the calmest part of the shot. A pause control is required for video that moves longer than 5 seconds (WCAG 2.2.2).",
+      "evidence": [
+        "left-lean",
+        "banner-blindness",
+        "first-glance"
+      ]
+    }
+  ]
+}

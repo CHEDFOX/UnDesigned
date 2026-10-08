@@ -1,0 +1,739 @@
+{
+  "$comment": "Text, logos and calls to action over background photos and video. Extends foundations/layout/layout.json; ids here are unique across both files. All positions and sizes are relative (percent of the artboard or of its short side). Numbers marked ruleOfThumb are conventions, not findings. 'strength': strong = replicated or meta-analysed; moderate = one good study or careful practitioner research; emerging = new or industry-reported; contested = mixed or weak. Sources in full: media-research.md section 10. Measuring tool: templates/layouts/overlay.mjs. Templates: templates/layouts/layouts.json (entries with a 'media' object).",
+  "findings": [
+    {
+      "id": "faces-first",
+      "title": "Faces in a photo are looked at first",
+      "finding": "In free viewing of photos with people, viewers fixate a face with over 80% probability within the first two fixations. Saccades towards faces can start about 100 ms after the image appears.",
+      "effect": "A saliency model plus a face detector predicted fixations clearly better than low-level saliency alone. Face-directed saccades were faster than saccades to other categories.",
+      "strength": "strong",
+      "designRule": "Expect the face to win the first look. Never put text over a face; place the headline where the eye goes next (next to the face, or where it looks).",
+      "sources": [
+        "Cerf, Harel, Einhäuser & Koch (2007, published 2008), Advances in Neural Information Processing Systems 20 (NIPS 2007)",
+        "Crouzet, Kirchner & Thorpe (2010), Journal of Vision 10(4):16"
+      ]
+    },
+    {
+      "id": "gaze-cue",
+      "title": "People look where the model looks",
+      "finding": "When the person in an ad looks at the product or the text rather than at the viewer, viewers look longer at the product and text and remember the brand and message better.",
+      "effect": "Print ads: longer looking at the product with averted gaze (Hutton & Nolte, 2011). Banner ads: averted gaze raised attention to text and product and improved memory; direct gaze pulled attention to the face itself (Sajjacholapunt & Ball, 2014). Print ads: face plus gaze towards the product beat no face and direct gaze on attention and memory (Adil, Lacoste-Badie & Droulers, 2018).",
+      "strength": "moderate",
+      "designRule": "Have the person look towards the headline or product, and put the words on that side. Use direct eye contact only when the face itself is the message.",
+      "sources": [
+        "Hutton & Nolte (2011), Applied Cognitive Psychology 25(6), 887-892",
+        "Sajjacholapunt & Ball (2014), Frontiers in Psychology 5:166",
+        "Adil, Lacoste-Badie & Droulers (2018), Journal of Advertising Research 58(4), 443-455"
+      ]
+    },
+    {
+      "id": "photo-saliency",
+      "title": "The eye goes to what stands out in the photo",
+      "finding": "Where people look first in a scene is predicted by local contrast in colour, intensity and orientation, combined into a saliency map. Visual importance in graphic designs can be predicted too: text and faces rate as important.",
+      "effect": "The saliency model (Itti, Koch & Niebur, 1998) is the standard baseline for bottom-up attention. Networks trained on human importance data predicted importance in designs and helped retarget and thumbnail them (Bylinskii et al., 2017). An energy model using importance and alignment produced single-page layouts rated at about novice-designer level (O'Donovan et al., 2014).",
+      "strength": "strong",
+      "designRule": "Let the photo's subject hold its salient area; put text in a low-saliency area next to it, not on top of it. Text then becomes the next most salient thing, which keeps the order: subject, headline, brand.",
+      "sources": [
+        "Itti, Koch & Niebur (1998), IEEE Transactions on Pattern Analysis and Machine Intelligence 20(11), 1254-1259",
+        "Bylinskii, Kim, O'Donovan, Alsheikh, Madan, Pfister, Durand, Russell & Hertzmann (2017), UIST '17",
+        "O'Donovan, Agarwala & Hertzmann (2014), IEEE Transactions on Visualization and Computer Graphics 20(8), 1200-1213"
+      ]
+    },
+    {
+      "id": "clutter",
+      "title": "Clutter can be measured, and it slows people down",
+      "finding": "Visual clutter can be measured from the image itself (feature congestion, subband entropy, edge density). All three measures predicted visual search times reasonably well.",
+      "effect": "Search times on map images rose with measured clutter; feature congestion also captured the effect of colour variability.",
+      "strength": "moderate",
+      "designRule": "Measure the area behind the text, don't guess. Prefer the calmest area of the photo that is near the subject; overlay.mjs reports a busyness score from edge density and fine texture.",
+      "sources": [
+        "Rosenholtz, Li & Nakano (2007), Journal of Vision 7(2):17, 1-22"
+      ]
+    },
+    {
+      "id": "textured-ground",
+      "title": "Texture behind text hurts most when contrast is low",
+      "finding": "Background texture slowed reading only when text contrast was low. The spatial frequency of the texture mattered too.",
+      "effect": "Search times for words on plain, periodic and filtered textured backgrounds, at three text contrasts. At high contrast the texture made little difference.",
+      "strength": "moderate",
+      "designRule": "High contrast buys tolerance for some texture. If the area is busy, raise contrast well above the minimum (about 7:1) or calm the area; don't rely on 4.5:1 over texture.",
+      "sources": [
+        "Scharff, Hill & Ahumada (2000), Optics Express 6(4), 81-91"
+      ]
+    },
+    {
+      "id": "contrast-readability",
+      "title": "Higher text contrast reads more easily",
+      "finding": "Text-background combinations with higher contrast were rated easier to read. Preferred colours raised aesthetic ratings and purchase intention, but did not change retention.",
+      "effect": "136 participants, four colour combinations on an educational and a commercial page.",
+      "strength": "moderate",
+      "designRule": "Choose the text colour (ink or paper) by measured contrast first, taste second.",
+      "sources": [
+        "Hall & Hanna (2004), Behaviour & Information Technology 23(3), 183-195"
+      ]
+    },
+    {
+      "id": "crowding",
+      "title": "Edges near letters jumble them",
+      "finding": "Recognition is limited by the spacing between objects, not just their size. When other contours fall too close to a letter, its features get jumbled (crowding).",
+      "effect": "Review of studies on letters, faces, search and reading: critical spacing follows Bouma's law and grows with distance from fixation. The effect is weaker between dissimilar objects.",
+      "strength": "strong",
+      "designRule": "Keep strong edges (horizon lines, branches, railings, other type) out of the text block and its margin. A clear margin around the words matters as much as tone.",
+      "sources": [
+        "Pelli & Tillman (2008), Nature Neuroscience 11(10), 1129-1135"
+      ]
+    },
+    {
+      "id": "blur-guides",
+      "title": "Sharp draws the eye; blur pushes back",
+      "finding": "Rendering relevant objects sharp and the rest blurred (semantic depth of field) guided viewers' attention quickly and was perceived pre-attentively in user studies.",
+      "effect": "Tested on information displays, not photos or ads. We apply it to photos by analogy with photographic depth of field.",
+      "strength": "moderate",
+      "designRule": "A shallow depth of field at the shoot gives a calm, receding area for text and keeps the sharp subject as the focal point. Digital blur is a treatment with style limits (see treatments).",
+      "sources": [
+        "Kosara, Miksch & Hauser (2001), Semantic depth of field, IEEE InfoVis 2001, 97-104",
+        "Kosara, Miksch & Hauser (2002), Focus+context taken literally, IEEE Computer Graphics and Applications 22(1), 22-29",
+        "Schrammel, Giller, Tscheligi, Kosara, Miksch & Hauser (2003), INTERACT 2003, 888-891"
+      ]
+    },
+    {
+      "id": "word-picture-figure",
+      "title": "Image and words that make a figure together work harder",
+      "finding": "Visual figures in ads (rhyme, antithesis, metaphor, pun) drew more elaboration and more favourable attitudes without being harder to understand. Visual metaphors and puns lost their effect for people without the cultural knowledge to read them.",
+      "effect": "Text interpretation, two experiments and reader-response interviews.",
+      "strength": "moderate",
+      "designRule": "The photo and the headline should complete each other (playbook W5), not repeat. Test visual metaphors with the actual audience.",
+      "sources": [
+        "McQuarrie & Mick (1999), Journal of Consumer Research 26(1), 37-54"
+      ]
+    },
+    {
+      "id": "real-photos",
+      "title": "Real people and products are looked at; filler stock is skipped",
+      "finding": "In eye-tracking of web pages, purely decorative feel-good images were ignored, while photos of real people and products that carried information were looked at.",
+      "effect": "Practitioner eye-tracking (NN/g), not peer-reviewed.",
+      "strength": "moderate",
+      "designRule": "Use a real photo of the product's people, place or thing as the background; a generic stock scene behind the words is skipped like a banner.",
+      "sources": [
+        "Nielsen (2010), Photos as web content (now 'Not all images are the same'), Nielsen Norman Group"
+      ]
+    },
+    {
+      "id": "motion-onset",
+      "title": "Things that start moving grab attention",
+      "finding": "The onset of motion captures attention even when it is irrelevant; steady motion by itself did not. Looming (growing) objects capture attention too.",
+      "effect": "Visual search: targets that had just started moving were found regardless of the number of distractors (Abrams & Christ, 2003). Looming captured attention; simulated receding motion did not in Franconeri & Simons (2003), a point later disputed.",
+      "strength": "strong",
+      "designRule": "Moving video competes with the text over it, most of all at each new movement. Keep the text still, and keep new motion, zooms and push-ins away from the text block while it is being read.",
+      "sources": [
+        "Abrams & Christ (2003), Psychological Science 14(5), 427-432",
+        "Franconeri & Simons (2003), Perception & Psychophysics 65(7), 999-1010"
+      ]
+    },
+    {
+      "id": "motion-gaze",
+      "title": "In video, eyes follow the motion",
+      "finding": "In free viewing of dynamic scenes, motion was the strongest predictor of where people looked, and moments when everyone looked at the same place were predicted by motion.",
+      "effect": "Eye-tracking of many viewers on varied video clips; flicker and motion beat static features.",
+      "strength": "moderate",
+      "designRule": "Put the text next to where the motion is, in a still part of the frame, so the eye can move from action to words. Don't run text across the moving subject.",
+      "sources": [
+        "Mital, Smith, Hill & Henderson (2011; online 2010), Cognitive Computation 3(1), 5-24"
+      ]
+    },
+    {
+      "id": "on-screen-reading",
+      "title": "People read on-screen text, if it stays long enough",
+      "finding": "Viewers read subtitles largely automatically, even when they understand the soundtrack. Most viewers kept up with subtitles at 12 to 20 characters per second while still following the images; slow subtitles caused rereading.",
+      "effect": "Eye-tracking of subtitled television (d'Ydewalle et al., 1991) and of 74 viewers at three subtitle speeds (Szarkowska & Gerber-Morón, 2018). Broadcast practice sets about 160-180 words per minute (about 0.33-0.375 s per word) for subtitles (BBC subtitle guidelines, practice).",
+      "strength": "moderate",
+      "designRule": "Hold each text card on screen for at least 0.375 s per word plus about 0.5 s to find it, and never under 1.5 s. Subtitle speeds assume viewers know where to look; ad text over video does not get that, so be generous.",
+      "sources": [
+        "d'Ydewalle, Praet, Verfaillie & Van Rensbergen (1991), Communication Research 18(5), 650-666",
+        "Szarkowska & Gerber-Morón (2018), PLOS ONE 13(6): e0199331",
+        "BBC Subtitle Guidelines (practice; current version on bbc.github.io/subtitle-guidelines)"
+      ]
+    },
+    {
+      "id": "edit-blindness",
+      "title": "Viewers miss many cuts",
+      "finding": "Viewers failed to notice about a quarter of cuts between two views of the same scene, and about a third when the cut coincided with a sudden onset of motion, mostly because attention was on the story.",
+      "effect": "Eye-tracking while viewers tried to detect edits in feature-film excerpts; continuity-style edits were missed more often.",
+      "strength": "moderate",
+      "designRule": "Change or remove text on a cut, where the change is least disruptive, rather than mid-shot. Hold the same text across continuity cuts if it is still being read.",
+      "sources": [
+        "Smith & Henderson (2008), Journal of Eye Movement Research 2(2):6, 1-17"
+      ]
+    },
+    {
+      "id": "sound-off",
+      "title": "Much social video is watched without sound",
+      "finding": "Publishers reported in 2016 that up to 85% of their Facebook video views were silent; Facebook reported that captions raised view time by an average of 12% in some internal tests.",
+      "effect": "Self-reported by publishers (LittleThings and Mic 85%, PopSugar 50-80%) and by Facebook; no published method. Platform defaults have changed since.",
+      "strength": "emerging",
+      "designRule": "Make every video piece work with the sound off: burned-in or platform captions, and the one message on screen as text.",
+      "sources": [
+        "Digiday, '85 percent of Facebook video is watched without sound' (commonly dated 2016; byline and date not confirmed; publisher-reported figures)",
+        "Facebook (February 2016), announcement of automated captions for video ads, as reported by Business Insider and AdExchanger"
+      ]
+    }
+  ],
+  "myths": [
+    {
+      "id": "text-anywhere-on-video",
+      "claim": "People will read text wherever it sits over a video.",
+      "reality": "People do read on-screen text (d'Ydewalle et al., 1991), but motion onsets and moving subjects pull the eye away (Abrams & Christ, 2003; Mital et al., 2011), and contrast changes frame by frame.",
+      "useInstead": "Static text in a still, calm part of the frame, checked on the worst frame (overlay.mjs analyseFrames), held for 0.375 s per word plus 0.5 s."
+    },
+    {
+      "id": "shadow-fixes-it",
+      "claim": "A drop shadow or glow makes text readable on any image.",
+      "reality": "A shadow only darkens the letter edges. WCAG 2.x gives no method that credits it, the background between letters stays busy, and close edges still crowd the letters (Pelli & Tillman, 2008). Most of our styles ban soft shadows.",
+      "useInstead": "Move the text to a calm area, then band, plate or (where the style allows) scrim. Use a hard shadow only where the style already has one (Neon Surf, Desi Maximalism)."
+    },
+    {
+      "id": "eighty-five-percent-silent",
+      "claim": "85% of video is watched without sound.",
+      "reality": "The number is from a 2016 Digiday article quoting individual publishers' own Facebook figures (LittleThings, Mic; PopSugar said 50-80%). It is not a measure of all video, all platforms or today.",
+      "useInstead": "Design for sound-off because many viewers watch that way, not because of a fixed percentage. Caption everything."
+    },
+    {
+      "id": "average-colour-check",
+      "claim": "Check contrast against the photo's average colour.",
+      "reality": "The mean hides the darkest and lightest patches behind the letters; a gradient can pass on average and fail at one end. WebAIM recommends testing the area of lowest contrast.",
+      "useInstead": "Measure the worst case: the 10th percentile luminance for dark text, the 90th for light text, over the whole text box (overlay.mjs)."
+    },
+    {
+      "id": "any-dark-overlay",
+      "claim": "A semi-transparent dark box always fixes text on photos.",
+      "reality": "The needed opacity depends on the brightest pixels behind the text; a fixed 30-50% overlay can still fail over light areas (NN/g text-over-images guidance shows such failures).",
+      "useInstead": "Compute the opacity from the image (overlay.mjs recommendTreatment) and switch to a solid band when it would need more than about 85%."
+    },
+    {
+      "id": "direct-gaze-sells",
+      "claim": "A model looking straight at the viewer gets the most attention for the ad.",
+      "reality": "Direct gaze holds attention on the face; gaze towards the product moved attention to the product and text (Hutton & Nolte, 2011; Sajjacholapunt & Ball, 2014; Adil et al., 2018). In Adil et al.'s survey, 67% of 118 advertising professionals predicted the opposite.",
+      "useInstead": "Point the gaze at the headline or product."
+    },
+    {
+      "id": "thirds-for-copy",
+      "claim": "Put the subject on a thirds line and the text on the other thirds.",
+      "reality": "The rule of thirds barely predicts liking (layout.json myth 'rule-of-thirds', finding 'rule-of-thirds').",
+      "useInstead": "Place the text by the photo's calm areas, the subject's gaze and the format's safe area."
+    }
+  ],
+  "treatments": [
+    {
+      "id": "calm-region",
+      "name": "Calm region (no treatment)",
+      "what": "Put the text where the photo is already flat and readable: sky, wall, table, out-of-focus ground. Nothing is added to the image.",
+      "when": "Always try first. Works when the worst-case contrast passes and the area is calm. Shoot or crop for it: plan negative space for the copy at the shoot.",
+      "cost": "Needs the right photo or crop; the area may change between sizes, crops and video frames.",
+      "numbers": {
+        "busynessMax": 0.2,
+        "busynessMaxAtHighContrast": 0.35,
+        "highContrast": 7,
+        "worstCasePercentile": 10,
+        "marginAroundText": "at least 0.5 x cap height of the headline clear of strong edges"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "photo-saliency",
+        "clutter",
+        "textured-ground",
+        "crowding"
+      ],
+      "styles": {
+        "allowed": [
+          "humanist-minimal",
+          "bauhaus",
+          "commercial-modernism",
+          "mid-century-modernism",
+          "scrapbook",
+          "neon-surf",
+          "doodles",
+          "negative-space"
+        ],
+        "avoid": [
+          "posterize",
+          "desi-maximalism"
+        ],
+        "note": "Posterize never sets text over the image; Desi Maximalism puts text in a framed cartouche. Commercial Modernism wants the calm area to be a planned band (top 10-18% or bottom 18-28%). Doodles keeps an 8% mark-free band around text."
+      }
+    },
+    {
+      "id": "solid-band",
+      "name": "Solid band",
+      "what": "A flat band of a palette colour across one edge of a full-bleed photo holds the headline, brand and CTA.",
+      "when": "Busy photos, long copy, or when the style bans transparency. Also the safest choice for video, as contrast no longer depends on the frame.",
+      "cost": "Covers part of the photo; on web pages a band at the very top can look like an ad strip (layout.json 'banner-blindness').",
+      "numbers": {
+        "bandSharePct": [
+          25,
+          40
+        ],
+        "paddingPctShortSide": [
+          4,
+          8
+        ],
+        "fill": "ground, paper or ink of the piece's Wada combination"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "contrast-readability",
+        "crowding"
+      ],
+      "styles": {
+        "allowed": [
+          "humanist-minimal",
+          "bauhaus",
+          "commercial-modernism",
+          "mid-century-modernism",
+          "desi-maximalism",
+          "posterize",
+          "neon-surf",
+          "doodles",
+          "scrapbook"
+        ],
+        "avoid": [
+          "negative-space"
+        ],
+        "note": "Allowed everywhere. Bauhaus: a colour block splitting the sheet about 1:2. Posterize: the image block and the text block as two zones. Desi Maximalism: one of the border bands. Corner rounding follows each style's art.json corners."
+      }
+    },
+    {
+      "id": "plate",
+      "name": "Plate (box behind the text)",
+      "what": "A flat shape of a palette colour sitting just behind the text block, over the photo.",
+      "when": "The photo should stay full-bleed and only a small text block is needed (a sticker, a label, a caption).",
+      "cost": "Reads as a box or label; several plates turn a piece into a form. Some styles ban boxes around text.",
+      "numbers": {
+        "paddingXCapHeight": [
+          0.6,
+          1.0
+        ],
+        "maxPerPiece": 2,
+        "fill": "paper or ground of the piece's combination"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "contrast-readability",
+        "crowding"
+      ],
+      "styles": {
+        "allowed": [
+          "humanist-minimal",
+          "desi-maximalism",
+          "doodles",
+          "scrapbook",
+          "neon-surf"
+        ],
+        "avoid": [
+          "bauhaus",
+          "commercial-modernism",
+          "mid-century-modernism",
+          "posterize",
+          "negative-space"
+        ],
+        "note": "Humanist Minimal: rounded corners. Desi Maximalism: the framed cartouche. Doodles: a paper clearing. Scrapbook: a paper strip or label, taped. Neon Surf: a die-cut sticker with an ink outline. Bauhaus, Commercial Modernism and Mid-century Modernism ban boxes around text; Posterize bans text over the image."
+      }
+    },
+    {
+      "id": "scrim-gradient",
+      "name": "Scrim (gradient overlay)",
+      "what": "A gradient from a palette colour at the needed opacity under the text to fully transparent towards the subject.",
+      "when": "Full-bleed photo or video with the text at one edge, and a style that allows gradients.",
+      "cost": "Darkens or washes part of the photo; a short or strong scrim shows its edge and looks like a filter. Gradients are banned in most of our styles.",
+      "numbers": {
+        "opacityAtText": [
+          0.3,
+          0.85
+        ],
+        "solveOpacity": "overlay.mjs recommendTreatment: the least opacity that lifts the worst case to the target",
+        "lengthXTextBlock": 1.5,
+        "aboveMax": "use solid-band"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "textured-ground",
+        "contrast-readability"
+      ],
+      "styles": {
+        "allowed": [
+          "commercial-modernism",
+          "negative-space"
+        ],
+        "avoid": [
+          "humanist-minimal",
+          "bauhaus",
+          "mid-century-modernism",
+          "scrapbook",
+          "desi-maximalism",
+          "neon-surf",
+          "posterize",
+          "doodles"
+        ],
+        "note": "Commercial Modernism allows two-stop airbrush gradients between colours of the combination, Black and White only: build the scrim as a fade into the combination's ground or Black, not grey. Neon Surf allows one fade, on the sun or sky only. Everyone else: use solid-band or halftone-fade. Negative Space allows a soft scrim of at most 35% opacity, as its last resort."
+      }
+    },
+    {
+      "id": "tint",
+      "name": "Overall darken or lighten (tint)",
+      "what": "A flat palette colour at partial opacity over the whole photo.",
+      "when": "The photo is evenly too bright or too dark everywhere, and the text needs to sit anywhere on it.",
+      "cost": "The whole photo goes flat and muddy above about 60%; faces lose life. It is a transparency effect.",
+      "numbers": {
+        "opacity": [
+          0.2,
+          0.6
+        ],
+        "aboveMax": "use solid-band or choose another photo"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "contrast-readability"
+      ],
+      "styles": {
+        "allowed": [
+          "negative-space"
+        ],
+        "avoid": [
+          "humanist-minimal",
+          "bauhaus",
+          "commercial-modernism",
+          "mid-century-modernism",
+          "scrapbook",
+          "desi-maximalism",
+          "neon-surf",
+          "posterize",
+          "doodles"
+        ],
+        "note": "Only Negative Space allows it: a uniform tint of the ground colour over the whole frame at 10-30%, invisible as a shape. The other styles ban transparency, tints or colour filters over faces; use duotone there (Bauhaus, Commercial and Mid-century Modernism, Posterize) to shift a photo's tones in a style-safe way."
+      }
+    },
+    {
+      "id": "blur",
+      "name": "Blur",
+      "what": "Soften the area behind the text: optically with a shallow depth of field at the shoot, or digitally inside the text zone.",
+      "when": "The tone of the area is close to passing but it is busy (fine texture, leaves, crowd).",
+      "cost": "Blur removes texture, not tone, so it rarely fixes contrast alone. A digital blur patch can look like a mistake or a privacy blur.",
+      "numbers": {
+        "radiusPctShortSide": [
+          1,
+          3
+        ],
+        "estimate": "overlay.mjs flags blur results as estimated; measure the blurred file"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "blur-guides",
+        "textured-ground",
+        "crowding"
+      ],
+      "styles": {
+        "allowed": [
+          "humanist-minimal",
+          "desi-maximalism",
+          "scrapbook",
+          "doodles",
+          "neon-surf",
+          "negative-space"
+        ],
+        "avoid": [
+          "bauhaus",
+          "commercial-modernism",
+          "posterize",
+          "mid-century-modernism"
+        ],
+        "note": "Allowed only as optical depth of field in natural photos. Bauhaus and Commercial Modernism ban soft-focus; Posterize needs sharp focus; Mid-century uses one-ink halftone photos."
+      }
+    },
+    {
+      "id": "duotone",
+      "name": "Duotone or posterize",
+      "what": "Map the photo to two (or a few) palette colours, compressing its tones so text can sit on the light or dark band of tones.",
+      "when": "The style already treats photos this way, or the photo has to match the palette.",
+      "cost": "Changes the photo's character; skin tones and food can look wrong. Busy areas stay busy.",
+      "numbers": {
+        "levels": [
+          2,
+          5
+        ],
+        "pair": "one light and one mid-dark colour of the combination, Black only if shadows need it",
+        "tool": "approaches/posterize/posterize.mjs"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "contrast-readability",
+        "textured-ground"
+      ],
+      "styles": {
+        "allowed": [
+          "bauhaus",
+          "commercial-modernism",
+          "mid-century-modernism",
+          "posterize",
+          "negative-space"
+        ],
+        "avoid": [
+          "humanist-minimal",
+          "desi-maximalism",
+          "neon-surf"
+        ],
+        "note": "Posterize still keeps text off the image, on flat ground. Mid-century: one ink as a coarse halftone. Humanist Minimal bans heavy filters; Desi Maximalism bans filters that tint skin; Neon Surf bans heavy colour filters over faces. Scrapbook and Doodles: not covered by their rules; ask."
+      }
+    },
+    {
+      "id": "halftone-fade",
+      "name": "Halftone fade into a solid zone",
+      "what": "A solid zone of the ground colour under the text whose edge dissolves into the photo through halftone dots. A flat, print-like alternative to a scrim.",
+      "when": "The style bans gradients and transparency but a hard band edge feels too heavy.",
+      "cost": "Dots must stay out from behind the letters (text sits on the solid part). Adds texture; the style's maximum halftone area applies.",
+      "numbers": {
+        "fadeLengthPctShortSide": [
+          5,
+          10
+        ],
+        "dotCell": "from the style's art.json texture.halftone",
+        "textOn": "solid part only"
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "contrast-readability",
+        "crowding"
+      ],
+      "styles": {
+        "allowed": [
+          "humanist-minimal",
+          "bauhaus",
+          "mid-century-modernism",
+          "posterize",
+          "neon-surf",
+          "scrapbook"
+        ],
+        "avoid": [
+          "desi-maximalism",
+          "doodles",
+          "negative-space"
+        ],
+        "note": "Humanist Minimal: halftone is its only shading. Bauhaus: dots only inside the photograph. Neon Surf: spray stipple. Desi Maximalism limits halftone to label-style pieces; Doodles shades with hatching only. Commercial Modernism: halftone only inside photomontage; prefer its airbrush scrim."
+      }
+    },
+    {
+      "id": "text-shadow",
+      "name": "Text shadow or outline (last resort)",
+      "what": "A shadow, halo or outline on the letters themselves.",
+      "when": "Last resort, for a short headline only, and only as the style's own flat shadow.",
+      "cost": "Does not change the measured contrast of the background; adds a dated, effortful look; soft shadows are banned in most styles.",
+      "numbers": {
+        "blur": 0,
+        "offsetPctOfSize": [
+          3,
+          6
+        ],
+        "maxWords": 6
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "crowding"
+      ],
+      "styles": {
+        "allowed": [
+          "neon-surf",
+          "desi-maximalism"
+        ],
+        "avoid": [
+          "humanist-minimal",
+          "bauhaus",
+          "commercial-modernism",
+          "mid-century-modernism",
+          "posterize",
+          "scrapbook",
+          "doodles",
+          "negative-space"
+        ],
+        "note": "Neon Surf: the hard ink block shadow (blur 0). Desi Maximalism: a flat offset drop line on lettering. Never the only fix for body text."
+      }
+    }
+  ],
+  "placement": [
+    {
+      "order": 1,
+      "id": "faces",
+      "rule": "Never put text, logos or CTAs over a face, eyes or hands doing something. Mark them as avoid zones when searching for a text area.",
+      "evidence": [
+        "faces-first"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "gaze",
+      "rule": "Put the headline (or the product) on the side the person is looking towards, within the line of their gaze. With direct gaze, put the text close beside the face.",
+      "evidence": [
+        "gaze-cue"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "subject",
+      "rule": "Keep the photo's subject (the most salient area) clear and the text next to it, in a lower-saliency area, so the order is subject, headline, brand.",
+      "evidence": [
+        "photo-saliency",
+        "faces-first"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "calm",
+      "rule": "Choose the calmest candidate area that passes contrast on its worst-case pixels (overlay.mjs findCalmRegion). If none passes, use the style's least intrusive allowed treatment.",
+      "evidence": [
+        "clutter",
+        "textured-ground"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "edges",
+      "rule": "Keep strong edges (horizon, product outline, railings, other text) out of the text block and its margin; do not let a horizon run through a line of type.",
+      "evidence": [
+        "crowding"
+      ]
+    },
+    {
+      "order": 6,
+      "id": "safe-areas",
+      "rule": "Text, logos and CTAs inside the format's safe area (layout.json safeAreas); the photo may bleed into overlay zones, the words may not. Recheck after every crop.",
+      "evidence": [
+        "touch-centre"
+      ]
+    },
+    {
+      "order": 7,
+      "id": "logo",
+      "rule": "Brand beside the headline (playbook O4), on the same treated or calm area. Logos are exempt from WCAG contrast but should still reach 3:1 (rule of thumb).",
+      "evidence": [
+        "picture-captures"
+      ]
+    },
+    {
+      "order": 8,
+      "id": "cta",
+      "rule": "The CTA sits on a flat, calm area or the band, never over the subject. Its text passes 4.5:1 and its outline or fill passes 3:1 against what is behind it (WCAG 1.4.11).",
+      "evidence": [
+        "contrast-readability"
+      ]
+    }
+  ],
+  "video": [
+    {
+      "id": "static-text",
+      "rule": "Text stays still over moving video. Only one thing moves at a time: either the video or the text arriving (style motion.json), never text moving over moving footage.",
+      "evidence": [
+        "motion-onset",
+        "motion-gaze"
+      ]
+    },
+    {
+      "id": "on-screen-time",
+      "rule": "Hold each text card at least max(1.5 s, 0.375 s x words + 0.5 s). A 6-word headline: 2.75 s.",
+      "numbers": {
+        "secondsPerWord": 0.375,
+        "findSeconds": 0.5,
+        "minSeconds": 1.5
+      },
+      "ruleOfThumb": true,
+      "evidence": [
+        "on-screen-reading"
+      ]
+    },
+    {
+      "id": "worst-frame",
+      "rule": "Check contrast on every frame the text is shown over (overlay.mjs analyseFrames); the worst frame decides. If the footage varies, use a band or plate instead of a calm region.",
+      "evidence": [
+        "textured-ground",
+        "contrast-readability"
+      ]
+    },
+    {
+      "id": "still-zone",
+      "rule": "Shoot or choose footage with a still, calm zone where the text goes; keep motion onsets, zooms and push-ins out of that zone while text is up.",
+      "evidence": [
+        "motion-onset",
+        "motion-gaze"
+      ]
+    },
+    {
+      "id": "cuts",
+      "rule": "Change text on a cut, not mid-shot. Hold the same text across continuity cuts if it is still being read.",
+      "evidence": [
+        "edit-blindness"
+      ]
+    },
+    {
+      "id": "captions",
+      "rule": "Assume sound off: the one message is on screen as text, and speech is captioned, inside the safe area and clear of the platform's caption zone.",
+      "evidence": [
+        "sound-off",
+        "on-screen-reading"
+      ]
+    },
+    {
+      "id": "first-frame",
+      "rule": "The first frame (and the chosen thumbnail or poster frame) must work as a still: subject, headline and brand readable without motion. Autoplay is usually muted and some viewers never press play.",
+      "evidence": [
+        "first-glance",
+        "sound-off"
+      ]
+    },
+    {
+      "id": "loops",
+      "rule": "Short loops end on the still frame that carries the message (style motion.json: 2-4 s loops in Humanist Minimal).",
+      "evidence": [
+        "motion-onset"
+      ]
+    }
+  ],
+  "contrast": {
+    "targets": {
+      "bodyText": 4.5,
+      "largeText": 3,
+      "largeTextDefinition": "At least 18 pt (24 CSS px) regular or 14 pt (about 18.66 CSS px) bold",
+      "nonTextUi": 3,
+      "nonTextUiNote": "WCAG 2.x 1.4.11: CTA button outlines or fills, icons that carry meaning",
+      "enhancedBodyText": 7,
+      "overTexture": 7,
+      "overTextureNote": "Rule of thumb from Scharff, Hill & Ahumada (2000): aim high when the area is not calm",
+      "logos": "Exempt in WCAG 1.4.3; aim for 3:1 (rule of thumb)",
+      "apca": "Emerging: APCA is the candidate contrast method for WCAG 3 (still a draft). Its author's guidance gives Lc 75 as the minimum for body text and Lc 90 as preferred. Use WCAG 2.x ratios as the requirement; APCA as a second opinion."
+    },
+    "method": [
+      "Take the text box (every line of the block) and grow it by half the cap height on each side.",
+      "Convert every pixel in it to WCAG relative luminance (linearised sRGB, 0.2126 R + 0.7152 G + 0.0722 B).",
+      "Worst case for dark text: the 10th percentile luminance; for light text: the 90th percentile (rule of thumb; use the 5th/95th for small text or very detailed images).",
+      "Contrast = (L_light + 0.05) / (L_dark + 0.05) between the text colour and that worst-case luminance. Never the mean or a single eyedropper sample.",
+      "With a treatment, blend first (per channel, in sRGB, as browsers and SVG composite), then measure the blended pixels.",
+      "For video, repeat for every frame (or one every 0.25 s) the text is on screen; the worst frame decides.",
+      "Re-measure at every size and crop; a calm area at 1080 px wide can be busy at 320 px.",
+      "Tool: templates/layouts/overlay.mjs (analyseRegion, recommendTreatment, findCalmRegion, analyseFrames)."
+    ],
+    "sources": [
+      "W3C (2023), Web Content Accessibility Guidelines (WCAG) 2.2, success criteria 1.4.3, 1.4.6 and 1.4.11 (W3C Recommendation; wording checked via WebAIM, as w3.org could not be opened during research)",
+      "WebAIM, Contrast and color accessibility (recommends testing the area of lowest contrast for text over images and gradients)",
+      "Myndex, APCA introduction (github.com/Myndex/apca-introduction)"
+    ]
+  },
+  "rules": [
+    "Pick the photo for its calm area as much as its subject; plan space for the words at the shoot.",
+    "Never put text over a face; put it where the face looks.",
+    "Text next to the subject, not on it.",
+    "Measure contrast on the worst-case pixels behind the text, never the average.",
+    "Try no treatment first; then the least intrusive treatment the style allows.",
+    "Compute the opacity of a scrim; above 85%, use a solid band.",
+    "Keep strong edges out of the text block and its margin.",
+    "Only palette colours in treatments; no grey scrims, no soft shadows unless the style allows them.",
+    "Over video: static text, a still zone, checked on the worst frame, held 0.375 s per word plus 0.5 s.",
+    "Design every video for sound off and caption it.",
+    "Text, logos and CTAs inside the safe area; recheck after every crop.",
+    "A drop shadow is a last resort, not a fix."
+  ]
+}

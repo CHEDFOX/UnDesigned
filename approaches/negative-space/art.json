@@ -1,0 +1,273 @@
+{
+  "$comment": "Negative Space art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages of the artboard. Colours are roles only; hex values always come from the product's Wada combination. Sources and reasoning: research.md (section numbers in brackets). Numbers without a finding id are rules of thumb of this style.",
+
+  "space": {
+    "$comment": "The defining data of the style. Empty ground = the share of the artboard outside the bounding boxes of every mark (object, headline, body, brand, CTA, note). For full-bleed media, calm photo or video area (sky, wall, water, floor, mist, out-of-focus background) counts as empty ground; the subject's box and the text boxes do not.",
+    "emptyGroundMinPct": 60,
+    "emptyGroundIdealPct": [70, 90],
+    "emptyGroundSampleMinPct": 65,
+    "measure": "Sum the union of the bounding boxes of all marks and subtract from 100. layouts.json gives emptyPct for every template (84-93%).",
+    "ground": "One flat field. Empty ground is one connected area, not many leftover slivers: the largest single empty rectangle should cover at least 35% of the artboard.",
+    "largestEmptyRectMinPct": 35,
+    "asymmetry": "The open field is on one side of the object: the empty distance ahead of the object (in the direction it faces or moves) is at least twice the distance behind it.",
+    "aheadToBehindMin": 2,
+    "rules": [
+      "Never fill space to make a piece look busier or more 'worth the money'. If the client wants more on the page, use a different template or style.",
+      "No textures, patterns, frames, rules or decorative marks in the empty ground. A single hairline horizon is the only allowed line that is not part of the object.",
+      "The ground is part of the message: say in the brief what the emptiness stands for (calm, scale, time, quiet, focus, quality)."
+    ]
+  },
+
+  "line": {
+    "$comment": "Lines are rare. When the object is drawn rather than photographed, it is a silhouette or a flat cut shape; a line is used only as a horizon or a fine detail.",
+    "horizonWidth": 0.75,
+    "horizonWidthPct": 0.19,
+    "detailWidth": 1.5,
+    "cap": "round",
+    "join": "round",
+    "opacityForHorizon": [0.4, 0.7],
+    "rules": [
+      "At most one hairline per piece that is not part of the object (usually a horizon or floor line).",
+      "A horizon stops at the margins or runs full-bleed; it never stops at random points.",
+      "No outlines around the object: it is a filled silhouette or a cut shape."
+    ]
+  },
+
+  "shape": {
+    "$comment": "The one object: small, simple, instantly recognised. Its size is set by meaning: smaller real-world things may be shown smaller (canonical size, research.md 3.3).",
+    "mode": "silhouette or flat cut shape (or a single photographed subject)",
+    "focal": {
+      "count": 1,
+      "secondaryMax": 1,
+      "secondaryRule": "A second mark only if it belongs to the object (a wake behind a boat, a shadow, a string to a kite) and is lighter than it.",
+      "sideOfShortSidePct": [8, 30],
+      "sideIdealPct": [12, 22],
+      "areaOfArtboardPct": [0.5, 8],
+      "areaIdealPct": [1, 4],
+      "silhouette": "Readable as a silhouette in 1 second at 10% of its size: one clear outline, no interior detail needed.",
+      "detailParts": [3, 8]
+    },
+    "canonicalSize": "The smaller the real object, the smaller it may be drawn without looking wrong. For large real things (a house, a car, a person) shown very small, add a cue of distance (a horizon, a floor line, a figure on a wide field) so the size reads as far away, not as tiny.",
+    "rules": [
+      "One object. Not a group of small objects scattered across the ground (that is pattern, not negative space).",
+      "No icons or stock pictograms; draw or photograph a specific thing from the product's world.",
+      "The object differs from the ground on at least two dimensions: isolation plus colour (accent) or tone (ink)."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Quiet and precise. Small radii: the space, not the shapes, should be noticed. Pixels at 1x for screens.",
+    "scale": { "xs": 2, "sm": 4, "md": 8, "lg": 12, "xl": 20, "pill": 999 },
+    "use": {
+      "button": "pill, outlined in ink (no fill)",
+      "chip": "pill",
+      "input": "xs",
+      "card": "md, and avoid cards on negative-space pages where possible",
+      "image": "0 (full-bleed) or sm",
+      "sheet / modal": "lg on the top corners"
+    },
+    "nested": "An inner radius is the outer radius minus the padding between them.",
+    "print": "No boxes on posters. Image boxes, if any, have square corners or a radius of at most 1% of the box's short side."
+  },
+
+  "composition": {
+    "marginPct": 10,
+    "marginNote": "10% of the short side, wider than the 8% default in foundations/layout/layout.json (rule of thumb of this style). Text, brand and CTA sit on the margin lines.",
+    "grid": "6 columns on posters and posts, 4 on stories, 12 on screens; text and object snap to the grid even though most cells are empty.",
+    "emptyGroundMinPct": 60,
+    "motifSizePct": [8, 30],
+    "maxObjects": 1,
+    "placements": [
+      {
+        "id": "low-third",
+        "use": "Object in the lower third, on an implied or drawn floor, headline high on the opposite side. The default poster and story layout (layouts.json ns-poster-object-low, ns-story-float).",
+        "evidence": "Lower regions read as figure and as resting on a ground (research.md 3.2)."
+      },
+      {
+        "id": "optical-centre",
+        "use": "Object a little above the geometric centre, alone; all words in a strip on the bottom margin (ns-poster-corner-type). For symmetric, front-facing objects.",
+        "evidence": "Viewers start near the centre and prefer front-facing objects centred (research.md 3.3)."
+      },
+      {
+        "id": "facing-in",
+        "use": "Object near one side, facing or moving into the open field; the words wait where it looks (ns-post-4x5-gaze, ns-post-4x5-photo).",
+        "evidence": "Inward bias: objects that face into the frame are preferred (research.md 3.3); gaze toward the message draws attention to it (3.4)."
+      },
+      {
+        "id": "far-side",
+        "use": "Wide formats: words on the reading-start side, object on the far third facing back (ns-hero-wide, ns-billboard-tiny).",
+        "evidence": "left-lean, picture-captures (foundations/layout)."
+      }
+    ],
+    "edgeTension": {
+      "$comment": "How close the object sits to the edges. Distances in % of the artboard dimension on that axis.",
+      "rule": "Either clearly away from an edge or clearly near it, never halfway. Away = at least 15% from that edge. Near = within the margin (0-10%) and then deliberately: resting on the bottom margin, or cropped by the edge with at least 25% of the object cut. Between 10% and 15% from an edge looks like a mistake.",
+      "awayMinPct": 15,
+      "nearMaxPct": 10,
+      "deadZonePct": [10, 15],
+      "cropMinPct": 25,
+      "maxEdgesTouched": 1,
+      "text": "Text never touches an edge: it sits on the margin lines (10% of the short side) or inside the platform safe area, whichever is larger."
+    },
+    "direction": {
+      "rule": "Anything with a front (a face, an animal, a vehicle, a boat, a cup handle, a pointing shape) faces or moves into the larger empty area, and the headline or CTA sits in that area where possible.",
+      "aheadToBehindMin": 2,
+      "symmetric": "Objects with no front go near the optical centre or the low third."
+    },
+    "pairing": "Image and headline are a pair: the headline does not describe the object (W5); the emptiness gives the line its meaning (a small boat on a big sea + 'Bread that takes its time').",
+    "rules": [
+      "One focal object, one headline, one brand, one call to action. Nothing else.",
+      "Text is small and quiet (typography.json sizes) and aligned to one margin edge.",
+      "Group the words tightly (space inside a group at most half the space between groups) so they read as one quiet unit, not scattered labels.",
+      "Keep text at least 15% of the short side away from the object, unless it is a caption that belongs to it.",
+      "Never centre a paragraph."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role. Colours come from the product's Wada combination. The ground carries almost the whole piece.",
+    "roles": {
+      "ground": { "from": "combination bg", "areaPct": [85, 97] },
+      "ink": { "from": "combination ink when light-mode inkUse is body, otherwise Wada Black", "areaPct": [2, 8], "use": "Text, the object's silhouette, the horizon." },
+      "accent": { "from": "combination accent", "areaPct": [0.2, 2], "limit": "One small part of the one object (a sail, a door, a fruit, a button dot). Never type." },
+      "paper": { "from": "Wada White", "areaPct": [0, 4], "use": "Only as part of the object (a highlight, a cut shape)." },
+      "support": { "from": "combination support colours", "areaPct": [0, 10], "use": "Only for a second calm field (floor, sea) below a horizon, and only if its contrast with the ground is low (below 1.6:1)." }
+    },
+    "rules": [
+      "One combination per piece; usually two or three colours visible in total.",
+      "No gradients, shadows, glows or transparency effects in the art. The only exception is a photo or video that has natural gradients of light.",
+      "Text uses the combination's text role and must pass WCAG AA at its actual size (4.5:1 for text under 24 px or 18.66 px bold, 3:1 above). Because type is small in this style, aim for 7:1.",
+      "The accent sits on at most one small part of the object; it never covers more than 2% of the artboard."
+    ],
+    "method": "Pick a combination whose light-mode ground is calm and light (lightness L* 75 or more, chroma 30 or less: sky, sand, stone, linen, pale sage), whose ink passes 7:1 on it (inkUse 'body'), and whose accent is saturated enough to make a tiny object pop (chroma 45 or more). A two-colour combination (ground + ink) gives the most austere version.",
+    "recommendedCombinations": [
+      { "combination": 190, "colours": ["Ivory Buff", "English Red", "Black"], "reason": "Linen ground, black ink at 12.75:1, one English Red detail: the warmest and most legible choice." },
+      { "combination": 268, "colours": ["Nile Blue", "Deep Slate Olive", "Raw Sienna", "Light Brown Drab"], "reason": "Pale sky ground, near-black olive ink at 9.97:1, a sienna accent: made for horizons and open air." },
+      { "combination": 221, "colours": ["Neutral Gray", "Black", "Carmine Red"], "reason": "Stone-grey ground, black ink at 9.95:1, a carmine dot: the most austere, gallery-like option." },
+      { "combination": 340, "colours": ["Neutral Gray", "Black", "Peach Red", "Sea Green"], "reason": "Same grey ground and 9.95:1 ink with a brighter peach-red accent, for a little more warmth." },
+      { "combination": 207, "colours": ["Glaucous Green", "Black", "Sudan Brown"], "reason": "Soft sage ground, black ink at 11.05:1, earthy accent: calm and natural." },
+      { "combination": 139, "colours": ["Neutral Gray", "Deep Indigo", "Salvia Blue"], "reason": "Near-monochrome: grey ground, indigo ink at 9.87:1, a dusty blue accent; for the quietest pieces (the accent is low-contrast, so pair it with isolation)." },
+      { "combination": 229, "colours": ["Neutral Gray", "Deep Slate Olive", "Golden Yellow"], "reason": "Grey ground with one golden-yellow object: a single lit window, a lemon, a sun." },
+      { "combination": 151, "colours": ["Sulpher Yellow", "Vandar Poel's Blue", "Yellow Orange"], "reason": "Pale cream ground, blue ink at 7.51:1, a small orange accent; the accent is light, so keep it next to ink." },
+      { "combination": 84, "colours": ["Seashell Pink", "Deep Slate Green"], "reason": "Two colours only: blush ground and deep green ink at 10.45:1. Object in ink, no accent." },
+      { "combination": 52, "colours": ["Sulpher Yellow", "Black"], "reason": "Two colours only: cream paper and black at 15.67:1. The purest negative-space pairing." }
+    ],
+    "avoid": "Dark grounds as the default (they read as dramatic rather than calm; use only for night themes and keep text at 7:1), saturated grounds (chroma above 40: the ground starts to shout), and combinations where the ink is decorative (inkUse not 'body')."
+  },
+
+  "texture": {
+    "halftone": { "use": "none" },
+    "grain": "Optional and very subtle paper grain on print only (under 3% tonal variation). Never on screen.",
+    "rule": "The ground stays flat. Texture would fill the space this style is about."
+  },
+
+  "media": {
+    "$comment": "Full-bleed photo or video behind the content. The photo's own calm area is the negative space. Treatment ids refer to foundations/layout/media.json (calm-region, solid-band, plate, scrim-gradient, tint, blur, duotone, text-shadow). Templates: layouts.json ns-poster-photo, ns-post-4x5-photo, ns-story-video, ns-hero-video.",
+    "choose": {
+      "subject": "One subject: a person seen small, an animal, a building, a boat, a single product. No crowds, no groups of equal things.",
+      "calm": ["sky", "sea or lake", "snow or sand", "plain wall", "floor or table top", "mist or fog", "shallow depth of field (background out of focus)", "night sky"],
+      "avoid": ["busy streets", "foliage or crowds behind the text area", "high-contrast patterns (tiles, stripes, brick) in the text zone", "horizons that cut through the headline", "stock 'person on a mountain top with arms raised'"],
+      "light": "Soft, even light (overcast, dusk, early morning) keeps the calm area flat; hard noon light makes busy shadows."
+    },
+    "subjectSize": {
+      "areaOfFramePct": [0.5, 6],
+      "idealAreaPct": [1, 3],
+      "heightOfFramePct": [5, 25],
+      "rule": "The subject's bounding box covers at most 6% of the frame (ideal 1-3%). For a person: 5-15% of the frame height on posters and posts, up to 25% on wide heroes where the frame is short."
+    },
+    "placement": {
+      "rule": "Subject in the low third or on one side third, never dead centre unless it faces the camera. Its gaze or movement points into the empty area, and the text zone is in that area.",
+      "gaze": "A face or body turned toward the text, not toward the viewer (research.md 3.4). Faces looking at the camera pull attention away from the words; keep them for pieces where the face is the message.",
+      "horizon": "Put the horizon low (70-85% down) for a sky field, or high (15-30% down) for a floor or water field. Never through the text zone.",
+      "safeAreas": "In stories and reels the subject stays inside the live band (top 14%, bottom 35%, sides 6%) so platform captions and buttons never cover it."
+    },
+    "textZone": {
+      "rule": "All text sits in one calm region of the frame, inside the grid margins and safe areas. The text zone holds no edges, faces, horizons or highlights.",
+      "calmTest": "Inside the text zone the photo's luminance varies by less than 15% of the full range (blur the frame by 2% of its width and check), and it contains no edges sharper than the type itself.",
+      "minAreaPct": 15
+    },
+    "treatment": {
+      "default": "calm-region",
+      "rule": "No overlay at all when the text passes contrast on the calm region (4.5:1 for body and small text, 3:1 for headlines 24 px and above, measured against the lightest and darkest pixels behind the letters). Otherwise use the least visible treatment that passes, in this order.",
+      "order": [
+        { "id": "calm-region", "use": "Re-crop or re-shoot first: move the text zone to a calmer, more even part of the frame." },
+        { "id": "duotone", "use": "Map the photo to two colours of the Wada combination (ground and ink). Fixes contrast and makes the photo part of the palette; suits this style best." },
+        { "id": "tint", "use": "A uniform tint of the ground colour over the whole frame at 10-30%. Invisible as a shape." },
+        { "id": "blur", "use": "Blur only the background (as with a shallow lens) at 1-2% of the frame width. Best in-camera." },
+        { "id": "scrim-gradient", "use": "Last resort: a long, soft gradient of the ground colour from the text edge, at most 35% opacity, covering at least 40% of the frame so its edge is never seen." }
+      ],
+      "avoid": [
+        { "id": "solid-band", "why": "A band fills the space the style is about and reads as an ad strip." },
+        { "id": "plate", "why": "A box behind the text is a second object competing with the subject." },
+        { "id": "text-shadow", "why": "Halos look cheap and thicken small type; if contrast fails, fix the photo instead." }
+      ]
+    },
+    "video": {
+      "camera": "Locked off (tripod), or a very slow push or drift of at most 2% of the frame width per 10 seconds. No handheld shake, whip pans, zooms or drone swoops.",
+      "subjectMotion": "One slow natural movement (a figure walking, water, mist, grass, a boat drifting), moving into the empty area, not out of frame toward the viewer.",
+      "cuts": "Few: shots of at least 4 seconds; a 6-15 s loop is often a single shot.",
+      "text": "Words appear once, after the first hold (about 1-2 s), with a slow fade or 0.2em rise, and then stay perfectly still. Never animate text with the footage, never place it over the moving part of the frame.",
+      "holdsMs": [2000, 4000],
+      "loop": "Loops end on the same calm frame they start on; the first frame works as a poster for reduced motion and slow connections.",
+      "accessibility": "Video that moves for more than 5 seconds next to other content needs a pause control (WCAG 2.2.2 Pause, Stop, Hide). Respect prefers-reduced-motion by showing the poster frame."
+    }
+  },
+
+  "vocabulary": {
+    "$comment": "Objects that read well small and alone, and what the space around them says. Pick one from the product's own world; let the space supply the benefit.",
+    "symbols": [
+      { "id": "boat", "means": ["journey", "patience", "freedom"], "space": "sea, distance, time" },
+      { "id": "single-figure", "means": ["the customer", "solitude", "freedom", "scale"], "space": "room to think, the open road" },
+      { "id": "house", "means": ["home", "shelter", "belonging"], "space": "land, quiet, privacy" },
+      { "id": "lit-window", "means": ["home", "welcome", "evening"], "space": "night, calm" },
+      { "id": "cup", "means": ["pause", "comfort", "morning"], "space": "a slow morning" },
+      { "id": "seed-or-sprout", "means": ["beginnings", "growth"], "space": "potential, what comes next" },
+      { "id": "bird", "means": ["freedom", "lightness", "news"], "space": "sky" },
+      { "id": "kite", "means": ["play", "lift", "wind"], "space": "sky, height" },
+      { "id": "key", "means": ["access", "home", "solution"], "space": "what it opens" },
+      { "id": "chair", "means": ["rest", "a place for you", "waiting"], "space": "the room, calm" },
+      { "id": "door", "means": ["opportunity", "entry", "privacy"], "space": "what lies beyond" },
+      { "id": "moon", "means": ["night", "rest", "calm"], "space": "night sky" },
+      { "id": "single-product", "means": ["the product itself", "quality", "focus"], "space": "nothing to distract" },
+      { "id": "ball", "means": ["play", "a game", "potential energy"], "space": "the field, the throw" },
+      { "id": "footprints", "means": ["first steps", "presence", "journey"], "space": "untouched ground" }
+    ],
+    "avoid": [
+      { "symbol": "zen stones, bamboo, ensō circles, kanji", "for": "calm", "why": "Clichés that borrow Japanese culture as decoration (research.md 5)." },
+      { "symbol": "lone person on a mountain top with arms raised", "for": "success", "why": "Stock-photo cliché." },
+      { "symbol": "lightbulb", "for": "idea", "why": "The most worn-out symbol in advertising." },
+      { "symbol": "a tiny logo alone in the middle", "for": "premium", "why": "Says nothing; the space must be about the customer's benefit, not the brand." },
+      { "symbol": "scattered small icons", "for": "features", "why": "Turns the ground into a pattern; the opposite of this style." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to find the one image and its space.",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "Ask what the emptiness should stand for: time, calm, scale, quiet, focus, quality, distance, possibility.",
+      "Pick one small object from the product's world whose relation to that space makes the point (a boat on a wide sea = time; a lit window in the dark = welcome).",
+      "Decide which way the object faces or moves, and put the open field and the words on that side.",
+      "Set the headline small on a margin. Test: if you remove the headline, does the image still say something? If you remove the space (crop tight), does the idea disappear? Both should be yes.",
+      "Measure empty ground (at least 60%, ideally 70-90%) and check text contrast at its real size."
+    ],
+    "examples": [
+      { "object": "small boat", "space": "wide flat sea", "idea": "something that takes its time (the sample poster)" },
+      { "object": "one lit window", "space": "dark field", "idea": "someone is home; welcome" },
+      { "object": "single chair", "space": "empty room", "idea": "a seat kept for you" },
+      { "object": "kite", "space": "high empty sky", "idea": "lift, a light product" },
+      { "object": "one footprint", "space": "untouched snow", "idea": "be first" }
+    ]
+  },
+
+  "checklist": [
+    "Empty ground at least 60% of the artboard (ideal 70-90%), in one connected field.",
+    "One small object, 8-30% of the short side, readable as a silhouette.",
+    "The object faces or moves into the open field; ahead at least twice behind.",
+    "Edges: object at least 15% from an edge, or deliberately on the margin or cropped; never 10-15%.",
+    "Headline small and quiet (typography.json sizes), on a margin line, brand beside it.",
+    "Ground 85-97%, ink 2-8%, accent 0.2-2% on one part of the object.",
+    "Text passes AA at its real size (aim 7:1).",
+    "Media: subject 0.5-6% of the frame, text in a calm region with no overlay if contrast passes; video locked off, text still."
+  ]
+}
