@@ -1,0 +1,75 @@
+{
+  "$comment": "Doodles motion data: hand-animated, frame by frame. Ink lines 'boil' (a few slightly different redraws looping) and draw on in visible steps, like drawings shot on twos or threes. Springs are used only for snappy pops. Frame rates are animation practice (on twos = 12 drawings a second at 24 fps), labelled as rules of thumb; Squigglevision is the reference for boil (research.md 2.4).",
+
+  "character": "Drawn, not tweened: lines tremble with life, marks appear stroke by stroke, and small things wiggle on held beats. Lively but never frantic, and the artwork always comes to rest.",
+
+  "frameRates": {
+    "$comment": "Rule of thumb from hand animation. Lower fps = more hand-made, choppier.",
+    "boilFps": [8, 12],
+    "boilDefaultFps": 10,
+    "drawFps": 12,
+    "frameMs": { "8fps": 125, "10fps": 100, "12fps": 83 }
+  },
+
+  "springs": {
+    "$comment": "Damped spring presets. stiffness k, damping c, mass m. Damping ratio = c / (2 * sqrt(k * m)). Sample the result on the 12 fps grid (steps) for the hand-made feel when used on artwork.",
+    "snap": { "stiffness": 420, "damping": 20, "mass": 1, "use": "Marks and fills popping on: fast, about 20% overshoot." },
+    "lively": { "stiffness": 200, "damping": 17, "mass": 1, "use": "The focal object arriving; about 10% overshoot." },
+    "soft": { "stiffness": 170, "damping": 26, "mass": 1, "use": "UI feedback (buttons, cards) and text. No overshoot, not stepped." }
+  },
+
+  "easings": {
+    "boil": { "css": "steps(1, end)", "use": "Swapping boil frames: each redraw holds for one frame, then jumps." },
+    "draw": { "css": "steps(12, end)", "use": "Ink drawing on over about 1 s in 12 visible steps (12 fps). Use steps(n) with n = duration in ms / 83." },
+    "drawSmooth": { "css": "cubic-bezier(0.4, 0, 0.2, 1)", "use": "Reduced-jank fallback for long paths on screens, or where steps look broken at small sizes." },
+    "wiggle": { "css": "steps(1, end)", "use": "Rotation flicks between held poses." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Things leaving: accelerate away, or cut on a frame." }
+  },
+
+  "moves": {
+    "boil": { "frames": 3, "fps": 10, "loopMs": 300, "wobble": "Each frame redraws the line with the same wobble amplitude and a new seed (art.json line.wobble).", "use": "The focal object or headline drawing staying alive. 3 frames looping; 2 looks like flicker, 4+ looks like noise." },
+    "draw": { "duration": [400, 1000], "easing": "draw", "use": "Ink lines appearing stroke by stroke, in drawing order (outline first, details after)." },
+    "scribbleFill": { "duration": 330, "easing": "steps(4, end)", "use": "A fill colour slapping on in 4 frames, offset from the line." },
+    "pop": { "spring": "snap", "fromScale": 0.6, "use": "Small marks (stars, sparkles, dots) appearing." },
+    "wiggle": { "rotateDeg": [-4, 4], "poses": 3, "holdMs": 250, "use": "A mark flicking between 3 poses on held beats: a star twinkling, a face nodding." },
+    "bounce": { "translatePct": 1.5, "frames": 4, "holdMs": 166, "use": "A small mark hopping on the 12 fps grid. Not for text." },
+    "underline": { "duration": 500, "easing": "draw", "use": "A wavy underline drawing under one word after the headline lands." },
+    "rise": { "spring": "soft", "distance": "0.3em", "use": "Set text (body, CTA) entering. Not stepped, not boiling." }
+  },
+
+  "durations": {
+    "$comment": "Rules of thumb. Snap durations to multiples of a frame (83 ms at 12 fps) when stepping.",
+    "minMs": 166,
+    "maxMs": 1200,
+    "formula": "draw duration = 83 ms x number of strokes, between 400 and 1000 ms per object",
+    "byElement": { "mark": 250, "fill": 330, "focal": 900, "underline": 500, "text": 350, "wallReveal": 1200 }
+  },
+
+  "choreography": {
+    "order": ["ground", "focal object (draw)", "fills (scribbleFill)", "marks around it (draw or pop, staggered)", "headline (appears whole, or hand-lettered line draws on)", "underline or arrow to the headline (draw)", "body and CTA (rise)", "focal boil starts"],
+    "stagger": 83,
+    "staggerRule": "Marks appear one after another on the frame grid (83 ms apart), nearest to the focal first, spreading outward.",
+    "wallReveal": "In wall mode, reveal marks in 4-6 waves from the clearing outward over at most 1.2 s, not one by one.",
+    "maxMovingThings": 2,
+    "movingThingsNote": "Boil on the focal is texture, not movement; it may run alongside one other moving mark.",
+    "loop": { "lengthMs": [2000, 4000], "endsOn": "A still frame (boil frame 1) that works as a poster on its own." },
+    "hold": 600
+  },
+
+  "implementation": {
+    "svgBoil": "Draw each boiling path 3 times with different wobble seeds; show one at a time with a CSS animation: @keyframes boil { 0% {opacity:1} 33.33% {opacity:0} } using steps(1, end), offset with animation-delay -100 ms and -200 ms.",
+    "svgFilterBoil": "Alternative: an feTurbulence + feDisplacementMap filter (scale 1.5-3) whose seed attribute changes 3 times per loop via SMIL <animate> with calcMode=\"discrete\". Cheaper to author, heavier to render; avoid on large areas.",
+    "drawOn": "pathLength=\"1\", stroke-dasharray 1, stroke-dashoffset from 1 to 0 with the draw easing.",
+    "lottieAndVideo": "In After Effects or Lottie, set the comp to 24 fps and hold keys on twos (posterize time at 12 fps) for artwork."
+  },
+
+  "rules": [
+    "Artwork moves on the frame grid (8-12 fps); set text and UI move smoothly.",
+    "Boil only the focal object, the headline lettering or a whole wall, never body text, prices or buttons.",
+    "Lines draw on, fills slap on, marks pop on. Never fade the artwork in.",
+    "Loops last 2-4 s and end on a still frame; boil may continue for at most 10 s, then stops on frame 1.",
+    "No smooth morphs, camera moves or parallax: they break the hand-drawn illusion.",
+    "With reduced motion: show the final frame, no boil, no wiggle.",
+    "Flashing guard: boil changes only line position (1-3 units), never colour or brightness, so it stays far from photosensitivity flash thresholds."
+  ]
+}

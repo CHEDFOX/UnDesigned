@@ -1,0 +1,156 @@
+{
+  "$comment": "Doodles type direction. Fonts come from foundations/typography/source/pairings.json plus the newPairings below; this file says which suit this approach and how to set them. Unlike Humanist Minimal, Doodles allows a hand-lettered display, under strict limits. Sizes are rules of thumb unless a source is given.",
+
+  "character": "Two hands on one page: a hand-lettered headline that sounds like someone talking, and plain, clear set type for everything you need to read or act on. The lettering joins the drawing; the body type stays out of it.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging type for this approach.",
+    "display": {
+      "strokes": { "want": "Monoline, like a felt-tip or marker", "why": "Matches the one-pen rule; a brush or nib swell reads as a different tool." },
+      "forms": { "want": "Print (unjoined) letters, open counters, slightly irregular", "why": "Readable at a glance; joined scripts slow reading and look formal." },
+      "variation": { "want": "Some glyph variation (alternates or a 'bounce' axis)", "why": "Repeated identical letters give away a font; variation keeps the hand alive." },
+      "weight": { "want": "Bold enough that stems are 1.5-3x the pen width", "why": "Lettering sits on top of the marks in the hierarchy." }
+    },
+    "body": {
+      "apertures": { "want": "Open", "why": "Body text sits near busy marks; open letters stay legible." },
+      "tone": { "want": "Friendly, plain sans (or a calm serif for long reading)", "why": "Lets the drawing carry the personality." }
+    },
+    "avoid": ["Joined scripts and calligraphy fonts", "Joke or 'comic' fonts with no text weight", "Distressed, grunge or chalk-texture fonts", "Hand fonts for body text, buttons or prices", "Two different hand faces in one piece"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach.",
+    "bricolage-figtree": { "fit": "core", "why": "The irregular, ink-trapped display reads as hand-touched next to doodles, and Figtree stays clear for body. The best choice when the headline is set rather than lettered." },
+    "nunito": { "fit": "good", "why": "Round terminals echo the round pen ends; keep doodles grown-up (no faces overload), because round type plus doodles drifts towards childish." },
+    "young-onest": { "fit": "good", "why": "The soft, heavy serif looks inked with a felt-tip and holds its own against a wall; Onest is a clear body." },
+    "schibsted": { "fit": "good", "why": "Neutral grotesque gives the clean-type-plus-scribbles contrast; works when the doodles carry all the warmth." },
+    "source": { "fit": "good", "why": "Very readable for sketchnote pages with real text; the serif display is calm next to busy marks." },
+    "fraunces-commissioner": { "fit": "accent", "why": "Its own bouncy charm competes with the doodles; use SOFT high, WONK off, one weight, margin mode only." },
+    "alegreya": { "fit": "accent", "why": "Broad-nib calligraphic contrast is a second 'hand' that clashes with the monoline pen; fine for literary pieces with few marks." },
+    "instrument": { "fit": "accent", "why": "High-contrast condensed serif with margin doodles makes an editorial-notebook look; avoid in wall mode, where its hairlines get lost." },
+    "plex": { "fit": "accent", "why": "Engineered tone suits whiteboard-style technical sketchnotes; otherwise too cool for the style." }
+  },
+
+  "newPairings": [
+    {
+      "id": "shantell-figtree",
+      "name": "Marker Talk",
+      "mood": "A marker hand that is designed to be read: monoline, unjoined, with Bounce and Informality axes that make repeated letters vary. Figtree keeps body text calm.",
+      "bestFor": "Doodles headlines, labels and annotations; social posts, posters, playful landing pages.",
+      "display": {
+        "family": "Shantell Sans",
+        "weights": [600, 800],
+        "italic": true,
+        "style": "Marker-style handwriting sans with bounce and informality axes",
+        "case": "Sentence case",
+        "tracking": -0.01,
+        "leading": 1.02,
+        "designer": "Shantell Martin, Arrow Type (Stephen Nixon), Anya Danilova",
+        "classification": "Handwriting display sans",
+        "axes": ["wght 300-800", "BNCE -100-100", "INFM 0-100", "SPAC 0-100"],
+        "notes": "A marker-style font based on the artwork, handwriting and creative philosophy of artist Shantell Martin, built for typographic play and animation (Arrow Type README). Use BNCE 30-60 and INFM 50-100 for headlines (needs the rlig feature on for randomisation); INFM 0 for labels at small sizes. On Google Fonts since 2023."
+      },
+      "body": {
+        "family": "Figtree",
+        "weights": [400, 500, 700],
+        "style": "Geometric-humanist sans, open apertures",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Erik Kennedy",
+        "classification": "Geometric-humanist sans",
+        "axes": ["wght 300-900"]
+      },
+      "mono": {
+        "family": "JetBrains Mono",
+        "weights": [400, 500]
+      }
+    },
+    {
+      "id": "gochi-alegreya-sans",
+      "name": "Notebook Hand",
+      "mood": "A quick, teenage-notebook marker hand over a warm humanist sans from the same designer, so the two share proportions.",
+      "bestFor": "Sketchnote pages, menus, education, friendly local brands.",
+      "display": {
+        "family": "Gochi Hand",
+        "weights": [400],
+        "style": "Marker handwriting",
+        "case": "Sentence case",
+        "tracking": 0,
+        "leading": 1.05,
+        "designer": "Juan Pablo del Peral (Huerta Tipográfica)",
+        "classification": "Handwriting display",
+        "axes": [],
+        "notes": "Single weight; described by its designer as an interpretation of a teenager's handwriting. On Google Fonts since 2011. Headlines and labels only."
+      },
+      "body": {
+        "family": "Alegreya Sans",
+        "weights": [400, 500, 700],
+        "style": "Humanist sans with calligraphic roots",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Juan Pablo del Peral (Huerta Tipográfica)",
+        "classification": "Humanist sans",
+        "axes": []
+      },
+      "mono": {
+        "family": "IBM Plex Mono",
+        "weights": [400, 500]
+      }
+    }
+  ],
+
+  "handLettering": {
+    "$comment": "Rules for any hand lettering, drawn or from a hand-lettered font.",
+    "where": ["Headline of up to 8 words", "Labels and annotations of up to 3 words", "One emphasised word inside a set headline"],
+    "never": ["Body text", "Calls to action and buttons", "Prices, dates, legal text, addresses"],
+    "drawnByHand": "For hero pieces, letter the headline by hand with the piece's pen (stems 1.5-3 pen widths, so use a marker or double-stroke the fineliner), then vectorise. Keep the font for everyday work.",
+    "tiltDeg": [-3, 3],
+    "baseline": "May bounce (Shantell BNCE) or drift by up to 4% of the cap height; set type never does.",
+    "mixing": "Hand display + set body. Never two hand faces, never a hand face plus a drawn headline in the same piece."
+  },
+
+  "typeWithArt": {
+    "weightMatch": "Hand-lettered headline stems at 1.5-3x the pen width, so the words sit one step above the marks. Set body text weight close to the pen width.",
+    "scaleMatch": "Headline cap height at least 1.5x the height of the average surrounding mark, so the words win over the doodles.",
+    "alignment": "Set text aligned to one edge. Hand lettering can tilt and sit freely, but stays on or next to a clearing.",
+    "spacing": "A mark-free band of at least one margin around body text and the CTA; marks may touch the headline only to point at or underline it."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb. Hand faces have small x-heights at the same size, so they run 10-15% larger than Humanist Minimal's headlines.",
+    "byFormat": {
+      "billboard": { "headlinePct": [11, 16], "body": "none" },
+      "poster": { "headlinePct": [4.5, 8], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [4.5, 8], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [3.5, 5.5], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [3, 4.5], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [5.5, 9], "bodyMinPx": 32 },
+      "story": { "headlinePct": [4, 5.5], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [4.5, 6.5], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [13, 20], "body": "none" },
+      "web-banner": { "headlinePct": [13, 22], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [44, 96], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [30, 44], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading, and add 15% for hand faces."
+  },
+
+  "setting": {
+    "measure": { "chars": [45, 75], "ideal": 66, "source": "Bringhurst, The Elements of Typographic Style" },
+    "leading": { "display": [1.0, 1.12], "subhead": [1.2, 1.3], "body": [1.45, 1.6] },
+    "tracking": { "displayEm": [-0.02, 0.01], "bodyEm": 0, "smallEm": [0, 0.01], "labelCapsEm": [0.08, 0.12] },
+    "case": "Sentence case everywhere, in lettering too. Capitals only for set labels of one to three words.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "rag": "Ragged right; no justified text; balance headline lines (text-wrap: balance).",
+    "numbers": "Prices, dates and times are set in the body or mono face, never hand-lettered; a doodle may circle or point to them."
+  },
+
+  "rules": [
+    "Hand lettering for up to 8 headline words or 3-word labels; set type for everything else.",
+    "One hand face (or drawn lettering) per piece, never both.",
+    "Three sizes and two weights per piece; sentence case.",
+    "Body text and CTA on plain ground with a mark-free band around them.",
+    "No joined scripts, joke fonts or grunge textures."
+  ]
+}

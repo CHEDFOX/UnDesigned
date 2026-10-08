@@ -1,0 +1,211 @@
+{
+  "$comment": "Doodles art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages. Colours are roles only; hex values always come from the product's Wada combination. Numbers are rules of thumb tuned on sample.mjs and the references in research.md, unless a source is given.",
+
+  "line": {
+    "$comment": "One pen per piece: a fineliner for walls and pages, a marker for margin pieces with a big focal object. Never both.",
+    "pens": {
+      "fineliner": { "width": 2.6, "widthPct": 0.65, "use": "Wall and page modes, small marks (most marks 20-45 units across)." },
+      "marker": { "width": 4.5, "widthPct": 1.1, "use": "Margin mode, where a focal object is 35-55% of the short side and marks are larger." }
+    },
+    "cap": "round",
+    "join": "round",
+    "wobble": 1.5,
+    "wobbleRange": [1, 2.5],
+    "segment": 8,
+    "wobbleVsHumanist": "About twice the relative wobble of Humanist Minimal and on a thinner line, so marks read as quick, not considered.",
+    "overshoot": {
+      "$comment": "Hands overshoot. Closed shapes don't close exactly; corners can run past.",
+      "closedLoopGap": [2, 6],
+      "cornerRunPast": [0, 4],
+      "share": "At least half of the closed shapes in a piece overshoot or leave a gap."
+    },
+    "doublePass": "Optional: one in five outlines may get a second, looser pass offset 1-2 units, as when a doodler goes over a line again. Never on text.",
+    "rules": [
+      "One weight in a piece: never thicker lines for important things. Importance comes from size, fill and position.",
+      "Ink is Wada Black on light grounds, or Wada White on a Wada Black ground (chalk mode). Never grey, coloured or dashed.",
+      "Stroke width does not scale with the mark: a small star and a big star use the same pen.",
+      "Points (star tips, arrowheads, zigzags) are rounded by the round cap; no hairline spikes."
+    ]
+  },
+
+  "shape": {
+    "$comment": "Doodle shapes are outlines first. Closed shapes may take a flat fill, printed off the line.",
+    "mode": "outline",
+    "markSizePct": { "wall": [5, 11], "page": [6, 14], "margin": [6, 16] },
+    "focalSizePct": { "wall": [25, 45], "page": [20, 35], "margin": [35, 55] },
+    "focalToMarkRatioMin": 3,
+    "rotation": { "marksDeg": [-25, 25], "lettersDeg": [-3, 3] },
+    "fills": {
+      "share": { "wall": [25, 45], "page": [15, 30], "margin": [10, 30] },
+      "offset": [2, 5],
+      "offsetDirection": "One direction for the whole piece (down-right by default), as if printed in two passes.",
+      "coverage": "The fill is the same shape as the outline, shifted; it may fall short of or run past the line on one side."
+    },
+    "rules": [
+      "Fills are flat colour only: no hatching inside a coloured fill.",
+      "Never trace a fill exactly inside its ink line.",
+      "One accent-coloured object per piece; other fills use the support colour or Wada White."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Layout and UI around the art. Doodles adds a hand-drawn frame option to the usual radius scale.",
+    "scale": { "xs": 4, "sm": 8, "md": 12, "lg": 20, "xl": 32, "pill": 999 },
+    "use": {
+      "button": "pill or md, with a solid fill and set type (never a hand-drawn button outline alone; it must look pressable)",
+      "chip": "pill",
+      "input": "sm",
+      "card": "lg, or a hand-drawn ink frame with a 2-4 unit wobble",
+      "image": "lg, or a hand-drawn blob mask",
+      "sheet / modal": "xl on the top corners"
+    },
+    "sketchFrame": "A hand-drawn outline in the piece's pen around a card or photo, drawn 3-6 units outside the box, overshooting at one corner.",
+    "print": "On posters and print, image box corners are 2-4% of the box's short side, or a sketch frame."
+  },
+
+  "composition": {
+    "marginPct": 8,
+    "modes": [
+      {
+        "id": "margin",
+        "use": "Default. A focal object or a headline, with 5-15 marks clustered around it like notes in a margin. Ads, social posts, landing heroes, packaging.",
+        "marks": [5, 15],
+        "emptyGroundMinPct": 45,
+        "placement": "Marks sit within 1.5 margins of the focal element or the headline, on at most two of its sides.",
+        "pen": "marker or fineliner"
+      },
+      {
+        "id": "page",
+        "use": "Sketchnotes: explaining a process, an agenda, a menu, a recap. Several small ideas joined into one route.",
+        "clusters": [3, 7],
+        "emptyGroundMinPct": 30,
+        "placement": "Clusters follow a reading path (Z, S or numbered); arrows, connectors and numbers show the order. One cluster is the focal one, at least 1.5x the others.",
+        "pen": "fineliner"
+      },
+      {
+        "id": "wall",
+        "use": "All-over pattern: a brand wall, packaging wrap, event backdrop, a hero that must stop people from across a room. At most one piece in three in a campaign.",
+        "coverPct": [70, 90],
+        "gapBetweenMarks": "1-3 pen widths; no holes larger than one mark",
+        "clearing": { "areaPct": [25, 40], "shape": "A hand-drawn cloud, blob or bubble outline in the same pen, filled with paper or ground", "holds": "The focal object or the headline, never both crowded in" },
+        "edge": "The wall stops on a drawn edge (a wobbly line) or runs off the artboard; never fades.",
+        "pen": "fineliner"
+      }
+    ],
+    "pairing": "Marks and headline work together: the marks point to or react to the words; they never repeat them as pictures (W5).",
+    "rules": [
+      "Choose one mode per piece and state it in the brief.",
+      "Body text, prices and calls to action sit on plain ground or paper with a mark-free band of at least one margin around them.",
+      "One focal point per piece, at least 3x the size of any other mark.",
+      "Marks point inwards, to the message: arrows and sparkles never lead the eye off the artboard.",
+      "In wall mode, the brand name and headline live in or next to the clearing, never on top of marks."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role, by mode. Colours come from the product's Wada combination.",
+    "roles": {
+      "ground": { "from": "combination bg (a light colour, L* 80 or more)", "areaPct": { "margin": [60, 80], "page": [55, 75], "wall": [35, 55] } },
+      "paper": { "from": "Wada White", "areaPct": [0, 30], "use": "Clearings, label patches, some fills." },
+      "ink": { "from": "Wada Black (Wada White in chalk mode)", "areaPct": { "margin": [5, 12], "page": [8, 18], "wall": [15, 30] } },
+      "fill": { "from": "One support colour of the combination", "areaPct": [3, 15] },
+      "accent": { "from": "combination accent", "areaPct": [1, 6], "limit": "One object." }
+    },
+    "method": [
+      "Start from combinations that contain a light colour (L* 80 or more) to use as ground; doodles need a pale page for black ink to read.",
+      "Black ink must reach AA (4.5:1) on the ground; every recommended combination passes at 9:1 or more (most at 12:1 or more).",
+      "Use the strongest-chroma colour of the combination as the accent (one object) and at most one other as the fill colour.",
+      "Combinations that include Wada Black can also run in chalk mode: black ground, Wada White ink, fills from the other colours. Use it for one piece in a set, not as default.",
+      "Avoid combinations whose only light colour is a muddy buff or olive for walls: large ink areas make them look dirty."
+    ],
+    "recommendedCombinations": [
+      { "id": 313, "colors": ["Yellow", "Carmine", "Diamine Green", "Black"], "why": "Loud, primary-feeling page: Yellow ground, Carmine accent, Diamine Green fills, Black ink built in. Best for walls." },
+      { "id": 298, "colors": ["Lemon Yellow", "Peach Red", "Raw Sienna", "Black"], "why": "Bright notebook yellow with a warm red accent; Raw Sienna fills suit food and craft." },
+      { "id": 276, "colors": ["Seashell Pink", "Yellow Green", "Eosine Pink", "Black"], "why": "Soft pink page with a fresh green accent and pink fills; playful without being loud." },
+      { "id": 190, "colors": ["Ivory Buff", "English Red", "Black"], "why": "Kraft-paper notebook feel; one red accent. Good for margin and page modes." },
+      { "id": 154, "colors": ["Yellow", "Blue", "Carmine"], "why": "Primary trio: Yellow ground, Blue fills, Carmine accent; strong sticker energy for walls." },
+      { "id": 88, "colors": ["Seashell Pink", "Blue"], "why": "Calm two-colour page: pale pink ground, Blue as both fill and accent. Margin mode." },
+      { "id": 49, "colors": ["Pale King's Blue", "Blue"], "why": "Sky-blue page with deeper Blue fills; cool and clear for tech or health." },
+      { "id": 31, "colors": ["Pale Lemon Yellow", "Red Orange"], "why": "Very light lemon page with one hot accent; the quietest ground for page-mode sketchnotes." },
+      { "id": 25, "colors": ["Nile Blue", "Etruscan Red"], "why": "Pale aqua page with a warm red accent: a cooler alternative for margin mode." },
+      { "id": 62, "colors": ["Yellow", "Black"], "why": "Ink on yellow only, or chalk mode (Yellow ink fills on a Black ground) for a single stand-out piece." },
+      { "id": 256, "colors": ["Vinaceous Cinnamon", "Orange", "Dull Viridian Green", "Black"], "why": "Warm peach page, orange accent, green fills: friendly for food and family products." }
+    ]
+  },
+
+  "texture": {
+    "hatching": {
+      "$comment": "The only shading. Parallel pen strokes, like shading in a notebook margin.",
+      "angleDeg": 45,
+      "spacing": "2.5-3.5 pen widths",
+      "crossHatch": "A second set at 90 degrees for the darkest areas only.",
+      "use": "Shadows, the dark side of an object, emphasis bands on one focal shape.",
+      "maxAreaPct": 10
+    },
+    "stipple": { "dot": "1 pen width", "use": "Sparkle, dust, crumbs, filler between wall marks." },
+    "grain": "None on screen. On print, a real pen or a pen texture brush is welcome."
+  },
+
+  "vocabulary": {
+    "$comment": "Marks and what they usually do. Pick marks for their job (DD2); in wall mode, mix 6-10 kinds and repeat them.",
+    "marks": [
+      { "id": "arrow", "job": "point", "means": ["look here", "this leads to that", "direction"], "draw": "Curved shaft, open two-stroke head; curly arrows for a playful route." },
+      { "id": "circle-around", "job": "point", "means": ["this one", "emphasis"], "draw": "Loop drawn around a word or object, overshooting its start." },
+      { "id": "underline", "job": "point", "means": ["emphasis"], "draw": "Wavy or double line under one word, never a whole sentence." },
+      { "id": "star", "job": "celebrate", "means": ["best", "new", "favourite"], "draw": "Five points, rounded tips; may get the accent fill." },
+      { "id": "sparkle", "job": "celebrate", "means": ["new", "clean", "magic"], "draw": "Four or eight short strokes crossing, or 3 tick marks around an object." },
+      { "id": "spiral", "job": "react", "means": ["thinking", "dizzy", "energy"], "draw": "Open spiral of 2-3 turns." },
+      { "id": "squiggle", "job": "texture", "means": ["energy", "noise", "fun"], "draw": "A short sine or zigzag line." },
+      { "id": "loop", "job": "link", "means": ["journey", "process", "playfulness"], "draw": "A line with 2-4 loop-de-loops on the way to its target." },
+      { "id": "speech-bubble", "job": "react", "means": ["voice", "a quote", "a reaction"], "draw": "Wobbly bubble with a tail; holds 1-6 set words." },
+      { "id": "thought-cloud", "job": "react", "means": ["ideas", "dreams"], "draw": "Bumpy cloud with two or three small trailing circles." },
+      { "id": "face", "job": "react", "means": ["feeling", "people", "delight"], "draw": "Round outline, two dot eyes, one line mouth. No noses, no cheeks, no lashes." },
+      { "id": "heart", "job": "celebrate", "means": ["love", "care", "favourite"], "draw": "Slightly lopsided, closed with an overshoot." },
+      { "id": "check", "job": "count", "means": ["done", "included"], "draw": "Two strokes, the second longer; for lists." },
+      { "id": "number", "job": "count", "means": ["order", "steps"], "draw": "Hand-drawn numeral in a circle." },
+      { "id": "eye", "job": "react", "means": ["look", "notice"], "draw": "Almond outline with a filled pupil." },
+      { "id": "sun", "job": "celebrate", "means": ["morning", "warmth", "good news"], "draw": "Small disc with 6-10 short rays." },
+      { "id": "flower", "job": "texture", "means": ["growth", "kindness"], "draw": "Looped petals around a small centre." },
+      { "id": "hatching", "job": "texture", "means": ["shadow", "weight"], "draw": "Parallel strokes at 45 degrees." },
+      { "id": "dots", "job": "texture", "means": ["sparkle", "crumbs", "filler"], "draw": "Groups of 3-5 single-pen-width dots." },
+      { "id": "pointing-hand", "job": "point", "means": ["here", "this way"], "draw": "Simple hand with one pointing finger; use once per piece." }
+    ],
+    "avoid": [
+      { "symbol": "exclamation marks (drawn)", "for": "excitement", "why": "The copy rules ban them; drawn ones say the same thing." },
+      { "symbol": "lightbulb", "for": "idea", "why": "The most worn-out symbol in advertising." },
+      { "symbol": "rocket", "for": "launch or growth", "why": "Startup cliché." },
+      { "symbol": "skulls, weapons, crude body parts", "for": "edge", "why": "Common in real notebooks, wrong for brands; they hijack the message." },
+      { "symbol": "another artist's characters", "for": "instant 'doodle' look", "why": "Haring's babies and dogs, Mr Doodle's characters and Burgerman's creatures are signatures of named artists and estates. Draw your own." },
+      { "symbol": "graffiti tags and bubble letters", "for": "street feel", "why": "Belong to a living subculture with its own rules; faking them reads as costume." },
+      { "symbol": "emoji or icon-pack doodles used unchanged", "for": "speed", "why": "Perfect, generic and seen everywhere; they break the one-pen rule." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to make a doodle piece: think out loud around one message. Adapted from sketchnoting practice (research.md 2.2).",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "Pick the mode: margin, page or wall (composition.modes). Most pieces are margin.",
+      "Draw the focal: one object from the product's world, or the hand-lettered headline itself, at the focal size for the mode.",
+      "Think out loud around it: add marks that point (arrow, circle), count (numbers, checks), celebrate (star, sparkle) or react (face, bubble). Each mark has one job.",
+      "Fill some closed shapes with the support colour, offset in one direction; give the accent to the one object that matters most.",
+      "Count and cut: stay inside the mode's mark count and empty-ground minimum. Remove any mark that does nothing.",
+      "Set the body text and call to action in clear type, with a mark-free band around them."
+    ],
+    "examples": [
+      { "mode": "margin", "focal": "a coffee cup", "marks": "steam squiggles, a sparkle on the cup, an arrow to the price, a small smiling face", "idea": "the first good moment of the day" },
+      { "mode": "page", "focal": "a numbered route of 4 steps", "marks": "arrows between steps, checks, one star on the last step", "idea": "how the service works, in 30 seconds" },
+      { "mode": "wall", "focal": "a pen drawing a loop that becomes a star, in a paper cloud", "marks": "stars, spirals, faces, clouds, hearts, squiggles all over", "idea": "ideas come from drawing (sample.mjs)" }
+    ]
+  },
+
+  "checklist": [
+    "Mode chosen (margin, page or wall) and its counts respected.",
+    "One pen: one stroke width everywhere, round ends, visible wobble, loops overshoot.",
+    "One focal element at least 3x any other mark; in wall mode it sits in a clearing of 25-40%.",
+    "Every mark near the message has a job (point, count, celebrate, react, link).",
+    "Black ink on a light Wada ground; fills from at most two combination colours, offset in one direction; accent on one object.",
+    "Hand lettering only for the headline (up to 8 words) or short labels; body and CTA set in type, with a mark-free band around them.",
+    "No drawn exclamation marks, no copied artist characters, no stock icons."
+  ]
+}

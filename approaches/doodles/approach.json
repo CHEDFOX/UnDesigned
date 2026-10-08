@@ -1,0 +1,112 @@
+{
+  "$comment": "Doodles: principles and per-layer rules. The data lives beside this file: art.json (line, marks, density modes, palette ratios, vocabulary), motion.json (line boil, draw-on, wiggle), typography.json (hand lettering with set type, fit for each pairing), research.md (sources and reasoning), sample.mjs (a sample poster). Colours always come from the colour system.",
+  "name": "Doodles",
+  "summary": "Spontaneous pen marks, as if someone thought out loud in the margin of a notebook: one pen weight, wobbly loops, arrows, stars, spirals, faces and squiggles, flat Wada colour slapped on slightly off the line, and a few hand-lettered words over plain set type. Density is a choice (a few marks around one focal idea, a sketchnote page, or an all-over wall with a clearing), never an accident.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "DD1",
+      "title": "One pen",
+      "rule": "Every mark in a piece is drawn with the same pen: one line weight, round ends, a visible wobble. No pressure swell, no second pen, no tool-perfect strokes. The hand shows in the path and in loops that don't quite close.",
+      "source": "Handmade effect; Steinberg and Haring (research.md 2.1, 3)"
+    },
+    {
+      "id": "DD2",
+      "title": "Marks have jobs",
+      "rule": "A doodle points, counts, circles, links, celebrates or reacts. Around a message, every mark must do one of those jobs; a mark that does nothing goes. Only the wall mode may use marks as pure texture.",
+      "source": "Sketchnoting (research.md 2.2)"
+    },
+    {
+      "id": "DD3",
+      "title": "One focal idea, even in a crowd",
+      "rule": "Every piece has one focal element (a drawn object, the headline, or both) that is at least 3 times larger than any surrounding mark. In the wall mode it sits in a clearing that takes 25-40% of the area.",
+      "source": "Low complexity and 50 ms clarity (research.md 3)"
+    },
+    {
+      "id": "DD4",
+      "title": "Choose the density",
+      "rule": "Pick one of three modes before drawing: margin (5-15 marks, at least 45% empty ground), page (a sketchnote: 3-7 clusters linked by arrows, at least 30% empty) or wall (marks cover 70-90% of the area, with one clearing). Never something in between.",
+      "source": "Complexity findings; Mr Doodle and Jon Burgerman (research.md 2.1, 3)"
+    },
+    {
+      "id": "DD5",
+      "title": "Colour off the line",
+      "rule": "Black ink on a flat Wada ground, plus flat fills from at most two of the combination's colours, printed slightly off the line (offset 2-5 units, same direction everywhere) and covering only some shapes. The accent colour goes on one object.",
+      "source": "Colour system; research.md 2.3"
+    },
+    {
+      "id": "DD6",
+      "title": "Hand letters for a few words",
+      "rule": "Hand lettering (drawn, or a hand-lettered display face from typography.json) is used for a headline of up to 8 words or labels of up to 3 words. Everything else, including all body text and calls to action, is set in a clear text face.",
+      "source": "Fluency; typography.json"
+    },
+    {
+      "id": "DD7",
+      "title": "Playful, not childish",
+      "rule": "Wit comes from what the marks say about the message (an arrow to the price, a star on the new thing), not from cute overload. Faces stay simple (two dots and a line), no mascots, no copying another artist's characters.",
+      "source": "research.md 4, 5"
+    },
+    {
+      "id": "DD8",
+      "title": "Boil, don't glide",
+      "rule": "Motion looks drawn frame by frame: lines boil at 8-12 drawings a second, lines draw on in steps, marks wiggle on a held beat. No smooth tweening of the artwork, and everything settles on a still frame.",
+      "source": "Squigglevision and hand animation (research.md 2.4)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination: its light colour as the ground, Wada Black ink, Wada White as paper (clearings, label patches), and flat fills from at most two other colours of the combination, offset from the line. Accent on one object.",
+      "dont": "Coloured or grey ink, gradients, shadows, fills traced exactly inside the line, more than two fill colours, every shape filled."
+    },
+    {
+      "layer": "Typography",
+      "do": "A hand-lettered or hand-lettered-looking display for a short headline (rated in typography.json), with a clear sans or serif for body. Sentence case, three sizes. Hand-lettered lines may tilt up to 3 degrees; set type stays level.",
+      "dont": "Hand lettering for body text, buttons or prices; script or wedding-calligraphy fonts; joke fonts; more than one hand face."
+    },
+    {
+      "layer": "Layout",
+      "do": "One of three density modes (margin, page, wall). Text on ground or on a paper clearing, aligned to one edge. Marks point at the message. Keep a mark-free band of at least one margin (8%) around body text.",
+      "dont": "Doodles behind or through body text, half-full layouts that are neither margin nor wall, marks running into the call to action."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Monoline ink marks from the vocabulary in art.json (arrows, stars, spirals, squiggles, loops, faces, clouds, bubbles, hatching), drawn with wobble and slight overshoot; one focal object at least 3x the size of the other marks.",
+      "dont": "Stock icons, clip-art doodle packs used unchanged, perfect geometry, tonal rendering, copied characters from named artists, graffiti tags."
+    },
+    {
+      "layer": "Motion",
+      "do": "Line boil (3 redraws looping at 8-12 fps with steps()), stepped draw-on, wiggles on held beats, pops on a snappy spring; loops of 2-4 s ending on a still frame (motion.json).",
+      "dont": "Smooth vector tweens of the artwork, morphing, camera moves, boiling body text, boil on screens people read for a long time."
+    },
+    {
+      "layer": "Photography",
+      "do": "Real photos annotated with ink: circles, arrows and short handwritten labels over a cut-out or flat-background photo, as if drawn on a print.",
+      "dont": "Doodles over faces, covering the product, or over busy photos; marks in more than one colour on a photo."
+    },
+    {
+      "layer": "Copy",
+      "do": "Plain and warm, to one person (see the messaging playbook). Hand-lettered words are the ones you would say out loud; annotations are 1-3 words.",
+      "dont": "Exclamation marks (in words or as drawn marks), hype, long hand-lettered sentences."
+    }
+  ],
+  "evidence": {
+    "scores": { "curves": 1, "simplicity": 1, "maya": 2, "nature": 1, "handmade": 2, "colour": 1, "glance": 1 },
+    "notes": {
+      "curves": "Loops, spirals, clouds and round faces dominate, but stars, zigzags and arrowheads add points; rounded tips are required (art.json) and keep it at 1.",
+      "simplicity": "Margin mode is low in complexity; page and wall modes are not. The guard rails (clearing, mode limits, one focal) lift the average to 1, not 2.",
+      "maya": "Notebook doodles are among the most familiar marks anyone knows (typical); using them as a brand's main voice is the fresh part.",
+      "nature": "A wobbling hand line is moderately rough, between ruler-smooth and noise, but there are no natural forms by default.",
+      "handmade": "The whole style is visible handwork: every mark shows a hand and a pen.",
+      "colour": "Mostly ink on a light ground, so colour liking depends on the chosen Wada combination; recommended grounds are pale yellows, pinks and blues.",
+      "glance": "Margin mode reads in 50 ms; wall mode only reads at a glance because of the clearing, and still costs some clarity."
+    },
+    "beyondPreference": [
+      { "wins": "Memory for what is drawn", "detail": "Drawing a word's meaning gave better free recall than writing it, across seven experiments (Wammes, Meade & Fernandes 2016). Supports sketchnote layouts that draw the key idea rather than only writing it; it is about the person drawing, so it is suggestive for viewers.", "source": "research.md 3" },
+      { "wins": "Invitation to take part", "detail": "Visibly sketchy visualisations may increase engagement and willingness to annotate (Wood et al. 2012); sketch renderings of buildings were received differently from CAD images and suited early discussion (Schumann et al. 1996). Doodles read as open and unfinished, which suits launches, workshops and feedback.", "source": "research.md 3" },
+      { "wins": "Distinctiveness and recognisability", "detail": "Doodle walls are recognised from across a room (Mr Doodle's house, Burgerman's murals); a wall in a brand's own Wada colours becomes an ownable pattern.", "source": "research.md 2.1" },
+      { "wins": "Attention while listening", "detail": "Andrade (2010) found that people who shaded shapes while listening to a dull message recalled more; later replications are mixed, so we do not claim viewers benefit.", "source": "research.md 3" }
+    ]
+  },
+  "references": []
+}
