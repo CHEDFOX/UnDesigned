@@ -1,0 +1,18 @@
+{
+  "$comment": "Words and phrases the copy checker flags (playbook rule W4). Lowercase. Add your own in config/messaging.json under voice.avoidWords.",
+  "cliches": [
+    "world-class", "world class", "best-in-class", "best in class", "cutting-edge", "cutting edge", "state-of-the-art", "state of the art",
+    "game-changer", "game changer", "game-changing", "revolutionary", "revolutionize", "innovative", "innovation", "disruptive",
+    "next level", "next-level", "take it to the next level", "like never before", "unlike any other", "second to none",
+    "one-stop shop", "one stop shop", "solutions", "seamless", "seamlessly", "synergy", "leverage", "robust", "holistic",
+    "unleash", "unlock your potential", "elevate", "empower", "supercharge", "transform your", "reimagine", "reimagined",
+    "think outside the box", "outside the box", "the best", "high quality", "high-quality", "premium quality", "top quality",
+    "passionate about", "customer-centric", "dedicated to excellence", "committed to excellence",
+    "look no further", "say goodbye to", "say hello to", "the wait is over", "you asked, we listened", "dive in", "dive into",
+    "in today's fast-paced world", "fast-paced world", "nestled", "a testament to", "tailored to your needs"
+  ],
+  "dated": [
+    "vibes", "slay", "no cap", "lit", "on fleek", "yolo", "fomo", "goated", "it's giving", "main character", "rizz", "bussin", "lowkey", "highkey"
+  ],
+  "weakCtas": ["click here", "learn more", "read more", "submit", "find out more", "more info", "click"]
+}

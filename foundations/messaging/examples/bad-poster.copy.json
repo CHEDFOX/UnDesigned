@@ -1,0 +1,7 @@
+{
+  "$comment": "EXAMPLE ONLY: deliberately weak copy, to show what the checker catches. Run `npm run check:copy:examples`.",
+  "format": "billboard",
+  "headline": "We Offer World-Class Innovative Design Solutions For Every Need!",
+  "body": "We are passionate about taking your brand to the next level.",
+  "cta": "Learn more"
+}

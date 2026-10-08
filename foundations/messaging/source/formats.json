@@ -1,0 +1,41 @@
+{
+  "$comment": "Copy limits per marketing format. Word counts are rules of thumb drawn from the playbook (fewer words the faster it is read). Adjust to taste; the copy checker and future templates read these.",
+  "groups": [
+    {
+      "id": "outdoor",
+      "name": "Outdoor and posters",
+      "formats": [
+        { "id": "billboard", "name": "Billboard / large outdoor", "readTime": "3-5 seconds", "limits": { "headline": 7, "subhead": 0, "body": 0, "cta": 4 }, "requires": ["headline", "brand"], "notes": "One idea, one image. CTA is a short URL or handle." },
+        { "id": "poster", "name": "Poster (A3, A2, 18x24 in)", "readTime": "5-10 seconds", "limits": { "headline": 10, "subhead": 18, "body": 40, "cta": 6 }, "requires": ["headline", "cta", "brand"], "notes": "Readable from 3 m. Details (date, place, URL) go in small type." },
+        { "id": "event-poster", "name": "Event poster", "readTime": "5-10 seconds", "limits": { "headline": 8, "subhead": 15, "body": 30, "cta": 6 }, "requires": ["headline", "cta", "brand", "details"], "notes": "Details must include date, time and place." }
+      ]
+    },
+    {
+      "id": "social",
+      "name": "Social media",
+      "formats": [
+        { "id": "instagram-post", "name": "Instagram / LinkedIn post (on-image text)", "readTime": "2 seconds while scrolling", "limits": { "headline": 8, "subhead": 12, "body": 25, "cta": 5 }, "requires": ["headline", "brand"], "notes": "The caption is separate; its first line (about 125 characters) shows before 'more'." },
+        { "id": "story", "name": "Instagram / Facebook story, Reel cover", "readTime": "1-3 seconds", "limits": { "headline": 8, "subhead": 10, "body": 15, "cta": 4 }, "requires": ["headline", "cta"], "notes": "Keep text out of the top and bottom 250 px (interface overlays)." },
+        { "id": "carousel-slide", "name": "Carousel slide", "readTime": "3-5 seconds", "limits": { "headline": 10, "subhead": 15, "body": 40, "cta": 5 }, "requires": ["headline"], "notes": "First slide is the hook; last slide carries the CTA." },
+        { "id": "thumbnail", "name": "YouTube thumbnail", "readTime": "1 second", "limits": { "headline": 5, "subhead": 0, "body": 0, "cta": 0 }, "requires": ["headline"], "notes": "Three to five big words, maximum." }
+      ]
+    },
+    {
+      "id": "digital",
+      "name": "Web and email",
+      "formats": [
+        { "id": "web-banner", "name": "Display banner", "readTime": "1-2 seconds", "limits": { "headline": 6, "subhead": 8, "body": 0, "cta": 3 }, "requires": ["headline", "cta", "brand"], "notes": "CTA as a button." },
+        { "id": "landing-hero", "name": "Website hero section", "readTime": "5 seconds (grunt test)", "limits": { "headline": 10, "subhead": 25, "body": 50, "cta": 4 }, "requires": ["headline", "subhead", "cta"], "notes": "Headline: what you offer. Subhead: how life gets better. Button: the next step." },
+        { "id": "email-header", "name": "Email header and subject", "readTime": "2 seconds", "limits": { "headline": 9, "subhead": 15, "body": 80, "cta": 4 }, "requires": ["headline", "cta"], "notes": "Subject line under about 50 characters." }
+      ]
+    },
+    {
+      "id": "print",
+      "name": "Print",
+      "formats": [
+        { "id": "flyer", "name": "Flyer (A5, A4)", "readTime": "10-30 seconds", "limits": { "headline": 12, "subhead": 20, "body": 150, "cta": 8 }, "requires": ["headline", "cta", "brand"], "notes": "Use subheads to break body copy." },
+        { "id": "print-ad", "name": "Long-copy print ad", "readTime": "1-3 minutes", "limits": { "headline": 16, "subhead": 25, "body": 600, "cta": 10 }, "requires": ["headline", "cta", "brand"], "notes": "Image, headline, body, then logo and CTA. Caption every image." }
+      ]
+    }
+  ]
+}

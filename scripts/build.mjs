@@ -8,13 +8,14 @@ import { readFileSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildColor } from '../foundations/color/build.mjs';
+import { buildMessaging } from '../foundations/messaging/build.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const config = JSON.parse(readFileSync(join(root, 'config/brand.config.json'), 'utf8'));
 
 // Add new foundations here as they are built (typography, layout ...).
-const FOUNDATIONS = { color: buildColor };
+const FOUNDATIONS = { color: buildColor, messaging: buildMessaging };
 
 const only = process.argv[2];
 if (only && !FOUNDATIONS[only]) {
