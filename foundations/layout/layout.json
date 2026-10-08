@@ -1,0 +1,230 @@
+{
+  "$comment": "Layout foundation: evidence-backed findings, myths, grids, safe areas, hierarchy, whitespace and composition schemes. All positions and sizes are relative (percent of the artboard, or percent of its short side) so they scale to any output size. Numbers marked ruleOfThumb are conventions, not findings. Sources in full: research.md section 11. Templates that use this file: templates/layouts/layouts.json.",
+  "findings": [
+    {
+      "id": "first-glance",
+      "title": "The layout is judged before it is read",
+      "finding": "Visual appeal of web pages is rated consistently after 50 ms; visual complexity and prototypicality shape that impression even at 17 ms.",
+      "effect": "50 ms ratings tracked 500 ms ratings; low complexity plus high prototypicality was rated most appealing. Measures appeal, not behaviour.",
+      "strength": "strong",
+      "designRule": "Few elements, one mass, one bright thing. Keep the skeleton typical of the format; put the novelty in the idea.",
+      "sources": ["Lindgaard et al. (2006), Behaviour & Information Technology 25(2)", "Tuch et al. (2012), International Journal of Human-Computer Studies 70(11)"]
+    },
+    {
+      "id": "preference-varies",
+      "title": "Preferred complexity varies by audience",
+      "finding": "Peak appeal for colourfulness and complexity differs by age, gender, education and country.",
+      "effect": "2.4 million ratings from about 40,000 people; differences are real but defaults still work for most.",
+      "strength": "moderate",
+      "designRule": "Use our defaults, but let the style and audience set density (e.g. Desi Maximalism is denser by design).",
+      "sources": ["Reinecke & Gajos (2014), CHI '14"]
+    },
+    {
+      "id": "centre-bias",
+      "title": "Viewers start near the centre",
+      "finding": "First fixations on an image land near its centre, independent of content and of where the start marker was.",
+      "effect": "The most robust image-independent bias in scene viewing.",
+      "strength": "strong",
+      "designRule": "Place the focal object or headline at or near the optical centre of the live area on posters, posts and stories.",
+      "sources": ["Tatler (2007), Journal of Vision 7(14):4"]
+    },
+    {
+      "id": "scan-patterns",
+      "title": "Text-heavy screens are scanned, not read",
+      "finding": "On unformatted web text people scan in an F; with good headings they layer-cake (heading to heading); when hunting they spot-scan for numbers and keywords. Right-to-left readers show a flipped F.",
+      "effect": "Large practitioner eye-tracking studies; the F is a symptom of poor formatting, not a goal.",
+      "strength": "moderate",
+      "designRule": "Break long copy with subheads, front-load the key words of every heading and line, keep key content on the reading-start side.",
+      "sources": ["Nielsen Norman Group (2006, updated)", "Pernice (2017), Nielsen Norman Group", "Pernice (2019), Nielsen Norman Group"]
+    },
+    {
+      "id": "left-lean",
+      "title": "Attention leans to the reading-start side",
+      "finding": "On desktop web pages about 80% of viewing time fell on the left half (69% in 2010).",
+      "effect": "Measured on left-to-right sites at desktop sizes.",
+      "strength": "moderate",
+      "designRule": "On web layouts put headline, brand and primary action on the left (right for RTL scripts).",
+      "sources": ["Nielsen Norman Group, Horizontal attention leans left (2010, updated)"]
+    },
+    {
+      "id": "pop-out",
+      "title": "One thing must differ to lead",
+      "finding": "A target that differs on one basic feature is found almost at once; conjunctions need slow serial search. Salience depends on contrast with surroundings.",
+      "effect": "Classic, replicated lab effect. Colour pop-out is clearer than size pop-out.",
+      "strength": "strong",
+      "designRule": "Make the focal point differ on two dimensions (e.g. size and accent colour, or size and isolation). Never two equal leaders.",
+      "sources": ["Treisman & Gelade (1980), Cognitive Psychology 12", "Itti & Koch (2001), Nature Reviews Neuroscience 2"]
+    },
+    {
+      "id": "grouping",
+      "title": "Close, alike or enclosed means together",
+      "finding": "Proximity, similarity, good continuation and common region (elements inside one bounded area) make items read as one group.",
+      "effect": "A century of research reviewed; common region added by Palmer (1992).",
+      "strength": "strong",
+      "designRule": "Space between groups at least twice the space inside a group; use a band or panel to tie CTA to brand; align to shared edges.",
+      "sources": ["Wagemans et al. (2012), Psychological Bulletin 138(6)", "Palmer (1992), Cognitive Psychology 24"]
+    },
+    {
+      "id": "line-length",
+      "title": "Moderate line length is preferred",
+      "finding": "Long lines can be read fast and help scanning, but people prefer shorter or moderate lines; very short and very long lines disrupt reading.",
+      "effect": "Studies disagree on the fastest length (55 vs 95 characters); none showed a comprehension gain for long lines.",
+      "strength": "contested",
+      "designRule": "Set body text boxes to 45-75 characters at body size (target about 60). Rule of thumb from typographic practice.",
+      "sources": ["Dyson & Haselgrove (2001), International Journal of Human-Computer Studies 54", "Ling & van Schaik (2006), International Journal of Human-Computer Studies 64(5)", "Shaikh & Chaparro (2005), HFES 49th Annual Meeting", "Bringhurst, The Elements of Typographic Style"]
+    },
+    {
+      "id": "text-whitespace",
+      "title": "Margins around text help understanding a little",
+      "finding": "Text with margins was read more slowly but understood better and liked more; line spacing changed preference, not performance. More white space did not change search time, but people wanted enough to separate units.",
+      "effect": "Small usability-lab studies; popular percentage claims have no source.",
+      "strength": "moderate",
+      "designRule": "Frame body text with real margins; separate groups with space. The amount of empty ground is set by the style.",
+      "sources": ["Chaparro et al. (2004), Usability News 6(2)", "Bernard, Chaparro & Thomasson (2000), Usability News (SURL)"]
+    },
+    {
+      "id": "picture-captures",
+      "title": "The picture captures, the text needs room, the brand needs a look",
+      "finding": "In 1,363 print ads the picture captured attention regardless of size; text drew more attention with more space; enlarging picture or brand did not raise attention to the whole ad. Fixations on the brand predict brand memory.",
+      "effect": "3,600+ consumers, infrared eye-tracking. Size interactions not always replicated.",
+      "strength": "moderate",
+      "designRule": "Give the image one clear slot but protect the headline's space; put the brand where the eye already goes, next to the headline.",
+      "sources": ["Pieters & Wedel (2004), Journal of Marketing 68(2)", "Wedel & Pieters (2000), Marketing Science 19(4)"]
+    },
+    {
+      "id": "picture-superiority",
+      "title": "Pictures are remembered better than words",
+      "finding": "Ads with pictures were recalled better than verbal-only ads, especially after a delay.",
+      "effect": "Lab study with consumer ads; well-established memory effect.",
+      "strength": "strong",
+      "designRule": "Every format that can carry an image should, and the image should carry the idea (W5).",
+      "sources": ["Childers & Houston (1984), Journal of Consumer Research 11(2)"]
+    },
+    {
+      "id": "banner-blindness",
+      "title": "Anything that looks like an ad is skipped",
+      "finding": "People missed information placed in bright banners, especially at the top away from other content; looking at a banner did not mean remembering it.",
+      "effect": "Original Rice University study plus later eye-tracking replications.",
+      "strength": "moderate",
+      "designRule": "On web and email, make the main message look like content, not a promo strip. On display ads, one headline, one brand, one button.",
+      "sources": ["Benway & Lane (1998), Rice University", "Nielsen Norman Group eye-tracking"]
+    },
+    {
+      "id": "touch-centre",
+      "title": "Phones are held many ways; the centre is safest",
+      "finding": "1,333 observations showed many grips, not only one thumb; later work argues people look at and touch the centre most and are less accurate at the edges.",
+      "effect": "Observational practitioner research.",
+      "strength": "moderate",
+      "designRule": "Keep headline and call to action in the central band of mobile formats; never in corners.",
+      "sources": ["Hoober (2013), UXmatters", "Hoober (2017), UXmatters"]
+    },
+    {
+      "id": "rule-of-thirds",
+      "title": "The rule of thirds barely predicts liking",
+      "finding": "Aesthetic ratings correlated only weakly with how well photos follow the rule; highly rated photos and paintings followed it no more than those that break it.",
+      "effect": "Lab ratings plus computed scores on large image sets.",
+      "strength": "contested",
+      "designRule": "Use thirds as one placement option to avoid a dead-centre default, never as a justification.",
+      "sources": ["Amirshahi et al. (2014), Art & Perception 2"]
+    },
+    {
+      "id": "repetition",
+      "title": "Repetition builds liking, up to a point",
+      "finding": "Repeated exposure increases liking; the curve is an inverted U that levels off or falls with over-exposure. Familiar formats are processed more fluently.",
+      "effect": "Two large meta-analyses (1989; 2017, 268 curves from 81 articles).",
+      "strength": "strong",
+      "designRule": "Reuse a small set of templates per product so the frame becomes familiar; vary the idea so it never over-exposes.",
+      "sources": ["Zajonc (1968), JPSP Monograph Supplement 9(2)", "Bornstein (1989), Psychological Bulletin 106", "Montoya et al. (2017), Psychological Bulletin 143(5)", "Reber, Schwarz & Winkielman (2004), PSPR 8(4)"]
+    },
+    {
+      "id": "distinctive-assets",
+      "title": "Consistent assets help people find the brand",
+      "finding": "Consistent, recognisable brand elements used the same way over time help people link work to the brand.",
+      "effect": "Practitioner evidence from the Ehrenberg-Bass Institute, not a controlled trial.",
+      "strength": "moderate",
+      "designRule": "Fix where brand and CTA sit in each template and keep it across campaigns.",
+      "sources": ["Romaniuk (2018), Building Distinctive Brand Assets, Oxford University Press"]
+    },
+    {
+      "id": "wear-out",
+      "title": "Original plus familiar beats sameness",
+      "finding": "Repeating the same ads lowered evaluations and attention tricks did not stop it; ads both original and familiar drew most attention to the brand and improved brand memory.",
+      "effect": "Experimental TV and print-ad studies; reviewed in a Marketing Science Institute report.",
+      "strength": "moderate",
+      "designRule": "Template fixes the skeleton; each piece changes the idea, image and Wada combination.",
+      "sources": ["Calder & Sternthal (1980), Journal of Marketing Research 17(2)", "Pieters, Warlop & Wedel (2002), Management Science 48(6)", "Pechmann & Stewart (1990), MSI Report 90-106"]
+    }
+  ],
+  "myths": [
+    { "id": "z-pattern", "claim": "Eyes move in a Z across a poster, or follow the Gutenberg diagram to a bottom-right terminal area.", "reality": "No peer-reviewed eye-tracking found that tests either; posters are first seen whole, starting near the centre (Tatler, 2007).", "useInstead": "One focal point and a clear order: focal, headline, brand, call to action." },
+    { "id": "f-pattern-goal", "claim": "Design pages for the F-pattern.", "reality": "NN/g describes the F as a symptom of unformatted text that good design prevents (Pernice, 2017).", "useInstead": "Subheads, short paragraphs, front-loaded words." },
+    { "id": "rule-of-thirds", "claim": "Putting the subject on a third line makes it better.", "reality": "Weak link to aesthetic ratings (Amirshahi et al., 2014).", "useInstead": "Place by meaning and balance; thirds is one option among several." },
+    { "id": "golden-ratio", "claim": "Golden-ratio layouts are preferred.", "reality": "See foundations/research/visual-preference.json -> myths -> golden-ratio.", "useInstead": "The format's own proportions and the grid." },
+    { "id": "whitespace-percent", "claim": "White space improves comprehension by a fixed percentage (often 20%).", "reality": "No traceable source; measured effects are modest and mixed (Chaparro et al., 2004).", "useInstead": "Enough space to separate groups and frame text; the style sets the amount." },
+    { "id": "bigger-picture", "claim": "A bigger picture gets the ad more attention.", "reality": "Pictures capture attention at any size; enlarging them did not raise attention to the whole ad (Pieters & Wedel, 2004).", "useInstead": "Size the picture for impact but protect the headline's space." },
+    { "id": "bright-banner", "claim": "A bright banner at the top gets noticed.", "reality": "Things that look like ads are skipped (Benway & Lane, 1998).", "useInstead": "Make the message look like content." },
+    { "id": "one-thumb", "claim": "Everyone uses their phone with one thumb, so put actions bottom-right.", "reality": "Many grips observed (Hoober, 2013); centre is most reliable (Hoober, 2017).", "useInstead": "Keep key content and actions central." }
+  ],
+  "grids": {
+    "$comment": "Rules of thumb. marginPct and gutterPct are percent of the artboard's SHORT side. baseline is a multiple of body type size (body size x 1.5 leading / 2 = half a body line). Columns are for text and art to snap to; a piece may use fewer.",
+    "families": [
+      { "id": "portrait-print", "formats": ["poster", "event-poster", "flyer"], "aspect": [1, 1.414], "columns": 6, "rows": 8, "marginPct": 8, "gutterPct": 2.5, "baseline": 0.75, "ruleOfThumb": true },
+      { "id": "long-copy-print", "formats": ["print-ad"], "aspect": [1, 1.414], "columns": 12, "rows": 12, "marginPct": 8, "gutterPct": 2, "baseline": 0.75, "ruleOfThumb": true, "notes": "Body in 2 or 3 columns of 45-75 characters." },
+      { "id": "wide-outdoor", "formats": ["billboard"], "aspect": [48, 14], "columns": 12, "rows": 3, "marginPct": 10, "gutterPct": 3, "baseline": 0.75, "ruleOfThumb": true, "notes": "Big margins because of viewing angle and framing; no body text." },
+      { "id": "social-feed", "formats": ["instagram-post", "carousel-slide"], "aspect": [4, 5], "columns": 6, "rows": 6, "marginPct": 8, "gutterPct": 2.5, "baseline": 0.75, "ruleOfThumb": true, "notes": "Also used for 1:1 square posts." },
+      { "id": "vertical-full", "formats": ["story"], "aspect": [9, 16], "columns": 4, "rows": 8, "marginPct": 8, "gutterPct": 3, "baseline": 0.75, "ruleOfThumb": true, "notes": "Live area further limited by safeAreas.story." },
+      { "id": "wide-screen", "formats": ["landing-hero", "thumbnail"], "aspect": [16, 9], "columns": 12, "rows": 6, "marginPct": 8, "gutterPct": 2.5, "baseline": 0.75, "ruleOfThumb": true },
+      { "id": "strip", "formats": ["web-banner"], "aspect": [970, 250], "columns": 12, "rows": 1, "marginPct": 10, "gutterPct": 4, "baseline": 0.75, "ruleOfThumb": true, "notes": "One line of content: brand, headline, button." },
+      { "id": "email", "formats": ["email-header"], "aspect": [600, 300], "columns": 6, "rows": 4, "marginPct": 8, "gutterPct": 3, "baseline": 0.75, "ruleOfThumb": true, "notes": "Email bodies are commonly about 600 px wide." }
+    ]
+  },
+  "safeAreas": {
+    "$comment": "Inset from each edge, in percent of that dimension (top/bottom of height, left/right of width). Text, logos and CTAs stay inside; art may bleed. Platform numbers change and official help pages could not be opened during research, so these are rules of thumb collected from several agency/tool guides (2026), rounded to the cautious side. Check the platform preview before publishing.",
+    "story": { "top": 14, "bottom": 35, "left": 6, "right": 6, "ruleOfThumb": true, "notes": "Stories alone need about 20% at the bottom; reels and TikTok need about 35% plus room for the right-hand action column. 35% lets one file work everywhere. formats.json says keep text out of the top and bottom 250 px (13% at 1920 px); this is stricter." },
+    "story-stories-only": { "top": 14, "bottom": 20, "left": 6, "right": 6, "ruleOfThumb": true },
+    "instagram-post": { "top": 0, "bottom": 0, "left": 6.3, "right": 6.3, "ruleOfThumb": true, "notes": "Profile grid crops 4:5 posts to 3:4 (since 2025), trimming the sides." },
+    "carousel-slide": { "top": 0, "bottom": 0, "left": 6.3, "right": 6.3, "ruleOfThumb": true },
+    "thumbnail": { "zones": [{ "id": "duration-stamp", "x": 80, "y": 85, "w": 20, "h": 15 }], "ruleOfThumb": true, "notes": "Keep text and faces out of the bottom-right corner where the length stamp sits." },
+    "billboard": { "top": 5, "bottom": 5, "left": 3, "right": 3, "ruleOfThumb": true, "notes": "Frames and lighting can cover the edges; check the media owner's spec." },
+    "print": { "bleedMm": 3, "safeMm": 5, "ruleOfThumb": true, "notes": "Common print-shop convention: 3 mm bleed, 5 mm safe zone; the grid margins already exceed this." }
+  },
+  "hierarchy": {
+    "$comment": "Three levels per piece, matching foundations/typography rules (three sizes).",
+    "levels": [
+      { "id": "primary", "contains": ["focal art or headline (one leads)"], "rule": "Differs from everything else on two dimensions: size plus accent colour or isolation." },
+      { "id": "secondary", "contains": ["headline (if art leads)", "subhead", "body"], "rule": "Grouped beside the primary; one alignment edge." },
+      { "id": "tertiary", "contains": ["brand", "cta", "details", "notes"], "rule": "Small type, grouped together (common region or proximity), at the end of the reading order; brand next to the headline (O4)." }
+    ],
+    "sizeRatios": { "headlineToBodyMin": 2, "bodyToSmallMin": 1.25, "ruleOfThumb": true, "notes": "Exact sizes per format: approaches/<id>/typography.json -> sizes.byFormat." },
+    "readingOrder": ["focal", "headline", "subhead", "body", "brand", "cta"],
+    "spacing": { "betweenGroupsToWithinGroupMin": 2, "ruleOfThumb": true }
+  },
+  "whitespace": {
+    "$comment": "How much empty ground is a style decision, not a foundation rule.",
+    "byStyle": "approaches/<id>/art.json -> composition (e.g. humanist-minimal emptyGroundMinPct: 40).",
+    "textMargins": "Body text never touches an edge or an image: at least one gutter of space, at least one margin from the art (humanist-minimal rule).",
+    "evidence": ["first-glance", "text-whitespace", "grouping"]
+  },
+  "composition": [
+    { "id": "single-focal", "name": "Single focal + headline edge", "use": "Posters, square and portrait posts. One image near the optical centre or anchored at the bottom; headline aligned to one edge above or below.", "avoid": "Long copy.", "evidence": ["centre-bias", "pop-out", "first-glance"] },
+    { "id": "split", "name": "Split", "use": "Wide formats (hero, billboard, banner, thumbnail). Image on one side, words on the reading-start side; or 50/50 on portrait with image top.", "avoid": "Two halves of equal weight with no leader: let one side be bigger.", "evidence": ["left-lean", "picture-captures", "pop-out"] },
+    { "id": "stacked", "name": "Stacked", "use": "Stories and flyers: headline, image, then details and CTA, top to bottom, all in the central band.", "avoid": "Placing text in the top or bottom platform overlay.", "evidence": ["touch-centre", "centre-bias", "scan-patterns"] },
+    { "id": "full-bleed-band", "name": "Full-bleed image + band", "use": "Photo-led pieces: image fills the frame; a solid band (common region) holds headline, brand and CTA for contrast.", "avoid": "Text over busy parts of a photo; bands that look like ad strips on web pages.", "evidence": ["picture-captures", "grouping", "banner-blindness"] },
+    { "id": "type-led", "name": "Type-led", "use": "When there is no strong image: headline is the focal point at display size; small art or none.", "avoid": "Formats that need to be read in under 2 seconds with more than 5 words.", "evidence": ["pop-out", "first-glance"] },
+    { "id": "grid-of-n", "name": "Grid of N", "use": "Carousel slides, menus, comparisons, product ranges: 2-6 equal cells sharing one style, with a headline above.", "avoid": "More than 6 cells on a phone; one cell must not be a hidden leader.", "evidence": ["grouping", "scan-patterns"] },
+    { "id": "long-copy", "name": "Long copy (Ogilvy layout)", "use": "Print ads and long flyers: image, headline, body in columns, then brand and CTA.", "avoid": "Lines longer than 75 characters; all-caps body.", "evidence": ["picture-captures", "line-length", "scan-patterns"] }
+  ],
+  "rules": [
+    "One focal point per piece, different from everything else on two dimensions.",
+    "Reading order: focal, headline, brand and CTA. Brand next to the headline.",
+    "Snap everything to the format's grid; share as few alignment edges as possible.",
+    "Space between groups at least twice the space inside a group.",
+    "Keep text, logos and CTAs inside the safe area; only art may bleed.",
+    "Body text lines of 45-75 characters; long copy gets subheads.",
+    "Give the picture one clear slot; never shrink the headline to make the picture bigger.",
+    "On web and email, the message must not look like an ad strip.",
+    "Mirror templates for right-to-left scripts; give Indic scripts extra line height and test with real copy.",
+    "Reuse a few templates per product; change the idea, image and combination each time.",
+    "Don't justify a layout by the golden ratio, the rule of thirds or the Z-pattern."
+  ]
+}

@@ -341,6 +341,18 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .rs-scores i.s1::after { transform: scaleX(.5); }
 .rs-scores i.s2::after { transform: scaleX(1); }
 .rs-watch { color: var(--muted); }
+/* ---------- layout ---------- */
+.lo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 18px; align-items: start; }
+.lo-card { background: var(--sheet); border-radius: 18px; padding: 12px; display: grid; gap: 8px; font-size: 13px; }
+.lo-card.wide { grid-column: span 2; }
+@media (max-width: 620px) { .lo-card.wide { grid-column: auto; } }
+.lo-card > svg { width: 100%; height: auto; display: block; border-radius: 10px; }
+.lo-card p { margin: 0; color: var(--muted); }
+.lo-card b { font: 700 15px var(--display); }
+.lo-chk { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; }
+.lo-comps { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.lo-comp { border-top: 1px solid var(--ink); padding-top: 10px; font-size: 14px; display: grid; gap: 4px; }
+.lo-comp p { margin: 0; }
 /* ---------- handwriting ---------- */
 .hw-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin: 14px 0 22px; counter-reset: hw; }
 .hw-step { background: var(--sheet); border-radius: 16px; padding: 14px 16px; display: grid; gap: 4px; font-size: 13.5px; align-content: start; }
@@ -478,6 +490,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <button type="button" role="tab" data-panel="approach" aria-selected="false">Approach</button>
   <button type="button" role="tab" data-panel="colour" aria-selected="false">Colour</button>
   <button type="button" role="tab" data-panel="typography" aria-selected="false">Typography</button>
+  <button type="button" role="tab" data-panel="layout" aria-selected="false">Layout</button>
   <button type="button" role="tab" data-panel="messaging" aria-selected="false">Messaging</button>
   <button type="button" role="tab" data-panel="checker" aria-selected="false">Copy checker</button>
   <button type="button" role="tab" data-panel="message" aria-selected="false">Brand message</button>
@@ -735,6 +748,32 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <ul id="ty-rules" style="margin:0 0 20px;padding-left:20px;font-size:14px;color:var(--muted)"></ul>
 </section>
 
+<!-- ================================================================ LAYOUT -->
+<section class="panel" id="panel-layout" hidden>
+  <h2 class="sec">Layout and templates</h2>
+  <p class="lede">Where things go, and why. Every template below is drawn live in this product's colours, type and copy. Positions are percentages of the artboard, so they scale to any size. From <code>foundations/layout/layout.json</code> (research in <code>research.md</code>) and <code>templates/layouts/layouts.json</code> (draw with <code>templates/layouts/render.mjs</code>).</p>
+  <div class="ty-controls">
+    <div class="seg" id="lo-fmt"></div>
+    <label class="lo-chk"><input type="checkbox" id="lo-guides"> Show grid and slots</label>
+    <label class="lo-chk"><input type="checkbox" id="lo-rtl"> Right-to-left</label>
+  </div>
+  <div class="lo-grid" id="lo-grid"></div>
+  <h3 style="margin-top:36px">Compositions</h3>
+  <div class="lo-comps" id="lo-comps"></div>
+  <h3 style="margin-top:36px">What research says about layout</h3>
+  <div class="hw-find" id="lo-find"></div>
+  <h3 style="margin-top:36px">Layout myths</h3>
+  <div class="rs-myths" id="lo-myths"></div>
+  <div class="ap-two" style="margin-top:36px">
+    <div><h3>Grids by format</h3><div class="tablewrap"><table class="data" id="lo-grids"></table></div></div>
+    <div><h3>Safe areas</h3><div class="tablewrap"><table class="data" id="lo-safe"></table></div><p class="st-note" id="lo-safe-note"></p></div>
+  </div>
+  <h3 style="margin-top:36px">Hierarchy</h3>
+  <div class="hw-steps" id="lo-hier"></div>
+  <h3>Rules</h3>
+  <ul class="tight" id="lo-rules" style="color:var(--muted)"></ul>
+</section>
+
 <!-- ================================================================ MESSAGING -->
 <section class="panel" id="panel-messaging" hidden>
   <h2 class="sec">Messaging playbook</h2>
@@ -849,7 +888,7 @@ function luminance(hex) {
 const onColor = hex => (luminance(hex) > 0.35 ? byId.black.hex : byId.white.hex);
 
 /* ------------------------------------------------------------ navigation */
-const PANELS = ['overview', 'research', 'styles', 'approach', 'colour', 'typography', 'messaging', 'checker', 'message'];
+const PANELS = ['overview', 'research', 'styles', 'approach', 'colour', 'typography', 'layout', 'messaging', 'checker', 'message'];
 function showPanel(id, push) {
   if (!PANELS.includes(id)) id = 'overview';
   document.querySelectorAll('nav.primary button').forEach(b => b.setAttribute('aria-selected', b.dataset.panel === id));
@@ -982,6 +1021,35 @@ function renderHandResearch() {
   $('#rs-hand-myths').innerHTML = R.myths.map(m => `<article class="rs-myth"><span class="lbl">Myth</span><b>${esc(m.claim)}</b><p>${esc(m.reality)}</p><p><b>Instead:</b> ${esc(m.useInstead)}</p></article>`).join('');
 }
 
+/* ------------------------------------------------------------ layout */
+const lostate = { fmt: 'all', guides: false, rtl: false };
+function renderLayoutPanel() {
+  const L = DATA.layout, pal = illPalette();
+  const pr = DATA.pairings.find(x => x.id === B.typography.pairing) || DATA.pairings[0];
+  const sc = sampleCopy();
+  const copy = { headline: sc.hero, subhead: sc.lead, body: sc.body, cta: sc.cta, brand: B.name, note: B.name };
+  const fmtName = Object.fromEntries(M.formats.flatMap(g => g.formats.map(f => [f.id, f.name])));
+  const fmts = [...new Set(DATA.layouts.map(l => l.format))];
+  $('#lo-fmt').innerHTML = `<button type="button" data-lof="all" aria-pressed="${lostate.fmt === 'all'}">All</button>` + fmts.map(f => `<button type="button" data-lof="${f}" aria-pressed="${lostate.fmt === f}">${esc(fmtName[f] || f)}</button>`).join('');
+  let art = '';
+  try { art = ill.scene({ motif: 'sun', palette: pal, animate: false, uid: 'lo' }).replace(/<rect width="400" height="400" fill="[^"]*"\/>/, ''); } catch (e) { art = ''; }
+  const comp = Object.fromEntries(L.composition.map(c => [c.id, c.name]));
+  $('#lo-grid').innerHTML = DATA.layouts.filter(l => lostate.fmt === 'all' || l.format === lostate.fmt).map(l => {
+    const svg = renderLayout(l, { palette: { ground: pal.ground, ink: pal.ink, accent: pal.accent, paper: pal.paper }, copy, fonts: { display: `'${pr.display.family}', sans-serif`, body: `'${pr.body.family}', sans-serif` }, art: art || undefined, width: 600, guides: lostate.guides, mirror: lostate.rtl });
+    return `<article class="lo-card ${l.aspect[0] / l.aspect[1] > 1.6 ? 'wide' : ''}">${svg}<b>${esc(l.name)}</b><span class="mono" style="font-size:11px;color:var(--muted)">${esc(l.id)} · ${esc(fmtName[l.format] || l.format)} · ${esc(comp[l.composition] || l.composition)}</span><p>${esc(l.notes || '')}</p></article>`;
+  }).join('');
+  $('#lo-comps').innerHTML = L.composition.map(c => `<div class="lo-comp"><b>${esc(c.name)}</b><p><b>Use:</b> ${esc(c.use)}</p><p style="color:var(--muted)"><b>Avoid:</b> ${esc(c.avoid || '')}</p></div>`).join('');
+  const strengthLabel = { strong: 'Strong evidence', moderate: 'Moderate evidence', contested: 'Contested', emerging: 'Emerging evidence' };
+  $('#lo-find').innerHTML = L.findings.map(f => `<article class="hw-f"><h4>${esc(f.title)}</h4><span><span class="fit ${f.strength === 'strong' ? 'core' : ''}">${strengthLabel[f.strength] || f.strength}</span></span><p>${esc(f.finding)}</p><p style="color:var(--muted)">${esc(f.effect || '')}</p><p><b>Design rule:</b> ${esc(f.designRule)}</p><p class="rs-src">${(f.sources || []).map(esc).join(' · ')}</p></article>`).join('');
+  $('#lo-myths').innerHTML = L.myths.map(m => `<article class="rs-myth"><span class="lbl">Myth</span><b>${esc(m.claim)}</b><p>${esc(m.reality)}</p><p><b>Instead:</b> ${esc(m.useInstead)}</p></article>`).join('');
+  $('#lo-grids').innerHTML = '<thead><tr><th>Family</th><th>Formats</th><th>Columns</th><th>Margin</th><th>Gutter</th></tr></thead><tbody>' + L.grids.families.map(g => `<tr><td><b>${esc(g.id)}</b></td><td>${esc(g.formats.map(f => fmtName[f] || f).join(', '))}</td><td class="num">${g.columns}${g.rows ? ' × ' + g.rows : ''}</td><td class="num">${g.marginPct}%</td><td class="num">${g.gutterPct}%</td></tr>`).join('') + '</tbody>';
+  const sa = Object.entries(L.safeAreas).filter(([k]) => k[0] !== '$');
+  $('#lo-safe').innerHTML = '<thead><tr><th>Format</th><th>Keep text out of</th></tr></thead><tbody>' + sa.map(([k, v]) => `<tr><td><b>${esc(k)}</b></td><td>${v.zones ? v.zones.map(z => `${esc(z.id)}: x ${z.x}%, y ${z.y}%, ${z.w}% × ${z.h}%`).join('; ') : ['top', 'bottom', 'left', 'right'].filter(s => v[s]).map(s => `${s} ${v[s]}%`).join(', ')}${v.notes ? `<br><span style="color:var(--muted);font-size:12px">${esc(v.notes)}</span>` : ''}</td></tr>`).join('') + '</tbody>';
+  $('#lo-safe-note').textContent = L.safeAreas.$comment || '';
+  $('#lo-hier').innerHTML = L.hierarchy.levels.map((h, i) => `<div class="hw-step"><span>${String(i + 1).padStart(2, '0')}</span><b>${esc(h.id[0].toUpperCase() + h.id.slice(1))}</b>${esc(h.contains.join(', '))}<span>${esc(h.rule)}</span></div>`).join('');
+  $('#lo-rules').innerHTML = L.rules.map(r => `<li>${esc(r)}</li>`).join('');
+}
+
 /* ------------------------------------------------------------ brands */
 function renderBrandTable() {
   const sw = p => { const c = DATA.combinations.find(x => x.id === p.combination); return `<span class="swatchrow">${c.colors.map(id => `<i style="background:${byId[id].hex}"></i>`).join('')}</span>`; };
@@ -1004,7 +1072,7 @@ function useBrand(id, first) {
   document.querySelectorAll('.cur-id').forEach(el => (el.textContent = B.id));
   $('#star-count').textContent = cstate.stars.size;
   store.set('hub-brand', B.id);
-  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderHandwritten(); renderHandResearch(); renderMessaging(); setupChecker(); renderMessage();
+  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderStyles(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderLayoutPanel(); renderHandwritten(); renderHandResearch(); renderMessaging(); setupChecker(); renderMessage();
 }
 
 /* ------------------------------------------------------------ style library */
@@ -1618,6 +1686,9 @@ $('#brandswitch').hidden = DATA.brands.length < 2;
 $('#brand-select').addEventListener('change', e => useBrand(e.target.value));
 $('#ck-campaign').addEventListener('change', e => { const c = B.campaigns[+e.target.value]; if (c) loadPiece(c.piece); e.target.value = ''; });
 $('#ty-sample').addEventListener('input', e => { tstate.sample = e.target.value.trim(); renderTypography(); });
+$('#lo-fmt').addEventListener('click', e => { const b = e.target.closest('[data-lof]'); if (!b) return; lostate.fmt = b.dataset.lof; renderLayoutPanel(); });
+$('#lo-guides').addEventListener('change', e => { lostate.guides = e.target.checked; renderLayoutPanel(); });
+$('#lo-rtl').addEventListener('change', e => { lostate.rtl = e.target.checked; renderLayoutPanel(); });
 $('#hw-sample').addEventListener('input', e => { hwstate.sample = e.target.value.trim(); renderHandwritten(); });
 $('#hw-filter').addEventListener('click', e => { const b = e.target.closest('[data-hwf]'); if (!b) return; hwstate.f = b.dataset.hwf; $('#hw-filter').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); renderHandwritten(); });
 $('#n-colors').textContent = DATA.colors.length;

@@ -18,7 +18,8 @@ The guide fixes *how* things are designed (the approach, colour method, type, co
 | Typography | 8 modern, humanist pairings (free Google Fonts) with a type scale and rules | [foundations/typography](foundations/typography/README.md) |
 | Messaging | A playbook of 33 rules from Ogilvy, StoryBrand, Perennial Seller and Hey Whipple, word limits for 12 formats, and a copy checker | [foundations/messaging](foundations/messaging/README.md) |
 | Briefs | A creative brief form for each campaign | [templates/briefs](templates/briefs/creative-brief.md) |
-| Layout, templates | Planned | [foundations/layout](foundations/layout/README.md), [templates](templates/README.md) |
+| Layout | Grids, margins, safe areas, hierarchy and compositions per format, from 17 sourced findings and 8 myths | [foundations/layout](foundations/layout/README.md) |
+| Templates | 15 layout templates (poster, social, story, web, email, flyer, print ad, billboard) with a renderer; finished poster and social designs to come | [templates/layouts](templates/layouts/README.md) |
 
 ## Folder map
 
@@ -41,8 +42,8 @@ UnDesigned/
 │   ├── color/               Wada colour data and exports
 │   ├── typography/          type pairings and scale
 │   ├── messaging/           playbook, format limits, copy checker
-│   └── layout/              planned
-├── templates/               briefs/ · posters/ · social/ · print/ (planned)
+│   └── layout/              layout.json (grids, safe areas, compositions) + research.md
+├── templates/               briefs/ · layouts/ (15 templates + render.mjs) · posters/ · social/ · print/ (planned)
 ├── tools/brand-hub/         the hub page source
 ├── scripts/                 build · new-product · check-copy
 └── dist/                    GENERATED, never edit by hand

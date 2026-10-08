@@ -77,7 +77,7 @@ For each campaign, create `products/<product>/campaigns/<campaign>/`.
 
 1. **Brief:** copy [templates/briefs/creative-brief.md](templates/briefs/creative-brief.md) to `brief.md` and fill it in: the one message, the big idea, the formats.
 2. **Words:** write each piece in a `.copy.json` file (format, headline, subhead, body, cta), then run `npm run check:copy`. Fix every ERROR and most WARNs. The hub's Copy checker tab does the same live and previews the layout.
-3. **Design:** lay out each piece following the approach:
+3. **Design:** start from the layout template for the format (hub Layout tab, `templates/layouts/layouts.json`), keep text inside its grid and safe area (`foundations/layout/layout.json`), then follow the approach:
    - one idea and one focal point, with lots of empty ground (H3, H4)
    - the palette's background as the ground, black ink, white paper, and the accent on one object (H5)
    - an ink-and-paper illustration from `dist/<product>/illustration/`, or drawn by hand in the same style (H1)

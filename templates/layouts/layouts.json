@@ -1,0 +1,1365 @@
+{
+  "$comment": "Layout templates as data. One entry per (format, composition). Boxes are percent of the artboard (x, y from top left; w, h). Columns snap to the grid in foundations/layout/layout.json; the live area is the grid margin or the safe area, whichever is larger. Text, brand and CTA slots stay inside it; art/image slots may bleed. maxWords comes from foundations/messaging/source/formats.json. Edit by hand; keep boxes on the grid and inside the live area. Render with render.mjs.",
+  "layouts": [
+    {
+      "id": "poster-single-focal",
+      "name": "Poster: single focal",
+      "format": "poster",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "single-focal",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 5.66,
+          "w": 84,
+          "h": 88.68
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 8,
+            "y": 5.66,
+            "w": 84,
+            "h": 48.78
+          },
+          "align": "center"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 58.87,
+            "w": 69.58,
+            "h": 15.96
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 75.72,
+            "w": 26.33,
+            "h": 3.55
+          },
+          "align": "left"
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 8,
+            "y": 81.04,
+            "w": 55.17,
+            "h": 6.21
+          },
+          "align": "left",
+          "maxWords": 18
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 8,
+            "y": 89.02,
+            "w": 40.75,
+            "h": 5.32
+          },
+          "align": "left",
+          "maxWords": 6
+        }
+      ],
+      "notes": "Art near the optical centre of the upper live area; headline on the left edge below it with the brand directly under it. Readable from 3 m.",
+      "evidence": [
+        "centre-bias",
+        "pop-out",
+        "first-glance",
+        "picture-captures"
+      ]
+    },
+    {
+      "id": "poster-type-led",
+      "name": "Poster: type-led",
+      "format": "poster",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "type-led",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 5.66,
+          "w": 84,
+          "h": 88.68
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 5.66,
+            "w": 84,
+            "h": 37.25
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 51.25,
+            "y": 48.23,
+            "w": 40.75,
+            "h": 26.61
+          },
+          "align": "center"
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 8,
+            "y": 48.23,
+            "w": 40.75,
+            "h": 15.96
+          },
+          "align": "left",
+          "maxWords": 18
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 83.7,
+            "w": 26.33,
+            "h": 3.55
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 51.25,
+            "y": 81.93,
+            "w": 40.75,
+            "h": 7.09
+          },
+          "align": "left",
+          "maxWords": 6
+        }
+      ],
+      "notes": "No strong image: the headline at display size is the focal point; small art supports it.",
+      "evidence": [
+        "pop-out",
+        "first-glance"
+      ]
+    },
+    {
+      "id": "event-poster-stacked",
+      "name": "Event poster: stacked",
+      "format": "event-poster",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "stacked",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 5.66,
+          "w": 84,
+          "h": 88.68
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 5.66,
+            "w": 69.58,
+            "h": 14.19
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 20.73,
+            "w": 26.33,
+            "h": 3.55
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 8,
+            "y": 26.94,
+            "w": 84,
+            "h": 40.79
+          },
+          "align": "center"
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 8,
+            "y": 70.4,
+            "w": 55.17,
+            "h": 7.09
+          },
+          "align": "left",
+          "maxWords": 15
+        },
+        {
+          "name": "details",
+          "role": "note",
+          "box": {
+            "x": 8,
+            "y": 79.27,
+            "w": 55.17,
+            "h": 8.87
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 65.67,
+            "y": 82.81,
+            "w": 26.33,
+            "h": 5.32
+          },
+          "align": "left",
+          "maxWords": 6
+        }
+      ],
+      "notes": "Details (date, time, place) are required for event posters and sit together in small type (common region by proximity).",
+      "evidence": [
+        "grouping",
+        "centre-bias",
+        "scan-patterns"
+      ]
+    },
+    {
+      "id": "square-single-focal",
+      "name": "Square post 1:1: single focal",
+      "format": "instagram-post",
+      "aspect": [
+        1,
+        1
+      ],
+      "composition": "single-focal",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 8,
+          "w": 84,
+          "h": 84
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Profile grid crops 4:5 posts to 3:4 (since 2025), trimming the sides."
+      },
+      "slots": [
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 22.42,
+            "y": 8,
+            "w": 55.17,
+            "h": 52.08
+          },
+          "align": "center"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 64.28,
+            "w": 69.58,
+            "h": 16.8
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 85.28,
+            "w": 26.33,
+            "h": 6.72
+          },
+          "align": "left"
+        }
+      ],
+      "notes": "Square variant of the feed post. Caption carries the detail; on-image text stays short.",
+      "evidence": [
+        "centre-bias",
+        "first-glance"
+      ]
+    },
+    {
+      "id": "post-4x5-single-focal",
+      "name": "Portrait post 4:5: single focal",
+      "format": "instagram-post",
+      "aspect": [
+        4,
+        5
+      ],
+      "composition": "single-focal",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 6.4,
+          "w": 84,
+          "h": 87.2
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Profile grid crops 4:5 posts to 3:4 (since 2025), trimming the sides."
+      },
+      "slots": [
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 8,
+            "y": 6.4,
+            "w": 84,
+            "h": 52.32
+          },
+          "align": "center"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 63.08,
+            "w": 69.58,
+            "h": 17.44
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 83.14,
+            "w": 26.33,
+            "h": 4.36
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 51.25,
+            "y": 83.14,
+            "w": 40.75,
+            "h": 6.1
+          },
+          "align": "left",
+          "maxWords": 5
+        }
+      ],
+      "notes": "Side margins include the 3:4 profile-grid crop.",
+      "evidence": [
+        "centre-bias",
+        "pop-out",
+        "touch-centre"
+      ]
+    },
+    {
+      "id": "post-4x5-full-bleed-band",
+      "name": "Portrait post 4:5: full-bleed image + band",
+      "format": "instagram-post",
+      "aspect": [
+        4,
+        5
+      ],
+      "composition": "full-bleed-band",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 6.4,
+          "w": 84,
+          "h": 87.2
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.instagram-post",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true,
+        "notes": "Profile grid crops 4:5 posts to 3:4 (since 2025), trimming the sides."
+      },
+      "panels": [
+        {
+          "name": "band",
+          "fill": "ground",
+          "box": {
+            "x": 0,
+            "y": 66,
+            "w": 100,
+            "h": 34
+          }
+        }
+      ],
+      "slots": [
+        {
+          "name": "image",
+          "role": "image",
+          "box": {
+            "x": 0,
+            "y": 0,
+            "w": 100,
+            "h": 63.95
+          },
+          "align": "center"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 66.57,
+            "w": 69.58,
+            "h": 14.82
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 84.01,
+            "w": 26.33,
+            "h": 5.23
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 51.25,
+            "y": 83.14,
+            "w": 40.75,
+            "h": 6.98
+          },
+          "align": "left",
+          "maxWords": 5
+        }
+      ],
+      "notes": "Photo fills the top; a solid band of the ground colour holds the words for contrast. Text never over the photo.",
+      "evidence": [
+        "picture-captures",
+        "grouping"
+      ]
+    },
+    {
+      "id": "carousel-grid-of-4",
+      "name": "Carousel slide: grid of 4",
+      "format": "carousel-slide",
+      "aspect": [
+        4,
+        5
+      ],
+      "composition": "grid-of-n",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 6.4,
+          "w": 84,
+          "h": 87.2
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.carousel-slide",
+        "top": 0,
+        "bottom": 0,
+        "left": 6.3,
+        "right": 6.3,
+        "ruleOfThumb": true
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 6.4,
+            "w": 84,
+            "h": 12.21
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "cell-1",
+          "role": "art",
+          "box": {
+            "x": 8,
+            "y": 22.1,
+            "w": 40.75,
+            "h": 29.65
+          },
+          "align": "center"
+        },
+        {
+          "name": "cell-2",
+          "role": "art",
+          "box": {
+            "x": 51.25,
+            "y": 22.1,
+            "w": 40.75,
+            "h": 29.65
+          },
+          "align": "center"
+        },
+        {
+          "name": "cell-3",
+          "role": "art",
+          "box": {
+            "x": 8,
+            "y": 55.23,
+            "w": 40.75,
+            "h": 29.65
+          },
+          "align": "center"
+        },
+        {
+          "name": "cell-4",
+          "role": "art",
+          "box": {
+            "x": 51.25,
+            "y": 55.23,
+            "w": 40.75,
+            "h": 29.65
+          },
+          "align": "center"
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 88.37,
+            "w": 26.33,
+            "h": 5.23
+          },
+          "align": "left"
+        }
+      ],
+      "notes": "Equal cells in one style; nothing inside a cell should outshout the headline. Last slide of a carousel uses post-4x5-single-focal with the CTA.",
+      "evidence": [
+        "grouping",
+        "scan-patterns"
+      ]
+    },
+    {
+      "id": "story-stacked",
+      "name": "Story 9:16: stacked",
+      "format": "story",
+      "aspect": [
+        9,
+        16
+      ],
+      "composition": "stacked",
+      "grid": {
+        "columns": 4,
+        "marginPct": 8,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 14,
+          "w": 84,
+          "h": 51
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.story",
+        "top": 14,
+        "bottom": 35,
+        "left": 6,
+        "right": 6,
+        "ruleOfThumb": true,
+        "notes": "Stories alone need about 20% at the bottom; reels and TikTok need about 35% plus room for the right-hand action column. 35% lets one file work everywhere. formats.json says keep text out of the top and bottom 250 px (13% at 1920 px); this is stricter."
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 14,
+            "w": 84,
+            "h": 12.24
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 8,
+            "y": 27.77,
+            "w": 84,
+            "h": 24.48
+          },
+          "align": "center"
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 8,
+            "y": 53.27,
+            "w": 62.25,
+            "h": 5.1
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 59.9,
+            "w": 40.5,
+            "h": 5.1
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 51.5,
+            "y": 59.9,
+            "w": 40.5,
+            "h": 5.1
+          },
+          "align": "left",
+          "maxWords": 4
+        }
+      ],
+      "notes": "Everything in the central band: the live area already excludes top 14%, bottom 35% and 6% sides. Art may extend into the overlay zones as decoration only.",
+      "evidence": [
+        "touch-centre",
+        "centre-bias"
+      ]
+    },
+    {
+      "id": "hero-split",
+      "name": "Web hero 16:9: split",
+      "format": "landing-hero",
+      "aspect": [
+        16,
+        9
+      ],
+      "composition": "split",
+      "grid": {
+        "columns": 12,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 4.5,
+          "y": 8,
+          "w": 91,
+          "h": 84
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 4.5,
+            "y": 14.72,
+            "w": 44.8,
+            "h": 28.56
+          },
+          "align": "left",
+          "maxWords": 10
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 4.5,
+            "y": 46.64,
+            "w": 37.1,
+            "h": 18.48
+          },
+          "align": "left",
+          "maxWords": 25
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 4.5,
+            "y": 70.16,
+            "w": 21.7,
+            "h": 10.08
+          },
+          "align": "left",
+          "maxWords": 4
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 4.5,
+            "y": 8,
+            "w": 13.99,
+            "h": 5.04
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 58.4,
+            "y": 8,
+            "w": 37.1,
+            "h": 84
+          },
+          "align": "center"
+        }
+      ],
+      "notes": "Words on the reading-start side (left for LTR), art on the right. Looks like content, not an ad strip. Mirror for RTL.",
+      "evidence": [
+        "left-lean",
+        "banner-blindness",
+        "first-glance"
+      ]
+    },
+    {
+      "id": "thumbnail-split",
+      "name": "YouTube thumbnail 16:9: split",
+      "format": "thumbnail",
+      "aspect": [
+        16,
+        9
+      ],
+      "composition": "split",
+      "grid": {
+        "columns": 12,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 4.5,
+          "y": 8,
+          "w": 91,
+          "h": 84
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.thumbnail",
+        "zones": [
+          {
+            "id": "duration-stamp",
+            "x": 80,
+            "y": 85,
+            "w": 20,
+            "h": 15
+          }
+        ],
+        "ruleOfThumb": true,
+        "notes": "Keep text and faces out of the bottom-right corner where the length stamp sits."
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 4.5,
+            "y": 8,
+            "w": 44.8,
+            "h": 58.8
+          },
+          "align": "left",
+          "maxWords": 5
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 58.4,
+            "y": 8,
+            "w": 37.1,
+            "h": 60.48
+          },
+          "align": "center"
+        }
+      ],
+      "notes": "Three to five big words on the left; art top right, clear of the duration stamp at bottom right.",
+      "evidence": [
+        "pop-out",
+        "first-glance"
+      ]
+    },
+    {
+      "id": "banner-strip",
+      "name": "Display banner 970x250: strip",
+      "format": "web-banner",
+      "aspect": [
+        970,
+        250
+      ],
+      "composition": "split",
+      "grid": {
+        "columns": 12,
+        "marginPct": 10,
+        "gutterPct": 4,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 2.58,
+          "y": 10,
+          "w": 94.85,
+          "h": 80
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 2.58,
+            "y": 34,
+            "w": 14.95,
+            "h": 32
+          },
+          "align": "left"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 18.56,
+            "y": 10,
+            "w": 46.91,
+            "h": 80
+          },
+          "align": "left",
+          "maxWords": 6
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 66.49,
+            "y": 10,
+            "w": 14.95,
+            "h": 80
+          },
+          "align": "center"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 82.47,
+            "y": 30,
+            "w": 14.95,
+            "h": 40
+          },
+          "align": "left",
+          "maxWords": 3
+        }
+      ],
+      "notes": "Read in a glance: brand, headline, art, button in one line.",
+      "evidence": [
+        "banner-blindness",
+        "left-lean"
+      ]
+    },
+    {
+      "id": "email-header-split",
+      "name": "Email header: split",
+      "format": "email-header",
+      "aspect": [
+        600,
+        300
+      ],
+      "composition": "split",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 4,
+          "y": 8,
+          "w": 92,
+          "h": 84
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 4,
+            "y": 8,
+            "w": 29.67,
+            "h": 8.4
+          },
+          "align": "left"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 4,
+            "y": 21.44,
+            "w": 60.83,
+            "h": 35.28
+          },
+          "align": "left",
+          "maxWords": 9
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 4,
+            "y": 68.48,
+            "w": 29.67,
+            "h": 16.8
+          },
+          "align": "left",
+          "maxWords": 4
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 66.33,
+            "y": 16.4,
+            "w": 29.67,
+            "h": 67.2
+          },
+          "align": "center"
+        }
+      ],
+      "notes": "Many email clients block images by default, so the headline must also live in live text below the header.",
+      "evidence": [
+        "left-lean",
+        "banner-blindness"
+      ]
+    },
+    {
+      "id": "flyer-stacked",
+      "name": "Flyer A5/A4: stacked",
+      "format": "flyer",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "stacked",
+      "grid": {
+        "columns": 6,
+        "marginPct": 8,
+        "gutterPct": 2.5,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 5.66,
+          "w": 84,
+          "h": 88.68
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 5.66,
+            "w": 69.58,
+            "h": 11.53
+          },
+          "align": "left",
+          "maxWords": 12
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 18.07,
+            "w": 26.33,
+            "h": 2.66
+          },
+          "align": "left"
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 8,
+            "y": 23.39,
+            "w": 84,
+            "h": 31.93
+          },
+          "align": "center"
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 8,
+            "y": 57.98,
+            "w": 84,
+            "h": 6.21
+          },
+          "align": "left",
+          "maxWords": 20
+        },
+        {
+          "name": "body",
+          "role": "body",
+          "box": {
+            "x": 8,
+            "y": 65.96,
+            "w": 55.17,
+            "h": 19.51
+          },
+          "align": "left",
+          "maxWords": 150
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 65.67,
+            "y": 80.15,
+            "w": 26.33,
+            "h": 5.32
+          },
+          "align": "left",
+          "maxWords": 8
+        },
+        {
+          "name": "details",
+          "role": "note",
+          "box": {
+            "x": 8,
+            "y": 88.13,
+            "w": 55.17,
+            "h": 6.21
+          },
+          "align": "left"
+        }
+      ],
+      "notes": "Body in one column of about 60 characters (4 of 6 columns at body size); subheads break longer copy.",
+      "evidence": [
+        "line-length",
+        "text-whitespace",
+        "scan-patterns"
+      ]
+    },
+    {
+      "id": "print-ad-long-copy",
+      "name": "Long-copy print ad",
+      "format": "print-ad",
+      "aspect": [
+        1,
+        1.414
+      ],
+      "composition": "long-copy",
+      "grid": {
+        "columns": 12,
+        "marginPct": 8,
+        "gutterPct": 2,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 8,
+          "y": 5.66,
+          "w": 84,
+          "h": 88.68
+        }
+      },
+      "safeArea": null,
+      "slots": [
+        {
+          "name": "image",
+          "role": "image",
+          "box": {
+            "x": 8,
+            "y": 5.66,
+            "w": 84,
+            "h": 37.25
+          },
+          "align": "center"
+        },
+        {
+          "name": "caption",
+          "role": "note",
+          "box": {
+            "x": 8,
+            "y": 43.79,
+            "w": 55.33,
+            "h": 2.66
+          },
+          "align": "left"
+        },
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 8,
+            "y": 48.23,
+            "w": 69.67,
+            "h": 10.64
+          },
+          "align": "left",
+          "maxWords": 16
+        },
+        {
+          "name": "subhead",
+          "role": "subhead",
+          "box": {
+            "x": 8,
+            "y": 59.76,
+            "w": 55.33,
+            "h": 4.43
+          },
+          "align": "left",
+          "maxWords": 25
+        },
+        {
+          "name": "body",
+          "role": "body",
+          "box": {
+            "x": 8,
+            "y": 65.96,
+            "w": 41,
+            "h": 21.28
+          },
+          "align": "left",
+          "maxWords": 600
+        },
+        {
+          "name": "body-2",
+          "role": "body",
+          "box": {
+            "x": 51,
+            "y": 65.96,
+            "w": 41,
+            "h": 21.28
+          },
+          "align": "left",
+          "continues": "body",
+          "maxWords": 600
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 8,
+            "y": 89.91,
+            "w": 19.5,
+            "h": 4.43
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 65.33,
+            "y": 89.02,
+            "w": 26.67,
+            "h": 5.32
+          },
+          "align": "left",
+          "maxWords": 10
+        }
+      ],
+      "notes": "Ogilvy order: image, caption, headline, body in two columns, then brand and CTA. Body continues from column 1 into column 2.",
+      "evidence": [
+        "picture-captures",
+        "picture-superiority",
+        "line-length"
+      ]
+    },
+    {
+      "id": "billboard-split",
+      "name": "Billboard 48x14: split",
+      "format": "billboard",
+      "aspect": [
+        48,
+        14
+      ],
+      "composition": "split",
+      "grid": {
+        "columns": 12,
+        "marginPct": 10,
+        "gutterPct": 3,
+        "baseline": 0.75,
+        "liveArea": {
+          "x": 3,
+          "y": 10,
+          "w": 94,
+          "h": 80
+        }
+      },
+      "safeArea": {
+        "ref": "foundations/layout/layout.json#safeAreas.billboard",
+        "top": 5,
+        "bottom": 5,
+        "left": 3,
+        "right": 3,
+        "ruleOfThumb": true,
+        "notes": "Frames and lighting can cover the edges; check the media owner's spec."
+      },
+      "slots": [
+        {
+          "name": "headline",
+          "role": "headline",
+          "box": {
+            "x": 3,
+            "y": 10,
+            "w": 54.47,
+            "h": 57.6
+          },
+          "align": "left",
+          "maxWords": 7
+        },
+        {
+          "name": "brand",
+          "role": "brand",
+          "box": {
+            "x": 3,
+            "y": 74,
+            "w": 22.84,
+            "h": 16
+          },
+          "align": "left"
+        },
+        {
+          "name": "cta",
+          "role": "cta",
+          "box": {
+            "x": 34.63,
+            "y": 74,
+            "w": 22.84,
+            "h": 16
+          },
+          "align": "left",
+          "maxWords": 4
+        },
+        {
+          "name": "art",
+          "role": "art",
+          "box": {
+            "x": 66.25,
+            "y": 10,
+            "w": 30.75,
+            "h": 80
+          },
+          "align": "center"
+        }
+      ],
+      "notes": "One idea, one image, seven words at most; readable in 3-5 seconds. CTA is a short URL or handle.",
+      "evidence": [
+        "first-glance",
+        "pop-out",
+        "picture-captures"
+      ]
+    }
+  ]
+}

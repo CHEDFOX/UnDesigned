@@ -18,7 +18,7 @@ This repository is a **universal design guide**. The user will give you a produc
 4. **Build:** `npm run build -- <id>`. Outputs go to `dist/<id>/`.
 5. **Write a brief** for each campaign: `products/<id>/campaigns/<campaign>/brief.md`, from `templates/briefs/creative-brief.md`. Settle the one message (W1) and the big idea (O2) before designing.
 6. **Write the copy** as `.copy.json` files in the campaign folder. Respect the word limits in `foundations/messaging/source/formats.json`. Run `npm run check:copy -- products/<id>`, then fix every ERROR and the WARNs that apply.
-7. **Design** with the generated files only (rules below). Save the work in the campaign folder.
+7. **Design** with the generated files only (rules below). Start from a layout in `templates/layouts/layouts.json` for the format (draw it with `templates/layouts/render.mjs`) and follow `foundations/layout/layout.json` (grid, safe area, hierarchy). Save the work in the campaign folder.
 8. **Show the work.** Rebuild, and if you can publish pages, publish or update the hub so the user can see it.
 
 ## Design rules: follow the product's style

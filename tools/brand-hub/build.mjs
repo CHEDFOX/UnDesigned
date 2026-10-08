@@ -67,8 +67,8 @@ export function buildHub({ root, brands }) {
         { name: 'Colour', state: status === 'chosen' ? 'done' : 'part', detail: `${color.brand.length} palette(s) from ${first.combinations.length} Wada combinations${status === 'chosen' ? '' : ' (stand-in, not chosen yet)'}.` },
         { name: 'Typography', state: 'done', detail: `${type.pairing.name}: ${type.pairing.display.family} + ${type.pairing.body.family}${type.hand ? `, hand accent ${type.hand.family}` : ''}, scale ${type.ratio}.` },
         { name: 'Messaging', state: filled === total ? 'done' : 'part', detail: `Playbook and checker ready. Message ${filled} of ${total} fields filled in; ${campaigns.length} campaign piece(s).` },
-        { name: 'Layout', state: 'todo', detail: 'Planned. Grids, margins and safe areas per format.' },
-        { name: 'Templates', state: 'todo', detail: 'Planned. Posters, social and print built on the guide.' },
+        { name: 'Layout', state: 'done', detail: 'Grids, margins, safe areas, hierarchy and compositions per format, from 17 sourced findings (foundations/layout).' },
+        { name: 'Templates', state: 'part', detail: 'Layout templates for every format (templates/layouts), rendered in this product\'s colours and copy. Finished poster and social designs per campaign come next.' },
       ],
     };
   });
@@ -121,11 +121,14 @@ export function buildHub({ root, brands }) {
     pairings: pairings.pairings,
     typeRules: pairings.rules,
     handwritten,
+    layout: JSON.parse(readFileSync(join(root, 'foundations/layout/layout.json'), 'utf8')),
+    layouts: JSON.parse(readFileSync(join(root, 'templates/layouts/layouts.json'), 'utf8')).layouts,
     handResearch: JSON.parse(readFileSync(join(root, 'foundations/research/handwriting.json'), 'utf8')),
     research,
     styles,
   };
-  const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '');
+  const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '') +
+    '\nconst renderLayout = (() => {\n' + readFileSync(join(root, 'templates/layouts/render.mjs'), 'utf8').replace(/^export default .*$/m, '').replace(/^export /gm, '') + '\nreturn renderLayout;\n})();\n';
   const libs = Object.keys(approaches)
     .map((id) => `${JSON.stringify(id)}: (() => {\n${readFileSync(join(root, 'approaches', id, 'illustration.mjs'), 'utf8').replace(/^export /gm, '')}\nreturn createIllustrator;\n})()`)
     .join(',\n');
