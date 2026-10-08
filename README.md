@@ -1,6 +1,6 @@
 # UnDesigned
 
-Design system for UnDesigned marketing: posters, social media, web and print. One set of sources and settings generates ready-to-use files for every tool.
+Design system for UnDesigned marketing: posters, social media, web and print. The design approach is **Humanist Minimal**: very few marks, each one made by a human hand. One set of sources and settings generates ready-to-use files for every tool.
 
 ## Folder map
 
@@ -11,6 +11,7 @@ UnDesigned/
 │   └── messaging.json           brand message: positioning, one-liner, BrandScript, voice
 │
 ├── foundations/                 the building blocks, one folder each
+│   ├── approach/                Humanist Minimal: principles, illustration library, motion
 │   ├── color/                   Sanzo Wada colour system: source data, build, docs
 │   ├── messaging/               copy playbook (Ogilvy, StoryBrand, Perennial Seller, Whipple) + copy checker
 │   ├── typography/              planned
@@ -25,7 +26,8 @@ UnDesigned/
 ├── assets/                      brand files
 │   ├── logos/
 │   ├── fonts/
-│   └── images/
+│   ├── images/
+│   └── references/              reference stills and recordings for the approach
 │
 ├── tools/                       brand-hub/: the page that shows the whole system
 ├── scripts/
@@ -35,6 +37,7 @@ UnDesigned/
 └── dist/                        GENERATED: never edit by hand
     ├── web/                     code: css/, scss/, js/, tailwind/
     ├── design-apps/             apps: adobe/ (print-cmyk, screen-rgb), figma/, canva/, gimp-inkscape-krita/
+    ├── illustration/            ready-made SVG illustrations, still and animated
     ├── brand-guide/             readable sheets to share (message sheet)
     ├── tokens/                  full JSON for anything else
     └── brand-hub/               open index.html: the whole system in one page
@@ -53,6 +56,7 @@ Rule of thumb: you edit `config/`, `foundations/*/source/`, `templates/` and `as
 
 | Layer | State | Docs |
 |---|---|---|
+| Approach | Humanist Minimal: principles, rules per layer, illustration library, motion | [foundations/approach](foundations/approach/README.md) |
 | Colour | Done. 159 colours, 12 families, 348 combinations | [foundations/color](foundations/color/README.md) |
 | Messaging | Playbook and checker done. Brand message waiting to be filled in (`config/messaging.json`) | [foundations/messaging](foundations/messaging/README.md) |
 | Typography | Not started | [foundations/typography](foundations/typography/README.md) |
@@ -64,6 +68,7 @@ Rule of thumb: you edit `config/`, `foundations/*/source/`, `templates/` and `as
 ```sh
 npm run build              # everything (Node 18+, no dependencies)
 npm run build:color        # colour only
+npm run build:approach     # approach only
 npm run build:messaging    # messaging only
 npm run check:copy         # check every *.copy.json under templates/
 ```
@@ -77,5 +82,6 @@ npm run check:copy         # check every *.copy.json under templates/
 | Canva | `dist/design-apps/canva/brand-colors.txt` |
 | GIMP, Inkscape, Krita | `dist/design-apps/gimp-inkscape-krita/` |
 | Briefing a designer or copywriter | `dist/brand-guide/message-sheet.md` and `templates/briefs/creative-brief.md` |
-| Websites, HTML posters, emails | `dist/web/css/` |
+| Illustrations | `dist/illustration/svg/` or `dist/web/js/illustration.mjs` |
+| Websites, HTML posters, emails | `dist/web/css/` (colours, motion) |
 | Sass, JavaScript, Tailwind | `dist/web/scss/`, `dist/web/js/`, `dist/web/tailwind/` |

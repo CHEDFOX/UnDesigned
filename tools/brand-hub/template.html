@@ -230,6 +230,35 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .findings .lv.error { color: var(--err); } .findings .lv.warn { color: var(--warn); } .findings .lv.tip { color: var(--tip); } .findings .lv.pass { color: var(--ok); }
 .findings .src { grid-column: 2; font: 11.5px var(--mono); color: var(--muted); }
 
+/* ---------- approach ---------- */
+.approach-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; margin-bottom: 36px; }
+@media (max-width: 800px) { .approach-hero { grid-template-columns: minmax(0, 1fr); } }
+.approach-hero .ill-main { justify-self: end; width: min(100%, 420px); }
+.approach-hero .ill-main svg { width: 100%; height: auto; display: block; max-width: 100%; }
+@media (max-width: 800px) { .approach-hero .ill-main { justify-self: start; } }
+.approach-hero h2 { font-size: clamp(36px, 6vw, 64px); }
+.principles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0 28px; margin-bottom: 40px; }
+.principle { padding: 14px 0; border-top: 1px solid var(--ink); display: grid; gap: 4px; align-content: start; }
+.principle b { font: 700 19px var(--display); }
+.principle .pid { font: 500 11px var(--mono); color: var(--muted); }
+.principle p { margin: 0; font-size: 14px; color: var(--muted); }
+.ill-controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-bottom: 14px; }
+.ill-controls select, .ill-controls input { border: 1px solid var(--line); background: var(--sheet); padding: 6px 10px; border-radius: 4px; font-size: 14px; }
+.ill-controls input { width: 6.5em; }
+.ill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; margin-bottom: 40px; }
+.ill-card { display: grid; gap: 6px; min-width: 0; }
+.ill-card svg { width: 100%; height: auto; display: block; }
+.ill-card span { font-size: 13px; color: var(--muted); }
+.refs { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-bottom: 18px; }
+.refs figure { margin: 0; display: grid; gap: 6px; min-width: 0; }
+.refs img { width: 100%; height: auto; display: block; background: var(--sheet); }
+.refs figcaption { font-size: 13px; color: var(--muted); }
+.strips { display: grid; gap: 18px; margin-bottom: 40px; }
+.strips figure { margin: 0; display: grid; gap: 6px; }
+.strips .strip { overflow-x: auto; }
+.strips img { display: block; height: 150px; width: auto; max-width: none; }
+.strips figcaption { font-size: 13px; color: var(--muted); }
+
 /* ---------- brand message ---------- */
 .meter { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; flex-wrap: wrap; }
 .meter .bar { flex: 0 1 280px; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
@@ -260,13 +289,14 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <header class="masthead">
   <div>
     <h1><small>Brand hub</small>UnDesigned Design System</h1>
-    <p>Everything the marketing is built from: the colour system, the messaging playbook, a copy checker and the brand message. It is generated from the repository, so it always matches the files designers use.</p>
+    <p>Everything the marketing is built from: the Humanist Minimal approach, the colour system, the messaging playbook, a copy checker and the brand message. It is generated from the repository, so it always matches the files designers use.</p>
   </div>
   <div class="layers" id="layers"></div>
 </header>
 
 <nav class="primary" role="tablist" aria-label="Sections">
   <button type="button" role="tab" data-panel="overview" aria-selected="true">Overview</button>
+  <button type="button" role="tab" data-panel="approach" aria-selected="false">Approach</button>
   <button type="button" role="tab" data-panel="colour" aria-selected="false">Colour</button>
   <button type="button" role="tab" data-panel="messaging" aria-selected="false">Messaging</button>
   <button type="button" role="tab" data-panel="checker" aria-selected="false">Copy checker</button>
@@ -300,12 +330,50 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   <h3 style="margin-top:36px">Folder map</h3>
   <pre>UnDesigned/
 ├── config/              brand.config.json (palettes) · messaging.json (brand message)
-├── foundations/         color/ · messaging/ · typography/ (next) · layout/
+├── foundations/         approach/ (Humanist Minimal) · color/ · messaging/ · typography/ (next) · layout/
 ├── templates/           briefs/ · posters/ · social/ · print/
-├── assets/              logos/ · fonts/ · images/
+├── assets/              logos/ · fonts/ · images/ · references/
 ├── tools/               brand-hub/ (this page)
 ├── scripts/             build.mjs · check-copy.mjs
-└── dist/                generated: web/ · design-apps/ · brand-guide/ · tokens/ · brand-hub/</pre>
+└── dist/                generated: web/ · design-apps/ · illustration/ · brand-guide/ · tokens/ · brand-hub/</pre>
+</section>
+
+<!-- ================================================================ APPROACH -->
+<section class="panel" id="panel-approach" hidden>
+  <div class="approach-hero">
+    <div>
+      <span class="lbl">Design approach</span>
+      <h2 class="sec" id="ap-name"></h2>
+      <p class="lede" id="ap-summary" style="margin-bottom:0"></p>
+    </div>
+    <div class="ill-main" id="ap-hero"></div>
+  </div>
+  <div class="principles" id="ap-principles"></div>
+
+  <h3>Illustration</h3>
+  <p class="lede" style="margin-bottom:14px">Ink line over cut-paper shapes on a flat ground, drawn by <code>dist/web/js/illustration.mjs</code>. Colours always come from a Wada combination: its background is the ground, its accent fills one object, ink is Black and paper is White. Pick any palette to see the same drawings in it.</p>
+  <div class="ill-controls">
+    <label class="lbl" for="ap-palette">Palette</label>
+    <select id="ap-palette"></select>
+    <label class="lbl" for="ap-combo">or combination</label>
+    <input id="ap-combo" type="number" min="1" max="348" placeholder="1-348">
+    <div class="seg" id="ap-mode"><button type="button" data-apmode="light" aria-pressed="true">Light</button><button type="button" data-apmode="dark" aria-pressed="false">Dark</button></div>
+    <button type="button" class="btn primary" id="ap-replay">Replay motion</button>
+  </div>
+  <div class="ill-grid" id="ap-ills"></div>
+
+  <h3>Motion</h3>
+  <p class="lede" style="margin-bottom:12px">Timings read from the reference recordings. Use them through <code>dist/web/css/motion.css</code> (<code>.ud-draw</code>, <code>.ud-pop</code>, <code>.ud-rise</code>) or the illustration library.</p>
+  <div class="tablewrap" style="margin-bottom:12px"><table class="data" id="ap-motion"></table></div>
+  <ul id="ap-motion-rules" style="margin:0 0 40px;padding-left:20px;font-size:14px;color:var(--muted)"></ul>
+
+  <h3>Across every layer</h3>
+  <div class="tablewrap" style="margin-bottom:40px"><table class="data" id="ap-layers"></table></div>
+
+  <h3>References</h3>
+  <p class="lede" style="margin-bottom:14px">The pieces this approach is drawn from (stored in <code>assets/references/illustration/</code>). Use them for the feel, not the colours; colours come from the colour system.</p>
+  <div class="refs" id="ap-refs"></div>
+  <div class="strips" id="ap-strips"></div>
 </section>
 
 <!-- ================================================================ COLOUR -->
@@ -418,6 +486,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 <script>
 const DATA = /*__DATA__*/null;
 /*__LINT__*/
+/*__ILLUSTRATION__*/
 const P = DATA.prefix;
 const M = DATA.messaging;
 const byId = Object.fromEntries(DATA.colors.map(c => [c.id, c]));
@@ -452,7 +521,7 @@ function luminance(hex) {
 const onColor = hex => (luminance(hex) > 0.35 ? byId.black.hex : byId.white.hex);
 
 /* ------------------------------------------------------------ navigation */
-const PANELS = ['overview', 'colour', 'messaging', 'checker', 'message'];
+const PANELS = ['overview', 'approach', 'colour', 'messaging', 'checker', 'message'];
 function showPanel(id, push) {
   if (!PANELS.includes(id)) id = 'overview';
   document.querySelectorAll('nav.primary button').forEach(b => b.setAttribute('aria-selected', b.dataset.panel === id));
@@ -470,6 +539,41 @@ function renderOverview() {
   $('#layer-table').innerHTML = '<thead><tr><th>Layer</th><th>State</th></tr></thead><tbody>' +
     DATA.layers.map(l => `<tr><td><b>${esc(l.name)}</b></td><td>${esc(l.detail)}</td></tr>`).join('') + '</tbody>';
   $('#footer').innerHTML = `Built ${esc(DATA.builtAt)} from the UnDesigned repository. Colours: Sanzo Wada, <i>A Dictionary of Color Combinations</i> (Seigensha), data MIT via mattdesl/dictionary-of-colour-combinations. Messaging rules paraphrased from Ogilvy, Miller, Holiday and Sullivan.`;
+}
+
+/* ------------------------------------------------------------ approach */
+const A = DATA.approach;
+const ill = createIllustrator(A.data, A.palettes.primary || Object.values(A.palettes)[0]);
+const astate = { pv: 'brand:primary', mode: 'light', run: 0 };
+function illPalette() {
+  const [kind, val] = astate.pv.split(':');
+  if (kind === 'brand') return A.palettes[val];
+  const c = DATA.combinations.find(x => x.id === +val);
+  if (!c) return A.palettes.primary;
+  const r = c.roles[astate.mode];
+  return { ground: byId[r.bg].hex, accent: byId[r.accent].hex, ink: byId.black.hex, paper: byId.white.hex };
+}
+function setupApproach() {
+  $('#ap-name').textContent = A.data.name;
+  $('#ap-summary').textContent = A.data.summary;
+  $('#ap-principles').innerHTML = A.data.principles.map(p => `<div class="principle"><span class="pid">${p.id}</span><b>${esc(p.title)}</b><p>${esc(p.rule)}</p></div>`).join('');
+  const M = A.data.motion;
+  const rows = ['draw', 'pop', 'morph', 'radiate', 'blink', 'talk'].map(k => `<tr><td><b>${k}</b></td><td class="num">${M[k].duration} ms${M[k].every ? ` every ${M[k].every} ms` : ''}</td><td class="num">${esc(M[k].easing || '')}</td><td>${esc(M[k].use)}</td></tr>`).join('');
+  $('#ap-motion').innerHTML = `<thead><tr><th>Move</th><th>Duration</th><th>Easing</th><th>Use</th></tr></thead><tbody>${rows}<tr><td><b>stagger</b></td><td class="num">${M.stagger} ms</td><td></td><td>Delay between items drawing in sequence.</td></tr><tr><td><b>loop</b></td><td class="num">${M.loop} ms</td><td></td><td>Typical full loop; keep under 4 s.</td></tr></tbody>`;
+  $('#ap-motion-rules').innerHTML = M.rules.map(r => `<li>${esc(r)}</li>`).join('');
+  $('#ap-layers').innerHTML = '<thead><tr><th>Layer</th><th>Do</th><th>Don\u2019t</th></tr></thead><tbody>' + A.data.layers.map(l => `<tr><td><b>${esc(l.layer)}</b></td><td>${esc(l.do)}</td><td>${esc(l.dont)}</td></tr>`).join('') + '</tbody>';
+  $('#ap-refs').innerHTML = A.data.references.filter(r => !r.frames).map(r => `<figure><img src="${A.images[r.file]}" alt="${esc(r.shows)}" loading="lazy"><figcaption>${esc(r.shows)}</figcaption></figure>`).join('');
+  $('#ap-strips').innerHTML = A.data.references.filter(r => r.frames).map(r => `<figure><div class="strip"><img src="${A.images[r.frames]}" alt="Frames from ${esc(r.file)}" loading="lazy"></div><figcaption>${esc(r.shows)} <span class="mono">(${esc(r.file)}, frames left to right)</span></figcaption></figure>`).join('');
+  const brandOpts = Object.keys(A.palettes).map(n => `<option value="brand:${n}">Brand: ${esc(n)}</option>`);
+  const starred = [...cstate.stars].sort((a, b) => a - b).map(n => `<option value="combo:${n}">No. ${String(n).padStart(3, '0')} (shortlist)</option>`);
+  $('#ap-palette').innerHTML = brandOpts.join('') + starred.join('');
+  renderIllustrations();
+}
+function renderIllustrations() {
+  astate.run++;
+  const pal = illPalette();
+  $('#ap-hero').innerHTML = ill.scene({ motif: 'sound-bubble', palette: pal, uid: 'hero' + astate.run });
+  $('#ap-ills').innerHTML = ill.motifs.map(m => `<figure class="ill-card" style="margin:0">${ill.scene({ motif: m, palette: pal, uid: m.replace(/-/g, '') + astate.run })}<span>${esc(m.replace(/-/g, ' '))}</span></figure>`).join('');
 }
 
 /* ------------------------------------------------------------ colour */
@@ -741,6 +845,8 @@ document.addEventListener('click', e => {
   else if (t.dataset.color) { cstate.color = t.dataset.color; renderColorFilter(); setSubtab('combos'); renderCombos(); }
   else if (t.dataset.rf) { const [k, v] = t.dataset.rf.split(':'); rstate[k] = v; renderMessaging(); }
   else if (t.dataset.example) loadPiece(EXAMPLES[t.dataset.example]);
+  else if (t.dataset.apmode) { astate.mode = t.dataset.apmode; document.querySelectorAll('#ap-mode button').forEach(b => b.setAttribute('aria-pressed', b === t)); renderIllustrations(); }
+  else if (t.id === 'ap-replay') renderIllustrations();
   else if (t.id === 'clear-color') { cstate.color = null; renderColorFilter(); renderCombos(); }
   else if (t.id === 'close-detail') $('#detail').close();
   else if (t.id === 'only-starred') { cstate.starredOnly = !cstate.starredOnly; t.setAttribute('aria-pressed', cstate.starredOnly); t.classList.toggle('primary', cstate.starredOnly); renderCombos(); }
@@ -763,6 +869,8 @@ function setupPalettesKeep() {
 }
 $('#detail').addEventListener('click', e => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 $('#q').addEventListener('input', e => { cstate.q = e.target.value; renderCombos(); });
+$('#ap-palette').addEventListener('change', e => { astate.pv = e.target.value; $('#ap-combo').value = ''; renderIllustrations(); });
+$('#ap-combo').addEventListener('input', e => { const n = parseInt(e.target.value, 10); if (n >= 1 && n <= 348) { astate.pv = 'combo:' + n; renderIllustrations(); } });
 $('#ck-form').addEventListener('input', runChecker);
 $('#ck-form').addEventListener('change', runChecker);
 $('#ck-form').addEventListener('submit', e => e.preventDefault());
@@ -772,6 +880,6 @@ $('#n-colors').textContent = DATA.colors.length;
 $('#n-families').textContent = DATA.families.length;
 $('#n-combos').textContent = DATA.combinations.length;
 $('#star-count').textContent = cstate.stars.size;
-renderOverview(); renderBrandCard(); renderCombos(); renderColors(); renderMessaging(); setupChecker(); renderMessage();
+renderOverview(); setupApproach(); renderBrandCard(); renderCombos(); renderColors(); renderMessaging(); setupChecker(); renderMessage();
 showPanel(location.hash.slice(1) || store.get('hub-panel', 'overview'));
 </script>

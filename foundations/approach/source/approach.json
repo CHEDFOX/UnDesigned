@@ -1,0 +1,79 @@
+{
+  "$comment": "UnDesigned design approach: Humanist Minimal. The principles every layer follows, plus the illustration and motion tokens measured from the references in assets/references/illustration/. Colours always come from the colour system (foundations/color); this file sets none. Sizes are in units of a 400 x 400 artboard.",
+
+  "name": "Humanist Minimal",
+  "summary": "Very few marks, each one made by a human hand. Warm, plain and calm: one idea, lots of space, imperfect lines on flat paper.",
+
+  "principles": [
+    { "id": "H1", "title": "The human hand", "rule": "Every mark looks made by a person: ink lines with a slight wobble, shapes cut with scissors. Nothing looks generated, glossy or machine-perfect." },
+    { "id": "H2", "title": "Few marks", "rule": "Minimal means fewer things, not thinner things. If a line, shape or word can go, it goes." },
+    { "id": "H3", "title": "One idea", "rule": "Each piece says one thing, usually by joining two everyday symbols into a metaphor (molecule on a column, apple on a book, sound wave in a speech bubble)." },
+    { "id": "H4", "title": "Space is content", "rule": "One focal point and generous empty ground around it, at least 40% of the area. Centre it, or push it to one side to make room for words." },
+    { "id": "H5", "title": "Flat and honest", "rule": "Flat colour from one Wada combination, black ink and white paper. No gradients, shadows, glows or 3D. The only tone is printed halftone dots." },
+    { "id": "H6", "title": "Plain symbols", "rule": "Hands, eyes, books, suns, globes, columns, speech bubbles: things anyone recognises in a second, drawn simply." },
+    { "id": "H7", "title": "Warm, not cute", "rule": "Friendly and a little playful, never childish. Wit comes from the idea, not from decoration." },
+    { "id": "H8", "title": "Gentle motion", "rule": "Things are drawn on, pop in, blink or radiate in short loops, and always settle on a still frame." }
+  ],
+
+  "layers": [
+    { "layer": "Colour", "do": "One Wada combination per piece: its background as the ground, its accent on at most one object. Ink is Black, paper is White.", "dont": "Mix combinations in one piece, add gradients, tint the ink." },
+    { "layer": "Typography", "do": "Humanist typefaces: open, warm, very readable. Sentence case, few sizes, few weights. Type is set cleanly; the hand lives in the illustration.", "dont": "Handwriting or 'marker' fonts, decorative display faces, many weights." },
+    { "layer": "Layout", "do": "A simple grid, wide margins, one focal point, text aligned to one edge. Illustration and headline work as a pair.", "dont": "Filling every corner, boxes and borders around everything, centred paragraphs." },
+    { "layer": "Illustration", "do": "Ink line over cut-paper shapes on a flat ground. One motif per piece.", "dont": "Stock icons, perfect geometric vectors, detailed scenes, outlines with fills traced exactly inside them." },
+    { "layer": "Motion", "do": "Draw-on lines, popping shapes, small character beats; loops of 2 to 4 seconds.", "dont": "Long sequences, camera moves, fades of the whole artwork, bouncy effects on text." },
+    { "layer": "Photography", "do": "Natural light, real people and hands, uncluttered backgrounds; cut-out photos on a flat ground fit the style.", "dont": "Glossy stock, heavy filters, busy scenes." },
+    { "layer": "Copy", "do": "Plain, warm, short. Speak to one person (see the messaging playbook).", "dont": "Jargon, hype, exclamation marks." }
+  ],
+
+  "illustration": {
+    "colorRoles": {
+      "ground": "Background of the chosen combination (role bg).",
+      "paper": "Wada White: the cut-paper shapes.",
+      "ink": "Wada Black: all line work.",
+      "accent": "Accent of the chosen combination: at most one object (the apple)."
+    },
+    "line": {
+      "$comment": "Thick marker or brush-pen line, even weight, round ends, slightly unsteady.",
+      "width": 9,
+      "widthSmall": 6,
+      "wobble": 1.4,
+      "segment": 14,
+      "terminals": "Round ends; ink dots (about the line width) mark joints and ends."
+    },
+    "cutPaper": {
+      "$comment": "Filled shapes are scissor-cut: straight facets instead of smooth curves, slightly irregular, sitting a little off the line.",
+      "facets": 11,
+      "jitter": 0.05,
+      "maxOffset": 8
+    },
+    "halftone": { "cell": 5, "dot": 1.25 }
+  },
+
+  "motion": {
+    "$comment": "Approximate readings of the 60 fps reference recordings.",
+    "loop": 2400,
+    "draw": { "duration": 600, "easing": "cubic-bezier(0.65, 0, 0.35, 1)", "use": "Ink lines drawing themselves on, start to end." },
+    "pop": { "duration": 320, "easing": "cubic-bezier(0.34, 1.56, 0.64, 1)", "use": "Paper and accent shapes appearing with a small overshoot." },
+    "morph": { "duration": 450, "easing": "cubic-bezier(0.65, 0, 0.35, 1)", "use": "One object turning into another (a frame into a book)." },
+    "radiate": { "duration": 1800, "easing": "cubic-bezier(0.33, 0, 0.67, 1)", "use": "Dots growing into rays and travelling outward, repeating." },
+    "blink": { "duration": 220, "every": 2600, "use": "Character beats: eyes close and open, then hold." },
+    "talk": { "duration": 900, "easing": "ease-in-out", "use": "Gentle pulse in a sound wave." },
+    "stagger": 40,
+    "hold": 700,
+    "rules": [
+      "Every animation ends on a still frame that works on its own.",
+      "Lines draw on; paper shapes pop on. Never fade the whole artwork in.",
+      "Loops are seamless and under 4 seconds.",
+      "With reduced motion, show the final frame."
+    ]
+  },
+
+  "references": [
+    { "file": "still-sound-bubble.jpg", "shows": "Sound wave in a speech bubble: voice. Centred motif, cut-paper bubble." },
+    { "file": "still-molecule-column.jpg", "shows": "Molecule on an Ionic column: science with classical roots. Two symbols, one idea." },
+    { "file": "still-globe-hands.jpg", "shows": "Two hands holding a globe: global connection. Motif pushed right, space left for text." },
+    { "file": "motion-apple-book.mov", "frames": "frames-apple-book.jpg", "shows": "Frame draws on, apple pops in, frame turns into a book." },
+    { "file": "motion-sun-rays.mov", "frames": "frames-sun-rays.jpg", "shows": "Dots grow into rays and radiate outward on a loop." },
+    { "file": "motion-eye-telescope.mov", "frames": "frames-eye-telescope.jpg", "shows": "An eye at the end of a halftone beam blinks." }
+  ]
+}

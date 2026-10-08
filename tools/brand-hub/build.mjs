@@ -1,7 +1,7 @@
 // Brand hub: one self-contained page showing every foundation. Runs after the
 // foundations, reading their generated tokens from dist/tokens/.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadMessaging } from '../../foundations/messaging/context.mjs';
@@ -12,12 +12,14 @@ export function buildHub({ root, dist, config }) {
   const tokens = (name) => JSON.parse(readFileSync(join(dist, 'tokens', name), 'utf8'));
   const color = tokens('colors.json');
   const msg = tokens('messaging.json');
+  const approach = tokens('approach.json');
   const { ctx } = loadMessaging(root, config);
 
   const { filled, total } = msg.fill;
 
   const palettes = color.brand.length;
   const layers = [
+    { id: 'approach', name: 'Approach', state: 'done', detail: `${approach.name}: ${approach.principles.length} principles, rules for ${approach.layers.length} layers, illustration library and motion timings.` },
     { id: 'colour', name: 'Colour', state: 'done', detail: `Done. ${color.colors.length} colours in ${color.families.length} families, ${color.combinations.length} combinations, ${palettes} brand palette (stand-in until chosen).` },
     { id: 'messaging', name: 'Messaging', state: filled ? (filled === total ? 'done' : 'part') : 'part', detail: `Playbook (${msg.principles.length} rules) and copy checker done. Brand message ${filled} of ${total} fields filled in.` },
     { id: 'typography', name: 'Typography', state: 'todo', detail: 'Next. Typefaces, type scale, weights.' },
@@ -36,11 +38,13 @@ export function buildHub({ root, dist, config }) {
     brand: color.brand,
     messaging: { books: msg.books, stages: msg.stages, principles: msg.principles, formats: msg.formats, message: msg.message },
     ctx,
+    approach: { data: approach, palettes: approach.palettes, images: refImages(root, approach.references) },
   };
   const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '');
   const body = readFileSync(join(HERE, 'template.html'), 'utf8')
     .replace('/*__DATA__*/null', () => JSON.stringify(data))
-    .replace('/*__LINT__*/', () => lint);
+    .replace('/*__LINT__*/', () => lint)
+    .replace('/*__ILLUSTRATION__*/', () => readFileSync(join(root, 'foundations/approach/illustration.mjs'), 'utf8').replace(/^export /gm, ''));
 
   const out = join(dist, 'brand-hub/index.html');
   mkdirSync(dirname(out), { recursive: true });
@@ -49,4 +53,16 @@ export function buildHub({ root, dist, config }) {
     `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n</head>\n<body>\n${body}\n</body>\n</html>\n`,
   );
   return [`brand hub: dist/brand-hub/index.html (${layers.filter((l) => l.state !== 'todo').length} of ${layers.length} layers shown)`];
+}
+
+// Reference images (stills and frame strips) embedded as data URIs so the page is self-contained.
+function refImages(root, refs) {
+  const out = {};
+  const dir = join(root, 'assets/references/illustration');
+  for (const r of refs) {
+    for (const f of [r.frames, r.file.endsWith('.jpg') ? r.file : null]) {
+      if (f && existsSync(join(dir, f))) out[f] = 'data:image/jpeg;base64,' + readFileSync(join(dir, f)).toString('base64');
+    }
+  }
+  return out;
 }

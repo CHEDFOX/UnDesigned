@@ -8,6 +8,7 @@
     "build": "node scripts/build.mjs",
     "build:color": "node scripts/build.mjs color",
     "build:messaging": "node scripts/build.mjs messaging",
+    "build:approach": "node scripts/build.mjs approach",
     "check:copy": "node scripts/check-copy.mjs",
     "check:copy:examples": "node scripts/check-copy.mjs foundations/messaging/examples"
   },
