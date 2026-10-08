@@ -1,0 +1,175 @@
+GIMP Palette
+Name: Wada - All colours by family
+Columns: 8
+#
+# Reds
+227  31  38	Spectrum Red
+221  64  39	Red Orange
+235  83  36	Jasper Red
+241  90  48	Peach Red
+203  47  67	Scarlet
+204  18  54	Carmine
+245 142 132	Coral Red
+246 145 126	Fresh Color
+244 128 103	Grenadine Pink
+226  98  94	Eugenia Red | A
+218  82  93	Eugenia Red | B
+197  83  71	Etruscan Red
+171  84  77	Ochre Red
+166  44  55	Carmine Red
+171  36  57	Pompeian Red
+167  33  68	Red
+169  65  81	Hydrangea Red
+168  66  34	Brick Red
+121  51  39	Hay's Russet
+130  36  31	Vandyke Red
+128  38  38	Pale Burnt Lake
+# Pinks & roses
+249 193 206	Hermosa Pink
+248 182 186	Corinthian Pink
+224 179 182	Cameo Pink
+253 212 189	Seashell Pink
+252 199 155	Light Pinkish Cinnamon
+238 167 140	Vinaceous Cinnamon
+209 176 167	Fawn
+181 147 146	Light Brown Drab
+243 127 148	Eosine Pink
+242 114 145	Spinel Red
+212 109 122	Old Rose
+202 146 168	Laelia Pink
+192 169 179	Grayish Lavender - B
+# Wines & magentas
+197  60 105	Indian Lake
+183  63 116	Rosolanc Purple
+183  31  87	Pomegranite Purple
+191  88 146	Eupatorium Purple
+125  19  58	Pansy Purple
+109  65  69	Vistoris Lake
+132  86  91	Purple Drab
+140  76  98	Veronia Purple
+112  67  87	Dark Slate Purple
+122  68  86	Taupe Brown
+113  59  76	Violet Carmine
+# Oranges
+243 116  32	Orange
+246 140  80	Apricot Orange
+249 157  27	Yellow Orange
+217 102  41	English Red
+197  97  39	Vinaceous Tawny
+193 107  39	Orange Rufous
+194 117  68	Cinnamon Rufous
+187 113  37	Raw Sienna
+243 162  87	Golden Yellow
+253 191 104	Cream Yellow
+253 197 126	Cinnamon Buff
+238 180 128	Pinkish Cinnamon
+216 163 123	Ochraceous Salmon
+# Browns & tans
+194 174 147	Ecru
+197 165 110	Isabella Color
+197 159 107	Maple
+188 137  43	Khaki
+152 111  45	Orange Citrine
+163 103  82	Sudan Brown
+174  82  36	Burnt Sienna
+124  66  38	Brown
+118  44  25	Madder Brown
+113  80  47	Pale Raw Umber
+100  75  30	Sepia
+101  53  20	Mars Brown Tobacco
+ 75  51  23	Vandyke Brown
+# Yellows
+255 242   0	Yellow
+248 237  67	Lemon Yellow
+255 221   0	Apricot Yellow
+252 179  21	Orange Yellow
+255 239 174	Pale Lemon Yellow
+245 236 194	Sulpher Yellow
+251 230 160	Naples Yellow
+235 211 162	Ivory Buff
+202 179  86	Pyrite Yellow
+214 180  62	Olive Ocher
+226 181  64	Yellow Ocher
+193 159  44	Sulphine Yellow
+# Olives
+199 209  79	Light Green Yellow
+178 183  62	Citron Yellow
+176 159  54	Citrine
+166 161  89	Olive Yellow
+193 196 148	Olive Buff
+150 135  77	Buffy Citrine
+139 131  91	Dark Citrine
+132 128  97	Light Grayish Olive
+128 110  75	Light Brownish Olive
+132 135  94	Krongbergs Green
+129 146  56	Oil Green
+131 126  49	Olive
+ 99  90  58	Deep Grayish Olive
+107 113  64	Olive Green
+ 85  88  50	Lincoln Green
+ 66  83  62	Blackish Olive
+ 37  49  34	Deep Slate Olive
+# Greens
+175 212 114	Yellow Green
+135 197  64	Night Green
+143 160 113	Rainette Green
+183 194 169	Dark Greenish Glaucous
+181 222 204	Turquoise Green
+180 205 194	Glaucous Green
+150 209 170	Cobalt Green
+113 148 112	Chromium Green
+100 143 123	Pistachio Green
+ 72 155 110	Green
+  0 148 101	Dull Viridian Green
+ 67 119  66	Cossack Green
+ 26 116  68	Diamine Green
+# Teals & aquas
+188 228 229	Nile Blue
+120 205 208	Calamine BLue
+ 98 198 191	Venice Green
+  0 180 155	Sea Green
+  0 151 141	Benzol Green
+  0 144 138	Light Porcelain Green
+  0 147 155	Peacock Blue
+  9 145 151	Green Blue
+  0 147 165	Cerulian Blue
+112 147 144	Artemesia Green
+109 126 119	Andover Green
+  0  79  70	Dusky Green
+ 17  47  44	Deep Slate Green
+# Blues
+167 212 228	Pale King's Blue
+165 200 209	Light Glaucous Blue
+151 172 200	Salvia Blue
+ 90 130 179	Olympic Blue
+  0 110 184	Blue
+  0 113 144	Antwarp Blue
+  0  91 141	Helvetia Blue
+  6  79 110	Vandar Poel's Blue
+ 84 112 118	Dark Medici Blue
+ 52  69  76	Slate Color
+ 28  66 134	Deep Lyons Blue
+ 64  69 106	Violet Blue
+ 18  53  78	Dark Tyrian Blue
+  5  18  48	Deep Indigo
+# Purples & violets
+181 177 216	Grayish Lavender - A
+185 132 175	Lilac
+154 114 170	Light Mauve
+163 106 165	Aconite Violet
+128 113 158	Dull Blue Violet
+102  98 156	Dark Soft Violet
+100  80 161	Blue Violet
+ 79  64 134	Violet
+ 89  37 106	Red Violet
+100  45  94	Violet Red
+ 80  19  69	Cotinga Purple
+ 78  29  76	Dusky Madder Violet
+ 30  14  63	Dull Violet Black
+# Neutrals
+255 255 255	White
+182 191 193	Neutral Gray
+162 176 173	Mineral Gray
+161 163 154	Warm Gray
+112 114 124	Deep Violet / Plumbeous
+ 17  19  20	Black

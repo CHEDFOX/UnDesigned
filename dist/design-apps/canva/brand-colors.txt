@@ -1,0 +1,8 @@
+Paste these hex codes into Canva > Brand Kit > Colours.
+
+primary (combination 232, light)
+  bg         #eeb480  Pinkish Cinnamon
+  ink        #051230  Deep Indigo
+  accent     #cc1236  Carmine
+  text       #051230  Deep Indigo
+

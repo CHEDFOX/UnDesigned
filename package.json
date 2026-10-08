@@ -5,8 +5,8 @@
   "description": "UnDesigned design system: tokens, exports and templates for marketing and posters.",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build-colors.mjs",
-    "build:colors": "node scripts/build-colors.mjs"
+    "build": "node scripts/build.mjs",
+    "build:color": "node scripts/build.mjs color"
   },
   "engines": {
     "node": ">=18"

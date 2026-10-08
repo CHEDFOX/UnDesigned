@@ -1,7 +1,0 @@
-{
-  "$comment": "Pick your brand palettes here by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations. Browse them in dist/explorer/index.html, then run `npm run build`. The palette named \"primary\" becomes the default (--ud-bg, --ud-ink, --ud-accent ...). mode: \"light\" puts the lightest colour in the background, \"dark\" the darkest.",
-  "prefix": "ud",
-  "palettes": {
-    "primary": { "combination": 232, "mode": "light" }
-  }
-}

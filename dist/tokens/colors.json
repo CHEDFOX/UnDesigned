@@ -5,11 +5,814 @@
     "combinationCount": 348,
     "prefix": "ud"
   },
+  "families": [
+    {
+      "id": "reds",
+      "name": "Reds",
+      "colors": [
+        "spectrum-red",
+        "red-orange",
+        "jasper-red",
+        "peach-red",
+        "scarlet",
+        "carmine",
+        "coral-red",
+        "fresh-color",
+        "grenadine-pink",
+        "eugenia-red-a",
+        "eugenia-red-b",
+        "etruscan-red",
+        "ochre-red",
+        "carmine-red",
+        "pompeian-red",
+        "red",
+        "hydrangea-red",
+        "brick-red",
+        "hay-s-russet",
+        "vandyke-red",
+        "pale-burnt-lake"
+      ]
+    },
+    {
+      "id": "pinks",
+      "name": "Pinks & roses",
+      "colors": [
+        "hermosa-pink",
+        "corinthian-pink",
+        "cameo-pink",
+        "seashell-pink",
+        "light-pinkish-cinnamon",
+        "vinaceous-cinnamon",
+        "fawn",
+        "light-brown-drab",
+        "eosine-pink",
+        "spinel-red",
+        "old-rose",
+        "laelia-pink",
+        "grayish-lavender-b"
+      ]
+    },
+    {
+      "id": "wines",
+      "name": "Wines & magentas",
+      "colors": [
+        "indian-lake",
+        "rosolanc-purple",
+        "pomegranite-purple",
+        "eupatorium-purple",
+        "pansy-purple",
+        "vistoris-lake",
+        "purple-drab",
+        "veronia-purple",
+        "dark-slate-purple",
+        "taupe-brown",
+        "violet-carmine"
+      ]
+    },
+    {
+      "id": "oranges",
+      "name": "Oranges",
+      "colors": [
+        "orange",
+        "apricot-orange",
+        "yellow-orange",
+        "english-red",
+        "vinaceous-tawny",
+        "orange-rufous",
+        "cinnamon-rufous",
+        "raw-sienna",
+        "golden-yellow",
+        "cream-yellow",
+        "cinnamon-buff",
+        "pinkish-cinnamon",
+        "ochraceous-salmon"
+      ]
+    },
+    {
+      "id": "browns",
+      "name": "Browns & tans",
+      "colors": [
+        "ecru",
+        "isabella-color",
+        "maple",
+        "khaki",
+        "orange-citrine",
+        "sudan-brown",
+        "burnt-sienna",
+        "brown",
+        "madder-brown",
+        "pale-raw-umber",
+        "sepia",
+        "mars-brown-tobacco",
+        "vandyke-brown"
+      ]
+    },
+    {
+      "id": "yellows",
+      "name": "Yellows",
+      "colors": [
+        "yellow",
+        "lemon-yellow",
+        "apricot-yellow",
+        "orange-yellow",
+        "pale-lemon-yellow",
+        "sulpher-yellow",
+        "naples-yellow",
+        "ivory-buff",
+        "pyrite-yellow",
+        "olive-ocher",
+        "yellow-ocher",
+        "sulphine-yellow"
+      ]
+    },
+    {
+      "id": "olives",
+      "name": "Olives",
+      "colors": [
+        "light-green-yellow",
+        "citron-yellow",
+        "citrine",
+        "olive-yellow",
+        "olive-buff",
+        "buffy-citrine",
+        "dark-citrine",
+        "light-grayish-olive",
+        "light-brownish-olive",
+        "krongbergs-green",
+        "oil-green",
+        "olive",
+        "deep-grayish-olive",
+        "olive-green",
+        "lincoln-green",
+        "blackish-olive",
+        "deep-slate-olive"
+      ]
+    },
+    {
+      "id": "greens",
+      "name": "Greens",
+      "colors": [
+        "yellow-green",
+        "night-green",
+        "rainette-green",
+        "dark-greenish-glaucous",
+        "turquoise-green",
+        "glaucous-green",
+        "cobalt-green",
+        "chromium-green",
+        "pistachio-green",
+        "green",
+        "dull-viridian-green",
+        "cossack-green",
+        "diamine-green"
+      ]
+    },
+    {
+      "id": "teals",
+      "name": "Teals & aquas",
+      "colors": [
+        "nile-blue",
+        "calamine-blue",
+        "venice-green",
+        "sea-green",
+        "benzol-green",
+        "light-porcelain-green",
+        "peacock-blue",
+        "green-blue",
+        "cerulian-blue",
+        "artemesia-green",
+        "andover-green",
+        "dusky-green",
+        "deep-slate-green"
+      ]
+    },
+    {
+      "id": "blues",
+      "name": "Blues",
+      "colors": [
+        "pale-king-s-blue",
+        "light-glaucous-blue",
+        "salvia-blue",
+        "olympic-blue",
+        "blue",
+        "antwarp-blue",
+        "helvetia-blue",
+        "vandar-poel-s-blue",
+        "dark-medici-blue",
+        "slate-color",
+        "deep-lyons-blue",
+        "violet-blue",
+        "dark-tyrian-blue",
+        "deep-indigo"
+      ]
+    },
+    {
+      "id": "purples",
+      "name": "Purples & violets",
+      "colors": [
+        "grayish-lavender-a",
+        "lilac",
+        "light-mauve",
+        "aconite-violet",
+        "dull-blue-violet",
+        "dark-soft-violet",
+        "blue-violet",
+        "violet",
+        "red-violet",
+        "violet-red",
+        "cotinga-purple",
+        "dusky-madder-violet",
+        "dull-violet-black"
+      ]
+    },
+    {
+      "id": "neutrals",
+      "name": "Neutrals",
+      "colors": [
+        "white",
+        "neutral-gray",
+        "mineral-gray",
+        "warm-gray",
+        "deep-violet-plumbeous",
+        "black"
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "I",
+      "name": "Chapter I",
+      "colors": [
+        "hermosa-pink",
+        "corinthian-pink",
+        "cameo-pink",
+        "fawn",
+        "light-brown-drab",
+        "coral-red",
+        "fresh-color",
+        "grenadine-pink",
+        "eosine-pink",
+        "spinel-red",
+        "old-rose",
+        "eugenia-red-a",
+        "eugenia-red-b",
+        "raw-sienna",
+        "vinaceous-tawny",
+        "jasper-red",
+        "spectrum-red",
+        "red-orange",
+        "etruscan-red",
+        "burnt-sienna",
+        "ochre-red",
+        "scarlet",
+        "carmine",
+        "indian-lake",
+        "rosolanc-purple",
+        "pomegranite-purple",
+        "hydrangea-red",
+        "brick-red",
+        "carmine-red",
+        "pompeian-red",
+        "red",
+        "brown",
+        "hay-s-russet",
+        "vandyke-red",
+        "pansy-purple",
+        "pale-burnt-lake",
+        "violet-red",
+        "vistoris-lake"
+      ]
+    },
+    {
+      "id": "II",
+      "name": "Chapter II",
+      "colors": [
+        "sulpher-yellow",
+        "pale-lemon-yellow",
+        "naples-yellow",
+        "ivory-buff",
+        "seashell-pink",
+        "light-pinkish-cinnamon",
+        "pinkish-cinnamon",
+        "cinnamon-buff",
+        "cream-yellow",
+        "golden-yellow",
+        "vinaceous-cinnamon",
+        "ochraceous-salmon",
+        "isabella-color",
+        "maple",
+        "olive-buff",
+        "ecru",
+        "yellow",
+        "lemon-yellow",
+        "apricot-yellow",
+        "pyrite-yellow",
+        "olive-ocher",
+        "yellow-ocher",
+        "orange-yellow",
+        "yellow-orange",
+        "apricot-orange",
+        "orange",
+        "peach-red",
+        "english-red",
+        "cinnamon-rufous",
+        "orange-rufous",
+        "sulphine-yellow",
+        "khaki",
+        "citron-yellow",
+        "citrine",
+        "buffy-citrine",
+        "dark-citrine",
+        "light-grayish-olive",
+        "krongbergs-green",
+        "olive",
+        "orange-citrine",
+        "sudan-brown",
+        "olive-green",
+        "light-brownish-olive",
+        "deep-grayish-olive",
+        "pale-raw-umber",
+        "sepia",
+        "madder-brown",
+        "mars-brown-tobacco",
+        "vandyke-brown"
+      ]
+    },
+    {
+      "id": "III",
+      "name": "Chapter III",
+      "colors": [
+        "turquoise-green",
+        "glaucous-green",
+        "dark-greenish-glaucous",
+        "yellow-green",
+        "light-green-yellow",
+        "night-green",
+        "olive-yellow",
+        "artemesia-green",
+        "andover-green",
+        "rainette-green",
+        "chromium-green",
+        "pistachio-green",
+        "sea-green",
+        "benzol-green",
+        "light-porcelain-green",
+        "green",
+        "dull-viridian-green",
+        "oil-green",
+        "diamine-green",
+        "cossack-green",
+        "lincoln-green",
+        "blackish-olive",
+        "deep-slate-olive"
+      ]
+    },
+    {
+      "id": "IV",
+      "name": "Chapter IV",
+      "colors": [
+        "nile-blue",
+        "pale-king-s-blue",
+        "light-glaucous-blue",
+        "salvia-blue",
+        "cobalt-green",
+        "calamine-blue",
+        "venice-green",
+        "cerulian-blue",
+        "peacock-blue",
+        "green-blue",
+        "olympic-blue",
+        "blue",
+        "antwarp-blue",
+        "helvetia-blue",
+        "dark-medici-blue",
+        "dusky-green",
+        "deep-lyons-blue",
+        "violet-blue",
+        "vandar-poel-s-blue",
+        "dark-tyrian-blue",
+        "dull-violet-black",
+        "deep-indigo",
+        "deep-slate-green"
+      ]
+    },
+    {
+      "id": "V",
+      "name": "Chapter V",
+      "colors": [
+        "grayish-lavender-a",
+        "grayish-lavender-b",
+        "laelia-pink",
+        "lilac",
+        "eupatorium-purple",
+        "light-mauve",
+        "aconite-violet",
+        "dull-blue-violet",
+        "dark-soft-violet",
+        "blue-violet",
+        "purple-drab",
+        "deep-violet-plumbeous",
+        "veronia-purple",
+        "dark-slate-purple",
+        "taupe-brown",
+        "violet-carmine",
+        "violet",
+        "red-violet",
+        "cotinga-purple",
+        "dusky-madder-violet"
+      ]
+    },
+    {
+      "id": "VI",
+      "name": "Chapter VI",
+      "colors": [
+        "white",
+        "neutral-gray",
+        "mineral-gray",
+        "warm-gray",
+        "slate-color",
+        "black"
+      ]
+    }
+  ],
+  "combinationGroups": [
+    {
+      "id": "pairs",
+      "name": "2-colour pairs",
+      "size": 2,
+      "combinations": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ]
+    },
+    {
+      "id": "trios",
+      "name": "3-colour trios",
+      "size": 3,
+      "combinations": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240
+      ]
+    },
+    {
+      "id": "quartets",
+      "name": "4-colour quartets",
+      "size": 4,
+      "combinations": [
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348
+      ]
+    }
+  ],
   "colors": [
     {
       "id": "hermosa-pink",
       "index": 1,
       "name": "Hermosa Pink",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#f9c1ce",
       "rgb": [
         249,
@@ -28,7 +831,6 @@
         1.64
       ],
       "chroma": 22.2,
-      "chapter": "I",
       "combinations": [
         176,
         227,
@@ -39,6 +841,8 @@
       "id": "corinthian-pink",
       "index": 2,
       "name": "Corinthian Pink",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#f8b6ba",
       "rgb": [
         248,
@@ -57,7 +861,6 @@
         7.88
       ],
       "chroma": 26.57,
-      "chapter": "I",
       "combinations": [
         27,
         43,
@@ -77,6 +880,8 @@
       "id": "cameo-pink",
       "index": 3,
       "name": "Cameo Pink",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#e0b3b6",
       "rgb": [
         224,
@@ -95,7 +900,6 @@
         4.95
       ],
       "chroma": 17.9,
-      "chapter": "I",
       "combinations": [
         101,
         105,
@@ -109,6 +913,8 @@
       "id": "fawn",
       "index": 4,
       "name": "Fawn",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#d1b0a7",
       "rgb": [
         209,
@@ -127,7 +933,6 @@
         9.39
       ],
       "chroma": 14.61,
-      "chapter": "I",
       "combinations": [
         18,
         125,
@@ -138,6 +943,8 @@
       "id": "light-brown-drab",
       "index": 5,
       "name": "Light Brown Drab",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#b59392",
       "rgb": [
         181,
@@ -156,7 +963,6 @@
         5.34
       ],
       "chroma": 14.08,
-      "chapter": "I",
       "combinations": [
         35,
         68,
@@ -174,6 +980,8 @@
       "id": "coral-red",
       "index": 6,
       "name": "Coral Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#f58e84",
       "rgb": [
         245,
@@ -192,7 +1000,6 @@
         23.19
       ],
       "chroma": 45.62,
-      "chapter": "I",
       "combinations": [
         92,
         123,
@@ -204,6 +1011,8 @@
       "id": "fresh-color",
       "index": 7,
       "name": "Fresh Color",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#f6917e",
       "rgb": [
         246,
@@ -222,7 +1031,6 @@
         27.3
       ],
       "chroma": 46.37,
-      "chapter": "I",
       "combinations": [
         240
       ]
@@ -231,6 +1039,8 @@
       "id": "grenadine-pink",
       "index": 8,
       "name": "Grenadine Pink",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#f48067",
       "rgb": [
         244,
@@ -249,7 +1059,6 @@
         34.7
       ],
       "chroma": 55.9,
-      "chapter": "I",
       "combinations": [
         6,
         21,
@@ -267,6 +1076,8 @@
       "id": "eosine-pink",
       "index": 9,
       "name": "Eosine Pink",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#f37f94",
       "rgb": [
         243,
@@ -285,7 +1096,6 @@
         10.3
       ],
       "chroma": 47.81,
-      "chapter": "I",
       "combinations": [
         34,
         59,
@@ -307,6 +1117,8 @@
       "id": "spinel-red",
       "index": 10,
       "name": "Spinel Red",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#f27291",
       "rgb": [
         242,
@@ -325,7 +1137,6 @@
         8.29
       ],
       "chroma": 52.84,
-      "chapter": "I",
       "combinations": [
         14,
         147,
@@ -340,6 +1151,8 @@
       "id": "old-rose",
       "index": 11,
       "name": "Old Rose",
+      "family": "pinks",
+      "chapter": "I",
       "hex": "#d46d7a",
       "rgb": [
         212,
@@ -358,7 +1171,6 @@
         12.31
       ],
       "chroma": 43.89,
-      "chapter": "I",
       "combinations": [
         55,
         162,
@@ -370,6 +1182,8 @@
       "id": "eugenia-red-a",
       "index": 12,
       "name": "Eugenia Red | A",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#e2625e",
       "rgb": [
         226,
@@ -388,7 +1202,6 @@
         28.54
       ],
       "chroma": 58.23,
-      "chapter": "I",
       "combinations": [
         284
       ]
@@ -397,6 +1210,8 @@
       "id": "eugenia-red-b",
       "index": 13,
       "name": "Eugenia Red | B",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#da525d",
       "rgb": [
         218,
@@ -415,7 +1230,6 @@
         23.66
       ],
       "chroma": 59.6,
-      "chapter": "I",
       "combinations": [
         17,
         77,
@@ -431,6 +1245,8 @@
       "id": "raw-sienna",
       "index": 14,
       "name": "Raw Sienna",
+      "family": "oranges",
+      "chapter": "I",
       "hex": "#bb7125",
       "rgb": [
         187,
@@ -449,7 +1265,6 @@
         52.17
       ],
       "chroma": 58.09,
-      "chapter": "I",
       "combinations": [
         3,
         13,
@@ -476,6 +1291,8 @@
       "id": "vinaceous-tawny",
       "index": 15,
       "name": "Vinaceous Tawny",
+      "family": "oranges",
+      "chapter": "I",
       "hex": "#c56127",
       "rgb": [
         197,
@@ -494,7 +1311,6 @@
         50.19
       ],
       "chroma": 63.06,
-      "chapter": "I",
       "combinations": [
         40,
         85,
@@ -505,6 +1321,8 @@
       "id": "jasper-red",
       "index": 16,
       "name": "Jasper Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#eb5324",
       "rgb": [
         235,
@@ -523,7 +1341,6 @@
         57.63
       ],
       "chroma": 82.06,
-      "chapter": "I",
       "combinations": [
         155,
         194,
@@ -535,6 +1352,8 @@
       "id": "spectrum-red",
       "index": 17,
       "name": "Spectrum Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#e31f26",
       "rgb": [
         227,
@@ -553,7 +1372,6 @@
         50.08
       ],
       "chroma": 86.82,
-      "chapter": "I",
       "combinations": [
         257,
         266,
@@ -565,6 +1383,8 @@
       "id": "red-orange",
       "index": 18,
       "name": "Red Orange",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#dd4027",
       "rgb": [
         221,
@@ -583,7 +1403,6 @@
         50.88
       ],
       "chroma": 79.16,
-      "chapter": "I",
       "combinations": [
         31,
         164,
@@ -596,6 +1415,8 @@
       "id": "etruscan-red",
       "index": 19,
       "name": "Etruscan Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#c55347",
       "rgb": [
         197,
@@ -614,7 +1435,6 @@
         31.05
       ],
       "chroma": 55.4,
-      "chapter": "I",
       "combinations": [
         25,
         47,
@@ -629,6 +1449,8 @@
       "id": "burnt-sienna",
       "index": 20,
       "name": "Burnt Sienna",
+      "family": "browns",
+      "chapter": "I",
       "hex": "#ae5224",
       "rgb": [
         174,
@@ -647,7 +1469,6 @@
         43.79
       ],
       "chroma": 56.84,
-      "chapter": "I",
       "combinations": [
         198,
         242,
@@ -664,6 +1485,8 @@
       "id": "ochre-red",
       "index": 21,
       "name": "Ochre Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#ab544d",
       "rgb": [
         171,
@@ -682,7 +1505,6 @@
         21.85
       ],
       "chroma": 41.89,
-      "chapter": "I",
       "combinations": [
         199,
         283
@@ -692,6 +1514,8 @@
       "id": "scarlet",
       "index": 22,
       "name": "Scarlet",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#cb2f43",
       "rgb": [
         203,
@@ -710,7 +1534,6 @@
         28.9
       ],
       "chroma": 67.98,
-      "chapter": "I",
       "combinations": [
         136,
         308,
@@ -721,6 +1544,8 @@
       "id": "carmine",
       "index": 23,
       "name": "Carmine",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#cc1236",
       "rgb": [
         204,
@@ -739,7 +1564,6 @@
         33.71
       ],
       "chroma": 75.17,
-      "chapter": "I",
       "combinations": [
         39,
         117,
@@ -755,6 +1579,8 @@
       "id": "indian-lake",
       "index": 24,
       "name": "Indian Lake",
+      "family": "wines",
+      "chapter": "I",
       "hex": "#c53c69",
       "rgb": [
         197,
@@ -773,7 +1599,6 @@
         6.68
       ],
       "chroma": 57.6,
-      "chapter": "I",
       "combinations": [
         299,
         331
@@ -783,6 +1608,8 @@
       "id": "rosolanc-purple",
       "index": 25,
       "name": "Rosolanc Purple",
+      "family": "wines",
+      "chapter": "I",
       "hex": "#b73f74",
       "rgb": [
         183,
@@ -801,7 +1628,6 @@
         -3.16
       ],
       "chroma": 52.46,
-      "chapter": "I",
       "combinations": [
         48,
         144,
@@ -815,6 +1641,8 @@
       "id": "pomegranite-purple",
       "index": 26,
       "name": "Pomegranite Purple",
+      "family": "wines",
+      "chapter": "I",
       "hex": "#b71f57",
       "rgb": [
         183,
@@ -833,7 +1661,6 @@
         8.4
       ],
       "chroma": 61.54,
-      "chapter": "I",
       "combinations": [
         220,
         271
@@ -843,6 +1670,8 @@
       "id": "hydrangea-red",
       "index": 27,
       "name": "Hydrangea Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#a94151",
       "rgb": [
         169,
@@ -861,7 +1690,6 @@
         14.18
       ],
       "chroma": 46.57,
-      "chapter": "I",
       "combinations": [
         142
       ]
@@ -870,6 +1698,8 @@
       "id": "brick-red",
       "index": 28,
       "name": "Brick Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#a84222",
       "rgb": [
         168,
@@ -888,7 +1718,6 @@
         40.69
       ],
       "chroma": 58.13,
-      "chapter": "I",
       "combinations": [
         37,
         108,
@@ -901,6 +1730,8 @@
       "id": "carmine-red",
       "index": 29,
       "name": "Carmine Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#a62c37",
       "rgb": [
         166,
@@ -919,7 +1750,6 @@
         24.69
       ],
       "chroma": 55.97,
-      "chapter": "I",
       "combinations": [
         35,
         51,
@@ -939,6 +1769,8 @@
       "id": "pompeian-red",
       "index": 30,
       "name": "Pompeian Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#ab2439",
       "rgb": [
         171,
@@ -957,7 +1789,6 @@
         23.84
       ],
       "chroma": 59.77,
-      "chapter": "I",
       "combinations": [
         30,
         71,
@@ -971,6 +1802,8 @@
       "id": "red",
       "index": 31,
       "name": "Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#a72144",
       "rgb": [
         167,
@@ -989,7 +1822,6 @@
         15.37
       ],
       "chroma": 56.71,
-      "chapter": "I",
       "combinations": [
         251,
         261
@@ -999,6 +1831,8 @@
       "id": "brown",
       "index": 32,
       "name": "Brown",
+      "family": "browns",
+      "chapter": "I",
       "hex": "#7c4226",
       "rgb": [
         124,
@@ -1017,7 +1851,6 @@
         28.57
       ],
       "chroma": 36.98,
-      "chapter": "I",
       "combinations": [
         110,
         121,
@@ -1029,6 +1862,8 @@
       "id": "hay-s-russet",
       "index": 33,
       "name": "Hay's Russet",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#793327",
       "rgb": [
         121,
@@ -1047,7 +1882,6 @@
         23.51
       ],
       "chroma": 38.63,
-      "chapter": "I",
       "combinations": [
         58,
         82,
@@ -1066,6 +1900,8 @@
       "id": "vandyke-red",
       "index": 34,
       "name": "Vandyke Red",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#82241f",
       "rgb": [
         130,
@@ -1084,7 +1920,6 @@
         27.61
       ],
       "chroma": 49.1,
-      "chapter": "I",
       "combinations": [
         16,
         133,
@@ -1097,6 +1932,8 @@
       "id": "pansy-purple",
       "index": 35,
       "name": "Pansy Purple",
+      "family": "wines",
+      "chapter": "I",
       "hex": "#7d133a",
       "rgb": [
         125,
@@ -1115,7 +1952,6 @@
         6.09
       ],
       "chroma": 46.32,
-      "chapter": "I",
       "combinations": [
         157,
         273
@@ -1125,6 +1961,8 @@
       "id": "pale-burnt-lake",
       "index": 36,
       "name": "Pale Burnt Lake",
+      "family": "reds",
+      "chapter": "I",
       "hex": "#802626",
       "rgb": [
         128,
@@ -1143,7 +1981,6 @@
         22.71
       ],
       "chroma": 45.16,
-      "chapter": "I",
       "combinations": [
         124,
         171,
@@ -1159,6 +1996,8 @@
       "id": "violet-red",
       "index": 37,
       "name": "Violet Red",
+      "family": "purples",
+      "chapter": "I",
       "hex": "#642d5e",
       "rgb": [
         100,
@@ -1177,7 +2016,6 @@
         -17.74
       ],
       "chroma": 35.19,
-      "chapter": "I",
       "combinations": [
         9
       ]
@@ -1186,6 +2024,8 @@
       "id": "vistoris-lake",
       "index": 38,
       "name": "Vistoris Lake",
+      "family": "wines",
+      "chapter": "I",
       "hex": "#6d4145",
       "rgb": [
         109,
@@ -1204,7 +2044,6 @@
         6.1
       ],
       "chroma": 21.19,
-      "chapter": "I",
       "combinations": [
         63,
         91,
@@ -1218,6 +2057,8 @@
       "id": "sulpher-yellow",
       "index": 39,
       "name": "Sulpher Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#f5ecc2",
       "rgb": [
         245,
@@ -1236,7 +2077,6 @@
         21.65
       ],
       "chroma": 21.72,
-      "chapter": "II",
       "combinations": [
         52,
         72,
@@ -1262,6 +2102,8 @@
       "id": "pale-lemon-yellow",
       "index": 40,
       "name": "Pale Lemon Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#ffefae",
       "rgb": [
         255,
@@ -1280,7 +2122,6 @@
         34.09
       ],
       "chroma": 34.09,
-      "chapter": "II",
       "combinations": [
         3,
         31,
@@ -1307,6 +2148,8 @@
       "id": "naples-yellow",
       "index": 41,
       "name": "Naples Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#fbe6a0",
       "rgb": [
         251,
@@ -1325,7 +2168,6 @@
         36.57
       ],
       "chroma": 36.57,
-      "chapter": "II",
       "combinations": [
         14,
         115,
@@ -1339,6 +2181,8 @@
       "id": "ivory-buff",
       "index": 42,
       "name": "Ivory Buff",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#ebd3a2",
       "rgb": [
         235,
@@ -1357,7 +2201,6 @@
         27.27
       ],
       "chroma": 27.48,
-      "chapter": "II",
       "combinations": [
         11,
         50,
@@ -1381,6 +2224,8 @@
       "id": "seashell-pink",
       "index": 43,
       "name": "Seashell Pink",
+      "family": "pinks",
+      "chapter": "II",
       "hex": "#fdd4bd",
       "rgb": [
         253,
@@ -1399,7 +2244,6 @@
         17.27
       ],
       "chroma": 21.08,
-      "chapter": "II",
       "combinations": [
         45,
         84,
@@ -1416,6 +2260,8 @@
       "id": "light-pinkish-cinnamon",
       "index": 44,
       "name": "Light Pinkish Cinnamon",
+      "family": "pinks",
+      "chapter": "II",
       "hex": "#fcc79b",
       "rgb": [
         252,
@@ -1434,7 +2280,6 @@
         29.81
       ],
       "chroma": 33.66,
-      "chapter": "II",
       "combinations": [
         317
       ]
@@ -1443,6 +2288,8 @@
       "id": "pinkish-cinnamon",
       "index": 45,
       "name": "Pinkish Cinnamon",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#eeb480",
       "rgb": [
         238,
@@ -1461,7 +2308,6 @@
         34.75
       ],
       "chroma": 38.78,
-      "chapter": "II",
       "combinations": [
         78,
         161,
@@ -1478,6 +2324,8 @@
       "id": "cinnamon-buff",
       "index": 46,
       "name": "Cinnamon Buff",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#fdc57e",
       "rgb": [
         253,
@@ -1496,7 +2344,6 @@
         43.67
       ],
       "chroma": 46.09,
-      "chapter": "II",
       "combinations": [
         23,
         127,
@@ -1513,6 +2360,8 @@
       "id": "cream-yellow",
       "index": 47,
       "name": "Cream Yellow",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#fdbf68",
       "rgb": [
         253,
@@ -1531,7 +2380,6 @@
         51.98
       ],
       "chroma": 54.52,
-      "chapter": "II",
       "combinations": [
         122,
         192,
@@ -1553,6 +2401,8 @@
       "id": "golden-yellow",
       "index": 48,
       "name": "Golden Yellow",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#f3a257",
       "rgb": [
         243,
@@ -1571,7 +2421,6 @@
         51.18
       ],
       "chroma": 57.38,
-      "chapter": "II",
       "combinations": [
         26,
         81,
@@ -1589,6 +2438,8 @@
       "id": "vinaceous-cinnamon",
       "index": 49,
       "name": "Vinaceous Cinnamon",
+      "family": "pinks",
+      "chapter": "II",
       "hex": "#eea78c",
       "rgb": [
         238,
@@ -1607,7 +2458,6 @@
         24.81
       ],
       "chroma": 35.04,
-      "chapter": "II",
       "combinations": [
         203,
         205,
@@ -1622,6 +2472,8 @@
       "id": "ochraceous-salmon",
       "index": 50,
       "name": "Ochraceous Salmon",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#d8a37b",
       "rgb": [
         216,
@@ -1640,7 +2492,6 @@
         29.1
       ],
       "chroma": 33.43,
-      "chapter": "II",
       "combinations": [
         32,
         71,
@@ -1658,6 +2509,8 @@
       "id": "isabella-color",
       "index": 51,
       "name": "Isabella Color",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#c5a56e",
       "rgb": [
         197,
@@ -1676,7 +2529,6 @@
         33.02
       ],
       "chroma": 33.77,
-      "chapter": "II",
       "combinations": [
         4,
         12,
@@ -1688,6 +2540,8 @@
       "id": "maple",
       "index": 52,
       "name": "Maple",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#c59f6b",
       "rgb": [
         197,
@@ -1706,7 +2560,6 @@
         32.95
       ],
       "chroma": 34.32,
-      "chapter": "II",
       "combinations": [
         282
       ]
@@ -1715,6 +2568,8 @@
       "id": "olive-buff",
       "index": 53,
       "name": "Olive Buff",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#c1c494",
       "rgb": [
         193,
@@ -1733,7 +2588,6 @@
         23.66
       ],
       "chroma": 24.7,
-      "chapter": "II",
       "combinations": [
         83,
         175,
@@ -1746,6 +2600,8 @@
       "id": "ecru",
       "index": 54,
       "name": "Ecru",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#c2ae93",
       "rgb": [
         194,
@@ -1764,7 +2620,6 @@
         16.73
       ],
       "chroma": 17.26,
-      "chapter": "II",
       "combinations": [
         167,
         249,
@@ -1780,6 +2635,8 @@
       "id": "yellow",
       "index": 55,
       "name": "Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#fff200",
       "rgb": [
         255,
@@ -1798,7 +2655,6 @@
         95.58
       ],
       "chroma": 95.8,
-      "chapter": "II",
       "combinations": [
         22,
         62,
@@ -1814,6 +2670,8 @@
       "id": "lemon-yellow",
       "index": 56,
       "name": "Lemon Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#f8ed43",
       "rgb": [
         248,
@@ -1832,7 +2690,6 @@
         77.76
       ],
       "chroma": 78.33,
-      "chapter": "II",
       "combinations": [
         45,
         123,
@@ -1855,6 +2712,8 @@
       "id": "apricot-yellow",
       "index": 57,
       "name": "Apricot Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#ffdd00",
       "rgb": [
         255,
@@ -1873,7 +2732,6 @@
         89.46
       ],
       "chroma": 89.48,
-      "chapter": "II",
       "combinations": [
         107,
         129,
@@ -1891,6 +2749,8 @@
       "id": "pyrite-yellow",
       "index": 58,
       "name": "Pyrite Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#cab356",
       "rgb": [
         202,
@@ -1909,7 +2769,6 @@
         49.82
       ],
       "chroma": 49.82,
-      "chapter": "II",
       "combinations": [
         239,
         250,
@@ -1921,6 +2780,8 @@
       "id": "olive-ocher",
       "index": 59,
       "name": "Olive Ocher",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#d6b43e",
       "rgb": [
         214,
@@ -1939,7 +2800,6 @@
         61.81
       ],
       "chroma": 61.91,
-      "chapter": "II",
       "combinations": [
         66,
         148,
@@ -1954,6 +2814,8 @@
       "id": "yellow-ocher",
       "index": 60,
       "name": "Yellow Ocher",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#e2b540",
       "rgb": [
         226,
@@ -1972,7 +2834,6 @@
         62.79
       ],
       "chroma": 63.36,
-      "chapter": "II",
       "combinations": [
         42,
         96,
@@ -1988,6 +2849,8 @@
       "id": "orange-yellow",
       "index": 61,
       "name": "Orange Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#fcb315",
       "rgb": [
         252,
@@ -2006,7 +2869,6 @@
         78.22
       ],
       "chroma": 80.63,
-      "chapter": "II",
       "combinations": [
         114,
         148,
@@ -2022,6 +2884,8 @@
       "id": "yellow-orange",
       "index": 62,
       "name": "Yellow Orange",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#f99d1b",
       "rgb": [
         249,
@@ -2040,7 +2904,6 @@
         72.94
       ],
       "chroma": 78.65,
-      "chapter": "II",
       "combinations": [
         2,
         53,
@@ -2062,6 +2925,8 @@
       "id": "apricot-orange",
       "index": 63,
       "name": "Apricot Orange",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#f68c50",
       "rgb": [
         246,
@@ -2080,7 +2945,6 @@
         49.65
       ],
       "chroma": 62.33,
-      "chapter": "II",
       "combinations": [
         211,
         253,
@@ -2092,6 +2956,8 @@
       "id": "orange",
       "index": 64,
       "name": "Orange",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#f37420",
       "rgb": [
         243,
@@ -2110,7 +2976,6 @@
         64.72
       ],
       "chroma": 80.08,
-      "chapter": "II",
       "combinations": [
         7,
         46,
@@ -2125,6 +2990,8 @@
       "id": "peach-red",
       "index": 65,
       "name": "Peach Red",
+      "family": "reds",
+      "chapter": "II",
       "hex": "#f15a30",
       "rgb": [
         241,
@@ -2143,7 +3010,6 @@
         54.35
       ],
       "chroma": 79.16,
-      "chapter": "II",
       "combinations": [
         115,
         250,
@@ -2159,6 +3025,8 @@
       "id": "english-red",
       "index": 66,
       "name": "English Red",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#d96629",
       "rgb": [
         217,
@@ -2177,7 +3045,6 @@
         54.36
       ],
       "chroma": 69.5,
-      "chapter": "II",
       "combinations": [
         1,
         131,
@@ -2190,6 +3057,8 @@
       "id": "cinnamon-rufous",
       "index": 67,
       "name": "Cinnamon Rufous",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#c27544",
       "rgb": [
         194,
@@ -2208,7 +3077,6 @@
         40.23
       ],
       "chroma": 48.88,
-      "chapter": "II",
       "combinations": [
         8,
         10,
@@ -2223,6 +3091,8 @@
       "id": "orange-rufous",
       "index": 68,
       "name": "Orange Rufous",
+      "family": "oranges",
+      "chapter": "II",
       "hex": "#c16b27",
       "rgb": [
         193,
@@ -2241,7 +3111,6 @@
         51.25
       ],
       "chroma": 60.21,
-      "chapter": "II",
       "combinations": [
         91,
         102,
@@ -2252,6 +3121,8 @@
       "id": "sulphine-yellow",
       "index": 69,
       "name": "Sulphine Yellow",
+      "family": "yellows",
+      "chapter": "II",
       "hex": "#c19f2c",
       "rgb": [
         193,
@@ -2270,7 +3141,6 @@
         60.55
       ],
       "chroma": 60.71,
-      "chapter": "II",
       "combinations": [
         36,
         65,
@@ -2283,6 +3153,8 @@
       "id": "khaki",
       "index": 70,
       "name": "Khaki",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#bc892b",
       "rgb": [
         188,
@@ -2301,7 +3173,6 @@
         55.05
       ],
       "chroma": 56.77,
-      "chapter": "II",
       "combinations": [
         129,
         146,
@@ -2314,6 +3185,8 @@
       "id": "citron-yellow",
       "index": 71,
       "name": "Citron Yellow",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#b2b73e",
       "rgb": [
         178,
@@ -2332,7 +3205,6 @@
         58.18
       ],
       "chroma": 59.62,
-      "chapter": "II",
       "combinations": [
         40,
         87,
@@ -2348,6 +3220,8 @@
       "id": "citrine",
       "index": 72,
       "name": "Citrine",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#b09f36",
       "rgb": [
         176,
@@ -2366,7 +3240,6 @@
         54.49
       ],
       "chroma": 54.55,
-      "chapter": "II",
       "combinations": [
         59,
         93,
@@ -2379,6 +3252,8 @@
       "id": "buffy-citrine",
       "index": 73,
       "name": "Buffy Citrine",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#96874d",
       "rgb": [
         150,
@@ -2397,7 +3272,6 @@
         33.3
       ],
       "chroma": 33.3,
-      "chapter": "II",
       "combinations": [
         100,
         177,
@@ -2408,6 +3282,8 @@
       "id": "dark-citrine",
       "index": 74,
       "name": "Dark Citrine",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#8b835b",
       "rgb": [
         139,
@@ -2426,7 +3302,6 @@
         23.07
       ],
       "chroma": 23.11,
-      "chapter": "II",
       "combinations": [
         10,
         41,
@@ -2438,6 +3313,8 @@
       "id": "light-grayish-olive",
       "index": 75,
       "name": "Light Grayish Olive",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#848061",
       "rgb": [
         132,
@@ -2456,7 +3333,6 @@
         17.02
       ],
       "chroma": 17.17,
-      "chapter": "II",
       "combinations": [
         107,
         184
@@ -2466,6 +3342,8 @@
       "id": "krongbergs-green",
       "index": 76,
       "name": "Krongbergs Green",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#84875e",
       "rgb": [
         132,
@@ -2484,7 +3362,6 @@
         21.51
       ],
       "chroma": 22.38,
-      "chapter": "II",
       "combinations": [
         29
       ]
@@ -2493,6 +3370,8 @@
       "id": "olive",
       "index": 77,
       "name": "Olive",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#837e31",
       "rgb": [
         131,
@@ -2511,7 +3390,6 @@
         41.49
       ],
       "chroma": 41.88,
-      "chapter": "II",
       "combinations": [
         96,
         201,
@@ -2526,6 +3404,8 @@
       "id": "orange-citrine",
       "index": 78,
       "name": "Orange Citrine",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#986f2d",
       "rgb": [
         152,
@@ -2544,7 +3424,6 @@
         42.05
       ],
       "chroma": 43.6,
-      "chapter": "II",
       "combinations": [
         212,
         342
@@ -2554,6 +3433,8 @@
       "id": "sudan-brown",
       "index": 79,
       "name": "Sudan Brown",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#a36752",
       "rgb": [
         163,
@@ -2572,7 +3453,6 @@
         22.45
       ],
       "chroma": 32.16,
-      "chapter": "II",
       "combinations": [
         207,
         214,
@@ -2583,6 +3463,8 @@
       "id": "olive-green",
       "index": 80,
       "name": "Olive Green",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#6b7140",
       "rgb": [
         107,
@@ -2601,7 +3483,6 @@
         26.49
       ],
       "chroma": 27.82,
-      "chapter": "II",
       "combinations": [
         66,
         243,
@@ -2613,6 +3494,8 @@
       "id": "light-brownish-olive",
       "index": 81,
       "name": "Light Brownish Olive",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#806e4b",
       "rgb": [
         128,
@@ -2631,7 +3514,6 @@
         22.19
       ],
       "chroma": 22.51,
-      "chapter": "II",
       "combinations": [
         199,
         318
@@ -2641,6 +3523,8 @@
       "id": "deep-grayish-olive",
       "index": 82,
       "name": "Deep Grayish Olive",
+      "family": "olives",
+      "chapter": "II",
       "hex": "#635a3a",
       "rgb": [
         99,
@@ -2659,7 +3543,6 @@
         19.94
       ],
       "chroma": 19.94,
-      "chapter": "II",
       "combinations": [
         146,
         343
@@ -2669,6 +3552,8 @@
       "id": "pale-raw-umber",
       "index": 83,
       "name": "Pale Raw Umber",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#71502f",
       "rgb": [
         113,
@@ -2687,7 +3572,6 @@
         24.96
       ],
       "chroma": 27.35,
-      "chapter": "II",
       "combinations": [
         26,
         73,
@@ -2700,6 +3584,8 @@
       "id": "sepia",
       "index": 84,
       "name": "Sepia",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#644b1e",
       "rgb": [
         100,
@@ -2718,7 +3604,6 @@
         30.23
       ],
       "chroma": 31,
-      "chapter": "II",
       "combinations": [
         24,
         288
@@ -2728,6 +3613,8 @@
       "id": "madder-brown",
       "index": 85,
       "name": "Madder Brown",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#762c19",
       "rgb": [
         118,
@@ -2746,7 +3633,6 @@
         29.28
       ],
       "chroma": 43.37,
-      "chapter": "II",
       "combinations": [
         28,
         79,
@@ -2761,6 +3647,8 @@
       "id": "mars-brown-tobacco",
       "index": 86,
       "name": "Mars Brown Tobacco",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#653514",
       "rgb": [
         101,
@@ -2779,7 +3667,6 @@
         29.84
       ],
       "chroma": 36.17,
-      "chapter": "II",
       "combinations": [
         19
       ]
@@ -2788,6 +3675,8 @@
       "id": "vandyke-brown",
       "index": 87,
       "name": "Vandyke Brown",
+      "family": "browns",
+      "chapter": "II",
       "hex": "#4b3317",
       "rgb": [
         75,
@@ -2806,7 +3695,6 @@
         22.1
       ],
       "chroma": 23.68,
-      "chapter": "II",
       "combinations": [
         110,
         113,
@@ -2820,6 +3708,8 @@
       "id": "turquoise-green",
       "index": 88,
       "name": "Turquoise Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#b5decc",
       "rgb": [
         181,
@@ -2838,7 +3728,6 @@
         4.6
       ],
       "chroma": 17.5,
-      "chapter": "III",
       "combinations": [
         36,
         74,
@@ -2862,6 +3751,8 @@
       "id": "glaucous-green",
       "index": 89,
       "name": "Glaucous Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#b4cdc2",
       "rgb": [
         180,
@@ -2880,7 +3771,6 @@
         2.3
       ],
       "chroma": 10.49,
-      "chapter": "III",
       "combinations": [
         7,
         150,
@@ -2894,6 +3784,8 @@
       "id": "dark-greenish-glaucous",
       "index": 90,
       "name": "Dark Greenish Glaucous",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#b7c2a9",
       "rgb": [
         183,
@@ -2912,7 +3804,6 @@
         11.37
       ],
       "chroma": 13.65,
-      "chapter": "III",
       "combinations": [
         264,
         311
@@ -2922,6 +3813,8 @@
       "id": "yellow-green",
       "index": 91,
       "name": "Yellow Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#afd472",
       "rgb": [
         175,
@@ -2940,7 +3833,6 @@
         43.91
       ],
       "chroma": 50.33,
-      "chapter": "III",
       "combinations": [
         111,
         141,
@@ -2953,6 +3845,8 @@
       "id": "light-green-yellow",
       "index": 92,
       "name": "Light Green Yellow",
+      "family": "olives",
+      "chapter": "III",
       "hex": "#c7d14f",
       "rgb": [
         199,
@@ -2971,7 +3865,6 @@
         60.56
       ],
       "chroma": 62.6,
-      "chapter": "III",
       "combinations": [
         61,
         289,
@@ -2984,6 +3877,8 @@
       "id": "night-green",
       "index": 93,
       "name": "Night Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#87c540",
       "rgb": [
         135,
@@ -3002,7 +3897,6 @@
         57.03
       ],
       "chroma": 67.46,
-      "chapter": "III",
       "combinations": [
         19,
         32,
@@ -3014,6 +3908,8 @@
       "id": "olive-yellow",
       "index": 94,
       "name": "Olive Yellow",
+      "family": "olives",
+      "chapter": "III",
       "hex": "#a6a159",
       "rgb": [
         166,
@@ -3032,7 +3928,6 @@
         37.84
       ],
       "chroma": 38.32,
-      "chapter": "III",
       "combinations": [
         124,
         211,
@@ -3044,6 +3939,8 @@
       "id": "artemesia-green",
       "index": 95,
       "name": "Artemesia Green",
+      "family": "teals",
+      "chapter": "III",
       "hex": "#709390",
       "rgb": [
         112,
@@ -3062,7 +3959,6 @@
         -2.89
       ],
       "chroma": 13.15,
-      "chapter": "III",
       "combinations": [
         293,
         312
@@ -3072,6 +3968,8 @@
       "id": "andover-green",
       "index": 96,
       "name": "Andover Green",
+      "family": "teals",
+      "chapter": "III",
       "hex": "#6d7e77",
       "rgb": [
         109,
@@ -3090,7 +3988,6 @@
         1.54
       ],
       "chroma": 7.91,
-      "chapter": "III",
       "combinations": [
         244,
         346
@@ -3100,6 +3997,8 @@
       "id": "rainette-green",
       "index": 97,
       "name": "Rainette Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#8fa071",
       "rgb": [
         143,
@@ -3118,7 +4017,6 @@
         22.45
       ],
       "chroma": 25.71,
-      "chapter": "III",
       "combinations": [
         73,
         162,
@@ -3131,6 +4029,8 @@
       "id": "chromium-green",
       "index": 98,
       "name": "Chromium Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#719470",
       "rgb": [
         113,
@@ -3149,7 +4049,6 @@
         14.99
       ],
       "chroma": 23.54,
-      "chapter": "III",
       "combinations": [
         105,
         200,
@@ -3161,6 +4060,8 @@
       "id": "pistachio-green",
       "index": 99,
       "name": "Pistachio Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#648f7b",
       "rgb": [
         100,
@@ -3179,7 +4080,6 @@
         5.69
       ],
       "chroma": 19.49,
-      "chapter": "III",
       "combinations": [
         127,
         137
@@ -3189,6 +4089,8 @@
       "id": "sea-green",
       "index": 100,
       "name": "Sea Green",
+      "family": "teals",
+      "chapter": "III",
       "hex": "#00b49b",
       "rgb": [
         0,
@@ -3207,7 +4109,6 @@
         0.46
       ],
       "chroma": 48.9,
-      "chapter": "III",
       "combinations": [
         17,
         21,
@@ -3226,6 +4127,8 @@
       "id": "benzol-green",
       "index": 101,
       "name": "Benzol Green",
+      "family": "teals",
+      "chapter": "III",
       "hex": "#00978d",
       "rgb": [
         0,
@@ -3244,7 +4147,6 @@
         -8.31
       ],
       "chroma": 55.25,
-      "chapter": "III",
       "combinations": [
         15,
         54,
@@ -3263,6 +4165,8 @@
       "id": "light-porcelain-green",
       "index": 102,
       "name": "Light Porcelain Green",
+      "family": "teals",
+      "chapter": "III",
       "hex": "#00908a",
       "rgb": [
         0,
@@ -3281,7 +4185,6 @@
         -6.83
       ],
       "chroma": 38.14,
-      "chapter": "III",
       "combinations": [
         44,
         193,
@@ -3292,6 +4195,8 @@
       "id": "green",
       "index": 103,
       "name": "Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#489b6e",
       "rgb": [
         72,
@@ -3310,7 +4215,6 @@
         15.59
       ],
       "chroma": 37.87,
-      "chapter": "III",
       "combinations": [
         198,
         216,
@@ -3321,6 +4225,8 @@
       "id": "dull-viridian-green",
       "index": 104,
       "name": "Dull Viridian Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#009465",
       "rgb": [
         0,
@@ -3339,7 +4245,6 @@
         14.44
       ],
       "chroma": 51.09,
-      "chapter": "III",
       "combinations": [
         136,
         256,
@@ -3351,6 +4256,8 @@
       "id": "oil-green",
       "index": 105,
       "name": "Oil Green",
+      "family": "olives",
+      "chapter": "III",
       "hex": "#819238",
       "rgb": [
         129,
@@ -3369,7 +4276,6 @@
         43.77
       ],
       "chroma": 46.6,
-      "chapter": "III",
       "combinations": [
         245,
         299,
@@ -3380,6 +4286,8 @@
       "id": "diamine-green",
       "index": 106,
       "name": "Diamine Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#1a7444",
       "rgb": [
         26,
@@ -3398,7 +4306,6 @@
         18.56
       ],
       "chroma": 40.2,
-      "chapter": "III",
       "combinations": [
         38,
         146,
@@ -3412,6 +4319,8 @@
       "id": "cossack-green",
       "index": 107,
       "name": "Cossack Green",
+      "family": "greens",
+      "chapter": "III",
       "hex": "#437742",
       "rgb": [
         67,
@@ -3430,7 +4339,6 @@
         23.45
       ],
       "chroma": 35.91,
-      "chapter": "III",
       "combinations": [
         5,
         135,
@@ -3447,6 +4355,8 @@
       "id": "lincoln-green",
       "index": 108,
       "name": "Lincoln Green",
+      "family": "olives",
+      "chapter": "III",
       "hex": "#555832",
       "rgb": [
         85,
@@ -3465,7 +4375,6 @@
         21.18
       ],
       "chroma": 21.99,
-      "chapter": "III",
       "combinations": [
         70,
         121,
@@ -3479,6 +4388,8 @@
       "id": "blackish-olive",
       "index": 109,
       "name": "Blackish Olive",
+      "family": "olives",
+      "chapter": "III",
       "hex": "#42533e",
       "rgb": [
         66,
@@ -3497,7 +4408,6 @@
         9.69
       ],
       "chroma": 14.02,
-      "chapter": "III",
       "combinations": [
         109,
         318,
@@ -3508,6 +4418,8 @@
       "id": "deep-slate-olive",
       "index": 110,
       "name": "Deep Slate Olive",
+      "family": "olives",
+      "chapter": "III",
       "hex": "#253122",
       "rgb": [
         37,
@@ -3526,7 +4438,6 @@
         7.54
       ],
       "chroma": 10.75,
-      "chapter": "III",
       "combinations": [
         189,
         229,
@@ -3544,6 +4455,8 @@
       "id": "nile-blue",
       "index": 111,
       "name": "Nile Blue",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#bce4e5",
       "rgb": [
         188,
@@ -3562,7 +4475,6 @@
         -5.03
       ],
       "chroma": 14.18,
-      "chapter": "IV",
       "combinations": [
         25,
         250,
@@ -3577,6 +4489,8 @@
       "id": "pale-king-s-blue",
       "index": 112,
       "name": "Pale King's Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#a7d4e4",
       "rgb": [
         167,
@@ -3595,7 +4509,6 @@
         -12.88
       ],
       "chroma": 18.12,
-      "chapter": "IV",
       "combinations": [
         16,
         49,
@@ -3612,6 +4525,8 @@
       "id": "light-glaucous-blue",
       "index": 113,
       "name": "Light Glaucous Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#a5c8d1",
       "rgb": [
         165,
@@ -3630,7 +4545,6 @@
         -8.72
       ],
       "chroma": 13.7,
-      "chapter": "IV",
       "combinations": [
         54,
         93,
@@ -3648,6 +4562,8 @@
       "id": "salvia-blue",
       "index": 114,
       "name": "Salvia Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#97acc8",
       "rgb": [
         151,
@@ -3666,7 +4582,6 @@
         -16.75
       ],
       "chroma": 16.98,
-      "chapter": "IV",
       "combinations": [
         29,
         129,
@@ -3687,6 +4602,8 @@
       "id": "cobalt-green",
       "index": 115,
       "name": "Cobalt Green",
+      "family": "greens",
+      "chapter": "IV",
       "hex": "#96d1aa",
       "rgb": [
         150,
@@ -3705,7 +4622,6 @@
         13
       ],
       "chroma": 28.68,
-      "chapter": "IV",
       "combinations": [
         156,
         188,
@@ -3725,6 +4641,8 @@
       "id": "calamine-blue",
       "index": 116,
       "name": "Calamine BLue",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#78cdd0",
       "rgb": [
         120,
@@ -3743,7 +4661,6 @@
         -10.37
       ],
       "chroma": 28.22,
-      "chapter": "IV",
       "combinations": [
         20,
         41,
@@ -3761,6 +4678,8 @@
       "id": "venice-green",
       "index": 117,
       "name": "Venice Green",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#62c6bf",
       "rgb": [
         98,
@@ -3779,7 +4698,6 @@
         -6.14
       ],
       "chroma": 32.32,
-      "chapter": "IV",
       "combinations": [
         78,
         128,
@@ -3793,6 +4711,8 @@
       "id": "cerulian-blue",
       "index": 118,
       "name": "Cerulian Blue",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#0093a5",
       "rgb": [
         0,
@@ -3811,7 +4731,6 @@
         -20.14
       ],
       "chroma": 36.29,
-      "chapter": "IV",
       "combinations": [
         1,
         63,
@@ -3827,6 +4746,8 @@
       "id": "peacock-blue",
       "index": 119,
       "name": "Peacock Blue",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#00939b",
       "rgb": [
         0,
@@ -3845,7 +4766,6 @@
         -17.52
       ],
       "chroma": 51.95,
-      "chapter": "IV",
       "combinations": [
         131,
         286
@@ -3855,6 +4775,8 @@
       "id": "green-blue",
       "index": 120,
       "name": "Green Blue",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#099197",
       "rgb": [
         9,
@@ -3873,7 +4795,6 @@
         -12.88
       ],
       "chroma": 33.82,
-      "chapter": "IV",
       "combinations": [
         12,
         74,
@@ -3890,6 +4811,8 @@
       "id": "olympic-blue",
       "index": 121,
       "name": "Olympic Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#5a82b3",
       "rgb": [
         90,
@@ -3908,7 +4831,6 @@
         -30.74
       ],
       "chroma": 30.95,
-      "chapter": "IV",
       "combinations": [
         44,
         67,
@@ -3923,6 +4845,8 @@
       "id": "blue",
       "index": 122,
       "name": "Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#006eb8",
       "rgb": [
         0,
@@ -3941,7 +4865,6 @@
         -48.77
       ],
       "chroma": 49.56,
-      "chapter": "IV",
       "combinations": [
         49,
         51,
@@ -3961,6 +4884,8 @@
       "id": "antwarp-blue",
       "index": 123,
       "name": "Antwarp Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#007190",
       "rgb": [
         0,
@@ -3979,7 +4904,6 @@
         -27.73
       ],
       "chroma": 40.21,
-      "chapter": "IV",
       "combinations": [
         85,
         106,
@@ -4000,6 +4924,8 @@
       "id": "helvetia-blue",
       "index": 124,
       "name": "Helvetia Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#005b8d",
       "rgb": [
         0,
@@ -4018,7 +4944,6 @@
         -36.37
       ],
       "chroma": 38.33,
-      "chapter": "IV",
       "combinations": [
         39,
         48,
@@ -4034,6 +4959,8 @@
       "id": "dark-medici-blue",
       "index": 125,
       "name": "Dark Medici Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#547076",
       "rgb": [
         84,
@@ -4052,7 +4979,6 @@
         -6.86
       ],
       "chroma": 11.49,
-      "chapter": "IV",
       "combinations": [
         160,
         224,
@@ -4064,6 +4990,8 @@
       "id": "dusky-green",
       "index": 126,
       "name": "Dusky Green",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#004f46",
       "rgb": [
         0,
@@ -4082,7 +5010,6 @@
         -3.28
       ],
       "chroma": 36.42,
-      "chapter": "IV",
       "combinations": [
         94,
         219,
@@ -4098,6 +5025,8 @@
       "id": "deep-lyons-blue",
       "index": 127,
       "name": "Deep Lyons Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#1c4286",
       "rgb": [
         28,
@@ -4116,7 +5045,6 @@
         -42.68
       ],
       "chroma": 43.18,
-      "chapter": "IV",
       "combinations": [
         22,
         38,
@@ -4134,6 +5062,8 @@
       "id": "violet-blue",
       "index": 128,
       "name": "Violet Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#40456a",
       "rgb": [
         64,
@@ -4152,7 +5082,6 @@
         -22.38
       ],
       "chroma": 23.03,
-      "chapter": "IV",
       "combinations": [
         75,
         83,
@@ -4171,6 +5100,8 @@
       "id": "vandar-poel-s-blue",
       "index": 129,
       "name": "Vandar Poel's Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#064f6e",
       "rgb": [
         6,
@@ -4189,7 +5120,6 @@
         -24.52
       ],
       "chroma": 26.98,
-      "chapter": "IV",
       "combinations": [
         5,
         77,
@@ -4204,6 +5134,8 @@
       "id": "dark-tyrian-blue",
       "index": 130,
       "name": "Dark Tyrian Blue",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#12354e",
       "rgb": [
         18,
@@ -4222,7 +5154,6 @@
         -19.08
       ],
       "chroma": 19.95,
-      "chapter": "IV",
       "combinations": [
         2,
         60,
@@ -4237,6 +5168,8 @@
       "id": "dull-violet-black",
       "index": 131,
       "name": "Dull Violet Black",
+      "family": "purples",
+      "chapter": "IV",
       "hex": "#1e0e3f",
       "rgb": [
         30,
@@ -4255,7 +5188,6 @@
         -28.81
       ],
       "chroma": 34.75,
-      "chapter": "IV",
       "combinations": [
         95,
         106,
@@ -4271,6 +5203,8 @@
       "id": "deep-indigo",
       "index": 132,
       "name": "Deep Indigo",
+      "family": "blues",
+      "chapter": "IV",
       "hex": "#051230",
       "rgb": [
         5,
@@ -4289,7 +5223,6 @@
         -21.79
       ],
       "chroma": 22.18,
-      "chapter": "IV",
       "combinations": [
         6,
         28,
@@ -4304,6 +5237,8 @@
       "id": "deep-slate-green",
       "index": 133,
       "name": "Deep Slate Green",
+      "family": "teals",
+      "chapter": "IV",
       "hex": "#112f2c",
       "rgb": [
         17,
@@ -4322,7 +5257,6 @@
         -2.23
       ],
       "chroma": 12.35,
-      "chapter": "IV",
       "combinations": [
         84,
         149,
@@ -4336,6 +5270,8 @@
       "id": "grayish-lavender-a",
       "index": 134,
       "name": "Grayish Lavender - A",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#b5b1d8",
       "rgb": [
         181,
@@ -4354,7 +5290,6 @@
         -19.35
       ],
       "chroma": 20.74,
-      "chapter": "V",
       "combinations": [
         8,
         15,
@@ -4369,6 +5304,8 @@
       "id": "grayish-lavender-b",
       "index": 135,
       "name": "Grayish Lavender - B",
+      "family": "pinks",
+      "chapter": "V",
       "hex": "#c0a9b3",
       "rgb": [
         192,
@@ -4387,7 +5324,6 @@
         -2.21
       ],
       "chroma": 10.29,
-      "chapter": "V",
       "combinations": [
         47,
         56,
@@ -4403,6 +5339,8 @@
       "id": "laelia-pink",
       "index": 136,
       "name": "Laelia Pink",
+      "family": "pinks",
+      "chapter": "V",
       "hex": "#ca92a8",
       "rgb": [
         202,
@@ -4421,7 +5359,6 @@
         -2.66
       ],
       "chroma": 24.45,
-      "chapter": "V",
       "combinations": [
         20,
         254,
@@ -4433,6 +5370,8 @@
       "id": "lilac",
       "index": 137,
       "name": "Lilac",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#b984af",
       "rgb": [
         185,
@@ -4451,7 +5390,6 @@
         -14.25
       ],
       "chroma": 29.58,
-      "chapter": "V",
       "combinations": [
         143,
         162,
@@ -4463,6 +5401,8 @@
       "id": "eupatorium-purple",
       "index": 138,
       "name": "Eupatorium Purple",
+      "family": "wines",
+      "chapter": "V",
       "hex": "#bf5892",
       "rgb": [
         191,
@@ -4481,7 +5421,6 @@
         -11.72
       ],
       "chroma": 48.16,
-      "chapter": "V",
       "combinations": [
         215,
         315,
@@ -4492,6 +5431,8 @@
       "id": "light-mauve",
       "index": 139,
       "name": "Light Mauve",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#9a72aa",
       "rgb": [
         154,
@@ -4510,7 +5451,6 @@
         -23.98
       ],
       "chroma": 33.86,
-      "chapter": "V",
       "combinations": [
         23,
         80,
@@ -4525,6 +5465,8 @@
       "id": "aconite-violet",
       "index": 140,
       "name": "Aconite Violet",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#a36aa5",
       "rgb": [
         163,
@@ -4543,7 +5485,6 @@
         -22.37
       ],
       "chroma": 37.98,
-      "chapter": "V",
       "combinations": [
         43,
         64,
@@ -4562,6 +5503,8 @@
       "id": "dull-blue-violet",
       "index": 141,
       "name": "Dull Blue Violet",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#80719e",
       "rgb": [
         128,
@@ -4580,7 +5523,6 @@
         -22.46
       ],
       "chroma": 26.14,
-      "chapter": "V",
       "combinations": [
         9,
         100
@@ -4590,6 +5532,8 @@
       "id": "dark-soft-violet",
       "index": 142,
       "name": "Dark Soft Violet",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#66629c",
       "rgb": [
         102,
@@ -4608,7 +5552,6 @@
         -31.17
       ],
       "chroma": 33.53,
-      "chapter": "V",
       "combinations": [
         64,
         127,
@@ -4619,6 +5562,8 @@
       "id": "blue-violet",
       "index": 143,
       "name": "Blue Violet",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#6450a1",
       "rgb": [
         100,
@@ -4637,7 +5582,6 @@
         -41.91
       ],
       "chroma": 48.08,
-      "chapter": "V",
       "combinations": [
         116,
         175,
@@ -4650,6 +5594,8 @@
       "id": "purple-drab",
       "index": 144,
       "name": "Purple Drab",
+      "family": "wines",
+      "chapter": "V",
       "hex": "#84565b",
       "rgb": [
         132,
@@ -4668,7 +5614,6 @@
         5.56
       ],
       "chroma": 20.63,
-      "chapter": "V",
       "combinations": [
         236
       ]
@@ -4677,6 +5622,8 @@
       "id": "deep-violet-plumbeous",
       "index": 145,
       "name": "Deep Violet / Plumbeous",
+      "family": "neutrals",
+      "chapter": "V",
       "hex": "#70727c",
       "rgb": [
         112,
@@ -4695,7 +5642,6 @@
         -5.91
       ],
       "chroma": 5.96,
-      "chapter": "V",
       "combinations": [
         183,
         192,
@@ -4706,6 +5652,8 @@
       "id": "veronia-purple",
       "index": 146,
       "name": "Veronia Purple",
+      "family": "wines",
+      "chapter": "V",
       "hex": "#8c4c62",
       "rgb": [
         140,
@@ -4724,7 +5672,6 @@
         0.13
       ],
       "chroma": 29.56,
-      "chapter": "V",
       "combinations": [
         13,
         24,
@@ -4736,6 +5683,8 @@
       "id": "dark-slate-purple",
       "index": 147,
       "name": "Dark Slate Purple",
+      "family": "wines",
+      "chapter": "V",
       "hex": "#704357",
       "rgb": [
         112,
@@ -4754,7 +5703,6 @@
         -3.55
       ],
       "chroma": 22.5,
-      "chapter": "V",
       "combinations": [
         225,
         248
@@ -4764,6 +5712,8 @@
       "id": "taupe-brown",
       "index": 148,
       "name": "Taupe Brown",
+      "family": "wines",
+      "chapter": "V",
       "hex": "#7a4456",
       "rgb": [
         122,
@@ -4782,7 +5732,6 @@
         0.06
       ],
       "chroma": 25.64,
-      "chapter": "V",
       "combinations": [
         57,
         123,
@@ -4797,6 +5746,8 @@
       "id": "violet-carmine",
       "index": 149,
       "name": "Violet Carmine",
+      "family": "wines",
+      "chapter": "V",
       "hex": "#713b4c",
       "rgb": [
         113,
@@ -4815,7 +5766,6 @@
         0.82
       ],
       "chroma": 25.88,
-      "chapter": "V",
       "combinations": [
         337
       ]
@@ -4824,6 +5774,8 @@
       "id": "violet",
       "index": 150,
       "name": "Violet",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#4f4086",
       "rgb": [
         79,
@@ -4842,7 +5794,6 @@
         -37.93
       ],
       "chroma": 43.19,
-      "chapter": "V",
       "combinations": [
         42,
         56,
@@ -4862,6 +5813,8 @@
       "id": "red-violet",
       "index": 151,
       "name": "Red Violet",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#59256a",
       "rgb": [
         89,
@@ -4880,7 +5833,6 @@
         -30.06
       ],
       "chroma": 44.72,
-      "chapter": "V",
       "combinations": [
         4,
         37,
@@ -4896,6 +5848,8 @@
       "id": "cotinga-purple",
       "index": 152,
       "name": "Cotinga Purple",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#501345",
       "rgb": [
         80,
@@ -4914,7 +5868,6 @@
         -15.76
       ],
       "chroma": 36.44,
-      "chapter": "V",
       "combinations": [
         61,
         181,
@@ -4929,6 +5882,8 @@
       "id": "dusky-madder-violet",
       "index": 153,
       "name": "Dusky Madder Violet",
+      "family": "purples",
+      "chapter": "V",
       "hex": "#4e1d4c",
       "rgb": [
         78,
@@ -4947,7 +5902,6 @@
         -18.26
       ],
       "chroma": 33.97,
-      "chapter": "V",
       "combinations": [
         18,
         50,
@@ -4961,6 +5915,8 @@
       "id": "white",
       "index": 154,
       "name": "White",
+      "family": "neutrals",
+      "chapter": "VI",
       "hex": "#ffffff",
       "rgb": [
         255,
@@ -4979,7 +5935,6 @@
         0
       ],
       "chroma": 0,
-      "chapter": "VI",
       "combinations": [
         55
       ]
@@ -4988,6 +5943,8 @@
       "id": "neutral-gray",
       "index": 155,
       "name": "Neutral Gray",
+      "family": "neutrals",
+      "chapter": "VI",
       "hex": "#b6bfc1",
       "rgb": [
         182,
@@ -5006,7 +5963,6 @@
         -2.03
       ],
       "chroma": 3.65,
-      "chapter": "VI",
       "combinations": [
         34,
         139,
@@ -5026,6 +5982,8 @@
       "id": "mineral-gray",
       "index": 156,
       "name": "Mineral Gray",
+      "family": "neutrals",
+      "chapter": "VI",
       "hex": "#a2b0ad",
       "rgb": [
         162,
@@ -5044,7 +6002,6 @@
         -0.1
       ],
       "chroma": 5.62,
-      "chapter": "VI",
       "combinations": [
         11,
         30
@@ -5054,6 +6011,8 @@
       "id": "warm-gray",
       "index": 157,
       "name": "Warm Gray",
+      "family": "neutrals",
+      "chapter": "VI",
       "hex": "#a1a39a",
       "rgb": [
         161,
@@ -5072,7 +6031,6 @@
         4.74
       ],
       "chroma": 5.25,
-      "chapter": "VI",
       "combinations": [
         69,
         76,
@@ -5088,6 +6046,8 @@
       "id": "slate-color",
       "index": 158,
       "name": "Slate Color",
+      "family": "blues",
+      "chapter": "VI",
       "hex": "#34454c",
       "rgb": [
         52,
@@ -5106,7 +6066,6 @@
         -6.97
       ],
       "chroma": 8.81,
-      "chapter": "VI",
       "combinations": [
         27,
         33,
@@ -5127,6 +6086,8 @@
       "id": "black",
       "index": 159,
       "name": "Black",
+      "family": "neutrals",
+      "chapter": "VI",
       "hex": "#111314",
       "rgb": [
         17,
@@ -5145,7 +6106,6 @@
         -1.12
       ],
       "chroma": 1.19,
-      "chapter": "VI",
       "combinations": [
         46,
         52,
@@ -5178,6 +6138,7 @@
       "id": 1,
       "code": "001",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "english-red",
         "cerulian-blue"
@@ -5215,6 +6176,7 @@
       "id": 2,
       "code": "002",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow-orange",
         "dark-tyrian-blue"
@@ -5252,6 +6214,7 @@
       "id": 3,
       "code": "003",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "raw-sienna",
         "pale-lemon-yellow"
@@ -5289,6 +6252,7 @@
       "id": 4,
       "code": "004",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "isabella-color",
         "red-violet"
@@ -5326,6 +6290,7 @@
       "id": 5,
       "code": "005",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cossack-green",
         "vandar-poel-s-blue"
@@ -5363,6 +6328,7 @@
       "id": 6,
       "code": "006",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "grenadine-pink",
         "deep-indigo"
@@ -5400,6 +6366,7 @@
       "id": 7,
       "code": "007",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "orange",
         "glaucous-green"
@@ -5437,6 +6404,7 @@
       "id": 8,
       "code": "008",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cinnamon-rufous",
         "grayish-lavender-a"
@@ -5474,6 +6442,7 @@
       "id": 9,
       "code": "009",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "violet-red",
         "dull-blue-violet"
@@ -5511,6 +6480,7 @@
       "id": 10,
       "code": "010",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cinnamon-rufous",
         "dark-citrine"
@@ -5548,6 +6518,7 @@
       "id": 11,
       "code": "011",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "ivory-buff",
         "mineral-gray"
@@ -5585,6 +6556,7 @@
       "id": 12,
       "code": "012",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "isabella-color",
         "green-blue"
@@ -5622,6 +6594,7 @@
       "id": 13,
       "code": "013",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "raw-sienna",
         "veronia-purple"
@@ -5659,6 +6632,7 @@
       "id": 14,
       "code": "014",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "spinel-red",
         "naples-yellow"
@@ -5696,6 +6670,7 @@
       "id": 15,
       "code": "015",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "benzol-green",
         "grayish-lavender-a"
@@ -5733,6 +6708,7 @@
       "id": 16,
       "code": "016",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "vandyke-red",
         "pale-king-s-blue"
@@ -5770,6 +6746,7 @@
       "id": 17,
       "code": "017",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "eugenia-red-b",
         "sea-green"
@@ -5807,6 +6784,7 @@
       "id": 18,
       "code": "018",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "fawn",
         "dusky-madder-violet"
@@ -5844,6 +6822,7 @@
       "id": 19,
       "code": "019",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "mars-brown-tobacco",
         "night-green"
@@ -5881,6 +6860,7 @@
       "id": 20,
       "code": "020",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "calamine-blue",
         "laelia-pink"
@@ -5918,6 +6898,7 @@
       "id": 21,
       "code": "021",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "grenadine-pink",
         "sea-green"
@@ -5955,6 +6936,7 @@
       "id": 22,
       "code": "022",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow",
         "deep-lyons-blue"
@@ -5992,6 +6974,7 @@
       "id": 23,
       "code": "023",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cinnamon-buff",
         "light-mauve"
@@ -6029,6 +7012,7 @@
       "id": 24,
       "code": "024",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "sepia",
         "veronia-purple"
@@ -6066,6 +7050,7 @@
       "id": 25,
       "code": "025",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "etruscan-red",
         "nile-blue"
@@ -6103,6 +7088,7 @@
       "id": 26,
       "code": "026",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "golden-yellow",
         "pale-raw-umber"
@@ -6140,6 +7126,7 @@
       "id": 27,
       "code": "027",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "corinthian-pink",
         "slate-color"
@@ -6177,6 +7164,7 @@
       "id": 28,
       "code": "028",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "madder-brown",
         "deep-indigo"
@@ -6214,6 +7202,7 @@
       "id": 29,
       "code": "029",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "krongbergs-green",
         "salvia-blue"
@@ -6251,6 +7240,7 @@
       "id": 30,
       "code": "030",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pompeian-red",
         "mineral-gray"
@@ -6288,6 +7278,7 @@
       "id": 31,
       "code": "031",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "red-orange",
         "pale-lemon-yellow"
@@ -6325,6 +7316,7 @@
       "id": 32,
       "code": "032",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "ochraceous-salmon",
         "night-green"
@@ -6362,6 +7354,7 @@
       "id": 33,
       "code": "033",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "raw-sienna",
         "slate-color"
@@ -6399,6 +7392,7 @@
       "id": 34,
       "code": "034",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "eosine-pink",
         "neutral-gray"
@@ -6436,6 +7430,7 @@
       "id": 35,
       "code": "035",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "light-brown-drab",
         "carmine-red"
@@ -6473,6 +7468,7 @@
       "id": 36,
       "code": "036",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "sulphine-yellow",
         "turquoise-green"
@@ -6510,6 +7506,7 @@
       "id": 37,
       "code": "037",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "brick-red",
         "red-violet"
@@ -6547,6 +7544,7 @@
       "id": 38,
       "code": "038",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "diamine-green",
         "deep-lyons-blue"
@@ -6584,6 +7582,7 @@
       "id": 39,
       "code": "039",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "carmine",
         "helvetia-blue"
@@ -6621,6 +7620,7 @@
       "id": 40,
       "code": "040",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "vinaceous-tawny",
         "citron-yellow"
@@ -6658,6 +7658,7 @@
       "id": 41,
       "code": "041",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "dark-citrine",
         "calamine-blue"
@@ -6695,6 +7696,7 @@
       "id": 42,
       "code": "042",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow-ocher",
         "violet"
@@ -6732,6 +7734,7 @@
       "id": 43,
       "code": "043",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "corinthian-pink",
         "aconite-violet"
@@ -6769,6 +7772,7 @@
       "id": 44,
       "code": "044",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "light-porcelain-green",
         "olympic-blue"
@@ -6806,6 +7810,7 @@
       "id": 45,
       "code": "045",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "seashell-pink",
         "lemon-yellow"
@@ -6843,6 +7848,7 @@
       "id": 46,
       "code": "046",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "orange",
         "black"
@@ -6880,6 +7886,7 @@
       "id": 47,
       "code": "047",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "etruscan-red",
         "grayish-lavender-b"
@@ -6917,6 +7924,7 @@
       "id": 48,
       "code": "048",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "rosolanc-purple",
         "helvetia-blue"
@@ -6954,6 +7962,7 @@
       "id": 49,
       "code": "049",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-king-s-blue",
         "blue"
@@ -6991,6 +8000,7 @@
       "id": 50,
       "code": "050",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "ivory-buff",
         "dusky-madder-violet"
@@ -7028,6 +8038,7 @@
       "id": 51,
       "code": "051",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "carmine-red",
         "blue"
@@ -7065,6 +8076,7 @@
       "id": 52,
       "code": "052",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "sulpher-yellow",
         "black"
@@ -7102,6 +8114,7 @@
       "id": 53,
       "code": "053",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow-orange",
         "dusky-madder-violet"
@@ -7139,6 +8152,7 @@
       "id": 54,
       "code": "054",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "benzol-green",
         "light-glaucous-blue"
@@ -7176,6 +8190,7 @@
       "id": 55,
       "code": "055",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "old-rose",
         "white"
@@ -7213,6 +8228,7 @@
       "id": 56,
       "code": "056",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "grayish-lavender-b",
         "violet"
@@ -7250,6 +8266,7 @@
       "id": 57,
       "code": "057",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "taupe-brown",
         "slate-color"
@@ -7287,6 +8304,7 @@
       "id": 58,
       "code": "058",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "hay-s-russet",
         "sea-green"
@@ -7324,6 +8342,7 @@
       "id": 59,
       "code": "059",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "eosine-pink",
         "citrine"
@@ -7361,6 +8380,7 @@
       "id": 60,
       "code": "060",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-lemon-yellow",
         "dark-tyrian-blue"
@@ -7398,6 +8418,7 @@
       "id": 61,
       "code": "061",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "light-green-yellow",
         "cotinga-purple"
@@ -7435,6 +8456,7 @@
       "id": 62,
       "code": "062",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow",
         "black"
@@ -7472,6 +8494,7 @@
       "id": 63,
       "code": "063",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "vistoris-lake",
         "cerulian-blue"
@@ -7509,6 +8532,7 @@
       "id": 64,
       "code": "064",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "aconite-violet",
         "dark-soft-violet"
@@ -7546,6 +8570,7 @@
       "id": 65,
       "code": "065",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "sulphine-yellow",
         "calamine-blue"
@@ -7583,6 +8608,7 @@
       "id": 66,
       "code": "066",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "olive-ocher",
         "olive-green"
@@ -7620,6 +8646,7 @@
       "id": 67,
       "code": "067",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "olympic-blue",
         "dark-tyrian-blue"
@@ -7657,6 +8684,7 @@
       "id": 68,
       "code": "068",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "light-brown-drab",
         "yellow"
@@ -7694,6 +8722,7 @@
       "id": 69,
       "code": "069",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "warm-gray",
         "black"
@@ -7731,6 +8760,7 @@
       "id": 70,
       "code": "070",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "raw-sienna",
         "lincoln-green"
@@ -7768,6 +8798,7 @@
       "id": 71,
       "code": "071",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pompeian-red",
         "ochraceous-salmon"
@@ -7805,6 +8836,7 @@
       "id": 72,
       "code": "072",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "sulpher-yellow",
         "pale-king-s-blue"
@@ -7842,6 +8874,7 @@
       "id": 73,
       "code": "073",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-raw-umber",
         "rainette-green"
@@ -7879,6 +8912,7 @@
       "id": 74,
       "code": "074",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "turquoise-green",
         "green-blue"
@@ -7916,6 +8950,7 @@
       "id": 75,
       "code": "075",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-king-s-blue",
         "violet-blue"
@@ -7953,6 +8988,7 @@
       "id": 76,
       "code": "076",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-lemon-yellow",
         "warm-gray"
@@ -7990,6 +9026,7 @@
       "id": 77,
       "code": "077",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "eugenia-red-b",
         "vandar-poel-s-blue"
@@ -8027,6 +9064,7 @@
       "id": 78,
       "code": "078",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pinkish-cinnamon",
         "venice-green"
@@ -8064,6 +9102,7 @@
       "id": 79,
       "code": "079",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "madder-brown",
         "green-blue"
@@ -8101,6 +9140,7 @@
       "id": 80,
       "code": "080",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "sulpher-yellow",
         "light-mauve"
@@ -8138,6 +9178,7 @@
       "id": 81,
       "code": "081",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "golden-yellow",
         "warm-gray"
@@ -8175,6 +9216,7 @@
       "id": 82,
       "code": "082",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "hay-s-russet",
         "dusky-madder-violet"
@@ -8212,6 +9254,7 @@
       "id": 83,
       "code": "083",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "olive-buff",
         "violet-blue"
@@ -8249,6 +9292,7 @@
       "id": 84,
       "code": "084",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "seashell-pink",
         "deep-slate-green"
@@ -8286,6 +9330,7 @@
       "id": 85,
       "code": "085",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "vinaceous-tawny",
         "antwarp-blue"
@@ -8323,6 +9368,7 @@
       "id": 86,
       "code": "086",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "raw-sienna",
         "sea-green"
@@ -8360,6 +9406,7 @@
       "id": 87,
       "code": "087",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "corinthian-pink",
         "citron-yellow"
@@ -8397,6 +9444,7 @@
       "id": 88,
       "code": "088",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "seashell-pink",
         "blue"
@@ -8434,6 +9482,7 @@
       "id": 89,
       "code": "089",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow-orange",
         "violet-blue"
@@ -8471,6 +9520,7 @@
       "id": 90,
       "code": "090",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "eosine-pink",
         "aconite-violet"
@@ -8508,6 +9558,7 @@
       "id": 91,
       "code": "091",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "vistoris-lake",
         "orange-rufous"
@@ -8545,6 +9596,7 @@
       "id": 92,
       "code": "092",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "coral-red",
         "benzol-green"
@@ -8582,6 +9634,7 @@
       "id": 93,
       "code": "093",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "citrine",
         "light-glaucous-blue"
@@ -8619,6 +9672,7 @@
       "id": 94,
       "code": "094",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "ivory-buff",
         "dusky-green"
@@ -8656,6 +9710,7 @@
       "id": 95,
       "code": "095",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "hay-s-russet",
         "dull-violet-black"
@@ -8693,6 +9748,7 @@
       "id": 96,
       "code": "096",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow-ocher",
         "olive"
@@ -8730,6 +9786,7 @@
       "id": 97,
       "code": "097",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "corinthian-pink",
         "etruscan-red"
@@ -8767,6 +9824,7 @@
       "id": 98,
       "code": "098",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "madder-brown",
         "violet-blue"
@@ -8804,6 +9862,7 @@
       "id": 99,
       "code": "099",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-lemon-yellow",
         "cerulian-blue"
@@ -8841,6 +9900,7 @@
       "id": 100,
       "code": "100",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "buffy-citrine",
         "dull-blue-violet"
@@ -8878,6 +9938,7 @@
       "id": 101,
       "code": "101",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cameo-pink",
         "deep-lyons-blue"
@@ -8915,6 +9976,7 @@
       "id": 102,
       "code": "102",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "ivory-buff",
         "orange-rufous"
@@ -8952,6 +10014,7 @@
       "id": 103,
       "code": "103",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cinnamon-rufous",
         "dusky-madder-violet"
@@ -8989,6 +10052,7 @@
       "id": 104,
       "code": "104",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "carmine-red",
         "sulpher-yellow"
@@ -9026,6 +10090,7 @@
       "id": 105,
       "code": "105",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cameo-pink",
         "chromium-green"
@@ -9063,6 +10128,7 @@
       "id": 106,
       "code": "106",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "antwarp-blue",
         "dull-violet-black"
@@ -9100,6 +10166,7 @@
       "id": 107,
       "code": "107",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "apricot-yellow",
         "light-grayish-olive"
@@ -9137,6 +10204,7 @@
       "id": 108,
       "code": "108",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "eosine-pink",
         "brick-red"
@@ -9174,6 +10242,7 @@
       "id": 109,
       "code": "109",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-lemon-yellow",
         "blackish-olive"
@@ -9211,6 +10280,7 @@
       "id": 110,
       "code": "110",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "brown",
         "vandyke-brown"
@@ -9248,6 +10318,7 @@
       "id": 111,
       "code": "111",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "pale-lemon-yellow",
         "yellow-green"
@@ -9285,6 +10356,7 @@
       "id": 112,
       "code": "112",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "grenadine-pink",
         "black"
@@ -9322,6 +10394,7 @@
       "id": 113,
       "code": "113",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "seashell-pink",
         "vandyke-brown"
@@ -9359,6 +10432,7 @@
       "id": 114,
       "code": "114",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "orange-yellow",
         "antwarp-blue"
@@ -9396,6 +10470,7 @@
       "id": 115,
       "code": "115",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "naples-yellow",
         "peach-red"
@@ -9433,6 +10508,7 @@
       "id": 116,
       "code": "116",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cameo-pink",
         "blue-violet"
@@ -9470,6 +10546,7 @@
       "id": 117,
       "code": "117",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "carmine",
         "black"
@@ -9507,6 +10584,7 @@
       "id": 118,
       "code": "118",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "yellow-ocher",
         "vandyke-brown"
@@ -9544,6 +10622,7 @@
       "id": 119,
       "code": "119",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "light-glaucous-blue",
         "dark-tyrian-blue"
@@ -9581,6 +10660,7 @@
       "id": 120,
       "code": "120",
       "size": 2,
+      "group": "pairs",
       "colors": [
         "cameo-pink",
         "pompeian-red"
@@ -9618,6 +10698,7 @@
       "id": 121,
       "code": "121",
       "size": 3,
+      "group": "trios",
       "colors": [
         "brown",
         "ochraceous-salmon",
@@ -9656,6 +10737,7 @@
       "id": 122,
       "code": "122",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine",
         "cream-yellow",
@@ -9694,6 +10776,7 @@
       "id": 123,
       "code": "123",
       "size": 3,
+      "group": "trios",
       "colors": [
         "coral-red",
         "lemon-yellow",
@@ -9732,6 +10815,7 @@
       "id": 124,
       "code": "124",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pale-burnt-lake",
         "yellow-ocher",
@@ -9770,6 +10854,7 @@
       "id": 125,
       "code": "125",
       "size": 3,
+      "group": "trios",
       "colors": [
         "fawn",
         "cerulian-blue",
@@ -9808,6 +10893,7 @@
       "id": 126,
       "code": "126",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ivory-buff",
         "yellow-ocher",
@@ -9846,6 +10932,7 @@
       "id": 127,
       "code": "127",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cinnamon-buff",
         "pistachio-green",
@@ -9884,6 +10971,7 @@
       "id": 128,
       "code": "128",
       "size": 3,
+      "group": "trios",
       "colors": [
         "corinthian-pink",
         "venice-green",
@@ -9922,6 +11010,7 @@
       "id": 129,
       "code": "129",
       "size": 3,
+      "group": "trios",
       "colors": [
         "apricot-yellow",
         "khaki",
@@ -9960,6 +11049,7 @@
       "id": 130,
       "code": "130",
       "size": 3,
+      "group": "trios",
       "colors": [
         "raw-sienna",
         "carmine-red",
@@ -9998,6 +11088,7 @@
       "id": 131,
       "code": "131",
       "size": 3,
+      "group": "trios",
       "colors": [
         "raw-sienna",
         "english-red",
@@ -10036,6 +11127,7 @@
       "id": 132,
       "code": "132",
       "size": 3,
+      "group": "trios",
       "colors": [
         "sulpher-yellow",
         "golden-yellow",
@@ -10074,6 +11166,7 @@
       "id": 133,
       "code": "133",
       "size": 3,
+      "group": "trios",
       "colors": [
         "vandyke-red",
         "citrine",
@@ -10112,6 +11205,7 @@
       "id": 134,
       "code": "134",
       "size": 3,
+      "group": "trios",
       "colors": [
         "eosine-pink",
         "light-mauve",
@@ -10150,6 +11244,7 @@
       "id": 135,
       "code": "135",
       "size": 3,
+      "group": "trios",
       "colors": [
         "sulpher-yellow",
         "cossack-green",
@@ -10188,6 +11283,7 @@
       "id": 136,
       "code": "136",
       "size": 3,
+      "group": "trios",
       "colors": [
         "scarlet",
         "dull-viridian-green",
@@ -10226,6 +11322,7 @@
       "id": 137,
       "code": "137",
       "size": 3,
+      "group": "trios",
       "colors": [
         "etruscan-red",
         "cinnamon-buff",
@@ -10264,6 +11361,7 @@
       "id": 138,
       "code": "138",
       "size": 3,
+      "group": "trios",
       "colors": [
         "golden-yellow",
         "lemon-yellow",
@@ -10302,6 +11400,7 @@
       "id": 139,
       "code": "139",
       "size": 3,
+      "group": "trios",
       "colors": [
         "salvia-blue",
         "deep-indigo",
@@ -10340,6 +11439,7 @@
       "id": 140,
       "code": "140",
       "size": 3,
+      "group": "trios",
       "colors": [
         "golden-yellow",
         "antwarp-blue",
@@ -10378,6 +11478,7 @@
       "id": 141,
       "code": "141",
       "size": 3,
+      "group": "trios",
       "colors": [
         "orange",
         "yellow-green",
@@ -10416,6 +11517,7 @@
       "id": 142,
       "code": "142",
       "size": 3,
+      "group": "trios",
       "colors": [
         "hydrangea-red",
         "sulphine-yellow",
@@ -10454,6 +11556,7 @@
       "id": 143,
       "code": "143",
       "size": 3,
+      "group": "trios",
       "colors": [
         "blue",
         "lilac",
@@ -10492,6 +11595,7 @@
       "id": 144,
       "code": "144",
       "size": 3,
+      "group": "trios",
       "colors": [
         "rosolanc-purple",
         "orange",
@@ -10530,6 +11634,7 @@
       "id": 145,
       "code": "145",
       "size": 3,
+      "group": "trios",
       "colors": [
         "brown",
         "citron-yellow",
@@ -10568,6 +11673,7 @@
       "id": 146,
       "code": "146",
       "size": 3,
+      "group": "trios",
       "colors": [
         "khaki",
         "deep-grayish-olive",
@@ -10606,6 +11712,7 @@
       "id": 147,
       "code": "147",
       "size": 3,
+      "group": "trios",
       "colors": [
         "spinel-red",
         "vandyke-red",
@@ -10644,6 +11751,7 @@
       "id": 148,
       "code": "148",
       "size": 3,
+      "group": "trios",
       "colors": [
         "olive-ocher",
         "orange-yellow",
@@ -10682,6 +11790,7 @@
       "id": 149,
       "code": "149",
       "size": 3,
+      "group": "trios",
       "colors": [
         "olive-ocher",
         "orange",
@@ -10720,6 +11829,7 @@
       "id": 150,
       "code": "150",
       "size": 3,
+      "group": "trios",
       "colors": [
         "seashell-pink",
         "citron-yellow",
@@ -10758,6 +11868,7 @@
       "id": 151,
       "code": "151",
       "size": 3,
+      "group": "trios",
       "colors": [
         "sulpher-yellow",
         "yellow-orange",
@@ -10796,6 +11907,7 @@
       "id": 152,
       "code": "152",
       "size": 3,
+      "group": "trios",
       "colors": [
         "etruscan-red",
         "hay-s-russet",
@@ -10834,6 +11946,7 @@
       "id": 153,
       "code": "153",
       "size": 3,
+      "group": "trios",
       "colors": [
         "eosine-pink",
         "orange-yellow",
@@ -10872,6 +11985,7 @@
       "id": 154,
       "code": "154",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine",
         "yellow",
@@ -10910,6 +12024,7 @@
       "id": 155,
       "code": "155",
       "size": 3,
+      "group": "trios",
       "colors": [
         "jasper-red",
         "benzol-green",
@@ -10948,6 +12063,7 @@
       "id": 156,
       "code": "156",
       "size": 3,
+      "group": "trios",
       "colors": [
         "olive-ocher",
         "cobalt-green",
@@ -10986,6 +12102,7 @@
       "id": 157,
       "code": "157",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pansy-purple",
         "olive-ocher",
@@ -11024,6 +12141,7 @@
       "id": 158,
       "code": "158",
       "size": 3,
+      "group": "trios",
       "colors": [
         "lemon-yellow",
         "cinnamon-rufous",
@@ -11062,6 +12180,7 @@
       "id": 159,
       "code": "159",
       "size": 3,
+      "group": "trios",
       "colors": [
         "khaki",
         "calamine-blue",
@@ -11100,6 +12219,7 @@
       "id": 160,
       "code": "160",
       "size": 3,
+      "group": "trios",
       "colors": [
         "sulphine-yellow",
         "pale-raw-umber",
@@ -11138,6 +12258,7 @@
       "id": 161,
       "code": "161",
       "size": 3,
+      "group": "trios",
       "colors": [
         "brown",
         "pinkish-cinnamon",
@@ -11176,6 +12297,7 @@
       "id": 162,
       "code": "162",
       "size": 3,
+      "group": "trios",
       "colors": [
         "old-rose",
         "rainette-green",
@@ -11214,6 +12336,7 @@
       "id": 163,
       "code": "163",
       "size": 3,
+      "group": "trios",
       "colors": [
         "apricot-yellow",
         "turquoise-green",
@@ -11252,6 +12375,7 @@
       "id": 164,
       "code": "164",
       "size": 3,
+      "group": "trios",
       "colors": [
         "red-orange",
         "orange-yellow",
@@ -11290,6 +12414,7 @@
       "id": 165,
       "code": "165",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cameo-pink",
         "spinel-red",
@@ -11328,6 +12453,7 @@
       "id": 166,
       "code": "166",
       "size": 3,
+      "group": "trios",
       "colors": [
         "grenadine-pink",
         "naples-yellow",
@@ -11366,6 +12492,7 @@
       "id": 167,
       "code": "167",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ecru",
         "pale-king-s-blue",
@@ -11404,6 +12531,7 @@
       "id": 168,
       "code": "168",
       "size": 3,
+      "group": "trios",
       "colors": [
         "lemon-yellow",
         "vandar-poel-s-blue",
@@ -11442,6 +12570,7 @@
       "id": 169,
       "code": "169",
       "size": 3,
+      "group": "trios",
       "colors": [
         "corinthian-pink",
         "pale-lemon-yellow",
@@ -11480,6 +12609,7 @@
       "id": 170,
       "code": "170",
       "size": 3,
+      "group": "trios",
       "colors": [
         "rosolanc-purple",
         "orange-yellow",
@@ -11518,6 +12648,7 @@
       "id": 171,
       "code": "171",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pale-burnt-lake",
         "yellow-orange",
@@ -11556,6 +12687,7 @@
       "id": 172,
       "code": "172",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cinnamon-rufous",
         "antwarp-blue",
@@ -11594,6 +12726,7 @@
       "id": 173,
       "code": "173",
       "size": 3,
+      "group": "trios",
       "colors": [
         "lemon-yellow",
         "madder-brown",
@@ -11632,6 +12765,7 @@
       "id": 174,
       "code": "174",
       "size": 3,
+      "group": "trios",
       "colors": [
         "corinthian-pink",
         "grayish-lavender-b",
@@ -11670,6 +12804,7 @@
       "id": 175,
       "code": "175",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pinkish-cinnamon",
         "olive-buff",
@@ -11708,6 +12843,7 @@
       "id": 176,
       "code": "176",
       "size": 3,
+      "group": "trios",
       "colors": [
         "hermosa-pink",
         "seashell-pink",
@@ -11746,6 +12882,7 @@
       "id": 177,
       "code": "177",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pale-burnt-lake",
         "buffy-citrine",
@@ -11784,6 +12921,7 @@
       "id": 178,
       "code": "178",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ivory-buff",
         "light-glaucous-blue",
@@ -11822,6 +12960,7 @@
       "id": 179,
       "code": "179",
       "size": 3,
+      "group": "trios",
       "colors": [
         "red-orange",
         "golden-yellow",
@@ -11860,6 +12999,7 @@
       "id": 180,
       "code": "180",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cinnamon-buff",
         "light-mauve",
@@ -11898,6 +13038,7 @@
       "id": 181,
       "code": "181",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine-red",
         "violet",
@@ -11936,6 +13077,7 @@
       "id": 182,
       "code": "182",
       "size": 3,
+      "group": "trios",
       "colors": [
         "raw-sienna",
         "vandyke-brown",
@@ -11974,6 +13116,7 @@
       "id": 183,
       "code": "183",
       "size": 3,
+      "group": "trios",
       "colors": [
         "deep-violet-plumbeous",
         "veronia-purple",
@@ -12012,6 +13155,7 @@
       "id": 184,
       "code": "184",
       "size": 3,
+      "group": "trios",
       "colors": [
         "spinel-red",
         "ivory-buff",
@@ -12050,6 +13194,7 @@
       "id": 185,
       "code": "185",
       "size": 3,
+      "group": "trios",
       "colors": [
         "light-brown-drab",
         "etruscan-red",
@@ -12088,6 +13233,7 @@
       "id": 186,
       "code": "186",
       "size": 3,
+      "group": "trios",
       "colors": [
         "hay-s-russet",
         "ochraceous-salmon",
@@ -12126,6 +13272,7 @@
       "id": 187,
       "code": "187",
       "size": 3,
+      "group": "trios",
       "colors": [
         "helvetia-blue",
         "grayish-lavender-b",
@@ -12164,6 +13311,7 @@
       "id": 188,
       "code": "188",
       "size": 3,
+      "group": "trios",
       "colors": [
         "rainette-green",
         "salvia-blue",
@@ -12202,6 +13350,7 @@
       "id": 189,
       "code": "189",
       "size": 3,
+      "group": "trios",
       "colors": [
         "lemon-yellow",
         "deep-slate-olive",
@@ -12240,6 +13389,7 @@
       "id": 190,
       "code": "190",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ivory-buff",
         "english-red",
@@ -12278,6 +13428,7 @@
       "id": 191,
       "code": "191",
       "size": 3,
+      "group": "trios",
       "colors": [
         "light-brown-drab",
         "yellow-ocher",
@@ -12316,6 +13467,7 @@
       "id": 192,
       "code": "192",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cream-yellow",
         "vandyke-brown",
@@ -12354,6 +13506,7 @@
       "id": 193,
       "code": "193",
       "size": 3,
+      "group": "trios",
       "colors": [
         "grenadine-pink",
         "naples-yellow",
@@ -12392,6 +13545,7 @@
       "id": 194,
       "code": "194",
       "size": 3,
+      "group": "trios",
       "colors": [
         "jasper-red",
         "seashell-pink",
@@ -12430,6 +13584,7 @@
       "id": 195,
       "code": "195",
       "size": 3,
+      "group": "trios",
       "colors": [
         "spinel-red",
         "pale-lemon-yellow",
@@ -12468,6 +13623,7 @@
       "id": 196,
       "code": "196",
       "size": 3,
+      "group": "trios",
       "colors": [
         "citron-yellow",
         "pale-king-s-blue",
@@ -12506,6 +13662,7 @@
       "id": 197,
       "code": "197",
       "size": 3,
+      "group": "trios",
       "colors": [
         "eosine-pink",
         "dark-soft-violet",
@@ -12544,6 +13701,7 @@
       "id": 198,
       "code": "198",
       "size": 3,
+      "group": "trios",
       "colors": [
         "burnt-sienna",
         "apricot-yellow",
@@ -12582,6 +13740,7 @@
       "id": 199,
       "code": "199",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ochre-red",
         "light-brownish-olive",
@@ -12620,6 +13779,7 @@
       "id": 200,
       "code": "200",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine-red",
         "olive-buff",
@@ -12658,6 +13818,7 @@
       "id": 201,
       "code": "201",
       "size": 3,
+      "group": "trios",
       "colors": [
         "grenadine-pink",
         "olive",
@@ -12696,6 +13857,7 @@
       "id": 202,
       "code": "202",
       "size": 3,
+      "group": "trios",
       "colors": [
         "turquoise-green",
         "cobalt-green",
@@ -12734,6 +13896,7 @@
       "id": 203,
       "code": "203",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pale-lemon-yellow",
         "vinaceous-cinnamon",
@@ -12772,6 +13935,7 @@
       "id": 204,
       "code": "204",
       "size": 3,
+      "group": "trios",
       "colors": [
         "rosolanc-purple",
         "cinnamon-rufous",
@@ -12810,6 +13974,7 @@
       "id": 205,
       "code": "205",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pale-burnt-lake",
         "vinaceous-cinnamon",
@@ -12848,6 +14013,7 @@
       "id": 206,
       "code": "206",
       "size": 3,
+      "group": "trios",
       "colors": [
         "corinthian-pink",
         "golden-yellow",
@@ -12886,6 +14052,7 @@
       "id": 207,
       "code": "207",
       "size": 3,
+      "group": "trios",
       "colors": [
         "sudan-brown",
         "glaucous-green",
@@ -12924,6 +14091,7 @@
       "id": 208,
       "code": "208",
       "size": 3,
+      "group": "trios",
       "colors": [
         "sulpher-yellow",
         "green-blue",
@@ -12962,6 +14130,7 @@
       "id": 209,
       "code": "209",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ivory-buff",
         "yellow-orange",
@@ -13000,6 +14169,7 @@
       "id": 210,
       "code": "210",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cinnamon-buff",
         "lemon-yellow",
@@ -13038,6 +14208,7 @@
       "id": 211,
       "code": "211",
       "size": 3,
+      "group": "trios",
       "colors": [
         "apricot-orange",
         "olive-yellow",
@@ -13076,6 +14247,7 @@
       "id": 212,
       "code": "212",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pompeian-red",
         "orange-citrine",
@@ -13114,6 +14286,7 @@
       "id": 213,
       "code": "213",
       "size": 3,
+      "group": "trios",
       "colors": [
         "vinaceous-cinnamon",
         "apricot-yellow",
@@ -13152,6 +14325,7 @@
       "id": 214,
       "code": "214",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ivory-buff",
         "sudan-brown",
@@ -13190,6 +14364,7 @@
       "id": 215,
       "code": "215",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cream-yellow",
         "blue",
@@ -13228,6 +14403,7 @@
       "id": 216,
       "code": "216",
       "size": 3,
+      "group": "trios",
       "colors": [
         "jasper-red",
         "green",
@@ -13266,6 +14442,7 @@
       "id": 217,
       "code": "217",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pale-burnt-lake",
         "ochraceous-salmon",
@@ -13304,6 +14481,7 @@
       "id": 218,
       "code": "218",
       "size": 3,
+      "group": "trios",
       "colors": [
         "helvetia-blue",
         "grayish-lavender-a",
@@ -13342,6 +14520,7 @@
       "id": 219,
       "code": "219",
       "size": 3,
+      "group": "trios",
       "colors": [
         "jasper-red",
         "chromium-green",
@@ -13380,6 +14559,7 @@
       "id": 220,
       "code": "220",
       "size": 3,
+      "group": "trios",
       "colors": [
         "pomegranite-purple",
         "ochraceous-salmon",
@@ -13418,6 +14598,7 @@
       "id": 221,
       "code": "221",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine-red",
         "neutral-gray",
@@ -13456,6 +14637,7 @@
       "id": 222,
       "code": "222",
       "size": 3,
+      "group": "trios",
       "colors": [
         "yellow-ocher",
         "yellow-orange",
@@ -13494,6 +14676,7 @@
       "id": 223,
       "code": "223",
       "size": 3,
+      "group": "trios",
       "colors": [
         "light-brown-drab",
         "ochraceous-salmon",
@@ -13532,6 +14715,7 @@
       "id": 224,
       "code": "224",
       "size": 3,
+      "group": "trios",
       "colors": [
         "spinel-red",
         "dark-medici-blue",
@@ -13570,6 +14754,7 @@
       "id": 225,
       "code": "225",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine",
         "dusky-green",
@@ -13608,6 +14793,7 @@
       "id": 226,
       "code": "226",
       "size": 3,
+      "group": "trios",
       "colors": [
         "vistoris-lake",
         "cream-yellow",
@@ -13646,6 +14832,7 @@
       "id": 227,
       "code": "227",
       "size": 3,
+      "group": "trios",
       "colors": [
         "hermosa-pink",
         "light-glaucous-blue",
@@ -13684,6 +14871,7 @@
       "id": 228,
       "code": "228",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine-red",
         "pale-lemon-yellow",
@@ -13722,6 +14910,7 @@
       "id": 229,
       "code": "229",
       "size": 3,
+      "group": "trios",
       "colors": [
         "golden-yellow",
         "deep-slate-olive",
@@ -13760,6 +14949,7 @@
       "id": 230,
       "code": "230",
       "size": 3,
+      "group": "trios",
       "colors": [
         "grenadine-pink",
         "turquoise-green",
@@ -13798,6 +14988,7 @@
       "id": 231,
       "code": "231",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cameo-pink",
         "hay-s-russet",
@@ -13836,6 +15027,7 @@
       "id": 232,
       "code": "232",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine",
         "pinkish-cinnamon",
@@ -13874,6 +15066,7 @@
       "id": 233,
       "code": "233",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine-red",
         "buffy-citrine",
@@ -13912,6 +15105,7 @@
       "id": 234,
       "code": "234",
       "size": 3,
+      "group": "trios",
       "colors": [
         "cinnamon-buff",
         "pale-raw-umber",
@@ -13950,6 +15144,7 @@
       "id": 235,
       "code": "235",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ivory-buff",
         "yellow-orange",
@@ -13988,6 +15183,7 @@
       "id": 236,
       "code": "236",
       "size": 3,
+      "group": "trios",
       "colors": [
         "khaki",
         "deep-lyons-blue",
@@ -14026,6 +15222,7 @@
       "id": 237,
       "code": "237",
       "size": 3,
+      "group": "trios",
       "colors": [
         "carmine-red",
         "madder-brown",
@@ -14064,6 +15261,7 @@
       "id": 238,
       "code": "238",
       "size": 3,
+      "group": "trios",
       "colors": [
         "ochraceous-salmon",
         "cotinga-purple",
@@ -14102,6 +15300,7 @@
       "id": 239,
       "code": "239",
       "size": 3,
+      "group": "trios",
       "colors": [
         "light-brown-drab",
         "pyrite-yellow",
@@ -14140,6 +15339,7 @@
       "id": 240,
       "code": "240",
       "size": 3,
+      "group": "trios",
       "colors": [
         "fresh-color",
         "yellow",
@@ -14178,6 +15378,7 @@
       "id": 241,
       "code": "241",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "red-orange",
         "pale-lemon-yellow",
@@ -14221,6 +15422,7 @@
       "id": 242,
       "code": "242",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eosine-pink",
         "burnt-sienna",
@@ -14264,6 +15466,7 @@
       "id": 243,
       "code": "243",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "ivory-buff",
@@ -14307,6 +15510,7 @@
       "id": 244,
       "code": "244",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "light-brown-drab",
         "vinaceous-tawny",
@@ -14350,6 +15554,7 @@
       "id": 245,
       "code": "245",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "carmine-red",
         "oil-green",
@@ -14393,6 +15598,7 @@
       "id": 246,
       "code": "246",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "corinthian-pink",
         "brick-red",
@@ -14436,6 +15642,7 @@
       "id": 247,
       "code": "247",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "apricot-yellow",
@@ -14479,6 +15686,7 @@
       "id": 248,
       "code": "248",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eosine-pink",
         "khaki",
@@ -14522,6 +15730,7 @@
       "id": 249,
       "code": "249",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "hay-s-russet",
         "ecru",
@@ -14565,6 +15774,7 @@
       "id": 250,
       "code": "250",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pyrite-yellow",
         "peach-red",
@@ -14608,6 +15818,7 @@
       "id": 251,
       "code": "251",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "red",
         "yellow",
@@ -14651,6 +15862,7 @@
       "id": 252,
       "code": "252",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eugenia-red-b",
         "raw-sienna",
@@ -14694,6 +15906,7 @@
       "id": 253,
       "code": "253",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "lemon-yellow",
         "apricot-orange",
@@ -14737,6 +15950,7 @@
       "id": 254,
       "code": "254",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "corinthian-pink",
         "sulpher-yellow",
@@ -14780,6 +15994,7 @@
       "id": 255,
       "code": "255",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "pyrite-yellow",
@@ -14823,6 +16038,7 @@
       "id": 256,
       "code": "256",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "vinaceous-cinnamon",
         "orange",
@@ -14866,6 +16082,7 @@
       "id": 257,
       "code": "257",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "spectrum-red",
         "orange-yellow",
@@ -14909,6 +16126,7 @@
       "id": 258,
       "code": "258",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pale-burnt-lake",
         "pinkish-cinnamon",
@@ -14952,6 +16170,7 @@
       "id": 259,
       "code": "259",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "lemon-yellow",
         "green-blue",
@@ -14995,6 +16214,7 @@
       "id": 260,
       "code": "260",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "old-rose",
         "vinaceous-cinnamon",
@@ -15038,6 +16258,7 @@
       "id": 261,
       "code": "261",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "red",
         "pale-lemon-yellow",
@@ -15081,6 +16302,7 @@
       "id": 262,
       "code": "262",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eugenia-red-b",
         "ivory-buff",
@@ -15124,6 +16346,7 @@
       "id": 263,
       "code": "263",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "burnt-sienna",
         "pinkish-cinnamon",
@@ -15167,6 +16390,7 @@
       "id": 264,
       "code": "264",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "corinthian-pink",
         "red-orange",
@@ -15210,6 +16434,7 @@
       "id": 265,
       "code": "265",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "old-rose",
         "apricot-yellow",
@@ -15253,6 +16478,7 @@
       "id": 266,
       "code": "266",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "spectrum-red",
         "ivory-buff",
@@ -15296,6 +16522,7 @@
       "id": 267,
       "code": "267",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "cream-yellow",
         "yellow-orange",
@@ -15339,6 +16566,7 @@
       "id": 268,
       "code": "268",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "light-brown-drab",
         "raw-sienna",
@@ -15382,6 +16610,7 @@
       "id": 269,
       "code": "269",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "pale-burnt-lake",
@@ -15425,6 +16654,7 @@
       "id": 270,
       "code": "270",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eugenia-red-b",
         "sulpher-yellow",
@@ -15468,6 +16698,7 @@
       "id": 271,
       "code": "271",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pomegranite-purple",
         "cobalt-green",
@@ -15511,6 +16742,7 @@
       "id": 272,
       "code": "272",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pale-lemon-yellow",
         "orange",
@@ -15554,6 +16786,7 @@
       "id": 273,
       "code": "273",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "hermosa-pink",
         "pansy-purple",
@@ -15597,6 +16830,7 @@
       "id": 274,
       "code": "274",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "peach-red",
         "dark-citrine",
@@ -15640,6 +16874,7 @@
       "id": 275,
       "code": "275",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "etruscan-red",
         "ecru",
@@ -15683,6 +16918,7 @@
       "id": 276,
       "code": "276",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eosine-pink",
         "seashell-pink",
@@ -15726,6 +16962,7 @@
       "id": 277,
       "code": "277",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "spinel-red",
         "rosolanc-purple",
@@ -15769,6 +17006,7 @@
       "id": 278,
       "code": "278",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "cream-yellow",
         "olive-ocher",
@@ -15812,6 +17050,7 @@
       "id": 279,
       "code": "279",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "vinaceous-cinnamon",
@@ -15855,6 +17094,7 @@
       "id": 280,
       "code": "280",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eugenia-red-b",
         "lincoln-green",
@@ -15898,6 +17138,7 @@
       "id": 281,
       "code": "281",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pale-lemon-yellow",
         "benzol-green",
@@ -15941,6 +17182,7 @@
       "id": 282,
       "code": "282",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eugenia-red-b",
         "maple",
@@ -15984,6 +17226,7 @@
       "id": 283,
       "code": "283",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "ochre-red",
         "pale-burnt-lake",
@@ -16027,6 +17270,7 @@
       "id": 284,
       "code": "284",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eugenia-red-a",
         "apricot-yellow",
@@ -16070,6 +17314,7 @@
       "id": 285,
       "code": "285",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "light-brown-drab",
         "burnt-sienna",
@@ -16113,6 +17358,7 @@
       "id": 286,
       "code": "286",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "burnt-sienna",
         "orange-yellow",
@@ -16156,6 +17402,7 @@
       "id": 287,
       "code": "287",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eosine-pink",
         "pyrite-yellow",
@@ -16199,6 +17446,7 @@
       "id": 288,
       "code": "288",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "yellow-orange",
         "sepia",
@@ -16242,6 +17490,7 @@
       "id": 289,
       "code": "289",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "lemon-yellow",
         "light-green-yellow",
@@ -16285,6 +17534,7 @@
       "id": 290,
       "code": "290",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "vistoris-lake",
         "pale-lemon-yellow",
@@ -16328,6 +17578,7 @@
       "id": 291,
       "code": "291",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "light-green-yellow",
         "sea-green",
@@ -16371,6 +17622,7 @@
       "id": 292,
       "code": "292",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pale-lemon-yellow",
         "pinkish-cinnamon",
@@ -16414,6 +17666,7 @@
       "id": 293,
       "code": "293",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "turquoise-green",
@@ -16457,6 +17710,7 @@
       "id": 294,
       "code": "294",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "sulpher-yellow",
         "cream-yellow",
@@ -16500,6 +17754,7 @@
       "id": 295,
       "code": "295",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "cream-yellow",
         "yellow",
@@ -16543,6 +17798,7 @@
       "id": 296,
       "code": "296",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "sulpher-yellow",
         "ochraceous-salmon",
@@ -16586,6 +17842,7 @@
       "id": 297,
       "code": "297",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "burnt-sienna",
         "yellow-orange",
@@ -16629,6 +17886,7 @@
       "id": 298,
       "code": "298",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "lemon-yellow",
@@ -16672,6 +17930,7 @@
       "id": 299,
       "code": "299",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "indian-lake",
         "vinaceous-cinnamon",
@@ -16715,6 +17974,7 @@
       "id": 300,
       "code": "300",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "grenadine-pink",
         "cream-yellow",
@@ -16758,6 +18018,7 @@
       "id": 301,
       "code": "301",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "spectrum-red",
         "ivory-buff",
@@ -16801,6 +18062,7 @@
       "id": 302,
       "code": "302",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "cream-yellow",
         "ecru",
@@ -16844,6 +18106,7 @@
       "id": 303,
       "code": "303",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "naples-yellow",
         "peach-red",
@@ -16887,6 +18150,7 @@
       "id": 304,
       "code": "304",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "hay-s-russet",
         "cream-yellow",
@@ -16930,6 +18194,7 @@
       "id": 305,
       "code": "305",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pinkish-cinnamon",
         "apricot-yellow",
@@ -16973,6 +18238,7 @@
       "id": 306,
       "code": "306",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "lemon-yellow",
         "benzol-green",
@@ -17016,6 +18282,7 @@
       "id": 307,
       "code": "307",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "carmine",
         "grayish-lavender-a",
@@ -17059,6 +18326,7 @@
       "id": 308,
       "code": "308",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "fawn",
         "scarlet",
@@ -17102,6 +18370,7 @@
       "id": 309,
       "code": "309",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "golden-yellow",
         "apricot-orange",
@@ -17145,6 +18414,7 @@
       "id": 310,
       "code": "310",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "sulpher-yellow",
         "pinkish-cinnamon",
@@ -17188,6 +18458,7 @@
       "id": 311,
       "code": "311",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pompeian-red",
         "cream-yellow",
@@ -17231,6 +18502,7 @@
       "id": 312,
       "code": "312",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "burnt-sienna",
         "yellow-orange",
@@ -17274,6 +18546,7 @@
       "id": 313,
       "code": "313",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "carmine",
         "yellow",
@@ -17317,6 +18590,7 @@
       "id": 314,
       "code": "314",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eosine-pink",
         "hay-s-russet",
@@ -17360,6 +18634,7 @@
       "id": 315,
       "code": "315",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "grenadine-pink",
         "sulpher-yellow",
@@ -17403,6 +18678,7 @@
       "id": 316,
       "code": "316",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "vandyke-red",
         "dull-viridian-green",
@@ -17446,6 +18722,7 @@
       "id": 317,
       "code": "317",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "light-pinkish-cinnamon",
         "ecru",
@@ -17489,6 +18766,7 @@
       "id": 318,
       "code": "318",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "light-brownish-olive",
         "blackish-olive",
@@ -17532,6 +18810,7 @@
       "id": 319,
       "code": "319",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "raw-sienna",
         "apricot-yellow",
@@ -17575,6 +18854,7 @@
       "id": 320,
       "code": "320",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "coral-red",
         "sulpher-yellow",
@@ -17618,6 +18898,7 @@
       "id": 321,
       "code": "321",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "light-brown-drab",
         "sulpher-yellow",
@@ -17661,6 +18942,7 @@
       "id": 322,
       "code": "322",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "spectrum-red",
         "brick-red",
@@ -17704,6 +18986,7 @@
       "id": 323,
       "code": "323",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "cinnamon-buff",
         "citron-yellow",
@@ -17747,6 +19030,7 @@
       "id": 324,
       "code": "324",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "pompeian-red",
         "olympic-blue",
@@ -17790,6 +19074,7 @@
       "id": 325,
       "code": "325",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eugenia-red-b",
         "naples-yellow",
@@ -17833,6 +19118,7 @@
       "id": 326,
       "code": "326",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "sulpher-yellow",
         "peach-red",
@@ -17876,6 +19162,7 @@
       "id": 327,
       "code": "327",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eosine-pink",
         "raw-sienna",
@@ -17919,6 +19206,7 @@
       "id": 328,
       "code": "328",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "brick-red",
         "apricot-orange",
@@ -17962,6 +19250,7 @@
       "id": 329,
       "code": "329",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "cream-yellow",
         "grayish-lavender-b",
@@ -18005,6 +19294,7 @@
       "id": 330,
       "code": "330",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "olive-buff",
         "nile-blue",
@@ -18048,6 +19338,7 @@
       "id": 331,
       "code": "331",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "indian-lake",
         "dull-violet-black",
@@ -18091,6 +19382,7 @@
       "id": 332,
       "code": "332",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "coral-red",
         "scarlet",
@@ -18134,6 +19426,7 @@
       "id": 333,
       "code": "333",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "burnt-sienna",
         "lemon-yellow",
@@ -18177,6 +19470,7 @@
       "id": 334,
       "code": "334",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "seashell-pink",
         "olive",
@@ -18220,6 +19514,7 @@
       "id": 335,
       "code": "335",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "vandyke-red",
         "yellow-orange",
@@ -18263,6 +19558,7 @@
       "id": 336,
       "code": "336",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "eosine-pink",
         "hay-s-russet",
@@ -18306,6 +19602,7 @@
       "id": 337,
       "code": "337",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "vistoris-lake",
         "laelia-pink",
@@ -18349,6 +19646,7 @@
       "id": 338,
       "code": "338",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "carmine-red",
         "orange-yellow",
@@ -18392,6 +19690,7 @@
       "id": 339,
       "code": "339",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "ochraceous-salmon",
         "english-red",
@@ -18435,6 +19734,7 @@
       "id": 340,
       "code": "340",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "peach-red",
         "sea-green",
@@ -18478,6 +19778,7 @@
       "id": 341,
       "code": "341",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "grenadine-pink",
         "cossack-green",
@@ -18521,6 +19822,7 @@
       "id": 342,
       "code": "342",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "corinthian-pink",
         "cream-yellow",
@@ -18564,6 +19866,7 @@
       "id": 343,
       "code": "343",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "burnt-sienna",
         "ivory-buff",
@@ -18607,6 +19910,7 @@
       "id": 344,
       "code": "344",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "cinnamon-buff",
         "deep-lyons-blue",
@@ -18650,6 +19954,7 @@
       "id": 345,
       "code": "345",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "hay-s-russet",
         "nile-blue",
@@ -18693,6 +19998,7 @@
       "id": 346,
       "code": "346",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "rosolanc-purple",
         "turquoise-green",
@@ -18736,6 +20042,7 @@
       "id": 347,
       "code": "347",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "olive-yellow",
         "sea-green",
@@ -18779,6 +20086,7 @@
       "id": 348,
       "code": "348",
       "size": 4,
+      "group": "quartets",
       "colors": [
         "olive-buff",
         "cossack-green",

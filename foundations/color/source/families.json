@@ -1,0 +1,65 @@
+{
+  "$comment": "Hand-curated colour families. Every one of the 159 Wada colours must appear in exactly one family; the build fails otherwise. Order here is the order used in swatch panels, Figma and the explorer.",
+  "families": [
+    {
+      "id": "reds",
+      "name": "Reds",
+      "colors": ["spectrum-red", "red-orange", "jasper-red", "peach-red", "scarlet", "carmine", "coral-red", "fresh-color", "grenadine-pink", "eugenia-red-a", "eugenia-red-b", "etruscan-red", "ochre-red", "carmine-red", "pompeian-red", "red", "hydrangea-red", "brick-red", "hay-s-russet", "vandyke-red", "pale-burnt-lake"]
+    },
+    {
+      "id": "pinks",
+      "name": "Pinks & roses",
+      "colors": ["hermosa-pink", "corinthian-pink", "cameo-pink", "seashell-pink", "light-pinkish-cinnamon", "vinaceous-cinnamon", "fawn", "light-brown-drab", "eosine-pink", "spinel-red", "old-rose", "laelia-pink", "grayish-lavender-b"]
+    },
+    {
+      "id": "wines",
+      "name": "Wines & magentas",
+      "colors": ["indian-lake", "rosolanc-purple", "pomegranite-purple", "eupatorium-purple", "pansy-purple", "vistoris-lake", "purple-drab", "veronia-purple", "dark-slate-purple", "taupe-brown", "violet-carmine"]
+    },
+    {
+      "id": "oranges",
+      "name": "Oranges",
+      "colors": ["orange", "apricot-orange", "yellow-orange", "english-red", "vinaceous-tawny", "orange-rufous", "cinnamon-rufous", "raw-sienna", "golden-yellow", "cream-yellow", "cinnamon-buff", "pinkish-cinnamon", "ochraceous-salmon"]
+    },
+    {
+      "id": "browns",
+      "name": "Browns & tans",
+      "colors": ["ecru", "isabella-color", "maple", "khaki", "orange-citrine", "sudan-brown", "burnt-sienna", "brown", "madder-brown", "pale-raw-umber", "sepia", "mars-brown-tobacco", "vandyke-brown"]
+    },
+    {
+      "id": "yellows",
+      "name": "Yellows",
+      "colors": ["yellow", "lemon-yellow", "apricot-yellow", "orange-yellow", "pale-lemon-yellow", "sulpher-yellow", "naples-yellow", "ivory-buff", "pyrite-yellow", "olive-ocher", "yellow-ocher", "sulphine-yellow"]
+    },
+    {
+      "id": "olives",
+      "name": "Olives",
+      "colors": ["light-green-yellow", "citron-yellow", "citrine", "olive-yellow", "olive-buff", "buffy-citrine", "dark-citrine", "light-grayish-olive", "light-brownish-olive", "krongbergs-green", "oil-green", "olive", "deep-grayish-olive", "olive-green", "lincoln-green", "blackish-olive", "deep-slate-olive"]
+    },
+    {
+      "id": "greens",
+      "name": "Greens",
+      "colors": ["yellow-green", "night-green", "rainette-green", "dark-greenish-glaucous", "turquoise-green", "glaucous-green", "cobalt-green", "chromium-green", "pistachio-green", "green", "dull-viridian-green", "cossack-green", "diamine-green"]
+    },
+    {
+      "id": "teals",
+      "name": "Teals & aquas",
+      "colors": ["nile-blue", "calamine-blue", "venice-green", "sea-green", "benzol-green", "light-porcelain-green", "peacock-blue", "green-blue", "cerulian-blue", "artemesia-green", "andover-green", "dusky-green", "deep-slate-green"]
+    },
+    {
+      "id": "blues",
+      "name": "Blues",
+      "colors": ["pale-king-s-blue", "light-glaucous-blue", "salvia-blue", "olympic-blue", "blue", "antwarp-blue", "helvetia-blue", "vandar-poel-s-blue", "dark-medici-blue", "slate-color", "deep-lyons-blue", "violet-blue", "dark-tyrian-blue", "deep-indigo"]
+    },
+    {
+      "id": "purples",
+      "name": "Purples & violets",
+      "colors": ["grayish-lavender-a", "lilac", "light-mauve", "aconite-violet", "dull-blue-violet", "dark-soft-violet", "blue-violet", "violet", "red-violet", "violet-red", "cotinga-purple", "dusky-madder-violet", "dull-violet-black"]
+    },
+    {
+      "id": "neutrals",
+      "name": "Neutrals",
+      "colors": ["white", "neutral-gray", "mineral-gray", "warm-gray", "deep-violet-plumbeous", "black"]
+    }
+  ]
+}
