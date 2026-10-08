@@ -1,9 +1,10 @@
 {
-  "$comment": "Website hero 16:9 (1440x810). Object far right, facing the words.",
+  "$comment": "Website hero 16:9. The site's own signature (orb in a faint wheel), set by the guide's hero-wide layout.",
   "format": "landing-hero",
-  "headline": "An astrology oracle you can talk to.",
-  "subhead": "Vedic, Western, Chinese, KP and numerology in one voice. Enter your birth once, then ask out loud in any of 89 languages.",
-  "cta": "See how it works",
+  "headline": "Ask your own birth chart, out loud.",
+  "subhead": "Plutto is an astrology oracle you talk to. It reads your chart in plain words, in the tradition you choose.",
+  "body": "Vedic, Western, Chinese, KP or numerology. Interrupt it, or switch traditions mid-sentence. Your memory is kept.",
+  "cta": "iOS and Android, soon",
   "logo": true,
   "palette": "primary"
 }

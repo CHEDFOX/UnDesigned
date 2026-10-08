@@ -1,7 +1,7 @@
 {
   "$comment": "Display banner 970x250.",
   "format": "web-banner",
-  "headline": "Talk to your birth chart.",
+  "headline": "Your birth chart, out loud.",
   "cta": "Visit plutto.space",
   "logo": true,
   "palette": "primary"

@@ -1,7 +1,7 @@
 {
-  "$comment": "YouTube thumbnail 16:9 (1280x720).",
+  "$comment": "YouTube thumbnail 16:9. App icon top left, orb right, duration-stamp corner kept clear.",
   "format": "thumbnail",
-  "headline": "An oracle that speaks back",
+  "headline": "Talk to your birth chart",
   "logo": true,
   "palette": "primary"
 }

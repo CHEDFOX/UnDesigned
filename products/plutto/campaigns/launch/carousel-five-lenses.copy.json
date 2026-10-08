@@ -1,0 +1,51 @@
+[
+  {
+    "$comment": "Five lenses carousel, slide 1 of 6 (hook). One orb travels along one thread across all six slides.",
+    "format": "carousel-slide",
+    "headline": "One sky. Five ways of reading it.",
+    "subhead": "Swipe through the traditions Plutto speaks.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 2: Vedic (North Indian chart, the orb in the first house).",
+    "format": "carousel-slide",
+    "headline": "Vedic, for exactness.",
+    "body": "Parashara's tradition reads the sidereal sky, house by house, and times your chart's periods with dashas.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 3: Western (wheel with unequal houses, the orb at the centre).",
+    "format": "carousel-slide",
+    "headline": "Western, for psychology.",
+    "body": "Ptolemy's line reads the tropical zodiac and twelve houses as a map of temperament.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 4: Chinese (the five elements: generating circle, controlling star).",
+    "format": "carousel-slide",
+    "headline": "Chinese, for the elements.",
+    "body": "BaZi reads your birth as four pillars of wood, fire, earth, metal and water.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 5: KP (27 lunar mansions, each split into nine unequal sub-lords).",
+    "format": "carousel-slide",
+    "headline": "KP, for the finer divisions.",
+    "body": "The Krishnamurti school splits each of 27 lunar mansions into nine unequal parts, each with its own lord.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 6: numerology, and the call to action.",
+    "format": "carousel-slide",
+    "headline": "Numerology, for measuring a name.",
+    "body": "Every letter has a number. P-L-U-T-T-O adds up to 23, and 2 + 3 is 5.",
+    "cta": "Choose your lens at plutto.space",
+    "logo": true,
+    "palette": "primary"
+  }
+]

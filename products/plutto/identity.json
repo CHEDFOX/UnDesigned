@@ -1,0 +1,71 @@
+{
+  "$comment": "Plutto's core and the signals people know it by. Sources: the plutto.space site source (/home/user/chedfox/plutto-web: app/page.js, app/about/page.js, app/layout.js, app/globals.css, app/components/*, app/icon.svg, public/floating-logo.png, tailwind.config.js, README.md) and the user's brief. Nothing here is invented; unknowns are listed under openQuestions.",
+  "core": {
+    "belief": "People have looked up for answers for thousands of years; the sky should be able to answer one person back, about their own chart, in plain words.",
+    "change": "Instead of reading a sun-sign paragraph written for a twelfth of the world, you ask your own birth chart a question out loud and hear it explained, in the tradition you choose, by a voice that remembers you.",
+    "character": ["Calm", "Exact", "Literary"],
+    "tension": "The oldest way of asking (watching the sky) meets the newest way of answering (a voice you can interrupt). Thousands of years of looking up; now the sky talks back, to you, in conversation.",
+    "notThis": "Not a horoscope, not twelve boxes, not fortune-telling. Plutto never claims to predict outcomes; it helps you explore patterns, time, choice and yourself.",
+    "pillars": [
+      { "id": "ask-the-sky", "name": "Ask the sky", "job": "The customer's moment: the real kinds of questions people bring to astrology, written as example prompts with how Plutto would approach them. Never presented as testimonials." },
+      { "id": "five-lenses", "name": "Five lenses", "job": "Education: what each tradition is for (Vedic for exactness, Western for psychology, Chinese for the elements, KP, numerology for a name)." },
+      { "id": "the-craft", "name": "The craft", "job": "Proof: Swiss Ephemeris, 300+ classical yogas, 19 divisional charts, 7 dasha systems, 89 languages, voice on OpenAI Realtime." },
+      { "id": "not-twelve-boxes", "name": "Not twelve boxes", "job": "The dramatic truth: a sun sign is one of twelve; a birth chart is yours." },
+      { "id": "coming-soon", "name": "Coming soon", "job": "News (O6): Plutto for iOS and Android, soon. No date until the team gives one." }
+    ]
+  },
+  "marks": {
+    "$comment": "Original files only. Never redraw, simplify, substitute or recolour them.",
+    "files": [
+      { "file": "assets/logos/plutto-wordmark.svg", "source": "app/components/Nav.js (the site's header lockup), set as SVG with the site's own fonts via @import", "what": "\"Plutto\" in Cormorant Garamond 500 (28 px, tracking -0.025em, white) with \"AN ASTROLOGY ORACLE\" under it in Inter 400 (8 px, uppercase, tracking 0.4em, white at 45%), 2 px apart, line height 1. Baselines measured in Chromium from the site's markup." },
+      { "file": "assets/logos/plutto-app-icon.svg", "source": "app/icon.svg, copied byte for byte", "what": "The app icon: a gold (#D4AF37) ring and dot on a black rounded square (64 x 64, radius 14)." },
+      { "file": "assets/images/floating-planet.png", "source": "public/floating-logo.png, copied byte for byte", "what": "A real photo-like image: a dark planet with a thin blue rim on black space, a few stars. 1024 x 1024." }
+    ],
+    "usage": "The wordmark lockup sits next to (or directly under) every headline (O4), scaled as one unit, always white on the dark ground; it is never re-set in the pairing's fonts. The app icon is used unchanged wherever an icon belongs: thumbnails, stories, banners and app-launch pieces. The icon and the orb are the only places gold appears."
+  },
+  "signals": {
+    "colours": [
+      { "name": "void", "hex": "#000000", "role": "Ground everywhere (tailwind void, themeColor)." },
+      { "name": "gold", "hex": "#D4AF37", "role": "Only the orb and the app icon. The code calls the orb 'the single sacred place where gold lives'." },
+      { "name": "white", "hex": "#FFFFFF", "role": "All type, at full strength or faded (white/45-75) for secondary lines." },
+      { "name": "silver", "hex": "#8A8A8E", "role": "Secondary text token (README)." },
+      { "name": "card", "hex": "#0c0b12", "role": "Raised surfaces." }
+    ],
+    "type": [
+      { "family": "Cormorant Garamond", "weights": [300, 400, 500], "role": "Display serif (app/layout.js). Light for headlines, medium for the wordmark, italic for the turn ('speaks back.')." },
+      { "family": "Inter", "weights": [300, 400, 500], "role": "Body and the tiny spaced caps (0.32-0.42em) used for labels and the wordmark's line." },
+      { "note": "The site's README says Playfair Display, but layout.js loads Cormorant Garamond; the code wins." }
+    ],
+    "imagery": "A black void with a few hand-placed stars (Starfield.js), a faint natal wheel (NatalWheel.js: 12 signs, 12 houses counted anticlockwise from the ascendant at 9 o'clock, a gold centre dot), and public/floating-logo.png: a dark planet edged with a thin blue rim.",
+    "signatureElements": [
+      { "id": "orb", "what": "The gold Oracle orb (Orb.js + globals.css): five radial-gradient layers (halo, body, specular, rim, shimmer), breathing 1.8% over 9 s.", "rule": "The orb is the brand's signature element and is drawn as the site draws it, with its own radial-gradient glow and stops. This is a brand element allowed despite Negative Space's no-gradient, no-glow default (art.json -> palette.rules), the same way the original marks are exempt from the palette. Its gold stays on the orb; no other gradient or glow appears in any piece." },
+      { "id": "natal-wheel", "what": "A hairline chart wheel in white at low opacity, with the orb or a gold dot at its centre.", "rule": "Drawn precisely (12 signs, 12 houses, degree ticks, Noto Sans Symbols glyphs with text presentation) in Wada White hairlines; never decorative." },
+      { "id": "spaced-caps", "what": "Tiny uppercase labels tracked 0.32-0.42em.", "rule": "Used only for labels of one to three words (Negative Space typography.json allows caps labels at 0.08-0.14em; the brand's wider tracking is kept for brand labels)." },
+      { "id": "starfield", "what": "Sparse hand-placed stars on the site background.", "rule": "Not drawn on flat pieces (Negative Space NS1: no decorative marks in the empty ground); real stars arrive with the floating-planet photo." }
+    ]
+  },
+  "guideChoices": {
+    "approach": { "id": "negative-space", "why": "Plutto already speaks in negative space: a black void, one gold object, 'quiet depth'. The style's evidence (white space reads as prestige, trust and quality: Pracejus, Olsen & O'Guinn 2006, 2013; less clutter raises attention to the brand: Pieters, Wedel & Batra 2010) fits an oracle that must feel exact and trustworthy, not mystical. Its palette rules allow dark grounds for night themes with text at 7:1; the night sky is literally the subject." },
+    "palette": { "combination": 255, "mode": "dark", "roles": { "ground": "black #111314", "text": "white #ffffff", "accent": "pyrite-yellow #cab356 (only where a flat gold is unavoidable; the orb itself keeps its brand stops)", "support": "calamine-blue #78cdd0 (echoes the blue planet rim; not used flat in the launch)" }, "why": "The only Wada combination holding Wada Black (closest to the void) and a gold (Pyrite Yellow, 33 RGB units from #D4AF37). Combination 149 has a closer gold (Olive Ocher) but its darkest colour is Deep Slate Green, a visibly green ground." },
+    "pairing": { "id": "instrument", "why": "Instrument Serif is the closest pairing to Cormorant Garamond: a quiet, high-contrast, narrow display serif with a true italic for the brand's 'speaks back' turn; Instrument Sans plays Inter's neutral role; both rated core by Negative Space. bodoni-jost (Didone + geometric sans) is too fashion and Jost is unlike Inter; source is calmer but loses the display contrast." },
+    "glyphs": "Astrological glyphs (zodiac signs, planets) are set in Noto Sans Symbols with U+FE0E so they never fall back to colour emoji. They are drawing symbols, not a typeface choice; flagged as an open question."
+  },
+  "sources": [
+    "plutto-web/app/page.js (hero: 'Thousands of years of observation.', orb in a faint wheel, depth line of facts)",
+    "plutto-web/app/about/page.js ('An oracle that speaks back.', traditions and what each is for, stats, 'iOS & Android — soon')",
+    "plutto-web/app/layout.js (Cormorant Garamond + Inter; metadata 'Every reading. Every system.')",
+    "plutto-web/app/globals.css and app/components/Orb.js (the orb)",
+    "plutto-web/app/components/Nav.js (the wordmark lockup)",
+    "plutto-web/app/components/NatalWheel.js, Starfield.js, Footer.js, StoreBadges.js",
+    "plutto-web/app/icon.svg (app icon), public/floating-logo.png (planet image)",
+    "plutto-web/tailwind.config.js and README.md (colour tokens)",
+    "User brief for the launch redo (core, proof list, honesty rules)"
+  ],
+  "openQuestions": [
+    "Launch date for iOS and Android (copy says only 'soon').",
+    "Is plutto.space the right destination for every call to action, or will there be a waitlist?",
+    "Internal and philosophical problem, in the team's words.",
+    "May astrological glyphs be set in Noto Sans Symbols (outside pairings.json)?",
+    "Instagram, TikTok and LinkedIn handles (none in the source)."
+  ]
+}

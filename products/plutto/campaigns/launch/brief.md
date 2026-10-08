@@ -1,32 +1,33 @@
 # Creative brief
 
-**Campaign:** Launch (social, web and print, ahead of the iOS and Android release)
+**Campaign:** Launch (social, web, print and motion, ahead of the iOS and Android release)
 **Date / deadline:** unknown (the site says only "iOS & Android — soon")
 **Owner:** Plutto, by xooteq Lab
 
-**Style:** Negative Space (`approaches/negative-space`). Set per campaign, as in `products/sample-bakery/campaigns/quiet-mornings`: `brand.json` keeps `approach: humanist-minimal` only because the hub build (`tools/brand-hub/build.mjs`) needs a drawing engine (`illustration.mjs`) for the brand's approach, and Negative Space has none yet. With `negative-space` in `brand.json` the whole build (and every other product's hub) fails.
+Read first: `../../identity.json` (core, marks, signals), `strategy.md` (pillars and series), `../../messaging.json`. Designs: `design.mjs` (run after `npm run build -- plutto`). Storyboards: `storyboard-motion-orb-answer.md`, `storyboard-motion-wheel.md`.
 
 ## 0. Choices (proposed; colour status stays "placeholder" until approved)
 
 | Choice | Pick | Why, in one line |
 |---|---|---|
-| Style | Negative Space | Plutto already speaks this way (a black void, one gold orb, "quiet depth"); the style's own vocabulary lists the night sky and moon, its evidence is prestige, trust and quality (Pracejus et al. 2006, 2013), and it allows dark grounds "for night themes" with text at 7:1. |
-| Not chosen | Humanist Minimal (12/14) | Scores higher on warmth, but cut paper and wobbly ink would turn an exact, literary oracle into something cute. |
-| Colour | Wada 255 in dark mode, with roles: ground Black `#111314`, ink and text White `#ffffff`, accent Pyrite Yellow `#cab356` | 255 is the only combination that holds both Wada Black (closest to the site's `#000` void) and a gold; Pyrite Yellow is the nearest gold that sits with Black (the site's `#D4AF37` is not in the Wada palette; Olive Ocher `#d6b43e` is closer but only pairs with Deep Slate Green, a visibly green-black ground). |
-| Trade-off | — | Pyrite Yellow is a little greener and paler than `#D4AF37`, and dark yellows are among the less-liked colours (colour-valence), so it stays on 0.2–2% of each piece, only on the orb: the same rule the site's code states ("the single sacred place where gold lives"). Negative Space prefers light grounds by default; dark is its stated exception for night themes. Calamine Blue (support, echoes the blue planet rim in `public/floating-logo.png`) and Raw Sienna are kept out of the launch. |
-| Type | `instrument`: Instrument Serif 400 over Instrument Sans 400/600 | Rated core by Negative Space (and by Humanist Minimal). The site actually sets Cormorant Garamond (light) over Inter in `app/layout.js`, while its README says Playfair Display; neither is in `pairings.json`. Instrument Serif is the closest quiet, high-contrast, narrow display serif with an italic. |
-| Hand face | none | Negative Space allows no handwriting, and an oracle that reads charts should not look scribbled. |
-| Logo | `assets/logos/plutto-mark.svg` (the site's `app/icon.svg`: ring and dot) next to the name in Instrument Sans | Drawn in white in the pieces so the orb stays the only gold. `assets/images/floating-planet.png` is the site's planet image, kept for reference. |
+| Style | Negative Space | Plutto already speaks this way (a black void, one gold orb, "quiet depth"); its evidence is prestige, trust and quality (Pracejus, Olsen & O'Guinn 2006, 2013) and attention to the brand when clutter is low (Pieters, Wedel & Batra 2010); its palette rules allow dark grounds for night themes with text at 7:1. |
+| Colour | Wada 255, dark: ground Black `#111314`, type White `#ffffff` (18.6:1), accent Pyrite Yellow `#cab356` | The only Wada combination with Black and a gold. Combination 149 has a closer gold (Olive Ocher) but a green-black ground. |
+| Brand exception | The orb keeps the site's own gradient stops (`#f4d98a` → `#060401`, halo `#D4AF37` at 22%) | The orb is the brand's signature ("the single sacred place where gold lives"); recorded in `identity.json`. Gold appears only on the orb and the app icon; no other gradient or glow anywhere. |
+| Type | `instrument`: Instrument Serif 400 (roman + italic), Instrument Sans 400/500, IBM Plex Mono for degrees | Nearest to the site's Cormorant Garamond + Inter (quiet, high-contrast display serif with a true italic over a neutral sans); rated core by Negative Space. Cormorant and Inter appear only inside the original wordmark. |
+| Glyphs | Noto Sans Symbols with U+FE0E | Zodiac and planet signs as text, never colour emoji (open question: allowed outside pairings.json?). |
+| Marks | `assets/logos/plutto-wordmark.svg` (the Nav lockup, unchanged) beside every headline; `assets/logos/plutto-app-icon.svg` (`app/icon.svg`, byte for byte) on stories, thumbnail and the app-launch post | The old pieces used a white ring-dot beside sans text: not the brand's mark. |
+| Photo | `assets/images/floating-planet.png` (`public/floating-logo.png`) as JPEG in `media/` | Placed by `media.json`; composited with `lighten` over Wada Black so its black space becomes the palette's Black (a tint-class treatment; the rim and stars are untouched). `overlay.mjs`: every text zone is calm-region, no overlay, 18.6:1, busyness 0. |
+| Hand face | none | Negative Space allows none. |
 
 ## 1. Research (O1)
 
-- What the product is and how it works: a voice-first astrology oracle. You enter your birth once and choose a tradition (Vedic, Western, Chinese, KP, numerology); the chart follows you, the voice changes with the lens and your memory is kept. Charts computed with Swiss Ephemeris; voice on OpenAI Realtime, so you can interrupt it, hold it and switch traditions mid-sentence. 89 languages, 19 divisional charts, 300+ classical yogas, 7 dasha systems. Built by xooteq Lab. iOS and Android coming soon.
-- What customers say: nothing yet (no reviews or testimonials on the site).
-- What competitors say, so we must not: horoscopes for twelve sun signs. The site's own line: "an astrology app, but not a horoscope … it does not deal in twelve boxes." We never claim that Plutto predicts anything.
+- What it is: a voice-first astrology oracle. You enter your birth once and choose a tradition (Vedic, Western, Chinese, KP, numerology); the chart follows you, the voice changes with the lens, your memory is kept. Charts computed with Swiss Ephemeris, "the same source observatories use"; voice on OpenAI Realtime: interrupt it, hold it, switch traditions mid-sentence. 300+ classical yogas, 19 divisional charts, 7 dasha systems, 89 languages. Built by xooteq Lab. iOS and Android soon.
+- What customers say: nothing yet (no reviews or testimonials exist). Example questions are labelled as examples.
+- What competitors say, so we must not: twelve sun-sign boxes; predictions. We never claim Plutto predicts anything.
 
 ## 2. Audience (P2, S2)
 
-- The one person: someone who wants to understand their own birth chart and has outgrown sun-sign horoscopes (inferred from the site; confirm with the team).
+- The one person: someone who has outgrown sun-sign horoscopes and wants to understand their own birth chart (inferred from the site; confirm with the team).
 - What they want: to ask about their chart out loud and hear it in plain words, in the tradition they trust.
 
 ## 3. Problem (S3)
@@ -37,122 +38,97 @@
 
 ## 4. The one thing (W1)
 
-> Ask your own birth chart out loud, and Plutto answers.
+> Ask your own birth chart out loud, and it answers you in plain words.
 
 ## 5. Dramatic truth and proof (W2, O5, S4)
 
-- The honest fact: it is a voice, not a page of text; you can interrupt it, hold it and switch traditions mid-sentence.
-- Proof (site facts only): Swiss Ephemeris; 5 traditions; 89 languages; 19 divisional charts; 300+ classical yogas; 7 dasha systems; built by xooteq Lab.
+- The honest fact: the oldest way of asking meets a voice you can interrupt; it reads your chart, not your sun sign.
+- Proof (site facts only): Swiss Ephemeris; 5 traditions; 89 languages; 19 divisional charts; 300+ classical yogas; 7 dasha systems; voice on OpenAI Realtime; built by xooteq Lab.
 
 ## 6. Big idea (O2, W8)
 
-> The dark is the sky people have watched for thousands of years; the one gold light in it is Plutto, the point that answers back.
+> The sky has been asked for thousands of years. Plutto is where it answers: one gold light in the dark that listens and speaks.
 
-What the space stands for (NS1): the night sky, and the silence before an answer. The object is always the gold orb (the site's Oracle, flattened to one disc); each piece gives the orb one relation to the dark:
-
-| Piece | Object and space | Layout |
-|---|---|---|
-| post-1 | the orb's voice (three fading arcs) travelling into the empty field toward the words | `ns-post-4x5-gaze` |
-| post-2 | the orb at the heart of a twelve-part wheel: your chart, not twelve boxes | optical centre, words in a foot strip (`ns-poster-corner-type`) |
-| post-3 | one disc cut in two, half white and half gold, the gold half dropped: the lens changing mid-sentence | `ns-poster-object-low` |
-| carousel 1–4 | one hairline orbit runs across all four slides; the orb rises out of slide 1 and sets into slide 4 as you swipe | text high, orbit low |
-| story-1 | the orb's voice rising toward the words | `ns-story-float` |
-| story-2 | the orb rising over the curved hairline edge of a planet (the site's floating-planet image, redrawn) | `ns-story-float` |
-| linkedin | the orb inside one tilted orbit: "every system" | `ns-square-headline-high` |
-| web-banner, hero, thumbnail | the orb's voice facing back toward the words | `ns-banner-strip`, `ns-hero-wide` |
-| poster | the orb half-risen on one hairline horizon: thousands of years of watching it rise | `ns-poster-object-low` |
+What the space stands for (NS1): the night sky people have always looked up at, and the quiet before an answer. The one object is always something the brand owns: the orb, a chart drawn precisely, the brand's planet photo, or the app icon.
 
 ## 7. Call to action (S6)
 
-- Direct: Visit plutto.space (hero: "See how it works", which leads to /about).
-- Transitional: none exists yet (no waitlist, email list or social handle on the site). Ask the team.
-- Long term (P4): unknown until a waitlist or app-store links exist.
+- Direct: plutto.space (open question: waitlist?).
+- Transitional: ask your question in the story sticker; it may be answered in an Ask the sky post.
+- Long term (P4): the questions people send become the series.
 
 ## 8. Stakes and success (S7)
 
-- If they do nothing: unknown (not stated on the site; ask).
-- After they act: their own chart, explained in plain words, in the tradition they chose, by a voice that remembers them.
+- If they do nothing: another paragraph written for a twelfth of the world.
+- After they act: your own chart, explained in plain words, by a voice that remembers you.
 
 ## 9. Formats and deliverables
 
-All generated by `design.mjs` (`node products/plutto/campaigns/launch/design.mjs` after `npm run build -- plutto`). PNG previews sit next to each SVG; everything together in `contact-sheet.png`.
+Every piece: research finding it uses, composition (`foundations/layout/layout.json` → composition, plus the style's placements), layout template it starts from, and its scorecard total (research.md 6, out of 20; 16 ships; estimates by eye with the measured contrast and overlay checks).
 
-| Format (formats.json) | Size | Palette | Copy file | Artwork | Empty ground |
-|---|---|---|---|---|---|
-| instagram-post 4:5 | 1080×1350 | primary (255 dark) | `post-1-out-loud.copy.json` | `social/post-1-out-loud.svg` | 84% |
-| instagram-post 4:5 | 1080×1350 | primary | `post-2-twelve-boxes.copy.json` | `social/post-2-twelve-boxes.svg` | 83% |
-| instagram-post 4:5 | 1080×1350 | primary | `post-3-mid-sentence.copy.json` | `social/post-3-mid-sentence.svg` | 85% |
-| carousel-slide ×4 | 1080×1350 | primary | `carousel.copy.json` | `social/carousel-1…4.svg` | 87–92% |
-| story ×2 | 1080×1920 | primary | `story-1-talks-back.copy.json`, `story-2-languages.copy.json` | `social/story-1-talks-back.svg`, `social/story-2-languages.svg` | 90%, 94% |
-| instagram-post 1:1 (LinkedIn; formats.json names this format "Instagram / LinkedIn post") | 1080×1080 | primary | `linkedin-square.copy.json` | `social/linkedin-square.svg` | 79% |
-| web-banner | 970×250 | primary | `web-banner.copy.json` | `web/web-banner.svg` | 87% |
-| landing-hero | 1440×810 | primary | `landing-hero.copy.json` | `web/landing-hero.svg` | 89% |
-| thumbnail | 1280×720 | primary | `thumbnail.copy.json` | `web/thumbnail.svg` | 74% |
-| poster | A2/A3 (1000×1414) | primary | `poster.copy.json` | `print/poster.svg` | 89% |
-| story title card (video) | 1080×1920, 10 s | primary | `story-1-talks-back.copy.json` | `video/story-title-card.svg`, plan in `video/storyboard.md` | — |
+| # | Piece (file) | Pillar | Idea | Composition (template) | Finding | Score |
+|---|---|---|---|---|---|---|
+| 1 | `social/post-ask-voice` 4:5 | Ask the sky | Two voices: your question as an italic line with a voice-memo trace, Plutto's answer as a roman line with a waveform leaving the orb | Dialogue; object low left facing into the field (`ns-post-4x5-gaze`) | Inward bias + gaze cue; W5 words and picture | 19 |
+| 2 | `social/post-question` 1:1 | Ask the sky | The question is the object; the orb waits beside it | Type-led (`ns-square-headline-high`) | Pop-out by isolation; first-glance | 18 |
+| 3 | `social/post-twelve-boxes` 4:5 | Not twelve boxes | Twelve small boxes at the top; the orb alone in the open field | Two masses across the field, object low right (`ns-poster-object-low`) | Pop-out (isolation + colour); NS1 space = freedom | 19 |
+| 4 | `social/post-natal-wheel` 1:1 | Not twelve boxes | A precise sample chart (degree ticks, glyphs, 12 houses from the ascendant, 7 planets) with the orb at its centre | Optical centre, words in a foot strip (`ns-poster-corner-type`) | Centre bias; fluency (precision, symmetry) | 17 (wheel is 59% of the side; empty ground about 55%) |
+| 5 | `social/post-photo` 4:5 | Not twelve boxes | The brand's planet small and low, the black sky as the ground | Full-bleed photo, calm region (`ns-post-4x5-photo`) | Real photos; calm-region; picture superiority | 19 |
+| 6 | `social/post-coming-soon` 1:1 | Coming soon | The original app icon alone | Optical centre, corner type | Distinctive assets; news (O6) | 18 |
+| 7 | `social/linkedin-craft` 1:1 | The craft | One sign's 30 degrees as a hairline ruler, ticks every 10′, the orb resting at 17°22′ Leo (sample) | Horizon: a full-bleed hairline, words below | O5 specific facts; prestige of space; fluency | 18 |
+| 8–13 | `social/carousel-five-lenses-1…6` 4:5 | Five lenses | One thread crosses every seam and the orb travels into each lens: hook, Vedic square chart (orb in house 1), Western wheel with unequal houses, five elements (generating circle, controlling star), KP (27 nakshatras, 9 Vimshottari sub-lords each), numerology (P-L-U-T-T-O = 23, 2 + 3 = 5 on the orb) | Carousel panorama; each slide headline high, lens centred, body low | Carousel story (formats.json); picture superiority; repetition | 18 each (lenses are 44–55% of the side) |
+| 14 | `social/story-ask` 9:16 | Ask the sky | App icon + wordmark, the question in italic, a question-sticker zone, the orb below it | Stacked in the live band (`ns-story-float`) | Touch-centre; P4 owned audience | 18 |
+| 15 | `social/story-planet` 9:16 | Coming soon | The planet's rim low as a horizon, headline and sticker zone in the sky | Full-bleed photo, low horizon (`ns-story-video` skeleton) | Real photos; first-frame; calm-region | 18 (planet larger than 6% of the frame) |
+| 16 | `print/poster-photo` A-series | Brand | "We have always asked the sky. Now it answers." over the planet's horizon | Full-bleed photo, sky as the ground (`ns-poster-photo`) | Prestige of white space; real photos; calm-region | 18 |
+| 17 | `web/thumbnail` 16:9 | Ask the sky | Big serif headline, app icon, the orb at full glow; duration corner clear | Split, words on the reading-start side | Left-lean; first-glance (one bright thing) | 19 |
+| 18 | `web/web-banner` 970×250 | Ask the sky | Headline, wordmark, orb in the gap, outlined button | Strip with wide gaps (`ns-banner-strip`) | Banner blindness (one headline, one brand, one button) | 19 |
+| 19 | `web/landing-hero` 16:9 | Brand | The site's own signature, the orb in a faint wheel, set on the guide's hero grid | Far-side split (`ns-hero-wide`) | Left-lean; grunt test (S8); text-whitespace | 18 |
+| 20 | `motion/motion-orb-answer` 9:16 animated | Ask the sky | The orb arrives and breathes once; a question rises; the answer rises with its waveform; the brand settles | Stacked in the live band | video.json one-mover, on-screen-reading holds; peak-end | 19 |
+| 21 | `motion/motion-wheel` 1:1 animated | Five lenses | The sign ring turns 24° (the ayanamsa): Western becomes Vedic; then the line | Optical centre, foot strip | Animation congruence (animate only what changes in the idea) | 18 |
 
-Sizes used (typography.json → sizes.byFormat): post headline 92 px (cap 4.9% of height), body 38, small 30; carousel 80/36/28 (cap 4.3%); square 80/34/27; story 84/40/32 (cap 3.2%); banner 42 (cap 12%)/18/16; hero 62/21/17–20; thumbnail 132 (cap 13.2%)/34; poster 66 (cap 3.4%)/25/20. Margins 10% of the short side; stories keep everything in the live band (top 14%, bottom 35%). Every text line was measured in Chromium with the real fonts and sits inside the margins or safe area. Ids in each SVG are prefixed `pl-<piece>-` (title card `pl-tcs-`).
+Formats and copy: one `.copy.json` per piece (the carousel has one file with six slides). `npm run check:copy -- products/plutto`: 16 files, 0 errors, 0 warnings.
+
+Technical: every SVG has a viewBox and width/height; ids, classes and keyframes are prefixed `pl2-<piece>-`; fonts by `@import`; the photo is a JPEG data URI (1024 px, 86%); every SVG is under 60 KB; text boxes are checked against margins and the story safe area (top 14%, bottom 35%, sides 6%) by `design.mjs`. Previews: a PNG beside each SVG, `*-sticker-preview.png` for the stories, five frames per animation, `contact-sheet.png`.
 
 ## 10. Headlines (W3)
 
-1. **Ask your birth chart, out loud.** (chosen: post-1)
-2. **Not twelve boxes. Your own chart.** (chosen: post-2)
-3. **Switch traditions mid-sentence.** (chosen: post-3)
-4. **Talk to your chart. It talks back.** (chosen: story-1, title card)
-5. **Ask in any of 89 languages.** (chosen: story-2)
-6. **Every reading. Every system. One voice.** (chosen: LinkedIn; adapted from the site's title)
-7. **An oracle that speaks back.** (chosen: thumbnail, carousel 4; the site's own line)
-8. **Thousands of years of observation. Now you can ask.** (chosen: poster; first half is the site's line)
-9. **An astrology oracle you can talk to.** (chosen: hero)
-10. **Talk to your birth chart.** (chosen: banner)
-11. Enter your birth once. Then ask.
-12. Choose from 5 traditions.
-13. Your chart, in your own words.
-14. Interrupt the oracle. It listens.
-15. Vedic for exactness, Western for psychology.
-16. The pattern, named in plain words.
-17. One birth. Five traditions.
-18. Hold the answer. Ask again.
-19. A voice that remembers your chart.
-20. Ask the sky something specific.
-21. Your memory is kept.
-22. Not a horoscope. A conversation.
+1. Why do I keep starting over? (example question)
+2. What is this year asking of me?
+3. You were never one of twelve. ★
+4. Drawn for the minute you were born. ★
+5. Your birth sky, explained in plain words.
+6. Every degree computed with Swiss Ephemeris.
+7. One sky. Five ways of reading it. ★
+8. Vedic, for exactness.
+9. Western, for psychology.
+10. Chinese, for the elements.
+11. KP, for the finer divisions.
+12. Numerology, for measuring a name.
+13. What would you ask your chart first?
+14. Soon, the sky answers back.
+15. We have always asked the sky. Now it answers.
+16. Talk to your birth chart.
+17. Your birth chart, out loud.
+18. Ask your own birth chart, out loud.
+19. Soon, your chart will talk back.
+20. Western to Vedic: the same sky, turned 24°.
+21. Why does this year feel so slow? (example question)
+22. A sun sign is a twelfth of the sky. (not used)
 
-Test 1 against 4 in the feed (O10): "out loud" vs "it talks back".
+Test (O10): 3 vs 7 as the first paid post; 15 vs 16 for video thumbnails.
 
 ## 11. Check before sign-off
 
-- [x] Grunt test: a voice astrology oracle, it reads your own chart, visit plutto.space (S8)
+- [x] Passes the grunt test: what we offer, how it helps, what to do next (S8)
 - [x] One message only (W1)
-- [x] Customer is the hero: "your chart", "you can"; no "we" anywhere (S1)
-- [x] Brand mark and name directly under every headline (O4)
-- [x] Words and image add to each other: no picture shows what its line says (W5)
-- [x] Still makes sense in five years (P3); no claims of prediction
-- [x] `npm run check:copy -- products/plutto`: 0 errors, 0 warnings (tips only: no number in some headlines, by choice: Negative Space keeps lines short)
-- [x] Colours from palette 255 plus Wada White only; white on Black is 18.6:1 (aim 7:1). O8: light-on-dark copy kept short (longest body 14 words)
-- [x] Negative Space: one object, 74–94% empty ground, headline small on a margin, 10% margins, edges 15%+ or deliberately on the margin
+- [x] Customer is the hero, "you" more than "we" (S1)
+- [x] Wordmark beside the headline in every piece (O4)
+- [x] Words and image add to each other, not repeat (W5)
+- [x] Still makes sense in five years (P3)
+- [x] `npm run check:copy` passes with no errors
+- [x] Colours from the brand palette (plus the orb and icon as brand elements); long copy is short (O8)
 
-## 12. Scorecard (approaches/negative-space/research.md section 6)
+## 12. How we'll measure it (O10, P5)
 
-Items: 1 empty ground, 2 the space means something, 3 one object, 4 faces the open field, 5 deliberate edges, 6 one combination and accent ratio, 7 quiet headline + brand + 3 sizes + 2 weights, 8 contrast, 9 media, 10 motion. Still graphics have no media or motion: 9 and 10 are scored 2 as "not applicable", following the sample bakery practice; ready is 16/20.
-
-| Piece | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | Total | Note |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| post-1 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 20 | orb 17% from the left edge; voice points at the words |
-| post-2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 20 | wheel is white ink (2%), gold only at its heart |
-| post-3 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | – | – | 19 | split disc has no front; placed low-right as a symmetric object |
-| carousel 1–4 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | – | – | 19 | the slide count "n / 4" is a fourth text item; orb rests on the bottom margin on slides 1 and 4 (deliberate, "near") |
-| story-1 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 20 | |
-| story-2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 20 | the planet's rim is the one hairline |
-| linkedin | 1 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | – | – | 17 | 79% empty; most text of the set (LinkedIn wants facts); four text groups |
-| web-banner | 2 | 1 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 19 | at 250 px tall the voice reads as a small icon |
-| landing-hero | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 20 | |
-| thumbnail | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 19 | 74% empty: thumbnails need big words (cap 13%) |
-| poster | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | – | – | 20 | |
-| title card | 2 | 1 | 2 | 1 | 2 | 1 | 1 | 2 | – | 2 | 16 | the template centres the words and sets them large (≈130 px) with its own line breaks ("chart. It"); orb added and faded in first |
-
-## 13. How we'll measure it (O10, P5)
-
-- Success metric: visits to plutto.space from each placement (no waitlist exists yet).
-- What we'll test: post-1 vs story-1 headline; the orbit carousel vs single posts.
-- Evergreen version after launch: post-2 ("Not twelve boxes") and the poster.
+- Success metric: sticker replies and saves on the carousel (interest in the traditions), clicks to plutto.space.
+- What we'll test: headline 3 vs 7; photo vs drawn pieces.
+- Evergreen version after launch: the Five lenses carousel and the Ask the sky series.

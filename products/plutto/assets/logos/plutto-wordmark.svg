@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 154 39" width="154" height="39" role="img" aria-label="Plutto, an astrology oracle">
+  <!-- The Plutto wordmark lockup exactly as plutto.space sets it in app/components/Nav.js:
+       "Plutto" in the brand serif (Cormorant Garamond 500, 28px, tracking -0.025em, white) and, 2px below,
+       "AN ASTROLOGY ORACLE" in Inter 400 (8px, uppercase, tracking 0.4em, white at 45%). Line height 1.
+       Baselines measured in Chromium from the site's markup. Do not redraw or re-set it in another face. -->
+  <style>@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&amp;family=Inter:wght@400&amp;display=swap");</style>
+  <text x="0" y="23" font-family="'Cormorant Garamond', Georgia, serif" font-weight="500" font-size="28" letter-spacing="-0.7" fill="#ffffff">Plutto</text>
+  <text x="0" y="37" font-family="Inter, -apple-system, sans-serif" font-weight="400" font-size="8" letter-spacing="3.2" fill="#ffffff" fill-opacity="0.45">AN ASTROLOGY ORACLE</text>
+</svg>

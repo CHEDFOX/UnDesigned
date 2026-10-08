@@ -1054,7 +1054,9 @@ function renderTypography() {
   const fmtName = Object.fromEntries(M.formats.flatMap(g => g.formats.map(f => [f.id, f.name])));
   $('#ty-sizes').innerHTML = '<thead><tr><th>Format</th><th>Headline</th><th>Body minimum</th></tr></thead><tbody>' + Object.entries(TY.sizes.byFormat).map(([k, v]) => `<tr><td>${esc(fmtName[k] || k)}</td><td class="num">${v.headlinePct ? v.headlinePct.join('-') + '%' : v.headlinePx.join('-') + ' px'}</td><td class="num">${v.body === 'none' ? 'none' : v.bodyMinPt ? v.bodyMinPt + ' pt' : v.bodyMinPx + ' px'}</td></tr>`).join('') + `</tbody>`;
   const st = TY.setting;
-  $('#ty-setting').innerHTML = kv2([['Measure', `${st.measure.chars.join('-')} characters per line, ideal ${st.measure.ideal} (${st.measure.source})`], ['Leading', `display ${st.leading.display.join('-')}, subhead ${st.leading.subhead.join('-')}, body ${st.leading.body.join('-')}`], ['Tracking', `display ${st.tracking.displayEm.join(' to ')} em, body ${st.tracking.bodyEm}, capital labels ${st.tracking.labelCapsEm.join('-')} em`], ['Case', st.case], ['Per piece', `${st.sizesPerPiece} sizes, ${st.weightsPerPiece} weights`], ['Rag', st.rag], ['Numbers', st.numbers], ['Viewing distance', TY.sizes.viewingDistance]]);
+  const J = (v, sep = '-') => Array.isArray(v) ? v.join(sep) : v == null ? '–' : String(v);
+  const tr = st.tracking || {}, ld = st.leading || {}, ms = st.measure || {};
+  $('#ty-setting').innerHTML = kv2([['Measure', `${J(ms.chars)} characters per line, ideal ${J(ms.ideal)} (${J(ms.source)})`], ['Leading', `display ${J(ld.display)}, subhead ${J(ld.subhead)}, body ${J(ld.body)}`], ['Tracking', `display ${J(tr.displayEm, ' to ')} em, body ${J(tr.bodyEm)}, capitals ${J(tr.labelCapsEm || tr.brandCapsEm || tr.smallEm)} em`], ['Case', J(st.case)], ['Per piece', `${J(st.sizesPerPiece)} sizes, ${J(st.weightsPerPiece)} weights`], ['Rag', J(st.rag)], ['Numbers', J(st.numbers)], ['Viewing distance', J(TY.sizes.viewingDistance)]]);
 }
 
 /* ------------------------------------------------------------ handwritten */

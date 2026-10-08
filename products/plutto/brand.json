@@ -1,11 +1,11 @@
 {
-  "$comment": "Brand settings for Plutto (plutto.space). Edit, then run `npm run build`. Style: Negative Space (approaches/negative-space). Choices and reasons: campaigns/launch/brief.md.",
+  "$comment": "Brand settings for Plutto (plutto.space). Edit, then run `npm run build -- plutto`. Core, marks and signals: identity.json. Style: Negative Space (approaches/negative-space), chosen because the brand already works as one gold object in a black void. Campaign choices: campaigns/launch/brief.md.",
   "name": "Plutto",
   "nameVariants": [],
   "prefix": "pl",
   "approach": "negative-space",
   "color": {
-    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations. primary = 255 in dark mode: Black ground (the site's void), Wada White for type (the site's white text), Pyrite Yellow as the one gold accent (closest Wada gold in a combination with Black; the site's #D4AF37 is not in the Wada palette). Calamine Blue and Raw Sienna stay as support and are kept out of the launch pieces. status stays placeholder until the user approves.",
+    "$comment": "Wada 255 in dark mode: Black ground (nearest to the site's #000 void), Wada White for type (the site's white text), Pyrite Yellow as the accent (the nearest Wada gold that sits with Black; #D4AF37 is not in the Wada palette). The site's gold orb is a brand element drawn with its own radial-gradient stops (identity.json -> signals.signatureElements); gold appears only on the orb and the app icon. Calamine Blue (echoes the planet's blue rim) and Raw Sienna are support, unused in the launch. status stays placeholder until the user approves.",
     "status": "placeholder",
     "palettes": {
       "primary": {
@@ -24,7 +24,7 @@
     }
   },
   "typography": {
-    "$comment": "instrument = Instrument Serif over Instrument Sans (Negative Space rates it core). The site sets Cormorant Garamond (light) over Inter in app/layout.js; its README says Playfair Display. Neither is in pairings.json; Instrument Serif is the closest quiet, high-contrast display serif with an italic. No hand face: Negative Space allows none.",
+    "$comment": "instrument = Instrument Serif over Instrument Sans, rated core by Negative Space. The site loads Cormorant Garamond + Inter (app/layout.js); neither is in pairings.json. Instrument Serif is the nearest quiet, high-contrast display serif with a true italic, Instrument Sans the nearest neutral sans to Inter. Cormorant Garamond and Inter appear only inside the original wordmark lockup (assets/logos/plutto-wordmark.svg). No hand face: Negative Space allows none.",
     "pairing": "instrument",
     "scale": 1.25
   }
