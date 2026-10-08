@@ -341,6 +341,12 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .rs-scores i.s1::after { transform: scaleX(.5); }
 .rs-scores i.s2::after { transform: scaleX(1); }
 .rs-watch { color: var(--muted); }
+/* ---------- campaign art ---------- */
+#art-wrap { margin-bottom: 40px; }
+.art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; }
+.art-grid figure { margin: 0; display: grid; gap: 6px; }
+.art-grid figure > svg { width: 100%; height: auto; display: block; box-shadow: 0 2px 14px rgba(0,0,0,.12); }
+.art-grid figcaption { font: 11px var(--mono); color: var(--muted); overflow-wrap: anywhere; }
 /* ---------- layout ---------- */
 .lo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 18px; align-items: start; }
 .lo-card { background: var(--sheet); border-radius: 18px; padding: 12px; display: grid; gap: 8px; font-size: 13px; }
@@ -507,6 +513,11 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 
 <!-- ================================================================ OVERVIEW -->
 <section class="panel" id="panel-overview">
+  <div id="art-wrap" hidden>
+    <h2 class="sec">Campaign work</h2>
+    <p class="lede" style="margin-bottom:14px">Finished pieces for this product, from <code>products/<span class="cur-id"></span>/campaigns/</code>.</p>
+    <div class="art-grid" id="art-grid"></div>
+  </div>
   <h2 class="sec">How a campaign is made</h2>
   <p class="lede">Six stages, in order. The first two are done once for the brand; the rest happen for every campaign. Rule codes point to the messaging playbook.</p>
   <div class="ov-grid">
@@ -930,6 +941,9 @@ function showPanel(id, push) {
 
 /* ------------------------------------------------------------ overview */
 function renderOverview() {
+  const art = B.artwork || [];
+  $('#art-wrap').hidden = !art.length;
+  $('#art-grid').innerHTML = art.map(a => `<figure>${a.svg.replace(/<style>@import[^<]*<\/style>/, '')}<figcaption>${esc(a.path)}</figcaption></figure>`).join('');
   const refs = {};
   M.principles.forEach(r => (refs[r.stage] = refs[r.stage] || []).push(r.id));
   $('#stages').innerHTML = M.stages.map(s => `<li><b>${esc(s.name)}</b><span>${esc(s.question)}</span><span class="refs">${refs[s.id].join(' ')}</span></li>`).join('');

@@ -3,7 +3,7 @@
 //   dist/hub/index.html             every product, with a switcher
 //   dist/<product>/brand-hub/index.html   one product only (to share with a client or designer)
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadMessaging } from '../../foundations/messaging/context.mjs';
@@ -61,6 +61,7 @@ export function buildHub({ root, brands }) {
       fill: msg.fill,
       ctx,
       campaigns,
+      artwork: campaignArt(join(brand.dir, 'campaigns')).map((f) => ({ path: relative(brand.dir, f), svg: readFileSync(f, 'utf8') })),
       typography: { pairing: type.pairing.id, hand: type.hand ? type.hand.id : null, ratio: type.ratio, sizes: type.sizes },
       layers: [
         { name: 'Approach', state: 'done', detail: `${approach.name}: ${approach.principles.length} principles, research dossier, art, motion and type data, rules for ${approach.layers.length} layers.` },
@@ -225,4 +226,13 @@ function mdToHtml(md) {
 function winLabels(b) {
   if (typeof b === 'string') return [b];
   return [].concat(b).map((x) => (typeof x === 'string' ? x : x.wins || x.win || x.effect || x.what || x.title || Object.values(x).find((v) => typeof v === 'string') || ''));
+}
+
+// Finished campaign artwork: every .svg inside a campaign folder (e.g. campaigns/<name>/posters/).
+function campaignArt(dir) {
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).sort().flatMap((n) => {
+    const p = join(dir, n);
+    return statSync(p).isDirectory() ? campaignArt(p) : n.endsWith('.svg') ? [p] : [];
+  });
 }
