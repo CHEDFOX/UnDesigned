@@ -12,6 +12,7 @@ The guide fixes *how* things are designed (the approach, colour method, type, co
 
 | Part | What it gives you | Docs |
 |---|---|---|
+| Research | What the brain likes: 9 evidence-backed findings (curves, simplicity, fluency, 50 ms impressions, familiar + fresh, natural complexity, handmade, colour associations, aesthetic-usability), myths to drop, and style families scored | [foundations/research](foundations/research/README.md) |
 | Approach | **Humanist Minimal**: 8 principles, do/don't for every layer, an illustration library (ink line, cut paper) and motion timings, built from the references | [approaches/humanist-minimal](approaches/humanist-minimal/README.md) |
 | Colour | 159 colours and 348 combinations from Sanzo Wada's *A Dictionary of Color Combinations*, with roles, contrast checks and exports for every tool | [foundations/color](foundations/color/README.md) |
 | Typography | 8 modern, humanist pairings (free Google Fonts) with a type scale and rules | [foundations/typography](foundations/typography/README.md) |
@@ -36,6 +37,7 @@ UnDesigned/
 ├── approaches/              design approaches a product can choose
 │   └── humanist-minimal/    approach.json · illustration.mjs · references/ · README
 ├── foundations/             shared libraries every product uses
+│   ├── research/            what the brain likes: findings, myths, style scores
 │   ├── color/               Wada colour data and exports
 │   ├── typography/          type pairings and scale
 │   ├── messaging/           playbook, format limits, copy checker

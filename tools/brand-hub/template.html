@@ -268,6 +268,50 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .fit.core { border-color: var(--ok); color: var(--ok); }
 .fit.inuse { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
+
+/* ---------- brain research ---------- */
+.rs-findings { display: grid; gap: 0; }
+.rs-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; padding: 24px 0; border-top: 1px solid var(--ink); align-items: start; }
+@media (max-width: 860px) { .rs-card { grid-template-columns: minmax(0, 1fr); } }
+.rs-text h3 { margin: 4px 0 8px; font-size: 22px; }
+.rs-text p { margin: 10px 0 0; font-size: 14.5px; }
+.rs-effect { color: var(--muted); }
+.rs-src { font: 11.5px var(--mono); color: var(--muted); }
+.rs-demo { display: flex; flex-wrap: wrap; gap: 14px; }
+.rs-demo figure { margin: 0; flex: 1 1 140px; display: grid; gap: 6px; min-width: 0; max-width: 300px; }
+.rs-demo svg { width: 100%; height: auto; display: block; border-radius: 14px; }
+.rs-demo figcaption { font-size: 12.5px; color: var(--muted); }
+.sw-row { display: flex; height: 70px; border-radius: 14px; overflow: hidden; }
+.sw-row i { flex: 1; }
+.glimpse { position: relative; max-width: 180px; }
+.glimpse-cover { position: absolute; inset: 0; background: var(--sheet); border-radius: 14px; display: grid; place-items: center; text-align: center; padding: 12px; font-size: 12.5px; color: var(--muted); border: 1px dashed var(--line); }
+.au { border-radius: 14px; padding: 14px; display: grid; gap: 8px; font-size: 12px; }
+.au.crude { background: #d9d9d9; color: #222; border-radius: 0; font-family: "Times New Roman", serif; }
+.au.crude i { display: block; height: 18px; background: #fff; border: 1px solid #777; }
+.au.crude b { justify-self: start; background: #e9e9e9; border: 1px solid #777; padding: 2px 8px; font-weight: 400; }
+.au.polished { background: var(--sheet); }
+.au.polished i { display: block; height: 26px; background: var(--paper); border-radius: 8px; border: 1px solid var(--line); }
+.au.polished b { justify-self: start; background: var(--au-a); color: var(--au-on); padding: 6px 14px; border-radius: 999px; }
+.rs-myths { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 18px; }
+.rs-myth { background: var(--sheet); padding: 18px; border-radius: 16px; display: grid; gap: 6px; font-size: 14px; }
+.rs-myth p { margin: 0; color: var(--muted); }
+.rs-styles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 18px; }
+.rs-style { display: grid; grid-template-columns: minmax(0, 170px) minmax(0, 1fr); gap: 16px; padding: 14px; border-radius: 18px; background: var(--sheet); align-items: start; }
+.rs-style.ours { outline: 2px solid var(--ink); }
+@media (max-width: 520px) { .rs-style { grid-template-columns: minmax(0, 1fr); } }
+.rs-thumb svg { width: 100%; height: auto; display: block; border-radius: 12px; }
+.rs-body p { margin: 6px 0 0; font-size: 13.5px; }
+.rs-body .ty-name { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.rs-body .ty-name b { font: 700 18px var(--display); }
+.rs-total { margin-left: auto; font: 800 26px var(--display); }
+.rs-total small { font: 12px var(--mono); color: var(--muted); }
+.rs-scores { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: 10px; font-size: 12px; color: var(--muted); }
+.rs-scores span { display: inline-flex; align-items: center; gap: 5px; }
+.rs-scores i { width: 22px; height: 8px; border-radius: 999px; background: var(--line); position: relative; overflow: hidden; }
+.rs-scores i::after { content: ""; position: absolute; inset: 0; background: var(--ink); transform-origin: left; transform: scaleX(0); }
+.rs-scores i.s1::after { transform: scaleX(.5); }
+.rs-scores i.s2::after { transform: scaleX(1); }
+.rs-watch { color: var(--muted); }
 /* ---------- approach ---------- */
 .ap-nav { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13.5px; }
 .ap-nav a { color: var(--ink); text-underline-offset: 3px; }
@@ -375,6 +419,7 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 
 <nav class="primary" role="tablist" aria-label="Sections">
   <button type="button" role="tab" data-panel="overview" aria-selected="true">Overview</button>
+  <button type="button" role="tab" data-panel="research" aria-selected="false">Brain research</button>
   <button type="button" role="tab" data-panel="approach" aria-selected="false">Approach</button>
   <button type="button" role="tab" data-panel="colour" aria-selected="false">Colour</button>
   <button type="button" role="tab" data-panel="typography" aria-selected="false">Typography</button>
@@ -426,6 +471,18 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 └── dist/
     ├── hub/             this page, all products
     └── &lt;product&gt;/         web/ · design-apps/ · illustration/ · brand-guide/ · tokens/ · brand-hub/</pre>
+</section>
+
+<!-- ================================================================ RESEARCH -->
+<section class="panel" id="panel-research" hidden>
+  <h2 class="sec">What the brain likes</h2>
+  <p class="lede">Findings from empirical aesthetics that every style in this guide builds on, each with a live demo in the current product's colours. Strength is our reading of the evidence. From <code>foundations/research/visual-preference.json</code>.</p>
+  <div class="rs-findings" id="rs-findings"></div>
+  <h3 style="margin-top:40px">Myths to drop</h3>
+  <div class="rs-myths" id="rs-myths"></div>
+  <h3 style="margin-top:40px">Style families, scored against the evidence</h3>
+  <p class="lede" style="margin-bottom:14px">Each family scored 0–2 on how strongly it uses each evidence-backed feature. This is our synthesis, not a published ranking. Liking isn't the only goal: polarising styles can win attention and memorability for the right product.</p>
+  <div class="rs-styles" id="rs-styles"></div>
 </section>
 
 <!-- ================================================================ APPROACH -->
@@ -707,7 +764,7 @@ function luminance(hex) {
 const onColor = hex => (luminance(hex) > 0.35 ? byId.black.hex : byId.white.hex);
 
 /* ------------------------------------------------------------ navigation */
-const PANELS = ['overview', 'approach', 'colour', 'typography', 'messaging', 'checker', 'message'];
+const PANELS = ['overview', 'research', 'approach', 'colour', 'typography', 'messaging', 'checker', 'message'];
 function showPanel(id, push) {
   if (!PANELS.includes(id)) id = 'overview';
   document.querySelectorAll('nav.primary button').forEach(b => b.setAttribute('aria-selected', b.dataset.panel === id));
@@ -819,7 +876,126 @@ function useBrand(id, first) {
   document.querySelectorAll('.cur-id').forEach(el => (el.textContent = B.id));
   $('#star-count').textContent = cstate.stars.size;
   store.set('hub-brand', B.id);
-  renderOverview(); renderBrandTable(); setupApproach(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderMessaging(); setupChecker(); renderMessage();
+  renderOverview(); renderBrandTable(); setupApproach(); renderResearch(); renderBrandCard(); renderCombos(); renderColors(); renderTypography(); renderMessaging(); setupChecker(); renderMessage();
+}
+
+/* ------------------------------------------------------------ brain research */
+const hexOr = (id, f = '#888888') => (byId[id] ? byId[id].hex : f);
+function fractalLine(H, seed, w = 300, h = 120) {
+  // Midpoint displacement: profile dimension D is about 2 - H.
+  const rand = ill.rng(seed);
+  const n = 128;
+  const y = new Array(n + 1).fill(0);
+  let step = n, scale = 1;
+  while (step > 1) {
+    const half = step / 2;
+    for (let i = half; i < n; i += step) y[i] = (y[i - half] + y[i + half]) / 2 + (rand() - 0.5) * scale;
+    step = half; scale *= Math.pow(2, -H);
+  }
+  const min = Math.min(...y), max = Math.max(...y), k = (h * 0.7) / ((max - min) || 1);
+  return y.map((v, i) => `${i ? 'L' : 'M'}${(i / n * (w - 20) + 10).toFixed(1)} ${(h * 0.15 + (v - min) * k).toFixed(1)}`).join('');
+}
+function miniPoster(pal, kind) {
+  const g = pal.ground, p = pal.paper, k = pal.ink, a = pal.accent;
+  const bar = (x, y, w, hh, c) => `<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="${hh / 2}" fill="${c}"/>`;
+  if (kind === 'simple' || kind === 'typical') return `<rect width="120" height="160" fill="${g}"/><path d="${ill.blob(60, 70, 30, 30, { points: 7, irregularity: 0.08, seed: 4 })}" fill="${p}"/>${bar(14, 118, 70, 8, k)}${bar(14, 132, 46, 5, k)}${bar(14, 144, 30, 5, a)}`;
+  if (kind === 'twist') return `<rect width="120" height="160" fill="${g}"/><path d="${ill.blob(60, 70, 30, 30, { points: 7, irregularity: 0.08, seed: 4 })}" fill="${p}"/><path d="${ill.inkLine([[22, 92], [60, 54], [100, 40]], { seed: 3, segment: 8 })}" fill="none" stroke="${k}" stroke-width="4" stroke-linecap="round"/><path d="${ill.blob(100, 40, 8, 8, { points: 6, seed: 5 })}" fill="${a}"/>${bar(14, 118, 70, 8, k)}${bar(14, 132, 46, 5, k)}${bar(14, 144, 30, 5, a)}`;
+  // complex / all-new
+  const r = ill.rng(kind === 'complex' ? 9 : 21);
+  let s = `<rect width="120" height="160" fill="${g}"/>`;
+  const cols = [p, k, a, hexOr('lemon-yellow'), hexOr('cobalt-green')];
+  for (let i = 0; i < (kind === 'complex' ? 26 : 14); i++) {
+    const x = r() * 110, y = r() * 150, s2 = 6 + r() * 22, c = cols[Math.floor(r() * cols.length)];
+    s += r() > 0.5 ? `<rect x="${x}" y="${y}" width="${s2}" height="${s2 * (0.4 + r())}" fill="${c}" transform="rotate(${(r() * 60 - 30).toFixed(0)} ${x} ${y})"/>` : `<circle cx="${x}" cy="${y}" r="${s2 / 2}" fill="${c}"/>`;
+  }
+  if (kind === 'novel') s += `<text x="8" y="150" font-size="18" font-family="monospace" fill="${k}" transform="rotate(-12 8 150)">?!#</text>`;
+  return s;
+}
+function researchDemo(id, pal) {
+  const svg = (vb, inner, label) => `<figure><svg viewBox="${vb}" role="img" aria-label="${esc(label)}">${inner}</svg><figcaption>${esc(label)}</figcaption></figure>`;
+  const g = pal.ground, p = pal.paper, k = pal.ink;
+  if (id === 'curvature') {
+    const star = [];
+    for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2, rr = i % 2 ? 46 : 78; star.push(`${(100 + Math.cos(a) * rr).toFixed(1)},${(100 + Math.sin(a) * rr).toFixed(1)}`); }
+    return svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><path d="${ill.blob(100, 100, 70, 66, { points: 7, irregularity: 0.12, seed: 3 })}" fill="${p}"/>`, 'Curved: usually preferred') +
+      svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><polygon points="${star.join(' ')}" fill="${p}"/>`, 'Angular: usually less liked');
+  }
+  if (id === 'simplicity') return svg('0 0 120 160', miniPoster(pal, 'simple'), 'Low complexity') + svg('0 0 120 160', miniPoster(pal, 'complex'), 'High complexity');
+  if (id === 'fluency') {
+    const near = hexOr(DATA.combinations.find(c => c.roles.light.bg && byId[c.roles.light.bg].hex === g) ? 'neutral-gray' : 'neutral-gray');
+    const blobD = ill.blob(100, 100, 64, 60, { points: 7, irregularity: 0.1, seed: 8 });
+    return svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><path d="${blobD}" fill="${p}"/><path d="${ill.inkLine([[40, 150], [100, 120], [160, 150]], { seed: 2 })}" fill="none" stroke="${k}" stroke-width="7" stroke-linecap="round"/>`, 'Clear figure and ground') +
+      svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><path d="${blobD}" fill="${g}" stroke="${near}" stroke-width="2" opacity=".6"/><path d="${ill.inkLine([[40, 150], [100, 120], [160, 150]], { seed: 2 })}" fill="none" stroke="${near}" stroke-width="3" stroke-linecap="round" opacity=".6"/>`, 'Low contrast, unclear figure');
+  }
+  if (id === 'first-impression') return `<figure><div class="glimpse"><svg viewBox="0 0 120 160" role="img" aria-label="A poster shown for 50 milliseconds">${miniPoster(pal, 'twist')}</svg><div class="glimpse-cover" id="glimpse-cover">Press the button: the poster shows for 50 ms</div></div><figcaption><button type="button" class="btn primary" id="glimpse-btn">Show for 50 ms</button></figcaption></figure>`;
+  if (id === 'maya') return svg('0 0 120 160', miniPoster(pal, 'typical'), 'Typical') + svg('0 0 120 160', miniPoster(pal, 'twist'), 'Typical + one twist (MAYA)') + svg('0 0 120 160', miniPoster(pal, 'novel'), 'All new');
+  if (id === 'fractals') {
+    return [[0.9, 'D ≈ 1.1: too smooth'], [0.55, 'D ≈ 1.45: preferred'], [0.15, 'D ≈ 1.85: too rough']].map(([H, l]) => svg('0 0 300 120', `<rect width="300" height="120" fill="${g}"/><path d="${fractalLine(H, 7)}" fill="none" stroke="${k}" stroke-width="2.5" stroke-linejoin="round"/>`, l)).join('');
+  }
+  if (id === 'handmade') return svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><circle cx="100" cy="100" r="62" fill="none" stroke="${k}" stroke-width="7"/>`, 'Machine-perfect') +
+    svg('0 0 200 200', `<rect width="200" height="200" fill="${g}"/><path d="${ill.inkLine(ill.ellipsePoints(100, 100, 62, 62, 22, -1), { closed: true, seed: 6, wobble: 1.6 })}" fill="none" stroke="${k}" stroke-width="7" stroke-linecap="round"/>`, 'Hand-drawn');
+  if (id === 'colour-valence') {
+    const sw = (ids, l) => `<figure><div class="sw-row">${ids.map(c => `<i style="background:${hexOr(c)}" title="${esc(byId[c] ? byId[c].name : c)}"></i>`).join('')}</div><figcaption>${esc(l)}</figcaption></figure>`;
+    return sw(['pale-king-s-blue', 'blue', 'cerulian-blue', 'sea-green'], 'Often liked: sky, clean water, plants') + sw(['olive', 'dark-citrine', 'sepia', 'brown'], 'Often disliked: decay, mud (unless the product makes them positive)');
+  }
+  if (id === 'aesthetic-usability') return `<figure><div class="au crude"><span>Email</span><i></i><b>SUBMIT</b></div><figcaption>Rough</figcaption></figure><figure><div class="au polished" style="--au-a:${pal.accent};--au-on:${onColor(pal.accent)}"><span>Email</span><i></i><b>Get the guide</b></div><figcaption>Crafted: perceived as easier</figcaption></figure>`;
+  return '';
+}
+function styleThumb(id, pal) {
+  const W = (inner, bg) => `<svg viewBox="0 0 160 120" role="img" aria-label="${esc(id)} sample"><rect width="160" height="120" fill="${bg}"/>${inner}</svg>`;
+  const k = hexOr('black'), w = hexOr('white');
+  switch (id) {
+    case 'humanist-minimal': return W(`<path d="${ill.blob(80, 58, 32, 30, { points: 7, irregularity: 0.08, seed: 12 })}" fill="${pal.paper}"/><path d="${ill.inkLine([[34, 92], [70, 70], [126, 84]], { seed: 4, segment: 10 })}" fill="none" stroke="${k}" stroke-width="4.5" stroke-linecap="round"/><path d="${ill.blob(126, 84, 6, 6, { points: 6, seed: 2 })}" fill="${pal.accent}"/>`, pal.ground);
+    case 'mid-century': {
+      let rays = '';
+      for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2; rays += `<line x1="118" y1="34" x2="${(118 + Math.cos(a) * 18).toFixed(1)}" y2="${(34 + Math.sin(a) * 18).toFixed(1)}" stroke="${k}" stroke-width="2"/>`; }
+      return W(`<path d="M18 86 C 22 56, 70 48, 76 72 S 112 102, 92 106 S 14 112, 18 86Z" fill="${hexOr('benzol-green')}"/><path d="M40 30 Q 70 10 96 30 Q 70 22 40 30Z" fill="${hexOr('orange')}"/>${rays}<circle cx="118" cy="34" r="5" fill="${k}"/>`, hexOr('yellow-ocher'));
+    }
+    case 'biophilic': {
+      let br = '';
+      const branch = (x, y, a, l, d) => { if (d > 5) return; const x2 = x + Math.cos(a) * l, y2 = y + Math.sin(a) * l; br += `<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${hexOr('dusky-green')}" stroke-width="${(6 - d) * 0.7}" stroke-linecap="round"/>`; branch(x2, y2, a - 0.45, l * 0.72, d + 1); branch(x2, y2, a + 0.4, l * 0.7, d + 1); };
+      branch(80, 116, -Math.PI / 2, 32, 0);
+      return W(`<ellipse cx="34" cy="34" rx="18" ry="10" fill="${hexOr('cobalt-green')}" transform="rotate(-30 34 34)"/>${br}`, hexOr('pale-king-s-blue'));
+    }
+    case 'soft-modern': return W(`<rect x="16" y="18" width="128" height="84" rx="16" fill="${w}"/><rect x="28" y="32" width="60" height="9" rx="4.5" fill="${hexOr('deep-indigo')}"/><rect x="28" y="48" width="92" height="6" rx="3" fill="${hexOr('neutral-gray')}"/><rect x="28" y="76" width="54" height="16" rx="8" fill="${hexOr('blue')}"/>`, hexOr('light-glaucous-blue'));
+    case 'swiss': return W(`<rect x="0" y="0" width="160" height="120" fill="${w}"/><rect x="96" y="12" width="52" height="52" fill="${hexOr('spectrum-red')}"/><text x="12" y="98" font-family="Helvetica, Arial, sans-serif" font-weight="700" font-size="44" fill="${k}">Aa</text><line x1="12" y1="108" x2="148" y2="108" stroke="${k}" stroke-width="2"/>`, w);
+    case 'editorial': return W(`<text x="12" y="44" font-family="Georgia, serif" font-size="26" fill="${k}">The Edit</text><line x1="12" y1="54" x2="148" y2="54" stroke="${k}"/><rect x="12" y="62" width="64" height="46" fill="${hexOr('neutral-gray')}"/>${[64, 72, 80, 88, 96, 104].map(y => `<rect x="84" y="${y}" width="64" height="3" fill="${k}" opacity=".7"/>`).join('')}`, hexOr('sulpher-yellow'));
+    case 'maximalist': {
+      const r = ill.rng(31); let s = '';
+      const cols = [hexOr('grenadine-pink'), hexOr('lemon-yellow'), hexOr('violet'), hexOr('sea-green'), k, w];
+      for (let i = 0; i < 30; i++) { const x = r() * 160, y = r() * 120, z = 6 + r() * 20, c = cols[Math.floor(r() * cols.length)]; s += r() > 0.5 ? `<circle cx="${x}" cy="${y}" r="${z / 2}" fill="${c}"/>` : `<rect x="${x}" y="${y}" width="${z}" height="${z / 2}" fill="${c}" transform="rotate(${Math.round(r() * 90)} ${x} ${y})"/>`; }
+      return W(s, hexOr('orange'));
+    }
+    case 'brutalist': return W(`<rect x="8" y="8" width="144" height="104" fill="none" stroke="${k}" stroke-width="3"/><rect x="8" y="8" width="144" height="26" fill="${k}"/><text x="14" y="27" font-family="monospace" font-size="15" fill="${w}">INDEX.HTML</text><text x="14" y="58" font-family="Times New Roman, serif" font-size="14" fill="${hexOr('blue')}" text-decoration="underline">click here</text><rect x="14" y="70" width="70" height="30" fill="${hexOr('lemon-yellow')}" stroke="${k}" stroke-width="3"/>`, hexOr('neutral-gray'));
+  }
+  return W('', '#ccc');
+}
+function renderResearch() {
+  const R = DATA.research, pal = illPalette();
+  const strengthLabel = { strong: 'Strong evidence', moderate: 'Moderate evidence', contested: 'Contested' };
+  $('#rs-findings').innerHTML = R.findings.map((f, i) => `<article class="rs-card">
+    <div class="rs-text"><span class="lbl">${String(i + 1).padStart(2, '0')}</span><h3>${esc(f.title)}</h3>
+      <span class="fit ${f.strength === 'strong' ? 'core' : ''}">${strengthLabel[f.strength]}</span>
+      <p>${esc(f.finding)}</p><p class="rs-effect">${esc(f.effect)}</p>
+      <p class="rs-rule"><b>Design rule:</b> ${esc(f.designRule)}</p>
+      <p class="rs-src">${f.sources.map(esc).join(' · ')}</p></div>
+    <div class="rs-demo">${researchDemo(f.id, pal)}</div></article>`).join('');
+  $('#rs-myths').innerHTML = R.myths.map(m => `<article class="rs-myth"><span class="lbl">Myth</span><b>${esc(m.claim)}</b><p>${esc(m.reality)}</p><p><b>Instead:</b> ${esc(m.useInstead)}</p></article>`).join('');
+  const C = R.criteria;
+  const list = R.styles.list.map(s => ({ ...s, total: Object.values(s.scores).reduce((a, b) => a + b, 0) })).sort((a, b) => b.total - a.total);
+  const statusLabel = { ours: 'Our first direction', candidate: 'Candidate', reference: 'Reference' };
+  $('#rs-styles').innerHTML = list.map(s => `<article class="rs-style ${s.status}">
+    <div class="rs-thumb">${styleThumb(s.id, pal)}</div>
+    <div class="rs-body"><div class="ty-name"><b>${esc(s.name)}</b><span class="fit ${s.status === 'ours' ? 'inuse' : s.status === 'candidate' ? 'core' : ''}">${statusLabel[s.status]}</span><span class="rs-total">${s.total}<small>/14</small></span></div>
+      <p>${esc(s.summary)}</p>
+      <div class="rs-scores">${C.map(c => `<span title="${esc(c.label)}: ${s.scores[c.id]} of 2"><i class="s${s.scores[c.id]}"></i>${esc(c.label)}</span>`).join('')}</div>
+      <p class="rs-watch"><b>Watch:</b> ${esc(s.watch)}</p></div></article>`).join('');
+}
+function glimpse() {
+  const cover = $('#glimpse-cover');
+  if (!cover) return;
+  cover.style.visibility = 'hidden';
+  setTimeout(() => { cover.style.visibility = 'visible'; cover.textContent = 'That was 50 ms. You probably already know whether you liked it.'; }, 50);
 }
 
 /* ------------------------------------------------------------ approach */
@@ -1206,6 +1382,7 @@ document.addEventListener('click', e => {
   else if (t.id === 'ap-replay') renderIllustrations();
   else if (t.id === 'ap-newshapes') { shapeState.seed++; renderShapes(); }
   else if (t.id === 'ap-play') playSprings();
+  else if (t.id === 'glimpse-btn') glimpse();
   else if (t.id === 'clear-color') { cstate.color = null; renderColorFilter(); renderCombos(); }
   else if (t.id === 'close-detail') $('#detail').close();
   else if (t.id === 'only-starred') { cstate.starredOnly = !cstate.starredOnly; t.setAttribute('aria-pressed', cstate.starredOnly); t.classList.toggle('primary', cstate.starredOnly); renderCombos(); }

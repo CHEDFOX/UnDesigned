@@ -1,0 +1,126 @@
+{
+  "$comment": "What the human brain tends to like, from empirical aesthetics research. Shared by every approach. 'strength' is our reading of the evidence: strong = replicated or meta-analysed; moderate = solid studies, some limits; contested = mixed results. Style scores at the bottom are our synthesis, not a published ranking.",
+
+  "findings": [
+    {
+      "id": "curvature",
+      "title": "Curves over sharp angles",
+      "finding": "People prefer objects and patterns with curved contours to sharp-angled ones; sharp angles may read as a possible threat.",
+      "effect": "Meta-analysis of 61 studies: medium effect (Hedges' g = 0.39). Reliable, not universal; depends on presentation time, stimulus type, expertise and task.",
+      "strength": "strong",
+      "designRule": "Default to organic shapes and rounded corners; use sharp points only deliberately.",
+      "sources": ["Bar & Neta (2006), Psychological Science 17(8)", "Chuquichambi et al. (2022), Annals of the New York Academy of Sciences 1518"]
+    },
+    {
+      "id": "simplicity",
+      "title": "Low visual complexity",
+      "finding": "Websites with low visual complexity and high prototypicality were rated most appealing; complexity is judged within 17-50 ms, before people can read anything.",
+      "effect": "Complexity affects ratings even at 17 ms exposure; high complexity lowers beauty ratings even for familiar layouts.",
+      "strength": "strong",
+      "designRule": "One focal point, few elements, generous space. Complexity is the first thing the eye judges.",
+      "sources": ["Tuch et al. (2012), International Journal of Human-Computer Studies 70(11)"]
+    },
+    {
+      "id": "fluency",
+      "title": "Easy to process feels good",
+      "finding": "Features that make a stimulus easier to perceive (clarity, contrast, symmetry, figure-ground separation, repetition, prototypicality) tend to increase liking.",
+      "effect": "A theory with broad support across many studies, reviewed by Reber, Schwarz and Winkielman.",
+      "strength": "strong",
+      "designRule": "High contrast between figure and ground, clear silhouettes, familiar structure, repeated system elements.",
+      "sources": ["Reber, Schwarz & Winkielman (2004), Personality and Social Psychology Review 8(4)"]
+    },
+    {
+      "id": "first-impression",
+      "title": "The 50 ms first impression",
+      "finding": "People rate the visual appeal of a web page consistently after seeing it for only 50 ms.",
+      "effect": "Ratings at 50 ms correlated highly with ratings at 500 ms. Shows speed of judgement; it does not measure whether people stay or buy.",
+      "strength": "strong",
+      "designRule": "The silhouette, colour and focal point must work before anyone reads a word.",
+      "sources": ["Lindgaard et al. (2006), Behaviour & Information Technology 25"]
+    },
+    {
+      "id": "maya",
+      "title": "Familiar, with a twist (MAYA)",
+      "finding": "Typicality and novelty jointly predict preference: people like new designs as long as the novelty does not cost typicality, and vice versa ('Most Advanced, Yet Acceptable').",
+      "effect": "Both factors contributed about equally across three studies, and suppressed each other when considered alone; expertise did not change the balance.",
+      "strength": "moderate",
+      "designRule": "Keep the format recognisable (a poster looks like a poster) and put the surprise in one place: the idea.",
+      "sources": ["Hekkert, Snelders & van Wieringen (2003), British Journal of Psychology 94"]
+    },
+    {
+      "id": "fractals",
+      "title": "Nature's mid-range complexity",
+      "finding": "Across natural scenes, simulated coastlines and Pollock paintings, people preferred statistical fractals with dimension D = 1.3-1.5 over smoother (1.1-1.2) or rougher (1.6-1.9) ones.",
+      "effect": "Consistent across image sources, not explained by density. Later work found individual differences and sub-groups, so 'universal' is contested.",
+      "strength": "moderate",
+      "designRule": "Organic detail should be moderately rough, like a coastline or a hand-drawn line: not ruler-smooth, not noisy.",
+      "sources": ["Spehar, Clifford, Newell & Taylor (2003), Computers & Graphics 27", "Street et al. (2016) and Spehar, Walker & Taylor (2016), Frontiers in Human Neuroscience 10"]
+    },
+    {
+      "id": "handmade",
+      "title": "Handmade signals care",
+      "finding": "Products described as handmade are seen as more attractive, mainly because they are felt to symbolically contain love.",
+      "effect": "Four studies; strongest when the product expresses love (e.g. gifts for close people).",
+      "strength": "moderate",
+      "designRule": "Visible human marks (a wobbling line, a cut edge) add warmth; keep them deliberate and consistent.",
+      "sources": ["Fuchs, Schreier & van Osselaer (2015), Journal of Marketing 79(2)"]
+    },
+    {
+      "id": "colour-valence",
+      "title": "Colours borrow feelings from things",
+      "finding": "Colour preference follows how people feel about objects of that colour: blues (clear sky, clean water) are among the most liked; browns and dark yellows or olives (rot, waste) among the least.",
+      "effect": "Object associations explained about 80% of the variance in average colour preference in the original data. Culture and context shift associations.",
+      "strength": "moderate",
+      "designRule": "Pick ground colours whose everyday associations suit the product; avoid muddy browns and olives as large fields unless the product's world makes them positive (coffee, bread, wood).",
+      "sources": ["Palmer & Schloss (2010), PNAS 107"]
+    },
+    {
+      "id": "aesthetic-usability",
+      "title": "Beautiful looks easier to use",
+      "finding": "Interfaces rated more attractive were also perceived as easier to use.",
+      "effect": "An early, influential study; the perception effect is well known, but it is about perceived, not actual, usability.",
+      "strength": "moderate",
+      "designRule": "Craft is not decoration: polish raises trust in clarity.",
+      "sources": ["Kurosu & Kashimura (1995), CHI '95 Conference Companion"]
+    }
+  ],
+
+  "myths": [
+    {
+      "id": "golden-ratio",
+      "claim": "People prefer the golden ratio (1:1.618).",
+      "reality": "Evidence is weak and inconsistent. Fechner's 1876 rectangle test found a modest lean; later work found no reliable effect in real artworks, strong individual differences (McManus), and no implicit preference (Swami & Stieger, 2015).",
+      "useInstead": "Use proportions that suit the format and the grid; don't justify a layout by the golden ratio."
+    },
+    {
+      "id": "colour-psychology",
+      "claim": "Each colour causes a fixed emotion (red = hunger, blue = trust).",
+      "reality": "Colour preference is driven largely by learned associations with objects and context (Palmer & Schloss, 2010), so meanings change with culture and product.",
+      "useInstead": "Choose colours by what they are associated with in the product's own world, then test."
+    }
+  ],
+
+  "criteria": [
+    { "id": "curves", "label": "Curves", "finding": "curvature" },
+    { "id": "simplicity", "label": "Low complexity", "finding": "simplicity" },
+    { "id": "maya", "label": "Familiar + fresh", "finding": "maya" },
+    { "id": "nature", "label": "Natural detail", "finding": "fractals" },
+    { "id": "handmade", "label": "Handmade", "finding": "handmade" },
+    { "id": "colour", "label": "Liked colours", "finding": "colour-valence" },
+    { "id": "glance", "label": "50 ms clarity", "finding": "first-impression" }
+  ],
+
+  "styles": {
+    "$comment": "Our synthesis: each style family scored 0-2 on how strongly it typically uses each evidence-backed feature. Not a published ranking. Preference is not the only goal: polarising styles can win attention and memorability.",
+    "list": [
+      { "id": "humanist-minimal", "name": "Humanist Minimal", "status": "ours", "scores": { "curves": 2, "simplicity": 2, "maya": 2, "nature": 1, "handmade": 2, "colour": 1, "glance": 2 }, "summary": "Hand ink line, organic paper shapes, one idea, lots of space.", "watch": "Can drift into cute; Wada pairs vary in contrast." },
+      { "id": "mid-century", "name": "Mid-century Modern", "status": "candidate", "scores": { "curves": 2, "simplicity": 2, "maya": 2, "nature": 1, "handmade": 1, "colour": 1, "glance": 2 }, "summary": "1950s-60s optimism: kidney and boomerang shapes, starbursts, flat colour, simplified nature illustration (think Charley Harper, Eames).", "watch": "Nostalgia can read as pastiche; keep it fresh (MAYA)." },
+      { "id": "biophilic", "name": "Biophilic Organic", "status": "candidate", "scores": { "curves": 2, "simplicity": 1, "maya": 1, "nature": 2, "handmade": 1, "colour": 2, "glance": 1 }, "summary": "Leaves, water, branching growth, natural textures and sky and plant colours.", "watch": "Busy detail costs clarity; stock-nature clichés." },
+      { "id": "soft-modern", "name": "Soft Modern UI", "status": "candidate", "scores": { "curves": 2, "simplicity": 2, "maya": 2, "nature": 0, "handmade": 0, "colour": 2, "glance": 2 }, "summary": "Rounded cards, generous space, calm blues and light tints, clean sans type.", "watch": "Can feel generic and interchangeable." },
+      { "id": "swiss", "name": "Modern Clarity (Swiss)", "status": "candidate", "scores": { "curves": 0, "simplicity": 2, "maya": 2, "nature": 0, "handmade": 0, "colour": 1, "glance": 2 }, "summary": "Strict grid, big sans type, flat colour, objective photography.", "watch": "Clear but cold; angles and hard edges." },
+      { "id": "editorial", "name": "Editorial Classic", "status": "reference", "scores": { "curves": 1, "simplicity": 1, "maya": 2, "nature": 0, "handmade": 0, "colour": 1, "glance": 1 }, "summary": "Serif headlines, columns, rules and photography, like a magazine.", "watch": "Text-heavy; slower at a glance." },
+      { "id": "maximalist", "name": "Maximalist / Memphis", "status": "reference", "scores": { "curves": 1, "simplicity": 0, "maya": 1, "nature": 0, "handmade": 0, "colour": 1, "glance": 0 }, "summary": "Pattern on pattern, many colours, playful clutter.", "watch": "High complexity lowers average liking; polarising, memorable." },
+      { "id": "brutalist", "name": "Brutalist", "status": "reference", "scores": { "curves": 0, "simplicity": 1, "maya": 0, "nature": 0, "handmade": 0, "colour": 0, "glance": 1 }, "summary": "Raw blocks, default fonts, hard borders, deliberate roughness.", "watch": "Rejects fluency on purpose; works for niche, attention-seeking brands." }
+    ]
+  }
+}

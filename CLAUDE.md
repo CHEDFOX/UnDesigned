@@ -20,7 +20,7 @@ This repository is a **universal design guide**. The user will give you a produc
 
 ## Design rules (Humanist Minimal)
 
-The full approach is in `approaches/humanist-minimal/`: `README.md`, `research.md` (why, with sources), `approach.json` (principles, layer rules), `art.json` (line, organic shapes, corners, composition, colour ratios, symbol vocabulary, metaphor recipe), `motion.json` (springs and timings) and `typography.json` (type direction, which pairings fit, sizes per format). Read them before designing. Score finished work with the scorecard in `research.md` section 6. In short:
+The full approach is in `approaches/humanist-minimal/`: `README.md`, `research.md` (why, with sources), `approach.json` (principles, layer rules), `art.json` (line, organic shapes, corners, composition, colour ratios, symbol vocabulary, metaphor recipe), `motion.json` (springs and timings) and `typography.json` (type direction, which pairings fit, sizes per format). Read them before designing, together with `foundations/research/visual-preference.json` (the evidence every style builds on). Score finished work with the scorecard in `research.md` section 6. In short:
 
 - **One idea per piece.** Usually two everyday symbols joined into a metaphor (follow `art.json` → `metaphor.recipe`). One focal point, at least 40% empty ground.
 - **Soft geometry.** Organic shapes and rounded corners (`art.json` → `shape`, `corners`); no sharp corners or perfect geometry.

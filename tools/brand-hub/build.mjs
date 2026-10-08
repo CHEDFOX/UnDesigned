@@ -81,6 +81,7 @@ export function buildHub({ root, brands }) {
     approaches,
     pairings: pairings.pairings,
     typeRules: pairings.rules,
+    research: JSON.parse(readFileSync(join(root, 'foundations/research/visual-preference.json'), 'utf8')),
   };
   const lint = readFileSync(join(root, 'foundations/messaging/lint.mjs'), 'utf8').replace(/^export /gm, '');
   const libs = Object.keys(approaches)
