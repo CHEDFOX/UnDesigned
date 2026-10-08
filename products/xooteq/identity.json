@@ -1,0 +1,77 @@
+{
+  "$comment": "XOOTEQ's core and the signals people know it by. Written from the brand's own repository (xooteq-web: src/content/site.ts, the page files, src/index.css, tailwind.config.ts, public/ and src/assets/). Nothing here is invented: no numbers of trees, cities, builders or members, no partners, no quotes beyond the brand's own lines.",
+  "core": {
+    "belief": "Technology is only worth building if it matters to real people, and the proof of value is what it adds to life, not what it is valued at. One filter decides every idea, project and person: \"Does it matter?\"",
+    "change": "A builder aged 18 to 35 with an idea that won't let them sleep gets a seat at the table (workspace, living space, hardware, GPUs and peers who make them better) and ships something that matters; and the cities XOOTEQ works in get greener every quarter.",
+    "character": ["Builder, not talker", "Joyful", "Grounded"],
+    "tension": "A technology R&D company that builds software, AI and AI films, and proves its values with dirt under its nails: tech that grows life instead of extracting it (the 'techno-organic tomorrow').",
+    "pillars": [
+      { "id": "does-it-matter", "name": "Does it matter?", "what": "The filter and the five beliefs, as a manifesto series." },
+      { "id": "dirt-under-the-nails", "name": "Dirt under the nails", "what": "The Green Revolution: trees planted every quarter in every city XOOTEQ works in. Action, shown in photographs, not slogans." },
+      { "id": "the-table", "name": "The table", "what": "Build With Us: what a builder gets, the three steps (Apply, Connect, Build), and the promise to answer everyone." },
+      { "id": "we-shoot-the-impossible", "name": "We shoot the impossible", "what": "DUMBORD, the AI film studio XOOTEQ started in 2025." },
+      { "id": "made-at-xooteq", "name": "Made at XOOTEQ", "what": "The family: Plutto and Tailzu, and the beta for what comes next (Creation)." }
+    ],
+    "voice": {
+      "is": ["Direct", "Builder to builder", "Energetic, never sterile", "Grounded in physical action"],
+      "isNot": ["Corporate", "Hype", "Agency talk", "Slogans without action"]
+    },
+    "brandLines": {
+      "$comment": "The brand's own lines. Quote them as the brand's, don't rewrite them; new content is written from the core, these stay proof and sign-offs.",
+      "tagline": "Engineer the Organic Tomorrow.",
+      "motto": "The codes which contain value.",
+      "filter": "Does it matter?",
+      "beliefs": [
+        "Value over valuation.",
+        "Fun is fuel, not the opposite of serious work.",
+        "Degrees don't build things. People do.",
+        "The best ideas come from those who have nothing to lose.",
+        "Grow together or don't grow at all."
+      ],
+      "dumbord": "We shoot the impossible."
+    }
+  },
+  "marks": {
+    "$comment": "Original files copied byte for byte from the brand repository into assets/logos/. Never redraw, simplify, substitute or recolour them.",
+    "files": [
+      { "file": "assets/logos/icon-512.png", "source": "xooteq-web/public/icon-512.png", "what": "The XQ monogram: a bold black X and Q whose tail ends in a plug-like prong, black on a white square (512 x 512, opaque). The site uses it as its app icon (site.webmanifest), favicon and touch icon.", "use": "The primary mark in every piece: placed as is, a white square tile with the black monogram, beside the wordmark next to the headline." },
+      { "file": "assets/logos/og-logo.png", "source": "xooteq-web/public/og/logo.png", "what": "The same XQ monogram drawn slightly larger on its white square; the logo named in the site's structured data (plugins/seo.ts).", "use": "Alternative of the primary mark where the monogram must read larger in its tile." },
+      { "file": "assets/logos/logo.png", "source": "xooteq-web/src/assets/logo.png", "what": "A white line mark on black: a circle with an X inside and a diagonal tail (a magnifier-like Q). It matches src/components/LogoMark.tsx, an animated version of the same line mark.", "use": "Not used. Neither logo.png nor LogoMark.tsx is imported anywhere on the live site; ask the brand before using it." }
+    ],
+    "wordmark": "The site writes the name as live text, not as a logo file: XOOTEQ in capitals, Syne Bold, near-white #F0F0F0 (src/components/Navbar.tsx; the og cards set it wide and heavy). In our pieces it is set as type in the product pairing's display face (Schibsted Grotesk 800, capitals, tracked), which is typography, not a redrawn mark.",
+    "whiteVersion": "None. The site never shows the monogram reversed, so no inverted file is made; on dark grounds the original sits on its own white square.",
+    "usage": "Monogram tile + XOOTEQ wordmark as one lockup, beside the headline (O4), at a fixed position per template. Clear space around the tile at least half its width. Never on a busy part of a photo, never tinted, never cropped."
+  },
+  "signals": {
+    "colours": [
+      { "name": "Near-black ground", "hex": "#0A0A0A", "where": "--background in src/index.css; every page and og card", "wada": "Black #111314 (combination 340, dark mode ground)" },
+      { "name": "Electric green", "hex": "#00E676", "where": "--primary: buttons, mono labels, the italic accent word, focus rings", "wada": "Sea Green #00b49b (340): the most saturated green in a combination that also holds Black and an orange" },
+      { "name": "Warm orange", "hex": "#FF6B35", "where": "--accent ('warm')", "wada": "Peach Red #f15a30 (340), Delta E about 6 from #FF6B35" },
+      { "name": "Text", "hex": "#F0F0F0 / #C0C0C0 / #888888", "where": "headline, lead and secondary text", "wada": "White for headlines, Neutral Gray #b6bfc1 for body" }
+    ],
+    "type": [
+      { "family": "Syne", "use": "Display: headlines and the XOOTEQ wordmark, bold, tight", "guide": "Schibsted Grotesk 800 (pairing schibsted): Syne is not in the guide's pairings" },
+      { "family": "DM Sans", "use": "Body", "guide": "Schibsted Grotesk 400/500" },
+      { "family": "JetBrains Mono", "use": "Small capitals labels in green ('TECHNOLOGY R&D', 'BUILD WITH US')", "guide": "JetBrains Mono 500 (the schibsted pairing's mono): same face" },
+      { "family": "Georgia italic", "use": "One accent word in green ('Organic', 'can't stop', 'list')", "guide": "Not carried over: Commercial Modernism allows two families; the accent becomes colour (Sea Green) on one word instead" }
+    ],
+    "imagery": "Cinematic, dark, low-key photographs lit by one glowing source: luminous trees with light streaks, a sprout in soil wired with glowing circuit traces, a hand drawing plans under a filament lamp, silhouettes in a misty workshop, a studio with a green line light, a VR figure outlined in orange light, a seed-to-tree growth sequence on black (public/green-tree-frames). Faces are rare; light and silhouettes carry the mood.",
+    "signatureElements": [
+      "Black ground with one glowing element",
+      "Thin green light lines (the studio light bar, the room's light columns, the light streaks through the trees)",
+      "Small mono labels in green capitals above headlines",
+      "Big near-white headlines with one word in green",
+      "The XQ monogram (app icon) and the wide XOOTEQ wordmark",
+      "The growing tree (green-tree-frames, ScrollTree.tsx)"
+    ]
+  },
+  "sources": [
+    "xooteq-web/src/content/site.ts (definition, tagline, motto, pillars, principles, filter, beliefs, Build With Us, Green Revolution, DUMBORD, FAQ, page metadata for Creation, Plutto and Tailzu)",
+    "xooteq-web/src/pages/*.tsx (page copy and photo use)",
+    "xooteq-web/src/index.css and tailwind.config.ts (colours, fonts)",
+    "xooteq-web/src/components/Navbar.tsx and LogoMark.tsx (wordmark, unused line mark)",
+    "xooteq-web/public/icon-512.png, public/og/logo.png, src/assets/logo.png, public/site.webmanifest, plugins/seo.ts (marks and where they are used)",
+    "xooteq-web/public/og/*.jpg (how the brand composes its own share cards)",
+    "xooteq-web/src/assets/*.jpg, *.png and public/green-tree-frames/ (photography)"
+  ]
+}

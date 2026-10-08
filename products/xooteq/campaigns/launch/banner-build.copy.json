@@ -1,8 +1,9 @@
 {
-  "$comment": "Display banner (970 x 250). Image: a sprout between code braces.",
+  "$comment": "Web banner 970x250. Pillar: The table. Photo: build-hands, warm duotone, on the right; words on the reading-start side.",
   "format": "web-banner",
-  "headline": "Build here. No pitch deck required.",
-  "cta": "Apply to build",
+  "headline": "Bring your idea. Find GPUs here.",
+  "subhead": "For builders aged 18 to 35.",
+  "cta": "Apply by email",
   "logo": true,
   "palette": "primary"
 }

@@ -1,20 +1,24 @@
 {
-  "$comment": "Brand settings for XOOTEQ. Edit, then run `npm run build`. Choices are proposals awaiting the user's approval (see campaigns/launch/brief.md for the one-line reasons).",
+  "$comment": "Brand settings for XOOTEQ. Edit, then run `npm run build`. Choices are proposals awaiting the user's approval; the reasons are in identity.json (signals) and campaigns/launch/brief.md. They echo the brand's own signals: a near-black ground (#0A0A0A), electric green (#00E676), a warm orange (#FF6B35), Syne + DM Sans + JetBrains Mono, cinematic dark photography.",
   "name": "XOOTEQ",
   "nameVariants": ["Xooteq", "XOOTEQ Lab", "Xooteq Lab"],
   "prefix": "xq",
-  "approach": "humanist-minimal",
+  "approach": "commercial-modernism",
   "color": {
-    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the palettes are chosen, then \"chosen\". Proposal: 207 (Glaucous Green, Black, Sudan Brown): a sage ground for the 'organic' half of the tagline, black ink, and an earth-brown accent for soil. 'night' is the same combination in dark mode (Wada Black ground, glaucous green text), the closest the Wada palette gets to the site's near-black and green look.",
+    "$comment": "Palettes by combination number (1-348) from Sanzo Wada's A Dictionary of Color Combinations; browse them in the brand hub (Colour tab). \"primary\" is the default (--<prefix>-bg, -ink, -accent ...). mode \"light\" puts the lightest colour in the background, \"dark\" the darkest. status: \"placeholder\" until the palettes are chosen, then \"chosen\". Proposal: combination 340 (Peach Red, Sea Green, Neutral Gray, Black) holds all three of the site's signals: Black, the most electric green of any combination that also has Black and an orange (Sea Green; 216 and 256 have duller greens), and the orange closest to #FF6B35 (Peach Red, Delta E about 6). Dark mode puts Wada Black on the ground like the site's #0A0A0A; roles are set so headlines are Wada White (as on the site), Sea Green is the one electric accent (7.1:1 on Black), White headlines 18.6:1, Neutral Gray carries body text (9.95:1) and Peach Red is kept for the warm second signal (5.5:1). 'daylight' is the same combination in light mode (Neutral Gray ground, Black ink) for print and the rare light piece.",
     "status": "placeholder",
     "palettes": {
-      "primary": { "combination": 207, "mode": "light" },
-      "night": { "combination": 207, "mode": "dark" }
+      "primary": {
+        "combination": 340,
+        "mode": "dark",
+        "roles": { "ink": "white", "accent": "sea-green", "support": ["peach-red", "neutral-gray"], "text": "neutral-gray" }
+      },
+      "daylight": { "combination": 340, "mode": "light" }
     }
   },
   "typography": {
-    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold). hand (optional) is one handwritten accent face from foundations/typography/source/handwritten.json, if the style allows it (approaches/<approach>/typography.json -> handwritten). Proposal: bricolage-figtree (core in Humanist Minimal), the closest core pairing to the site's Syne + DM Sans. No hand face: a technology R&D company is not the warm, personal case the guide reserves it for.",
-    "pairing": "bricolage-figtree",
-    "scale": 1.25
+    "$comment": "A pairing id from foundations/typography/source/pairings.json; compare them in the brand hub (Typography tab). scale is the ratio between type sizes (1.2 calm, 1.25 balanced, 1.333 bold). hand (optional) is one handwritten accent face from foundations/typography/source/handwritten.json, if the style allows it (approaches/<approach>/typography.json -> handwritten). Proposal: schibsted (Schibsted Grotesk + JetBrains Mono), rated core in Commercial Modernism. It is the closest pairing to the site's Syne + DM Sans + JetBrains Mono: a sturdy grotesque that carries a wide, tracked-capitals XOOTEQ wordmark at 800, a plain body like DM Sans, and the exact mono the site uses for its green labels. No hand face (the style allows none).",
+    "pairing": "schibsted",
+    "scale": 1.333
   }
 }

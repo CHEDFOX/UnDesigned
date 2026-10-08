@@ -1,0 +1,12 @@
+{
+  "$comment": "LinkedIn square post (1:1). No LinkedIn format in formats.json; instagram-post is the closest (same word limits), with aspect 1:1. Pillar: The table. Photo: about-studio (an empty studio, green line light, red glow), green duotone.",
+  "format": "instagram-post",
+  "aspect": [1, 1],
+  "label": "Build with us",
+  "headline": "The desk is waiting. Bring the idea.",
+  "subhead": "Workspace, hardware and GPU access for builders aged 18 to 35.",
+  "cta": "Apply: hello@xooteq.com",
+  "logo": true,
+  "palette": "primary",
+  "caption": "If you're 18 to 35 and building something unconventional, XOOTEQ has a table for you: workspace, living space, hardware, GPU access, dev infrastructure and peers. No pitch decks. Tell us what you're working on, what you've built before and what you need at hello@xooteq.com. We reply to everyone."
+}

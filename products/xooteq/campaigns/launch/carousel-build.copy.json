@@ -1,0 +1,40 @@
+[
+  {
+    "$comment": "Build With Us carousel, slide 1 of 4 (hook). Photo: build-hands (a hand drawing plans under a lamp), warm duotone. The Sea Green 'table edge' rule starts here and runs through all four slides.",
+    "format": "carousel-slide",
+    "label": "Build with us · 1/4",
+    "headline": "The idea that keeps you up needs a table.",
+    "subhead": "For builders aged 18 to 35 making something unconventional.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 2 of 4: what you get (grid of six).",
+    "format": "carousel-slide",
+    "label": "What's at the table · 2/4",
+    "headline": "What you get when you pull up a chair",
+    "body": "Workspace. Living space. Hardware. GPU access. Dev infrastructure. Peers who make you better: engineers, filmmakers, researchers, designers. Resources, connections and funding when it fits.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 3 of 4: the plan in three steps (S5), drawn as a rising diagonal.",
+    "format": "carousel-slide",
+    "label": "How it works · 3/4",
+    "headline": "Three steps. No pitch deck.",
+    "body": "Apply: what you're building, what you've built, what you need. Connect: if it fits, we talk. Build: take your seat and ship.",
+    "logo": true,
+    "palette": "primary"
+  },
+  {
+    "$comment": "Slide 4 of 4: the promise and the call to action. Photo: builders-dreamers (two silhouettes in a workshop facing each other).",
+    "format": "carousel-slide",
+    "label": "The promise · 4/4",
+    "headline": "Every application gets an answer from a person.",
+    "subhead": "No form letters. No demo days. No automated rejections.",
+    "cta": "Email hello@xooteq.com",
+    "logo": true,
+    "palette": "primary",
+    "caption": "Build With Us is for builders aged 18 to 35 making something unconventional: workspace, living space, hardware, GPU access, dev infrastructure and peers. Tell us what you're working on, what you've built before and what you need at hello@xooteq.com. Everyone gets a reply."
+  }
+]

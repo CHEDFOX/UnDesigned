@@ -1,0 +1,11 @@
+{
+  "$comment": "Story 9:16 with a question sticker at the vanishing point. Pillar: The table. Photo: green-revolution-room (a dark room lined with green light columns), one-point tunnel.",
+  "format": "story",
+  "label": "Build with us",
+  "headline": "What are you building right now?",
+  "subhead": "One line is enough. Builders, 18 to 35.",
+  "cta": "Answer in the box",
+  "sticker": { "type": "question", "prompt": "I'm building..." },
+  "logo": true,
+  "palette": "primary"
+}

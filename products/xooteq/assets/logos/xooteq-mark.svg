@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -30 160 160" width="160" height="160" fill="none" stroke="#111314" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="XOOTEQ mark">
-  <!-- Static redraw of the site's LogoMark component (xooteq-web src/components/LogoMark.tsx): a circle, an X inside it, and the tail resting on the lower-right arm. -->
-  <circle cx="45" cy="45" r="28"/>
-  <line x1="34" y1="34" x2="56" y2="56"/>
-  <line x1="56" y1="34" x2="34" y2="56"/>
-  <line x1="56" y1="56" x2="87.4" y2="87.4"/>
-</svg>

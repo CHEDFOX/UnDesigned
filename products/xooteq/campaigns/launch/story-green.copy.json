@@ -1,9 +1,17 @@
 {
-  "$comment": "Story 2 (9:16), the Green Revolution. Image: a calendar page with a sprout growing out of it.",
+  "$comment": "Story 9:16 with a poll sticker zone. Pillar: Dirt under the nails. Photo: hero-trees (luminous trees with light streaks), green duotone.",
   "format": "story",
-  "headline": "New trees, every quarter, in every city.",
-  "subhead": "Direct, physical action. Not slogans.",
-  "cta": "See the Green Revolution",
+  "label": "Green Revolution",
+  "headline": "Did you plant anything this year?",
+  "subhead": "XOOTEQ plants trees every quarter where it works.",
+  "cta": "Vote, then plant one",
+  "sticker": {
+    "type": "poll",
+    "options": [
+      "Yes",
+      "Not yet"
+    ]
+  },
   "logo": true,
   "palette": "primary"
 }

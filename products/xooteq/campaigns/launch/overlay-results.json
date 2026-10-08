@@ -1,0 +1,755 @@
+{
+  "post-seedling": {
+    "photo": "green-seedling.jpg",
+    "ladder": "green",
+    "sizeKB": 97,
+    "zones": [
+      {
+        "zone": "headline",
+        "imageBox": {
+          "x": 6.67,
+          "y": 1.93,
+          "w": 65.44,
+          "h": 21.56
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 5.464,
+        "achieved": 5.464,
+        "busyness": 0.116,
+        "reason": "Worst-case contrast 5.46:1 already passes 4.5:1 and the area is calm (busyness 0.12)."
+      },
+      {
+        "zone": "subhead+cta (band)",
+        "imageBox": {
+          "x": 6.67,
+          "y": 68.89,
+          "w": 86.67,
+          "h": 9.63
+        },
+        "treatment": "scrim-gradient",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 6.454,
+        "achieved": 6.368,
+        "busyness": 0.479,
+        "reason": "Darken with #111314 at 0% at the text end of the gradient, fading to 0 over at least 1.5 times the text block: the least opacity that lifts the worst case to 4.5:1."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 50,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.066,
+        "contrast": 6.307,
+        "busyness": 0.066,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.072,
+        "contrast": 6.008,
+        "busyness": 0.072,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 33.333,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.088,
+        "contrast": 4.986,
+        "busyness": 0.088,
+        "passes": true
+      }
+    ]
+  },
+  "story-green": {
+    "photo": "hero-trees.jpg",
+    "ladder": "green",
+    "sizeKB": 146,
+    "zones": [
+      {
+        "zone": "headline+sub",
+        "imageBox": {
+          "x": 13.53,
+          "y": 0,
+          "w": 72.94,
+          "h": 0.5
+        },
+        "treatment": "scrim-gradient",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 5.409,
+        "achieved": 5.409,
+        "busyness": 0.222,
+        "reason": "Darken with #111314 at 0% at the text end of the gradient, fading to 0 over at least 1.5 times the text block: the least opacity that lifts the worst case to 4.5:1."
+      },
+      {
+        "zone": "sticker zone (opaque sticker over the canopy)",
+        "imageBox": {
+          "x": 19.29,
+          "y": 16.57,
+          "w": 61.42,
+          "h": 12.15
+        },
+        "treatment": "scrim-gradient",
+        "text": "ink",
+        "opacity": 0.38,
+        "worstCaseNoTreatment": 1.428,
+        "achieved": 4.562,
+        "busyness": 0.435,
+        "reason": "Lighten with #ffffff at 38% at the text end of the gradient, fading to 0 over at least 1.5 times the text block: the least opacity that lifts the worst case to 4.5:1."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.096,
+        "contrast": 10.516,
+        "busyness": 0.096,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 16.667,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.127,
+        "contrast": 8.949,
+        "busyness": 0.127,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 50,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.127,
+        "contrast": 10.574,
+        "busyness": 0.127,
+        "passes": true
+      }
+    ]
+  },
+  "poster-tree": {
+    "photo": "green-tree-frames/frame-120.png",
+    "ladder": "green",
+    "sizeKB": 94,
+    "zones": [
+      {
+        "zone": "headline (above the image)",
+        "imageBox": {
+          "x": 6.05,
+          "y": 0.23,
+          "w": 50.42,
+          "h": 6.78
+        },
+        "treatment": "scrim-gradient",
+        "text": "paper",
+        "opacity": 0.35,
+        "worstCaseNoTreatment": 2.267,
+        "achieved": 4.544,
+        "busyness": 0.342,
+        "reason": "Darken with #111314 at 35% at the text end of the gradient, fading to 0 over at least 1.5 times the text block: the least opacity that lifts the worst case to 4.5:1."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 1.03,
+        "contrast": 16.807,
+        "busyness": 0.019,
+        "passes": false
+      },
+      {
+        "box": {
+          "x": 50,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 1.069,
+        "contrast": 15.295,
+        "busyness": 0.032,
+        "passes": false
+      },
+      {
+        "box": {
+          "x": 0,
+          "y": 62.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 1.347,
+        "contrast": 16.807,
+        "busyness": 0.019,
+        "passes": false
+      }
+    ]
+  },
+  "carousel-build-1": {
+    "photo": "build-hands.jpg",
+    "ladder": "warm",
+    "sizeKB": 51,
+    "zones": [
+      {
+        "zone": "headline (calm region left of the screen)",
+        "imageBox": {
+          "x": 6.67,
+          "y": 12.59,
+          "w": 38.42,
+          "h": 28.65
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 18.589,
+        "achieved": 18.589,
+        "busyness": 0,
+        "reason": "Worst-case contrast 18.59:1 already passes 4.5:1 and the area is calm (busyness 0)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0,
+        "contrast": 18.589,
+        "busyness": 0,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 0,
+          "y": 12.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0,
+        "contrast": 18.589,
+        "busyness": 0,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 50,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.089,
+        "contrast": 4.729,
+        "busyness": 0.089,
+        "passes": true
+      }
+    ]
+  },
+  "carousel-build-4": {
+    "photo": "builders-dreamers.jpg",
+    "ladder": "green",
+    "sizeKB": 70,
+    "zones": [
+      {
+        "zone": "lockup + label (top)",
+        "imageBox": {
+          "x": 6.67,
+          "y": 8.2,
+          "w": 86.67,
+          "h": 6.83
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 13.229,
+        "achieved": 13.229,
+        "busyness": 0.048,
+        "reason": "Worst-case contrast 13.23:1 already passes 4.5:1 and the area is calm (busyness 0.05)."
+      },
+      {
+        "zone": "headline",
+        "imageBox": {
+          "x": 6.67,
+          "y": 82,
+          "w": 86.67,
+          "h": 18
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 11.164,
+        "achieved": 11.164,
+        "busyness": 0.065,
+        "reason": "Worst-case contrast 11.16:1 already passes 4.5:1 and the area is calm (busyness 0.06)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.042,
+        "contrast": 10.975,
+        "busyness": 0.042,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 33.333,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.045,
+        "contrast": 10.421,
+        "busyness": 0.045,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 16.667,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.046,
+        "contrast": 10.414,
+        "busyness": 0.046,
+        "passes": true
+      }
+    ]
+  },
+  "linkedin-desk": {
+    "photo": "about-studio.jpg",
+    "ladder": "green",
+    "sizeKB": 46,
+    "zones": [
+      {
+        "zone": "headline (wall)",
+        "imageBox": {
+          "x": 6.33,
+          "y": 20.83,
+          "w": 49.98,
+          "h": 20.71
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 16.536,
+        "achieved": 16.536,
+        "busyness": 0.007,
+        "reason": "Worst-case contrast 16.54:1 already passes 4.5:1 and the area is calm (busyness 0.01)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 12.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.068,
+        "contrast": 15.549,
+        "busyness": 0.068,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.076,
+        "contrast": 14.869,
+        "busyness": 0.076,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 16.667,
+          "y": 12.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.127,
+        "contrast": 7.675,
+        "busyness": 0.127,
+        "passes": true
+      }
+    ]
+  },
+  "story-build": {
+    "photo": "green-revolution-room.jpg",
+    "ladder": "green",
+    "sizeKB": 17,
+    "zones": [
+      {
+        "zone": "headline+sub",
+        "imageBox": {
+          "x": 7.89,
+          "y": 22.33,
+          "w": 84.22,
+          "h": 11.89
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 17.251,
+        "achieved": 17.251,
+        "busyness": 0.012,
+        "reason": "Worst-case contrast 17.25:1 already passes 4.5:1 and the area is calm (busyness 0.01)."
+      },
+      {
+        "zone": "cta",
+        "imageBox": {
+          "x": 24.55,
+          "y": 45,
+          "w": 50.91,
+          "h": 1.88
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 16.357,
+        "achieved": 16.357,
+        "busyness": 0.007,
+        "reason": "Worst-case contrast 16.36:1 already passes 4.5:1 and the area is calm (busyness 0.01)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 16.667,
+          "y": 25,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.003,
+        "contrast": 16.372,
+        "busyness": 0.003,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 33.333,
+          "y": 25,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.003,
+        "contrast": 16.372,
+        "busyness": 0.003,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 16.667,
+          "y": 12.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.004,
+        "contrast": 17.251,
+        "busyness": 0.004,
+        "passes": true
+      }
+    ]
+  },
+  "banner-build": {
+    "photo": "build-hands.jpg",
+    "ladder": "warm",
+    "sizeKB": 34,
+    "zones": [
+      {
+        "zone": "photo side (no text)",
+        "imageBox": {
+          "x": 50.91,
+          "y": 12.73,
+          "w": 36.36,
+          "h": 21.82
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 18.589,
+        "achieved": 18.589,
+        "busyness": 0,
+        "reason": "Worst-case contrast 18.59:1 already passes 4.5:1 and the area is calm (busyness 0)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 50,
+          "y": 12.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0,
+        "contrast": 18.589,
+        "busyness": 0,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 50,
+          "y": 25,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.008,
+        "contrast": 18.589,
+        "busyness": 0.008,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 50,
+          "y": 37.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.03,
+        "contrast": 18.58,
+        "busyness": 0.03,
+        "passes": true
+      }
+    ]
+  },
+  "hero-landing": {
+    "photo": "hero-trees.jpg",
+    "ladder": "green",
+    "sizeKB": 150,
+    "zones": [
+      {
+        "zone": "text column (left of photo)",
+        "imageBox": {
+          "x": 0.65,
+          "y": 32.41,
+          "w": 21.17,
+          "h": 27.78
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 6.247,
+        "achieved": 6.247,
+        "busyness": 0.121,
+        "reason": "Worst-case contrast 6.25:1 already passes 4.5:1 and the area is calm (busyness 0.12)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.085,
+        "contrast": 11.812,
+        "busyness": 0.085,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 50,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.124,
+        "contrast": 11.242,
+        "busyness": 0.124,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 16.667,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.133,
+        "contrast": 10.464,
+        "busyness": 0.133,
+        "passes": true
+      }
+    ]
+  },
+  "thumbnail-dumbord": {
+    "photo": "creation-vr.png",
+    "ladder": "warm",
+    "sizeKB": 45,
+    "zones": [
+      {
+        "zone": "photo side",
+        "imageBox": {
+          "x": 67.96,
+          "y": 72.78,
+          "w": 24.27,
+          "h": 16.67
+        },
+        "treatment": "calm-region",
+        "text": "paper",
+        "opacity": 0,
+        "worstCaseNoTreatment": 18.271,
+        "achieved": 18.271,
+        "busyness": 0.065,
+        "reason": "Worst-case contrast 18.27:1 already passes 4.5:1 and the area is calm (busyness 0.07)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.044,
+        "contrast": 14.924,
+        "busyness": 0.044,
+        "passes": true
+      },
+      {
+        "box": {
+          "x": 0,
+          "y": 62.5,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.224,
+        "contrast": 8.874,
+        "busyness": 0.128,
+        "passes": false
+      },
+      {
+        "box": {
+          "x": 16.667,
+          "y": 75,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.245,
+        "contrast": 4.631,
+        "busyness": 0.245,
+        "passes": false
+      }
+    ]
+  },
+  "post-dumbord": {
+    "photo": "xo-studio.jpg",
+    "ladder": "neutral",
+    "sizeKB": 71,
+    "zones": [
+      {
+        "zone": "headline (flat ground above the object)",
+        "imageBox": {
+          "x": 6.67,
+          "y": 0,
+          "w": 83.33,
+          "h": 0.5
+        },
+        "treatment": "calm-region",
+        "text": "ink",
+        "opacity": 0,
+        "worstCaseNoTreatment": 5.798,
+        "achieved": 5.798,
+        "busyness": 0.149,
+        "reason": "Worst-case contrast 5.8:1 already passes 4.5:1 and the area is calm (busyness 0.15)."
+      }
+    ],
+    "bestCalmCandidates": [
+      {
+        "box": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.441,
+        "contrast": 3.828,
+        "busyness": 0.291,
+        "passes": false
+      },
+      {
+        "box": {
+          "x": 16.667,
+          "y": 0,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.678,
+        "contrast": 3.063,
+        "busyness": 0.359,
+        "passes": false
+      },
+      {
+        "box": {
+          "x": 50,
+          "y": 50,
+          "w": 50,
+          "h": 25
+        },
+        "score": 0.746,
+        "contrast": 2.548,
+        "busyness": 0.312,
+        "passes": false
+      }
+    ]
+  },
+  "motion-tree": {
+    "photo": "green-tree-frames (10 frames)",
+    "ladder": "green",
+    "sizeKB": 177,
+    "zones": [
+      {
+        "zone": "text cards (above the frames)",
+        "imageBox": {
+          "x": 9.37,
+          "y": 0,
+          "w": 81.26,
+          "h": 0.5
+        },
+        "note": "the cards sit above the image block on flat Black; analyseFrames on the overlap",
+        "worstFrameWhiteContrast": 1.53
+      }
+    ]
+  }
+}

@@ -1,0 +1,877 @@
+{
+  "carousel-beliefs-1": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "5 BELIEFS WE BUILD BY · 1/5",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Value overvaluation.",
+      "colour": "#ffffff",
+      "sizePx": 132,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Build the thing people wouldmiss tomorro",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-beliefs-2": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "BELIEF 2/5",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Fun is fuel, notthe opposite ofserious w",
+      "colour": "#ffffff",
+      "sizePx": 108,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Tired people ship tired work. Build onwh",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-beliefs-3": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "BELIEF 3/5",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Degrees don'tbuild things.People do.",
+      "colour": "#ffffff",
+      "sizePx": 132,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Show what you've made. Nobody atthe tabl",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-beliefs-4": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "BELIEF 4/5",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "The best ideascome fromthose withnothing",
+      "colour": "#ffffff",
+      "sizePx": 108,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "With nothing to protect, you cantry what",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-beliefs-5": [
+    {
+      "text": "Send your idea: hello@xooteq.com",
+      "colour": "#111314",
+      "sizePx": 30,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "BELIEF 5/5",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Growtogetheror don'tgrow at all.",
+      "colour": "#ffffff",
+      "sizePx": 132,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Five beliefs, one question beforeanythin",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "post-seedling": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "GREEN REVOLUTION",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Goodinfrastructurehas roots.",
+      "colour": "#ffffff",
+      "sizePx": 100,
+      "worstCase": 11.44,
+      "passes": "AA"
+    },
+    {
+      "text": "Trees in the ground every quarter,wherev",
+      "colour": "#b6bfc1",
+      "sizePx": 34,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Join at xooteq.com/green-revolution",
+      "colour": "#111314",
+      "sizePx": 26,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ],
+  "story-green": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 28,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "GREEN REVOLUTION",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Did you plantanything this year?",
+      "colour": "#ffffff",
+      "sizePx": 92,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "XOOTEQ plants trees everyquarter where i",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Vote, then plant one ↓",
+      "colour": "#00b49b",
+      "sizePx": 36,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ],
+  "poster-tree": [
+    {
+      "text": "GREEN REVOLUTION",
+      "colour": "#00b49b",
+      "sizePx": 24,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Leave more lifethan you found.",
+      "colour": "#ffffff",
+      "sizePx": 122,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "XOOTEQ builds software, AI and films, an",
+      "colour": "#b6bfc1",
+      "sizePx": 30,
+      "worstCase": 8.82,
+      "passes": "AA"
+    },
+    {
+      "text": "XOOTEQ",
+      "colour": "#111314",
+      "sizePx": 170,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "XOOTEQ.COM/GREEN-REVOLUTION",
+      "colour": "#111314",
+      "sizePx": 26,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-build-1": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.59,
+      "passes": "AA"
+    },
+    {
+      "text": "BUILD WITH US · 1/4",
+      "colour": "#f15a30",
+      "sizePx": 22,
+      "worstCase": 5.53,
+      "passes": "AA"
+    },
+    {
+      "text": "The ideathat keepsyou upneeds atable.",
+      "colour": "#ffffff",
+      "sizePx": 80,
+      "worstCase": 18.59,
+      "passes": "AA"
+    },
+    {
+      "text": "For builders aged 18 to 35 makingsomethi",
+      "colour": "#b6bfc1",
+      "sizePx": 34,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-build-2": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "WHAT'S AT THE TABLE · 2/4",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "What you get whenyou pull up a chair",
+      "colour": "#ffffff",
+      "sizePx": 84,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "01",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Workspace",
+      "colour": "#ffffff",
+      "sizePx": 40,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "02",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Living space",
+      "colour": "#ffffff",
+      "sizePx": 40,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "03",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Hardware",
+      "colour": "#ffffff",
+      "sizePx": 40,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "04",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "GPU access",
+      "colour": "#ffffff",
+      "sizePx": 40,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "05",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Dev infrastructure",
+      "colour": "#ffffff",
+      "sizePx": 40,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "06",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Peers whomake you better",
+      "colour": "#ffffff",
+      "sizePx": 40,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Plus resources, connections and funding ",
+      "colour": "#b6bfc1",
+      "sizePx": 30,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-build-3": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "HOW IT WORKS · 3/4",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Three steps.No pitch deck.",
+      "colour": "#ffffff",
+      "sizePx": 96,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "1",
+      "colour": "#b6bfc1",
+      "sizePx": 26,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Apply",
+      "colour": "#ffffff",
+      "sizePx": 46,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "What you’re building,what you’ve built,w",
+      "colour": "#b6bfc1",
+      "sizePx": 24,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "2",
+      "colour": "#b6bfc1",
+      "sizePx": 26,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Connect",
+      "colour": "#ffffff",
+      "sizePx": 46,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "If it fits, we talk.Everyone gets a repl",
+      "colour": "#b6bfc1",
+      "sizePx": 24,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "3",
+      "colour": "#00b49b",
+      "sizePx": 26,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Build",
+      "colour": "#ffffff",
+      "sizePx": 46,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Take your seat and shipsomething that ma",
+      "colour": "#b6bfc1",
+      "sizePx": 24,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "No pitch deck, no demo day. Start at hel",
+      "colour": "#b6bfc1",
+      "sizePx": 30,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "carousel-build-4": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 13.85,
+      "passes": "AA"
+    },
+    {
+      "text": "THE PROMISE · 4/4",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 5.59,
+      "passes": "AA"
+    },
+    {
+      "text": "Every applicationgets an answerfrom a pe",
+      "colour": "#ffffff",
+      "sizePx": 84,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "No form letters. No demodays. No automat",
+      "colour": "#b6bfc1",
+      "sizePx": 34,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Email hello@xooteq.com",
+      "colour": "#111314",
+      "sizePx": 30,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ],
+  "linkedin-desk": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 28,
+      "worstCase": 18.59,
+      "passes": "AA"
+    },
+    {
+      "text": "BUILD WITH US",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 6.53,
+      "passes": "AA"
+    },
+    {
+      "text": "The desk iswaiting. Bringthe idea.",
+      "colour": "#ffffff",
+      "sizePx": 88,
+      "worstCase": 16.54,
+      "passes": "AA"
+    },
+    {
+      "text": "Workspace, hardware and GPUaccess for bu",
+      "colour": "#b6bfc1",
+      "sizePx": 32,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Apply: hello@xooteq.com",
+      "colour": "#111314",
+      "sizePx": 28,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ],
+  "story-build": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 28,
+      "worstCase": 18.12,
+      "passes": "AA"
+    },
+    {
+      "text": "BUILD WITH US",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 6.91,
+      "passes": "AA"
+    },
+    {
+      "text": "What are youbuilding right now?",
+      "colour": "#ffffff",
+      "sizePx": 92,
+      "worstCase": 17.43,
+      "passes": "AA"
+    },
+    {
+      "text": "One line is enough. Builders, 18 to 35.",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 8.98,
+      "passes": "AA"
+    },
+    {
+      "text": "Answer in the box",
+      "colour": "#ffffff",
+      "sizePx": 34,
+      "worstCase": 16.36,
+      "passes": "AA"
+    }
+  ],
+  "banner-build": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 17,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Bring your idea.Find GPUs here.",
+      "colour": "#ffffff",
+      "sizePx": 44,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "For builders aged 18 to 35.",
+      "colour": "#b6bfc1",
+      "sizePx": 18,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Apply by email",
+      "colour": "#111314",
+      "sizePx": 18,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ],
+  "hero-landing": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "TECHNOLOGY R&D",
+      "colour": "#00b49b",
+      "sizePx": 24,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Build technologythat leaves morelife beh",
+      "colour": "#ffffff",
+      "sizePx": 96,
+      "worstCase": 17.47,
+      "passes": "AA"
+    },
+    {
+      "text": "Software, AI and films that pass onetest",
+      "colour": "#b6bfc1",
+      "sizePx": 28,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Build with us",
+      "colour": "#111314",
+      "sizePx": 28,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ],
+  "thumbnail-dumbord": [
+    {
+      "text": "DUMBORD · AI FILM",
+      "colour": "#f15a30",
+      "sizePx": 24,
+      "worstCase": 5.54,
+      "passes": "AA"
+    },
+    {
+      "text": "No set.No crew.",
+      "colour": "#ffffff",
+      "sizePx": 128,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 28,
+      "worstCase": 18.63,
+      "passes": "AA"
+    }
+  ],
+  "post-dumbord": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#111314",
+      "sizePx": 30,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "DUMBORD · AI FILM STUDIO",
+      "colour": "#111314",
+      "sizePx": 22,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "The set isoptional now.",
+      "colour": "#111314",
+      "sizePx": 100,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "DUMBORD, the AI film studioXOOTEQ starte",
+      "colour": "#b6bfc1",
+      "sizePx": 32,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Watch at dumbord.com",
+      "colour": "#111314",
+      "sizePx": 26,
+      "worstCase": 5.54,
+      "passes": "AA"
+    }
+  ],
+  "post-family": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "MADE AT XOOTEQ",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Two tools fromthe same table.",
+      "colour": "#ffffff",
+      "sizePx": 84,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Plutto",
+      "colour": "#ffffff",
+      "sizePx": 150,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Astrology acrossevery tradition, readfro",
+      "colour": "#b6bfc1",
+      "sizePx": 32,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Tailzu",
+      "colour": "#ffffff",
+      "sizePx": 150,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "A keyboard thatwrites what you mean.",
+      "colour": "#b6bfc1",
+      "sizePx": 32,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Join the beta: xooteq.com/creation",
+      "colour": "#111314",
+      "sizePx": 28,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ],
+  "motion-tree": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 28,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "GREEN REVOLUTION",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Does it matter?",
+      "colour": "#ffffff",
+      "sizePx": 112,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Then plant it.",
+      "colour": "#00b49b",
+      "sizePx": 44,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "XOOTEQ.COM/GREEN-REVOLUTION",
+      "colour": "#b6bfc1",
+      "sizePx": 24,
+      "worstCase": 9.95,
+      "passes": "AA"
+    }
+  ],
+  "motion-manifesto": [
+    {
+      "text": "XOOTEQ",
+      "colour": "#ffffff",
+      "sizePx": 30,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "5 BELIEFS WE BUILD BY",
+      "colour": "#00b49b",
+      "sizePx": 22,
+      "worstCase": 7.1,
+      "passes": "AA"
+    },
+    {
+      "text": "Does itmatter?",
+      "colour": "#ffffff",
+      "sizePx": 132,
+      "worstCase": 18.63,
+      "passes": "AA"
+    },
+    {
+      "text": "Five beliefs, one question.Building some",
+      "colour": "#b6bfc1",
+      "sizePx": 38,
+      "worstCase": 9.95,
+      "passes": "AA"
+    },
+    {
+      "text": "Send yours: hello@xooteq.com",
+      "colour": "#111314",
+      "sizePx": 30,
+      "worstCase": 7.1,
+      "passes": "AA"
+    }
+  ]
+}

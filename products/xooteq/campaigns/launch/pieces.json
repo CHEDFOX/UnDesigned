@@ -1,0 +1,239 @@
+[
+  {
+    "id": "carousel-beliefs-1",
+    "file": "social/carousel-beliefs-1.svg",
+    "W": 1080,
+    "H": 1350,
+    "textBottom": 719.3000000000001,
+    "format": "carousel-slide 4:5",
+    "composition": "type-led (+ continuous beam across slides)",
+    "finding": "pop-out and first-glance: one big headline, one bright line (layout.json); implied motion from the diagonal (CM research 3, Kourtzi & Kanwisher 2000)"
+  },
+  {
+    "id": "carousel-beliefs-2",
+    "file": "social/carousel-beliefs-2.svg",
+    "W": 1080,
+    "H": 1350,
+    "textBottom": 734.96,
+    "format": "carousel-slide 4:5",
+    "composition": "type-led (+ continuous beam across slides)",
+    "finding": "repetition with variation: same skeleton, new belief (layout.json repetition, wear-out)"
+  },
+  {
+    "id": "carousel-beliefs-3",
+    "file": "social/carousel-beliefs-3.svg",
+    "W": 1080,
+    "H": 1350,
+    "textBottom": 800,
+    "format": "carousel-slide 4:5",
+    "composition": "type-led (+ continuous beam across slides)",
+    "finding": "repetition with variation: same skeleton, new belief (layout.json repetition, wear-out)"
+  },
+  {
+    "id": "carousel-beliefs-4",
+    "file": "social/carousel-beliefs-4.svg",
+    "W": 1080,
+    "H": 1350,
+    "textBottom": 842.96,
+    "format": "carousel-slide 4:5",
+    "composition": "type-led (+ continuous beam across slides)",
+    "finding": "repetition with variation: same skeleton, new belief (layout.json repetition, wear-out)"
+  },
+  {
+    "id": "carousel-beliefs-5",
+    "file": "social/carousel-beliefs-5.svg",
+    "W": 1080,
+    "H": 1350,
+    "textBottom": 932,
+    "format": "carousel-slide 4:5",
+    "composition": "type-led (+ continuous beam across slides)",
+    "finding": "carousel ends on the CTA (formats.json carousel-slide); the beam that ran through every slide lands on it (grouping, continuity)"
+  },
+  {
+    "id": "post-seedling",
+    "file": "social/post-seedling.svg",
+    "W": 1080,
+    "H": 1350,
+    "format": "instagram-post 4:5",
+    "composition": "monument (low horizon, object looms) + top lettering zone + bottom band",
+    "finding": "picture-superiority and photo-saliency: the sprout is the subject, text sits beside it in the calmest zone (media.json placement 3-4); word-picture figure: headline and image complete each other (W5, McQuarrie & Mick 1999)"
+  },
+  {
+    "id": "story-green",
+    "file": "social/story-green.svg",
+    "W": 1080,
+    "H": 1920,
+    "guide": ".xq2-sgreen-guide",
+    "sticker": {
+      "x": 150,
+      "y": 1000,
+      "w": 780,
+      "h": 220
+    },
+    "format": "story 9:16 (poll sticker)",
+    "composition": "stacked: brand, headline, sticker in the central band",
+    "finding": "touch-centre and safe areas: words and the poll in the central band, clear of the top 14% and bottom 35% (layout.json); an interactive sticker turns the message into a two-second action (S6)"
+  },
+  {
+    "id": "poster-tree",
+    "file": "print/poster-tree.svg",
+    "W": 1190,
+    "H": 1684,
+    "format": "poster A-ratio (A2/A3)",
+    "composition": "monument: low horizon (75%), tree looming, lettering band 21% with the brand word at 74% of the width",
+    "finding": "first-impression (50 ms): one silhouette on black reads before any word; Pieters & Wedel 2004: one strong picture plus large lettering and a big brand name each earn attention (CM evidence)"
+  },
+  {
+    "id": "carousel-build-1",
+    "file": "social/carousel-build-1.svg",
+    "W": 1080,
+    "H": 1350,
+    "format": "carousel-slide 4:5",
+    "composition": "full-bleed photo + calm region + band (the table edge)",
+    "finding": "real-photos: a real hand at work is looked at, filler stock is skipped (media.json); photo-saliency: the glowing screen and lit paper hold the eye, the headline sits in the calm black between them"
+  },
+  {
+    "id": "carousel-build-2",
+    "file": "social/carousel-build-2.svg",
+    "W": 1080,
+    "H": 1350,
+    "format": "carousel-slide 4:5",
+    "composition": "grid-of-n (2 x 3 on the table edge)",
+    "finding": "grouping (common region and proximity: number and name together, groups twice as far apart) and scan-patterns: front-loaded item names (layout.json)"
+  },
+  {
+    "id": "carousel-build-3",
+    "file": "social/carousel-build-3.svg",
+    "W": 1080,
+    "H": 1350,
+    "format": "carousel-slide 4:5",
+    "composition": "diagonal: three steps rising at 24 degrees to the accent (Build)",
+    "finding": "the plan in three steps (StoryBrand S5) drawn as a climb: implied motion of the diagonal (Kourtzi & Kanwisher 2000); pop-out: only the last step is Sea Green"
+  },
+  {
+    "id": "carousel-build-4",
+    "file": "social/carousel-build-4.svg",
+    "W": 1080,
+    "H": 1350,
+    "format": "carousel-slide 4:5",
+    "composition": "split portrait: image top, words below on the table edge, CTA on the table",
+    "finding": "gaze-cue: the two figures face each other, so the eye settles in the frame and drops to the headline below; carousel ends on the CTA (formats.json); S6 direct CTA"
+  },
+  {
+    "id": "linkedin-desk",
+    "file": "social/linkedin-desk.svg",
+    "W": 1200,
+    "H": 1200,
+    "format": "instagram-post 1:1 (LinkedIn)",
+    "composition": "full-bleed photo + calm region (the wall) + bottom band",
+    "finding": "word-picture figure (W5): the empty desk is the invitation, the words name it; calm-region placement on the measured wall (media.json placement 4)"
+  },
+  {
+    "id": "story-build",
+    "file": "social/story-build.svg",
+    "W": 1080,
+    "H": 1920,
+    "guide": ".xq2-sbuild-guide",
+    "sticker": {
+      "x": 170,
+      "y": 930,
+      "w": 740,
+      "h": 250
+    },
+    "format": "story 9:16 (question sticker)",
+    "composition": "tunnel: one-point perspective, the sticker at the vanishing point (CM placement tunnel)",
+    "finding": "converging lines lead the eye to the vanishing point (CM perspective rule: put the focal element there), where the answer box sits; touch-centre: the sticker in the central band"
+  },
+  {
+    "id": "banner-build",
+    "file": "web/banner-build.svg",
+    "W": 970,
+    "H": 250,
+    "format": "web-banner 970x250",
+    "composition": "split: words on the reading-start side, photo right",
+    "finding": "left-lean: headline, brand and CTA on the reading-start side (layout.json); banner-blindness: one headline, one brand, one button, a real photo rather than an ad strip"
+  },
+  {
+    "id": "hero-landing",
+    "file": "web/hero-landing.svg",
+    "W": 1920,
+    "H": 1080,
+    "format": "landing-hero 16:9",
+    "composition": "split: words left on flat Black, photo right fading in (hero-video-split-scrim layout)",
+    "finding": "left-lean and picture-captures: headline, brand and button on the reading-start side, picture on its own slot; the light streaks act as speed lines pointing at the words (CM3)"
+  },
+  {
+    "id": "thumbnail-dumbord",
+    "file": "social/thumbnail-dumbord.svg",
+    "W": 1280,
+    "H": 720,
+    "stamp": {
+      "x": 1024,
+      "y": 612,
+      "w": 256,
+      "h": 108
+    },
+    "format": "thumbnail 16:9",
+    "composition": "split: face left, gaze right to the headline (thumbnail-photo-gaze layout)",
+    "finding": "faces-first and gaze-cue: the face wins the first fixation and its gaze hands the eye to the headline (Cerf et al. 2008; Sajjacholapunt & Ball 2014); readable at 320 px; bottom-right duration stamp kept clear"
+  },
+  {
+    "id": "post-dumbord",
+    "file": "social/post-dumbord.svg",
+    "W": 1080,
+    "H": 1350,
+    "format": "instagram-post 4:5 (daylight palette)",
+    "composition": "object (Sachplakat): one object on flat ground, words above, band below",
+    "finding": "MAYA: a familiar poster skeleton with one surprise (a liquid set that is not a set); wear-out: a light piece in a dark series keeps the feed from repeating itself (layout.json)"
+  },
+  {
+    "id": "post-family",
+    "file": "social/post-family.svg",
+    "W": 1080,
+    "H": 1350,
+    "format": "instagram-post 4:5",
+    "composition": "grid-of-2 on a diagonal (type-led)",
+    "finding": "grouping: each product name sits with its own line, the two groups held apart by the diagonal (layout.json); brand beside the headline (O4) ties the family to the parent"
+  },
+  {
+    "id": "motion-tree",
+    "file": "video/motion-tree.svg",
+    "W": 1080,
+    "H": 1920,
+    "motion": {
+      "T": 11600,
+      "shots": [
+        0,
+        1800,
+        4600,
+        7000,
+        8400,
+        11600
+      ]
+    },
+    "format": "story 9:16, animated SVG, 11.6 s",
+    "composition": "monument (the tree grows on a low horizon) + stacked cards in the safe area",
+    "finding": "brand early and still (video.json zap-dispersion, first-frame); one mover at a time (motion-onset); text static over moving frames in a still zone (media.json static-text); holds by on-screen-time; crossfades only brighten (no flash, video.json photosensitivity)"
+  },
+  {
+    "id": "motion-manifesto",
+    "file": "video/motion-manifesto.svg",
+    "W": 1080,
+    "H": 1350,
+    "motion": {
+      "T": 26775,
+      "shots": [
+        1600,
+        4575,
+        9800,
+        13900,
+        19500,
+        23875,
+        26775
+      ]
+    },
+    "format": "instagram-post 4:5, animated SVG, 26.8 s",
+    "composition": "type-led sequence (one card at a time) on the carousel beam",
+    "finding": "on-screen-reading: each card held max(1.5 s, 0.375 s x words + 0.5 s) plus 0.5 s; one mover at a time (the wipe); text changes on a cut; ends on a still with brand and CTA (video.json end-still)"
+  }
+]
