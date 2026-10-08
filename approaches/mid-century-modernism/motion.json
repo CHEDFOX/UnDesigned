@@ -1,0 +1,76 @@
+{
+  "$comment": "Mid-century Modernism motion data: limited animation in the manner of UPA cartoons and Saul Bass title sequences. Poses change on twos (12 drawings a second, a new pose every 83 ms) or threes (8 a second, every 125 ms) and then hold. In CSS, stepped timing is steps(n, end) over a duration of n x 83 ms or n x 125 ms. Timings are rules of thumb derived from 24 fps film practice, not measured from specific films.",
+
+  "character": "Hold, then snap. Things sit still long enough to be read as a poster, then jump to the next pose in a few stepped drawings. Shapes cut on, slide in as bars, or morph into the next idea. Nothing drifts and nothing floats.",
+
+  "frameRates": {
+    "film": 24,
+    "onTwos": { "fps": 12, "frameMs": 83, "use": "Default for character and shape moves." },
+    "onThrees": { "fps": 8, "frameMs": 125, "use": "Slower, more graphic moves: morphs, title bars, background changes." },
+    "onOnes": { "fps": 24, "frameMs": 42, "use": "Only for very fast actions (a snap, a flick) of 2-4 frames." }
+  },
+
+  "springs": {
+    "$comment": "Springs are used only to compute pose targets (where an overshoot lands); the result is then sampled on twos or threes, never played smoothly. stiffness k, damping c, mass m.",
+    "snap": { "stiffness": 600, "damping": 34, "mass": 1, "use": "Arrive with no overshoot in 3-4 stepped drawings. Bars, panels, type blocks." },
+    "pop": { "stiffness": 420, "damping": 18, "mass": 1, "use": "One overshoot drawing (about 12%) then settle: the emblem appearing." },
+    "squash": { "stiffness": 300, "damping": 14, "mass": 1, "use": "Character beats: a bird hopping, a cat landing. Two overshoot drawings." }
+  },
+
+  "easings": {
+    "twos": { "css": "steps(6, end)", "use": "A 500 ms move drawn on twos (6 drawings). Scale the step count with duration / 83 ms." },
+    "threes": { "css": "steps(6, end)", "use": "A 750 ms move drawn on threes (6 drawings). Scale the step count with duration / 125 ms." },
+    "cut": { "css": "steps(1, end)", "use": "A hard cut: the shape is simply there on the next frame (Bass's cut-on)." },
+    "slideKey": { "css": "cubic-bezier(0.2, 0, 0, 1)", "use": "Key positions for sliding bars before they are stepped: fast start, long ease-out." },
+    "anticipate": { "css": "cubic-bezier(0.5, -0.35, 0.6, 1)", "use": "A small wind-up before a jump; sample on twos." },
+    "exit": { "css": "cubic-bezier(0.55, 0, 1, 0.45)", "use": "Leaving: accelerate away in 2-3 drawings or simply cut." }
+  },
+
+  "moves": {
+    "cut-on": { "duration": 0, "easing": "cut", "use": "A shape or word appears on one frame. The default way things arrive." },
+    "pop": { "spring": "pop", "drawings": 4, "duration": 333, "easing": "twos", "use": "Emblem scales in from 0 via one overshoot drawing." },
+    "bar-wipe": { "duration": 500, "easing": "twos", "use": "Bass-style bars slide across the frame to reveal type or the emblem; 3-5 bars, staggered 83 ms." },
+    "slide": { "duration": 333, "easing": "twos", "distancePct": [5, 20], "use": "A shape moves to its next position in 4 drawings." },
+    "morph": { "duration": 750, "easing": "threes", "use": "One shape becomes the next idea (a starburst into a flower, a kidney into a fish) in 6 drawings." },
+    "hop": { "spring": "squash", "duration": 500, "easing": "twos", "use": "Character beat: anticipation, jump, landing squash." },
+    "blink": { "duration": 125, "every": 2600, "easing": "cut", "use": "Eyes close for one drawing on threes." },
+    "boil": { "duration": 375, "easing": "threes", "loop": true, "use": "Optional: 3 slightly different drawings of a line cycled on threes, the hand-drawn 'boil'. Only on one element, only on screens over 400 px." },
+    "hold": { "duration": [500, 1500], "use": "Stillness between moves; the poster must be readable during every hold." }
+  },
+
+  "durations": {
+    "$comment": "Durations are whole numbers of drawings. Round any duration to the nearest multiple of 83 ms (twos) or 125 ms (threes).",
+    "minMs": 83,
+    "maxMs": 1000,
+    "holdMinMs": 500,
+    "formula": "drawings = 3 + 1 per 15% of the artboard travelled (max 8); duration = drawings x 83 ms on twos",
+    "byElement": { "icon": 167, "button": 167, "card": 250, "panel": 333, "illustration": 500, "titleSequence": 4000 }
+  },
+
+  "choreography": {
+    "order": ["ground (already there)", "bars wipe or field shape cuts on", "emblem pops", "key-line details cut on", "headline cuts on or is revealed by a bar", "brand and CTA cut on", "hold"],
+    "stagger": 83,
+    "overlapPct": 0,
+    "sequential": "Moves do not overlap: one thing moves, then holds, then the next moves. This is the opposite of smooth overlapping choreography.",
+    "maxMovingThings": 1,
+    "titleSequence": {
+      "use": "Video intros, launch reels, hero animations.",
+      "beats": [3, 6],
+      "beatMs": [600, 1200],
+      "pattern": "Abstract shapes move to music, assemble into the emblem, title appears with the final hold.",
+      "source": "Bass, The Man with the Golden Arm (1955): moving bars resolve into the arm (research.md 2.1)."
+    },
+    "loop": { "lengthMs": [2000, 4000], "endsOn": "A held frame that works as a poster on its own, held for at least 500 ms." },
+    "hold": 800
+  },
+
+  "rules": [
+    "Hold, then snap: every move is followed by a hold of at least 500 ms.",
+    "Step all motion on twos or threes; only snaps of 2-4 frames run on ones.",
+    "Shapes cut on, pop, slide as bars or morph. Never fade the artwork in.",
+    "One thing moves at a time; no overlapping moves.",
+    "No camera moves, parallax, 3D rotation or motion blur.",
+    "Type cuts on or is revealed by a bar; type never bounces or morphs.",
+    "With reduced motion: show the final held frame; no boil, no loops."
+  ]
+}

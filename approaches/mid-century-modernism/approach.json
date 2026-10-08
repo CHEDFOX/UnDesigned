@@ -1,0 +1,125 @@
+{
+  "$comment": "Mid-century Modernism: principles and per-layer rules. The data lives beside this file: art.json (shape vocabulary, misregistration, texture, figure stylisation, palette ratios), motion.json (limited-animation timing), typography.json (type direction and fit), research.md (sources and reasoning). Colours always come from the colour system.",
+  "name": "Mid-century Modernism",
+  "summary": "Post-war graphic optimism, roughly 1945-1970: one emblematic image built from flat, cut-paper shapes, printed in two to four inks that sit slightly off register, with stylised birds, figures and atomic-age shapes (kidneys, boomerangs, starbursts). Modernist order underneath, American playfulness on top. Motion is limited animation: holds, stepped timing and title-sequence reveals.",
+  "status": "profile",
+  "principles": [
+    {
+      "id": "MC1",
+      "title": "One emblem",
+      "rule": "Reduce the whole message to one emblematic image that a stranger could redraw from memory, as Saul Bass reduced a film to a cut-paper arm or a dismembered figure. One focal emblem per piece; everything else supports it.",
+      "source": "Saul Bass posters and titles (research.md 2.1)"
+    },
+    {
+      "id": "MC2",
+      "title": "Cut, don't render",
+      "rule": "Build images from flat shapes with clean or scissor-cut edges, laid side by side or overlapping. No outlines needed; no modelling, gradients or shadows. Any texture comes from the printing (dry brush, speckle, halftone), never from lighting.",
+      "source": "Bass, Rand and Lustig cut-paper work (research.md 2.1-2.2)"
+    },
+    {
+      "id": "MC3",
+      "title": "Off register, on purpose",
+      "rule": "Colour plates sit 0.75-1.5% of the short side away from the black key line, all in the same direction. The offset shows the work was printed in passes; it is fixed per piece, never random per shape.",
+      "source": "Limited-colour print practice (research.md 2.4; rule of thumb)"
+    },
+    {
+      "id": "MC4",
+      "title": "Few inks",
+      "rule": "Two to four inks per piece, counting black; white is the unprinted paper. Colours sit next to each other and never mix: no overprint blends, no tints made with transparency.",
+      "source": "Fluency and simplicity findings (research.md 3)"
+    },
+    {
+      "id": "MC5",
+      "title": "Count the wings",
+      "rule": "Stylise living things into 5-9 geometric parts drawn with ruler, compass and French curve: a bird is a body arc, a wedge tail, a triangle crest and a dot eye. Keep the one feature that makes it recognisable; drop the rest.",
+      "source": "Charley Harper's minimal realism (research.md 2.2)"
+    },
+    {
+      "id": "MC6",
+      "title": "Angular but friendly",
+      "rule": "Pair every sharp form (tapered triangle, starburst, boomerang tip) with a soft one (kidney, circle, arc). Sharp points cover at most a third of the outlines in a piece; corners on large shapes are rounded.",
+      "source": "Curvature preference (research.md 3) balanced against the period's angular vocabulary"
+    },
+    {
+      "id": "MC7",
+      "title": "Play inside order",
+      "rule": "A clear modernist structure (grid, margins, left-aligned type, a strong hierarchy) with exactly one playful break: a tilted shape, a crop, a hand-drawn word or a figure stepping out of its frame.",
+      "source": "Swiss order and American New York School playfulness (research.md 2.3)"
+    },
+    {
+      "id": "MC8",
+      "title": "Limited motion",
+      "rule": "Move like UPA cartoons and Bass titles: hold, then snap. Poses change on twos or threes (12 or 8 drawings a second), shapes cut on or slide in as bars, and one shape morphs into another. Every sequence ends on a held poster frame.",
+      "source": "UPA limited animation and Bass title sequences (research.md 2.1, 2.5)"
+    }
+  ],
+  "layers": [
+    {
+      "layer": "Colour",
+      "do": "One Wada combination per piece, used as a 2-4 ink print job: its bg as the ground, one support colour for the big shape, the accent on the one emblem. Black key line (or the combination's own near-black ink when its light-mode inkUse is body). White is unprinted paper. Prefer warm grounds (ochre, orange-yellow, cream) against teal or turquoise, or the reverse (art.json palette).",
+      "dont": "More than four inks, overprint blends or transparency, gradients, shadows, glows, neon or metallic effects, large fields of muddy olive or brown with nothing bright beside them."
+    },
+    {
+      "layer": "Typography",
+      "do": "A geometric or grotesque sans for headlines (heavy weight, tight spacing) with an old-style or Caslon-like serif for body and subheads, as rated in typography.json. Letter-spaced capitals for short labels. One or two words may be hand-lettered per piece if drawn for that piece.",
+      "dont": "Handwriting fonts, 'retro' novelty fonts used as body text, more than two families, script fonts in long lines, distressed fonts that fake wear."
+    },
+    {
+      "layer": "Layout",
+      "do": "Asymmetric balance on a simple grid: 8% margins, one dominant emblem (40-70% of the short side), a left-aligned text block on the opposite side, a diagonal or a crop for energy. At least 35% empty ground.",
+      "dont": "Centred symmetrical stacks, filling every corner, frames and boxes around everything, more than one diagonal direction, text set over busy shape edges."
+    },
+    {
+      "layer": "Illustration",
+      "do": "Flat cut-paper shapes from the vocabulary in art.json (kidney, boomerang, starburst, leaf, tapered triangle, circle), stylised animals and figures built from 5-9 parts, a thin key line offset from the fills, light dry-brush or speckle texture on at most two shapes.",
+      "dont": "Realistic rendering, outlines traced exactly around fills, 3D, photo textures, Corporate Memphis figures, caricatures of ethnic groups or national costumes, pin-up or 'Mad Men' clichés."
+    },
+    {
+      "layer": "Motion",
+      "do": "Limited animation: holds of 0.5-1.5 s between moves, poses stepped on twos (83 ms) or threes (125 ms), cut-on and bar-wipe reveals, a shape morphing into the next idea. Loops of 2-4 s ending on a held frame (motion.json).",
+      "dont": "Smooth 60 fps tweening of everything, camera moves and parallax, bouncy springs on text, constant motion with no holds, more than one thing moving at a time."
+    },
+    {
+      "layer": "Photography",
+      "do": "Use sparingly. Photos cut out and set on a flat ground, converted to one ink (black or the combination's dark) as a coarse halftone, combined with drawn shapes, as Lustig and Rand did.",
+      "dont": "Full-colour glossy photos, vintage filters, fake film grain or scratches, sepia washes."
+    },
+    {
+      "layer": "Copy",
+      "do": "Short, confident and a little witty, written to one person. Specific facts. The headline and image make one idea together; the image does not repeat the words.",
+      "dont": "Period pastiche ('Gee whiz', 'The modern housewife'), hype, exclamation marks, gendered 1950s stereotypes."
+    }
+  ],
+  "evidence": {
+    "scores": { "curves": 1, "simplicity": 2, "maya": 2, "nature": 1, "handmade": 2, "colour": 1, "glance": 2 },
+    "total": 11,
+    "notes": {
+      "curves": "1, not 2 as first estimated: kidneys, circles and arcs are curved, but boomerangs, starbursts, tapered triangles and Bass's jagged cut-outs are deliberately sharp. MC6 keeps points to a third of the outlines.",
+      "simplicity": "2: one emblem, flat shapes and two to four inks are low in visual complexity, which is judged within 17-50 ms (simplicity finding).",
+      "maya": "2: the look is familiar from decades of reuse yet still reads as fresh when the idea is new; the risk is pastiche, which tips it from 'advanced yet acceptable' into merely typical (maya finding).",
+      "nature": "1: Harper's birds, leaves and suns bring nature in, but stylised to geometry; ruler-and-compass shapes are smoother than the mid-range fractal detail people prefer (fractals finding).",
+      "handmade": "2, up from 1: cut edges, dry-brush skips, off-register colour and hand-lettered words are visible traces of hand and press, the kind of cue the handmade effect rests on (handmade finding).",
+      "colour": "1: the period's ochres, olives and browns are among the least-liked colours on average; teal, turquoise, tomato red and cream are liked. Our palette method leans to the liked hues and keeps olive and brown to small areas (colour-valence finding).",
+      "glance": "2: one silhouette on a flat contrasting ground reads before any words, as in the 50 ms first-impression studies (first-impression finding)."
+    },
+    "refinement": "Same total as the original candidate rating (11/14) but a different shape: curves down from 2 to 1, handmade up from 1 to 2. The original rating underplayed the style's sharp atomic-age vocabulary and its print texture.",
+    "beyondPreference": [
+      {
+        "effect": "Nostalgia and belonging",
+        "note": "When people's need to belong is active, they prefer nostalgic products (Loveland, Smeesters & Mandel 2010). Musical taste peaks for songs from one's late teens or early twenties (Holbrook & Schindler 1989; later replications move the peak younger). Mid-century imagery is 'second-hand' nostalgia for most audiences today, so the effect is weaker than for personal memories; treat it as a supporting reason, not the main one.",
+        "sources": ["Loveland, Smeesters & Mandel (2010), Journal of Consumer Research 37(3)", "Holbrook & Schindler (1989), Journal of Consumer Research 16(1)"]
+      },
+      {
+        "effect": "Distinctiveness and memorability",
+        "note": "A single emblem in a limited palette is easy to recall and redraw; Bass's Anatomy of a Murder figure and Golden Arm arm were reused across poster, titles and advertising as one recognisable mark. This is a design-history observation, not a measured effect.",
+        "sources": ["People's Graphic Design Archive, Anatomy of a Murder poster", "BFI, Saul Bass's 10 essential title sequences"]
+      },
+      {
+        "effect": "Cultural meaning",
+        "note": "The style carries post-war associations of optimism, modern living and good everyday design (Eames, Girard, Herman Miller). Useful for products that want to feel well made and democratic; a risk for products that must feel cutting-edge.",
+        "sources": ["Vitra, How Santa Fe shaped Alexander Girard", "Eames Office, Hang-It-All"]
+      }
+    ]
+  },
+  "references": []
+}

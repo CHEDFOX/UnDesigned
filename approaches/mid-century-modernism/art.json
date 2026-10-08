@@ -1,0 +1,255 @@
+{
+  "$comment": "Mid-century Modernism art data. Lengths are in units of a 400 x 400 artboard (multiply by artboard short side / 400), or given as percentages. Colours are roles only; hex values always come from the product's Wada combination. Numbers are rules of thumb read from the period work in research.md unless a source is given.",
+
+  "line": {
+    "$comment": "The key line (black plate). Thin and even for contours, heavier for structural strokes such as branches, legs and ground lines. It is a printing plate, not a pen: it sits slightly off the colour plates (see shape.misregistration).",
+    "width": 1.6,
+    "widthPct": 0.4,
+    "widthStructural": 5,
+    "widthStructuralPct": 1.25,
+    "widthRange": [1.2, 6],
+    "cap": "round or butt; one choice per piece",
+    "join": "round for contours, miter allowed on straight-edged figures",
+    "brush": {
+      "$comment": "Optional dry-brush line for one or two strokes per piece (Jim Flora, UPA backgrounds).",
+      "taper": "Starts at 100% width and ends at 30-60%.",
+      "maxPerPiece": 2
+    },
+    "use": [
+      "Contour lines run around some shapes, not all: at most half of the colour shapes get a key-line contour.",
+      "Detail lines (legs, stems, whiskers, beaks) are straight segments, 1-4 per object.",
+      "A contour never traces its fill exactly: it is offset by the misregistration and may stop short of closing."
+    ],
+    "rules": [
+      "Black or the combination's near-black only; never grey or coloured lines.",
+      "No calligraphic swelling except on the optional dry-brush stroke.",
+      "Line weight is fixed per artboard; do not scale strokes with objects."
+    ]
+  },
+
+  "shape": {
+    "$comment": "Flat cut shapes. Geometry is drawn with ruler, compass and French curve: most edges are straight lines or circular arcs; the rest are long, even curves. Sharp forms are always balanced by soft ones (MC6).",
+    "mode": "cut-paper geometric",
+    "construction": {
+      "straightOrArcEdgesPct": [60, 80],
+      "freeCurveEdgesPct": [20, 40],
+      "angleSnapDeg": 15,
+      "note": "Main edges snap to 15-degree steps; free curves have no more than one inflection each."
+    },
+    "vocabulary": [
+      { "id": "kidney", "spec": "Closed shape of 4-5 cubic segments with exactly one concave side; width:height 1.2-1.6; no sharp corners.", "role": "The big field shape behind the emblem (support colour)." },
+      { "id": "boomerang", "spec": "Two arms meeting at an elbow of 100-130 degrees; arm lengths 1:1.2-1.5; arm width 18-28% of arm length, tapering 20-40% to rounded tips (tip radius 2-4% of arm length).", "role": "Accent shape; floating, tilted 5-20 degrees." },
+      { "id": "starburst", "spec": "12-20 points, inner radius 0.45-0.6 of outer, optional rotation offset; outer radius 6-12% of the short side.", "role": "Sun, sparkle of news or 'new', a seal." },
+      { "id": "sparkle", "spec": "4 points, inner radius 0.25-0.3 of outer; outer radius 1.5-3% of the short side.", "role": "Small punctuation: 1-3 per piece." },
+      { "id": "atom", "spec": "2-3 ellipses (minor:major 0.3-0.4) rotated 60 degrees apart around a solid nucleus dot; line, not fill.", "role": "Science, energy, the modern. Once per campaign at most." },
+      { "id": "tapered-triangle", "spec": "Apex angle 20-45 degrees; base corners may be rounded 1-2 units.", "role": "Tails, crests, beaks, rays, hats, spires." },
+      { "id": "leaf", "spec": "Vesica (two arcs), width:length 0.3-0.4, on a straight stem.", "role": "Nature, growth; in pairs or threes." },
+      { "id": "circle", "spec": "True circles are allowed (eyes, suns, dots, heads).", "role": "The soft counterweight to triangles." },
+      { "id": "parallelogram", "spec": "Slanted 10-20 degrees; corners rounded 1-3 units.", "role": "Bars for type panels and Bass-style wipes." }
+    ],
+    "sharpness": {
+      "maxSharpOutlinePct": 33,
+      "largeShapeCornerRadius": { "pct": [2, 6], "minUnits": 2 },
+      "rule": "Points belong to small and medium forms (tails, crests, stars, boomerang elbows). Large field shapes are curved or round-cornered."
+    },
+    "misregistration": {
+      "$comment": "Colour plates offset from the key line, as if the sheet moved between passes.",
+      "offsetPct": [0.75, 1.5],
+      "offsetUnits": [3, 6],
+      "direction": "One direction for every colour shape in a piece (down-right is the default). The key line and type stay put.",
+      "show": "The offset reveals a sliver of ground between fill and key line on one side and lets the fill run past the line on the other.",
+      "rules": [
+        "Never randomise the offset per shape.",
+        "Type is never misregistered.",
+        "Skip misregistration on UI and small icons (under 48 px): it reads as a rendering bug at small sizes."
+      ]
+    },
+    "rules": [
+      "Every sharp form in a piece has a curved counterpart of similar or larger size.",
+      "Shapes overlap in at most two layers (field shape, then emblem).",
+      "One accent-coloured object per piece."
+    ]
+  },
+
+  "figures": {
+    "$comment": "Stylised animals and people: Harper's counted parts, UPA and Blair's flat caricature, Flora's angular figures kept friendly.",
+    "animals": {
+      "parts": [5, 9],
+      "recipe": "Body as one arc-and-line shape, a tapered-triangle tail, one feature (crest, ear, fin) as a triangle, a circle eye with an offset dot, legs as straight lines.",
+      "eye": "White circle 3-4% of the animal's length with a black dot of 40-45% of its diameter, set off-centre towards the direction of travel.",
+      "pose": "Profile or three-quarter, never front-on; one clear direction."
+    },
+    "people": {
+      "headToHeight": [0.2, 0.33],
+      "parts": [6, 12],
+      "limbs": "Straight or single-curve limbs, tapering; hands as mittens or three-line forks; no bendy noodle limbs.",
+      "faces": "Dot or almond eyes, a single nose shape, an optional line mouth. Expression from pose, not detail.",
+      "rule": "People are caricatured by type of character (a busy cook, a sleepy cat owner), never by ethnicity, nationality or body."
+    },
+    "rules": [
+      "No more than three figures per piece.",
+      "Figures are cut from flat colour; the key line adds only details."
+    ]
+  },
+
+  "corners": {
+    "$comment": "Rounded corners for layout and UI around the art. Pixels at 1x for screens. Mid-century layout is squarer than Humanist Minimal: crisp panels, rounded buttons.",
+    "scale": { "xs": 2, "sm": 4, "md": 8, "lg": 16, "pill": 999 },
+    "use": {
+      "button": "pill or sm",
+      "chip": "pill",
+      "input": "xs",
+      "card": "sm",
+      "image": "none, or a kidney or circle mask for one hero image",
+      "panel / type block": "none; a slanted parallelogram is allowed for one label"
+    },
+    "nested": "An inner radius is the outer radius minus the padding between them.",
+    "print": "On posters, image boxes have square or 1-2% corners; let shapes, not boxes, carry the softness."
+  },
+
+  "composition": {
+    "marginPct": 8,
+    "grid": "6 columns on posters, 12 on screen; text takes 3-4 columns on one side, the emblem the rest.",
+    "motifSizePct": [40, 70],
+    "emptyGroundMinPct": 35,
+    "maxObjects": 5,
+    "balance": "Asymmetric: the emblem's visual weight is offset by the text block, not centred.",
+    "diagonal": "At most one dominant diagonal (a branch, a bar, a tilted shape) at 10-30 degrees.",
+    "placements": [
+      { "id": "emblem-right", "use": "Emblem and field shape on the right two-thirds, often cropped by the edge; headline top-left. The default poster." },
+      { "id": "emblem-centre", "use": "Bass style: one cut-paper emblem centred on a flat ground, title below or across it. Film, event and launch posters." },
+      { "id": "frieze", "use": "Girard or Blair style: a row of 3-7 small motifs across a band, repeated with variation. Packaging, banners, email headers." },
+      { "id": "crop", "use": "Emblem enlarged so part runs off one or two edges. Social posts and thumbnails." }
+    ],
+    "pairing": "Image and headline are a pair: the headline must not describe what the image shows; together they make one idea.",
+    "rules": [
+      "One focal emblem per piece.",
+      "Text never sits on top of a shape edge; give it clear ground.",
+      "Keep at least one margin between text and the emblem."
+    ]
+  },
+
+  "palette": {
+    "$comment": "Share of the visible area for each colour role, treated as a 2-4 ink print job. Colours come from the product's Wada combination; white is unprinted paper.",
+    "roles": {
+      "ground": { "from": "combination bg", "areaPct": [45, 65] },
+      "shape": { "from": "combination support colour (or ink colour in 2-3 colour combinations)", "areaPct": [15, 30] },
+      "accent": { "from": "combination accent", "areaPct": [5, 15], "limit": "One object, the emblem." },
+      "key": { "from": "Wada Black, or the combination's near-black ink role when light-mode inkUse is body", "areaPct": [5, 12] },
+      "paper": { "from": "Wada White (unprinted paper)", "areaPct": [3, 10] }
+    },
+    "inks": { "min": 2, "max": 4, "countsBlack": true, "countsWhite": false },
+    "method": [
+      "Start from combinations with three or four colours: they map naturally to ground, shape and accent.",
+      "Prefer a warm ground (ochre, orange-yellow, cream, apricot) with a cool shape (teal, turquoise, peacock blue), or the reverse; this warm-cool pair is the period's signature.",
+      "Check light-mode roles: prefer inkUse 'body' so the key colour can carry text; for 'display' combinations, set text in Wada Black.",
+      "Avoid combinations whose ground would be a large field of olive, khaki or brown unless the product's world makes them positive (coffee, wood, bread).",
+      "The accent goes on the emblem only. If the accent is low-contrast on the ground (accentOnBg under 2), give the emblem a key-line contour."
+    ],
+    "recommendedCombinations": [
+      { "id": 122, "colors": ["Carmine", "Cream Yellow", "Benzol Green"], "why": "Cream ground, teal shape, red emblem: the classic mid-century trio. Display combination: set text in Wada Black." },
+      { "id": 144, "colors": ["Rosolanc Purple", "Orange", "Black"], "why": "Orange ground with black key, like Bass's Anatomy of a Murder and Vertigo posters; magenta accent kept small." },
+      { "id": 149, "colors": ["Olive Ocher", "Orange", "Deep Slate Green"], "why": "Ochre ground, orange emblem, deep green key: an autumnal Harper palette with body-text contrast (7.1)." },
+      { "id": 155, "colors": ["Jasper Red", "Benzol Green", "Deep Indigo"], "why": "Red-orange ground with teal and an indigo key: loud title-card energy, readable key (5.1)." },
+      { "id": 243, "colors": ["Raw Sienna", "Ivory Buff", "Olive Green", "Slate Color"], "why": "Ivory paper ground, olive shape, sienna emblem, slate key: quiet Eames and Lustig book-cover feel." },
+      { "id": 247, "colors": ["Raw Sienna", "Apricot Yellow", "Benzol Green", "Deep Lyons Blue"], "why": "Bright yellow ground with teal shape and a navy key: optimistic packaging and children's-book palette." },
+      { "id": 255, "colors": ["Raw Sienna", "Pyrite Yellow", "Calamine Blue", "Black"], "why": "Aqua ground, mustard shape, sienna emblem, black key: the atomic-age kitchen palette; black text at 10:1." },
+      { "id": 263, "colors": ["Burnt Sienna", "Pinkish Cinnamon", "Turquoise Green", "Slate Color"], "why": "Pale turquoise ground with cinnamon and burnt sienna: soft, Mary Blair-like warmth." },
+      { "id": 286, "colors": ["Burnt Sienna", "Orange Yellow", "Peacock Blue", "Violet Blue"], "why": "Orange-yellow ground, peacock teal shape, sienna emblem, violet-blue key: the most complete warm-cool set." },
+      { "id": 304, "colors": ["Hay's Russet", "Cream Yellow", "Dark Citrine", "Benzol Green"], "why": "Cream ground, teal emblem, russet key: Girard-like folk-modern warmth." },
+      { "id": 343, "colors": ["Burnt Sienna", "Ivory Buff", "Deep Grayish Olive", "Vandar Poel's Blue"], "why": "Ivory ground with deep blue key and sienna accent: restrained, bookish, Lustig-adjacent." }
+    ],
+    "rules": [
+      "One combination per piece.",
+      "No gradients, overprint blends, transparency or shadows.",
+      "Text on the ground uses the combination's text role (AA contrast), or Wada Black."
+    ]
+  },
+
+  "texture": {
+    "$comment": "Texture comes from printing and painting, never from lighting. Use on at most two shapes per piece.",
+    "dryBrush": {
+      "use": "Gaps of ground colour where the brush ran dry, along one edge of a field shape.",
+      "streakHeight": [0.8, 3],
+      "streakLength": [5, 35],
+      "spacing": [6, 10],
+      "maxShapeCoveragePct": 25,
+      "edges": 1
+    },
+    "speckle": {
+      "use": "Tiny solid paper (or ink) dots over the ground, like cheap stock or a worn plate.",
+      "dotRadius": [0.35, 0.85],
+      "coveragePct": [0.1, 0.4],
+      "rule": "Solid dots only; no transparency."
+    },
+    "halftone": {
+      "cell": [4, 6],
+      "dot": [1, 2.2],
+      "use": "One-ink photos and the occasional shadow or sky; in palette colours only.",
+      "maxAreaPct": 20
+    },
+    "grain": "No photographic grain, scratches or fake wear; texture is a printing trace, not ageing."
+  },
+
+  "vocabulary": {
+    "$comment": "Symbols the period used and what they usually say. Combine one from the product's world with one from the benefit, then build it with the shape vocabulary.",
+    "symbols": [
+      { "id": "bird", "means": ["morning", "freedom", "news", "song"] },
+      { "id": "cat", "means": ["home", "curiosity", "comfort"] },
+      { "id": "fish", "means": ["the sea", "freshness", "abundance"] },
+      { "id": "leaf", "means": ["growth", "nature", "seasons"] },
+      { "id": "tree", "means": ["growth", "roots", "shelter"] },
+      { "id": "sun-starburst", "means": ["morning", "new", "energy", "optimism"] },
+      { "id": "atom", "means": ["science", "energy", "the modern"] },
+      { "id": "eye", "means": ["attention", "vision", "noticing"] },
+      { "id": "hand", "means": ["making", "care", "offer"] },
+      { "id": "house", "means": ["home", "belonging", "modern living"] },
+      { "id": "chair", "means": ["comfort", "design", "pause"] },
+      { "id": "key", "means": ["access", "home", "solution"] },
+      { "id": "music-note", "means": ["music", "rhythm", "joy"] },
+      { "id": "clock", "means": ["time", "routine", "speed"] },
+      { "id": "cup", "means": ["pause", "morning", "hospitality"] },
+      { "id": "spiral", "means": ["motion", "depth", "dizziness"] },
+      { "id": "arrow", "means": ["direction", "progress", "speed"] },
+      { "id": "figure-in-hat", "means": ["the everyday person", "the customer", "a character"] }
+    ],
+    "avoid": [
+      { "symbol": "rocket", "for": "launch or the future", "why": "The period's most worn-out space-age prop and a startup cliché." },
+      { "symbol": "mushroom cloud or bomb imagery", "for": "atomic energy", "why": "Violent; trivialises real harm." },
+      { "symbol": "martini glass, pin-up, cigarette", "for": "glamour", "why": "'Mad Men' pastiche and outdated stereotypes." },
+      { "symbol": "national-costume dolls and 'exotic' natives", "for": "the world, travel", "why": "Period stereotypes; caricature by ethnicity (see research.md 5)." },
+      { "symbol": "tiki idols", "for": "fun, holidays", "why": "Appropriates sacred Polynesian imagery." },
+      { "symbol": "boomerang as an Aboriginal reference", "for": "Australia", "why": "Use the shape only as an abstract atomic-age form, never as cultural decoration." },
+      { "symbol": "lightbulb, gears", "for": "idea, process", "why": "Generic and overused." }
+    ]
+  },
+
+  "method": {
+    "$comment": "How to find the one emblem: symbolise and summarise (Bass), count the wings (Harper), then print it in few inks.",
+    "recipe": [
+      "Write the one message in a sentence (W1).",
+      "List five plain nouns from the product's world and five from the benefit.",
+      "Pick or join two into a single emblem that could be cut from paper in under ten pieces.",
+      "Build it from the shape vocabulary: one field shape (kidney or circle), the emblem in the accent, details in the key line.",
+      "Add one atomic-age punctuation (starburst, sparkle or boomerang) only if it supports the idea.",
+      "Test: redraw it from memory after 5 seconds. If you cannot, cut parts until you can."
+    ],
+    "examples": [
+      { "a": "bird", "b": "sunrise starburst", "idea": "a fresh morning", "ref": "sample.mjs" },
+      { "a": "arm", "b": "jagged bars", "idea": "addiction's pull", "ref": "Bass, The Man with the Golden Arm (1955)" },
+      { "a": "figure", "b": "seven cut pieces", "idea": "a trial that takes a story apart", "ref": "Bass, Anatomy of a Murder (1959)" },
+      { "a": "trees", "b": "the character for tree", "idea": "a forest made of words", "ref": "Yamashiro, Forest (1954-55)" },
+      { "a": "cup", "b": "steam as a boomerang", "idea": "the coffee that gets you going", "ref": "rule-of-thumb example" }
+    ]
+  },
+
+  "checklist": [
+    "One emblem, redrawable from memory after 5 seconds.",
+    "2-4 inks counting black; white is paper; no blends or transparency.",
+    "Colour plates offset 0.75-1.5% from the key line, one direction.",
+    "Every sharp form balanced by a soft one; points on at most a third of the outlines.",
+    "Animals and figures in 5-9 (animals) or 6-12 (people) parts; no ethnic caricature.",
+    "Texture (dry brush, speckle, halftone) on at most two shapes.",
+    "At least 35% empty ground; one diagonal at most."
+  ]
+}

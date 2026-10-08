@@ -1,0 +1,147 @@
+{
+  "$comment": "Mid-century Modernism type direction. Fonts come from foundations/typography/source/pairings.json plus the newPairings below (Google Fonts only); this file says which suit this approach and how to set them. Sizes are rules of thumb unless a source is given. Designer credits come from the google/fonts repository (METADATA.pb and DESCRIPTION files).",
+
+  "character": "Heavy geometric or grotesque sans headlines, set tight, next to a warm old-style serif for subheads and body: the mix of Futura-family modernism and Caslon-style advertising lettering seen on 1950s book jackets, record sleeves and ads. Letter-spaced capitals for small labels. Hand-lettering appears, but drawn for the piece, not as a font.",
+
+  "anatomy": {
+    "$comment": "What to look for when judging a typeface for this approach.",
+    "construction": { "want": "Geometric (circle-based o, single-storey a optional) or a sturdy grotesque", "why": "Matches the ruler-and-compass shapes of the art; Futura-family sans were the period's modern voice." },
+    "weight": { "want": "A heavy display weight (700-900)", "why": "Heavy headlines hold their own beside flat colour shapes, and their stems echo the structural key line." },
+    "contrast": { "want": "Low in the sans; moderate in the serif", "why": "Sans and art read as one printed plate; the serif brings the warmth of advertising lettering." },
+    "serif": { "want": "Old-style or Caslon-like, with a lively italic", "why": "Italic subheads were a common companion to geometric headlines on book jackets and ads." },
+    "quirks": { "want": "One or two characterful letters (a pointed A or M, a tall ascender)", "why": "A little personality without novelty; the playfulness lives in the art." },
+    "avoid": ["Handwriting and marker fonts", "Script fonts in long lines", "Distressed or 'vintage-texture' fonts", "Art deco display faces (they belong to the 1920s-30s Commercial Modernism style)", "Swiss neo-grotesques used alone for warm work (too cold for the American side of the style)"]
+  },
+
+  "fit": {
+    "$comment": "core = recommended, good = works, accent = special cases, avoid = not for this approach.",
+    "bricolage-figtree": { "fit": "core", "why": "Bricolage Grotesque cites Antique Olive (Excoffon, 1960s) among its influences; its irregular, characterful forms feel hand-cut and period-right without pastiche." },
+    "young-onest": { "fit": "good", "why": "Young Serif's heavy, soft old-style forms suit the friendly Flora and Blair side of the style; pair with a geometric headline elsewhere if needed." },
+    "fraunces-commissioner": { "fit": "good", "why": "Fraunces's soft, chunky serif recalls mid-century advertising lettering; keep to one weight and avoid the 'wonky' extras." },
+    "schibsted": { "fit": "good", "why": "A sturdy grotesque: the Swiss side of the period. Works for Lustig- or Eames-like restraint; add warmth through the art." },
+    "instrument": { "fit": "accent", "why": "The condensed serif suits bookish Lustig-style covers and editorial pieces, but its contemporary elegance is less period." },
+    "source": { "fit": "accent", "why": "Very readable but neutral; use for text-heavy products where the art carries the style." },
+    "plex": { "fit": "accent", "why": "Engineered, corporate-modern feel fits Eames- or IBM-era technical products only." },
+    "nunito": { "fit": "avoid", "why": "Rounded app-like terminals read as 2010s UI, not mid-century print." },
+    "alegreya": { "fit": "avoid", "why": "Calligraphic Renaissance forms point to a different tradition." },
+    "spartan-caslon": { "fit": "core", "why": "New pairing: geometric sans headlines over Caslon-style advertising text, the core sound of the style." },
+    "boogaloo-jost": { "fit": "core", "why": "New pairing: 1960s album-cover lettering for short headlines with a Futura-like sans for everything else." }
+  },
+
+  "newPairings": [
+    {
+      "id": "spartan-caslon",
+      "name": "Mid-century Advertising",
+      "mood": "Confident and warm. A heavy geometric sans in the American Spartan and Futura tradition over a Caslon drawn from 1950s advertising lettering, with a lively italic for subheads.",
+      "bestFor": "Most mid-century work: posters, book and packaging design, websites, editorial.",
+      "display": {
+        "family": "League Spartan",
+        "weights": [700, 800, 900],
+        "style": "Geometric sans",
+        "case": "Sentence case; letter-spaced capitals for labels",
+        "tracking": -0.02,
+        "leading": 0.98,
+        "designer": "Matt Bailey, Tyler Finck (The League of Moveable Type)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900"],
+        "notes": "The League of Moveable Type's interpretation of Matt Bailey's Spartan, based on early 20th-century American geometric sans serifs (ATF and Linotype Spartan were Futura competitors)."
+      },
+      "body": {
+        "family": "Libre Caslon Text",
+        "weights": [400, 700],
+        "style": "Old-style serif with italic",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Pablo Impallari",
+        "classification": "Old-style serif",
+        "axes": ["wght 400-700"],
+        "notes": "Based on hand-lettering artists' interpretations of Caslon typical of 1950s advertising, not on 18th-century specimens. Companion display family: Libre Caslon Display (Impallari Type)."
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weights": [400, 700]
+      }
+    },
+    {
+      "id": "boogaloo-jost",
+      "name": "Album Cover",
+      "mood": "Playful and loud for a few words, calm for the rest. Boogaloo's drawn letters follow 1960s LP-cover lettering; Jost is a clean Futura-style sans for everything else.",
+      "bestFor": "Music, food, events, children's products, packaging; short headlines only.",
+      "display": {
+        "family": "Boogaloo",
+        "weights": [400],
+        "style": "Hand-lettered display sans",
+        "case": "Sentence case; headlines of six words or fewer",
+        "tracking": 0,
+        "leading": 0.95,
+        "designer": "John Vargas Beltrán",
+        "classification": "Display lettering",
+        "axes": [],
+        "notes": "Structure of classic American lettering found on 1960s LP covers of Latin music. Single weight; never for body or more than one line of six words."
+      },
+      "body": {
+        "family": "Jost",
+        "weights": [400, 500, 700],
+        "style": "Geometric sans",
+        "tracking": 0,
+        "leading": 1.5,
+        "designer": "Owen Earl (indestructible type*)",
+        "classification": "Geometric sans",
+        "axes": ["wght 100-900"],
+        "notes": "Inspired by 1920s German sans serifs (the Futura tradition); variable since 2020 with Mirko Velimirovic."
+      },
+      "mono": {
+        "family": "Courier Prime",
+        "weights": [400, 700]
+      }
+    }
+  ],
+
+  "typeWithArt": {
+    "weightMatch": "Headline stems should be close to the structural key line (about 1.25% of the artboard's short side at headline size); contours stay thinner than the type.",
+    "scaleMatch": "Headline cap height 1/4 to 1/2 of the emblem's height: the emblem leads, the headline names it.",
+    "alignment": "Left-aligned text block on the side opposite the emblem; one short line may be centred on an emblem-centre poster.",
+    "registration": "Type is printed on the key plate: never misregistered, never textured.",
+    "handLettering": "One or two words per piece may be hand-drawn (cut paper or brush) for the piece itself; all other text uses the pairing."
+  },
+
+  "sizes": {
+    "$comment": "Headline cap height as a share of the canvas height, and body text minimums. Rules of thumb.",
+    "byFormat": {
+      "billboard": { "headlinePct": [10, 16], "body": "none" },
+      "poster": { "headlinePct": [4.5, 8], "bodyMinPt": 14 },
+      "event-poster": { "headlinePct": [5, 9], "bodyMinPt": 14 },
+      "flyer": { "headlinePct": [3.5, 6], "bodyMinPt": 9 },
+      "print-ad": { "headlinePct": [3, 5], "bodyMinPt": 9 },
+      "instagram-post": { "headlinePct": [5, 9], "bodyMinPx": 32 },
+      "story": { "headlinePct": [3.5, 5.5], "bodyMinPx": 36 },
+      "carousel-slide": { "headlinePct": [4, 6.5], "bodyMinPx": 30 },
+      "thumbnail": { "headlinePct": [12, 18], "body": "none" },
+      "web-banner": { "headlinePct": [12, 20], "bodyMinPx": 14 },
+      "landing-hero": { "headlinePx": [44, 96], "bodyMinPx": 18 },
+      "email-header": { "headlinePx": [28, 44], "bodyMinPx": 16 }
+    },
+    "viewingDistance": "Sign-industry rule of thumb: about 1 inch (25 mm) of letter height for every 10 feet (3 m) of viewing distance for basic legibility; double it for comfortable reading."
+  },
+
+  "setting": {
+    "measure": { "chars": [45, 75], "ideal": 66, "source": "Bringhurst, The Elements of Typographic Style" },
+    "leading": { "display": [0.92, 1.02], "subhead": [1.2, 1.3], "body": [1.45, 1.6] },
+    "tracking": { "displayEm": [-0.03, -0.01], "bodyEm": 0, "smallEm": [0, 0.01], "labelCapsEm": [0.15, 0.22] },
+    "case": "Sentence case for headlines and text. Letter-spaced capitals for labels of one to three words (wider than usual, a period trait). All-lowercase only inside a logo or wordmark.",
+    "sizesPerPiece": 3,
+    "weightsPerPiece": 2,
+    "italic": "The serif italic is the subhead voice: one line or two, never whole paragraphs.",
+    "rag": "Ragged right; no justified text; avoid single words on the last line of headlines (use text-wrap: balance).",
+    "numbers": "Use the mono for dates, times, prices and codes."
+  },
+
+  "rules": [
+    "Heavy geometric sans headline, old-style serif or Futura-style sans text.",
+    "Three sizes and two weights per piece.",
+    "Labels in widely letter-spaced capitals; everything else in sentence case.",
+    "Type sits on the key plate: never misregistered or textured.",
+    "Left-aligned, 45-75 characters per line.",
+    "No handwriting fonts; hand-lettering only when drawn for the piece."
+  ]
+}
