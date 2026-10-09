@@ -1,0 +1,12 @@
+{
+  "$comment": "One message: code is the language every builder shares. Art: a globe that is also a speech bubble, code running round it like latitudes (products/xooteq/art.mjs -> code-globe). Motion: the code turns like the world, one mover, 3 s move + 1 s hold.",
+  "id": "poster-code-language",
+  "format": "poster",
+  "headline": "Code is the international language.",
+  "subhead": "Your code reads the same in every country. Build what matters, with people who speak it.",
+  "cta": "Build with us: hello@xooteq.com",
+  "art": {
+    "motif": "code-globe"
+  },
+  "animate": true
+}

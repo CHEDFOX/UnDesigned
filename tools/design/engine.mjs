@@ -295,12 +295,14 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
   const fontsUrl = tokens.typography.googleFontsUrl;
   const motion = piece.animate ? choreograph(ctx, groups, skin) : { css: '', classes: () => '' };
   const label = [piece.headline, brand.config.name].filter(Boolean).join(' · ');
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(label)}">` +
+  // Art that loops (a motif's own motion) starts when the last element has arrived: __MOTION_END__ in its CSS.
+  const end = piece.animate ? Math.round(motion.total + 200) : 0;
+  return (`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(label)}">` +
     `<style>@import url("${fontsUrl}");</style>` +
     (motion.css ? `<style>${motion.css}</style>` : '') +
     (skin.defs ? `<defs>${skin.defs(ctx)}</defs>` : '') +
     groups.map((g, k) => `<g class="${P}el ${P}${g.role}${motion.classes(g, k)}">${g.svg}</g>`).join('') +
-    `</svg>\n`;
+    `</svg>\n`).replace(/__MOTION_END__/g, String(end));
 }
 
 function defaultCta(ctx, b, text, f) {
@@ -368,7 +370,8 @@ function choreograph(ctx, groups, skin) {
   for (const g of groups) {
     if (g.role === 'ground') { timing.push(0); continue; }
     timing.push(t);
-    const hold = g.role === 'headline' ? Math.max(1500, 375 * words(ctx.piece.headline) + 500) : g.role === 'subhead' || g.role === 'body' ? Math.max(1200, 300 * words(ctx.piece[g.role])) : 450;
+    // Words stay on screen, so only the headline is held for its reading time before more arrives.
+    const hold = g.role === 'headline' ? Math.max(1500, 375 * words(ctx.piece.headline) + 500) : g.role === 'subhead' || g.role === 'body' ? 700 : 300;
     t += dur * 0.6 + hold;
   }
   const rise = Math.round(Math.min(ctx.W, ctx.H) * 0.03);
@@ -411,19 +414,8 @@ function readPieces(dir) {
 export async function designCampaign({ productId, campaign, png = false, only = null, log = console.log, approach = null, outDirName = 'designs', outRoot = null, pieces: givenPieces = null }) {
   const brand = loadBrand(ROOT, productId);
   const tokens = loadTokens(brand);
-  if (approach) {
-    // Preview: render the product's copy in another style, with that style's first recommended combination.
-    brand.config = { ...brand.config, approach };
-    const own = json(join(ROOT, 'approaches', approach, 'approach.json'));
-    const art = existsSync(join(ROOT, 'approaches', approach, 'art.json')) ? json(join(ROOT, 'approaches', approach, 'art.json')) : {};
-    const motion = existsSync(join(ROOT, 'approaches', approach, 'motion.json')) ? json(join(ROOT, 'approaches', approach, 'motion.json')) : {};
-    tokens.approach = { ...own, art, motion };
-    const recs = (art.palette && art.palette.recommendedCombinations) || [];
-    const num = (r) => +(typeof r === 'object' ? (r.combination ?? r.id ?? r.number) : r);
-    const combos = recs.map(num).map((n) => tokens.colors.combinations.find((c) => c.id === n)).filter(Boolean);
-    if (combos.length) tokens.colors = { ...tokens.colors, brand: combos.slice(0, 2).map((c, i) => ({ name: i ? 'seasonal' : 'primary', combination: c.id, mode: 'light', roles: c.roles.light })) };
-  }
-  const skin = await loadSkin(brand.config.approach);
+  if (approach) applyStyle(brand, tokens, approach);
+  const baseConfig = brand.config, baseTokens = { ...tokens };
   const artFile = join(brand.dir, 'art.mjs');
   tokens.productArt = existsSync(artFile) ? (await import(pathToFileURL(artFile).href)).default : {};
   const marks = loadMarks(brand);
@@ -439,6 +431,11 @@ export async function designCampaign({ productId, campaign, png = false, only = 
   const written = [];
   for (const c of campaigns) {
     const dir = join(brand.dir, 'campaigns', c);
+    // A campaign may use another style or palette (campaign.json: { "approach", "combination", "mode" }).
+    brand.config = baseConfig; Object.assign(tokens, baseTokens);
+    const cfgFile = join(dir, 'campaign.json');
+    if (!givenPieces && existsSync(cfgFile)) { const cfg = json(cfgFile); applyStyle(brand, tokens, cfg.approach || brand.config.approach, cfg.combination ? [cfg.combination] : null, cfg.mode); }
+    const skin = await loadSkin(brand.config.approach);
     const pieces = (givenPieces || readPieces(dir)).filter((p) => !only || p.id === only);
     if (!pieces.length) continue;
     const outDir = outRoot ? join(outRoot, c) : join(dir, outDirName);
@@ -488,4 +485,18 @@ async function renderPngs(items, sheetPath, title) {
   await page.screenshot({ path: sheetPath, fullPage: true });
   (await import('node:fs')).unlinkSync(sheetHtml);
   await browser.close();
+}
+
+/** Use another style (and optionally specific Wada combinations) for a preview or a campaign. Without
+ *  combinations, the style's own recommended ones are used. */
+function applyStyle(brand, tokens, approach, combinations = null, mode = 'light') {
+  brand.config = { ...brand.config, approach };
+  const read = (f) => (existsSync(join(ROOT, 'approaches', approach, f)) ? json(join(ROOT, 'approaches', approach, f)) : {});
+  const art = read('art.json');
+  tokens.approach = { ...read('approach.json'), art, motion: read('motion.json') };
+  const recs = (art.palette && art.palette.recommendedCombinations) || [];
+  const num = (r) => +(typeof r === 'object' ? (r.combination ?? r.id ?? r.number) : r);
+  const ids = combinations || recs.map(num).slice(0, 2);
+  const combos = ids.map((n) => tokens.colors.combinations.find((c) => c.id === +n)).filter(Boolean);
+  if (combos.length) tokens.colors = { ...tokens.colors, brand: combos.map((c, i) => ({ name: i ? 'seasonal' : 'primary', combination: c.id, mode, roles: c.roles[mode] || c.roles.light })) };
 }
