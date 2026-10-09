@@ -15,7 +15,7 @@
   const READ = (words) => Math.max(1.5, 0.375 * words + 0.5); // media.json reading rule (s)
 
   let F, cv, ctx, W, H, S, wide, G, L, O, R, K, FD, FM;
-  let cards = [], sprites = {}, dot, grain = [], mark = null, camTable = [];
+  let cards = [], sprites = {}, dot, grain = [], mark = null, camTable = []; // mark stays null: no mark in this film
   const D = 4200, NEAR = 70, FOCAL = 0.95;
   const LABELS = ['Reply to Sam', '3 missed calls', 'Meeting moved', 'Invoice due', 'Remember the milk', 'Flight check-in', 'Rent is due', 'Call the dentist', 'New message', 'Reminder', 'Pay the card', 'Mom: call me', 'Renew licence', 'Weekend plans?'];
   const RUSH = [['Reply.', 1.0], ['Remember.', 2.0], ['Reschedule.', 2.95], ['Pay.', 3.85], ['Don’t forget.', 4.7]];
@@ -61,7 +61,7 @@
     { const g = dot.getContext('2d'); const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, rgba(L, 1)); gr.addColorStop(0.18, rgba(L, 0.95)); gr.addColorStop(0.42, rgba(O, 0.45)); gr.addColorStop(1, rgba(O, 0)); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); }
     // Film grain (static frames, cycled slowly: no flicker).
     for (let k = 0; k < 4; k++) { const c = document.createElement('canvas'); c.width = 512; c.height = 512; const g = c.getContext('2d'); const im = g.createImageData(512, 512); for (let p = 0; p < im.data.length; p += 4) { const v = rand() * 255; im.data[p] = im.data[p + 1] = im.data[p + 2] = v; im.data[p + 3] = 255; } g.putImageData(im, 0, 0); grain.push(c); }
-    if (F.mark) { mark = new Image(); mark.src = F.mark; await mark.decode(); }
+    // No mark in this film (owner's call): the brand appears as its name only.
 
     // The tunnel: cards around the axis, centre kept clear for the words.
     for (let i = 0; i < 170; i++) {
@@ -374,30 +374,32 @@
       ctx.globalAlpha = 1;
     }
 
-    // End card: the still that stays (poster, thumbnail, reduced motion). The mark, large and crisp, with
-    // a soft glow and one sweep of light across it; then the line and the address.
+    // End card: the still that stays (poster, thumbnail, reduced motion). The name, large, in spaced
+    // capitals, with a soft glow and one sweep of light across the letters; then the line and the address.
     if (t >= T.end) {
       const u = ease.out(seg(t, T.end + 0.3, T.end + 1.3));
-      const ms = S * 0.3, cy = H * (wide ? 0.42 : 0.42);
-      if (mark) {
-        const mw = ms * mark.width / mark.height, mx = W / 2 - mw / 2, my = cy - ms * 0.62;
-        ctx.save(); ctx.globalCompositeOperation = 'lighter';
-        ctx.globalAlpha = 0.35 * u; ctx.filter = `blur(${S * 0.012}px)`; ctx.drawImage(mark, mx, my, mw, ms); ctx.filter = 'none';
-        ctx.globalCompositeOperation = 'screen'; ctx.globalAlpha = u; ctx.drawImage(mark, mx, my, mw, ms);
-        const sv = seg(t, T.end + 1.1, T.end + 2.1);
-        if (sv > 0 && sv < 1) {
-          const off = document.createElement('canvas'); off.width = Math.ceil(mw); off.height = Math.ceil(ms); const g = off.getContext('2d');
-          const bx = lerp(-mw * 0.4, mw * 1.4, ease.inOut(sv)), gr = g.createLinearGradient(bx - mw * 0.18, 0, bx + mw * 0.18, ms * 0.35);
-          gr.addColorStop(0, rgba(O, 0)); gr.addColorStop(0.5, rgba(L, 1)); gr.addColorStop(1, rgba(O, 0));
-          g.fillStyle = gr; g.fillRect(0, 0, mw, ms); g.globalCompositeOperation = 'multiply'; g.drawImage(mark, 0, 0, mw, ms);
-          ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 1; ctx.drawImage(off, mx, my);
-        }
-        ctx.restore();
+      const cy = H * (wide ? 0.43 : 0.42), ws = S * (wide ? 0.105 : 0.1);
+      const word = F.brand.toUpperCase(), track = ws * 0.32;
+      ctx.save(); ctx.font = `500 ${ws}px "${FM}"`; ctx.textBaseline = 'alphabetic';
+      const chars = [...word], cw = chars.map((c) => ctx.measureText(c).width), tw = cw.reduce((a, b) => a + b, 0) + track * (chars.length - 1);
+      const x0 = W / 2 - tw / 2, yb = cy;
+      const drawWord = (g) => { let x = x0; chars.forEach((c, i) => { g.fillText(c, x, yb); x += cw[i] + track; }); };
+      ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.4 * u; ctx.filter = `blur(${S * 0.01}px)`; ctx.fillStyle = O; drawWord(ctx); ctx.filter = 'none';
+      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = u; ctx.fillStyle = L; drawWord(ctx);
+      const sv = seg(t, T.end + 1.1, T.end + 2.1);
+      if (sv > 0 && sv < 1) {
+        const off = document.createElement('canvas'); off.width = W; off.height = H; const g = off.getContext('2d');
+        g.font = ctx.font; g.textBaseline = 'alphabetic'; g.fillStyle = '#fff'; drawWord(g);
+        const bx = lerp(x0 - tw * 0.3, x0 + tw * 1.3, ease.inOut(sv)), gr = g.createLinearGradient(bx - tw * 0.12, 0, bx + tw * 0.12, 0);
+        gr.addColorStop(0, rgba(O, 0)); gr.addColorStop(0.5, F.white); gr.addColorStop(1, rgba(O, 0));
+        g.globalCompositeOperation = 'source-in'; g.fillStyle = gr; g.fillRect(0, 0, W, H);
+        ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 0.9; ctx.drawImage(off, 0, 0);
       }
-      line('Your AI buddy is coming soon.', t, T.end + 0.7, 1e9, { y: cy + ms * 0.6 + mid * 0.55, size: mid * 0.92, accent: ['soon'], italic: ['soon'] });
+      ctx.restore();
+      line('Your AI buddy is coming soon.', t, T.end + 0.7, 1e9, { y: cy + ws * 1.05, size: mid * 0.92, accent: ['soon'], italic: ['soon'] });
       const u2 = ease.out(seg(t, T.end + 1.7, T.end + 2.4));
       ctx.globalAlpha = u2; ctx.fillStyle = O; ctx.font = `500 ${S * 0.028}px "${FM}"`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-      ctx.fillText('xooteq.com', W / 2, cy + ms * 0.6 + mid * 1.65); ctx.textAlign = 'left'; ctx.globalAlpha = 1;
+      ctx.fillText('xooteq.com', W / 2, cy + ws * 1.05 + mid * 1.1); ctx.textAlign = 'left'; ctx.globalAlpha = 1;
     }
 
     // Grain (static frames, changed four times a second: texture, not flicker) and the cinema bars.
