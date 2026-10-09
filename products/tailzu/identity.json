@@ -48,11 +48,26 @@
     "$comment": "Original files copied unchanged from the brand's site repo. Never redraw, simplify or substitute them.",
     "files": [
       {
-        "file": "assets/logos/tailzu-mark.svg",
-        "from": "tailzu-web/favicon.svg",
-        "what": "The mark: three cream keycaps joined by lines (a pale line, an amber dashed link, a copper tail ending in a dot) on the app's near-black tile. Vector, 1000 × 1000.",
+        "file": "assets/logos/humanist/tailzu-mark-dark.svg",
+        "from": "products/tailzu/logo/humanist-logo.mjs (owner's brief: three keycaps only, Humanist Minimal, more negative space; kept in black)",
+        "what": "The mark: three hand-cut paper keycaps in the original constellation on a Wada Black tile, one key in Yellow Ocher (the brand's amber, 'alive, right now'), no connecting lines. Vector, 1000 x 1000.",
         "kind": "icon",
         "on": "any"
+      },
+      {
+        "file": "assets/logos/humanist/tailzu-icon-512.png",
+        "from": "tailzu-mark-dark.svg",
+        "what": "App icon, 512 x 512."
+      },
+      {
+        "file": "assets/logos/humanist/tailzu-icon-180.png",
+        "from": "tailzu-mark-dark.svg",
+        "what": "Touch icon, 180 x 180."
+      },
+      {
+        "file": "assets/logos/tailzu-mark.svg",
+        "from": "tailzu-web/favicon.svg",
+        "what": "The mark: three cream keycaps joined by lines (a pale line, an amber dashed link, a copper tail ending in a dot) on the app's near-black tile. Vector, 1000 × 1000. Retired: replaced by the Humanist Minimal mark (owner approved, 2026-10-09). Kept for reference."
       },
       {
         "file": "assets/logos/icon-512.png",
@@ -65,7 +80,7 @@
         "what": "Touch icon, 180 × 180."
       }
     ],
-    "usage": "The site's header and og.png draw the mark without its tile (the inner svg of favicon.svg, viewBox 170 228 680 512) on dark grounds, keycaps #F4F1EA. On light grounds the site recolours only the three keycaps to its ink #1B1712 (index.html: .mast[data-tone=light] .mark rect). Those are the only two treatments we use: the inner mark as-is on dark grounds, the keycaps in #1B1712 on light grounds, or the full tile (favicon.svg unchanged) where an app icon is meant. The brand has no wordmark font of its own; where a name is needed it is set in the pairing's sans beside the mark. The amber link is the only place the amber is 'the brand's own' (README, The mark).",
+    "usage": "The mark is the black tile (tailzu-mark-dark.svg), approved by the owner on 2026-10-09: always the black version, on every ground; never recoloured, redrawn or set without its tile. The blue and light tiles and the tile-less marks in assets/logos/humanist/ were proposals and are not used. The brand has no wordmark font of its own; where a name is needed it is set in the pairing's sans beside the mark.",
     "$engine": "kind (icon | wordmark | lockup) and on (dark | light | any) tell the design engine which original file to place; only files with a kind are used."
   },
   "signals": {

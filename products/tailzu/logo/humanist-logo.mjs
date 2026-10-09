@@ -59,12 +59,9 @@ const svg = (body, { tile = null, title }) =>
   (tile ? `<rect width="${S}" height="${S}" fill="${tile}"/>` : '') + body + '</svg>\n';
 
 mkdirSync(OUT, { recursive: true });
+// The owner chose the black tile (2026-10-09); the blue and light proposals are no longer made.
 const files = {
   'tailzu-mark-dark.svg': svg(keys({ ground: C.black, paper: C.white, ink: C.black, accent: C.amber }), { tile: C.black, title: 'Tailzu' }),
-  'tailzu-mark-blue.svg': svg(keys({ ground: C.blue, paper: C.white, ink: C.black, accent: C.amber }), { tile: C.blue, title: 'Tailzu' }),
-  'tailzu-mark-light.svg': svg(keys({ ground: C.buff, paper: C.white, ink: C.black, accent: C.amber, outline: true }), { tile: C.buff, title: 'Tailzu' }),
-  'tailzu-mark-on-dark.svg': svg(keys({ ground: C.black, paper: C.white, ink: C.black, accent: C.amber }), { title: 'Tailzu' }),
-  'tailzu-mark-on-light.svg': svg(keys({ ground: C.white, paper: C.white, ink: C.black, accent: C.amber, outline: true }), { title: 'Tailzu' }),
 };
 for (const [f, s] of Object.entries(files)) writeFileSync(join(OUT, f), s);
 console.log(Object.keys(files).map((f) => 'products/tailzu/assets/logos/humanist/' + f).join('\n'));
