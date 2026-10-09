@@ -20,7 +20,9 @@ function sayGlobe(ctx, b, h) {
   const scale = Math.min(1, Math.max(0.3, (ctx.piece.art && ctx.piece.art.size) || 1));
   const R = s * 0.42 * scale, cx = b.x + b.w / 2, cy = b.y + b.h / 2;
   // The snippets and outline sit on white paper, so they are always Wada Black ink, whatever the ground.
-  const ink = ctx.pal.black || palette.ink, paper = palette.paper, accent = palette.accent;
+  const ink = ctx.pal.black || palette.ink, paper = palette.paper;
+  // The accent snippet sits on white paper: if the accent is too pale to read there, use the ground colour instead.
+  const accent = ctx.contrast(palette.accent, paper) >= 3 ? palette.accent : (ctx.contrast(ctx.pal.ground, paper) >= 3 ? ctx.pal.ground : ink);
   const sw = r1(s * 0.014 * Math.sqrt(scale));
   const N = scale < 0.8 ? 20 : 34, F = 72, DUR = 24, TILT = -0.38;
   const animate = !(ctx.piece.art && ctx.piece.art.motion === false);

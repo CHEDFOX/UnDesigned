@@ -1,6 +1,6 @@
 {
-  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 313: yellow ground, black text at 15.93:1 (the highest contrast in the palette), carmine as the one accent (cout <<, 5.6:1 on the white globe). Chosen with the user for warmth and strong contrast over the style's calmer recommended grounds.",
+  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 113, dark: Vandyke brown ground, seashell-pink text at 8.59:1. A two-colour combination, so the one accent snippet (cout <<) on the white globe takes the Vandyke brown (seashell pink would not read on white). Chosen by the user.",
   "approach": "humanist-minimal",
-  "combination": 313,
-  "mode": "light"
+  "combination": 113,
+  "mode": "dark"
 }

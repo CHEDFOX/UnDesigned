@@ -188,7 +188,8 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
     inkColour: hex(r.ink), black: hex('black'), white: hex('white'), paper: hex('white'),
   };
   pal.all = [...new Set([pal.ground, pal.ink, pal.inkColour, pal.accent, ...pal.support, pal.black, pal.white].filter(Boolean))];
-  pal.onGround = readableOn(pal.ground, [pal.ink, pal.black, pal.white]);
+  // Text on the ground uses the combination's own text colour when it passes AA (4.5:1); otherwise black or white.
+  pal.onGround = pal.ink && contrast(pal.ink, pal.ground) >= 4.5 ? pal.ink : readableOn(pal.ground, [pal.ink, pal.black, pal.white]);
   pal.onAccent = readableOn(pal.accent, [pal.black, pal.white, pal.ink]);
 
   const pair = tokens.typography.pairing;
