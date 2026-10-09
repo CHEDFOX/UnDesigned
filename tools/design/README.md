@@ -17,6 +17,7 @@ node tools/design/preview.mjs <style> --png      # the test copy in any style, w
 6. **Motion** (`animate: true`): one element at a time, the style's arrival spring from `motion.json`, the headline held for its reading time (`foundations/layout/media.json`), ending on a still; reduced motion shows the end frame.
 7. **No brand** (`brand: false`): leaves out the logo and name on that piece, when the user asks for it.
 8. **Campaign style** (`campaign.json`): `approach`, `combination`, `mode`, and `text` ("white" or "black") to set the text colour on the ground.
+9. **Video** (`node tools/design/video.mjs <piece.svg> <seconds> [out.mp4]`): an animated piece as a frame-exact MP4 (H.264, 30 fps); one cycle loops seamlessly.
 
 ## The ten skins
 
