@@ -249,6 +249,7 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
     }
     if (slot.role === 'image') continue;
     if (slot.role === 'brand') {
+      if (ctx.piece.brand === false) continue; // the copy asked for no logo or name on this piece
       const fill = textFill(slot);
       const drawn = drawBrand(ctx, b, slot, marks, fill);
       // Skins may draw behind the brand (a plate, a sticker) from its real size: decorate(ctx, slot, { brand: true, size, width, box, fill, face }).

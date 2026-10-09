@@ -15,6 +15,7 @@ node tools/design/preview.mjs <style> --png      # the test copy in any style, w
 4. **The brand.** The original mark from `identity.json` (`kind`: icon, wordmark or lockup; `on`: dark, light or any), placed as is; SVG marks are inlined so their own fonts load.
 5. **Photos.** Each photo's tones are measured once (`photo-tones.json`): text over a photo takes the colour that reads on its worst-case pixels behind the text, and skins get luminance percentiles for posterizing and duotones.
 6. **Motion** (`animate: true`): one element at a time, the style's arrival spring from `motion.json`, the headline held for its reading time (`foundations/layout/media.json`), ending on a still; reduced motion shows the end frame.
+7. **No brand** (`brand: false`): leaves out the logo and name on that piece, when the user asks for it.
 
 ## The ten skins
 
