@@ -1,6 +1,6 @@
 {
-  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 343: ivory-buff linen ground, Vandar Poel's blue text at 6.11:1, burnt sienna as the one accent (cout <<). On the style's recommended list; calm and paper-like, so a small globe can sit in a lot of empty ground.",
+  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 313: yellow ground, black text at 15.93:1 (the highest contrast in the palette), carmine as the one accent (cout <<, 5.6:1 on the white globe). Chosen with the user for warmth and strong contrast over the style's calmer recommended grounds.",
   "approach": "humanist-minimal",
-  "combination": 343,
+  "combination": 313,
   "mode": "light"
 }
