@@ -12,7 +12,8 @@
     "check:copy:sample": "node scripts/check-copy.mjs products/sample-bakery",
     "design": "node scripts/design.mjs",
     "compose": "node tools/design/compose.mjs",
-    "recipes": "node tools/design/recipes.mjs"
+    "recipes": "node tools/design/recipes.mjs",
+    "film": "node tools/design/film.mjs"
   },
   "engines": {
     "node": ">=18"

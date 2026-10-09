@@ -1,0 +1,78 @@
+{
+  "$comment": "Launch film for XOOTEQ's AI buddy. Storyboard: storyboard-buddy-film.md. Rendered by npm run film -- xooteq ai-buddy --mp4 (tools/design/film.mjs); the art is products/xooteq/art.mjs -> film. Scene times come from the reading rule; 'pre' is the art's own move before the line arrives. Combination: recipe bold-confident-3 from the library (the best dark, cinematic recipe for a friendly, exciting tech launch), not the site's colours.",
+  "id": "buddy-film",
+  "recipe": "bold-confident-3",
+  "aspects": [
+    "16:9",
+    "9:16"
+  ],
+  "brandIn": 1200,
+  "scenes": [
+    {
+      "id": "hook",
+      "pre": 1500,
+      "text": "You haven't asked yet.",
+      "accent": [
+        "asked"
+      ]
+    },
+    {
+      "id": "done",
+      "pre": 700,
+      "text": "It's already done.",
+      "accent": [
+        "already"
+      ]
+    },
+    {
+      "id": "day",
+      "pre": 2300,
+      "text": "Your whole day. Every little thing."
+    },
+    {
+      "id": "turn",
+      "pre": 3800,
+      "text": "Handled.",
+      "accent": [
+        "handled"
+      ]
+    },
+    {
+      "id": "knows1",
+      "pre": 1100,
+      "text": "It knows how you take your coffee.",
+      "accent": [
+        "coffee"
+      ]
+    },
+    {
+      "id": "knows2",
+      "pre": 550,
+      "text": "It knows who to call back.",
+      "accent": [
+        "call"
+      ]
+    },
+    {
+      "id": "knows3",
+      "pre": 550,
+      "text": "It knows when to leave you alone.",
+      "accent": [
+        "alone"
+      ]
+    },
+    {
+      "id": "peak",
+      "pre": 1100,
+      "text": "Meet your AI buddy.",
+      "accent": [
+        "buddy"
+      ],
+      "big": true
+    }
+  ],
+  "end": {
+    "headline": "Your buddy is almost here.",
+    "cta": "xooteq.com"
+  }
+}

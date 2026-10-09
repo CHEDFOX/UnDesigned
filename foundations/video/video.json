@@ -1,6 +1,5 @@
 {
   "$comment": "Video, content and motion graphics: evidence and cross-style rules. Extends foundations/layout/media.json (text over video, on-screen reading time, motion onset, edit blindness, sound off): those findings are referenced by id, not repeated. Ids here are unique across layout.json, media.json and this file. Styles decide how motion feels (approaches/<id>/motion.json: springs, easings, moves, choreography); where a style's motion.json sets a number, it wins over the defaults here. 'strength': strong = replicated, reviewed or meta-analysed; moderate = one good study or careful practitioner research with a stated method; emerging = new, platform- or vendor-reported; contested = mixed or weak. Numbers marked ruleOfThumb are conventions, not findings; 'practitioner' marks industry guidance. Evidence lists may also cite ids from foundations/layout/layout.json and media.json (findings, and the media.json video rule 'first-frame'). Full sources: research.md section 13; scorecard: section 12. Storyboard template: templates/video/storyboard.md. Title-card generator: templates/video/title-card.mjs.",
-
   "findings": [
     {
       "id": "zap-dispersion",
@@ -344,9 +343,42 @@
       "sources": [
         "Mayrhofer, Matthes, Einwiller & Naderer (2020), International Journal of Advertising 39(1), 166-186"
       ]
+    },
+    {
+      "id": "curiosity-gap",
+      "title": "An open question is a reward the brain wants",
+      "finding": "Curiosity rises when people notice a gap between what they know and what they want to know. In fMRI, curiosity about a question activated reward regions (caudate), and curiosity was highest at moderate confidence; it also improved later memory of the answer.",
+      "effect": "fMRI and behavioural studies.",
+      "strength": "strong",
+      "designRule": "Open with a small, answerable gap (a line that implies something the viewer doesn't know yet) and close it within the piece. Keep the viewer moderately sure, not lost.",
+      "sources": [
+        "Loewenstein (1994), Psychological Bulletin 116(1), 75-98",
+        "Kang, Hsu, Krajbich, Loewenstein, McClure, Wang & Camerer (2009), Psychological Science 20(8), 963-973"
+      ]
+    },
+    {
+      "id": "surprise-attention",
+      "title": "Surprise pulls the eye",
+      "finding": "Surprise, measured as how much new input changes an observer's expectations, predicted where people looked while watching television: 72% of gaze shifts went to more surprising than average locations (84% where all observers agreed).",
+      "effect": "Eye-tracking on video.",
+      "strength": "strong",
+      "designRule": "Put the turn of the story where the eye already is and make it a change of expectation (the thing is already done), not just more movement.",
+      "sources": [
+        "Itti & Baldi (2009), Vision Research 49(10), 1295-1306"
+      ]
+    },
+    {
+      "id": "anticipation-reward",
+      "title": "Anticipation is rewarding in itself",
+      "finding": "Dopamine is released both while anticipating a peak moment in music and at the peak itself, in distinct parts of the striatum.",
+      "effect": "PET and fMRI with music.",
+      "strength": "strong",
+      "designRule": "Build a rising sequence the viewer can predict (three beats that grow) before the peak, and leave the ending pointing forward (something is coming) rather than fully closed.",
+      "sources": [
+        "Salimpoor, Benovoy, Larcher, Dagher & Zatorre (2011), Nature Neuroscience 14(2), 257-262"
+      ]
     }
   ],
-
   "myths": [
     {
       "id": "goldfish-attention",
@@ -397,72 +429,237 @@
       "useInstead": "Under reduced motion, show the final frames, swap moves and zooms for cuts or short fades, and stop loops."
     }
   ],
-
   "structure": {
     "$comment": "Beats for a short brand or product video, in order. Seconds are [start, end]. Percent ranges and seconds are rules of thumb fitted to the evidence (brand early, story with a turn, end on a still with a CTA); only the ordering principles are evidenced. Beats can merge in short cuts (null = skipped). The end card is held at least as long as media.json's reading rule for its words.",
     "readingRule": "media.json -> video -> on-screen-time: hold = max(1.5 s, 0.375 s x words + 0.5 s)",
-    "cuts": [6, 15, 30, 60],
+    "cuts": [
+      6,
+      15,
+      30,
+      60
+    ],
     "beats": [
       {
         "id": "hook",
         "name": "Hook and first frame",
         "job": "Stop the scroll: a surprise, a mid-action opening, a close-up or the customer's problem in one image. The first frame must work as a still (media.json first-frame).",
-        "pct": [0, 10],
-        "seconds": { "6": [0, 1.5], "15": [0, 2], "30": [0, 3], "60": [0, 5] },
+        "pct": [
+          0,
+          10
+        ],
+        "seconds": {
+          "6": [
+            0,
+            1.5
+          ],
+          "15": [
+            0,
+            2
+          ],
+          "30": [
+            0,
+            3
+          ],
+          "60": [
+            0,
+            5
+          ]
+        },
         "ruleOfThumb": true,
-        "evidence": ["joy-surprise", "abcd", "short-exposure-lift", "zap-dispersion"],
-        "principles": ["O2", "W1", "S8"]
+        "evidence": [
+          "joy-surprise",
+          "abcd",
+          "short-exposure-lift",
+          "zap-dispersion"
+        ],
+        "principles": [
+          "O2",
+          "W1",
+          "S8"
+        ]
       },
       {
         "id": "brand",
         "name": "Brand in",
         "job": "Brand or product visibly in the first seconds, woven into the action, then pulsed again; never only at the end. Next to the headline when text is on screen.",
-        "pct": [0, 15],
-        "seconds": { "6": [0, 1.5], "15": [0, 3], "30": [0, 5], "60": [0, 8] },
+        "pct": [
+          0,
+          15
+        ],
+        "seconds": {
+          "6": [
+            0,
+            1.5
+          ],
+          "15": [
+            0,
+            3
+          ],
+          "30": [
+            0,
+            5
+          ],
+          "60": [
+            0,
+            8
+          ]
+        },
         "ruleOfThumb": true,
-        "evidence": ["zap-dispersion", "entertain-after-brand", "abcd", "skip-choice"],
-        "principles": ["O4", "O11"]
+        "evidence": [
+          "zap-dispersion",
+          "entertain-after-brand",
+          "abcd",
+          "skip-choice"
+        ],
+        "principles": [
+          "O4",
+          "O11"
+        ]
       },
       {
         "id": "problem",
         "name": "The customer's problem",
         "job": "Show the customer (the hero) and the problem, ideally its internal side (how it feels).",
-        "pct": [10, 30],
-        "seconds": { "6": null, "15": [2, 5], "30": [3, 9], "60": [5, 18] },
+        "pct": [
+          10,
+          30
+        ],
+        "seconds": {
+          "6": null,
+          "15": [
+            2,
+            5
+          ],
+          "30": [
+            3,
+            9
+          ],
+          "60": [
+            5,
+            18
+          ]
+        },
         "ruleOfThumb": true,
-        "evidence": ["dramatic-form", "transportation"],
-        "principles": ["S1", "S2", "S3"]
+        "evidence": [
+          "dramatic-form",
+          "transportation"
+        ],
+        "principles": [
+          "S1",
+          "S2",
+          "S3"
+        ]
       },
       {
         "id": "product-hero",
         "name": "Product as the hero of the idea",
         "job": "The product resolves the problem on screen: the one dramatic truth, shown, not said. The story's turn or peak happens here.",
-        "pct": [30, 65],
-        "seconds": { "6": [1.5, 4], "15": [5, 10], "30": [9, 20], "60": [18, 40] },
+        "pct": [
+          30,
+          65
+        ],
+        "seconds": {
+          "6": [
+            1.5,
+            4
+          ],
+          "15": [
+            5,
+            10
+          ],
+          "30": [
+            9,
+            20
+          ],
+          "60": [
+            18,
+            40
+          ]
+        },
         "ruleOfThumb": true,
-        "evidence": ["dramatic-form", "entertain-after-brand", "peak-end", "animation-congruence"],
-        "principles": ["W8", "W2", "W5", "S7"]
+        "evidence": [
+          "dramatic-form",
+          "entertain-after-brand",
+          "peak-end",
+          "animation-congruence"
+        ],
+        "principles": [
+          "W8",
+          "W2",
+          "W5",
+          "S7"
+        ]
       },
       {
         "id": "proof",
         "name": "Proof",
         "job": "One specific fact, number, demo result or real customer (never invented).",
-        "pct": [65, 83],
-        "seconds": { "6": null, "15": [10, 12], "30": [20, 25], "60": [40, 50] },
+        "pct": [
+          65,
+          83
+        ],
+        "seconds": {
+          "6": null,
+          "15": [
+            10,
+            12
+          ],
+          "30": [
+            20,
+            25
+          ],
+          "60": [
+            40,
+            50
+          ]
+        },
         "ruleOfThumb": true,
-        "evidence": ["ugc-persuasion", "multimedia-principles"],
-        "principles": ["S4", "O5"]
+        "evidence": [
+          "ugc-persuasion",
+          "multimedia-principles"
+        ],
+        "principles": [
+          "S4",
+          "O5"
+        ]
       },
       {
         "id": "cta",
         "name": "Call to action and end card",
         "job": "Brand plus one direct call to action on a still frame that works as a poster, held for its reading time. A transitional CTA can follow for longer cuts.",
-        "pct": [83, 100],
-        "seconds": { "6": [4, 6], "15": [12, 15], "30": [25, 30], "60": [50, 60] },
+        "pct": [
+          83,
+          100
+        ],
+        "seconds": {
+          "6": [
+            4,
+            6
+          ],
+          "15": [
+            12,
+            15
+          ],
+          "30": [
+            25,
+            30
+          ],
+          "60": [
+            50,
+            60
+          ]
+        },
         "minHold": "max(1.5 s, 0.375 s x words + 0.5 s); 2 s for a 4-word CTA",
         "ruleOfThumb": true,
-        "evidence": ["peak-end", "abcd", "on-screen-reading"],
-        "principles": ["S6", "O4"]
+        "evidence": [
+          "peak-end",
+          "abcd",
+          "on-screen-reading"
+        ],
+        "principles": [
+          "S6",
+          "O4"
+        ]
       }
     ],
     "notes": [
@@ -472,25 +669,93 @@
       "Skippable placements: hook, brand and the one message inside the first 5 s (skip-choice)."
     ]
   },
-
   "pacing": {
     "$comment": "Shot lengths are rules of thumb unless an id is given. Text over footage follows media.json -> video (static text, still zone, worst frame, change on a cut, reading time).",
     "principles": [
-      { "rule": "Vary shot lengths in runs instead of cutting on a fixed metronome.", "evidence": ["shot-rhythm"] },
-      { "rule": "For energy, cut to new angles within the same scene; cuts to unrelated scenes cost more attention.", "evidence": ["edit-rate", "capacity-overload"] },
-      { "rule": "One source of intensity at a time: fast cutting, arousing content or dense information.", "evidence": ["capacity-overload"] },
-      { "rule": "Hold any shot that carries words for at least the reading time; change text on a cut.", "evidence": ["on-screen-reading", "edit-blindness"] },
-      { "rule": "Show changes in shot, not across a cut, when the change is the point.", "evidence": ["change-at-cut"] },
-      { "rule": "Keep one focal point per shot; attention that scatters predicts zapping.", "evidence": ["zap-dispersion", "inattentional-blindness"] }
+      {
+        "rule": "Vary shot lengths in runs instead of cutting on a fixed metronome.",
+        "evidence": [
+          "shot-rhythm"
+        ]
+      },
+      {
+        "rule": "For energy, cut to new angles within the same scene; cuts to unrelated scenes cost more attention.",
+        "evidence": [
+          "edit-rate",
+          "capacity-overload"
+        ]
+      },
+      {
+        "rule": "One source of intensity at a time: fast cutting, arousing content or dense information.",
+        "evidence": [
+          "capacity-overload"
+        ]
+      },
+      {
+        "rule": "Hold any shot that carries words for at least the reading time; change text on a cut.",
+        "evidence": [
+          "on-screen-reading",
+          "edit-blindness"
+        ]
+      },
+      {
+        "rule": "Show changes in shot, not across a cut, when the change is the point.",
+        "evidence": [
+          "change-at-cut"
+        ]
+      },
+      {
+        "rule": "Keep one focal point per shot; attention that scatters predicts zapping.",
+        "evidence": [
+          "zap-dispersion",
+          "inattentional-blindness"
+        ]
+      }
     ],
     "shotSeconds": {
       "$comment": "Typical shot length ranges in seconds. ruleOfThumb.",
-      "brand-film": { "range": [2, 5], "notes": "Rhythm varies; let one key shot breathe at the peak." },
-      "product-demo": { "range": [2, 4], "notes": "Hold each feature shot until the action completes, then at least the reading time of any label." },
-      "how-to": { "range": [3, 8], "notes": "One step per shot or segment; hold until the step is visibly done plus about 1 s." },
-      "ugc-testimonial": { "range": [3, 8], "notes": "Longer takes keep it believable; trim pauses with jump cuts or b-roll of the product." },
-      "explainer": { "range": [3, 8], "notes": "One idea per scene; animate the change, then hold the still." },
-      "motion-graphic": { "range": [1.5, 3], "notes": "One change per beat; each text card held for its reading time." },
+      "brand-film": {
+        "range": [
+          2,
+          5
+        ],
+        "notes": "Rhythm varies; let one key shot breathe at the peak."
+      },
+      "product-demo": {
+        "range": [
+          2,
+          4
+        ],
+        "notes": "Hold each feature shot until the action completes, then at least the reading time of any label."
+      },
+      "how-to": {
+        "range": [
+          3,
+          8
+        ],
+        "notes": "One step per shot or segment; hold until the step is visibly done plus about 1 s."
+      },
+      "ugc-testimonial": {
+        "range": [
+          3,
+          8
+        ],
+        "notes": "Longer takes keep it believable; trim pauses with jump cuts or b-roll of the product."
+      },
+      "explainer": {
+        "range": [
+          3,
+          8
+        ],
+        "notes": "One idea per scene; animate the change, then hold the still."
+      },
+      "motion-graphic": {
+        "range": [
+          1.5,
+          3
+        ],
+        "notes": "One change per beat; each text card held for its reading time."
+      },
       "ruleOfThumb": true
     },
     "holds": {
@@ -501,25 +766,128 @@
     },
     "textOnScreen": "See media.json -> video: static-text, on-screen-time, worst-frame, still-zone, cuts, captions, first-frame."
   },
-
   "motionGraphics": {
     "principles": [
-      { "id": "one-mover", "rule": "One thing moves at a time; everything else is still.", "evidence": ["motion-onset", "capacity-overload", "zap-dispersion"] },
-      { "id": "meaningful", "rule": "Animate only what changes in the idea (arrive, transform, connect, leave). No decorative motion.", "evidence": ["animation-congruence"] },
-      { "id": "steps", "rule": "Break processes into steps that each end on a readable still.", "evidence": ["animation-congruence", "multimedia-principles"] },
-      { "id": "natural", "rule": "Nothing starts or stops dead: springs or eased curves, arcs not straight lines for travelling objects.", "evidence": ["cartoon-motion"] },
-      { "id": "end-still", "rule": "Every sequence ends on a still frame that works as a complete poster (brand, message, CTA).", "evidence": ["first-frame", "peak-end"] },
-      { "id": "never-flash", "rule": "Never flash: no strobes, no rapid colour or brightness alternation, no flicker, no moving stripes.", "evidence": ["photosensitivity"] },
-      { "id": "small-moves", "rule": "Prefer short travel, small scale changes and fades over zooms, spins and parallax.", "evidence": ["vestibular"] }
+      {
+        "id": "one-mover",
+        "rule": "One thing moves at a time; everything else is still.",
+        "evidence": [
+          "motion-onset",
+          "capacity-overload",
+          "zap-dispersion"
+        ]
+      },
+      {
+        "id": "meaningful",
+        "rule": "Animate only what changes in the idea (arrive, transform, connect, leave). No decorative motion.",
+        "evidence": [
+          "animation-congruence"
+        ]
+      },
+      {
+        "id": "steps",
+        "rule": "Break processes into steps that each end on a readable still.",
+        "evidence": [
+          "animation-congruence",
+          "multimedia-principles"
+        ]
+      },
+      {
+        "id": "natural",
+        "rule": "Nothing starts or stops dead: springs or eased curves, arcs not straight lines for travelling objects.",
+        "evidence": [
+          "cartoon-motion"
+        ]
+      },
+      {
+        "id": "end-still",
+        "rule": "Every sequence ends on a still frame that works as a complete poster (brand, message, CTA).",
+        "evidence": [
+          "first-frame",
+          "peak-end"
+        ]
+      },
+      {
+        "id": "never-flash",
+        "rule": "Never flash: no strobes, no rapid colour or brightness alternation, no flicker, no moving stripes.",
+        "evidence": [
+          "photosensitivity"
+        ]
+      },
+      {
+        "id": "small-moves",
+        "rule": "Prefer short travel, small scale changes and fades over zooms, spins and parallax.",
+        "evidence": [
+          "vestibular"
+        ]
+      }
     ],
     "timing": {
       "$comment": "Milliseconds. Bounds for every style; the style's motion.json picks values inside them (and wins where it sets a number). ruleOfThumb, built from practitioner sources (ui-motion-timing).",
-      "micro": { "ms": [100, 200], "use": "Hover, press, toggle, small icon changes.", "sources": ["ui-motion-timing"] },
-      "standard": { "ms": [200, 400], "use": "Cards, panels, small elements changing state.", "sources": ["ui-motion-timing"] },
-      "entrance": { "ms": [250, 500], "spring": "or a spring that settles within about 1,200 ms", "use": "Text and objects arriving. Springs are measured to settle (the style's springs).", "sources": ["ui-motion-timing", "cartoon-motion"] },
-      "exit": { "ms": [150, 300], "use": "Things leaving: shorter than entrances, accelerating away.", "sources": ["ui-motion-timing"] },
-      "emphasis": { "ms": [300, 600], "use": "One pulse, nudge or highlight on a key word or object; once, not looping.", "sources": ["ui-motion-timing", "kinetic-type"] },
-      "scene": { "ms": [500, 1000], "use": "Scene transitions and full-screen changes; a cut is often better.", "sources": ["ui-motion-timing", "vestibular"] },
+      "micro": {
+        "ms": [
+          100,
+          200
+        ],
+        "use": "Hover, press, toggle, small icon changes.",
+        "sources": [
+          "ui-motion-timing"
+        ]
+      },
+      "standard": {
+        "ms": [
+          200,
+          400
+        ],
+        "use": "Cards, panels, small elements changing state.",
+        "sources": [
+          "ui-motion-timing"
+        ]
+      },
+      "entrance": {
+        "ms": [
+          250,
+          500
+        ],
+        "spring": "or a spring that settles within about 1,200 ms",
+        "use": "Text and objects arriving. Springs are measured to settle (the style's springs).",
+        "sources": [
+          "ui-motion-timing",
+          "cartoon-motion"
+        ]
+      },
+      "exit": {
+        "ms": [
+          150,
+          300
+        ],
+        "use": "Things leaving: shorter than entrances, accelerating away.",
+        "sources": [
+          "ui-motion-timing"
+        ]
+      },
+      "emphasis": {
+        "ms": [
+          300,
+          600
+        ],
+        "use": "One pulse, nudge or highlight on a key word or object; once, not looping.",
+        "sources": [
+          "ui-motion-timing",
+          "kinetic-type"
+        ]
+      },
+      "scene": {
+        "ms": [
+          500,
+          1000
+        ],
+        "use": "Scene transitions and full-screen changes; a cut is often better.",
+        "sources": [
+          "ui-motion-timing",
+          "vestibular"
+        ]
+      },
       "ruleOfThumb": true
     },
     "easing": {
@@ -530,7 +898,10 @@
         "Exits: accelerate away (ease-in); never spring out.",
         "No linear easing for movement, except continuous loops such as a slow drift or a scrolling ticker the style allows."
       ],
-      "evidence": ["cartoon-motion", "ui-motion-timing"]
+      "evidence": [
+        "cartoon-motion",
+        "ui-motion-timing"
+      ]
     },
     "kineticType": {
       "rules": [
@@ -540,7 +911,11 @@
         "Keep text inside the format's safe area at every frame, including mid-move.",
         "Respect the style's type rules (sentence case, sizes per format, no handwriting faces where banned)."
       ],
-      "evidence": ["kinetic-type", "on-screen-reading", "motion-onset"]
+      "evidence": [
+        "kinetic-type",
+        "on-screen-reading",
+        "motion-onset"
+      ]
     },
     "loops": {
       "rules": [
@@ -550,175 +925,373 @@
         "Loop length comes from the style (humanist-minimal 2-4 s; negative-space 6-12 s, rarely).",
         "Repetition builds familiarity only up to a point (layout.json repetition, wear-out); rotate loops across a campaign."
       ],
-      "evidence": ["repetition", "wear-out", "motion-onset"]
+      "evidence": [
+        "repetition",
+        "wear-out",
+        "motion-onset"
+      ]
     }
   },
-
   "sound": {
     "rules": [
-      { "rule": "Design for sound off first: the one message works on screen as text and image; speech is captioned.", "evidence": ["sound-off", "on-screen-reading"] },
-      { "rule": "Then design for sound on: music, voice and effects that fit the brand, the story's mood and the pictures.", "evidence": ["music-fit", "abcd"] },
-      { "rule": "Voice-over says what the picture can't; on-screen text carries only key words, not the full narration (captions are separate).", "evidence": ["multimedia-principles"] },
-      { "rule": "Speak to one person in plain, conversational words.", "evidence": ["multimedia-principles"] },
-      { "rule": "Cut on the beat when cutting to music; let the music resolve with the end card.", "evidence": ["music-fit", "peak-end"], "ruleOfThumb": true },
-      { "rule": "Use a sonic logo, if the brand has one, the same way every time, short and simple, never as the only branding.", "evidence": ["sonic-logo", "distinctive-assets", "sound-off"] },
-      { "rule": "No audio that plays by itself for more than 3 s on the web without a pause or volume control (WCAG 1.4.2).", "evidence": [] },
-      { "rule": "Keep music under speech; the words must be clear on a phone speaker.", "evidence": [], "ruleOfThumb": true }
+      {
+        "rule": "Design for sound off first: the one message works on screen as text and image; speech is captioned.",
+        "evidence": [
+          "sound-off",
+          "on-screen-reading"
+        ]
+      },
+      {
+        "rule": "Then design for sound on: music, voice and effects that fit the brand, the story's mood and the pictures.",
+        "evidence": [
+          "music-fit",
+          "abcd"
+        ]
+      },
+      {
+        "rule": "Voice-over says what the picture can't; on-screen text carries only key words, not the full narration (captions are separate).",
+        "evidence": [
+          "multimedia-principles"
+        ]
+      },
+      {
+        "rule": "Speak to one person in plain, conversational words.",
+        "evidence": [
+          "multimedia-principles"
+        ]
+      },
+      {
+        "rule": "Cut on the beat when cutting to music; let the music resolve with the end card.",
+        "evidence": [
+          "music-fit",
+          "peak-end"
+        ],
+        "ruleOfThumb": true
+      },
+      {
+        "rule": "Use a sonic logo, if the brand has one, the same way every time, short and simple, never as the only branding.",
+        "evidence": [
+          "sonic-logo",
+          "distinctive-assets",
+          "sound-off"
+        ]
+      },
+      {
+        "rule": "No audio that plays by itself for more than 3 s on the web without a pause or volume control (WCAG 1.4.2).",
+        "evidence": []
+      },
+      {
+        "rule": "Keep music under speech; the words must be clear on a phone speaker.",
+        "evidence": [],
+        "ruleOfThumb": true
+      }
     ]
   },
-
   "accessibility": {
     "flashes": {
       "rule": "No more than three flashes in any one-second period, and no saturated-red flashes; no full-screen strobes or moving high-contrast stripes. Test broadcast and paid video with a Harding-type flash and pattern analyser.",
-      "numbers": { "maxFlashesPerSecond": 3, "hazardLuminanceCdM2": 20, "hazardScreenAreaPct": 25, "maxStripePairs": 5 },
-      "standards": ["WCAG 2.2 SC 2.3.1 (A)", "WCAG 2.2 SC 2.3.2 (AAA): no flashes at all", "ITU-R BT.1702", "Ofcom Broadcasting Code rule 2.13 and its flashing-images guidance (UK)"],
-      "evidence": ["photosensitivity"]
+      "numbers": {
+        "maxFlashesPerSecond": 3,
+        "hazardLuminanceCdM2": 20,
+        "hazardScreenAreaPct": 25,
+        "maxStripePairs": 5
+      },
+      "standards": [
+        "WCAG 2.2 SC 2.3.1 (A)",
+        "WCAG 2.2 SC 2.3.2 (AAA): no flashes at all",
+        "ITU-R BT.1702",
+        "Ofcom Broadcasting Code rule 2.13 and its flashing-images guidance (UK)"
+      ],
+      "evidence": [
+        "photosensitivity"
+      ]
     },
     "reducedMotion": {
       "rule": "Honour prefers-reduced-motion: show final frames, replace zooms, spins, parallax and large moves with cuts or short fades, stop loops. Motion triggered by interaction must be possible to switch off.",
-      "standards": ["CSS Media Queries Level 5: prefers-reduced-motion", "WCAG 2.2 SC 2.3.3 Animation from Interactions (AAA)"],
-      "evidence": ["vestibular"]
+      "standards": [
+        "CSS Media Queries Level 5: prefers-reduced-motion",
+        "WCAG 2.2 SC 2.3.3 Animation from Interactions (AAA)"
+      ],
+      "evidence": [
+        "vestibular"
+      ]
     },
     "pauseControl": {
       "rule": "On the web, anything that starts by itself, moves, blinks or scrolls for more than 5 s alongside other content needs pause, stop or hide controls, or must stop within 5 s. Autoplaying video needs a visible pause button.",
-      "standards": ["WCAG 2.2 SC 2.2.2 Pause, Stop, Hide (A)", "WCAG 2.2 SC 1.4.2 Audio Control (A)"],
-      "evidence": ["vestibular"]
+      "standards": [
+        "WCAG 2.2 SC 2.2.2 Pause, Stop, Hide (A)",
+        "WCAG 2.2 SC 1.4.2 Audio Control (A)"
+      ],
+      "evidence": [
+        "vestibular"
+      ]
     },
     "captions": {
       "rule": "Caption every piece with speech: accurate, synchronised, inside the safe area, clear of the platform's own caption zone. Burned-in captions for social feeds, caption files where the player supports them.",
-      "standards": ["WCAG 2.2 SC 1.2.2 Captions (Prerecorded) (A)", "BBC Subtitle Guidelines (practice)"],
-      "evidence": ["on-screen-reading", "sound-off"]
+      "standards": [
+        "WCAG 2.2 SC 1.2.2 Captions (Prerecorded) (A)",
+        "BBC Subtitle Guidelines (practice)"
+      ],
+      "evidence": [
+        "on-screen-reading",
+        "sound-off"
+      ]
     },
     "audioDescription": {
       "rule": "If important information is only visual (on-screen text without voice, a demo step, a price), say it in the voice-over or provide audio description. Writing the voice-over to describe the key action covers most short pieces.",
-      "standards": ["WCAG 2.2 SC 1.2.3 (A) and 1.2.5 Audio Description (Prerecorded) (AA)"],
-      "evidence": ["multimedia-principles"]
+      "standards": [
+        "WCAG 2.2 SC 1.2.3 (A) and 1.2.5 Audio Description (Prerecorded) (AA)"
+      ],
+      "evidence": [
+        "multimedia-principles"
+      ]
     },
     "contrast": "Text over footage: worst-frame contrast as in media.json -> contrast and video -> worst-frame."
   },
-
   "formats": {
     "$comment": "Video and motion uses of the formats in foundations/messaging/source/formats.json. Lengths are practitioner or platform-spec ranges, marked as such; platform limits change, so check the current spec. Safe areas from foundations/layout/layout.json -> safeAreas.",
     "story": {
       "use": "Stories, Reels, TikTok, YouTube Shorts; also the reel cover.",
-      "aspect": [9, 16],
-      "cuts": [6, 15, 30],
+      "aspect": [
+        9,
+        16
+      ],
+      "cuts": [
+        6,
+        15,
+        30
+      ],
       "lengthNote": "Our standard cuts; platform maximums change and are longer. ruleOfThumb.",
       "safeArea": "layout.json -> safeAreas.story (top 14%, bottom 35%, sides 6%)",
       "firstFrame": "The cover frame shows subject, headline (8 words max) and brand inside the safe area; it must work as a still in the grid and as a cover.",
-      "evidence": ["vertical-mobile", "first-frame"],
+      "evidence": [
+        "vertical-mobile",
+        "first-frame"
+      ],
       "practitioner": true
     },
     "instagram-post": {
       "use": "Feed video at 4:5 or 1:1.",
-      "aspect": [4, 5],
-      "cuts": [6, 15, 30],
+      "aspect": [
+        4,
+        5
+      ],
+      "cuts": [
+        6,
+        15,
+        30
+      ],
       "lengthNote": "ruleOfThumb; check the platform.",
       "safeArea": "layout.json -> safeAreas.instagram-post (about 6% each side, 3:4 grid crop)",
       "firstFrame": "First frame is the grid thumbnail; it must read as a post with the sound off.",
-      "evidence": ["first-frame", "sound-off"],
+      "evidence": [
+        "first-frame",
+        "sound-off"
+      ],
       "practitioner": true
     },
     "thumbnail": {
       "use": "YouTube thumbnail and the poster frame of any horizontal video.",
-      "aspect": [16, 9],
+      "aspect": [
+        16,
+        9
+      ],
       "lengthNote": "A still, not a video. Five words max (formats.json).",
       "safeArea": "layout.json -> safeAreas.thumbnail (keep clear of the bottom-right duration stamp)",
       "firstFrame": "Choose or design the frame: one face or object, the headline on the side it looks to (media.json gaze-cue), brand visible.",
-      "evidence": ["first-frame", "faces-first", "gaze-cue"]
+      "evidence": [
+        "first-frame",
+        "faces-first",
+        "gaze-cue"
+      ]
     },
     "landing-hero": {
       "use": "Background or hero video on a web page.",
-      "aspect": [16, 9],
+      "aspect": [
+        16,
+        9
+      ],
       "lengthNote": "Loop or stop within 5 s, or provide a pause control (WCAG 2.2.2). Muted by default.",
       "safeArea": "layout.json -> grids.wide-screen live area; text in a still zone (media.json still-zone).",
       "firstFrame": "The poster attribute image is the first frame and the reduced-motion fallback; it must carry the headline area clean.",
-      "evidence": ["vestibular", "first-frame"]
+      "evidence": [
+        "vestibular",
+        "first-frame"
+      ]
     },
     "web-banner": {
       "use": "Animated display banner (HTML5 or GIF).",
-      "aspect": [970, 250],
+      "aspect": [
+        970,
+        250
+      ],
       "lengthNote": "Animation stops within 5 s (WCAG 2.2.2) and ends on the complete banner. Ad networks set their own limits; check them.",
       "safeArea": "layout.json -> grids.strip",
       "firstFrame": "The last frame is the poster; the first frame should already show the brand.",
-      "evidence": ["banner-blindness", "zap-dispersion"]
+      "evidence": [
+        "banner-blindness",
+        "zap-dispersion"
+      ]
     },
     "email-header": {
       "use": "Animated GIF header.",
-      "aspect": [600, 300],
+      "aspect": [
+        600,
+        300
+      ],
       "lengthNote": "Some email clients show only the first frame, so the first frame must carry headline and brand; stop within 5 s. practitioner.",
       "safeArea": "layout.json -> grids.email",
       "firstFrame": "Complete message on frame one.",
-      "evidence": ["first-frame"],
+      "evidence": [
+        "first-frame"
+      ],
       "practitioner": true
     },
     "youtube-in-stream": {
       "use": "YouTube in-stream ads (not in formats.json; uses the 16:9 thumbnail canvas).",
-      "aspect": [16, 9],
-      "cuts": [6, 15, 30],
+      "aspect": [
+        16,
+        9
+      ],
+      "cuts": [
+        6,
+        15,
+        30
+      ],
       "lengthNote": "Platform spec (Google Ads Help): bumper up to 6 s, non-skippable 7-15 s (16-30 s on connected TV); skippable ads can be skipped after 5 s.",
       "safeArea": "Keep text clear of the player controls and skip button: bottom 15% and the bottom-right corner. ruleOfThumb.",
       "firstFrame": "Hook, brand and the one message inside the first 5 s.",
-      "evidence": ["skip-choice", "ad-length-position", "abcd"]
+      "evidence": [
+        "skip-choice",
+        "ad-length-position",
+        "abcd"
+      ]
     },
     "billboard": {
       "use": "Digital out-of-home screens.",
-      "aspect": [48, 14],
+      "aspect": [
+        48,
+        14
+      ],
       "lengthNote": "Many sites allow only still slides or limited motion; follow the media owner's spec and local rules. practitioner.",
       "safeArea": "layout.json -> safeAreas.billboard",
       "firstFrame": "Each slide is a complete poster; motion, if allowed, is a single slow move.",
-      "evidence": ["first-glance"],
+      "evidence": [
+        "first-glance"
+      ],
       "practitioner": true
     }
   },
-
   "contentTypes": [
     {
       "id": "product-demo",
       "name": "Product demo",
       "use": "Show what the product does and how it feels to use; consideration and conversion.",
-      "structure": ["hook: the result or the problem in one shot", "brand and product in", "two or three features, one per shot, each shown working", "proof: a real result", "CTA end card"],
-      "evidence": ["animation-congruence", "multimedia-principles", "capacity-overload", "entertain-after-brand"]
+      "structure": [
+        "hook: the result or the problem in one shot",
+        "brand and product in",
+        "two or three features, one per shot, each shown working",
+        "proof: a real result",
+        "CTA end card"
+      ],
+      "evidence": [
+        "animation-congruence",
+        "multimedia-principles",
+        "capacity-overload",
+        "entertain-after-brand"
+      ]
     },
     {
       "id": "how-to",
       "name": "How-to and tutorial",
       "use": "Teach a task; builds trust and owned audience (P4, P5).",
-      "structure": ["outcome first (what you'll make)", "materials or set-up", "steps, one per segment, numbered on screen", "the finished result", "next step CTA"],
-      "evidence": ["multimedia-principles", "short-segments", "animation-congruence"]
+      "structure": [
+        "outcome first (what you'll make)",
+        "materials or set-up",
+        "steps, one per segment, numbered on screen",
+        "the finished result",
+        "next step CTA"
+      ],
+      "evidence": [
+        "multimedia-principles",
+        "short-segments",
+        "animation-congruence"
+      ]
     },
     {
       "id": "ugc-testimonial",
       "name": "UGC and testimonial",
       "use": "A real customer in their own words; credibility and proof (S4).",
-      "structure": ["the person and their problem in their words", "the moment it changed", "the product in their hands", "brand and CTA"],
-      "evidence": ["ugc-persuasion", "presenter-face", "transportation"],
+      "structure": [
+        "the person and their problem in their words",
+        "the moment it changed",
+        "the product in their hands",
+        "brand and CTA"
+      ],
+      "evidence": [
+        "ugc-persuasion",
+        "presenter-face",
+        "transportation"
+      ],
       "notes": "Never script or invent customers; get consent; disclose paid partnerships."
     },
     {
       "id": "brand-film",
       "name": "Brand film",
       "use": "Long-term brand building through story and feeling.",
-      "structure": ["hook", "brand early", "story with a turn (five acts if 60 s or more)", "peak on the product's dramatic truth", "end card"],
-      "evidence": ["dramatic-form", "transportation", "emotional-long-term", "joy-surprise", "peak-end", "zap-dispersion"]
+      "structure": [
+        "hook",
+        "brand early",
+        "story with a turn (five acts if 60 s or more)",
+        "peak on the product's dramatic truth",
+        "end card"
+      ],
+      "evidence": [
+        "dramatic-form",
+        "transportation",
+        "emotional-long-term",
+        "joy-surprise",
+        "peak-end",
+        "zap-dispersion"
+      ]
     },
     {
       "id": "explainer",
       "name": "Explainer",
       "use": "Make a service, idea or process clear, often animated.",
-      "structure": ["the viewer's problem", "the idea in one sentence", "how it works in three steps (S5)", "proof", "CTA"],
-      "evidence": ["multimedia-principles", "animation-congruence", "short-segments"]
+      "structure": [
+        "the viewer's problem",
+        "the idea in one sentence",
+        "how it works in three steps (S5)",
+        "proof",
+        "CTA"
+      ],
+      "evidence": [
+        "multimedia-principles",
+        "animation-congruence",
+        "short-segments"
+      ]
     },
     {
       "id": "title-card",
       "name": "Title card and kinetic type",
       "use": "Short motion graphic built from type and colour: openers, end cards, story frames, announcements.",
-      "structure": ["open on ground", "headline arrives and holds for its reading time", "brand", "CTA", "end on the still poster"],
-      "evidence": ["kinetic-type", "on-screen-reading", "motion-onset", "photosensitivity"],
+      "structure": [
+        "open on ground",
+        "headline arrives and holds for its reading time",
+        "brand",
+        "CTA",
+        "end on the still poster"
+      ],
+      "evidence": [
+        "kinetic-type",
+        "on-screen-reading",
+        "motion-onset",
+        "photosensitivity"
+      ],
       "tool": "templates/video/title-card.mjs"
     }
   ],
-
   "rules": [
     "Earn the first seconds: a surprise, mid-action or a close-up, and a first frame that works as a still.",
     "Brand in the first seconds, pulsed through the piece, and on the end card. Never only at the end.",

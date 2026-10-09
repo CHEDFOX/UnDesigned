@@ -512,7 +512,7 @@ async function renderPngs(items, sheetPath, title) {
 /** Use another style (and optionally specific Wada combinations) for a preview or a campaign. Without
  *  combinations, the style's own recommended ones are used. */
 /** The campaign's type: another pairing from pairings.json and/or another hand face (or none), with its Google Fonts URL. */
-function campaignType(typo, pairingId, handId) {
+export function campaignType(typo, pairingId, handId) {
   const src = (f) => json(join(ROOT, 'foundations', 'typography', 'source', f));
   const all = (d, key) => [].concat(d[key] || [], d.newPairings || [], Array.isArray(d) ? d : []);
   const pairing = pairingId ? all(src('pairings.json'), 'pairings').find((p) => p.id === pairingId) : typo.pairing;
