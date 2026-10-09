@@ -433,10 +433,11 @@ export async function designCampaign({ productId, campaign, png = false, only = 
   const written = [];
   for (const c of campaigns) {
     const dir = join(brand.dir, 'campaigns', c);
-    // A campaign may use another style or palette (campaign.json: { "approach", "combination", "mode" }).
+    // A campaign may use another style or palette (campaign.json: { "approach", "combination", "mode", "text" }).
+    // "text": "white" or "black" sets the text colour on the ground (Wada White and Black go with every combination).
     brand.config = baseConfig; Object.assign(tokens, baseTokens);
     const cfgFile = join(dir, 'campaign.json');
-    if (!givenPieces && existsSync(cfgFile)) { const cfg = json(cfgFile); applyStyle(brand, tokens, cfg.approach || brand.config.approach, cfg.combination ? [cfg.combination] : null, cfg.mode); }
+    if (!givenPieces && existsSync(cfgFile)) { const cfg = json(cfgFile); applyStyle(brand, tokens, cfg.approach || brand.config.approach, cfg.combination ? [cfg.combination] : null, cfg.mode, cfg.text); }
     const skin = await loadSkin(brand.config.approach);
     const pieces = (givenPieces || readPieces(dir)).filter((p) => !only || p.id === only);
     if (!pieces.length) continue;
@@ -491,7 +492,7 @@ async function renderPngs(items, sheetPath, title) {
 
 /** Use another style (and optionally specific Wada combinations) for a preview or a campaign. Without
  *  combinations, the style's own recommended ones are used. */
-function applyStyle(brand, tokens, approach, combinations = null, mode = 'light') {
+function applyStyle(brand, tokens, approach, combinations = null, mode = 'light', text = null) {
   brand.config = { ...brand.config, approach };
   const read = (f) => (existsSync(join(ROOT, 'approaches', approach, f)) ? json(join(ROOT, 'approaches', approach, f)) : {});
   const art = read('art.json');
@@ -500,5 +501,5 @@ function applyStyle(brand, tokens, approach, combinations = null, mode = 'light'
   const num = (r) => +(typeof r === 'object' ? (r.combination ?? r.id ?? r.number) : r);
   const ids = combinations || recs.map(num).slice(0, 2);
   const combos = ids.map((n) => tokens.colors.combinations.find((c) => c.id === +n)).filter(Boolean);
-  if (combos.length) tokens.colors = { ...tokens.colors, brand: combos.map((c, i) => ({ name: i ? 'seasonal' : 'primary', combination: c.id, mode, roles: c.roles[mode] || c.roles.light })) };
+  if (combos.length) tokens.colors = { ...tokens.colors, brand: combos.map((c, i) => ({ name: i ? 'seasonal' : 'primary', combination: c.id, mode, roles: { ...(c.roles[mode] || c.roles.light), ...(text === 'white' || text === 'black' ? { text } : {}) } })) };
 }

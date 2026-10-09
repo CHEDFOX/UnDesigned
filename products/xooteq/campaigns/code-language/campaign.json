@@ -1,6 +1,7 @@
 {
-  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 113, dark: Vandyke brown ground, seashell-pink text at 8.59:1. A two-colour combination, so the one accent snippet (cout <<) on the white globe takes the Vandyke brown (seashell pink would not read on white). Chosen by the user.",
+  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 113, dark: Vandyke brown ground with Wada White text (15.5:1; the combination's seashell pink read salmon on the brown). The one accent snippet (cout <<) on the white globe takes the Vandyke brown. Chosen by the user.",
   "approach": "humanist-minimal",
   "combination": 113,
-  "mode": "dark"
+  "mode": "dark",
+  "text": "white"
 }

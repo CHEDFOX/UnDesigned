@@ -16,6 +16,7 @@ node tools/design/preview.mjs <style> --png      # the test copy in any style, w
 5. **Photos.** Each photo's tones are measured once (`photo-tones.json`): text over a photo takes the colour that reads on its worst-case pixels behind the text, and skins get luminance percentiles for posterizing and duotones.
 6. **Motion** (`animate: true`): one element at a time, the style's arrival spring from `motion.json`, the headline held for its reading time (`foundations/layout/media.json`), ending on a still; reduced motion shows the end frame.
 7. **No brand** (`brand: false`): leaves out the logo and name on that piece, when the user asks for it.
+8. **Campaign style** (`campaign.json`): `approach`, `combination`, `mode`, and `text` ("white" or "black") to set the text colour on the ground.
 
 ## The ten skins
 

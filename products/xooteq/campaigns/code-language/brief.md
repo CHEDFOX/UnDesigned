@@ -5,7 +5,7 @@
 - **One message (W1):** Programming is the language every builder shares, wherever they are.
 - **Big idea (O2):** A globe made of the ways programming languages print a line (`print()`, `echo`, `puts`, `console.log()`, `printf()`, `fmt.Println()`, `cout <<` …): many languages, one act, one world. Humanist Minimal's recipe joins two everyday symbols (a globe and a line of code) into one idea.
 - **Style:** Humanist Minimal. Ink line over white cut paper, the paper slightly off register, one accent object, at least 40% empty ground, sentence case, three sizes.
-- **Colour:** Wada 113, dark mode (chosen by the user). Vandyke-brown ground, seashell-pink text at 8.59:1. A two-colour combination: the one accent snippet (`cout <<`) on the white globe takes the Vandyke brown, since seashell pink would not read on white. The globe is small (art.size 0.5) so most of the poster is empty ground.
+- **Colour:** Wada 113, dark mode (chosen by the user). Vandyke-brown ground with Wada White text (the combination's seashell pink read salmon on the brown). The one accent snippet (`cout <<`) on the white globe takes the Vandyke brown. The globe is small (art.size 0.5) so most of the poster is empty ground.
 - **Type:** the product's pairing (headline, body, small); the code runs in the pairing's mono face.
 - **Motion:** the globe turns in 3D, one full turn every 24 s: snippets swing round, grow and sharpen at the front, fade out behind. It is the only thing that moves; the words are still. Reduced motion shows the still poster. No flashes.
 - **Copy check:** 0 errors, 0 warnings.
