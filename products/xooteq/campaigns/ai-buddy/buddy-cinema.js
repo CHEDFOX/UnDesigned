@@ -15,7 +15,7 @@
   const READ = (words) => Math.max(1.5, 0.375 * words + 0.5); // media.json reading rule (s)
 
   let F, cv, ctx, W, H, S, wide, G, L, O, R, K, FD, FM;
-  let cards = [], parts = [], sprites = {}, dot, grain = [], mark = null, camTable = [], hiPts = [];
+  let cards = [], sprites = {}, dot, grain = [], mark = null, camTable = [];
   const D = 4200, NEAR = 70, FOCAL = 0.95;
   const LABELS = ['Reply to Sam', '3 missed calls', 'Meeting moved', 'Invoice due', 'Remember the milk', 'Flight check-in', 'Rent is due', 'Call the dentist', 'New message', 'Reminder', 'Pay the card', 'Mom: call me', 'Renew licence', 'Weekend plans?'];
   const RUSH = [['Reply.', 1.0], ['Remember.', 2.0], ['Reschedule.', 2.95], ['Pay.', 3.85], ['Don’t forget.', 4.7]];
@@ -72,15 +72,23 @@
     let z = 0; const dt = 1 / 240;
     for (let t = 0; t <= 60; t += dt) { camTable.push(z); z += speed(t) * dt; }
 
-    // Particles: one per card (the card becomes a firefly) + fireflies the light leaves behind.
-    const ps = 1100;
-    for (let i = 0; i < ps; i++) parts.push({ i, card: i < cards.length ? i : -1, emit: T.lightIn + 0.4 + rand() * (T.lightEnd - T.lightIn - 0.6), orbR: S * (0.05 + rand() ** 0.7 * 0.32), orbA: rand() * Math.PI * 2, orbW: 0.35 + rand() * 0.5, ph: rand() * 6.28, sz: 0.5 + rand() * 0.9, d: rand() });
-    hiPts = sampleText('hi', rand);
-    for (const p of parts) { p.hi = hiPts[Math.floor(p.d * hiPts.length) % hiPts.length]; p.quiet = [rand() * W, (wide ? 0.13 : 0.06) * H + rand() * H * (wide ? 0.74 : 0.6)]; }
-    shapes(rand);
+    setupHi();
     // When the light passes each card (the card is handled).
     const zf = camAt(T.stop);
     for (const c of cards) { c.zf = mod(c.z - zf, D); c.th = handledAt(c.zf); }
+    // Sound events, so the score (buddy-score.py) hits exactly what we see.
+    const passes = [];
+    for (const c of cards) { let prev = mod(c.z - camAt(0), D); for (let t = 1 / 120; t < T.stop; t += 1 / 120) { const zr = mod(c.z - camAt(t), D); if (zr > prev + D / 2) passes.push([+t.toFixed(3), clamp(c.x / (S * 1.2), -1, 1)]); prev = zr; } }
+    window.FILM_EVENTS = {
+      passes: passes.sort((p, q) => p[0] - q[0]),
+      absorb: cards.map((c) => [+c.th.toFixed(3), clamp(c.x / (S * 1.2), -1, 1)]).filter((e) => e[0] < T.lightEnd + 1).sort((p, q) => p[0] - q[0]),
+      rush: RUSH.map(([, t0]) => t0 + 1.0),
+      moments: MOMENTS.map((_, i) => T.rhythm + 1.0 + i * 0.4),
+      people: PEOPLE.map((_, i) => T.people + 0.3 + i * 0.16),
+      thread: T.peopleText + 0.8,
+      heldIn: T.quiet + 1.0, heldBack: T.quiet + 2.5,
+      penStart: T.hi + 0.4, penEnd: T.hi + 1.9, dotLand: T.hi + 2.5, sweep: T.end + 1.1,
+    };
   };
 
   function speed(t) { if (t < T.freeze) return 260 + 1450 * (t / T.freeze) ** 2.2; if (t < T.stop) return (260 + 1450) * (1 - ease.out(seg(t, T.freeze, T.stop))); return 0; }
@@ -90,67 +98,179 @@
   function handledAt(zrel) { if (zrel <= 300) return T.lightEnd + 0.1 + (300 - zrel) / 1500; for (let t = T.lightIn; t <= T.lightEnd; t += 1 / 120) if (lightZ(t) <= zrel) return t; return T.lightEnd; }
   const proj = (x, y, zrel) => { const k = (S * FOCAL) / Math.max(zrel, 1); return [W / 2 + x * k, H / 2 + y * k, k]; };
 
-  function sampleText(txt, rand) {
-    const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d');
-    const size = wide ? H * 0.5 : W * 0.56;
-    g.font = `italic 400 ${size}px "${FD}"`; g.textAlign = 'center'; g.textBaseline = 'alphabetic'; g.fillStyle = '#fff';
-    g.fillText(txt, W / 2, H * 0.48 + size * 0.25);
-    const d = g.getImageData(0, 0, W, H).data, pts = [];
-    const step = Math.max(3, Math.round(S / 260));
-    for (let y = 0; y < H; y += step) for (let x = 0; x < W; x += step) if (d[(y * W + x) * 4 + 3] > 128) pts.push([x + (rand() - 0.5) * step, y + (rand() - 0.5) * step]);
-    for (let i = pts.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [pts[i], pts[j]] = [pts[j], pts[i]]; }
-    return pts;
+  // ------------------------------------------------------------------ the buddy's world
+  // One warm light (a glass-like orb with a gyroscope of thin rings) and the things it knows, drawn as
+  // precise, specific objects: your day on a 24-hour dial, your people as initials, a message held back,
+  // and a "hi" written by the light itself, which ends as the dot of the i.
+  const MOMENTS = [[7.17, '07:10', 'Wake'], [8.75, '08:45', 'Coffee'], [13, '13:00', 'Lunch'], [18.5, '18:30', 'Run'], [23.33, '23:20', 'Sleep']];
+  const PEOPLE = [['M', 'Mom'], ['S', 'Sam'], ['P', 'Priya'], ['D', 'Dad'], ['A', 'Alex']];
+  let HI = null;
+  const home = () => [W / 2, H * (wide ? 0.43 : 0.42)];
+  const R0 = () => S * (wide ? 0.058 : 0.052);
+  function setupHi() {
+    const size = wide ? H * 0.42 : W * 0.56;
+    ctx.font = `italic 400 ${size}px "${FD}"`;
+    const wh = ctx.measureText('h').width, wi = ctx.measureText('ı').width, w = wh + wi;
+    const x0 = W / 2 - w / 2, yb = H * (wide ? 0.62 : 0.55);
+    HI = { size, w, x0, yb, dx: x0 + wh + wi * 0.5 + size * 0.11, dy: yb - size * 0.63, dotR: size * 0.052 };
+  }
+  const penAt = (u) => [HI.x0 + u * HI.w + HI.size * 0.06, HI.yb - HI.size * (0.3 + 0.2 * Math.sin(u * Math.PI * 4))];
+
+  function orbState(t) {
+    let x, y, r, a = 1;
+    const [cx, cy] = home();
+    if (t < T.lightEnd) {
+      const [px, py, k] = proj(0, 0, lightZ(t));
+      const u = ease.inOut(seg(t, T.lightEnd - 1.4, T.lightEnd));
+      x = lerp(px, cx, u); y = lerp(py, cy, u); r = lerp(clamp(k * 160, S * 0.006, R0()), R0(), u);
+      a = ease.out(seg(t, T.lightIn - 0.2, T.lightIn + 0.8));
+    } else { x = cx; y = cy; r = R0(); }
+    if (t > T.quiet) a *= lerp(1, 0.45, ease.inOut(seg(t, T.quiet + 0.4, T.quiet + 1.6)));
+    if (t > T.hi - 0.7) {
+      const p0 = penAt(0), u = seg(t, T.hi + 0.4, T.hi + 1.9);
+      if (t < T.hi + 0.4) { const v = ease.inOut(seg(t, T.hi - 0.7, T.hi + 0.4)); x = lerp(cx, p0[0], v); y = lerp(cy, p0[1], v); r = lerp(R0(), HI.dotR * 0.8, v); a = lerp(a, 1, v); }
+      else if (t < T.hi + 1.9) { [x, y] = penAt(u); r = HI.dotR * 0.8; a = 1; }
+      else { const v = ease.inOut(seg(t, T.hi + 1.9, T.hi + 2.5)), p1 = penAt(1); x = lerp(p1[0], HI.dx, v); y = lerp(p1[1], HI.dy, v); r = lerp(HI.dotR * 0.8, HI.dotR, v); a = 1; }
+    }
+    if (t > T.collapse) { const v = ease.inOut(seg(t, T.collapse + 0.2, T.end)); x = lerp(x, cx, v); y = lerp(y, cy, v); r = lerp(r, R0() * 1.5, v); }
+    if (t > T.end) a *= 1 - ease.inOut(seg(t, T.end, T.end + 0.8));
+    const rings = (1 - 0.6 * ease.inOut(seg(t, T.quiet + 0.4, T.quiet + 1.6))) * (1 - seg(t, T.hi - 0.7, T.hi - 0.2));
+    return { x, y, r, a, rings: t < T.lightEnd ? seg(t, T.lightEnd - 1.0, T.lightEnd) : rings };
   }
 
-  // Shapes the fireflies form: a heartbeat line (rhythm), a constellation (people).
-  let ecg = [], nodes = [], edges = [];
-  function shapes(rand) {
-    const y0 = H * 0.48, x0 = W * 0.08, x1 = W * 0.92, a = S * 0.17;
-    const beat = [[0, 0], [0.05, -0.12], [0.1, 0], [0.16, 0], [0.19, 0.18], [0.23, -1], [0.27, 0.42], [0.31, 0], [0.38, -0.2], [0.44, 0], [1, 0]];
-    for (let k = 0; k < 3; k++) for (const [u, v] of beat) ecg.push([x0 + ((k + u) / 3) * (x1 - x0), y0 + v * a]);
-    const cx = W / 2, cy = H * 0.48, rx = wide ? W * 0.33 : W * 0.38, ry = wide ? H * 0.27 : H * 0.17;
-    nodes.push([cx, cy]);
-    for (let k = 0; k < 8; k++) { const ang = (k / 8) * Math.PI * 2 + 0.3; nodes.push([cx + Math.cos(ang) * rx * (0.82 + (k % 3) * 0.09), cy + Math.sin(ang) * ry * (0.82 + ((k + 1) % 3) * 0.09)]); }
-    for (let k = 1; k <= 8; k++) { edges.push([0, k]); edges.push([k, (k % 8) + 1]); }
-    const lens = ecg.slice(1).map((p, i) => Math.hypot(p[0] - ecg[i][0], p[1] - ecg[i][1])), total = lens.reduce((x, y) => x + y, 0);
-    for (const p of parts) {
-      // rhythm: evenly along the line
-      let s = ((p.i + 0.5) / parts.length) * total, k = 0; while (k < lens.length - 1 && s > lens[k]) { s -= lens[k]; k++; }
-      const u = s / lens[k]; p.ecg = [lerp(ecg[k][0], ecg[k + 1][0], u), lerp(ecg[k][1], ecg[k + 1][1], u)];
-      // people: 25% gathered at nodes, the rest along the links
-      if (p.d < 0.25) { const n = nodes[p.i % nodes.length]; const r = (p.i % 9 === 0 ? 26 : 14) * (S / 1080); p.ppl = [n[0] + Math.cos(p.ph) * r * p.sz, n[1] + Math.sin(p.ph) * r * p.sz]; }
-      else { const e = edges[p.i % edges.length], u2 = (p.d - 0.25) / 0.75; p.ppl = [lerp(nodes[e[0]][0], nodes[e[1]][0], u2), lerp(nodes[e[0]][1], nodes[e[1]][1], u2)]; }
+  function ring(x, y, rx, ry, rot, a0, a1, alpha) { ctx.strokeStyle = rgba(L, alpha); ctx.beginPath(); ctx.ellipse(x, y, rx, ry, rot, a0, a1); ctx.stroke(); }
+  function drawOrb(t, o) {
+    const { x, y, r, a, rings } = o;
+    if (a <= 0.002 || r <= 0) return;
+    const rr = r * (1 + 0.03 * Math.sin((t * 2 * Math.PI) / 3.2));
+    // Halo (light, added).
+    ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    let g = ctx.createRadialGradient(x, y, rr * 0.5, x, y, rr * 6);
+    g.addColorStop(0, rgba(O, 0.3 * a)); g.addColorStop(0.3, rgba(O, 0.07 * a)); g.addColorStop(1, rgba(O, 0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, rr * 6, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+    // Rings: back halves behind the body, front halves in front (a gyroscope, slowly turning).
+    const ringSpec = [[1.95, 0.3, 0.42 + t * 0.09, -1.0], [2.55, 0.26, -0.55 - t * 0.07, 1.3]];
+    ctx.lineWidth = Math.max(1, S * 0.0012);
+    if (rings > 0) for (const [k, e, rot] of ringSpec) ring(x, y, rr * k, rr * k * e, rot, Math.PI, Math.PI * 2, 0.32 * a * rings);
+    // Body: a solid pearl of light with a crisp rim.
+    ctx.globalAlpha = a;
+    g = ctx.createRadialGradient(x - rr * 0.35, y - rr * 0.4, rr * 0.05, x, y, rr);
+    g.addColorStop(0, F.white); g.addColorStop(0.28, L); g.addColorStop(0.72, O); g.addColorStop(1, mix(O, G, 0.55));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, rr, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = rgba(L, 0.55); ctx.lineWidth = Math.max(1, S * 0.0014); ctx.stroke();
+    ctx.globalAlpha = 1;
+    if (rings > 0) {
+      for (const [k, e, rot, sp] of ringSpec) {
+        ring(x, y, rr * k, rr * k * e, rot, 0, Math.PI, 0.45 * a * rings);
+        const th = t * sp, ex = Math.cos(th) * rr * k, ey = Math.sin(th) * rr * k * e;
+        const bx = x + ex * Math.cos(rot) - ey * Math.sin(rot), by = y + ex * Math.sin(rot) + ey * Math.cos(rot);
+        ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = a * rings * (Math.sin(th) > 0 ? 1 : 0.35);
+        const s = S * 0.009; ctx.drawImage(dot, bx - s, by - s, s * 2, s * 2); ctx.restore();
+      }
     }
   }
-
-  // ------------------------------------------------------------------ firefly position over the film
-  function orbit(p, t) { const [lx, ly] = lightScreen(t); const a = p.orbA + p.orbW * t; const k = clamp(seg(t, T.lightIn, T.lightEnd) * 1.4, 0.25, 1); return [lx + Math.cos(a) * p.orbR * k, ly + Math.sin(a) * p.orbR * k * (wide ? 0.42 : 0.6)]; }
-  function lightScreen(t) { const [x, y, k] = proj(0, 0, lightZ(t)); return [x, y, k]; }
-  function spawn(p) {
-    if (p.card >= 0) { const c = cards[p.card]; const [x, y] = proj(c.x, c.y, c.zf); return { t: c.th + 0.25, x, y }; }
-    const [x, y] = lightScreen(p.emit); return { t: p.emit, x, y };
-  }
-  const PH = () => [
-    ['ecg', T.rhythm, 1.5], ['ppl', T.people, 1.5], ['quiet', T.quiet, 1.3], ['hi', T.hi, 1.8], ['centre', T.collapse, 1.0],
-  ];
-  function target(p, key) { if (key === 'centre') return [W / 2, H * 0.5]; return p[key]; }
-  function partPos(p, t) {
-    const sp = spawn(p);
-    if (t < sp.t) return null;
-    let pos = (() => { const u = ease.out(seg(t, sp.t, sp.t + 1.3)); const o = orbit(p, t); return [lerp(sp.x, o[0], u), lerp(sp.y, o[1], u)]; })();
-    let from = null;
-    for (const [key, t0, dur] of PH()) {
-      const delay = (p.i % 97) / 97 * 0.55;
-      const a = t0 + delay;
-      if (t < a) break;
-      const start = from ? target(p, from) : orbit(p, a);
-      const u = ease.inOut(seg(t, a, a + dur));
-      pos = [lerp(start[0], target(p, key)[0], u), lerp(start[1], target(p, key)[1], u)];
-      from = key;
+  // Each card the light passes is pulled into it as a thin streak.
+  function streaks(t, o) {
+    if (t < T.lightIn || t > T.lightEnd + 1.2) return;
+    ctx.save(); ctx.globalCompositeOperation = 'lighter'; ctx.lineCap = 'round';
+    for (const c of cards) {
+      const u = seg(t, c.th, c.th + 0.5); if (u <= 0 || u >= 1) continue;
+      const [fx, fy] = proj(c.x, c.y, c.zf);
+      const hu = ease.in(u), tu = ease.in(Math.max(0, u - 0.3));
+      const hx = lerp(fx, o.x, hu), hy = lerp(fy, o.y, hu), tx = lerp(fx, o.x, tu), ty = lerp(fy, o.y, tu);
+      const g = ctx.createLinearGradient(tx, ty, hx, hy); g.addColorStop(0, rgba(O, 0)); g.addColorStop(1, rgba(L, 0.85 * (1 - u * 0.4)));
+      ctx.strokeStyle = g; ctx.lineWidth = S * 0.0028 * (1 - u * 0.5);
+      ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(hx, hy); ctx.stroke();
     }
-    // A slow drift keeps the fireflies alive without competing with the words.
-    const amp = (t > T.rhythm ? 2.2 : 0) * (S / 1080);
-    return [pos[0] + Math.sin(t * 0.9 + p.ph) * amp, pos[1] + Math.cos(t * 0.7 + p.ph * 1.3) * amp];
+    ctx.restore();
+  }
+  // Your day on a 24-hour dial: the moments it has learned light up one by one.
+  function dial(t) {
+    const vis = seg(t, T.rhythm, T.rhythm + 0.5) * (1 - seg(t, T.people + 0.1, T.people + 0.8));
+    if (vis <= 0) return;
+    const [cx, cy] = home(), Rd = wide ? H * 0.19 : W * 0.34;
+    const draw = ease.inOut(seg(t, T.rhythm, T.rhythm + 1.2));
+    const ang = (h) => -Math.PI / 2 + (h / 24) * Math.PI * 2;
+    ctx.save(); ctx.globalAlpha = vis; ctx.lineCap = 'butt';
+    ctx.strokeStyle = rgba(L, 0.22); ctx.lineWidth = Math.max(1, S * 0.0015);
+    ctx.beginPath(); ctx.arc(cx, cy, Rd, -Math.PI / 2, -Math.PI / 2 + draw * Math.PI * 2); ctx.stroke();
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (let h = 0; h < 24; h++) {
+      if (h / 24 > draw) break;
+      const a = ang(h), major = h % 6 === 0, l = major ? S * 0.02 : S * 0.009;
+      ctx.strokeStyle = rgba(L, major ? 0.6 : 0.28);
+      ctx.beginPath(); ctx.moveTo(cx + Math.cos(a) * (Rd - l), cy + Math.sin(a) * (Rd - l)); ctx.lineTo(cx + Math.cos(a) * Rd, cy + Math.sin(a) * Rd); ctx.stroke();
+      if (major) { ctx.fillStyle = rgba(L, 0.42); ctx.font = `400 ${S * 0.015}px "${FM}"`; ctx.fillText(String(h).padStart(2, '0'), cx + Math.cos(a) * (Rd - S * 0.045), cy + Math.sin(a) * (Rd - S * 0.045)); }
+    }
+    MOMENTS.forEach(([h, time, word], i) => {
+      const t0 = T.rhythm + 1.0 + i * 0.4, u = ease.out(seg(t, t0, t0 + 0.55));
+      if (u <= 0) return;
+      const a0 = ang(h);
+      ctx.globalAlpha = vis; ctx.strokeStyle = O; ctx.lineWidth = S * 0.0075; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.arc(cx, cy, Rd, a0, ang(h + 0.9 * u)); ctx.stroke();
+      const lr = Rd + S * 0.055, lx = cx + Math.cos(a0) * lr, ly = cy + Math.sin(a0) * lr;
+      ctx.textAlign = Math.cos(a0) > 0.25 ? 'left' : Math.cos(a0) < -0.25 ? 'right' : 'center';
+      ctx.globalAlpha = vis * u;
+      ctx.fillStyle = rgba(L, 0.55); ctx.font = `400 ${S * 0.019}px "${FM}"`; ctx.fillText(time, lx, ly - S * 0.021);
+      ctx.fillStyle = L; ctx.font = `italic 400 ${S * 0.038}px "${FD}"`; ctx.fillText(word, lx, ly + S * 0.017);
+    });
+    ctx.restore();
+  }
+  // Your people: initials around the light; the one to call back gets a thread.
+  function people(t) {
+    const vis = seg(t, T.people + 0.3, T.people + 1.0) * (1 - seg(t, T.quiet + 0.1, T.quiet + 1.1));
+    if (vis <= 0) return;
+    const [cx, cy] = home(), Rp = wide ? H * 0.25 : W * 0.34;
+    ctx.save();
+    PEOPLE.forEach(([ini, name], i) => {
+      const t0 = T.people + 0.3 + i * 0.16, u = ease.out(seg(t, t0, t0 + 0.6));
+      if (u <= 0) return;
+      const an = -Math.PI / 2 + i * ((Math.PI * 2) / 5) + 0.3 + t * 0.05;
+      const rad = Rp * (0.88 + (i % 2) * 0.2) * lerp(0.55, 1, u) * (1 + 0.4 * ease.in(seg(t, T.quiet + 0.1, T.quiet + 1.1)));
+      const x = cx + Math.cos(an) * rad * (wide ? 1.55 : 1), y = cy + Math.sin(an) * rad * (wide ? 0.82 : 1.1);
+      const ar = S * 0.042, call = i === 1 && t > T.peopleText + 0.8;
+      if (i === 1) {
+        const v = ease.inOut(seg(t, T.peopleText + 0.8, T.peopleText + 1.4));
+        if (v > 0) { ctx.globalAlpha = vis; ctx.strokeStyle = O; ctx.lineWidth = S * 0.0022; ctx.setLineDash([S * 0.007, S * 0.009]); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(lerp(cx, x, v), lerp(cy, y, v)); ctx.stroke(); ctx.setLineDash([]); }
+      }
+      ctx.globalAlpha = vis * u;
+      ctx.fillStyle = G; ctx.beginPath(); ctx.arc(x, y, ar, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = call ? O : rgba(L, 0.5); ctx.lineWidth = S * 0.0022; ctx.stroke();
+      ctx.fillStyle = call ? O : L; ctx.font = `400 ${ar * 1.05}px "${FD}"`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(ini, x, y + ar * 0.07);
+      ctx.fillStyle = call ? O : rgba(L, 0.62); ctx.font = `400 ${S * 0.021}px "${FM}"`; ctx.fillText(call ? 'Sam · call back' : name, x, y + ar + S * 0.034);
+    });
+    ctx.restore();
+  }
+  // Staying quiet: a message arrives and is gently held back until you are free.
+  function held(t) {
+    const t0 = T.quiet + 1.0;
+    if (t < t0 || t > T.hi) return;
+    const [cx, cy] = home();
+    const inU = ease.out(seg(t, t0, t0 + 0.8)), back = ease.inOut(seg(t, t0 + 1.5, t0 + 2.6));
+    const sp = sprites[8][0], sc = (S * (wide ? 0.34 : 0.5)) / 420, w = sp.width * sc, h = sp.height * sc;
+    const restX = wide ? cx + S * 0.55 : cx, x = lerp(W + w, restX, inU) + back * S * 0.05, y = wide ? cy : cy + S * 0.5;
+    const fade = 1 - seg(t, T.hi - 0.6, T.hi);
+    ctx.save(); ctx.globalAlpha = (1 - back * 0.7) * fade; ctx.drawImage(sp, x - w / 2, y - h / 2, w, h);
+    ctx.globalAlpha = back * fade; ctx.fillStyle = O; ctx.font = `400 ${S * 0.02}px "${FM}"`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    ctx.fillText('Held until you’re free', x, y + h * 0.42); ctx.restore();
+  }
+  // "hi", written by the light (the light becomes the pen, then the dot of the i).
+  function hiWord(t) {
+    if (t < T.hi + 0.35 || t > T.end + 0.3) return;
+    const u = seg(t, T.hi + 0.4, T.hi + 1.9), out = ease.in(seg(t, T.collapse, T.collapse + 0.6));
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, HI.x0 + u * (HI.w + HI.size * 0.3), H); ctx.clip();
+    ctx.globalAlpha = 1 - out; ctx.font = `italic 400 ${HI.size}px "${FD}"`; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+    ctx.shadowColor = rgba(O, 0.55); ctx.shadowBlur = HI.size * 0.06; ctx.fillStyle = L; ctx.fillText('hı', HI.x0, HI.yb);
+    ctx.restore();
+  }
+  function flare(t, o) {
+    const fa = seg(t, T.collapse + 0.3, T.end) * (1 - seg(t, T.end, T.end + 0.9)) + 0.6 * seg(t, T.lightIn, T.lightIn + 0.5) * (1 - seg(t, T.lightIn + 0.5, T.lightIn + 1.6));
+    if (fa <= 0) return;
+    ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    const st = ctx.createLinearGradient(o.x - W * 0.45, 0, o.x + W * 0.45, 0);
+    st.addColorStop(0, rgba(O, 0)); st.addColorStop(0.5, rgba(L, 0.75 * fa)); st.addColorStop(1, rgba(O, 0));
+    ctx.fillStyle = st; ctx.fillRect(o.x - W * 0.45, o.y - S * 0.0025, W * 0.9, S * 0.005); ctx.restore();
   }
 
   // ------------------------------------------------------------------ type: letter by letter, cut out on a fade
@@ -177,7 +297,7 @@
     }
     ctx.restore();
   }
-  function scrim(t, a) { // a soft dark band under the lower-third words (readability over the fireflies)
+  function scrim(t, a) { // a soft dark band under the lower-third words (readability)
     if (a <= 0) return;
     const y0 = H * (wide ? 0.62 : 0.6), g = ctx.createLinearGradient(0, y0, 0, H);
     g.addColorStop(0, rgba(G, 0)); g.addColorStop(0.45, rgba(G, 0.75 * a)); g.addColorStop(1, rgba(G, 0.85 * a));
@@ -196,7 +316,7 @@
     const roll = t < T.stop ? 0.06 * Math.sin(t * 0.9) * seg(t, 0, 2) * (1 - ease.out(seg(t, T.freeze, T.stop))) : 0;
     const dim = 1 - 0.6 * ease.out(seg(t, T.stop, T.stop + 0.5));
 
-    // Cards (far to near), handled ones fold into fireflies as the light passes.
+    // Cards (far to near); the ones the light passes are pulled into it.
     if (t < T.lightEnd + 2) {
       const list = cards.map((c) => ({ c, zr: t < T.stop ? mod(c.z - cam, D) : c.zf })).filter((o) => o.zr > NEAR).sort((a, b) => b.zr - a.zr);
       ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(roll); ctx.translate(-W / 2, -H / 2);
@@ -226,48 +346,13 @@
       ctx.fillText(w, x, y); ctx.textAlign = 'left'; ctx.globalAlpha = 1;
     }
 
-    // The light: the buddy. Arrives from the depth, then stays as the warm centre.
-    if (t >= T.lightIn - 0.2 && t < T.end + 0.9) {
-      let [lx, ly, k] = lightScreen(t);
-      let size = clamp(k * 200, S * 0.022, S * 0.06);
-      let a = ease.out(seg(t, T.lightIn - 0.2, T.lightIn + 0.6));
-      if (t > T.rhythm) a *= lerp(1, 0.28, ease.inOut(seg(t, T.rhythm, T.rhythm + 1.2)));
-      if (t > T.collapse) { a = lerp(0.28, 1.15, ease.inOut(seg(t, T.collapse + 0.3, T.end))); [lx, ly] = [W / 2, H * 0.5]; }
-      if (t > T.end) { a *= 1 - ease.inOut(seg(t, T.end, T.end + 0.9)); }
-      ctx.globalCompositeOperation = 'lighter';
-      ctx.globalAlpha = a;
-      ctx.drawImage(dot, lx - size * 2.2, ly - size * 2.2, size * 4.4, size * 4.4);
-      ctx.globalAlpha = a * 0.3; ctx.drawImage(dot, lx - size * 5, ly - size * 5, size * 10, size * 10);
-      // Anamorphic streak.
-      const st = ctx.createLinearGradient(lx - W * 0.4, 0, lx + W * 0.4, 0);
-      st.addColorStop(0, rgba(O, 0)); st.addColorStop(0.5, rgba(L, 0.4 * a)); st.addColorStop(1, rgba(O, 0));
-      ctx.globalAlpha = 1; ctx.fillStyle = st; ctx.fillRect(lx - W * 0.4, ly - size * 0.06, W * 0.8, size * 0.12);
-      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
-    }
-
-    // Fireflies.
-    if (t >= T.lightIn) {
-      ctx.globalCompositeOperation = 'lighter';
-      const pulseX = W * (0.04 + ((t - T.rhythmText) / 1.6) % 1 * 0.96);
-      for (const p of parts) {
-        const pos = partPos(p, t); if (!pos) continue;
-        const born = seg(t, spawn(p).t, spawn(p).t + 0.3);
-        let a = born * (0.45 + 0.45 * Math.sin(t * 2 + p.ph) ** 2), s = S * 0.0095 * p.sz;
-        if (t < T.rhythm + 1.2) a *= lerp(0.42, 1, ease.inOut(seg(t, T.rhythm, T.rhythm + 1.2))); // a swarm in additive light: keep it from burning out
-        if (t > T.rhythmText && t < T.rhythmOut + 0.3 && Math.abs(pos[0] - pulseX) < S * 0.05) { a = 1; s *= 1.9; } // the beat runs along the line
-        if (t > T.peopleText && t < T.peopleOut + 0.3 && p.d < 0.25) { const n = p.i % nodes.length; const on = seg(t, T.peopleText + n * 0.18, T.peopleText + n * 0.18 + 0.3); s *= 1 + on * 0.7; }
-        if (t > T.quiet && t < T.hi + 0.9) a *= lerp(1, 0.32, ease.inOut(seg(t, T.quiet, T.quiet + 1.0))) + (t > T.hi ? lerp(0, 0.68, ease.inOut(seg(t, T.hi, T.hi + 0.9))) : 0);
-        if (t > T.hi && t < T.collapse + 0.6) s *= lerp(1, 1.25, seg(t, T.hi, T.hiHeld));
-        if (t > T.end) a *= 1 - ease.inOut(seg(t, T.end, T.end + 0.6));
-        ctx.globalAlpha = clamp(a);
-        ctx.drawImage(dot, pos[0] - s, pos[1] - s, s * 2, s * 2);
-      }
-      ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
-    }
+    // The buddy's world: streaks of handled noise, the dial, the people, the held message, the light, "hi".
+    const orb = orbState(t);
+    streaks(t, orb); dial(t); people(t); held(t); hiWord(t); drawOrb(t, orb); flare(t, orb);
 
     // Words.
     const big = S * (wide ? 0.105 : 0.095), mid = S * (wide ? 0.072 : 0.075);
-    const lowY = H * (wide ? 0.8 : 0.76);
+    const lowY = H * (wide ? 0.845 : 0.78);
     scrim(t, Math.max(seg(t, T.before - 0.3, T.before) * (1 - seg(t, T.beforeOut, T.beforeOut + 0.4)), t > T.rhythmText - 0.3 && t < T.meetOut + 0.4 ? 1 : 0));
     { const qa = seg(t, T.stop, T.q1) * (1 - seg(t, T.qOut, T.qOut + 0.4)); if (qa > 0) { const g = ctx.createRadialGradient(W / 2, H * 0.5, 0, W / 2, H * 0.5, S * 0.75); g.addColorStop(0, rgba(G, 0.82 * qa)); g.addColorStop(1, rgba(G, 0)); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H); } }
     line('What if it was', t, T.q1, T.qOut, { y: H * 0.47, size: big });
@@ -276,7 +361,7 @@
     line('It learns your rhythm.', t, T.rhythmText, T.rhythmOut, { y: lowY, size: mid, accent: ['rhythm'], italic: ['rhythm'] });
     line('It knows your people.', t, T.peopleText, T.peopleOut, { y: lowY, size: mid, accent: ['people'], italic: ['people'] });
     line('It knows when to stay quiet.', t, T.quietText, T.quietOut, { y: lowY, size: mid, accent: ['quiet'], italic: ['quiet'] });
-    line('Meet your AI buddy.', t, T.meet, T.meetOut, { y: H * (wide ? 0.8 : 0.8), size: mid, accent: ['buddy'], italic: ['buddy'] });
+    line('Meet your AI buddy.', t, T.meet, T.meetOut, { y: lowY, size: mid, accent: ['buddy'], italic: ['buddy'] });
 
     // Brand: in from the first seconds (video.json: brand early), out before the end card.
     const bugA = 0.85 * seg(t, 1.0, 1.6) * (1 - seg(t, T.collapse, T.collapse + 0.5));
@@ -289,17 +374,30 @@
       ctx.globalAlpha = 1;
     }
 
-    // End card: the still that stays (poster, thumbnail, reduced motion).
+    // End card: the still that stays (poster, thumbnail, reduced motion). The mark, large and crisp, with
+    // a soft glow and one sweep of light across it; then the line and the address.
     if (t >= T.end) {
-      const u = ease.out(seg(t, T.end + 0.2, T.end + 1.1));
-      const ms = S * (wide ? 0.2 : 0.22), cy = H * (wide ? 0.4 : 0.4);
-      ctx.globalAlpha = u;
-      if (mark) { ctx.globalCompositeOperation = 'screen'; const mw = ms * mark.width / mark.height; ctx.drawImage(mark, W / 2 - mw / 2, cy - ms * 0.62, mw, ms); ctx.globalCompositeOperation = 'source-over'; }
-      ctx.globalAlpha = 1;
-      line('Your AI buddy is coming soon.', t, T.end + 0.6, 1e9, { y: cy + ms * 0.62 + mid * 0.6, size: mid * 0.95, accent: ['soon'], italic: ['soon'] });
-      const u2 = ease.out(seg(t, T.end + 1.6, T.end + 2.3));
-      ctx.globalAlpha = u2; ctx.fillStyle = O; ctx.font = `500 ${S * 0.03}px "${FM}"`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-      ctx.fillText('xooteq.com', W / 2, cy + ms * 0.62 + mid * 1.75); ctx.textAlign = 'left'; ctx.globalAlpha = 1;
+      const u = ease.out(seg(t, T.end + 0.3, T.end + 1.3));
+      const ms = S * 0.3, cy = H * (wide ? 0.42 : 0.42);
+      if (mark) {
+        const mw = ms * mark.width / mark.height, mx = W / 2 - mw / 2, my = cy - ms * 0.62;
+        ctx.save(); ctx.globalCompositeOperation = 'lighter';
+        ctx.globalAlpha = 0.35 * u; ctx.filter = `blur(${S * 0.012}px)`; ctx.drawImage(mark, mx, my, mw, ms); ctx.filter = 'none';
+        ctx.globalCompositeOperation = 'screen'; ctx.globalAlpha = u; ctx.drawImage(mark, mx, my, mw, ms);
+        const sv = seg(t, T.end + 1.1, T.end + 2.1);
+        if (sv > 0 && sv < 1) {
+          const off = document.createElement('canvas'); off.width = Math.ceil(mw); off.height = Math.ceil(ms); const g = off.getContext('2d');
+          const bx = lerp(-mw * 0.4, mw * 1.4, ease.inOut(sv)), gr = g.createLinearGradient(bx - mw * 0.18, 0, bx + mw * 0.18, ms * 0.35);
+          gr.addColorStop(0, rgba(O, 0)); gr.addColorStop(0.5, rgba(L, 1)); gr.addColorStop(1, rgba(O, 0));
+          g.fillStyle = gr; g.fillRect(0, 0, mw, ms); g.globalCompositeOperation = 'multiply'; g.drawImage(mark, 0, 0, mw, ms);
+          ctx.globalCompositeOperation = 'lighter'; ctx.globalAlpha = 1; ctx.drawImage(off, mx, my);
+        }
+        ctx.restore();
+      }
+      line('Your AI buddy is coming soon.', t, T.end + 0.7, 1e9, { y: cy + ms * 0.6 + mid * 0.55, size: mid * 0.92, accent: ['soon'], italic: ['soon'] });
+      const u2 = ease.out(seg(t, T.end + 1.7, T.end + 2.4));
+      ctx.globalAlpha = u2; ctx.fillStyle = O; ctx.font = `500 ${S * 0.028}px "${FM}"`; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText('xooteq.com', W / 2, cy + ms * 0.6 + mid * 1.65); ctx.textAlign = 'left'; ctx.globalAlpha = 1;
     }
 
     // Grain (static frames, changed four times a second: texture, not flicker) and the cinema bars.

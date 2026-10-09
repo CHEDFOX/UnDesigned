@@ -1,5 +1,5 @@
 {
-  "$comment": "The AI buddy film, drawn frame by frame (npm run cinema -- xooteq ai-buddy). Scene: buddy-cinema.js; storyboard: storyboard-buddy-cinema.md. Colour: Wada 325 dark (Deep Slate Green night, Naples Yellow light, Yellow Ocher glow, Eugenia Red warmth): the teal-and-amber of cinema, figure hue contrasting with the ground (Schloss & Palmer 2011). Type: pairing instrument (Instrument Serif, italic for the one emphasised word; IBM Plex Mono).",
+  "$comment": "The AI buddy film, drawn frame by frame (npm run cinema -- xooteq ai-buddy). Scene: buddy-cinema.js; storyboard: storyboard-buddy-cinema.md. Colour: Wada 325 dark (Deep Slate Green night, Naples Yellow light, Yellow Ocher glow, Eugenia Red warmth): the teal-and-amber of cinema, figure hue contrasting with the ground (Schloss & Palmer 2011). Type: pairing instrument (Instrument Serif, italic for the one emphasised word; IBM Plex Mono). Sound: buddy-score.py (synthesised score and effects on the scene's own events).",
   "id": "buddy-cinema",
   "scene": "buddy-cinema.js",
   "seconds": 45.8,
@@ -7,5 +7,9 @@
   "mode": "dark",
   "pairing": "instrument",
   "mark": "assets/logos/logo.png",
-  "aspects": ["16:9", "9:16"]
+  "aspects": [
+    "16:9",
+    "9:16"
+  ],
+  "score": "buddy-score.py"
 }
