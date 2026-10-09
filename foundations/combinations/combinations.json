@@ -1,0 +1,687 @@
+{
+  "$comment": "Combination rules: which of the guide's components belong together for a human brain, decided once from the research in foundations/research/combinations.json. Every component sits on the same five axes (-1 to +1). A product's core (identity.json: character, plus an optional campaign goal) gives a target on those axes; the composer (tools/design/compose.mjs, npm run compose) scores every style x palette x pairing x hand against the target and these rules, and writes the winning combination into the campaign. Colours are computed from their CIELAB values; styles and typefaces are profiled below with the reason for each value. Change a profile or a weight here and every product follows.",
+  "axes": {
+    "roundness": {
+      "low": "angular, sharp, mechanical",
+      "high": "rounded, soft, organic",
+      "why": "shape-meaning, crossmodal-correspondence"
+    },
+    "activity": {
+      "low": "calm, still, sparse",
+      "high": "energetic, busy, saturated, moving",
+      "why": "shared-dimensions (activity), colour-emotion (arousal), complexity, motion-arousal"
+    },
+    "potency": {
+      "low": "light, delicate, quiet",
+      "high": "heavy, strong, dominant",
+      "why": "shared-dimensions (potency), colour-emotion (dominance), typeface weight"
+    },
+    "warmth": {
+      "low": "cool, distant, technical",
+      "high": "warm, close, sensory",
+      "why": "colour-heat, colour-product-congruity"
+    },
+    "hand": {
+      "low": "precise, engineered, machine-made",
+      "high": "made by hand, personal, imperfect",
+      "why": "hand-and-machine, typeface-impressions (natural, flourish)"
+    }
+  },
+  "styles": {
+    "$comment": "Each style's profile, from its own research (approaches/<id>/README.md, approach.json, art.json, motion.json).",
+    "humanist-minimal": {
+      "roundness": 0.7,
+      "activity": -0.5,
+      "potency": -0.4,
+      "warmth": 0.3,
+      "hand": 0.6,
+      "why": "Organic paper shapes and rounded corners, one idea with 40%+ empty ground, light ink line, spring motion, one hand note."
+    },
+    "bauhaus": {
+      "roundness": -0.6,
+      "activity": 0.3,
+      "potency": 0.7,
+      "warmth": 0,
+      "hand": -0.9,
+      "why": "Elementary forms, heavy bars, one diagonal, bold grotesque, critically damped mechanical motion."
+    },
+    "commercial-modernism": {
+      "roundness": 0.2,
+      "activity": 0.4,
+      "potency": 0.3,
+      "warmth": 0.3,
+      "hand": -0.3,
+      "why": "Mid-century advertising: confident lettering, two-stop gradients, smooth airbrushed forms, upbeat."
+    },
+    "mid-century-modernism": {
+      "roundness": 0.3,
+      "activity": 0.2,
+      "potency": 0,
+      "warmth": 0.4,
+      "hand": 0.2,
+      "why": "Playful cut shapes, offset registration, earthy warm palettes, a little hand lettering."
+    },
+    "scrapbook": {
+      "roundness": 0,
+      "activity": 0.5,
+      "potency": -0.2,
+      "warmth": 0.4,
+      "hand": 0.9,
+      "why": "Torn paper, tape, layered photos and notes: personal, collected, busy but light."
+    },
+    "desi-maximalism": {
+      "roundness": 0.4,
+      "activity": 0.9,
+      "potency": 0.4,
+      "warmth": 0.8,
+      "hand": 0.5,
+      "why": "Frames within frames, pattern on every surface, many flat colours, painted lettering: celebration."
+    },
+    "neon-surf": {
+      "roundness": 0.4,
+      "activity": 0.8,
+      "potency": 0.1,
+      "warmth": 0.3,
+      "hand": -0.2,
+      "why": "Bright, sunny, rounded type, airbrushed waves and glowing inks: loud and fun."
+    },
+    "posterize": {
+      "roundness": -0.2,
+      "activity": 0.6,
+      "potency": 0.7,
+      "warmth": 0,
+      "hand": -0.3,
+      "why": "Photos cut to flat tone plates, heavy ink, strong contrast: graphic and bold."
+    },
+    "doodles": {
+      "roundness": 0.7,
+      "activity": 0.3,
+      "potency": -0.6,
+      "warmth": 0.3,
+      "hand": 1,
+      "why": "Marker drawings around the message, loose lines, playful and light."
+    },
+    "negative-space": {
+      "roundness": 0.2,
+      "activity": -0.9,
+      "potency": -0.5,
+      "warmth": 0,
+      "hand": -0.2,
+      "why": "60-90% empty ground, one small object, quiet type, almost no motion."
+    }
+  },
+  "typefaces": {
+    "$comment": "A pairing's profile comes from its display face's classification and style words (Henderson, Giese & Cote 2004 design dimensions) and its heaviest weight; the cues are averaged per axis. Body faces are chosen by the style for reading and do not move the profile.",
+    "cues": [
+      {
+        "match": "rounded",
+        "roundness": 0.7,
+        "hand": 0.1,
+        "why": "harmony: even, round strokes"
+      },
+      {
+        "match": "handwriting|hand-lettered|marker|brush|signpaint|lettering",
+        "hand": 0.8,
+        "roundness": 0.3,
+        "activity": 0.3,
+        "why": "natural, flourish"
+      },
+      {
+        "match": "didone|high-contrast",
+        "roundness": -0.3,
+        "potency": 0.3,
+        "hand": -0.5,
+        "activity": 0.1,
+        "why": "elaborate, sharp contrast"
+      },
+      {
+        "match": "condensed|compressed|gothic",
+        "activity": 0.4,
+        "potency": 0.3,
+        "roundness": -0.3,
+        "why": "compressed"
+      },
+      {
+        "match": "grotesque|grotesk|neo-grotesque",
+        "roundness": -0.3,
+        "hand": -0.6,
+        "why": "plain, engineered"
+      },
+      {
+        "match": "geometric",
+        "roundness": 0.2,
+        "hand": -0.5,
+        "why": "constructed circles, precise"
+      },
+      {
+        "match": "humanist|calligraphic|flared",
+        "hand": 0.3,
+        "roundness": 0.2,
+        "why": "natural: the pen's trace"
+      },
+      {
+        "match": "old-style|soft",
+        "roundness": 0.3,
+        "hand": 0.2,
+        "activity": -0.2,
+        "why": "natural, warm"
+      },
+      {
+        "match": "transitional|engineered",
+        "hand": -0.3,
+        "activity": -0.3,
+        "why": "reassuring, measured"
+      },
+      {
+        "match": "serif",
+        "activity": -0.2,
+        "potency": 0.1,
+        "why": "reassuring"
+      },
+      {
+        "match": "display|heavy|poster|deco",
+        "potency": 0.4,
+        "activity": 0.3,
+        "why": "weight, prominence"
+      },
+      {
+        "match": "italic|curvy|bounce",
+        "activity": 0.4,
+        "roundness": 0.3,
+        "why": "flourish, movement"
+      },
+      {
+        "match": "mono",
+        "hand": -0.7,
+        "roundness": -0.2,
+        "why": "machine"
+      }
+    ],
+    "weight": {
+      "heavyFrom": 800,
+      "heavy": {
+        "potency": 0.3
+      },
+      "lightTo": 400,
+      "light": {
+        "potency": -0.2
+      }
+    }
+  },
+  "colour": {
+    "$comment": "Per Wada colour from CIELAB. Brightness B = L*, saturation S = C*, both standardised over the 159 colours. Activity = Valdez & Mehrabian arousal (-.31 B + .60 S), potency = dominance (-.76 B + .32 S), both halved and clamped to -1..1. Warmth = C*/60 x cos(h - 50 deg), clamped (direction of Ou et al.'s colour heat factor; an approximation). A palette mixes its colours by area.",
+    "areas": {
+      "ground": 0.6,
+      "text": 0.2,
+      "accent": 0.12,
+      "support": 0.08
+    },
+    "quality": {
+      "legibility": {
+        "aaa": 7,
+        "scoreAaa": 1,
+        "scoreAa": 0.8,
+        "why": "text contrast; below 4.5:1 a palette is never used for words"
+      },
+      "groundTextHueSimilarity": {
+        "weight": 0.5,
+        "why": "colour-pairs: pair preference and harmony rise with hue similarity",
+        "neutral": 0.6
+      },
+      "accentHueContrast": {
+        "weight": 0.5,
+        "why": "colour-pairs: a figure is liked more the more its hue contrasts with the ground"
+      },
+      "dislikedGround": {
+        "lab": [
+          50,
+          -8,
+          30
+        ],
+        "radius": 22,
+        "penalty": 0.6,
+        "unlessBrandWithin": 15,
+        "why": "ecological-valence"
+      },
+      "brandCloseness": {
+        "deltaEFull": 0,
+        "deltaEZero": 40,
+        "why": "fluency: the colours people already know the brand by"
+      }
+    },
+    "qualityWeight": 0.2
+  },
+  "motion": {
+    "$comment": "How much a piece moves follows the target's activity (motion-arousal); how it moves is the style's motion.json.",
+    "byActivity": [
+      {
+        "below": -0.4,
+        "plan": "Still, or one slow movement that ends still."
+      },
+      {
+        "below": 0.3,
+        "plan": "One movement at a time with a long still hold; loops of a few seconds."
+      },
+      {
+        "below": 2,
+        "plan": "Livelier sequences, still one mover at a time, never flashing."
+      }
+    ]
+  },
+  "hand": {
+    "$comment": "A hand face is used only when the style allows it and the target is clearly human (hand-and-machine).",
+    "useFrom": 0.25
+  },
+  "lexicon": {
+    "$comment": "Brand character words (identity.json core.character) to axes. Unknown words are reported so they can be added here once.",
+    "warm": {
+      "warmth": 0.7,
+      "roundness": 0.4,
+      "hand": 0.3
+    },
+    "friendly": {
+      "roundness": 0.6,
+      "warmth": 0.5,
+      "potency": -0.2
+    },
+    "kind": {
+      "roundness": 0.6,
+      "warmth": 0.5,
+      "potency": -0.3
+    },
+    "caring": {
+      "roundness": 0.7,
+      "warmth": 0.6,
+      "potency": -0.3,
+      "hand": 0.3
+    },
+    "human": {
+      "hand": 0.6,
+      "warmth": 0.4,
+      "roundness": 0.3
+    },
+    "personal": {
+      "hand": 0.6,
+      "warmth": 0.4
+    },
+    "honest": {
+      "hand": 0.2,
+      "activity": -0.3
+    },
+    "plain": {
+      "activity": -0.4,
+      "potency": -0.1,
+      "hand": -0.1
+    },
+    "simple": {
+      "activity": -0.5,
+      "potency": -0.2
+    },
+    "calm": {
+      "activity": -0.7,
+      "potency": -0.2
+    },
+    "quiet": {
+      "activity": -0.7,
+      "potency": -0.4
+    },
+    "minimal": {
+      "activity": -0.6,
+      "potency": -0.2
+    },
+    "elegant": {
+      "activity": -0.3,
+      "potency": -0.2,
+      "hand": -0.2,
+      "roundness": 0.1
+    },
+    "premium": {
+      "activity": -0.4,
+      "potency": 0.2,
+      "hand": -0.3
+    },
+    "exact": {
+      "hand": -0.6,
+      "roundness": -0.3,
+      "potency": 0.2
+    },
+    "precise": {
+      "hand": -0.7,
+      "roundness": -0.4,
+      "potency": 0.2
+    },
+    "technical": {
+      "hand": -0.7,
+      "roundness": -0.4,
+      "warmth": -0.4
+    },
+    "smart": {
+      "hand": -0.4,
+      "potency": 0.2
+    },
+    "clever": {
+      "activity": 0.3,
+      "hand": -0.2
+    },
+    "reliable": {
+      "potency": 0.4,
+      "activity": -0.3,
+      "hand": -0.4
+    },
+    "trustworthy": {
+      "potency": 0.4,
+      "activity": -0.3,
+      "hand": -0.3
+    },
+    "secure": {
+      "potency": 0.5,
+      "activity": -0.3,
+      "roundness": -0.2
+    },
+    "confident": {
+      "potency": 0.6,
+      "activity": 0.2
+    },
+    "bold": {
+      "potency": 0.8,
+      "activity": 0.5,
+      "roundness": -0.2
+    },
+    "strong": {
+      "potency": 0.8,
+      "roundness": -0.3
+    },
+    "fast": {
+      "activity": 0.7,
+      "roundness": -0.2
+    },
+    "energetic": {
+      "activity": 0.8,
+      "potency": 0.3
+    },
+    "playful": {
+      "activity": 0.6,
+      "roundness": 0.6,
+      "hand": 0.5,
+      "potency": -0.2
+    },
+    "fun": {
+      "activity": 0.7,
+      "roundness": 0.5,
+      "hand": 0.4
+    },
+    "joyful": {
+      "activity": 0.6,
+      "warmth": 0.6,
+      "roundness": 0.5
+    },
+    "curious": {
+      "activity": 0.3,
+      "hand": 0.2
+    },
+    "rebellious": {
+      "activity": 0.7,
+      "potency": 0.6,
+      "roundness": -0.5
+    },
+    "modern": {
+      "hand": -0.4,
+      "activity": 0.1
+    },
+    "traditional": {
+      "hand": 0.3,
+      "activity": -0.3,
+      "warmth": 0.3
+    },
+    "crafted": {
+      "hand": 0.7,
+      "warmth": 0.3
+    },
+    "natural": {
+      "hand": 0.5,
+      "roundness": 0.5,
+      "warmth": 0.3,
+      "activity": -0.2
+    },
+    "fresh": {
+      "activity": 0.3,
+      "warmth": -0.2,
+      "potency": -0.3
+    },
+    "cool": {
+      "warmth": -0.5,
+      "activity": 0.2
+    },
+    "global": {
+      "hand": -0.3,
+      "warmth": 0
+    },
+    "local": {
+      "hand": 0.4,
+      "warmth": 0.4
+    },
+    "generous": {
+      "warmth": 0.5,
+      "activity": 0.4
+    },
+    "celebratory": {
+      "activity": 0.9,
+      "warmth": 0.6
+    },
+    "direct": {
+      "potency": 0.4,
+      "activity": 0.2,
+      "hand": -0.3
+    },
+    "open": {
+      "activity": -0.2,
+      "roundness": 0.3,
+      "potency": -0.3
+    },
+    "builder": {
+      "potency": 0.4,
+      "hand": -0.2
+    },
+    "ambitious": {
+      "potency": 0.6,
+      "activity": 0.5
+    },
+    "thoughtful": {
+      "activity": -0.4,
+      "hand": 0.2
+    },
+    "soft": {
+      "roundness": 0.8,
+      "potency": -0.5
+    },
+    "gentle": {
+      "roundness": 0.7,
+      "potency": -0.5,
+      "activity": -0.4
+    },
+    "grounded": {
+      "potency": 0.3,
+      "activity": -0.3,
+      "warmth": 0.2
+    },
+    "literary": {
+      "hand": 0.2,
+      "activity": -0.3,
+      "potency": -0.1
+    },
+    "talker": {},
+    "delicious": {
+      "warmth": 0.7,
+      "roundness": 0.5,
+      "hand": 0.3
+    },
+    "homemade": {
+      "hand": 0.8,
+      "warmth": 0.6,
+      "roundness": 0.4
+    },
+    "neighbourly": {
+      "warmth": 0.6,
+      "roundness": 0.5,
+      "hand": 0.4,
+      "potency": -0.2
+    },
+    "unhurried": {
+      "activity": -0.6,
+      "potency": -0.2
+    }
+  },
+  "goals": {
+    "$comment": "Optional campaign intent (npm run compose -- <product> <campaign> --goal <id>), added to the brand's own target.",
+    "launch": {
+      "activity": 0.4,
+      "potency": 0.2,
+      "why": "be noticed: arousal raises attention (motion-arousal, complexity)"
+    },
+    "trust": {
+      "potency": 0.3,
+      "activity": -0.3,
+      "hand": -0.3,
+      "why": "reassuring: calm, steady, precise"
+    },
+    "care": {
+      "warmth": 0.4,
+      "roundness": 0.4,
+      "hand": 0.3,
+      "potency": -0.2,
+      "why": "rounded, warm, personal"
+    },
+    "calm": {
+      "activity": -0.5,
+      "potency": -0.2,
+      "why": "quiet, spacious"
+    },
+    "celebrate": {
+      "activity": 0.6,
+      "warmth": 0.4,
+      "why": "festive energy"
+    },
+    "explain": {
+      "activity": -0.3,
+      "hand": -0.2,
+      "why": "clarity first (fluency)"
+    }
+  },
+  "rules": [
+    {
+      "id": "C1",
+      "name": "Agree on every axis",
+      "rule": "Style, palette and type sit close to the target and to each other on every axis. Axes the brand states strongly weigh more (0.5 + |target|).",
+      "from": [
+        "shared-dimensions",
+        "crossmodal-correspondence",
+        "fluency"
+      ],
+      "weight": {
+        "style": 0.4,
+        "palette": 0.3,
+        "type": 0.3,
+        "disagreement": 0.35
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Type matches on potency and activity",
+      "rule": "The pairing is judged mainly on potency and activity.",
+      "from": [
+        "type-product-congruity"
+      ],
+      "axisWeights": {
+        "potency": 1.5,
+        "activity": 1.5,
+        "roundness": 1,
+        "hand": 1,
+        "warmth": 0
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Ground and text: similar hue, strong lightness contrast",
+      "rule": "Body contrast 4.5:1 at least, 7:1 preferred; ground and text hues close.",
+      "from": [
+        "colour-pairs"
+      ]
+    },
+    {
+      "id": "C4",
+      "name": "Accent contrasts in hue",
+      "rule": "The accent, the one figure, differs in hue from the ground.",
+      "from": [
+        "colour-pairs"
+      ]
+    },
+    {
+      "id": "C5",
+      "name": "No disliked grounds by default",
+      "rule": "Dark yellow, olive and brown grounds are marked down unless the brand already owns the colour.",
+      "from": [
+        "ecological-valence"
+      ]
+    },
+    {
+      "id": "C6",
+      "name": "Close to the brand's known colours",
+      "rule": "Palettes near the colours people know the brand by score up.",
+      "from": [
+        "fluency",
+        "colour-product-congruity"
+      ]
+    },
+    {
+      "id": "C7",
+      "name": "One tension, moderate",
+      "rule": "At most one axis may differ moderately from the target (0.35-0.9), and only an axis the brand barely defines (|target| below 0.35): that is the piece's spark. Missing a trait the brand states is never a tension; two or more large differences, or one extreme one, are marked down.",
+      "from": [
+        "moderate-incongruity"
+      ],
+      "moderate": [
+        0.35,
+        0.9
+      ],
+      "extreme": 1.1,
+      "onlyWhereTargetBelow": 0.35
+    },
+    {
+      "id": "C8",
+      "name": "Complexity follows activity",
+      "rule": "Busy styles only for active targets; text zones stay calm in every style.",
+      "from": [
+        "complexity"
+      ]
+    },
+    {
+      "id": "C9",
+      "name": "Motion follows activity",
+      "rule": "How much moves is set by the target's activity (see motion).",
+      "from": [
+        "motion-arousal"
+      ]
+    },
+    {
+      "id": "C10",
+      "name": "Hand only when human",
+      "rule": "A hand face only when the style allows it, and either the brand already owns one (its known signal wins over the average) or the target's hand axis is clearly positive.",
+      "from": [
+        "hand-and-machine"
+      ]
+    },
+    {
+      "id": "C11",
+      "name": "The style's own lists first",
+      "rule": "Palettes the style recommends and pairings it rates core score up; others are allowed when they fit better.",
+      "from": [
+        "the style research files"
+      ],
+      "bonus": {
+        "recommendedPalette": 0.12,
+        "corePairing": 0.1,
+        "goodPairing": 0.03
+      }
+    }
+  ]
+}

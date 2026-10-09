@@ -10,7 +10,8 @@
     "new-product": "node scripts/new-product.mjs",
     "check:copy": "node scripts/check-copy.mjs",
     "check:copy:sample": "node scripts/check-copy.mjs products/sample-bakery",
-    "design": "node scripts/design.mjs"
+    "design": "node scripts/design.mjs",
+    "compose": "node tools/design/compose.mjs"
   },
   "engines": {
     "node": ">=18"

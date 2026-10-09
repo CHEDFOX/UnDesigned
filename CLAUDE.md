@@ -13,12 +13,12 @@ This repository is a **universal design guide**. The user will give you a produc
    - **The core:** what the brand believes, the change it makes in someone's life, its character in three words, and the one tension or truth that makes it interesting. Content comes from this core, never from restating the website.
    - **Its marks:** the original logo files, copied from the brand. Never redraw, simplify, substitute or invent a mark; use the files as they are (recolour only if the brand itself does).
    - **Its signals:** the colours, type, imagery and signature elements people already know it by. The guide's choices below should echo them (nearest Wada combinations, closest pairing, a style whose method fits).
-4. **Choose colours and type unless the user already did.** Pick what fits the product, set `color.status` to `"chosen"` once the user agrees, and explain each choice in one line.
-   - **Palettes:** read `dist/<id>/tokens/colors.json` (or `foundations/color/source/wada-colors.json` before a build). Prefer combinations whose light-mode `roles.light.inkUse` is `"body"`, so the headline colour passes AA contrast.
-   - **Style:** if the user hasn't chosen one, suggest a style from `approaches/` that fits the product and say why in one line (scores and trade-offs are in each `approach.json` → `evidence`).
-   - **Palettes:** start from the chosen style's `art.json` → `palette.recommendedCombinations`.
-   - **Type:** pick a pairing the chosen style rates `core` in its `typography.json` → `fit`.
-   - **Handwriting (optional):** only if the style allows it (`typography.json` → `handwritten`) and the product is warm, safe and personal (food, gifts, care, new or small brands). Pick one face from `foundations/typography/source/handwritten.json` and set `typography.hand` in `brand.json`. Never for body, prices, data, steps or buttons; the evidence is in `foundations/research/handwriting.json`.
+4. **Compose the combination; don't pick parts one by one.** Run `npm run compose -- <id> [campaign] [--goal ...] --write` (after a first `npm run build -- <id>`).
+   - It reads the brand's core and places every style, Wada palette, pairing and hand face on the same five perceptual axes: roundness, activity, potency, warmth, hand.
+   - It applies the researched combination rules (`foundations/combinations/README.md`, evidence in `foundations/research/combinations.json`) and writes the winner into the campaign's `campaign.json`, explained rule by rule. The design engine follows that file.
+   - Use the user's choice when they made one (`--style`, or edit `campaign.json`).
+   - When the user disagrees with a result, fix the cause in `foundations/combinations/combinations.json` (a missing brand word, a style profile, a weight) with the reason, so every later product gets it right the first time.
+   - Handwriting stays within its rules: never for body, prices, data, steps or buttons (`foundations/research/handwriting.json`).
 5. **Build:** `npm run build -- <id>`. Outputs go to `dist/<id>/`.
 6. **Plan content, then write a brief.** Turn the core into 3 to 5 content pillars (the customer's moments, the product's dramatic truths, proof, education, community) and repeatable series. Then, for each campaign, write `products/<id>/campaigns/<campaign>/brief.md`, from `templates/briefs/creative-brief.md`. Settle the one message (W1) and the big idea (O2) before designing.
 7. **Write the copy** as `.copy.json` files in the campaign folder. Respect the word limits in `foundations/messaging/source/formats.json`. Run `npm run check:copy -- products/<id>`, then fix every ERROR and the WARNs that apply.
