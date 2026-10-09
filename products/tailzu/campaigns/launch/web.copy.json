@@ -7,7 +7,10 @@
     "body": "800 words a month, free.",
     "cta": "Get Tailzu free",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "art": {
+      "motif": "thread-to-line"
+    }
   },
   {
     "piece": "banner",
@@ -15,13 +18,19 @@
     "headline": "Talk in Hinglish. Send it clean.",
     "cta": "Get it free",
     "logo": true,
-    "palette": "night"
+    "palette": "night",
+    "art": {
+      "motif": "thread-to-line"
+    }
   },
   {
     "piece": "thumbnail",
     "format": "thumbnail",
     "headline": "Hinglish, without the typing",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "art": {
+      "motif": "two-bubbles"
+    }
   }
 ]

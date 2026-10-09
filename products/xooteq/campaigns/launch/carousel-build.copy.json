@@ -6,7 +6,16 @@
     "headline": "The idea that keeps you up needs a table.",
     "subhead": "For builders aged 18 to 35 making something unconventional.",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "art": {
+      "image": "assets/photos/build-hands.jpg"
+    },
+    "series": {
+      "name": "carousel-build",
+      "index": 1,
+      "of": 4
+    },
+    "id": "carousel-build-1"
   },
   {
     "$comment": "Slide 2 of 4: what you get (grid of six).",
@@ -15,7 +24,16 @@
     "headline": "What you get when you pull up a chair",
     "body": "Workspace. Living space. Hardware. GPU access. Dev infrastructure. Peers who make you better: engineers, filmmakers, researchers, designers. Resources, connections and funding when it fits.",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "art": {
+      "image": "assets/photos/about-studio.jpg"
+    },
+    "series": {
+      "name": "carousel-build",
+      "index": 2,
+      "of": 4
+    },
+    "id": "carousel-build-2"
   },
   {
     "$comment": "Slide 3 of 4: the plan in three steps (S5), drawn as a rising diagonal.",
@@ -24,7 +42,16 @@
     "headline": "Three steps. No pitch deck.",
     "body": "Apply: what you're building, what you've built, what you need. Connect: if it fits, we talk. Build: take your seat and ship.",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "art": {
+      "image": "assets/photos/world-network.jpg"
+    },
+    "series": {
+      "name": "carousel-build",
+      "index": 3,
+      "of": 4
+    },
+    "id": "carousel-build-3"
   },
   {
     "$comment": "Slide 4 of 4: the promise and the call to action. Photo: builders-dreamers (two silhouettes in a workshop facing each other).",
@@ -35,6 +62,15 @@
     "cta": "Email hello@xooteq.com",
     "logo": true,
     "palette": "primary",
-    "caption": "Build With Us is for builders aged 18 to 35 making something unconventional: workspace, living space, hardware, GPU access, dev infrastructure and peers. Tell us what you're working on, what you've built before and what you need at hello@xooteq.com. Everyone gets a reply."
+    "caption": "Build With Us is for builders aged 18 to 35 making something unconventional: workspace, living space, hardware, GPU access, dev infrastructure and peers. Tell us what you're working on, what you've built before and what you need at hello@xooteq.com. Everyone gets a reply.",
+    "art": {
+      "image": "assets/photos/builders-dreamers.jpg"
+    },
+    "series": {
+      "name": "carousel-build",
+      "index": 4,
+      "of": 4
+    },
+    "id": "carousel-build-4"
   }
 ]

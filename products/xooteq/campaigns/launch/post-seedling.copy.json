@@ -7,5 +7,8 @@
   "cta": "Join at xooteq.com/green-revolution",
   "logo": true,
   "palette": "primary",
-  "caption": "Not carbon credits: trees in the ground. Every quarter, in every city XOOTEQ works in, we plant trees, protect green spaces and spread the word. xooteq.com/green-revolution"
+  "caption": "Not carbon credits: trees in the ground. Every quarter, in every city XOOTEQ works in, we plant trees, protect green spaces and spread the word. xooteq.com/green-revolution",
+  "art": {
+    "image": "assets/photos/green-seedling.jpg"
+  }
 }

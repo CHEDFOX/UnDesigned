@@ -5,5 +5,8 @@
   "subhead": "For builders aged 18 to 35.",
   "cta": "Apply by email",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/photos/build-hands.jpg"
+  }
 }

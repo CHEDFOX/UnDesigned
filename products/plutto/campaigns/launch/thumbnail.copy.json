@@ -3,5 +3,8 @@
   "format": "thumbnail",
   "headline": "Talk to your birth chart",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "orb"
+  }
 }

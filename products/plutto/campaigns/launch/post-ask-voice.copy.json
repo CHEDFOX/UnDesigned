@@ -6,5 +6,9 @@
   "details": "An example question",
   "cta": "Ask out loud at plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "voice"
+  },
+  "note": "An example question"
 }

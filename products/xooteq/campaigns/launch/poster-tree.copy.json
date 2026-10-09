@@ -6,5 +6,8 @@
   "subhead": "XOOTEQ builds software, AI and films, and plants trees every quarter in every city it works in.",
   "cta": "xooteq.com/green-revolution",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/photos/hero-trees.jpg"
+  }
 }

@@ -8,7 +8,10 @@
     "palette": "primary",
     "note": "haan haan pahunch gaya",
     "incoming": "Pahunch gaye?",
-    "written": "Haan, pahunch gaya. Ghar jaake call karta hoon"
+    "written": "Haan, pahunch gaya. Ghar jaake call karta hoon",
+    "art": {
+      "motif": "chat"
+    }
   },
   {
     "$comment": "Moment: AI chat (pillar: Where it lands). Full-bleed box + band.",
@@ -19,7 +22,10 @@
     "logo": true,
     "palette": "night",
     "note": "so basically um like…",
-    "written": "Explain GST input credit like I run a small shop. Give me one example."
+    "written": "Explain GST input credit like I run a small shop. Give me one example.",
+    "art": {
+      "motif": "typed-box"
+    }
   },
   {
     "$comment": "Moment: code editor (pillar: Where it lands). Split, image top.",
@@ -30,6 +36,10 @@
     "logo": true,
     "palette": "desk",
     "note": "uh add a retry here",
-    "written": "// Add a retry here"
+    "written": "// Add a retry here",
+    "art": {
+      "motif": "typed-box"
+    },
+    "box": "upload.ts"
   }
 ]

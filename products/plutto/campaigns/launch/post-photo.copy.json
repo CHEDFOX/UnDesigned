@@ -5,5 +5,8 @@
   "subhead": "Vedic, Western, Chinese, KP or numerology. You choose the lens.",
   "cta": "plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/images/floating-planet.jpg"
+  }
 }

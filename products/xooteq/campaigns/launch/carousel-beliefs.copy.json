@@ -6,7 +6,13 @@
     "headline": "Value over valuation.",
     "subhead": "Build the thing people would miss tomorrow, not the thing that pitches well today.",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "series": {
+      "name": "carousel-beliefs",
+      "index": 1,
+      "of": 5
+    },
+    "id": "carousel-beliefs-1"
   },
   {
     "$comment": "Slide 2 of 5.",
@@ -15,7 +21,13 @@
     "headline": "Fun is fuel, not the opposite of serious work.",
     "subhead": "Tired people ship tired work. Build on what makes you lose track of time.",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "series": {
+      "name": "carousel-beliefs",
+      "index": 2,
+      "of": 5
+    },
+    "id": "carousel-beliefs-2"
   },
   {
     "$comment": "Slide 3 of 5.",
@@ -24,7 +36,13 @@
     "headline": "Degrees don't build things. People do.",
     "subhead": "Show what you've made. Nobody at the table asks where you studied.",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "series": {
+      "name": "carousel-beliefs",
+      "index": 3,
+      "of": 5
+    },
+    "id": "carousel-beliefs-3"
   },
   {
     "$comment": "Slide 4 of 5. The headline is the brand's own belief in the wording of its FAQ ('those with nothing to lose'); the checker's 'the best' cliche warning is accepted because it is a quoted belief.",
@@ -33,7 +51,13 @@
     "headline": "The best ideas come from those with nothing to lose.",
     "subhead": "With nothing to protect, you can try what careful people won't.",
     "logo": true,
-    "palette": "primary"
+    "palette": "primary",
+    "series": {
+      "name": "carousel-beliefs",
+      "index": 4,
+      "of": 5
+    },
+    "id": "carousel-beliefs-4"
   },
   {
     "$comment": "Slide 5 of 5: the last belief, the filter and the call to action. The beam ends here.",
@@ -44,6 +68,12 @@
     "cta": "Send your idea: hello@xooteq.com",
     "logo": true,
     "palette": "primary",
-    "caption": "Five beliefs we build by at XOOTEQ, and the one question every idea runs through: does it matter? Building something that does? Tell us what it is at hello@xooteq.com. We reply to everyone."
+    "caption": "Five beliefs we build by at XOOTEQ, and the one question every idea runs through: does it matter? Building something that does? Tell us what it is at hello@xooteq.com. We reply to everyone.",
+    "series": {
+      "name": "carousel-beliefs",
+      "index": 5,
+      "of": 5
+    },
+    "id": "carousel-beliefs-5"
   }
 ]

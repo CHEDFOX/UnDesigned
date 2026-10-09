@@ -7,5 +7,9 @@
   "details": "Sample position. Built by xooteq Lab.",
   "cta": "plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "natal-wheel"
+  },
+  "note": "Sample position. Built by xooteq Lab."
 }

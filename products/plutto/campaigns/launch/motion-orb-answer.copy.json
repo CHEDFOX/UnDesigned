@@ -5,5 +5,9 @@
   "subhead": "Let's look at the period your chart is in.",
   "cta": "Ask at plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "voice"
+  },
+  "animate": true
 }

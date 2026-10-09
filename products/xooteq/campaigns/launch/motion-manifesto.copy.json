@@ -6,5 +6,6 @@
   "subhead": "Five beliefs, one question. Building something that passes?",
   "cta": "Send yours: hello@xooteq.com",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "animate": true
 }

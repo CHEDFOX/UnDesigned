@@ -5,5 +5,8 @@
   "subhead": "Ask your own birth chart, out loud.",
   "cta": "plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "orb"
+  }
 }

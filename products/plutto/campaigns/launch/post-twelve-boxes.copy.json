@@ -5,5 +5,8 @@
   "subhead": "Sun signs split the sky in twelve. Your chart is yours alone.",
   "cta": "plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "orb"
+  }
 }

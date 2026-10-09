@@ -5,5 +5,8 @@
   "subhead": "Plutto for iOS and Android.",
   "cta": "plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "app-icon"
+  }
 }

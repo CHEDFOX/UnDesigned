@@ -9,7 +9,8 @@
     "build:brand": "node scripts/build.mjs",
     "new-product": "node scripts/new-product.mjs",
     "check:copy": "node scripts/check-copy.mjs",
-    "check:copy:sample": "node scripts/check-copy.mjs products/sample-bakery"
+    "check:copy:sample": "node scripts/check-copy.mjs products/sample-bakery",
+    "design": "node scripts/design.mjs"
   },
   "engines": {
     "node": ">=18"

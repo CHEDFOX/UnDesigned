@@ -1,0 +1,9 @@
+[
+  { "id": "post-a", "format": "instagram-post", "headline": "Your loaf is on the shelf at 6:30", "cta": "Pre-order tonight" },
+  { "id": "post-b", "format": "instagram-post", "headline": "Thirty-six hours, then breakfast", "subhead": "Slow sourdough, baked overnight.", "cta": "Pre-order tonight", "animate": true },
+  { "id": "slide-1", "format": "carousel-slide", "headline": "How your loaf gets made", "series": { "name": "how", "index": 1, "of": 3 } },
+  { "id": "slide-2", "format": "carousel-slide", "headline": "It rests for thirty-six hours", "series": { "name": "how", "index": 2, "of": 3 } },
+  { "id": "banner", "format": "web-banner", "headline": "Real bread at 6:30", "cta": "Pre-order" },
+  { "id": "hero", "format": "landing-hero", "headline": "Real bread, ready before work", "subhead": "Pre-order by 9 pm and your loaf waits on a shelf with your name.", "cta": "Pre-order tonight's loaf" },
+  { "id": "thumb", "format": "thumbnail", "headline": "Bread before work" }
+]

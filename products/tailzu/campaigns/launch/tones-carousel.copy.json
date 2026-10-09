@@ -7,7 +7,15 @@
     "logo": true,
     "palette": "paper",
     "label": "1 / 6",
-    "rough": "hey can u send the file tonight its kinda urgent"
+    "rough": "hey can u send the file tonight its kinda urgent",
+    "art": {
+      "motif": "tones"
+    },
+    "series": {
+      "name": "tones",
+      "index": 1,
+      "of": 6
+    }
   },
   {
     "piece": "tones-2",
@@ -25,7 +33,15 @@
         "Casual",
         "Hey, can you send the file tonight? Kinda urgent."
       ]
-    ]
+    ],
+    "art": {
+      "motif": "tones"
+    },
+    "series": {
+      "name": "tones",
+      "index": 2,
+      "of": 6
+    }
   },
   {
     "piece": "tones-3",
@@ -43,7 +59,15 @@
         "Excited",
         "Can you send the file tonight? Can't wait to dig in!"
       ]
-    ]
+    ],
+    "art": {
+      "motif": "tones"
+    },
+    "series": {
+      "name": "tones",
+      "index": 3,
+      "of": 6
+    }
   },
   {
     "piece": "tones-4",
@@ -61,7 +85,15 @@
         "Pirate",
         "Arr, send the file tonight, matey. It be urgent."
       ]
-    ]
+    ],
+    "art": {
+      "motif": "tones"
+    },
+    "series": {
+      "name": "tones",
+      "index": 4,
+      "of": 6
+    }
   },
   {
     "piece": "tones-5",
@@ -79,7 +111,15 @@
         "Noir",
         "The file. Tonight. In this town, urgent means yesterday."
       ]
-    ]
+    ],
+    "art": {
+      "motif": "tones"
+    },
+    "series": {
+      "name": "tones",
+      "index": 5,
+      "of": 6
+    }
   },
   {
     "$comment": "Slide 6 of 6: CTA.",
@@ -90,6 +130,14 @@
     "cta": "Get Tailzu free",
     "logo": true,
     "palette": "paper",
-    "label": "6 / 6"
+    "label": "6 / 6",
+    "art": {
+      "motif": "tone-dial"
+    },
+    "series": {
+      "name": "tones",
+      "index": 6,
+      "of": 6
+    }
   }
 ]

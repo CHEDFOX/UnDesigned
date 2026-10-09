@@ -9,5 +9,9 @@
   "logo": true,
   "palette": "paper",
   "written": "Transfer 2500 rupees to Ramesh tomorrow",
-  "note": "kept, exactly as you said"
+  "note": "kept, exactly as you said",
+  "art": {
+    "motif": "said-written"
+  },
+  "said": "kept, exactly as you said"
 }

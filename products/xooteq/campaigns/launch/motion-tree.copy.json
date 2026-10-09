@@ -6,5 +6,9 @@
   "subhead": "Does it matter? Then plant it.",
   "cta": "xooteq.com/green-revolution",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "animate": true,
+  "art": {
+    "image": "assets/photos/tree-grown.jpg"
+  }
 }

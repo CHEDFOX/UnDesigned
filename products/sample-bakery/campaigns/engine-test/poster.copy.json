@@ -1,0 +1,10 @@
+{
+  "$comment": "SAMPLE: passes the checker.",
+  "format": "poster",
+  "headline": "Real bread, ready at 6:30",
+  "subhead": "Pre-order by 9 pm. Your loaf waits on a shelf with your name.",
+  "body": "Sourdough fermented for 36 hours and baked overnight, five minutes from your door.",
+  "cta": "Pre-order tonight's loaf",
+  "logo": true,
+  "palette": "primary"
+}

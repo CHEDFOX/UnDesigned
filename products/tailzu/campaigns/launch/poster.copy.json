@@ -7,5 +7,8 @@
   "cta": "Get Tailzu free at tailzu.space",
   "logo": true,
   "palette": "primary",
-  "written": "Kal subah milte hain"
+  "written": "Kal subah milte hain",
+  "art": {
+    "motif": "words-stay"
+  }
 }

@@ -13,5 +13,8 @@
     ]
   },
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/photos/hero-trees.jpg"
+  }
 }

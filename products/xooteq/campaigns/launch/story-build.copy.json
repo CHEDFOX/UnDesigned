@@ -5,7 +5,13 @@
   "headline": "What are you building right now?",
   "subhead": "One line is enough. Builders, 18 to 35.",
   "cta": "Answer in the box",
-  "sticker": { "type": "question", "prompt": "I'm building..." },
+  "sticker": {
+    "type": "question",
+    "prompt": "I'm building..."
+  },
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/photos/green-revolution-room.jpg"
+  }
 }

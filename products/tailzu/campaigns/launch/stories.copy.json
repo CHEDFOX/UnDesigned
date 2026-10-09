@@ -10,7 +10,10 @@
     "poll": [
       "I type it",
       "I'd say it"
-    ]
+    ],
+    "art": {
+      "motif": "two-bubbles"
+    }
   },
   {
     "$comment": "Story with a question sticker (pillar: Where it lands / community).",
@@ -20,6 +23,9 @@
     "subhead": "Tell us yours. You might see it said, then written.",
     "cta": "Get Tailzu free",
     "logo": true,
-    "palette": "paper"
+    "palette": "paper",
+    "art": {
+      "motif": "thread-to-line"
+    }
   }
 ]

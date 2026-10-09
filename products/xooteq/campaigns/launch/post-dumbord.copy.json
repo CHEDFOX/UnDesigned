@@ -7,5 +7,8 @@
   "cta": "Watch at dumbord.com",
   "logo": true,
   "palette": "daylight",
-  "caption": "DUMBORD makes cinema with artificial intelligence instead of sets, crews and locations. A XOOTEQ initiative since 2025. We shoot the impossible. dumbord.com"
+  "caption": "DUMBORD makes cinema with artificial intelligence instead of sets, crews and locations. A XOOTEQ initiative since 2025. We shoot the impossible. dumbord.com",
+  "art": {
+    "image": "assets/photos/xo-studio.jpg"
+  }
 }

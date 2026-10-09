@@ -6,5 +6,8 @@
   "subhead": "Software, AI and films that pass one test: does it matter? Bring yours: a table waits for builders aged 18 to 35.",
   "cta": "Build with us",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/photos/hero-trees.jpg"
+  }
 }

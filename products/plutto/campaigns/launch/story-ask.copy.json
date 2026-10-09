@@ -4,5 +4,8 @@
   "headline": "What would you ask your chart first?",
   "cta": "Ask it here",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "orb"
+  }
 }

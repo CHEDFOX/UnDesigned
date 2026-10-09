@@ -7,7 +7,11 @@
     "logo": true,
     "palette": "primary",
     "said": "haan um kal subah milte hain",
-    "written": "Haan, kal subah milte hain"
+    "written": "Haan, kal subah milte hain",
+    "art": {
+      "motif": "said-written"
+    },
+    "animate": true
   },
   {
     "$comment": "Motion 2: the tone shifter, story 9:16. Lines are the site's own.",
@@ -16,6 +20,11 @@
     "headline": "Same message. Your mood.",
     "cta": "Get Tailzu free",
     "logo": true,
-    "palette": "night"
+    "palette": "night",
+    "art": {
+      "motif": "tones"
+    },
+    "rough": "hey can u send the file tonight its kinda urgent",
+    "animate": true
   }
 ]

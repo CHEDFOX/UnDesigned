@@ -6,5 +6,8 @@
   "body": "Vedic, Western, Chinese, KP and numerology, in plain words. Charts computed with Swiss Ephemeris. 89 languages.",
   "cta": "plutto.space · iOS and Android, soon",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/images/floating-planet.jpg"
+  }
 }

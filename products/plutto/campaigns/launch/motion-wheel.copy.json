@@ -5,5 +5,9 @@
   "subhead": "Plutto switches lenses mid-sentence.",
   "cta": "plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "western"
+  },
+  "animate": true
 }

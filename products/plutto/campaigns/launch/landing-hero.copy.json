@@ -6,5 +6,8 @@
   "body": "Vedic, Western, Chinese, KP or numerology. Interrupt it, or switch traditions mid-sentence. Your memory is kept.",
   "cta": "iOS and Android, soon",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "orb"
+  }
 }

@@ -5,5 +5,8 @@
   "subhead": "Which tradition would you try first?",
   "cta": "iOS and Android, soon",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/images/floating-planet.jpg"
+  }
 }

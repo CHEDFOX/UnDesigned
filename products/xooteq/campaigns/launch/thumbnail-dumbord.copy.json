@@ -4,5 +4,8 @@
   "label": "DUMBORD · AI film",
   "headline": "No set. No crew.",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "image": "assets/photos/creation-vr.png"
+  }
 }

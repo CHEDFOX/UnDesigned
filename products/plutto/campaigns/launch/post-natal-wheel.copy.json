@@ -6,5 +6,9 @@
   "details": "Sample chart",
   "cta": "plutto.space",
   "logo": true,
-  "palette": "primary"
+  "palette": "primary",
+  "art": {
+    "motif": "natal-wheel"
+  },
+  "note": "Sample chart"
 }
