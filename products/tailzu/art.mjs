@@ -210,4 +210,86 @@ Object.assign(exports_, {
   },
 });
 
+/** "Say it badly. Send it perfect." The brand's mechanic as one proof sheet, animated once per 10 s, one mover at a time:
+ *  the said line is written by hand on the ground (it reveals left to right), proof marks strike the fillers,
+ *  a paper message bubble pops up, the clean line lands in the serif with the kept number underlined,
+ *  and the amber full stop drops in last ("alive, right now"). It then holds still. Reduced motion shows the end.
+ *  Copy fields: said (hand, six words or fewer), written (the clean line, without its full stop). */
+function proofSlip(ctx, b, h) {
+  const F = faces(ctx);
+  const P = ctx.P + 'ps-';
+  const s = Math.min(b.w, b.h);
+  const onGround = h.palette.ink, paper = h.palette.paper, accent = h.palette.accent;
+  const black = ctx.readableOn(paper, [ctx.pal.black, ctx.pal.ink]);
+  const animate = !(ctx.piece.art && ctx.piece.art.motion === false);
+  const said = ctx.piece.said || '', written = ctx.piece.written || '';
+  const T = 10; // seconds per cycle
+  const at = (sec) => r1((sec / T) * 100) + '%';
+  let css = '', out = '';
+
+  // The group (said line, bubble) is centred in the art box; the box may be taller than it needs.
+  const hs = s * 0.12, ws = s * 0.13;
+  const groupH = hs * 1.85 + ws * 1.1 + ws * 1.0 + ws * 0.45;
+  const top = b.y + Math.max(0, (b.h - groupH) / 2);
+
+  // 1. The said line, by hand, on the ground. Each word is placed on its own, so the proof marks sit exactly on their words.
+  const hf = { ...F.hand, size: hs };
+  const space = ctx.textWidth(' ', hf) * 1.25;
+  const sx = b.x + s * 0.02, sy = top + hs * 0.95;
+  const words = said.split(' ');
+  out += `<defs><clipPath id="${P}reveal"><rect class="${P}rv" x="${r1(sx - hs * 0.2)}" y="${r1(top - hs * 0.4)}" width="${r1(b.x + b.w - sx + hs * 0.2)}" height="${r1(hs * 1.9)}"/></clipPath></defs>`;
+  let hand = '', cx = sx, k = 0;
+  for (const w of words) {
+    const ww = ctx.textWidth(w, hf);
+    hand += textEl(ctx, cx, sy, hs, F.hand, onGround, w);
+    // 2. Proof marks: one hand-drawn line through each filler.
+    if (FILLERS.test(w.replace(/[.,…]+$/, ''))) {
+      const y0 = sy - hs * 0.28, x0 = cx - hs * 0.02, x1 = cx + ww + hs * 0.08;
+      const id = `${P}x${k}`;
+      out += `<path class="${id}" pathLength="1" stroke-dasharray="1" d="${h.ill.inkLine([[x0, y0 + hs * 0.05], [(x0 + x1) / 2, y0 - hs * 0.01], [x1, y0 - hs * 0.06]], { seed: 50 + k, wobble: 0.4 })}" fill="none" stroke="${onGround}" stroke-width="${r1(hs * 0.075)}" stroke-linecap="round"/>`;
+      const t0 = 1.6 + k * 0.8;
+      css += `@keyframes ${id}k{0%,${at(t0)}{stroke-dashoffset:1}${at(t0 + 0.6)},100%{stroke-dashoffset:0}}.${id}{animation:${id}k ${T}s cubic-bezier(.4,0,.2,1) infinite}`;
+      k++;
+    }
+    cx += ww + space;
+  }
+  out += `<g clip-path="url(#${P}reveal)">${hand}</g>`;
+  const marksEnd = 1.6 + k * 0.8;
+
+  // 3. The message bubble: white cut paper with a tail, the clean line in the serif.
+  const wf = { ...F.display, size: ws };
+  const tw = ctx.textWidth(written, wf);
+  const dot = ws * 0.1;
+  const padX = ws * 0.6, padY = ws * 0.5;
+  const bw = Math.min(b.w - s * 0.1, tw + dot * 4 + padX * 2), bh = ws * 1.1 + padY * 2;
+  const bx = b.x + b.w - bw - s * 0.02, by = sy + hs * 0.85;
+  const bubble = h.ill.paperPolygon([[bx, by], [bx + bw, by], [bx + bw, by + bh], [bx + bw * 0.86, by + bh], [bx + bw * 0.93, by + bh + ws * 0.45], [bx + bw * 0.72, by + bh], [bx, by + bh]], { jitter: s * 0.004, radius: [ws * 0.4, ws * 0.4, ws * 0.4, 2, 0, 2, ws * 0.4], seed: 6 });
+  const tx = bx + padX, ty = by + padY + ws * 0.86;
+  let line = textEl(ctx, tx, ty, ws, F.display, black, written);
+  // The kept fact (a number or a name) is underlined, not coloured: a record, not a thing still in play.
+  const kept = ctx.piece.kept;
+  if (kept && written.includes(kept)) {
+    const pre = written.slice(0, written.indexOf(kept));
+    const kx = tx + ctx.textWidth(pre, wf), kw = ctx.textWidth(kept, wf);
+    line += `<path d="${h.ill.inkLine([[kx - ws * 0.04, ty + ws * 0.14], [kx + kw + ws * 0.06, ty + ws * 0.12]], { seed: 61, wobble: 0.4 })}" fill="none" stroke="${black}" stroke-width="${r1(ws * 0.05)}" stroke-linecap="round"/>`;
+  }
+  const bubbleT = marksEnd + 0.3, lineT = bubbleT + 0.6, dotT = lineT + 0.8;
+  out += `<g class="${P}bub"><path d="${bubble}" fill="${paper}"/></g>`;
+  out += `<g class="${P}line">${line}</g>`;
+  // 4. The amber full stop, last.
+  out += `<g class="${P}dot"><circle cx="${r1(tx + tw + dot * 1.5)}" cy="${r1(ty - dot * 0.6)}" r="${r1(dot)}" fill="${accent}"/></g>`;
+
+  if (animate) {
+    const spring = 'cubic-bezier(.34,1.56,.64,1)';
+    css += `@keyframes ${P}rvk{0%{transform:scaleX(0)}${at(1.3)},100%{transform:scaleX(1)}}.${P}rv{transform-box:fill-box;transform-origin:left center;animation:${P}rvk ${T}s cubic-bezier(.45,.05,.55,.95) infinite}`;
+    css += `@keyframes ${P}bubk{0%,${at(bubbleT)}{transform:scale(.6);opacity:0}${at(bubbleT + 0.5)},100%{transform:scale(1);opacity:1}}.${P}bub{transform-box:fill-box;transform-origin:85% 100%;animation:${P}bubk ${T}s ${spring} infinite}`;
+    css += `@keyframes ${P}linek{0%,${at(lineT)}{opacity:0;transform:translateY(${r1(ws * 0.25)}px)}${at(lineT + 0.5)},100%{opacity:1;transform:none}}.${P}line{animation:${P}linek ${T}s cubic-bezier(.2,.8,.2,1) infinite}`;
+    css += `@keyframes ${P}dotk{0%,${at(dotT)}{opacity:0;transform:translateY(${r1(-ws * 1.2)}px)}${at(dotT + 0.45)},100%{opacity:1;transform:none}}.${P}dot{animation:${P}dotk ${T}s ${spring} infinite}`;
+    css += `@media (prefers-reduced-motion: reduce){[class^="${P}"]{animation:none!important}}`;
+    out = `<style>${css}</style>` + out;
+  }
+  return out;
+}
+exports_['proof-slip'] = proofSlip;
+
 export default exports_;

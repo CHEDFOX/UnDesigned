@@ -1,0 +1,13 @@
+{
+  "$comment": "One poster, pillar Said -> Written. Headline is the brand's own one-liner result (messaging.json). Art: products/tailzu/art.mjs -> proof-slip (animated, one mover at a time, ends still). The said line is six words or fewer (the style's one hand note); the written line keeps the Hinglish and the number exactly, and the number is underlined (kept, not coloured).",
+  "id": "poster-say-it-badly",
+  "format": "poster",
+  "headline": "Say it badly. Send it perfect.",
+  "cta": "Download Tailzu free at tailzu.space",
+  "palette": "primary",
+  "said": "umm kal like 7 baje",
+  "written": "Kal 7 baje",
+  "kept": "7",
+  "art": { "motif": "proof-slip" },
+  "animate": false
+}

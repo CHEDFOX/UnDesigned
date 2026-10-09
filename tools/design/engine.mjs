@@ -467,7 +467,8 @@ async function renderPngs(items, sheetPath, title) {
   let pw;
   try { pw = req('playwright'); } catch { try { pw = req(join(execSync('npm root -g', { encoding: 'utf8' }).trim(), 'playwright')); } catch { return; } }
   const browser = await pw.chromium.launch(existsSync('/opt/pw-browsers/chromium') ? { executablePath: '/opt/pw-browsers/chromium' } : {});
-  const page = await browser.newPage();
+  // Stills show the end frame: motion pieces honour reduced motion, which holds them on their last, complete state.
+  const page = await browser.newPage({ reducedMotion: "reduce" });
   for (const it of items) {
     const svg = readFileSync(it.file, 'utf8');
     const [W, H] = svg.match(/viewBox="0 0 (\d+) (\d+)"/).slice(1).map(Number);
