@@ -1,2 +1,5 @@
 node_modules/
 .DS_Store
+
+# Intermediate score render (the .m4a next to it is the delivered soundtrack)
+*-score.wav
