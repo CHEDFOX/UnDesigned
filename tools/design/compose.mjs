@@ -33,7 +33,7 @@ const hueOf = ([, a, b]) => ((Math.atan2(b, a) * 180) / Math.PI + 360) % 360;
 const chromaOf = ([, a, b]) => Math.hypot(a, b);
 const hueDiff = (x, y) => { const d = Math.abs(hueOf(x) - hueOf(y)) % 360; return d > 180 ? 360 - d : d; };
 
-function colourModel(colors) {
+export function colourModel(colors) {
   const Ls = colors.map((c) => c.lab[0]), Cs = colors.map((c) => chromaOf(c.lab));
   const stat = (xs) => { const m = xs.reduce((a, b) => a + b, 0) / xs.length; const s = Math.sqrt(xs.reduce((a, b) => a + (b - m) ** 2, 0) / xs.length); return [m, s]; };
   const [mL, sL] = stat(Ls), [mC, sC] = stat(Cs);
@@ -42,7 +42,8 @@ function colourModel(colors) {
     const B = (c.lab[0] - mL) / sL, S = (chromaOf(c.lab) - mC) / sC;
     out[c.id] = {
       lab: c.lab, hex: c.hex, name: c.name,
-      activity: clamp((-0.31 * B + 0.6 * S) / 2), // Valdez & Mehrabian (1994): arousal
+      pleasure: clamp((0.69 * B + 0.22 * S) / 2), // Valdez & Mehrabian (1994): pleasure
+      activity: clamp((-0.31 * B + 0.6 * S) / 2), // arousal
       potency: clamp((-0.76 * B + 0.32 * S) / 2), // dominance
       warmth: clamp((chromaOf(c.lab) / 60) * Math.cos(((hueOf(c.lab) - 50) * Math.PI) / 180)), // direction of colour heat
     };
@@ -58,6 +59,9 @@ function paletteProfile(roles, M) {
   let w = 0;
   for (const [id, a] of parts) { const c = M[id]; if (!c) continue; for (const k of Object.keys(p)) p[k] += c[k] * a; w += a; }
   for (const k of Object.keys(p)) p[k] = p[k] / w;
+  // Not an axis: how pleasant the palette is on average (brightness and saturation), and whether it has a clear blue.
+  Object.defineProperty(p, 'pleasure', { value: parts.reduce((a, [id, ar]) => a + (M[id] ? M[id].pleasure * ar : 0), 0) / w, enumerable: false });
+  Object.defineProperty(p, 'blue', { value: parts.some(([id]) => M[id] && chromaOf(M[id].lab) > 20 && hueOf(M[id].lab) > 200 && hueOf(M[id].lab) < 290), enumerable: false });
   return p;
 }
 
@@ -126,17 +130,9 @@ function target(identity, goal) {
 let SAL = {};
 const dist = (p, t, keys, wts = {}) => { const w = (k) => (wts[k] ?? 1) * (SAL[k] ?? 1); return keys.reduce((a, k) => a + w(k) * (p[k] - t[k]) ** 2, 0) / keys.reduce((a, k) => a + w(k), 0); };
 
-export function compose(productId, { goal = null, style = null, top = 5 } = {}) {
-  // The brand's core (identity.json); products without one fall back to their voice words (messaging.json).
-  const identity = existsSync(join(ROOT, `products/${productId}/identity.json`)) ? json(`products/${productId}/identity.json`) : { voice: json(`products/${productId}/messaging.json`).voice };
-  const brand = json(`products/${productId}/brand.json`);
-  const tokensFile = `dist/${productId}/tokens/colors.json`;
-  if (!existsSync(join(ROOT, tokensFile))) throw new Error(`Run npm run build -- ${productId} first.`);
-  const tokens = json(tokensFile);
-  const colors = Array.isArray(tokens.colors) ? tokens.colors : Object.values(tokens.colors);
-  const M = colourModel(colors);
-  const brandLabs = (identity.signals?.colours || []).flatMap((c) => String(c.hex || '').match(/#[0-9a-f]{6}/gi) || []).map(hexToLab);
-  const { t: T, used, unknown } = target(identity, goal);
+/** Every style x palette x pairing scored against a target (axes -1..1). liking: add general human liking
+ *  (foundations/combinations/combinations.json -> liking), used for the recipe library. */
+export function rank(T, { tokens, M, brandLabs = [], style = null, liking = false }) {
   SAL = Object.fromEntries(AX.map((k) => [k, 0.5 + Math.abs(T[k])]));
   const pairings = json('foundations/typography/source/pairings.json').pairings;
   const C1 = rule('C1').weight, C2 = rule('C2').axisWeights, C7 = rule('C7'), C11 = rule('C11').bonus;
@@ -189,11 +185,47 @@ export function compose(productId, { goal = null, style = null, top = 5 } = {}) 
         else if (big.length > 1 || big.some(([, d]) => Math.abs(d) > C7.extreme)) tScore = -0.08 * (big.length - 1) - (big.some(([, d]) => Math.abs(d) > C7.extreme) ? 0.15 : 0);
         const bonus = (rec.has(pal.id) ? C11.recommendedPalette : 0) + (fits[p.id]?.fit === 'core' ? C11.corePairing : C11.goodPairing);
         const score = -(C1.style * styleFit + C1.palette * pal.fit + C1.type * typeFit) - C1.disagreement * dis + QW * pal.quality.q + tScore + bonus;
-        results.push({ score, style: s, pairing: p.id, pal, tp, styleFit, typeFit, dis, tension, composite, bonus, rec: rec.has(pal.id), fitLabel: fits[p.id]?.fit });
+        const r = { score, style: s, pairing: p.id, pal, tp, styleFit, typeFit, dis, tension, composite, bonus, rec: rec.has(pal.id), fitLabel: fits[p.id]?.fit };
+        if (liking) { r.liking = generalLiking(r); r.score = -(C1.style * styleFit + C1.palette * pal.fit + C1.type * typeFit) + R.liking.weight * r.liking.total; }
+        results.push(r);
       }
     }
   }
   results.sort((a, b) => b.score - a.score);
+  return results;
+}
+
+/** How much people like a combination in general, from the research (unity in variety, fluency, colour pleasure,
+ *  harmony, curvature, blue, ecological valence, most-advanced-yet-acceptable). 0..1 parts, weights in combinations.json. */
+export function generalLiking(r) {
+  const W = R.liking.parts, q = r.pal.quality;
+  const parts = {
+    unity: clamp(1 - r.dis / 0.5, 0, 1),
+    variety: clamp(q.fig * 0.7 + (r.tension ? 0.3 : 0), 0, 1),
+    fluency: clamp(Math.log(q.contrast) / Math.log(15), 0, 1),
+    pleasure: clamp((r.pal.prof.pleasure + 1) / 2, 0, 1),
+    harmony: q.sim,
+    curvature: clamp((r.composite.roundness + 1) / 2, 0, 1),
+    blue: r.pal.prof.blue ? 1 : 0,
+    typicality: (r.rec ? 0.5 : 0) + (r.fitLabel === 'core' ? 0.5 : 0.2),
+  };
+  let total = Object.entries(parts).reduce((a, [k, v]) => a + (W[k] || 0) * v, 0);
+  if (q.notes.length) total -= R.liking.dislikedGround;
+  return { total, parts };
+}
+
+export function compose(productId, { goal = null, style = null, top = 5 } = {}) {
+  // The brand's core (identity.json); products without one fall back to their voice words (messaging.json).
+  const identity = existsSync(join(ROOT, `products/${productId}/identity.json`)) ? json(`products/${productId}/identity.json`) : { voice: json(`products/${productId}/messaging.json`).voice };
+  const brand = json(`products/${productId}/brand.json`);
+  const tokensFile = `dist/${productId}/tokens/colors.json`;
+  if (!existsSync(join(ROOT, tokensFile))) throw new Error(`Run npm run build -- ${productId} first.`);
+  const tokens = json(tokensFile);
+  const colors = Array.isArray(tokens.colors) ? tokens.colors : Object.values(tokens.colors);
+  const M = colourModel(colors);
+  const brandLabs = (identity.signals?.colours || []).flatMap((c) => String(c.hex || '').match(/#[0-9a-f]{6}/gi) || []).map(hexToLab);
+  const { t: T, used, unknown } = target(identity, goal);
+  const results = rank(T, { tokens, M, brandLabs, style });
 
   // Hand face (C10) and motion (C9) for the winner.
   const best = results[0];

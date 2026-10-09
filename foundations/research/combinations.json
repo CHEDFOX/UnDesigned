@@ -6,110 +6,220 @@
       "claim": "People rate shapes, colours, typefaces, words and motion on the same few affective dimensions: evaluation (good-bad), potency (strong-weak) and activity (active-passive).",
       "use": "Every component in the guide is placed on the same axes, so they can be compared and matched: roundness, activity, potency, warmth, hand.",
       "strength": "strong (replicated across cultures and modalities)",
-      "sources": ["Osgood, Suci & Tannenbaum (1957), The Measurement of Meaning", "Doyle & Bottomley (2006), Journal of Consumer Psychology 16(2), 112-123 (typefaces measured on Osgood's evaluation, potency, activity)", "Ou, Luo, Woodcock & Wright (2004), Color Research & Application 29(3) (colour emotion: three factors, colour activity, colour weight, colour heat)"]
+      "sources": [
+        "Osgood, Suci & Tannenbaum (1957), The Measurement of Meaning",
+        "Doyle & Bottomley (2006), Journal of Consumer Psychology 16(2), 112-123 (typefaces measured on Osgood's evaluation, potency, activity)",
+        "Ou, Luo, Woodcock & Wright (2004), Color Research & Application 29(3) (colour emotion: three factors, colour activity, colour weight, colour heat)"
+      ]
     },
     {
       "id": "crossmodal-correspondence",
       "claim": "The brain expects certain features to go together across senses and media (roundness with softness and sweetness, angularity with hardness), and binds congruent features more easily.",
       "use": "Shape, type and motion of one piece agree on roundness; a soft drawing with a hard grotesque and a mechanical motion reads as three things.",
       "strength": "strong (tutorial review of many studies)",
-      "sources": ["Spence (2011), Attention, Perception & Psychophysics 73, 971-995", "Velasco, Woods, Hyndman & Spence (2015), i-Perception 6(4) (rounder typefaces matched to sweet, liked more and judged easier to read)"]
+      "sources": [
+        "Spence (2011), Attention, Perception & Psychophysics 73, 971-995",
+        "Velasco, Woods, Hyndman & Spence (2015), i-Perception 6(4) (rounder typefaces matched to sweet, liked more and judged easier to read)"
+      ]
     },
     {
       "id": "type-product-congruity",
       "claim": "A typeface fits a product when they match on potency and activity; brands set in an appropriate font were chosen about twice as often.",
       "use": "The pairing is chosen by its distance to the product's potency and activity first.",
       "strength": "strong (two papers, forced-choice and rating studies)",
-      "sources": ["Doyle & Bottomley (2004), Journal of Business Research 57(8), 873-880 (font appropriateness and brand choice)", "Doyle & Bottomley (2006), Journal of Consumer Psychology 16(2), 112-123"]
+      "sources": [
+        "Doyle & Bottomley (2004), Journal of Business Research 57(8), 873-880 (font appropriateness and brand choice)",
+        "Doyle & Bottomley (2006), Journal of Consumer Psychology 16(2), 112-123"
+      ]
     },
     {
       "id": "typeface-impressions",
       "claim": "Typeface impressions come from a few design dimensions (elaborate, harmony, natural, flourish, weight, compressed) and trade off against each other (pleasing, engaging, reassuring, prominent).",
       "use": "Pairings are profiled from their classification: weight and compression raise potency and activity; natural and flourish raise the hand axis; harmony (rounded, even strokes) raises roundness.",
       "strength": "strong (large rating study, managerial guidelines)",
-      "sources": ["Henderson, Giese & Cote (2004), Journal of Marketing 68(4), 60-72"]
+      "sources": [
+        "Henderson, Giese & Cote (2004), Journal of Marketing 68(4), 60-72"
+      ]
     },
     {
       "id": "shape-meaning",
       "claim": "Rounded shapes carry harmony and compromise; angular shapes carry confrontation and strength. People also prefer curved over sharp contours on average.",
       "use": "Roundness of the style's drawing and corners follows the product's character: warm, caring, social products go round; competitive, technical, assertive ones may go angular.",
       "strength": "strong",
-      "sources": ["Zhang, Feick & Price (2006), Personality and Social Psychology Bulletin 32(6), 794-805", "Bar & Neta (2006), Psychological Science 17(8), 645-648"]
+      "sources": [
+        "Zhang, Feick & Price (2006), Personality and Social Psychology Bulletin 32(6), 794-805",
+        "Bar & Neta (2006), Psychological Science 17(8), 645-648"
+      ]
     },
     {
       "id": "colour-emotion-saturation-brightness",
       "claim": "Brightness and saturation, more than hue, drive emotional response: pleasure = .69 brightness + .22 saturation, arousal = -.31 brightness + .60 saturation, dominance = -.76 brightness + .32 saturation (standardised).",
       "use": "Each Wada colour gets activity (arousal) and potency (dominance) from its lightness and chroma with these weights; a palette is the area-weighted mix of its colours.",
       "strength": "strong (classic study, effects consistent for chromatic and achromatic colours; later replications agree on direction)",
-      "sources": ["Valdez & Mehrabian (1994), Journal of Experimental Psychology: General 123(4), 394-409", "Wilms & Oberfeld (2018), Psychological Research 82, 896-914"]
+      "sources": [
+        "Valdez & Mehrabian (1994), Journal of Experimental Psychology: General 123(4), 394-409",
+        "Wilms & Oberfeld (2018), Psychological Research 82, 896-914"
+      ]
     },
     {
       "id": "colour-heat",
       "claim": "Warm-cool is one of three colour-emotion factors that hold across cultures; reds, oranges and yellows read warm, blues and blue-greens cool, and the effect grows with chroma.",
       "use": "Each colour's warmth is its chroma times its closeness to the warm hue direction (an approximation of the factor's direction; the published coefficients are not used here).",
       "strength": "strong for the factor; the formula here is an approximation",
-      "sources": ["Ou, Luo, Woodcock & Wright (2004), Color Research & Application 29(3), 232-240 (Part I; Parts II and III in the same volume)", "Ou et al. (2012), Color Research & Application 37(1) (eight countries: warm/cool, heavy/light and active/passive consistent across cultures)"]
+      "sources": [
+        "Ou, Luo, Woodcock & Wright (2004), Color Research & Application 29(3), 232-240 (Part I; Parts II and III in the same volume)",
+        "Ou et al. (2012), Color Research & Application 37(1) (eight countries: warm/cool, heavy/light and active/passive consistent across cultures)"
+      ]
     },
     {
       "id": "colour-pairs",
       "claim": "Colour pairs are preferred and judged harmonious when their hues are similar; preference also rises with lightness contrast. But a figure colour is liked more the more its hue contrasts with the ground.",
       "use": "Ground and text: similar hue, strong lightness contrast. Accent (the figure): hue contrast with the ground.",
       "strength": "strong",
-      "sources": ["Schloss & Palmer (2011), Attention, Perception & Psychophysics 73(2), 551-571"]
+      "sources": [
+        "Schloss & Palmer (2011), Attention, Perception & Psychophysics 73(2), 551-571"
+      ]
     },
     {
       "id": "ecological-valence",
       "claim": "On average people like colours of things they like (clear-sky blues, clean water) and dislike colours of things they dislike (browns and dark yellows, olives: rot and waste).",
       "use": "Dark yellow, olive and brown grounds are marked down unless the brand already owns that colour (brand meaning overrides the average).",
       "strength": "strong for the average; individual and brand associations override it",
-      "sources": ["Palmer & Schloss (2010), PNAS 107(19), 8877-8882", "Ou et al. (2004) Part III (least preferred colour near L*50, a*-8, b*30)"]
+      "sources": [
+        "Palmer & Schloss (2010), PNAS 107(19), 8877-8882",
+        "Ou et al. (2004) Part III (least preferred colour near L*50, a*-8, b*30)"
+      ]
     },
     {
       "id": "colour-product-congruity",
       "claim": "Colours fit a brand when their meaning matches its positioning (functional products in functional colours, sensory-social products in sensory-social colours); hue shifts brand personality (red excitement, blue competence) and saturation and brightness strengthen it.",
       "use": "The palette is scored against the product's own warmth and activity, and against the colours people already know the brand by.",
       "strength": "moderate to strong",
-      "sources": ["Bottomley & Doyle (2006), Marketing Theory 6(1), 63-84", "Labrecque & Milne (2012), Journal of the Academy of Marketing Science 40(5), 711-727"]
+      "sources": [
+        "Bottomley & Doyle (2006), Marketing Theory 6(1), 63-84",
+        "Labrecque & Milne (2012), Journal of the Academy of Marketing Science 40(5), 711-727"
+      ]
     },
     {
       "id": "fluency",
       "claim": "Things that are easy to process are liked more: congruent, familiar and simple combinations feel right before anyone can say why.",
       "use": "Components that agree (congruence) and colours close to the brand's known colours (familiarity) are scored up.",
       "strength": "strong",
-      "sources": ["Reber, Schwarz & Winkielman (2004), Personality and Social Psychology Review 8(4), 364-382"]
+      "sources": [
+        "Reber, Schwarz & Winkielman (2004), Personality and Social Psychology Review 8(4), 364-382"
+      ]
     },
     {
       "id": "moderate-incongruity",
       "claim": "A moderately incongruent element is evaluated better than a fully congruent or extremely incongruent one: it invites a small act of discovery that resolves. Extreme incongruity frustrates.",
       "use": "Exactly one deliberate tension per combination (one axis where one component differs moderately), never several.",
       "strength": "moderate (well cited; method questioned in later work)",
-      "sources": ["Mandler (1982), in Clark & Fiske (eds), Affect and Cognition", "Meyers-Levy & Tybout (1989), Journal of Consumer Research 16(1), 39-54"]
+      "sources": [
+        "Mandler (1982), in Clark & Fiske (eds), Affect and Cognition",
+        "Meyers-Levy & Tybout (1989), Journal of Consumer Research 16(1), 39-54"
+      ]
     },
     {
       "id": "complexity",
       "claim": "Design complexity (an elaborate, creative arrangement) increases attention and liking; feature complexity (dense edges, clutter, colour variation) decreases attention to the brand and liking.",
       "use": "Busy styles are chosen only for high-activity products and still keep text zones calm; calm products get calm styles.",
       "strength": "strong (249 eye-tracked ads)",
-      "sources": ["Pieters, Wedel & Batra (2010), Journal of Marketing 74(5), 48-60"]
+      "sources": [
+        "Pieters, Wedel & Batra (2010), Journal of Marketing 74(5), 48-60"
+      ]
     },
     {
       "id": "motion-arousal",
       "claim": "Picture motion raises arousal (physiologically and in self-report), more so when the image is already arousing, and intensifies its valence.",
       "use": "Motion amount follows the product's activity: calm products get one slow movement or none; energetic products may move more, still one thing at a time.",
       "strength": "strong",
-      "sources": ["Detenber, Simons & Bennett (1998), Journal of Broadcasting & Electronic Media 42(1), 113-127"]
+      "sources": [
+        "Detenber, Simons & Bennett (1998), Journal of Broadcasting & Electronic Media 42(1), 113-127"
+      ]
     },
     {
       "id": "hand-and-machine",
       "claim": "Handwritten type makes people feel a person was there; machine type reads as clearer and more credible.",
       "use": "The hand axis decides whether a hand face is used at all; facts, numbers and buttons stay in type (foundations/research/handwriting.json).",
       "strength": "strong",
-      "sources": ["Schroll, Schnurr & Grewal (2018), Journal of Marketing Research 55(5)", "Song & Schwarz (2008), Psychological Science 19(10)"]
+      "sources": [
+        "Schroll, Schnurr & Grewal (2018), Journal of Marketing Research 55(5)",
+        "Song & Schwarz (2008), Psychological Science 19(10)"
+      ]
+    },
+    {
+      "id": "unity-in-variety",
+      "claim": "Unity and variety both raise aesthetic appreciation while suppressing each other; designs that balance them are preferred, and unity is the dominant factor that makes variety enjoyable.",
+      "use": "General liking scores unity (components agreeing) first and adds a smaller reward for one controlled variation (the accent's hue contrast, one moderate tension).",
+      "strength": "strong (three studies; replicated for touch)",
+      "sources": [
+        "Post, Blijlevens & Hekkert (2016), Acta Psychologica 163, 142-152"
+      ]
+    },
+    {
+      "id": "maya",
+      "claim": "Most advanced, yet acceptable: typicality and novelty jointly predict preference while suppressing each other; the best designs keep a recognisable structure and add something new.",
+      "use": "Recipes stay within a style's typical choices (its recommended palettes and core pairings) and allow one novel element.",
+      "strength": "strong (replicated across product categories)",
+      "sources": [
+        "Hekkert, Snelders & van Wieringen (2003), British Journal of Psychology 94, 111-124"
+      ]
+    },
+    {
+      "id": "curvature-preference",
+      "claim": "People prefer curved over angular contours, across cultures (Mexico, Ghana, Spain) and to a smaller degree in other primates; the preference seems to be for curves themselves rather than fear of angles.",
+      "use": "A small general-liking bonus for rounder combinations; angular combinations stay for moods that need strength or precision.",
+      "strength": "strong for the preference; the explanation is debated",
+      "sources": [
+        "Bar & Neta (2006), Psychological Science 17(8), 645-648",
+        "Gómez-Puerto, Munar & Nadal (2016), Frontiers in Human Neuroscience 9, 712",
+        "Palumbo, Ruta & Bertamini (2015), PLOS ONE (curvature preferred, not angularity avoided)"
+      ]
+    },
+    {
+      "id": "figure-ground-fluency",
+      "claim": "Higher figure-ground contrast makes things easier to see and they are judged prettier; symmetry, contrast and clarity work through the same processing fluency.",
+      "use": "Text contrast counts for liking, not only for access: more contrast scores higher, with diminishing returns.",
+      "strength": "strong",
+      "sources": [
+        "Reber, Winkielman & Schwarz (1998), Psychological Science 9, 45-48",
+        "Reber, Schwarz & Winkielman (2004), Personality and Social Psychology Review 8(4), 364-382"
+      ]
+    },
+    {
+      "id": "blue-preference",
+      "claim": "Blue is the most consistently preferred hue across studies and cultures; brighter, moderately saturated colours are liked more than dark, muddy ones.",
+      "use": "A small bonus for palettes with a clear blue; colour pleasure (brightness and saturation) counts for general liking.",
+      "strength": "strong for the average; context and brand override it",
+      "sources": [
+        "Hurlbert & Ling (2007), Current Biology 17(16), R623-R625",
+        "Palmer & Schloss (2010), PNAS 107(19)",
+        "Valdez & Mehrabian (1994)"
+      ]
+    },
+    {
+      "id": "complexity-shape",
+      "claim": "How liking follows complexity depends on the kind of complexity: Berlyne's inverted U (moderate is best) holds for some dimensions and not others; liking is often linear while beauty peaks in the middle.",
+      "use": "No blanket rule for 'more' or 'less': busy styles are kept to moods that want energy, and feature clutter is avoided everywhere (Pieters et al.).",
+      "strength": "moderate (mixed findings, explained by different complexity dimensions)",
+      "sources": [
+        "Berlyne (1971), Aesthetics and Psychobiology",
+        "Nadal, Munar, Marty & Cela-Conde (2010), Empirical Studies of the Arts 28(2), 173-191"
+      ]
     }
   ],
   "myths": [
-    { "claim": "Each colour has one fixed meaning (red = danger, blue = trust).", "reality": "Meaning depends on context, product and culture; brightness and saturation carry more of the emotion than hue (Valdez & Mehrabian 1994; Labrecque & Milne 2012)." },
-    { "claim": "Pick the best colour, the best font and the best style separately and the result is best.", "reality": "Fit between components is what is judged (Doyle & Bottomley 2006; Spence 2011): three good parts that disagree read worse than three plain parts that agree." },
-    { "claim": "Perfect consistency is always best.", "reality": "One moderate, resolvable surprise beats total predictability (Meyers-Levy & Tybout 1989); several surprises read as noise." }
+    {
+      "claim": "Each colour has one fixed meaning (red = danger, blue = trust).",
+      "reality": "Meaning depends on context, product and culture; brightness and saturation carry more of the emotion than hue (Valdez & Mehrabian 1994; Labrecque & Milne 2012)."
+    },
+    {
+      "claim": "Pick the best colour, the best font and the best style separately and the result is best.",
+      "reality": "Fit between components is what is judged (Doyle & Bottomley 2006; Spence 2011): three good parts that disagree read worse than three plain parts that agree."
+    },
+    {
+      "claim": "Perfect consistency is always best.",
+      "reality": "One moderate, resolvable surprise beats total predictability (Meyers-Levy & Tybout 1989); several surprises read as noise."
+    }
   ]
 }

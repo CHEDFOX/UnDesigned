@@ -48,3 +48,53 @@ npm run compose -- <product> [campaign] [--goal launch|trust|care|calm|celebrate
 ## When a person disagrees
 
 Change the rule, not the piece: add the missing word to the lexicon, correct a style's profile, or adjust a weight here, with the reason. Every product follows from then on.
+
+## The recipe library (no product needed)
+
+`recipes.json` holds the most likable complete combinations for 12 general moods, three per mood, so anyone (a person or a chat) can pick one and create directly.
+
+| Mood | Use it for |
+|---|---|
+| calm-warm | Food, care, wellbeing, home, small kind brands |
+| calm-clear | Health information, explainers, public services, finance help |
+| quiet-premium | Luxury, culture, architecture, galleries, fine goods |
+| precise-tech | Software, engineering, data, developer tools |
+| bold-confident | Launches, statements, sport, campaigns that must stop the scroll |
+| playful-bright | Kids and family, snacks, games, fun apps |
+| festive-rich | Festivals, celebrations, weddings, food fairs |
+| human-handmade | Makers, community, notes, personal brands |
+| fresh-light | Spring, drinks, clean beauty, travel |
+| earthy-grounded | Coffee, outdoors, craft, sustainability |
+| retro-optimistic | Nostalgia, consumer launches, hospitality, events |
+| warm-tech | Consumer apps, fintech for people, AI tools for everyone |
+
+Each recipe gives:
+
+- the style
+- the Wada combination and mode, with named colours and their contrast
+- the type pairing
+- a hand face, if any
+- the motion plan
+- its position on the five axes, and its one tension
+- a **likability** score (0-100) with the reasons
+
+**Likability** is general human liking, built from:
+
+- **unity:** the parts agree; unity is the dominant factor (Post, Blijlevens & Hekkert 2016)
+- **variety:** one controlled contrast
+- **fluency:** figure-ground contrast (Reber, Winkielman & Schwarz 1998)
+- **colour pleasure:** Valdez & Mehrabian (1994)
+- **colour harmony:** Schloss & Palmer (2011)
+- **curvature:** Bar & Neta (2006); Gómez-Puerto, Munar & Nadal (2016)
+- **blue:** Hurlbert & Ling (2007)
+- **typicality:** "most advanced, yet acceptable" (Hekkert et al. 2003)
+- **a penalty for olive, dark-yellow and brown grounds:** Palmer & Schloss (2010)
+
+How the library is built:
+
+- Culture-specific styles (Desi Maximalism) are kept out of the general library; use them when the audience calls for them.
+- Styles and palettes are spread across the library, so it offers range rather than one favourite repeated.
+
+To use a recipe: put `{ "recipe": "calm-warm-1" }` in a campaign's `campaign.json`. The engine expands it, and any field you add next to it (for example `"text": "white"`) wins.
+
+To rebuild after changing the rules: `npm run recipes` (add `-- --render` for a sample poster of each, in `tools/design/recipes/`).

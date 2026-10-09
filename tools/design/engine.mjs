@@ -413,7 +413,7 @@ function readPieces(dir) {
   return out;
 }
 
-export async function designCampaign({ productId, campaign, png = false, only = null, log = console.log, approach = null, outDirName = 'designs', outRoot = null, pieces: givenPieces = null }) {
+export async function designCampaign({ productId, campaign, png = false, only = null, log = console.log, approach = null, outDirName = 'designs', outRoot = null, pieces: givenPieces = null, config = null }) {
   const brand = loadBrand(ROOT, productId);
   const tokens = loadTokens(brand);
   if (approach) applyStyle(brand, tokens, approach);
@@ -433,13 +433,21 @@ export async function designCampaign({ productId, campaign, png = false, only = 
   const written = [];
   for (const c of campaigns) {
     const dir = join(brand.dir, 'campaigns', c);
-    // A campaign may use another style or palette (campaign.json: { "approach", "combination", "mode", "text" }).
+    // A campaign may use another style or palette (campaign.json: { "approach", "combination", "mode", "text" }),
+    // or a whole recipe ({ "recipe": "<id>" }).
     // "text": "white" or "black" sets the text colour on the ground (Wada White and Black go with every combination).
     // "combination" may be a list: the first is the base, the others are bridges (styles that use them, e.g. desi-maximalism).
     brand.config = baseConfig; Object.assign(tokens, baseTokens);
     const cfgFile = join(dir, 'campaign.json');
-    if (!givenPieces && existsSync(cfgFile)) {
-      const cfg = json(cfgFile);
+    let cfg = config || (!givenPieces && existsSync(cfgFile) ? json(cfgFile) : null);
+    // "recipe": a ready combination from foundations/combinations/recipes.json (npm run recipes); its own fields win.
+    if (cfg && cfg.recipe) {
+      const lib = json(join(ROOT, 'foundations/combinations/recipes.json'));
+      const rec = lib.recipes.find((r) => r.id === cfg.recipe);
+      if (!rec) throw new Error(`campaign.json: no recipe "${cfg.recipe}" in foundations/combinations/recipes.json`);
+      cfg = { approach: rec.style, combination: rec.combination, mode: rec.mode, pairing: rec.pairing, hand: rec.hand ? rec.hand.id : null, ...cfg };
+    }
+    if (cfg) {
       applyStyle(brand, tokens, cfg.approach || brand.config.approach, cfg.combination ? [].concat(cfg.combination) : null, cfg.mode, cfg.text);
       // "pairing" (an id in pairings.json) and "hand" (an id in handwritten.json, or null) set the campaign's type.
       if (cfg.pairing || cfg.hand !== undefined) {

@@ -75,7 +75,9 @@
       "potency": 0.4,
       "warmth": 0.8,
       "hand": 0.5,
-      "why": "Frames within frames, pattern on every surface, many flat colours, painted lettering: celebration."
+      "why": "Frames within frames, pattern on every surface, many flat colours, painted lettering: celebration.",
+      "general": false,
+      "generalWhy": "Culture-specific (South Asian popular visual culture; approaches/desi-maximalism/README.md, DM7): used when the audience or product calls for it, not as a general default."
     },
     "neon-surf": {
       "roundness": 0.4,
@@ -683,5 +685,166 @@
         "goodPairing": 0.03
       }
     }
-  ]
+  ],
+  "liking": {
+    "$comment": "General liking for the recipe library (no product): how much a human brain likes a combination on average. Each part is 0..1; the weights reflect how strong and general the evidence is (foundations/research/combinations.json).",
+    "weight": 0.6,
+    "parts": {
+      "unity": 0.32,
+      "variety": 0.1,
+      "fluency": 0.15,
+      "pleasure": 0.13,
+      "harmony": 0.1,
+      "curvature": 0.06,
+      "blue": 0.03,
+      "typicality": 0.11
+    },
+    "dislikedGround": 0.3,
+    "why": {
+      "unity": "unity-in-variety (unity dominant), crossmodal-correspondence, fluency",
+      "variety": "unity-in-variety, moderate-incongruity: the accent's hue contrast and one moderate tension",
+      "fluency": "figure-ground-fluency: higher text contrast is judged prettier",
+      "pleasure": "colour-emotion-saturation-brightness: pleasure = .69 brightness + .22 saturation",
+      "harmony": "colour-pairs: ground and text hues similar",
+      "curvature": "curvature-preference",
+      "blue": "blue-preference",
+      "typicality": "maya: the style's own recommended palettes and core pairings",
+      "dislikedGround": "ecological-valence"
+    }
+  },
+  "moods": {
+    "$comment": "General moods for the recipe library: regions of the five axes that real briefs ask for. Not tied to any product. npm run recipes composes the most likable combinations for each.",
+    "calm-warm": {
+      "name": "Calm and warm",
+      "axes": {
+        "roundness": 0.5,
+        "activity": -0.5,
+        "potency": -0.2,
+        "warmth": 0.6,
+        "hand": 0.4
+      },
+      "useFor": "Food, care, wellbeing, home, small kind brands"
+    },
+    "calm-clear": {
+      "name": "Calm and clear",
+      "axes": {
+        "roundness": 0.2,
+        "activity": -0.5,
+        "potency": -0.1,
+        "warmth": -0.3,
+        "hand": -0.4
+      },
+      "useFor": "Health information, explainers, public services, finance help"
+    },
+    "quiet-premium": {
+      "name": "Quiet premium",
+      "axes": {
+        "roundness": 0,
+        "activity": -0.6,
+        "potency": 0.2,
+        "warmth": 0.1,
+        "hand": -0.3
+      },
+      "useFor": "Luxury, culture, architecture, galleries, fine goods"
+    },
+    "precise-tech": {
+      "name": "Precise and technical",
+      "axes": {
+        "roundness": -0.4,
+        "activity": 0,
+        "potency": 0.3,
+        "warmth": -0.3,
+        "hand": -0.7
+      },
+      "useFor": "Software, engineering, data, developer tools"
+    },
+    "bold-confident": {
+      "name": "Bold and confident",
+      "axes": {
+        "roundness": -0.3,
+        "activity": 0.6,
+        "potency": 0.8,
+        "warmth": 0.2,
+        "hand": -0.4
+      },
+      "useFor": "Launches, statements, sport, campaigns that must stop the scroll"
+    },
+    "playful-bright": {
+      "name": "Playful and bright",
+      "axes": {
+        "roundness": 0.7,
+        "activity": 0.7,
+        "potency": -0.1,
+        "warmth": 0.5,
+        "hand": 0.5
+      },
+      "useFor": "Kids and family, snacks, games, fun apps"
+    },
+    "festive-rich": {
+      "name": "Festive and rich",
+      "axes": {
+        "roundness": 0.4,
+        "activity": 0.9,
+        "potency": 0.4,
+        "warmth": 0.8,
+        "hand": 0.4
+      },
+      "useFor": "Festivals, celebrations, weddings, food fairs"
+    },
+    "human-handmade": {
+      "name": "Human and handmade",
+      "axes": {
+        "roundness": 0.5,
+        "activity": 0.1,
+        "potency": -0.3,
+        "warmth": 0.5,
+        "hand": 0.9
+      },
+      "useFor": "Makers, community, notes, personal brands"
+    },
+    "fresh-light": {
+      "name": "Fresh and light",
+      "axes": {
+        "roundness": 0.4,
+        "activity": 0.3,
+        "potency": -0.5,
+        "warmth": 0,
+        "hand": 0
+      },
+      "useFor": "Spring, drinks, clean beauty, travel"
+    },
+    "earthy-grounded": {
+      "name": "Earthy and grounded",
+      "axes": {
+        "roundness": 0.3,
+        "activity": -0.2,
+        "potency": 0.4,
+        "warmth": 0.6,
+        "hand": 0.3
+      },
+      "useFor": "Coffee, outdoors, craft, sustainability"
+    },
+    "retro-optimistic": {
+      "name": "Retro and optimistic",
+      "axes": {
+        "roundness": 0.3,
+        "activity": 0.4,
+        "potency": 0.2,
+        "warmth": 0.5,
+        "hand": 0
+      },
+      "useFor": "Nostalgia, consumer launches, hospitality, events"
+    },
+    "warm-tech": {
+      "name": "Friendly technology",
+      "axes": {
+        "roundness": 0.4,
+        "activity": 0.1,
+        "potency": 0.1,
+        "warmth": 0.3,
+        "hand": -0.3
+      },
+      "useFor": "Consumer apps, fintech for people, AI tools for everyone"
+    }
+  }
 }

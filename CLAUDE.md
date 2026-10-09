@@ -13,7 +13,9 @@ This repository is a **universal design guide**. The user will give you a produc
    - **The core:** what the brand believes, the change it makes in someone's life, its character in three words, and the one tension or truth that makes it interesting. Content comes from this core, never from restating the website.
    - **Its marks:** the original logo files, copied from the brand. Never redraw, simplify, substitute or invent a mark; use the files as they are (recolour only if the brand itself does).
    - **Its signals:** the colours, type, imagery and signature elements people already know it by. The guide's choices below should echo them (nearest Wada combinations, closest pairing, a style whose method fits).
-4. **Compose the combination; don't pick parts one by one.** Run `npm run compose -- <id> [campaign] [--goal ...] --write` (after a first `npm run build -- <id>`).
+4. **Use a researched combination; don't pick parts one by one.**
+   - **Fastest:** pick a recipe from `foundations/combinations/recipes.json`. Choose by mood and `useFor`; each recipe is a complete style + Wada palette + pairing + hand + motion combination scored for general human liking. Put `{ "recipe": "<id>" }` in the campaign's `campaign.json`. See the samples in `tools/design/recipes/`.
+   - **For a specific brand:** run `npm run compose -- <id> [campaign] [--goal ...] --write` (after a first `npm run build -- <id>`).
    - It reads the brand's core and places every style, Wada palette, pairing and hand face on the same five perceptual axes: roundness, activity, potency, warmth, hand.
    - It applies the researched combination rules (`foundations/combinations/README.md`, evidence in `foundations/research/combinations.json`) and writes the winner into the campaign's `campaign.json`, explained rule by rule. The design engine follows that file.
    - Use the user's choice when they made one (`--style`, or edit `campaign.json`).
