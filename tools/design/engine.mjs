@@ -185,9 +185,9 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
   const pal = {
     name: palDef.name, combination: palDef.combination, mode: palDef.mode,
     ground: hex(r.bg), ink: hex(r.text || r.ink), accent: hex(r.accent), support: (r.support || []).map(hex),
-    black: hex('black'), white: hex('white'), paper: hex('white'),
+    inkColour: hex(r.ink), black: hex('black'), white: hex('white'), paper: hex('white'),
   };
-  pal.all = [...new Set([pal.ground, pal.ink, pal.accent, ...pal.support, pal.black, pal.white].filter(Boolean))];
+  pal.all = [...new Set([pal.ground, pal.ink, pal.inkColour, pal.accent, ...pal.support, pal.black, pal.white].filter(Boolean))];
   pal.onGround = readableOn(pal.ground, [pal.ink, pal.black, pal.white]);
   pal.onAccent = readableOn(pal.accent, [pal.black, pal.white, pal.ink]);
 
@@ -200,7 +200,8 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
     const avail = family === fam.display ? pair.display.weights : family === fam.body ? pair.body.weights : family === fam.mono ? pair.mono.weights : tokens.typography.hand?.weights || [400];
     const want = t.weight ?? (role === 'headline' ? avail[avail.length > 1 ? avail.length - 1 : 0] : role === 'cta' || role === 'brand' ? avail[avail.length - 1] : avail[0]);
     const weight = avail.reduce((b, w) => (Math.abs(w - want) < Math.abs(b - want) ? w : b), avail[0]);
-    return { family, weight, italic: !!t.italic, tracking: t.tracking ?? (role === 'headline' ? (pair.display.tracking || 0) : 0), upper: !!t.upper };
+    const hasItalic = family === fam.display ? !!pair.display.italic : family === fam.body ? !!pair.body.italic : false;
+    return { family, weight, italic: !!t.italic && hasItalic, hasItalic, tracking: t.tracking ?? (role === 'headline' ? (pair.display.tracking || 0) : 0), upper: !!t.upper };
   };
 
   const media = piece.art && piece.art.image ? join(brand.dir, piece.art.image) : null;
@@ -247,9 +248,11 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
     }
     if (slot.role === 'image') continue;
     if (slot.role === 'brand') {
-      const bsvg = drawBrand(ctx, b, slot, marks, textFill(slot));
-      const bdeco = skin.decorate ? skin.decorate(ctx, slot, { box: b, brand: true, hasMark: !!pickMark(marks, ctx.media ? '#000000' : pal.ground) }) : '';
-      parts.text.push({ slot, svg: bsvg, deco: bdeco });
+      const fill = textFill(slot);
+      const drawn = drawBrand(ctx, b, slot, marks, fill);
+      // Skins may draw behind the brand (a plate, a sticker) from its real size: decorate(ctx, slot, { brand: true, size, width, box, fill, face }).
+      const bdeco = skin.decorate ? skin.decorate(ctx, slot, { brand: true, box: b, drawnBox: drawn.box, size: drawn.size, width: drawn.box.w, fill, face: face('brand'), hasMark: drawn.hasMark }) : '';
+      parts.text.push({ slot, svg: drawn.svg, deco: bdeco });
       continue;
     }
     // Two body slots: the second continues the first (long copy).
@@ -324,28 +327,30 @@ function placeMark(ctx, mark, x, y, w, h) {
 }
 
 function drawBrand(ctx, b, slot, marks, fill) {
-  const { esc, face, brand, pal } = ctx;
+  const { esc, face, brand } = ctx;
   // The mark version follows what is behind it: if the text there is light, the ground is dark.
   const behind = lum(fill) > 0.4 ? '#000000' : '#ffffff';
   const mark = pickMark(marks, behind);
   const f = face('brand');
   const h = ctx.W / ctx.H > 2.5 ? Math.max(24, Math.min(b.h * 0.8, ctx.H * 0.16)) : Math.max(Math.min(b.h, Math.min(ctx.W, ctx.H) * 0.07), Math.min(ctx.W, ctx.H) * 0.045, 24);
+  const label = f.upper ? brand.config.name.toUpperCase() : brand.config.name;
+  // Width first, then x from the slot's alignment (left, center, right).
+  const at = (w) => (slot.align === 'center' ? b.x + (b.w - w) / 2 : slot.align === 'right' ? b.x + b.w - w : b.x);
+  const txt = (x, y, ft) => `<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${ft.size.toFixed(1)}" letter-spacing="${(f.tracking * ft.size).toFixed(2)}" fill="${fill}">${esc(label)}</text>`;
   if (!mark) {
-    const nm = f.upper ? brand.config.name.toUpperCase() : brand.config.name;
-    const ft = fit(nm, b.w, h, f, { max: h, min: 12, maxLines: 1 });
-    return `<text x="${b.x}" y="${(b.y + ft.size * 0.9).toFixed(1)}" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${ft.size.toFixed(1)}" letter-spacing="${(f.tracking * ft.size).toFixed(2)}" fill="${fill}">${esc(nm)}</text>`;
+    const ft = fit(label, b.w, h, f, { max: h, min: 12, maxLines: 1 });
+    const x = at(ft.width);
+    return { svg: txt(x, b.y + ft.size * 0.9, ft), box: { x, y: b.y, w: ft.width, h: ft.size * 1.15 }, size: ft.size, hasMark: false };
   }
   const [iw, ih] = imageSize(mark.abs);
   if (mark.kind === 'icon' || !mark.kind) {
-    const s = h;
-    const label = f.upper ? brand.config.name.toUpperCase() : brand.config.name;
-    const name = ctx.fit(label, Math.max(10, b.w - s * 1.35), h * 0.62, f, { max: h * 0.62, min: 11, maxLines: 1 });
-    const iwPx = s * (iw / ih);
-    return placeMark(ctx, mark, b.x, b.y, iwPx, s) +
-      `<text x="${(b.x + iwPx + s * 0.32).toFixed(1)}" y="${(b.y + s / 2 + name.size * 0.36).toFixed(1)}" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${name.size.toFixed(1)}" letter-spacing="${(f.tracking * name.size).toFixed(2)}" fill="${fill}">${esc(label)}</text>`;
+    const s = h, iwPx = s * (iw / ih);
+    const ft = ctx.fit(label, Math.max(10, b.w - iwPx - s * 0.32), h * 0.62, f, { max: h * 0.62, min: 11, maxLines: 1 });
+    const w = iwPx + s * 0.32 + ft.width, x = at(w);
+    return { svg: placeMark(ctx, mark, x, b.y, iwPx, s) + txt(x + iwPx + s * 0.32, b.y + s / 2 + ft.size * 0.36, ft), box: { x, y: b.y, w, h: s }, size: s, hasMark: true };
   }
-  const wPx = Math.min(b.w, h * (iw / ih) * 1.4), hPx = wPx * (ih / iw);
-  return placeMark(ctx, mark, b.x, b.y, wPx, hPx);
+  const wPx = Math.min(b.w, h * (iw / ih) * 1.4), hPx = wPx * (ih / iw), x = at(wPx);
+  return { svg: placeMark(ctx, mark, x, b.y, wPx, hPx), box: { x, y: b.y, w: wPx, h: hPx }, size: hPx, hasMark: true };
 }
 
 /** Motion: one element at a time, the style's arrival spring, the headline held for its reading time
@@ -403,7 +408,7 @@ function readPieces(dir) {
   return out;
 }
 
-export async function designCampaign({ productId, campaign, png = false, only = null, log = console.log, approach = null, outDirName = 'designs', outRoot = null }) {
+export async function designCampaign({ productId, campaign, png = false, only = null, log = console.log, approach = null, outDirName = 'designs', outRoot = null, pieces: givenPieces = null }) {
   const brand = loadBrand(ROOT, productId);
   const tokens = loadTokens(brand);
   if (approach) {
@@ -422,19 +427,19 @@ export async function designCampaign({ productId, campaign, png = false, only = 
   const artFile = join(brand.dir, 'art.mjs');
   tokens.productArt = existsSync(artFile) ? (await import(pathToFileURL(artFile).href)).default : {};
   const marks = loadMarks(brand);
-  const campaigns = campaign ? [campaign] : readdirSync(join(brand.dir, 'campaigns')).filter((c) => existsSync(join(brand.dir, 'campaigns', c)) && !c.includes('.'));
+  const campaigns = givenPieces ? [campaign || 'preview'] : campaign ? [campaign] : readdirSync(join(brand.dir, 'campaigns')).filter((c) => existsSync(join(brand.dir, 'campaigns', c)) && !c.includes('.'));
   const pair = tokens.typography.pairing;
   const faces = [];
   for (const f of [pair.display, pair.body, pair.mono, tokens.typography.hand].filter(Boolean)) for (const w of f.weights || [400]) faces.push({ family: f.family, weight: w, italic: false }, ...(f.italic ? [{ family: f.family, weight: w, italic: true }] : []));
   const measured = await ensureMetrics(faces);
   const photoFiles = [];
-  for (const c of campaigns) for (const p of readPieces(join(brand.dir, 'campaigns', c))) if (p.art && p.art.image) photoFiles.push(join(brand.dir, p.art.image));
+  for (const c of campaigns) for (const p of (givenPieces || readPieces(join(brand.dir, 'campaigns', c)))) if (p.art && p.art.image) photoFiles.push(join(brand.dir, p.art.image));
   await ensureTones(photoFiles);
   if (!measured) log('  (no browser: text is fitted with estimated widths; check by eye)');
   const written = [];
   for (const c of campaigns) {
     const dir = join(brand.dir, 'campaigns', c);
-    const pieces = readPieces(dir).filter((p) => !only || p.id === only);
+    const pieces = (givenPieces || readPieces(dir)).filter((p) => !only || p.id === only);
     if (!pieces.length) continue;
     const outDir = outRoot ? join(outRoot, c) : join(dir, outDirName);
     mkdirSync(outDir, { recursive: true });
