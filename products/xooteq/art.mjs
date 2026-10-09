@@ -4,7 +4,66 @@
 const r1 = (n) => Math.round(n * 10) / 10;
 const TOKENS = '{ }   </>   ( )   =>   ;   [ ]   &&   //   :=   #   ';
 
+
+// The ways languages say a line out loud: each one a different word for the same act.
+const SAYS = ['print()', 'echo', 'puts', 'console.log()', 'printf()', 'fmt.Println()', 'println!()', 'cout <<', 'System.out.println()', 'Console.WriteLine()', 'say', 'IO.puts', 'writeln()', 'NSLog()', 'print_r()', 'Write-Host', 'putStrLn', 'disp()', 'cat()', 'alert()'];
+
+/** "Code is the international language": a globe whose surface is made of the ways programming languages
+ *  print a line. It turns in 3D (one mover): snippets swing round, grow and sharpen at the front, fade
+ *  behind. Ink on a white paper disc, outline slightly off register; one snippet in the accent. CSS
+ *  keyframes per snippet; reduced motion shows the first frame. */
+function sayGlobe(ctx, b, h) {
+  const { ill, palette } = h;
+  const P = ctx.P + 'sg-';
+  const s = Math.min(b.w, b.h);
+  const R = s * 0.42, cx = b.x + b.w / 2, cy = b.y + b.h / 2;
+  const ink = palette.ink, paper = palette.paper, accent = palette.accent;
+  const sw = r1(s * 0.014);
+  const N = 34, F = 72, DUR = 24, TILT = -0.38;
+  const animate = !(ctx.piece.art && ctx.piece.art.motion === false);
+  // Points on a sphere (Fibonacci), each with a snippet; the sphere is tilted towards the viewer.
+  const pts = Array.from({ length: N }, (_, i) => {
+    const y = 1 - (2 * (i + 0.5)) / N, r = Math.sqrt(1 - y * y), th = i * Math.PI * (3 - Math.sqrt(5));
+    return { x: Math.cos(th) * r, y, z: Math.sin(th) * r, say: SAYS[i % SAYS.length] };
+  });
+  const project = (p, a) => {
+    const x1 = p.x * Math.cos(a) + p.z * Math.sin(a), z1 = -p.x * Math.sin(a) + p.z * Math.cos(a);
+    const y2 = p.y * Math.cos(TILT) - z1 * Math.sin(TILT), z2 = p.y * Math.sin(TILT) + z1 * Math.cos(TILT);
+    const depth = (z2 + 1) / 2; // 0 back, 1 front
+    return { X: cx + x1 * R * 0.92, Y: cy + y2 * R * 0.92, k: 0.5 + 0.65 * depth, o: depth < 0.35 ? 0 : ((depth - 0.35) / 0.65) ** 1.3 };
+  };
+  const size = s * 0.036;
+  const mono = ctx.fam.mono;
+  let glyphs = '', css = '';
+  pts.forEach((p, i) => {
+    const id = `${P}p${i}`;
+    const f0 = project(p, 0);
+    const fill = i === 7 ? accent : ink;
+    glyphs += `<g class="${id}" transform="translate(${r1(f0.X)} ${r1(f0.Y)}) scale(${f0.k.toFixed(3)})" opacity="${f0.o.toFixed(3)}"><text text-anchor="middle" y="${r1(size * 0.35)}" font-family="'${ctx.esc(mono)}', monospace" font-size="${r1(size)}" font-weight="${i === 7 ? 700 : 400}" fill="${fill}">${ctx.esc(p.say)}</text></g>`;
+    if (animate) {
+      let kf = '';
+      for (let f = 0; f <= F; f++) {
+        const q = project(p, (f / F) * Math.PI * 2);
+        kf += `${r1((f / F) * 100)}%{transform:translate(${r1(q.X)}px,${r1(q.Y)}px) scale(${q.k.toFixed(3)});opacity:${q.o.toFixed(3)}}`;
+      }
+      css += `@keyframes ${id}k{${kf}}.${id}{animation:${id}k ${DUR}s linear infinite}`;
+    }
+  });
+  // Paper disc and an ink outline slightly off register; a faint equator and meridian that stay still.
+  const off = s * 0.012;
+  const disc = ill.blob(cx, cy, R * 1.12, R * 1.1, { points: 10, irregularity: 0.03, seed: 4 });
+  const outline = ill.inkLine(ill.ellipsePoints(cx + off, cy + off * 0.7, R * 1.1, R * 1.08, 44, 0.2), { seed: 12, closed: true });
+  const equator = ill.inkLine(ill.ellipsePoints(cx, cy, R * 1.04, R * 0.38, 36, 0), { seed: 14, closed: true });
+  const style = animate ? `<style>${css}.${P}p0{}@media (prefers-reduced-motion: reduce){[class^="${P}p"]{animation:none!important}}</style>` : '';
+  return style + `<path d="${disc}" fill="${paper}"/>` +
+    `<path d="${equator}" fill="none" stroke="${ink}" stroke-width="${r1(sw * 0.5)}" opacity="0.18"/>` +
+    `<defs><clipPath id="${P}clip"><ellipse cx="${r1(cx + off)}" cy="${r1(cy + off * 0.7)}" rx="${r1(R * 1.04)}" ry="${r1(R * 1.02)}"/></clipPath></defs>` +
+    `<g clip-path="url(#${P}clip)">${glyphs}</g>` +
+    `<path d="${outline}" fill="none" stroke="${ink}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/>`;
+}
+
 export default {
+  'say-globe': sayGlobe,
   // "Code is the international language": a globe that is also a speech bubble. Rows of code run
   // round it like latitudes; when animated they turn like the world once every word has arrived
   // (one mover, 3 s move + 1 s hold, ending still each loop; reduced motion shows it still). Accent: one cursor, the only coloured object.
