@@ -1,6 +1,6 @@
 // Humanist Minimal skin for the design engine (tools/design/engine.mjs).
 // Ink line over white cut-paper shapes on a flat Wada ground; the accent on one object only;
-// sentence case, left-aligned, three sizes; the button is an ink-outlined pill so the accent stays on the art.
+// sentence case, left-aligned, three sizes; the button is a hand-drawn ink pill so the accent stays on the art.
 // Art comes from the style's drawing engine (illustration.mjs motifs) or from the product's own motifs
 // (products/<id>/art.mjs), which get the same primitives.
 
@@ -58,7 +58,18 @@ export default {
     const bw = Math.min(b.w, ft.width + ft.size * 2.4), bh = ft.size * 2.3;
     const y = b.y + (b.h - bh) / 2;
     const ink = ctx.media ? pal.white : pal.onGround;
-    return `<rect x="${r1(b.x)}" y="${r1(y)}" width="${r1(bw)}" height="${r1(bh)}" rx="${r1(bh / 2)}" fill="none" stroke="${ink}" stroke-width="${r1(Math.max(2, ft.size * 0.12))}"/>` +
+    // The pill is drawn by hand in one ink stroke: it goes round once, drifting slightly, and overshoots
+    // its start, the way a pen loop does (soft geometry, never a perfect vector).
+    const { ill } = illustrator(ctx);
+    const r = bh / 2, cy = y + r, x0 = b.x + r, x1 = b.x + bw - r, pts = [];
+    const edge = (xa, xb, yy, n) => { for (let i = 0; i < n; i++) pts.push([xa + ((xb - xa) * i) / n, yy]); };
+    const arc = (cx, a0, n) => { for (let i = 0; i < n; i++) { const a = a0 + (i / n) * Math.PI; pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } };
+    const n = Math.max(4, Math.round((x1 - x0) / (r * 1.2)));
+    edge(x0, x1, y, n); arc(x1, -Math.PI / 2, 8); edge(x1, x0, y + bh, n); arc(x0, Math.PI / 2, 8);
+    edge(x0, x0 + (x1 - x0) * 0.22, y, Math.max(2, Math.round(n * 0.22)));
+    const drift = pts.map(([px, py], i) => [px, py - (i / pts.length) * bh * 0.09]);
+    const pill = ill.inkLine(drift, { seed: 41, wobble: 0.9, segment: r * 0.9 });
+    return `<path d="${pill}" fill="none" stroke="${ink}" stroke-width="${r1(Math.max(2, ft.size * 0.12))}" stroke-linecap="round" stroke-linejoin="round"/>` +
       `<text x="${r1(b.x + bw / 2)}" y="${r1(y + bh / 2 + ft.size * 0.36)}" text-anchor="middle" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${r1(ft.size)}" fill="${ink}">${esc(label)}</text>`;
   },
 
