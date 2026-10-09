@@ -101,6 +101,7 @@ export function buildHub({ root, brands }) {
       ownCombination: own.id, recommended: recs.map((r) => ({ ...r, combination: recNum(r) })),
       research: existsSync(researchFile) ? mdToHtml(readFileSync(researchFile, 'utf8')) : '',
       samples, usedBy: items.filter((it) => it.approach === id).map((it) => it.id),
+      engine: enginePreviews(root, id),
     });
   }
   // Brain research: built styles' own evidence replaces our earlier estimates.
@@ -243,4 +244,13 @@ function campaignArt(dir) {
     const p = join(dir, n);
     return statSync(p).isDirectory() ? campaignArt(p) : n.endsWith('.svg') ? [p] : [];
   });
+}
+
+// The design engine's renders of the test copy in this style (tools/design/preview.mjs), in format order.
+function enginePreviews(root, style) {
+  const dir = join(root, 'tools/design/previews', style, 'preview');
+  if (!existsSync(dir)) return [];
+  const order = ['poster', 'post-a', 'post-b', 'slide-1', 'slide-2', 'story', 'hero', 'thumb', 'banner', 'billboard'];
+  return readdirSync(dir).filter((f) => f.endsWith('.svg')).sort((a, b) => order.indexOf(a.replace('.svg', '')) - order.indexOf(b.replace('.svg', '')))
+    .map((f) => ({ id: f.replace('.svg', ''), svg: readFileSync(join(dir, f), 'utf8').replace(/<style>@import[^<]*<\/style>/, '') }));
 }

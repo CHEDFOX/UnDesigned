@@ -348,6 +348,11 @@ table.cols i { display: inline-block; width: 28px; height: 28px; vertical-align:
 .vd-card > div > svg { width: 100%; height: auto; display: block; border-radius: 12px; }
 .vd-tl { display: flex; height: 8px; border-radius: 999px; overflow: hidden; background: var(--line); }
 .vd-tl i { display: block; height: 100%; }
+/* ---------- engine previews ---------- */
+.eng-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 14px; align-items: start; margin-top: 10px; }
+.eng-grid figure { margin: 0; display: grid; gap: 4px; }
+.eng-grid figure > svg { width: 100%; height: auto; display: block; box-shadow: 0 1px 8px rgba(0,0,0,.12); }
+.eng-grid figcaption { font: 11px var(--mono); color: var(--muted); }
 /* ---------- campaign art ---------- */
 #art-wrap { margin-bottom: 40px; }
 .art-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 20px; }
@@ -1309,6 +1314,7 @@ function renderStyleDetail() {
     <h3 style="margin-top:28px">Typography</h3><p class="st-note">${esc((st.typography && st.typography.character) || '')}</p>
     <div class="tablewrap"><table class="data"><thead><tr><th>Pairing</th><th>Fit</th><th>Why</th></tr></thead><tbody>${fitRows}</tbody></table></div>
     ${newP ? `<span class="lbl" style="display:block;margin-top:12px">New pairings proposed by this style</span><ul class="tight">${newP}</ul>` : ''}
+    ${(st.engine || []).length ? `<h3 style="margin-top:28px">Rendered by the engine</h3><p class="st-note">The same test copy (an invented bakery) drawn by this style's skin, <code>approaches/${esc(st.id)}/skin.mjs</code>, in every format, with the style's own recommended Wada combination. Any product gets this with <code>npm run design -- &lt;product&gt;</code>.</p><div class="eng-grid">${st.engine.map(e => `<figure>${e.svg}<figcaption>${esc(e.id)}</figcaption></figure>`).join('')}</div>` : ''}
     ${(() => { const h = (st.typography || {}).handwritten; if (!h) return ''; const fam = id => (DATA.handwritten.fonts.find(f => f.id === id) || {}).family || id; return `<span class="lbl" style="display:block;margin-top:12px">Handwritten faces</span><p class="st-note" style="margin-top:4px"><b>${h.use === 'none' ? 'Not used' : h.use === 'core' ? 'Part of the style' : 'One short accent'}</b>${h.use !== 'none' ? ` (up to ${h.maxWords} words): ${esc(h.fonts.map(fam).join(', '))}` : ''}. ${esc(h.why || '')}</p>`; })()}
     <h3 style="margin-top:28px">Motion</h3><p class="st-note">${esc(M.character || '')}</p>
     <div class="tablewrap"><table class="data"><thead><tr><th>Move</th><th>Timing</th><th>Use</th></tr></thead><tbody>${moves}</tbody></table></div>
