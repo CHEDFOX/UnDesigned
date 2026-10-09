@@ -64,3 +64,70 @@ export function textWidth(text, { family, weight = 400, italic = false, size, tr
   for (const ch of s) w += m ? (m.w[ch] ?? 0.6) : (/[A-Z0-9]/.test(ch) ? 0.66 : ch === ' ' ? 0.28 : 0.56);
   return (w + tracking * Math.max(0, s.length - 1)) * size;
 }
+
+// ---------------------------------------------------------------- photo tones
+// A coarse luminance grid (32 x 32 cells, each the worst-case p10/p90 of its pixels) per image, measured
+// in Chromium once and cached, so the engine can pick readable text over a photo (media.json contrast rule).
+const TONES = join(HERE, 'photo-tones.json');
+let tones = existsSync(TONES) ? JSON.parse(readFileSync(TONES, 'utf8')) : {};
+import { statSync } from 'node:fs';
+const toneKey = (file) => `${file}|${statSync(file).size}`;
+
+export async function ensureTones(files) {
+  const missing = [...new Set(files)].filter((f) => f && !(tones[toneKey(f)] && tones[toneKey(f)].pct));
+  if (!missing.length) return true;
+  const pw = findPlaywright();
+  if (!pw) return false;
+  const exe = existsSync('/opt/pw-browsers/chromium') ? { executablePath: '/opt/pw-browsers/chromium' } : {};
+  const browser = await pw.chromium.launch(exe);
+  try {
+    const page = await browser.newPage();
+    for (const f of missing) {
+      const ext = f.split('.').pop().toLowerCase();
+      const mime = ext === 'png' ? 'image/png' : ext === 'svg' ? 'image/svg+xml' : 'image/jpeg';
+      const uri = `data:${mime};base64,${readFileSync(f).toString('base64')}`;
+      tones[toneKey(f)] = await page.evaluate(async (src) => {
+        const img = new Image(); img.src = src; await img.decode();
+        const N = 32, c = document.createElement('canvas'); c.width = 256; c.height = 256;
+        const g = c.getContext('2d'); g.drawImage(img, 0, 0, 256, 256);
+        const d = g.getImageData(0, 0, 256, 256).data;
+        const lin = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+        const out = { w: img.naturalWidth, h: img.naturalHeight, lo: [], hi: [], pct: [] };
+        const hist = new Array(256).fill(0);
+        for (let i = 0; i < d.length; i += 4) hist[Math.round(0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2])]++;
+        let acc = 0, k = 0; const total = d.length / 4;
+        for (let v = 0; v < 256; v++) { acc += hist[v]; while (k <= 100 && acc >= (k / 100) * total) { out.pct.push(v); k++; } }
+        while (out.pct.length < 101) out.pct.push(255);
+        for (let cy = 0; cy < N; cy++) for (let cx = 0; cx < N; cx++) {
+          const L = [];
+          for (let y = cy * 8; y < cy * 8 + 8; y++) for (let x = cx * 8; x < cx * 8 + 8; x++) { const i = (y * 256 + x) * 4; L.push(0.2126 * lin(d[i]) + 0.7152 * lin(d[i + 1]) + 0.0722 * lin(d[i + 2])); }
+          L.sort((a, b) => a - b);
+          out.lo.push(Math.round(L[6] * 1000) / 1000); out.hi.push(Math.round(L[57] * 1000) / 1000);
+        }
+        return out;
+      }, uri);
+    }
+    writeFileSync(TONES, JSON.stringify(tones) + '\n');
+  } finally { await browser.close(); }
+  return true;
+}
+
+/** Darkest and brightest luminance behind a box (px) on a W x H canvas where the photo is drawn with
+ *  preserveAspectRatio "xMidYMid slice". Returns null if the photo wasn't measured. */
+export function toneUnder(file, box, W, H) {
+  const t = file && tones[toneKey(file)];
+  if (!t) return null;
+  const s = Math.max(W / t.w, H / t.h), dw = t.w * s, dh = t.h * s, ox = (W - dw) / 2, oy = (H - dh) / 2;
+  const N = 32;
+  const cx0 = Math.max(0, Math.floor(((box.x - ox) / dw) * N)), cx1 = Math.min(N - 1, Math.floor(((box.x + box.w - ox) / dw) * N));
+  const cy0 = Math.max(0, Math.floor(((box.y - oy) / dh) * N)), cy1 = Math.min(N - 1, Math.floor(((box.y + box.h - oy) / dh) * N));
+  let lo = 1, hi = 0;
+  for (let y = cy0; y <= cy1; y++) for (let x = cx0; x <= cx1; x++) { lo = Math.min(lo, t.lo[y * N + x]); hi = Math.max(hi, t.hi[y * N + x]); }
+  return { lo, hi };
+}
+
+/** Luminance percentiles (0-255, 101 values) of a measured photo, or null. */
+export function photoStats(file) {
+  const t = file && tones[toneKey(file)];
+  return t && t.pct ? { percentiles: t.pct } : null;
+}

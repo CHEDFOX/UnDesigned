@@ -19,10 +19,21 @@
 //      fam, face(role), piece, layout, rand(), seed, media, dataUri(), imageSize(), fit(), textWidth(),
 //      contrast(), readableOn(), esc(), productArt (motifs from products/<id>/art.mjs), approach (style data).
 
+/** Helpers every product motif receives in any style: Humanist Minimal's primitives with a palette
+ *  whose ink reads on the ground (light ink on dark grounds). */
+import { createIllustrator } from '../../../approaches/humanist-minimal/illustration.mjs';
+import { readFileSync } from 'node:fs';
+const HM = (() => { const d = (f) => JSON.parse(readFileSync(new URL(`../../../approaches/humanist-minimal/${f}`, import.meta.url), 'utf8')); return { art: d('art.json'), motion: d('motion.json') }; })();
+export function motifHelpers(ctx) {
+  const dark = ctx.contrast(ctx.pal.ground, ctx.pal.black) < 4.5;
+  const palette = { ground: ctx.pal.ground, paper: ctx.pal.white, ink: dark ? ctx.pal.onGround : ctx.pal.black, accent: ctx.pal.accent };
+  return { ill: createIllustrator(ctx.approach.art && ctx.approach.art.line ? ctx.approach : HM, palette), palette };
+}
+
 export function productMotif(ctx, box, helpers = {}) {
   const want = ctx.piece.art && ctx.piece.art.motif;
   const fn = want && ctx.productArt && ctx.productArt[want];
-  return fn ? fn(ctx, box, helpers) : null;
+  return fn ? fn(ctx, box, { ...motifHelpers(ctx), ...helpers }) : null;
 }
 
 export function artFile(ctx, box) {

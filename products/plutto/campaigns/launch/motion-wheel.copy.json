@@ -7,7 +7,8 @@
   "logo": true,
   "palette": "primary",
   "art": {
-    "motif": "western"
+    "motif": "western",
+    "size": 0.3
   },
   "animate": true
 }

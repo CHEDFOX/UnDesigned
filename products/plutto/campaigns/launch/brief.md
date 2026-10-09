@@ -1,10 +1,12 @@
 # Creative brief
 
+> **Rendered by the guide.** Every piece is drawn by the design engine from the copy files in this folder: `npm run design -- plutto launch --png` (outputs in `designs/`, contact sheet beside them). The style skin (`approaches/<style>/skin.mjs`) draws it; this product only adds its facts, copy, original marks, photos and its own motifs (`products/plutto/art.mjs`).
+
 **Campaign:** Launch (social, web, print and motion, ahead of the iOS and Android release)
 **Date / deadline:** unknown (the site says only "iOS & Android — soon")
 **Owner:** Plutto, by xooteq Lab
 
-Read first: `../../identity.json` (core, marks, signals), `strategy.md` (pillars and series), `../../messaging.json`. Designs: `design.mjs` (run after `npm run build -- plutto`). Storyboards: `storyboard-motion-orb-answer.md`, `storyboard-motion-wheel.md`.
+Read first: `../../identity.json` (core, marks, signals), `strategy.md` (pillars and series), `../../messaging.json`. Designs: the guide's design engine (`npm run design -- plutto launch --png`, outputs in `designs/`). Storyboards: `storyboard-motion-orb-answer.md`, `storyboard-motion-wheel.md`.
 
 ## 0. Choices (proposed; colour status stays "placeholder" until approved)
 
@@ -87,7 +89,7 @@ Every piece: research finding it uses, composition (`foundations/layout/layout.j
 
 Formats and copy: one `.copy.json` per piece (the carousel has one file with six slides). `npm run check:copy -- products/plutto`: 16 files, 0 errors, 0 warnings.
 
-Technical: every SVG has a viewBox and width/height; ids, classes and keyframes are prefixed `pl2-<piece>-`; fonts by `@import`; the photo is a JPEG data URI (1024 px, 86%); every SVG is under 60 KB; text boxes are checked against margins and the story safe area (top 14%, bottom 35%, sides 6%) by `design.mjs`. Previews: a PNG beside each SVG, `*-sticker-preview.png` for the stories, five frames per animation, `contact-sheet.png`.
+Technical: every SVG has a viewBox and width/height; ids, classes and keyframes are prefixed `pl2-<piece>-`; fonts by `@import`; the photo is a JPEG data URI (1024 px, 86%); every SVG is under 60 KB; text boxes are checked against margins and the story safe area (top 14%, bottom 35%, sides 6%) by the design engine. Previews: a PNG beside each SVG, `*-sticker-preview.png` for the stories, five frames per animation, `contact-sheet.png`.
 
 ## 10. Headlines (W3)
 

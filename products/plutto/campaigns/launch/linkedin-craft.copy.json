@@ -9,7 +9,8 @@
   "logo": true,
   "palette": "primary",
   "art": {
-    "motif": "natal-wheel"
+    "motif": "natal-wheel",
+    "size": 0.3
   },
   "note": "Sample position. Built by xooteq Lab."
 }

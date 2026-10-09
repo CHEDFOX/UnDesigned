@@ -1,5 +1,7 @@
 # Creative brief: XOOTEQ launch (redo)
 
+> **Rendered by the guide.** Every piece is drawn by the design engine from the copy files in this folder: `npm run design -- xooteq launch --png` (outputs in `designs/`, contact sheet beside them). The style skin (`approaches/<style>/skin.mjs`) draws it; this product only adds its facts, copy, original marks, photos and its own motifs (`products/xooteq/art.mjs`).
+
 **Campaign:** launch, rebuilt from the brand's core (`products/xooteq/identity.json`) and the content strategy (`strategy.md`).
 **Date / deadline:** to confirm.
 **Owner:** to confirm.
@@ -144,7 +146,7 @@ Item 5 scores 2 where gradients are two-stop within 340/Black/White or absent; i
 - [x] Original monogram + wordmark beside every headline (O4)
 - [x] Words and image add to each other (W5)
 - [x] `npm run check:copy -- products/xooteq`: 0 errors, 1 accepted warning (the brand's own belief contains "the best")
-- [x] Colours only from 340 + Black + White (audited in design.mjs); every text element ≥ 4.5:1 on its worst-case pixels (`qa-contrast.json`, minimum 5.5:1)
+- [x] Colours only from 340 + Black + White (from the product palette only); every text element ≥ 4.5:1 on its worst-case pixels (`qa-contrast.json`, minimum 5.5:1)
 - [x] Every SVG has viewBox, width, height; all ids, classes and keyframes prefixed `xq2-<piece>-`; fonts via `@import` in their own `<style>`; each file < 450 KB (largest 254 KB)
 
 ## 15. Open questions for the brand

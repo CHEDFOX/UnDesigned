@@ -24,7 +24,8 @@
     "logo": true,
     "palette": "primary",
     "art": {
-      "motif": "vedic"
+      "motif": "vedic",
+      "size": 0.3
     },
     "series": {
       "name": "lenses",
@@ -41,7 +42,8 @@
     "logo": true,
     "palette": "primary",
     "art": {
-      "motif": "western"
+      "motif": "western",
+      "size": 0.3
     },
     "series": {
       "name": "lenses",
@@ -58,7 +60,8 @@
     "logo": true,
     "palette": "primary",
     "art": {
-      "motif": "elements"
+      "motif": "elements",
+      "size": 0.3
     },
     "series": {
       "name": "lenses",
@@ -75,7 +78,8 @@
     "logo": true,
     "palette": "primary",
     "art": {
-      "motif": "kp"
+      "motif": "kp",
+      "size": 0.3
     },
     "series": {
       "name": "lenses",

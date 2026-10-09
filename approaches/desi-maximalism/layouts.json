@@ -1,0 +1,775 @@
+{
+ "$comment": "Desi Maximalism layouts. Same schema as templates/layouts/layouts.json, plus frame = { bandPctShortSide, bands }: the nested border (art.json border) drawn by skin.mjs around the canvas. Text, brand and CTA sit inside the frame with at least one band width of clear ground (art.json border.rules); headline and subhead are centred for their cartouche (composition rules), brand plate and button mirror each other at the foot. The skin also works with the shared layouts, thinning the frame to fit their margins.",
+ "layouts": [
+  {
+   "id": "desi-poster-medallion",
+   "name": "Poster: medallion over cartouche",
+   "format": "poster",
+   "aspect": [
+    1,
+    1.414
+   ],
+   "composition": "single-focal",
+   "frame": {
+    "bandPctShortSide": 9,
+    "bands": 4
+   },
+   "slots": [
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 14,
+      "y": 9.5,
+      "w": 72,
+      "h": 42
+     },
+     "align": "center"
+    },
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 16,
+      "y": 54,
+      "w": 68,
+      "h": 12.5
+     },
+     "align": "center"
+    },
+    {
+     "name": "subhead",
+     "role": "subhead",
+     "box": {
+      "x": 18,
+      "y": 68.5,
+      "w": 64,
+      "h": 6
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 13,
+      "y": 81.5,
+      "w": 34,
+      "h": 4
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 51,
+      "y": 80.5,
+      "w": 36,
+      "h": 5.5
+     },
+     "align": "right"
+    }
+   ],
+   "notes": "Medallion in the upper half, headline cartouche below, subhead centred, brand plate and button as a mirrored pair at the foot (art.json composition: medallion-over-cartouche).",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-poster-panel",
+   "name": "Poster: headline panel over medallion",
+   "format": "poster",
+   "aspect": [
+    1,
+    1.414
+   ],
+   "composition": "type-led",
+   "frame": {
+    "bandPctShortSide": 9,
+    "bands": 4
+   },
+   "slots": [
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 16,
+      "y": 10,
+      "w": 68,
+      "h": 12.5
+     },
+     "align": "center"
+    },
+    {
+     "name": "subhead",
+     "role": "subhead",
+     "box": {
+      "x": 18,
+      "y": 24.5,
+      "w": 64,
+      "h": 6
+     },
+     "align": "center"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 18,
+      "y": 34,
+      "w": 64,
+      "h": 42
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 13,
+      "y": 81.5,
+      "w": 34,
+      "h": 4
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 51,
+      "y": 80.5,
+      "w": 36,
+      "h": 5.5
+     },
+     "align": "right"
+    }
+   ],
+   "notes": "Truck-panel order: the headline in a band at the top, the medallion as the panel below it.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-post-medallion",
+   "name": "Portrait post 4:5: medallion over cartouche",
+   "format": "instagram-post",
+   "aspect": [
+    4,
+    5
+   ],
+   "composition": "single-focal",
+   "frame": {
+    "bandPctShortSide": 8.5,
+    "bands": 4
+   },
+   "slots": [
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 15,
+      "y": 10,
+      "w": 70,
+      "h": 43
+     },
+     "align": "center"
+    },
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 15,
+      "y": 56.5,
+      "w": 70,
+      "h": 14.5
+     },
+     "align": "center"
+    },
+    {
+     "name": "subhead",
+     "role": "subhead",
+     "box": {
+      "x": 17,
+      "y": 72.5,
+      "w": 66,
+      "h": 4.6
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 13,
+      "y": 80.5,
+      "w": 36,
+      "h": 4.6
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 50,
+      "y": 79.8,
+      "w": 37,
+      "h": 6
+     },
+     "align": "right"
+    }
+   ],
+   "notes": "Medallion over cartouche; side margins clear the 3:4 profile-grid crop (6.3%).",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-post-panel",
+   "name": "Portrait post 4:5: headline panel over medallion",
+   "format": "instagram-post",
+   "aspect": [
+    4,
+    5
+   ],
+   "composition": "type-led",
+   "frame": {
+    "bandPctShortSide": 8.5,
+    "bands": 4
+   },
+   "slots": [
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 15,
+      "y": 12.5,
+      "w": 70,
+      "h": 13.5
+     },
+     "align": "center"
+    },
+    {
+     "name": "subhead",
+     "role": "subhead",
+     "box": {
+      "x": 17,
+      "y": 28,
+      "w": 66,
+      "h": 4.6
+     },
+     "align": "center"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 20,
+      "y": 35,
+      "w": 60,
+      "h": 41
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 13,
+      "y": 80.5,
+      "w": 36,
+      "h": 4.6
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 50,
+      "y": 79.8,
+      "w": 37,
+      "h": 6
+     },
+     "align": "right"
+    }
+   ],
+   "notes": "Headline cartouche on top, medallion panel below.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-square-label",
+   "name": "Square post: matchbox label",
+   "format": "instagram-post",
+   "aspect": [
+    1,
+    1
+   ],
+   "composition": "single-focal",
+   "frame": {
+    "bandPctShortSide": 8.5,
+    "bands": 3
+   },
+   "slots": [
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 24,
+      "y": 11,
+      "w": 52,
+      "h": 47
+     },
+     "align": "center"
+    },
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 15,
+      "y": 61,
+      "w": 70,
+      "h": 14
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 13,
+      "y": 80,
+      "w": 36,
+      "h": 6
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 50,
+      "y": 79.5,
+      "w": 37,
+      "h": 7
+     },
+     "align": "right"
+    }
+   ],
+   "notes": "Matchbox-label layout: one central image, heavy border, name panel at the bottom.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-story-medallion",
+   "name": "Story 9:16: cartouche, medallion, plates",
+   "format": "story",
+   "aspect": [
+    9,
+    16
+   ],
+   "composition": "stacked",
+   "frame": {
+    "bandPctShortSide": 8,
+    "bands": 4
+   },
+   "slots": [
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 15,
+      "y": 13,
+      "w": 70,
+      "h": 10.5
+     },
+     "align": "center"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 14,
+      "y": 26,
+      "w": 72,
+      "h": 28
+     },
+     "align": "center"
+    },
+    {
+     "name": "subhead",
+     "role": "subhead",
+     "box": {
+      "x": 16,
+      "y": 56,
+      "w": 68,
+      "h": 4.2
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 13,
+      "y": 62,
+      "w": 36,
+      "h": 3.6
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 50,
+      "y": 61.4,
+      "w": 37,
+      "h": 4.6
+     },
+     "align": "right"
+    }
+   ],
+   "notes": "Text inside the story safe area (top 14%, bottom 35% kept for UI); the field pattern fills the foot.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-hero-split",
+   "name": "Landing hero 16:9: quiet half and medallion half",
+   "format": "landing-hero",
+   "aspect": [
+    16,
+    9
+   ],
+   "composition": "split",
+   "frame": {
+    "bandPctShortSide": 8,
+    "bands": 4
+   },
+   "slots": [
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 9,
+      "y": 16,
+      "w": 44,
+      "h": 28
+     },
+     "align": "center"
+    },
+    {
+     "name": "subhead",
+     "role": "subhead",
+     "box": {
+      "x": 11,
+      "y": 47,
+      "w": 40,
+      "h": 14
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 9,
+      "y": 70,
+      "w": 20,
+      "h": 7
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 31,
+      "y": 69.5,
+      "w": 22,
+      "h": 9
+     },
+     "align": "right"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 58,
+      "y": 13,
+      "w": 33,
+      "h": 74
+     },
+     "align": "center"
+    }
+   ],
+   "notes": "art.json composition split: decorated half (medallion) and a quiet half with the copy; the frame wraps both.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-thumbnail-label",
+   "name": "Thumbnail 16:9: label",
+   "format": "thumbnail",
+   "aspect": [
+    16,
+    9
+   ],
+   "composition": "split",
+   "frame": {
+    "bandPctShortSide": 7,
+    "bands": 2
+   },
+   "slots": [
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 8,
+      "y": 16,
+      "w": 48,
+      "h": 58
+     },
+     "align": "center"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 60,
+      "y": 13,
+      "w": 32,
+      "h": 74
+     },
+     "align": "center"
+    }
+   ],
+   "notes": "Small format: two bands at most, big cartouche, one medallion.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-banner-strip",
+   "name": "Web banner 970x250: label strip",
+   "format": "web-banner",
+   "aspect": [
+    970,
+    250
+   ],
+   "composition": "split",
+   "frame": {
+    "bandPctShortSide": 8,
+    "bands": 2
+   },
+   "slots": [
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 4,
+      "y": 32,
+      "w": 13,
+      "h": 36
+     },
+     "align": "left"
+    },
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 19,
+      "y": 15,
+      "w": 45,
+      "h": 70
+     },
+     "align": "center"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 67,
+      "y": 11,
+      "w": 12,
+      "h": 78
+     },
+     "align": "center"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 81,
+      "y": 28,
+      "w": 15,
+      "h": 44
+     },
+     "align": "right"
+    }
+   ],
+   "notes": "Two bands; brand plate, cartouche, medallion, button.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-billboard-split",
+   "name": "Billboard 48:14: cartouche and medallion",
+   "format": "billboard",
+   "aspect": [
+    48,
+    14
+   ],
+   "composition": "split",
+   "frame": {
+    "bandPctShortSide": 8,
+    "bands": 3
+   },
+   "slots": [
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 5,
+      "y": 15,
+      "w": 54,
+      "h": 52
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 5,
+      "y": 74,
+      "w": 20,
+      "h": 13
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 37,
+      "y": 72,
+      "w": 22,
+      "h": 16
+     },
+     "align": "right"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 66,
+      "y": 11,
+      "w": 28,
+      "h": 78
+     },
+     "align": "center"
+    }
+   ],
+   "notes": "Big cartouche on the left, medallion on the right; three bands read from far.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  },
+  {
+   "id": "desi-email-header",
+   "name": "Email header 2:1: cartouche and medallion",
+   "format": "email-header",
+   "aspect": [
+    600,
+    300
+   ],
+   "composition": "split",
+   "frame": {
+    "bandPctShortSide": 8,
+    "bands": 3
+   },
+   "slots": [
+    {
+     "name": "headline",
+     "role": "headline",
+     "box": {
+      "x": 7,
+      "y": 15,
+      "w": 55,
+      "h": 40
+     },
+     "align": "center"
+    },
+    {
+     "name": "brand",
+     "role": "brand",
+     "box": {
+      "x": 7,
+      "y": 70,
+      "w": 25,
+      "h": 10
+     },
+     "align": "left"
+    },
+    {
+     "name": "cta",
+     "role": "cta",
+     "box": {
+      "x": 37,
+      "y": 68,
+      "w": 25,
+      "h": 14
+     },
+     "align": "right"
+    },
+    {
+     "name": "art",
+     "role": "art",
+     "box": {
+      "x": 66,
+      "y": 13,
+      "w": 27,
+      "h": 74
+     },
+     "align": "center"
+    }
+   ],
+   "notes": "Cartouche and medallion; the frame wraps both.",
+   "evidence": [
+    "centre-bias",
+    "pop-out",
+    "organised-complexity"
+   ]
+  }
+ ]
+}

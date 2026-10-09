@@ -1,5 +1,7 @@
 # Creative brief
 
+> **Rendered by the guide.** Every piece is drawn by the design engine from the copy files in this folder: `npm run design -- tailzu launch --png` (outputs in `designs/`, contact sheet beside them). The style skin (`approaches/<style>/skin.mjs`) draws it; this product only adds its facts, copy, original marks, photos and its own motifs (`products/tailzu/art.mjs`).
+
 **Campaign:** Launch (round 2): hand in, type out
 **Date / deadline:** to confirm with the owner
 **Owner:** Tailzu (Xooteq Lab Private Limited)
@@ -68,7 +70,7 @@ The full stop is a cut-paper dot in the palette's accent: the og.png amber full 
 
 ## 9. Pieces
 
-Every piece: SVG with viewBox, width and height; every class and keyframe prefixed `tz2-<piece>-`; fonts by @import in their own style element; no images; all under 30 KB. Colours: the piece's Wada combination plus Wada Black and White, and the mark's own colours inside the mark only (checked by `design.mjs`). Text inside the safe areas (`layout.json` → safeAreas). PNG beside each SVG; `contact-sheet.png` shows them all.
+Every piece: SVG with viewBox, width and height; every class and keyframe prefixed `tz2-<piece>-`; fonts by @import in their own style element; no images; all under 30 KB. Colours: the piece's Wada combination plus Wada Black and White, and the mark's own colours inside the mark only (checked by the design engine). Text inside the safe areas (`layout.json` → safeAreas). PNG beside each SVG; `contact-sheet.png` shows them all.
 
 | # | File | Format, size | Pillar | One-line idea | Composition (layout.json) | Research finding | Palette | Copy |
 |---|---|---|---|---|---|---|---|---|

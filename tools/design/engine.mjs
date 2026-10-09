@@ -18,7 +18,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 
 import { join, dirname, extname, basename, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { loadBrand, copyFiles } from '../../scripts/products.mjs';
-import { ensureMetrics, textWidth } from './metrics.mjs';
+import { ensureMetrics, textWidth, ensureTones, toneUnder, photoStats } from './metrics.mjs';
 import { springEasing } from '../../approaches/humanist-minimal/illustration.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -173,7 +173,7 @@ function pngSize(file) {
 export function imageSize(file) { return extname(file).toLowerCase() === '.svg' ? svgSize(file) : pngSize(file); }
 
 // ---------------------------------------------------------------- the piece
-const ROLE_ORDER = ['art', 'image', 'headline', 'subhead', 'body', 'note', 'brand', 'cta'];
+const ROLE_ORDER = ['ground', 'art', 'image', 'headline', 'subhead', 'body', 'note', 'brand', 'cta', 'finish'];
 
 export async function renderPiece({ brand, tokens, skin, piece, layout, marks, index = 0 }) {
   const [W, H] = canvasFor(piece.format);
@@ -193,7 +193,7 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
 
   const pair = tokens.typography.pairing;
   const fam = { display: pair.display.family, body: pair.body.family, mono: pair.mono.family, hand: tokens.typography.hand ? tokens.typography.hand.family : null };
-  const T = skin.type || {};
+  let T = {};
   const face = (role) => {
     const t = T[role] || {};
     const family = t.family === 'mono' ? fam.mono : t.family === 'hand' && fam.hand ? fam.hand : t.family === 'display' ? fam.display : t.family === 'body' ? fam.body : role === 'headline' ? fam.display : fam.body;
@@ -216,8 +216,18 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
   const parts = { ground: skin.ground(ctx), media: '', art: [], text: [], after: '' };
   if (media) parts.media = skin.media ? skin.media(ctx, layout) : `<image href="${dataUri(media)}" width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice"/>`;
 
-  // Text colour per slot: readable on what is behind it (the skin may override with textOn()).
-  const textFill = (slot) => (skin.textOn ? skin.textOn(ctx, slot) : null) || (media && layout.media?.text === 'paper' ? pal.white : media && layout.media?.text === 'ink' ? pal.black : pal.onGround);
+  // Text colour per slot: readable on what is behind it (the skin may override with textOn()). Over a photo,
+  // the photo's measured worst-case pixels behind the slot decide (media.json contrast rule).
+  ctx.mediaStats = media ? photoStats(media) : null;
+  T = (typeof skin.type === 'function' ? skin.type(ctx) : skin.type) || {};
+  ctx.mediaTone = (box) => (media ? toneUnder(media, box, W, H) : null);
+  ctx.textOnPhoto = (box) => {
+    const t = ctx.mediaTone(box);
+    if (!t) return layout.media?.text === 'ink' ? pal.black : pal.white;
+    const cw = (1.05) / (t.hi + 0.05), cb = (t.lo + 0.05) / 0.05;
+    return cw >= cb ? pal.white : pal.black;
+  };
+  const textFill = (slot) => (skin.textOn ? skin.textOn(ctx, slot) : null) || (media && layout.media ? ctx.textOnPhoto(slot.px) : pal.onGround);
 
   let artN = 0;
   const texts = { headline: piece.headline, subhead: piece.subhead, body: piece.body, cta: piece.cta, note: piece.note, brand: brand.config.name };
@@ -237,7 +247,9 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
     }
     if (slot.role === 'image') continue;
     if (slot.role === 'brand') {
-      parts.text.push({ slot, svg: drawBrand(ctx, b, slot, marks, textFill(slot)) });
+      const bsvg = drawBrand(ctx, b, slot, marks, textFill(slot));
+      const bdeco = skin.decorate ? skin.decorate(ctx, slot, { box: b, brand: true, hasMark: !!pickMark(marks, ctx.media ? '#000000' : pal.ground) }) : '';
+      parts.text.push({ slot, svg: bsvg, deco: bdeco });
       continue;
     }
     // Two body slots: the second continues the first (long copy).
@@ -248,7 +260,8 @@ export async function renderPiece({ brand, tokens, skin, piece, layout, marks, i
     const f = face(slot.role);
     const lead = slot.role === 'headline' ? (pair.display.leading || 1.0) + 0.06 : slot.role === 'body' ? 1.42 : 1.22;
     const strip = W / H > 2.5;
-    const caps = { headline: strip ? b.h * 0.9 : Math.min(H, W) * (skin.headlineMax || 0.11), subhead: Math.min(H, W) * 0.045, body: Math.min(H, W) * 0.032, note: Math.min(H, W) * 0.03, cta: Math.min(H, W) * 0.034 };
+    const hm = typeof skin.headlineMax === 'function' ? skin.headlineMax(ctx) : skin.headlineMax;
+    const caps = { headline: strip ? b.h * 0.9 : Math.min(H, W) * (hm || 0.11), subhead: Math.min(H, W) * 0.045, body: Math.min(H, W) * 0.032, note: Math.min(H, W) * 0.03, cta: Math.min(H, W) * 0.034 };
     const mins = { headline: 18, subhead: 13, body: 12, note: 11, cta: 12 };
     if (slot.role === 'cta') {
       parts.text.push({ slot, svg: (skin.cta || defaultCta)(ctx, b, text, f, slot) });
@@ -312,20 +325,24 @@ function placeMark(ctx, mark, x, y, w, h) {
 
 function drawBrand(ctx, b, slot, marks, fill) {
   const { esc, face, brand, pal } = ctx;
-  const mark = pickMark(marks, ctx.media ? '#000000' : pal.ground);
+  // The mark version follows what is behind it: if the text there is light, the ground is dark.
+  const behind = lum(fill) > 0.4 ? '#000000' : '#ffffff';
+  const mark = pickMark(marks, behind);
   const f = face('brand');
-  const h = Math.max(Math.min(b.h, Math.min(ctx.W, ctx.H) * 0.07), Math.min(ctx.W, ctx.H) * 0.045, 24);
+  const h = ctx.W / ctx.H > 2.5 ? Math.max(24, Math.min(b.h * 0.8, ctx.H * 0.16)) : Math.max(Math.min(b.h, Math.min(ctx.W, ctx.H) * 0.07), Math.min(ctx.W, ctx.H) * 0.045, 24);
   if (!mark) {
-    const ft = fit(brand.config.name, b.w, h, f, { max: h, min: 12, maxLines: 1 });
-    return `<text x="${b.x}" y="${(b.y + ft.size * 0.9).toFixed(1)}" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${ft.size.toFixed(1)}" fill="${fill}">${esc(brand.config.name)}</text>`;
+    const nm = f.upper ? brand.config.name.toUpperCase() : brand.config.name;
+    const ft = fit(nm, b.w, h, f, { max: h, min: 12, maxLines: 1 });
+    return `<text x="${b.x}" y="${(b.y + ft.size * 0.9).toFixed(1)}" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${ft.size.toFixed(1)}" letter-spacing="${(f.tracking * ft.size).toFixed(2)}" fill="${fill}">${esc(nm)}</text>`;
   }
   const [iw, ih] = imageSize(mark.abs);
   if (mark.kind === 'icon' || !mark.kind) {
     const s = h;
-    const name = ctx.fit(brand.config.name, Math.max(10, b.w - s * 1.35), h * 0.62, f, { max: h * 0.62, min: 11, maxLines: 1 });
+    const label = f.upper ? brand.config.name.toUpperCase() : brand.config.name;
+    const name = ctx.fit(label, Math.max(10, b.w - s * 1.35), h * 0.62, f, { max: h * 0.62, min: 11, maxLines: 1 });
     const iwPx = s * (iw / ih);
     return placeMark(ctx, mark, b.x, b.y, iwPx, s) +
-      `<text x="${(b.x + iwPx + s * 0.32).toFixed(1)}" y="${(b.y + s / 2 + name.size * 0.36).toFixed(1)}" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${name.size.toFixed(1)}" letter-spacing="${(f.tracking * name.size).toFixed(2)}" fill="${fill}">${esc(brand.config.name)}</text>`;
+      `<text x="${(b.x + iwPx + s * 0.32).toFixed(1)}" y="${(b.y + s / 2 + name.size * 0.36).toFixed(1)}" font-family="'${esc(f.family)}', sans-serif" font-weight="${f.weight}" font-size="${name.size.toFixed(1)}" letter-spacing="${(f.tracking * name.size).toFixed(2)}" fill="${fill}">${esc(label)}</text>`;
   }
   const wPx = Math.min(b.w, h * (iw / ih) * 1.4), hPx = wPx * (ih / iw);
   return placeMark(ctx, mark, b.x, b.y, wPx, hPx);
@@ -410,6 +427,9 @@ export async function designCampaign({ productId, campaign, png = false, only = 
   const faces = [];
   for (const f of [pair.display, pair.body, pair.mono, tokens.typography.hand].filter(Boolean)) for (const w of f.weights || [400]) faces.push({ family: f.family, weight: w, italic: false }, ...(f.italic ? [{ family: f.family, weight: w, italic: true }] : []));
   const measured = await ensureMetrics(faces);
+  const photoFiles = [];
+  for (const c of campaigns) for (const p of readPieces(join(brand.dir, 'campaigns', c))) if (p.art && p.art.image) photoFiles.push(join(brand.dir, p.art.image));
+  await ensureTones(photoFiles);
   if (!measured) log('  (no browser: text is fitted with estimated widths; check by eye)');
   const written = [];
   for (const c of campaigns) {
