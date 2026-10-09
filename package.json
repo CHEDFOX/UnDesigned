@@ -13,7 +13,8 @@
     "design": "node scripts/design.mjs",
     "compose": "node tools/design/compose.mjs",
     "recipes": "node tools/design/recipes.mjs",
-    "film": "node tools/design/film.mjs"
+    "film": "node tools/design/film.mjs",
+    "cinema": "node tools/design/cinema.mjs"
   },
   "engines": {
     "node": ">=18"

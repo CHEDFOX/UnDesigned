@@ -1,25 +1,15 @@
 # Creative brief: your AI buddy (launch film)
 
-> **Rendered by the guide.** `npm run film -- xooteq ai-buddy --mp4` (tools/design/film.mjs). Combination: recipe `bold-confident-3` from the library (foundations/combinations/recipes.json), chosen at the owner's request instead of the site's colours.
+> **Rendered by the guide.** `npm run cinema -- xooteq ai-buddy` (tools/design/cinema.mjs draws `buddy-cinema.js` frame by frame). Storyboard: `storyboard-buddy-cinema.md`. The first version (an SVG card sequence) was rejected by the owner as not cinematic, with weak visuals, words and look, and was removed.
 
-- **What we know (from the owner):** XOOTEQ is launching an AI agent: a personal buddy that knows you and handles everything for you. Not known yet: its name, launch date, features or proof. Nothing beyond the owner's words is claimed; the tasks on screen are everyday examples of "handles everything", not a feature list.
+- **What we know (from the owner):** XOOTEQ is launching an AI agent: a personal buddy that knows you and handles everything for you. Not known yet: its name, launch date, features or proof. The notifications on screen are everyday examples of the noise it takes away, not a feature list.
 - **One message (W1):** It already knows you, and it handles the rest.
-- **Big idea (O2):** Before you ask, it's done. A curiosity gap ("You haven't asked yet.") opens and resolves in surprise ("It's already done."), the viewer's whole day appears as a swarm of open loops, and one warm living light pulls them in and closes them one by one.
-- **Why "best" isn't said:** a superlative with no proof reads as hype (voice: never hype; Ogilvy O5). The film shows it instead: the thing is done before you ask.
-- **Psychology used (foundations/video/video.json findings):**
-  - curiosity-gap: an answerable question in the first second (Loewenstein 1994; Kang et al. 2009)
-  - surprise-attention: the turn is a change of expectation where the eye already is (Itti & Baldi 2009)
-  - Self-reference: "you" and "your" in every line, the viewer's own day on screen
-  - Closing open loops: nine tasks checked off one by one, a small reward each time
-  - anticipation-reward: three rising "It knows…" beats, the third a twist that turns knowing into trust ("when to leave you alone"), then the peak (Salimpoor et al. 2011)
-  - peak-end: the biggest moment is the buddy's reveal, and the end points forward ("almost here")
-  - joy-surprise
-  - brand early: the mark from 1.2 s
-  - one mover at a time
-- **Combination:** recipe bold-confident-3. Its fit and likability: likability 75 (highest in the library); the best dark recipe for a friendly, exciting tech launch (axes: roundness 0.5, activity 0.6, potency 0.2, warmth 0.4, hand -0.3).
-  - Style: Commercial Modernism. Streamlined arrivals with no bounce, and lettering that wipes on like a sign.
-  - Colour: Wada 298 dark. Black ground; Lemon Yellow words at 15.25:1; Peach Red for the buddy and one accent word per line; Raw Sienna for the task chips.
-  - Type: Limelight (Art Deco display, film-title lettering) with Jost; tasks in the pairing's mono.
-- **Formats:** 16:9 (1920 x 1080) and 9:16 (1080 x 1920), 40 s, 30 fps, silent-first (every message is on screen). Reduced motion and the poster frame show the end card.
-- **Open questions for the owner:** the agent's name, the launch date, the call to action (waitlist? beta?), a sound bed or sonic logo.
-- **Files:** `film.json` (the storyboard as data), `storyboard-buddy-film.md`, art in `products/xooteq/art.mjs` → `film`, output in `designs/`.
+- **Big idea (O2):** The noise and the light. Your life as a tunnel of notifications, flying at you faster and faster, stops dead. One warm light moves through the frozen noise, and everything it touches becomes a firefly that follows it. The fireflies show what it knows about you (your rhythm, your people, when to stay quiet), then they write "hi".
+- **Why "best" isn't said:** a superlative with no proof reads as hype (XOOTEQ's voice: never hype; Ogilvy O5). The film shows it instead.
+- **Psychology:** rising arousal, then a pattern interrupt; a curiosity gap (Loewenstein 1994; Kang et al. 2009); surprise where the eye already is (Itti & Baldi 2009); open loops closing; three rising beats with a twist (anticipation reward, Salimpoor et al. 2011); a personal greeting as the peak (peak-end, joy-surprise); an end that points forward.
+- **Look (from the guide, not the site, at the owner's request):**
+  - Colour: Wada 325 dark. Deep Slate Green night, Naples Yellow light and words at 11.5:1, Yellow Ocher glow and the one emphasised word, Eugenia Red on the alert dots. Cinema's teal and amber, with the figure's hue contrasting with the ground (Schloss & Palmer 2011).
+  - Type: Instrument Serif, with italic on one emphasised word per line, as the pairing directs; IBM Plex Mono for the notifications.
+  - Treatment: Commercial Modernism's airbrushed light (two-stop gradients) and streamlined moves with no bounce. Cinema bars at 2.39:1 in the 16:9 cut.
+- **Formats:** 16:9 (1920 × 1080) and 9:16 (1080 × 1920), 45.7 s, 30 fps, silent-first. The last frame is the poster and the reduced-motion still.
+- **Open questions for the owner:** the agent's name, launch date, call to action (waitlist? beta?), sound bed or sonic logo.
