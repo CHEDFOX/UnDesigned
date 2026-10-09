@@ -2,7 +2,7 @@
   "$comment": "One message: code is the language every builder shares. Art: a globe made of the ways programming languages print a line (products/xooteq/art.mjs -> say-globe), turning in 3D. Words are static; the globe is the one mover.",
   "id": "poster-code-language",
   "format": "poster",
-  "headline": "Code is the international language.",
+  "headline": "Programming is the international language.",
   "cta": "Start building: hello@xooteq.com",
   "art": {
     "motif": "say-globe"
