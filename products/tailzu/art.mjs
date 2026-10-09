@@ -292,4 +292,89 @@ function proofSlip(ctx, b, h) {
 }
 exports_['proof-slip'] = proofSlip;
 
+// The world's fillers, each exactly as Tailzu's own site shows it being dropped (tailzu-web/index.html, the
+// said -> written examples). [text, language, face, width in em at weight 800, measured in Chromium].
+// Latin in the pairing's grotesque; scripts it does not cover in the matching Noto Sans (see the brief).
+const UMS = [
+  ["um so like", 'en', 'Schibsted Grotesk', 4.93],
+  ["えっと", 'ja', 'Noto Sans JP', 3],
+  ["eh o sea", 'es', 'Schibsted Grotesk', 4],
+  ["يعني", 'ar', 'Noto Sans Arabic', 2.16],
+  ["euh ben", 'fr', 'Schibsted Grotesk', 3.94],
+  ["음", 'ko', 'Noto Sans KR', 0.92],
+  ["ähm also", 'de', 'Schibsted Grotesk', 4.48],
+  ["那个", 'zh', 'Noto Sans SC', 2],
+  ["é tipo assim", 'pt', 'Schibsted Grotesk', 5.91],
+  ["ну короче", 'ru', 'Noto Sans', 5.23],
+  ["cioè tipo", 'it', 'Schibsted Grotesk', 4.27],
+  ["คือว่า", 'th', 'Noto Sans Thai', 2.22],
+  ["yaani", 'sw', 'Schibsted Grotesk', 2.77],
+  ["ε λοιπόν", 'el', 'Noto Sans', 4.33],
+  ["eh gimana ya", 'id', 'Schibsted Grotesk', 6.5],
+  ["אה", 'he', 'Noto Sans Hebrew', 1.36],
+  ["no więc", 'pl', 'Schibsted Grotesk', 3.85],
+  ["ờ thì", 'vi', 'Noto Sans', 2.38],
+  ["ano eto", 'fil', 'Schibsted Grotesk', 3.66],
+  ["उम", 'ne', 'Noto Sans Devanagari', 1.26],
+];
+const RTL = new Set(['ar', 'he']);
+
+/** "Every language has an um." (Bauhaus.) A wall of the world's fillers set in heavy type; a bar wipes through
+ *  each one in turn (right to left for Arabic and Hebrew), then the full stop stamps in as one big focal circle
+ *  bleeding off the edge. One mover at a time, critically damped, 12 s cycle ending still; reduced motion shows
+ *  the end. helpers: { roles } from the Bauhaus skin. */
+function umWall(ctx, b, h) {
+  const c = h.roles;
+  const P = ctx.P + 'um-';
+  const animate = !(ctx.piece.art && ctx.piece.art.motion === false);
+  const face = (f) => (f === 'Schibsted Grotesk' ? ctx.fam.display : f);
+  // Flow the words in rows, two sizes alternating by row (three sizes per piece with the headline and body).
+  const flow = (k) => {
+    const rows = []; let row = [], x = 0, i = 0;
+    const size = () => k * (rows.length % 2 ? 0.72 : 1);
+    for (const u of UMS) {
+      if (row.length && x + u[3] * size() > b.w) { rows.push({ items: row, size: row[0].sz }); row = []; x = 0; }
+      const sz = size();
+      row.push({ u, sz, x, wd: u[3] * sz, i: i++ });
+      x += u[3] * sz + sz * 0.42;
+    }
+    if (row.length) rows.push({ items: row, size: row[0].sz });
+    return { rows, height: rows.reduce((a, r) => a + r.size * 1.32, 0) };
+  };
+  let lo = 10, hi = b.w / 4;
+  for (let n = 0; n < 24; n++) { const m = (lo + hi) / 2; if (flow(m).height <= b.h * 0.94) lo = m; else hi = m; }
+  const { rows } = flow(lo);
+
+  // The full stop: one circle in the focal colour, bleeding off the right edge at the foot of the wall.
+  const D = Math.min(b.h * 0.7, ctx.W * 0.56);
+  const ccx = ctx.W - D * 0.3, ccy = b.y + b.h - D / 2;
+  let out = `<g class="${P}dot"><circle cx="${r1(ccx)}" cy="${r1(ccy)}" r="${r1(D / 2)}" fill="${c.focal}"/></g>`;
+
+  const T = 12, at = (sec) => r1((sec / T) * 100) + '%';
+  const step = 0.27, t0 = 0.6;
+  let css = '', y = b.y;
+  for (const r of rows) {
+    const base = y + r.size * 1.02;
+    for (const it of r.items) {
+      const [txt, lang, f] = it.u;
+      const rtl = RTL.has(lang);
+      // Right-to-left words keep their own order (the browser's bidi); only the bar wipes from the right.
+      out += `<text x="${r1(b.x + it.x)}" y="${r1(base)}" font-family="'${ctx.esc(face(f))}', sans-serif" font-weight="800" font-size="${r1(it.sz)}" fill="${c.bar}" lang="${lang}">${ctx.esc(txt)}</text>`;
+      const id = `${P}b${it.i}`, th = Math.max(3, it.sz * 0.12);
+      out += `<rect class="${id}" x="${r1(b.x + it.x - it.sz * 0.06)}" y="${r1(base - it.sz * 0.36 - th / 2)}" width="${r1(it.wd + it.sz * 0.12)}" height="${r1(th)}" fill="${c.bar}"/>`;
+      const s = t0 + it.i * step;
+      css += `@keyframes ${id}k{0%,${at(s)}{transform:scaleX(0)}${at(s + 0.22)},100%{transform:scaleX(1)}}.${id}{transform-box:fill-box;transform-origin:${rtl ? 'right' : 'left'} center;animation:${id}k ${T}s cubic-bezier(.2,.8,.2,1) infinite}`;
+    }
+    y += r.size * 1.32;
+  }
+  const stamp = t0 + UMS.length * step + 0.3;
+  css += `@keyframes ${P}dotk{0%,${at(stamp)}{transform:scale(0)}${at(stamp + 0.45)},100%{transform:scale(1)}}.${P}dot{transform-box:fill-box;transform-origin:center;animation:${P}dotk ${T}s cubic-bezier(.2,.9,.25,1) infinite}`;
+  css += `@media (prefers-reduced-motion: reduce){[class^="${P}"]{animation:none!important}}`;
+  const fams = [...new Set(UMS.map((u) => u[2]).filter((f) => f !== 'Schibsted Grotesk'))];
+  const text = encodeURIComponent(UMS.filter((u) => u[2] !== 'Schibsted Grotesk').map((u) => u[0]).join(''));
+  const fonts = `@import url('https://fonts.googleapis.com/css2?${fams.map((f) => `family=${f.replace(/ /g, '+')}:wght@800`).join('&amp;')}&amp;text=${text}&amp;display=block');`;
+  return `<style>${fonts}${animate ? css : ''}</style>` + out;
+}
+exports_['um-wall'] = umWall;
+
 export default exports_;

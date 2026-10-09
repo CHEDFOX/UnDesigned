@@ -435,9 +435,19 @@ export async function designCampaign({ productId, campaign, png = false, only = 
     const dir = join(brand.dir, 'campaigns', c);
     // A campaign may use another style or palette (campaign.json: { "approach", "combination", "mode", "text" }).
     // "text": "white" or "black" sets the text colour on the ground (Wada White and Black go with every combination).
+    // "combination" may be a list: the first is the base, the others are bridges (styles that use them, e.g. desi-maximalism).
     brand.config = baseConfig; Object.assign(tokens, baseTokens);
     const cfgFile = join(dir, 'campaign.json');
-    if (!givenPieces && existsSync(cfgFile)) { const cfg = json(cfgFile); applyStyle(brand, tokens, cfg.approach || brand.config.approach, cfg.combination ? [cfg.combination] : null, cfg.mode, cfg.text); }
+    if (!givenPieces && existsSync(cfgFile)) {
+      const cfg = json(cfgFile);
+      applyStyle(brand, tokens, cfg.approach || brand.config.approach, cfg.combination ? [].concat(cfg.combination) : null, cfg.mode, cfg.text);
+      // "pairing" (an id in pairings.json) and "hand" (an id in handwritten.json, or null) set the campaign's type.
+      if (cfg.pairing || cfg.hand !== undefined) {
+        tokens.typography = campaignType(tokens.typography, cfg.pairing, cfg.hand);
+        const f = [tokens.typography.pairing.display, tokens.typography.pairing.body, tokens.typography.pairing.mono, tokens.typography.hand].filter(Boolean);
+        await ensureMetrics(f.flatMap((x) => (x.weights || [400]).map((w) => ({ family: x.family, weight: w, italic: false }))));
+      }
+    }
     const skin = await loadSkin(brand.config.approach);
     const pieces = (givenPieces || readPieces(dir)).filter((p) => !only || p.id === only);
     if (!pieces.length) continue;
@@ -493,6 +503,20 @@ async function renderPngs(items, sheetPath, title) {
 
 /** Use another style (and optionally specific Wada combinations) for a preview or a campaign. Without
  *  combinations, the style's own recommended ones are used. */
+/** The campaign's type: another pairing from pairings.json and/or another hand face (or none), with its Google Fonts URL. */
+function campaignType(typo, pairingId, handId) {
+  const src = (f) => json(join(ROOT, 'foundations', 'typography', 'source', f));
+  const all = (d, key) => [].concat(d[key] || [], d.newPairings || [], Array.isArray(d) ? d : []);
+  const pairing = pairingId ? all(src('pairings.json'), 'pairings').find((p) => p.id === pairingId) : typo.pairing;
+  if (!pairing) throw new Error(`campaign.json: no pairing "${pairingId}" in pairings.json`);
+  const hands = src('handwritten.json');
+  const hand = handId === null ? null : handId ? [].concat(hands.fonts || hands.faces || hands).find((h) => h.id === handId) : typo.hand;
+  if (handId && !hand) throw new Error(`campaign.json: no hand face "${handId}" in handwritten.json`);
+  const fam = (f) => `family=${f.family.replace(/ /g, '+')}:${f.italic ? `ital,wght@${[0, 1].flatMap((i) => (f.weights || [400]).map((w) => `${i},${w}`)).join(';')}` : `wght@${(f.weights || [400]).join(';')}`}`;
+  const faces = [pairing.display, pairing.body, pairing.mono, hand].filter(Boolean).filter((f, i, a) => a.findIndex((g) => g.family === f.family) === i);
+  return { ...typo, pairing, hand, googleFontsUrl: `https://fonts.googleapis.com/css2?${faces.map(fam).join('&')}&display=swap` };
+}
+
 function applyStyle(brand, tokens, approach, combinations = null, mode = 'light', text = null) {
   brand.config = { ...brand.config, approach };
   const read = (f) => (existsSync(join(ROOT, 'approaches', approach, f)) ? json(join(ROOT, 'approaches', approach, f)) : {});

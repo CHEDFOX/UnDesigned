@@ -1,0 +1,12 @@
+{
+  "$comment": "Pillar: Said -> Written, for everyone. Every filler in the art is the one Tailzu's own site shows it dropping, in that language (tailzu-web/index.html). Languages named in the subhead are on the site; 'dozens more' is the site's own wording.",
+  "id": "poster-every-um",
+  "format": "poster",
+  "headline": "Every language has an um.",
+  "subhead": "Talk in English, Hindi, Spanish, Arabic, Japanese or dozens more. Tailzu writes it clean, in any app.",
+  "cta": "Download Tailzu free at tailzu.space",
+  "brand": false,
+  "layout": "poster-single-focal",
+  "art": { "motif": "um-wall" },
+  "animate": false
+}
