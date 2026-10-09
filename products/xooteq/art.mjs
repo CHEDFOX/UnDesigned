@@ -16,10 +16,12 @@ function sayGlobe(ctx, b, h) {
   const { ill, palette } = h;
   const P = ctx.P + 'sg-';
   const s = Math.min(b.w, b.h);
-  const R = s * 0.42, cx = b.x + b.w / 2, cy = b.y + b.h / 2;
+  // art.size (0.3–1): share of the art box the globe fills; a small globe leaves more empty ground.
+  const scale = Math.min(1, Math.max(0.3, (ctx.piece.art && ctx.piece.art.size) || 1));
+  const R = s * 0.42 * scale, cx = b.x + b.w / 2, cy = b.y + b.h / 2;
   const ink = palette.ink, paper = palette.paper, accent = palette.accent;
-  const sw = r1(s * 0.014);
-  const N = 34, F = 72, DUR = 24, TILT = -0.38;
+  const sw = r1(s * 0.014 * Math.sqrt(scale));
+  const N = scale < 0.8 ? 20 : 34, F = 72, DUR = 24, TILT = -0.38;
   const animate = !(ctx.piece.art && ctx.piece.art.motion === false);
   // Points on a sphere (Fibonacci), each with a snippet; the sphere is tilted towards the viewer.
   const pts = Array.from({ length: N }, (_, i) => {
@@ -32,7 +34,7 @@ function sayGlobe(ctx, b, h) {
     const depth = (z2 + 1) / 2; // 0 back, 1 front
     return { X: cx + x1 * R * 0.92, Y: cy + y2 * R * 0.92, k: 0.5 + 0.65 * depth, o: depth < 0.35 ? 0 : ((depth - 0.35) / 0.65) ** 1.3 };
   };
-  const size = s * 0.036;
+  const size = s * 0.036 * Math.sqrt(scale);
   const mono = ctx.fam.mono;
   let glyphs = '', css = '';
   pts.forEach((p, i) => {
@@ -50,7 +52,7 @@ function sayGlobe(ctx, b, h) {
     }
   });
   // Paper disc and an ink outline slightly off register; a faint equator and meridian that stay still.
-  const off = s * 0.012;
+  const off = s * 0.012 * scale;
   const disc = ill.blob(cx, cy, R * 1.12, R * 1.1, { points: 10, irregularity: 0.03, seed: 4 });
   const outline = ill.inkLine(ill.ellipsePoints(cx + off, cy + off * 0.7, R * 1.1, R * 1.08, 44, 0.2), { seed: 12, closed: true });
   const equator = ill.inkLine(ill.ellipsePoints(cx, cy, R * 1.04, R * 0.38, 36, 0), { seed: 14, closed: true });

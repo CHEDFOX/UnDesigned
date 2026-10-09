@@ -5,7 +5,8 @@
   "headline": "Programming is the international language.",
   "cta": "Start building: hello@xooteq.com",
   "art": {
-    "motif": "say-globe"
+    "motif": "say-globe",
+    "size": 0.5
   },
   "animate": false
 }
