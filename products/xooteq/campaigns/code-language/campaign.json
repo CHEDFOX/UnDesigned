@@ -1,6 +1,6 @@
 {
-  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 268: pale Nile-blue ground (open sky, the world), deep slate-olive text at 9.97:1, raw sienna as the one accent. On the style's recommended list.",
+  "$comment": "This campaign uses Humanist Minimal (the product's own style stays commercial-modernism). Wada 232: warm pinkish-cinnamon sand ground (warm, human, not cold), deep indigo text at 10.1:1, carmine as the one accent (cout <<). On the style's recommended list; replaces 268, whose pale blue read cold.",
   "approach": "humanist-minimal",
-  "combination": 268,
+  "combination": 232,
   "mode": "light"
 }
